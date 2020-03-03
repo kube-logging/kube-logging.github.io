@@ -56,7 +56,7 @@ helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
 ```bash
 helm install --namespace logging --name logging banzaicloud-stable/logging-operator
 ```
-> You also can install logging-operator from manifest [guideline is here](./deploy/README.md#deploy-logging-operator-from-kubernetes-manifests)
+> You also can install logging-operator from manifest [guideline is here]{{< relref "deploy/_index.md#deploy-logging-operator-from-kubernetes-manifests" >}}
 
 ### Deploy Demo App + Logging Definition with metrics
 ```bash
