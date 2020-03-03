@@ -1,6 +1,9 @@
 ---
-title: Fluent Bit 
+title: Fluent Bit
+weight: 600
 ---
+
+{{< contents >}}
 
 <p align="center"><img src="../img/fluentbit.png" width="340"></p>
 
@@ -11,12 +14,15 @@ Fluent Bit is written in C, have a pluggable architecture supporting around 30 e
 Current Version: [v1.3.8](https://github.com/fluent/fluent-bit/releases/tag/v1.3.8)
 
 ## Filters
+
 ### Kubernetes (filterKubernetes)
+
 Fluent Bit Kubernetes Filter allows to enrich your log files with Kubernetes metadata.
 [More info](https://github.com/fluent/fluent-bit-docs/blob/master/filter/kubernetes.md)
 
 #### Example filter configurations
-```
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
@@ -58,13 +64,15 @@ The plugin supports the following configuration parameters:
 | Kube\_meta_preload_cache_dir | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta | |
 | Dummy\_Meta | If set, use dummy-meta data (for test/dev purposes) | Off |
 
-
 ## Inputs
+
 ### Tail (inputTail)
+
 The tail input plugin allows to monitor one or several text files. It has a similar behavior like tail -f shell command.[More Info](https://github.com/fluent/fluent-bit-docs/blob/1.3/input/tail.md)
 
 #### Example input configurations
-```
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
@@ -79,6 +87,7 @@ spec:
 ```
 
 #### Configuration Parameters
+
 The plugin supports the following configuration parameters:
 
 | Key | Description | Default |
@@ -110,8 +119,8 @@ The plugin supports the following configuration parameters:
 ## Buffering
 
 ### BufferStorage
-A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/configuration/buffering)
 
+A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/configuration/buffering)
 
 | Key | Description | Default | 
 | :--- | :--- | :--- |
@@ -120,12 +129,11 @@ A mechanism to place processed data into a temporal location until is ready to b
 | storage.checksum | Enable the data integrity check when writing and reading data from the filesystem. The storage layer uses the CRC32 algorithm. | Off |
 | storage.backlog.mem_limit | If storage.path is set, Fluent Bit will look for data chunks that were not delivered and are still in the storage layer, these are called backlog data. This option configure a hint of maximum value of memory to use when processing these records. | 5M |
 
-
 #### Default configuration
 
-If nothing is set, by default it configures the `storage.path` explicitly to use `/buffers` and leaves fluent-bit defaults for the other options. 
+If nothing is set, by default it configures the `storage.path` explicitly to use `/buffers` and leaves fluent-bit defaults for the other options.
 
-```
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
