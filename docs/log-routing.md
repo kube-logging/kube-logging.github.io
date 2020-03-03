@@ -1,10 +1,8 @@
-<p align="center"><img src="./img/lo.svg" width="260"></p>
-
 ---
 title: Routing your logs with match directive
 ---
 
----
+<p align="center"><img src="./img/lo.svg" width="260"></p>
 
 The first step to process your logs is to select what logs goes to where.
 The logging operator uses Kubernetes labels and namespaces to separate

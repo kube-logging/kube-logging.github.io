@@ -1,8 +1,8 @@
-<p align="center"><img src="../img/nlw.png" width="340"></p>
-
 ---
 title: Store Nginx Access Logs in Amazon CloudWatch with Logging Operator
 ---
+
+<p align="center"><img src="../img/nlw.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.
 

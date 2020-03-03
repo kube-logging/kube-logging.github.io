@@ -1,9 +1,9 @@
-<p align="center"><img src="../img/lo.svg" width="260"></p>
-<p align="center">
-
 ---
 title: Requirements
 ---
+
+<p align="center"><img src="../img/lo.svg" width="260"></p>
+<p align="center">
 
 - Logging operator requires Kubernetes v1.14.x or later.
 - For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.

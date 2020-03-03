@@ -1,8 +1,8 @@
-<p align="center"><img src="./img/lo-pro.png" width="340"></p>
-
 ---
 title: Monitor your logging pipeline with Prometheus Operator
 ---
+
+<p align="center"><img src="./img/lo-pro.png" width="340"></p>
 
 <p align="center"><img src="./img/monitor.png" width="900"></p>
 

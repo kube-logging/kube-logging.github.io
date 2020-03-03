@@ -1,7 +1,9 @@
+---
+title: Logging Operator frequently asked questions
+---
+
 <p align="center"><img src="./img/lo.svg" width="260"></p>
 <p align="center">
-
-### Logging Operator frequently asked questions
 
 ---
 ## Contents

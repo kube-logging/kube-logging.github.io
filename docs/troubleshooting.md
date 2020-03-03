@@ -1,9 +1,9 @@
-<p align="center"><img src="./img/troubleshooting.svg" width="260"></p>
-<p align="center">
-
 ---
 title: Logging operator troubleshooting
 ---
+
+<p align="center"><img src="./img/troubleshooting.svg" width="260"></p>
+<p align="center">
 
 The following tips and commands can help you to troubleshoot your Logging operator installation.
 

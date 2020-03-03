@@ -1,3 +1,7 @@
+---
+title: Model
+---
+
 ## Goal
 
 Define an opinionated logical fluentd configuration model for processing kubernetes log events using go structs and 

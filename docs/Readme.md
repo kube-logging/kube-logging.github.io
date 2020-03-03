@@ -1,9 +1,9 @@
-<p align="center"><img src="./img/lo.svg" width="260"></p>
-<p align="center">
-
 ---
 title: Logging operator Documentation
 ---
+
+<p align="center"><img src="./img/lo.svg" width="260"></p>
+<p align="center">
 
 Welcome to the Logging operator documentation!
 
