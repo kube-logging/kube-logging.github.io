@@ -1,5 +1,6 @@
 ---
 title: Supported Plugins
+weight: 200
 ---
 
 For more information please click on the plugin name
