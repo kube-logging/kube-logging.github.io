@@ -2,13 +2,13 @@
 title: Store NGINX access logs in Elasticsearch with Logging operator
 ---
 
-<p align="center"><img src="../img/nle.png" width="340"></p>
+<p align="center"><img src="../../img/nle.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Elasticsearch). For more details about the Logging operator, see the [Logging operator overview](../Readme.md).
 
-<p align="center"><img src="../img/nginx-elastic.png" width="900"></p>
+<p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
 
 ---
 
@@ -198,7 +198,7 @@ To validate that the deployment was successful, complete the following steps.
     ```
 1. Open the Kibana dashboard in your browser: [https://localhost:5601](https://localhost:5601). You should see the dashboard and some sample log messages from the demo application.
 
-<p align="center"><img src="../img/es_kibana.png" width="660"></p>
+<p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
 > If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md)
 

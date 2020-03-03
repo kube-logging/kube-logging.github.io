@@ -2,13 +2,13 @@
 title: Store Nginx Access Logs in Amazon CloudWatch with Logging Operator
 ---
 
-<p align="center"><img src="../img/nlw.png" width="340"></p>
+<p align="center"><img src="../../img/nlw.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.
 
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to CloudWatch). For more details about the Logging operator, see the [Logging operator overview](../Readme.md).
 
-<p align="center"><img src="../img/nginx-cloudwatch.png" width="900"></p>
+<p align="center"><img src="../../img/nginx-cloudwatch.png" width="900"></p>
 
 ---
 ## Contents
@@ -173,7 +173,7 @@ Or set up the secret manually.
      ```
 
 ## Deployment Validation
-<p align="center"><img src="../img/cw.png" width="660"></p>
+<p align="center"><img src="../../img/cw.png" width="660"></p>
 
 > If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md).
 

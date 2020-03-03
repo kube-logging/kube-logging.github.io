@@ -2,13 +2,13 @@
 title: Transport Nginx Access Logs into Kafka with Logging operator
 ---
 
-<p align="center"><img src="../img/kafka_logo.png" width="340"></p>
+<p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Kafka). For more details about the Logging operator, see the [Logging operator overview](../Readme.md).
 
-<p align="center"><img src="../img/nignx-kafka.png" width="900"></p>
+<p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
 ---
 ## Contents
