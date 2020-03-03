@@ -5,15 +5,7 @@ title: Logging Operator frequently asked questions
 <p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
 
----
-## Contents
-- **Installation**
-  - **Logging operator**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [Validation](#Validation)
----
+{{< contents >}}
 
 ## How can I run the unreleased master version?
 1. Clone the logging-operator repo.

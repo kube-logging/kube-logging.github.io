@@ -8,19 +8,7 @@ This guide describes how to collect all the container logs in Kubernetes using t
 
 <p align="center"><img src="../../img/s3_flow.png" width="900"></p>
 
-
----
-## Contents
-- **Installation**
-  - **Logging operator**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [Validation](#Validation)
----
-<br />
-
-
+{{< contents >}}
 
 ## Deploy the Logging operator
 

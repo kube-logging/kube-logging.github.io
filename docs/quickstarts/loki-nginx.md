@@ -10,19 +10,7 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nginx-loki.png" width="900"></p>
 
----
-## Contents
-- **Installation**
-  - **Loki**
-    - [Deploy with Helm](#deploy-loki-and-grafana)
-  - **Logging operator and Demo application**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [Grafana Dashboard](#grafana-dashboard)
----
-
-<br />
+{{< contents >}}
 
 ## Deploy Loki and Grafana
 

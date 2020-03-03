@@ -5,25 +5,7 @@ title: Security
 <p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
 
-## Contents
-- **Using RBAC Authorization**
-    - [Deploy with Kubernetes Manifests](#deploy-with-kubernetes-manifests)
-    - [Deploy with Helm](#deploy-with-helm)
-    - [Output](#example-manifest-generated-by-the-operator)
-- **Service Account**  
-    - [Deploy with Kubernetes Manifests](#deploy-with-kubernetes-manifests-1)
-    - [Deploy with Helm](#deploy-with-helm-1)
-- **Pod Security Policy**
-    - [Deploy with Kubernetes Manifests](#create-logging-resource-with-psp)
-    - [Deploy with Helm](#deploy-with-helm-2)
-    - [Output](#example-manifest-generated-by-the-operator-1)
-- **Security Context**
-    - [Security Context Config Variables](#security-context-config-variables)
-    - [Deploy with Kubernetes Manifests](#deploy-with-kubernetes-manifests-3)
-    - [Deploy with Helm](#deploy-with-helm-3)
-    - [Output](#example-manifest-generated-by-the-operator-2)
----
-
+{{< contents >}}
 
 ### Security Variables
 | Variable Name | Type | Required | Default | Description |

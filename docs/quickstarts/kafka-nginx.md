@@ -10,18 +10,7 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
----
-## Contents
-- **Installation**
-  - **Kafka** 
-    - [Deploy with Helm](#deploy-kafka)
-  - **Logging operator and Demo application**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [Kafkacat](#test-your-deployment-with-kafkacat)
----
-<br />
+{{< contents >}}
 
 ## Deploy Kafka
 >In this demo we are using our kafka operator.

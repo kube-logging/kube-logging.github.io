@@ -10,20 +10,7 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
 
----
-
-## Contents
-
-- **Installation**
-  - **Elasticsearch operator**
-    - [Deploy with Kubernetes Manifests](#deploy-elasticsearch)
-  - **Logging operator and Demo application**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [Kibana Dashboard](#validate-the-deployment)
-
----
+{{< contents >}}
 
 ## Deploy Elasticsearch
 

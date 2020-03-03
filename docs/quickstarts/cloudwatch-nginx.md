@@ -10,16 +10,7 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nginx-cloudwatch.png" width="900"></p>
 
----
-## Contents
-- **Installation**
-  - **Logging operator and Demo application**
-    - [Deploy with Helm](#deploy-the-logging-operator-with-helm)
-    - [Deploy with Kubernetes Manifests](#deploy-the-logging-operator-with-kubernetes-manifests)
-- **Validation**
-    - [CloudWatch Dashboard](#deployment-validation)
----
-<br />
+{{< contents >}}
 
 ## Deploy the Logging operator and a demo Application
 
