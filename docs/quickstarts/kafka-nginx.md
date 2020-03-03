@@ -1,6 +1,10 @@
 ---
 title: Transport Nginx Access Logs into Kafka with Logging operator
+shorttitle: Kafka
+weight: 400
 ---
+
+{{< contents >}}
 
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
 
@@ -10,29 +14,29 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
-{{< contents >}}
-
 ## Deploy Kafka
->In this demo we are using our kafka operator.
-> [Easy Way Installing with Helm](https://github.com/banzaicloud/kafka-operator#easy-way-installing-with-helm)
-<br />
 
+> In this demo we are using our kafka operator.
+> [Easy Way Installing with Helm](https://github.com/banzaicloud/kafka-operator#easy-way-installing-with-helm)
 
 ## Deploy the Logging operator and a demo Application
 
-Next, install the Logging operator and a demo application to provide sample log messages.
+Install the Logging operator and a demo application to provide sample log messages.
 
 ### Deploy the Logging operator with Helm
 
 To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}.
 
 1. Add the chart repository of the Logging operator using the following commands:
+
     ```bash
     helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
     helm repo update
     ```
+
 1. Install the Logging operator. For details, see [How to install Logging-operator with Helm]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-logging-operator-with-helm" >}}
 1. Install the demo application and its logging definition.
+
     ```bash
     helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
       --set "kafka.enabled=True"
@@ -40,10 +44,11 @@ To install the Logging operator using Helm, complete these steps. If you want to
 
 ### Deploy the Logging operator with Kubernetes manifests
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).   
+To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
 
 1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}
 1. Create the `logging` resource.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -56,8 +61,11 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
        controlNamespace: logging
      EOF
      ```
+
      > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
+
 1. Create an Elasticsearch `output` definition.
+
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: logging.banzaicloud.io/v1beta1
@@ -77,8 +85,11 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
           timekey_use_utc: true
     EOF
      ```
+
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
+
 1. Create a `flow` resource.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -101,7 +112,9 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
          - kafka-output
      EOF
      ```
+
 1. Install the demo application.
+
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: apps/v1 
@@ -125,15 +138,18 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
      ```
 
 ## Test Your Deployment with kafkacat
-#### Exec Kafaka test pod
-```bash
-kubectl -n kafka exec -it kafka-test-c sh
-```
 
-#### Run kafkacat
-```bash
-kafkacat -C -b kafka-0.kafka-headless.kafka.svc.cluster.local:29092 -t topic
-```
+1. Exec Kafaka test pod
+
+    ```bash
+    kubectl -n kafka exec -it kafka-test-c sh
+    ```
+
+1. Run kafkacat
+
+    ```bash
+    kafkacat -C -b kafka-0.kafka-headless.kafka.svc.cluster.local:29092 -t topic
+    ```
 
 [![asciicast](https://asciinema.org/a/273236.svg)](https://asciinema.org/a/273236)
 

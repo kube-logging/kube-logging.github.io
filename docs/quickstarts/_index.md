@@ -1,14 +1,11 @@
 ---
 title: Logging Operator quick start guides
+shorttitle: Quick start
+weight: 100
 ---
 
-<p align="center"><img src="../img/lo.svg" width="260"></p>
-<p align="center">
+![logging-operator-logo](../img/lo.svg)
 
-Try out Logging Operator with these quickstart guides!
+Try out Logging Operator with these quick start guides!
 
-1. [S3 Output](../example-s3/)
-1. [Elasticsearch Output](../es-nginx/)
-1. [Kafka Output](../kafka-nginx/)
-1. [Loki Output](../loki-nginx/)
-1. [Cloudwatch Output](../cloudwatch-nginx/)
+{{< toc >}}

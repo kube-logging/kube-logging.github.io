@@ -1,6 +1,10 @@
 ---
 title: Store NGINX access logs in Elasticsearch with Logging operator
+shorttitle: Elasticsearch
+weight: 300
 ---
+
+{{< contents >}}
 
 <p align="center"><img src="../../img/nle.png" width="340"></p>
 
@@ -10,21 +14,24 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
 
-{{< contents >}}
-
 ## Deploy Elasticsearch
 
 First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the [Elastic Cloud on Kubernetes quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html)
 
 1. Install the Elasticsearch operator.
+
     ```yaml
     kubectl apply -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one.yaml
     ```
+  
 1. Create the `logging` Namespace.
+
     ```bash
     kubectl create ns logging
     ```
+
 1. Install the Elasticsearch cluster.
+
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
     apiVersion: elasticsearch.k8s.elastic.co/v1beta1
@@ -43,7 +50,9 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
           node.store.allow_mmap: false
     EOF
     ```
+
 1. Install Kibana.
+
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
     apiVersion: kibana.k8s.elastic.co/v1beta1
@@ -60,19 +69,22 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
 
 ## Deploy the Logging operator and a demo Application
 
-Next, install the Logging operator and a demo application to provide sample log messages.
+Install the Logging operator and a demo application to provide sample log messages.
 
 ### Deploy the Logging operator with Helm
 
 To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}.
 
 1. Add the chart repository of the Logging operator using the following commands:
+
     ```bash
     helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
     helm repo update
     ```
+
 1. Install the Logging operator. For details, see [How to install Logging-operator with Helm]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-logging-operator-with-helm" >}}
 1. Install the demo application and its logging definition.
+
     ```bash
     helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
       --set "elasticsearch.enabled=True"
@@ -80,10 +92,11 @@ To install the Logging operator using Helm, complete these steps. If you want to
 
 ### Deploy the Logging operator with Kubernetes manifests
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).   
+To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
 
 1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}
-1. Create the `logging` resource.
+1. Create the `logging` resource.\
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -96,8 +109,11 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
        controlNamespace: logging
      EOF
      ```
+
      > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
+
 1. Create an Elasticsearch `output` definition.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -123,8 +139,11 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
            timekey_use_utc: true
      EOF
      ```
+
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
+
 1. Create a `flow` resource.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -147,7 +166,9 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
          - es-output
      EOF
      ```
+
 1. Install the demo application.
+
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: apps/v1 
@@ -176,16 +197,19 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 To validate that the deployment was successful, complete the following steps.
 
 1. Use the following command to retrieve the password of the `elastic` user:
+
     ```bash
     kubectl -n logging get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode
     ```
+
 1. Enable port forwarding to the Kibana Dashboard Service.
+
     ```bash
     kubectl -n logging port-forward svc/quickstart-kb-http 5601
     ```
+
 1. Open the Kibana dashboard in your browser: [https://localhost:5601](https://localhost:5601). You should see the dashboard and some sample log messages from the demo application.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
 > If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md)
-

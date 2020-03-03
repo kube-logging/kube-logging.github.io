@@ -1,6 +1,10 @@
 ---
 title: Store Nginx Access Logs in Amazon CloudWatch with Logging Operator
+shorttitle: Amazon CloudWatch
+weight: 100
 ---
+
+{{< contents >}}
 
 <p align="center"><img src="../../img/nlw.png" width="340"></p>
 
@@ -10,24 +14,24 @@ The following figure gives you an overview about how the system works. The Loggi
 
 <p align="center"><img src="../../img/nginx-cloudwatch.png" width="900"></p>
 
-{{< contents >}}
-
 ## Deploy the Logging operator and a demo Application
 
-Next, install the Logging operator and a demo application to provide sample log messages.
-
+Install the Logging operator and a demo application to provide sample log messages.
 
 ### Deploy the Logging operator with Helm
 
 To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}.
 
 1. Add the chart repository of the Logging operator using the following commands:
+
     ```bash
     helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
     helm repo update
     ```
+
 1. Install the Logging operator. For details, see [How to install Logging-operator with Helm]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-logging-operator-with-helm" >}}
 1. Install the demo application and its logging definition.
+
     ```bash
    helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
      --set "cloudwatch.enabled=True" \
@@ -37,42 +41,43 @@ To install the Logging operator using Helm, complete these steps. If you want to
      --set "cloudwatch.aws.log_group_name=" \
      --set "cloudwatch.aws.log_stream_name=" 
     ```
----
-<br />
 
 ### Deploy the Logging operator with Kubernetes manifests
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).   
+To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
 
 1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}
-
 1. Create logging `Namespace`
-```bash
-kubectl create ns logging
-```
+
+    ```bash
+    kubectl create ns logging
+    ```
 
 1. Create AWS `secret`
 
-> If you have your `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` set you can use the following snippet.
-```bash
-    kubectl -n logging create secret generic logging-cloudwatch --from-literal "awsAccessKeyId=$AWS_ACCESS_KEY_ID" --from-literal "awsSecretAccessKey=$AWS_SECRET_ACCESS_KEY"
-```
-Or set up the secret manually.
-```bash
-    kubectl -n logging apply -f - <<"EOF" 
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: logging-cloudwatch
-    type: Opaque
-    data:
-      awsAccessKeyId: <base64encoded>
-      awsSecretAccessKey: <base64encoded>
-    EOF
-```
+    > If you have your `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` set you can use the following snippet.
 
+    ```bash
+        kubectl -n logging create secret generic logging-cloudwatch --from-literal "awsAccessKeyId=$AWS_ACCESS_KEY_ID" --from-literal "awsSecretAccessKey=$AWS_SECRET_ACCESS_KEY"
+    ```
+
+    Or set up the secret manually.
+
+    ```bash
+        kubectl -n logging apply -f - <<"EOF" 
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: logging-cloudwatch
+        type: Opaque
+        data:
+          awsAccessKeyId: <base64encoded>
+          awsSecretAccessKey: <base64encoded>
+        EOF
+    ```
 
 1. Create the `logging` resource.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -85,8 +90,11 @@ Or set up the secret manually.
        controlNamespace: logging
      EOF
      ```
+
      > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
+
 1. Create an CloudWatch `output` definition.
+
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: logging.banzaicloud.io/v1beta1
@@ -116,8 +124,11 @@ Or set up the secret manually.
           timekey_use_utc: true
     EOF
      ```
+
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
+
 1. Create a `flow` resource.
+
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
@@ -140,7 +151,9 @@ Or set up the secret manually.
          - cloudwatch-output
      EOF
      ```
+
 1. Install the demo application.
+
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: apps/v1 
@@ -164,7 +177,7 @@ Or set up the secret manually.
      ```
 
 ## Deployment Validation
+
 <p align="center"><img src="../../img/cw.png" width="660"></p>
 
 > If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md).
-
