@@ -1,4 +1,6 @@
-# Kafka output plugin for Fluentd
+---
+title: Kafka output plugin for Fluentd
+---
 ## Overview
   More info at https://github.com/fluent/fluent-plugin-kafka
 >Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator](../../../docs/example-kafka-nginx.md)

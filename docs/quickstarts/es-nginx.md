@@ -1,6 +1,8 @@
 <p align="center"><img src="../img/nle.png" width="340"></p>
 
-# Store NGINX access logs in Elasticsearch with Logging operator
+---
+title: Store NGINX access logs in Elasticsearch with Logging operator
+---
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 

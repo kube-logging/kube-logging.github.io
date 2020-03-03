@@ -1,4 +1,6 @@
-# Developers documentation
+---
+title: Developers documentation
+---
 
 This documentation helps to set-up a developer environment and writing plugins for the operator.
 

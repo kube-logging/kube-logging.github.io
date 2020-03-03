@@ -1,7 +1,9 @@
 <p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
 
-# Security
+---
+title: Security
+---
 
 
 ## Contents

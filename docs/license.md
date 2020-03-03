@@ -1,4 +1,6 @@
-# License
+---
+title: License
+---
 
 Copyright (c) 2017-2019 [Banzai Cloud, Inc.](https://banzaicloud.com)
 

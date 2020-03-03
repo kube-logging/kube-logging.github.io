@@ -1,6 +1,8 @@
 <p align="center"><img src="./img/fluentbit.png" width="340"></p>
 
-# Fluent Bit 
+---
+title: Fluent Bit 
+---
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It's fully compatible with Docker and Kubernetes environments.
 

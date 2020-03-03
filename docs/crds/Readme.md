@@ -1,4 +1,6 @@
-# Available CRDs
+---
+title: Available CRDs
+---
 
 For more information please click on the name
 <center>

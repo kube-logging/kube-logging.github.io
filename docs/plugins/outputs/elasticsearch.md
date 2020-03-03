@@ -1,4 +1,6 @@
-# Elasticsearch output plugin for Fluentd
+---
+title: Elasticsearch output plugin for Fluentd
+---
 ## Overview
 More info at https://github.com/uken/fluent-plugin-elasticsearch
 >Example Deployment: [Save all logs to ElasticSearch](../../../docs/example-es.md)

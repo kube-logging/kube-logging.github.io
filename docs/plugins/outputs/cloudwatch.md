@@ -1,4 +1,6 @@
-# CloudWatch output plugin for Fluentd
+---
+title: CloudWatch output plugin for Fluentd
+---
 ## Overview
 This plugin has been designed to output logs or metrics to Amazon CloudWatch.
 More info at https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs

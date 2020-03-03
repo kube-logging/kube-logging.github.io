@@ -1,4 +1,6 @@
-# [Grep Filter](https://docs.fluentd.org/filter/grep)
+---
+title: [Grep Filter](https://docs.fluentd.org/filter/grep)
+---
 ## Overview
  The grep filter plugin "greps" events by the values of specified fields.
 

@@ -1,4 +1,6 @@
-# [Prometheus Filter](https://github.com/fluent/fluent-plugin-prometheus#prometheus-outputfilter-plugin)
+---
+title: [Prometheus Filter](https://github.com/fluent/fluent-plugin-prometheus#prometheus-outputfilter-plugin)
+---
 ## Overview
  Prometheus Filter Plugin to count Incoming Records
 

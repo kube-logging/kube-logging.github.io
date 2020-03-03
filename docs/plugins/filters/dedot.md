@@ -1,4 +1,6 @@
-# [Dedot Filter](https://github.com/lunardial/fluent-plugin-dedot_filter)
+---
+title: [Dedot Filter](https://github.com/lunardial/fluent-plugin-dedot_filter)
+---
 ## Overview
  Fluentd Filter plugin to de-dot field name for elasticsearch.
 

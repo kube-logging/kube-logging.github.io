@@ -1,4 +1,6 @@
-# LogZ output plugin for Fluentd
+---
+title: LogZ output plugin for Fluentd
+---
 ## Overview
 More info at https://github.com/logzio/fluent-plugin-logzio
 >Example Deployment: [Save all logs to LogZ](../../../docs/example-logz.md)

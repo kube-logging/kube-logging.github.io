@@ -2,7 +2,9 @@
 <p align="center">
 
 
-# Blog posts
+---
+title: Blog posts
+---
 
 The following list shows some of our blog posts about the Logging operator that we posted on the [Banzai Cloud Blog](https://banzaicloud.com/blog/). For a complete list of related blog posts, including recent ones, see [this list](https://banzaicloud.com/tags/logging/).
 

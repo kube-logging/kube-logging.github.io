@@ -1,4 +1,6 @@
-# Custom Resource Definitions
+---
+title: Custom Resource Definitions
+---
 
 This document contains the detailed information about the CRDs Logging operator uses.
 

@@ -1,4 +1,6 @@
-# [Parser Filter](https://docs.fluentd.org/filter/parser)
+---
+title: [Parser Filter](https://docs.fluentd.org/filter/parser)
+---
 ## Overview
  Parses" string field in event records and mutates its
 

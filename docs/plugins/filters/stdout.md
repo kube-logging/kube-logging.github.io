@@ -1,4 +1,6 @@
-# [Stdout Filter](https://docs.fluentd.org/filter/stdout)
+---
+title: [Stdout Filter](https://docs.fluentd.org/filter/stdout)
+---
 ## Overview
  Fluentd Filter plugin to print events to stdout
 

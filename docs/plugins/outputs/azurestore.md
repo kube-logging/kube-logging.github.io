@@ -1,4 +1,6 @@
-# Azure Storage output plugin for Fluentd
+---
+title: Azure Storage output plugin for Fluentd
+---
 ## Overview
 Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically.
 More info at https://github.com/htgc/fluent-plugin-azurestorage

@@ -1,4 +1,6 @@
-# Loki output plugin 
+---
+title: Loki output plugin 
+---
 ## Overview
 Fluentd output plugin to ship logs to a Loki server.
 More info at https://github.com/banzaicloud/fluent-plugin-kubernetes-loki

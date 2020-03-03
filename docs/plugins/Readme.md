@@ -1,4 +1,6 @@
-# Supported Plugins
+---
+title: Supported Plugins
+---
 
 For more information please click on the plugin name
 <center>

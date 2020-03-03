@@ -1,4 +1,6 @@
-# CPU and memory requirements
+---
+title: CPU and memory requirements
+---
 
 The resource requirements and limits of your Logging operator deployment must match the size of your cluster and the logging workloads. By default, the Logging operator uses the following configuration.
 

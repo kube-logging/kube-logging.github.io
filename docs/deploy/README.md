@@ -1,12 +1,16 @@
 <p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
 
-# Requirements
+---
+title: Requirements
+---
 
 - Logging operator requires Kubernetes v1.14.x or later.
 - For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
 
-# Deploy the Logging operator from Kubernetes Manifests
+---
+title: Deploy the Logging operator from Kubernetes Manifests
+---
 
 Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-logging-operator-with-helm).
 
@@ -40,7 +44,9 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
     ```
 ---
 
-# Deploy Logging operator with Helm
+---
+title: Deploy Logging operator with Helm
+---
 
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
@@ -67,7 +73,9 @@ Complete the following steps to deploy the Logging operator using Helm. Alternat
 
 ---
 
-# Check the Logging operator deployment
+---
+title: Check the Logging operator deployment
+---
 
 To verify that the installation was successful, complete the following steps.
 

@@ -1,6 +1,8 @@
 <p align="center"><img src="../img/nll.png" width="340"></p>
 
-# Store Nginx Access Logs in Grafana Loki with Logging operator
+---
+title: Store Nginx Access Logs in Grafana Loki with Logging operator
+---
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 
