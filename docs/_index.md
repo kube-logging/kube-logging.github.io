@@ -13,4 +13,4 @@ Welcome to the Logging operator documentation!
 
 The Logging operator is a core part of the [Banzai Cloud Pipeline](https://banzaicloud.com/products/pipeline/) platform, a Cloud Native application and devops platform that natively supports multi- and hybrid-cloud deployments with multiple authentication backends.
 
-{{< toc >}
+{{< toc >}}
