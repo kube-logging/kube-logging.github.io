@@ -52,5 +52,5 @@ title: Kafka output plugin for Fluentd
 | ssl_client_cert_chain | *secret.Secret | No | - | Client certificate chain<br> |
 | ssl_client_cert_key | *secret.Secret | No | - | Client certificate key<br> |
 | ssl_verify_hostname | *bool | No | - | Verify certificate hostname<br> |
-| format | *Format | Yes | - | [Format](./format.md)<br> |
-| buffer | *Buffer | No | - | [Buffer](./buffer.md)<br> |
+| format | *Format | Yes | - | [Format](../format/)<br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |

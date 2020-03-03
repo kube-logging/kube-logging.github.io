@@ -20,6 +20,6 @@ title: New Relic Logs plugin for Fluentd
 ### Output Config
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| api_key | *secret.Secret | No | - | New Relic API Insert key<br>[Secret](./secret.md)<br> |
+| api_key | *secret.Secret | No | - | New Relic API Insert key<br>[Secret](../secret/)<br> |
 | license_key | *secret.Secret | No | - | New Relic License Key (recommended)<br>[Secret](./secret.md"<br>LicenseKey *secret.Secret `json:"license_key)`<br> |
-| base_uri | string | No | https://log-api.newrelic.com/log/v1 | New Relic ingestion endpoint<br>[Secret](./secret.md)<br> |
+| base_uri | string | No | https://log-api.newrelic.com/log/v1 | New Relic ingestion endpoint<br>[Secret](../secret/)<br> |

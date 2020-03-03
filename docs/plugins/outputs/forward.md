@@ -34,7 +34,7 @@ title: ForwardOutput
 | keepalive_timeout | int | No |  0 | Expired time of keepalive. Default value is nil, which means to keep connection as long as possible. <br> |
 | security | *common.Security | No | - | [Security](/docs/plugins/common/security.md)<br> |
 | verify_connection_at_startup | bool | No |  false | Verify that a connection can be made with one of out_forward nodes at the time of startup. <br> |
-| buffer | *Buffer | No | - | [Buffer](./buffer.md)<br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
 ### Fluentd Server
 #### server
 

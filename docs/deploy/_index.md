@@ -51,7 +51,7 @@ title: Deploy Logging operator with Helm
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
 
-Complete the following steps to deploy the Logging operator using Helm. Alternatively, you can also [install the operator using Kubernetes manifests](./Readme.md).
+Complete the following steps to deploy the Logging operator using Helm. Alternatively, you can also [install the operator using Kubernetes manifests](../Readme/).
 > Note: For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
 
 1. Add operator chart repository.
