@@ -26,19 +26,19 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
     ```
 1. Create a ServiceAccount and install cluster roles.
     ```bash
-    kubectl -n logging create -f ./docs/deploy/manifests/rbac.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/deploy/manifests/rbac.yaml
     ```
 1. Apply the ClusterResources.
     ```bash
-    kubectl -n logging create -f ./config/crd/bases/logging.banzaicloud.io_clusterflows.yaml
-    kubectl -n logging create -f ./config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml
-    kubectl -n logging create -f ./config/crd/bases/logging.banzaicloud.io_flows.yaml
-    kubectl -n logging create -f ./config/crd/bases/logging.banzaicloud.io_loggings.yaml
-    kubectl -n logging create -f ./config/crd/bases/logging.banzaicloud.io_outputs.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_flows.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_loggings.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_outputs.yaml
     ```
 1. Deploy the Logging operator.
     ```bash
-    kubectl -n logging create -f ./docs/deploy/manifests/deployment.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/deploy/manifests/deployment.yaml
     ```
 ---
 
