@@ -5,13 +5,13 @@ title: Custom Resource Definitions
 This document contains the detailed information about the CRDs Logging operator uses.
 
 Available CRDs:
-- [loggings.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_loggings.yaml)
-- [outputs.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_outputs.yaml)
-- [flows.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_flows.yaml)
-- [clusteroutputs.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml)
-- [clusterflows.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml)
+- [loggings.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_loggings.yaml)
+- [outputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_outputs.yaml)
+- [flows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_flows.yaml)
+- [clusteroutputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml)
+- [clusterflows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml)
 
-> You can find example yamls  [here](/docs/examples)
+> You can find example yamls [in our GitHub repository](https://github.com/banzaicloud/logging-operator/tree/master/docs/examples)
 
 ## loggings
 
