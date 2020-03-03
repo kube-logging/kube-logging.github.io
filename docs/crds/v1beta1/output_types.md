@@ -1,4 +1,7 @@
-### OutputSpec
+---
+title: OutputSpec
+---
+
 #### OutputSpec defines the desired state of Output
 
 | Variable Name | Type | Required | Default | Description |

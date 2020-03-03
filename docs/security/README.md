@@ -1,10 +1,9 @@
-<p align="center"><img src="../img/lo.svg" width="260"></p>
-<p align="center">
-
 ---
 title: Security
 ---
 
+<p align="center"><img src="../img/lo.svg" width="260"></p>
+<p align="center">
 
 ## Contents
 - **Using RBAC Authorization**

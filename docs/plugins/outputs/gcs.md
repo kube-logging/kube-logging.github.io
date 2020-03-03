@@ -1,4 +1,7 @@
-### GCSOutput
+---
+title: GCSOutput
+---
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | project | string | Yes | - | Project identifier for GCS<br> |

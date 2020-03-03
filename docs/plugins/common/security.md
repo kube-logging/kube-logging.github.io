@@ -1,4 +1,7 @@
-### Security
+---
+title: Security
+---
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | self_hostname | string | Yes | - | Hostname<br> |

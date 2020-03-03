@@ -1,4 +1,7 @@
-### ForwardOutput
+---
+title: ForwardOutput
+---
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | servers | []FluentdServer | Yes | - | Server definitions at least one is required<br>[Server](#Fluentd-Server)<br> |

@@ -1,4 +1,7 @@
-### FluentbitSpec
+---
+title: FluentbitSpec
+---
+
 #### FluentbitSpec defines the desired state of Fluentbit
 
 | Variable Name | Type | Required | Default | Description |

@@ -1,4 +1,7 @@
-### ClusterFlow
+---
+title: ClusterFlow
+---
+
 #### ClusterFlow is the Schema for the clusterflows API
 
 | Variable Name | Type | Required | Default | Description |

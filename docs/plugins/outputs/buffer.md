@@ -1,4 +1,7 @@
-### Buffer
+---
+title: Buffer
+---
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | type | string | No | - | Fluentd core bundles memory and file plugins. 3rd party plugins are also available when installed.<br> |

@@ -1,4 +1,7 @@
-### ClusterOutput
+---
+title: ClusterOutput
+---
+
 #### ClusterOutput is the Schema for the clusteroutputs API
 
 | Variable Name | Type | Required | Default | Description |
