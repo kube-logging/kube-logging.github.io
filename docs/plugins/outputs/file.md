@@ -1,8 +1,8 @@
 ---
-title: '[File Output](https://docs.fluentd.org/output/file)'
+title: File Output
 ---
 ## Overview
- This plugin has been designed to output logs or metrics to File.
+The [File Output](https://docs.fluentd.org/output/file) plugin has been designed to output logs or metrics to File.
 
 ## Configuration
 ### FileOutputConfig

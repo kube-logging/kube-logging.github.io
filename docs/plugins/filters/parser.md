@@ -1,8 +1,8 @@
 ---
-title: '[Parser Filter](https://docs.fluentd.org/filter/parser)'
+title: Parser
 ---
 ## Overview
- Parses" string field in event records and mutates its
+The [Parser Filter](https://docs.fluentd.org/filter/parser) parses  string field in event records and mutates its
 
 ## Configuration
 ### ParserConfig
