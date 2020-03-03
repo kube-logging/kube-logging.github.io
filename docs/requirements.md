@@ -1,10 +1,13 @@
 ---
 title: CPU and memory requirements
+shorttitle: Resource requirements
+weight: 1300
 ---
 
 The resource requirements and limits of your Logging operator deployment must match the size of your cluster and the logging workloads. By default, the Logging operator uses the following configuration.
 
-**Fluentbit:**
+## Fluent Bit
+
 >```yaml
 >- Limits:
 >  - cpu: 200m
@@ -14,7 +17,8 @@ The resource requirements and limits of your Logging operator deployment must ma
 >  - memory: 50M
 >```
 
-**FluentD**
+## Fluentd
+
 >```yaml
 >- Limits:
 >  - cpu: 1
