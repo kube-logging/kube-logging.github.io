@@ -1,10 +1,15 @@
 ---
 title: Custom Resource Definitions
+shorttitle: CRDs
+weight: 300
 ---
+
+{{< contents >}}
 
 This document contains the detailed information about the CRDs Logging operator uses.
 
 Available CRDs:
+
 - [loggings.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_loggings.yaml)
 - [outputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_outputs.yaml)
 - [flows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_flows.yaml)
@@ -22,20 +27,24 @@ Logging resource define a logging infrastructure for your cluster. You can defin
 You can install `logging` resource via [Helm chart](/charts/logging-operator-logging) with built-in TLS generation.
 
 ### Namespace separation
+
 A `logging pipeline` consist two type of resources.
+
 - `Namespaced` resources: `Flow`, `Output`
 - `Global` resources: `ClusterFlow`, `ClusterOutput`
 
-The `namespaced` resources only effective in their **own** namespace. `Global` resources are operate **cluster wide**. 
+The `namespaced` resources only effective in their **own** namespace. `Global` resources are operate **cluster wide**.
 
 > You can only create `ClusterFlow` and `ClusterOutput` in the `controlNamespace`. It **MUST** be a **protected** namespace that only **administrators** have access.
 
-Create a namespace for logging
+Create a namespace for logging:
+
 ```bash
 kubectl create ns logging
 ```
 
-**`logging` plain example** 
+**`logging` plain example**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -48,7 +57,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with filtered namespaces** 
+**`logging` with filtered namespaces**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -63,6 +73,7 @@ spec:
 ```
 
 ### Logging parameters
+
 | Name                    | Type           | Default | Description                                                             |
 |-------------------------|----------------|---------|-------------------------------------------------------------------------|
 | loggingRef              | string         | ""      | Reference name of the logging deployment                                |
@@ -79,10 +90,9 @@ spec:
 Not all fields can be updated on Kubernetes objects. This is especially true for Statefulsets and Daemonsets.
 In case there is a change that requires recreating the fluentd/fluentbit workloads use this field  
 to move on but make sure to understand the consequences:
- - As of fluentd, to avoid data loss, make sure to use a persistent volume for buffers `logging.spec.fluentd.`, 
- which is the default, unless explicitly disabled or configured differently.
- - As of fluent-bit, to avoid duplicated logs, make sure to configure a hostPath volume for 
- the positions through `logging.spec.fluentbit.spec.positiondb`.
+
+- As of fluentd, to avoid data loss, make sure to use a persistent volume for buffers `logging.spec.fluentd.`, which is the default, unless explicitly disabled or configured differently.
+- As of fluent-bit, to avoid duplicated logs, make sure to configure a hostPath volume for the positions through `logging.spec.fluentbit.spec.positiondb`.
 
 #### Fluentd Spec
 
@@ -113,7 +123,8 @@ You can customize the `fluentd` statefulset with the following parameters.
 | readinessProbe | [Probe](#Probe) | {} | Periodic probe of fluentd container service readiness. Container will be removed from service endpoints if the probe fails. |
 | scaling | [Scaling](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#deploymentspec-v1-apps) | {replicas: 1} | Fluentd scaling configuration i.e replica count
 
-**`logging` with custom pvc volume for buffers** 
+**`logging` with custom pvc volume for buffers**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -135,7 +146,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with custom hostPath volume for buffers** 
+**`logging` with custom hostPath volume for buffers**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -152,6 +164,7 @@ spec:
 ```
 
 #### Fluent-bit Spec
+
 | Name                    | Type           | Default | Description                                                             |
 |-------------------------|----------------|---------|-------------------------------------------------------------------------|
 | annotations | map[string]string | {} | Extra annotations to Kubernetes resource|
@@ -176,7 +189,8 @@ spec:
 | livenessProbe | [Probe](#Probe) | {} | Periodic probe of fluentbit container liveness. Container will be restarted if the probe fails. |
 | readinessProbe | [Probe](#Probe) | {} | Periodic probe of fluentbit container service readiness. Container will be removed from service endpoints if the probe fails. |
 
-**`logging` with custom fluent-bit annotations** 
+**`logging` with custom fluent-bit annotations**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -190,7 +204,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with hostPath volumes for buffers and positions** 
+**`logging` with hostPath volumes for buffers and positions**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -218,7 +233,8 @@ Override default images
 | tag | string | "" | Image tag |
 | pullPolicy | string | "" | Always, IfNotPresent, Never |
 
-**`logging` with custom fluentd image** 
+**`logging` with custom fluentd image**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -234,7 +250,7 @@ spec:
   controlNamespace: logging
 ```
 
-#### TLS Spec	
+#### TLS Spec
 
 Define TLS certificate secret
 
@@ -244,8 +260,8 @@ Define TLS certificate secret
 | secretName | string | "" | Kubernetes secret that contains: **tls.crt, tls.key, ca.crt** |
 | sharedKey | string | "" | Shared secret for fluentd authentication |
 
-
 **`logging` setup with TLS**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -275,8 +291,8 @@ Defines a pod volume mount
 | destination | string | "" | Destination directory to mount to |
 | readOnly | bool | false | Whether the mount is read-only or not |
 
-
 **`logging` setup with extra volume mount**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -316,9 +332,10 @@ The Persistent Volume Claim should be created with the given `spec` and with the
 Redirect fluentd's stdout to file and configure rotation settings.
 
 This is important to avoid fluentd getting into a ripple effect when there is an error and the error message get's
-back to the system as a log message, which generates another error, etc... 
+back to the system as a log message, which generates another error, etc.
 
 Default settings configured by the operator
+
 ```
 spec:
   fluentd:
@@ -330,6 +347,7 @@ spec:
 ```
 
 Disabling it and write to stdout (not recommended)
+
 ```
 spec:
   fluentd:
@@ -337,16 +355,16 @@ spec:
       enabled: false
 ```
 
-
 #### Scaling
 
-Scaling components 
+Scaling components
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
 | replicas | int | 1 | number of pod replicas |
 
-**`logging` with custom fluentd replica number** 
+**`logging` with custom fluentd replica number**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -375,8 +393,8 @@ The supported `Output` plugins are documented [here](./plugins/outputs)
 | **Output Definitions** | [Output](./plugins/outputs) | nil | Named output definitions |
 | loggingRef | string | "" | Specified `logging` resource reference to connect `Output` and `ClusterOutput` to |
 
-
 **`output` s3 example**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Output
@@ -413,6 +431,7 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 > `ClusterFlow` select logs from **ALL** namespace.
 
 ### Parameters
+
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
 | selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match](../log-routing/). Kubernetes label selectors for the log. |
@@ -422,7 +441,8 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 | loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
 | outputRefs              | []string | [] | List of [Outputs](#Defining-outputs) or [ClusterOutputs](#Defining-outputs) names |
 
-*`flow` example with filters and output in the `default` namespace*
+**`flow` example with filters and output in the `default` namespace**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
@@ -445,10 +465,9 @@ spec:
           app: nginx
 ```
 
-
 #### Probe
-A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. [More info](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 
+A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. [More info](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
@@ -461,7 +480,8 @@ A Probe is a diagnostic performed periodically by the kubelet on a Container. To
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
 
-**`logging` with custom liveness config** 
+**`logging` with custom liveness config**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
