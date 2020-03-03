@@ -1,5 +1,5 @@
 ---
-title: [Record Transformer](https://docs.fluentd.org/filter/record_transformer)
+title: '[Record Transformer](https://docs.fluentd.org/filter/record_transformer)'
 ---
 ## Overview
  Mutates/transforms incoming event streams.
