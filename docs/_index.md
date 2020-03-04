@@ -1,5 +1,6 @@
 ---
 title: Logging operator
+shorttitle: Logging
 cascade:
   module: logging-operator
   githubEditUrl: "https://github.com/banzaicloud/logging-operator-docs/edit/master/docs/"
