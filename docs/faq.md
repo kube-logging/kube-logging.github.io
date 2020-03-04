@@ -6,9 +6,6 @@ weight: 900
 
 {{< contents >}}
 
-<p align="center"><img src="../img/lo.svg" width="260"></p>
-<p align="center">
-
 ## How can I run the unreleased master version?
 
 1. Clone the logging-operator repo.
