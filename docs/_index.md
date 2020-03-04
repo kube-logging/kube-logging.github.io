@@ -18,13 +18,13 @@ This operator helps you bundle logging information with your applications: you c
 
 ## Feature highlights
 
-- [x] Namespace isolation
-- [x] Native Kubernetes label selectors
-- [x] Secure communication (TLS)
-- [x] Configuration validation
-- [x] Multiple flow support (multiply logs for different transformations)
-- [x] Multiple [output]({{< relref "docs/one-eye/logging-operator/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
-- [x] Multiple logging system support (multiple Fluentd, Fluent Bit deployment on the same cluster)
+- Namespace isolation
+- Native Kubernetes label selectors
+- Secure communication (TLS)
+- Configuration validation
+- Multiple flow support (multiply logs for different transformations)
+- Multiple [output]({{< relref "docs/one-eye/logging-operator/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
+- Multiple logging system support (multiple Fluentd, Fluent Bit deployment on the same cluster)
 
 ## Architecture
 
