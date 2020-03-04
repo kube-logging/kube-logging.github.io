@@ -212,4 +212,4 @@ To validate that the deployment was successful, complete the following steps.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting-guideline]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
+> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).

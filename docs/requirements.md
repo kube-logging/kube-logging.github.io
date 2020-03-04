@@ -8,25 +8,25 @@ The resource requirements and limits of your Logging operator deployment must ma
 
 ## Fluent Bit
 
->```yaml
->- Limits:
->  - cpu: 200m
->  - memory: 100M
->- Requests:
->  - cpu: 100m
->  - memory: 50M
->```
+```yaml
+ - Limits:
+   - cpu: 200m
+   - memory: 100M
+ - Requests:
+   - cpu: 100m
+   - memory: 50M
+```
 
 ## Fluentd
 
->```yaml
->- Limits:
->  - cpu: 1
->  - memory: 200M
->- Requests:
->  - cpu: 500m
->  - memory:  100M
->```
+```yaml
+ - Limits:
+   - cpu: 1
+   - memory: 200M
+ - Requests:
+   - cpu: 500m
+   - memory:  100M
+```
 
 You can easily change this in the Logging custom resource, for example:
 

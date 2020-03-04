@@ -17,7 +17,7 @@ The following figure gives you an overview about how the system works. The Loggi
 ## Deploy Kafka
 
 > In this demo we are using our kafka operator.
-> [Easy Way Installing with Helm](https://github.com/banzaicloud/kafka-operator#easy-way-installing-with-helm)
+> [Install it with Helm](https://github.com/banzaicloud/kafka-operator#easy-way-installing-with-helm)
 
 ## Deploy the Logging operator and a demo Application
 
@@ -153,4 +153,4 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 [![asciicast](https://asciinema.org/a/273236.svg)](https://asciinema.org/a/273236)
 
-> If you don't get the expected result you can find help in the [troubleshooting-guideline]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
+> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
