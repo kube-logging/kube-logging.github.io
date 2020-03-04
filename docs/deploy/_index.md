@@ -9,6 +9,8 @@ weight: 200
 <p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
 
+> Caution: The **master branch** is under heavy development. Use [releases](https://github.com/banzaicloud/logging-operator/releases) instead of the master branch to get stable software.
+
 ## Prerequisites
 
 - Logging operator requires Kubernetes v1.14.x or later.
