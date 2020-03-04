@@ -2,11 +2,13 @@
 title: Elasticsearch output plugin for Fluentd
 ---
 ## Overview
-More info at https://github.com/uken/fluent-plugin-elasticsearch
->Example Deployment: [Save all logs to ElasticSearch](../../../docs/example-es.md)
 
- #### Example output configurations
- ```
+More info at https://github.com/uken/fluent-plugin-elasticsearch
+>Example Deployment: [Save all logs to ElasticSearch]({{< relref "docs/one-eye/logging-operator/quickstarts/es-nginx.md" >}})
+
+### Example output configurations
+
+```yaml
  spec:
    elasticsearch:
      host: elasticsearch-elasticsearch-cluster.default.svc.cluster.local
@@ -21,7 +23,9 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
  ```
 
 ## Configuration
+
 ### Elasticsearch
+
 #### Send your logs to Elasticsearch
 
 | Variable Name | Type | Required | Default | Description |

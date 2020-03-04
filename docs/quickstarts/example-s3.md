@@ -18,7 +18,7 @@ Install the Logging operator.
 
 ### Deploy the Logging operator with Helm
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref relref "docs/one-eye/logging-operator/_index.md" >}}.
+To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/_index.md" >}}.
 
 1. Add the chart repository of the Logging operator using the following commands:
 
