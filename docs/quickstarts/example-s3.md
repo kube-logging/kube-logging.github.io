@@ -18,7 +18,7 @@ Install the Logging operator.
 
 ### Deploy the Logging operator with Helm
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}}.
+To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref relref "docs/one-eye/logging-operator/_index.md" >}}.
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -141,4 +141,4 @@ Check the output. The logs will be available in the bucket on a `path` like:
 /logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 ```
 
-> If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md).
+> If you don't get the expected result you can find help in the [troubleshooting-guideline]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).

@@ -10,7 +10,7 @@ weight: 400
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
-The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Kafka). For more details about the Logging operator, see the [Logging operator overview](../Readme.md).
+The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Kafka). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
@@ -153,4 +153,4 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 [![asciicast](https://asciinema.org/a/273236.svg)](https://asciinema.org/a/273236)
 
-> If you don't get the expected result you can find help in the [troubleshooting-guideline](../troubleshooting.md).
+> If you don't get the expected result you can find help in the [troubleshooting-guideline]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
