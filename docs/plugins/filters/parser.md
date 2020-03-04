@@ -39,7 +39,7 @@ The [Parser Filter](https://docs.fluentd.org/filter/parser) parses  string field
 | local_time | bool | No |  true | Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc. <br> |
 | utc | bool | No |  false | If true, use UTC. Otherwise, local time is used. This is exclusive with localtime <br> |
 | timezone | string | No |  nil | Use specified timezone. one can parse/format the time value in the specified timezone. <br> |
-| patterns | []ParseSection | No | - | Only available when using type: multi_format<br>[Parse Section](#Parse-Section)<br> |
+| patterns | []ParseSection | No | - | Only available when using type: multi_format<br>[Parse Section](#parse-section)<br> |
 | format | string | No | - | Only available when using type: multi_format<br> |
 
 #### Example `Parser` filter configurations
