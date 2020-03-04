@@ -1,14 +1,18 @@
-<p align="center"><img src="./img/lo.svg" width="260"></p>
-
-# Routing your logs with match directive
-
 ---
+title: Routing your logs with match directive
+shorttitle: Log routing
+weight: 700
+---
+
+{{< contents >}}
+
+<p align="center"><img src="../img/lo.svg" width="260"></p>
 
 The first step to process your logs is to select what logs goes to where.
 The logging operator uses Kubernetes labels and namespaces to separate
 different log flows.
 
-#### Match statement
+## Match statement
 
 To select or exclude logs you can use the `match` statement. Match is a collection
 of `select` and `exclude` expressions. In both expression you can use the `labels`
@@ -17,8 +21,9 @@ as a selecting or excluding criteria.
 
 The list of `select` and `exclude` statements are evaluated **in order**!
 
-Flow
-```
+Flow:
+
+```yaml
   kind: Flow
   metadata:
     name: flow-sample
@@ -33,8 +38,9 @@ Flow
             label/xxx: example
 ```
 
-ClusterFlow
-```
+ClusterFlow:
+
+```yaml
   kind: ClusterFlow
   metadata:
     name: flow-sample
@@ -53,9 +59,9 @@ ClusterFlow
 
 ## Examples
 
-#### 1. Select logs with `app: nginx` labels from the namespace
+### Example 1. Select logs with `app: nginx` labels from the namespace
 
-  ```
+  ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
   kind: Flow
   metadata:
@@ -70,8 +76,9 @@ ClusterFlow
             app: nginx
   ```
 
-#### 2. Exclude logs with `app: nginx` labels from the namespace
-  ```
+### Example 2. Exclude logs with `app: nginx` labels from the namespace
+
+  ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
   kind: Flow
   metadata:
@@ -86,8 +93,9 @@ ClusterFlow
             app: nginx
   ```
 
-#### 3. Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace
-  ```
+### Example 3. Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace
+
+  ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
   kind: Flow
   metadata:
@@ -105,8 +113,9 @@ ClusterFlow
             app: nginx
   ```
 
-#### 4. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
-  ```
+### Example 4. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
+
+  ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
   kind: ClusterFlow
   metadata:
@@ -122,9 +131,9 @@ ClusterFlow
             app: nginx
   ```
 
+### Example 5. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
 
-#### 5. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
-  ```
+  ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
   kind: ClusterFlow
   metadata:

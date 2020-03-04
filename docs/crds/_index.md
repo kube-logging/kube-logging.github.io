@@ -1,15 +1,22 @@
-# Custom Resource Definitions
+---
+title: Custom Resource Definitions
+shorttitle: CRDs
+weight: 300
+---
+
+{{< contents >}}
 
 This document contains the detailed information about the CRDs Logging operator uses.
 
 Available CRDs:
-- [loggings.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_loggings.yaml)
-- [outputs.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_outputs.yaml)
-- [flows.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_flows.yaml)
-- [clusteroutputs.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml)
-- [clusterflows.logging.banzaicloud.io](/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml)
 
-> You can find example yamls  [here](/docs/examples)
+- [loggings.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_loggings.yaml)
+- [outputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_outputs.yaml)
+- [flows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_flows.yaml)
+- [clusteroutputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml)
+- [clusterflows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml)
+
+> You can find example yamls [in our GitHub repository](https://github.com/banzaicloud/logging-operator/tree/master/docs/examples)
 
 ## loggings
 
@@ -17,23 +24,27 @@ Logging resource define a logging infrastructure for your cluster. You can defin
 
 > Note: The `logging` resources are referenced by `loggingRef`. If you setup multiple `logging flow` you have to reference other objects to this field. This can happen if you want to run multiple fluentd with separated configuration.
 
-You can install `logging` resource via [Helm chart](/charts/logging-operator-logging) with built-in TLS generation.
+You can install `logging` resource via [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging) with built-in TLS generation.
 
 ### Namespace separation
+
 A `logging pipeline` consist two type of resources.
+
 - `Namespaced` resources: `Flow`, `Output`
 - `Global` resources: `ClusterFlow`, `ClusterOutput`
 
-The `namespaced` resources only effective in their **own** namespace. `Global` resources are operate **cluster wide**. 
+The `namespaced` resources only effective in their **own** namespace. `Global` resources are operate **cluster wide**.
 
 > You can only create `ClusterFlow` and `ClusterOutput` in the `controlNamespace`. It **MUST** be a **protected** namespace that only **administrators** have access.
 
-Create a namespace for logging
+Create a namespace for logging:
+
 ```bash
 kubectl create ns logging
 ```
 
-**`logging` plain example** 
+**`logging` plain example**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -46,7 +57,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with filtered namespaces** 
+**`logging` with filtered namespaces**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -61,13 +73,14 @@ spec:
 ```
 
 ### Logging parameters
+
 | Name                    | Type           | Default | Description                                                             |
 |-------------------------|----------------|---------|-------------------------------------------------------------------------|
 | loggingRef              | string         | ""      | Reference name of the logging deployment                                |
 | flowConfigCheckDisabled | bool           | False   | Disable configuration check before deploy                               |
 | flowConfigOverride      | string         | ""      | Use static configuration instead of generated config.                   |  
-| fluentbit               | [FluentbitSpec](#Fluent-bit-Spec) | {}      | Fluent-bit configurations                                               |
-| fluentd                 | [FluentdSpec](#Fluentd-Spec)   | {}      | Fluentd configurations                                                  |
+| fluentbit               | [FluentbitSpec](#fluent-bit-spec) | {}      | Fluent-bit configurations                                               |
+| fluentd                 | [FluentdSpec](#fluentd-spec)   | {}      | Fluentd configurations                                                  |
 | watchNamespaces         | []string       | ""      | Limit namespaces from where to read Flow and Output specs               |
 | controlNamespace        | string         | ""      | Control namespace that contains ClusterOutput and ClusterFlow resources |
 | enableRecreateWorkloadOnImmutableFieldChange | bool | false | Recreate workloads that cannot be updated, see details below |
@@ -77,10 +90,9 @@ spec:
 Not all fields can be updated on Kubernetes objects. This is especially true for Statefulsets and Daemonsets.
 In case there is a change that requires recreating the fluentd/fluentbit workloads use this field  
 to move on but make sure to understand the consequences:
- - As of fluentd, to avoid data loss, make sure to use a persistent volume for buffers `logging.spec.fluentd.`, 
- which is the default, unless explicitly disabled or configured differently.
- - As of fluent-bit, to avoid duplicated logs, make sure to configure a hostPath volume for 
- the positions through `logging.spec.fluentbit.spec.positiondb`.
+
+- As of fluentd, to avoid data loss, make sure to use a persistent volume for buffers `logging.spec.fluentd.`, which is the default, unless explicitly disabled or configured differently.
+- As of fluent-bit, to avoid duplicated logs, make sure to configure a hostPath volume for the positions through `logging.spec.fluentbit.spec.positiondb`.
 
 #### Fluentd Spec
 
@@ -90,28 +102,29 @@ You can customize the `fluentd` statefulset with the following parameters.
 |-------------------------|----------------|---------|-------------------------------------------------------------------------|
 | annotations | map[string]string | {} | Extra annotations to Kubernetes resource|
 | labels | map[string]string | {} | Extra labels for fluentd and it's related resources |
-| tls | [TLS](#TLS-Spec) | {} | Configure TLS settings|
-| image | [ImageSpec](#Image-Spec) | {} | Fluentd image override |
-| bufferStorageVolume | [KubernetesStorage](#KubernetesStorage) | nil | Fluentd PVC spec to mount persistent volume for Buffer |
+| tls | [TLS](#tls-spec) | {} | Configure TLS settings|
+| image | [ImageSpec](#image-spec) | {} | Fluentd image override |
+| bufferStorageVolume | [KubernetesStorage](#kubernetesstorage) | nil | Fluentd PVC spec to mount persistent volume for Buffer |
 | disablePvc | bool | false | Disable PVC binding |
-| volumeModImage | [ImageSpec](#Image-Spec) | {} | Volume modifier image override |
-| configReloaderImage | [ImageSpec](#Image-Spec) | {} | Config reloader image override |
+| volumeModImage | [ImageSpec](#image-spec) | {} | Volume modifier image override |
+| configReloaderImage | [ImageSpec](#image-spec) | {} | Config reloader image override |
 | resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
 | port | int | 24240 | Fluentd target port |
 | tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
 | nodeSelector | [NodeSelector](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#nodeselector-v1-core) | {} | A node selector represents the union of the results of one or more label queries over a set of nodes |
-| metrics | [Metrics](./logging-operator-monitoring.md#metrics-variables) | {} | Metrics defines the service monitor endpoints |
-| security | [Security](./security#security-variables) | {} | Security defines Fluentd, Fluentbit deployment security properties |
+| metrics | [Metrics]({{< relref "docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
+| security | [Security]({{< relref "docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
 | podPriorityClassName | string | "" | Name of a priority class to launch fluentd with |
 | scaling | [scaling](#scaling)] | "" | Fluentd scaling preferences |
 | fluentLogDestination | string | "null" | Send internal fluentd logs to stdout, or use "null" to omit them, see: https://docs.fluentd.org/deployment/logging#capture-fluentd-logs |
-| fluentOutLogrotate | [FluentOutLogrotate](#FluentOutLogrotate) | nil | Write to file instead of stdout and configure logrotate params. The operator configures it by default to write to /fluentd/log/out. https://docs.fluentd.org/deployment/logging#output-to-log-file |
-| livenessProbe | [Probe](#Probe) | {} | Periodic probe of fluentd container liveness. Container will be restarted if the probe fails. |
-| livenessDefaultCheck | bool | false | Enable default liveness probe of fluentd container, which looks for stuck chunks under the buffer path. See [healthy.sh](../fluentd-image/v1.7/healthy.sh) for the details. |
-| readinessProbe | [Probe](#Probe) | {} | Periodic probe of fluentd container service readiness. Container will be removed from service endpoints if the probe fails. |
+| fluentOutLogrotate | [FluentOutLogrotate](#fluentoutlogrotate) | nil | Write to file instead of stdout and configure logrotate params. The operator configures it by default to write to /fluentd/log/out. (https://docs.fluentd.org/deployment/logging#output-to-log-file) |
+| livenessProbe | [Probe](#probe) | {} | Periodic probe of fluentd container liveness. Container will be restarted if the probe fails. |
+| livenessDefaultCheck | bool | false | Enable default liveness probe of fluentd container, which looks for stuck chunks under the buffer path. See [healthy.sh](https://github.com/banzaicloud/logging-operator/blob/master/fluentd-image/v1.7/healthy.sh) for the details. |
+| readinessProbe | [Probe](#probe) | {} | Periodic probe of fluentd container service readiness. Container will be removed from service endpoints if the probe fails. |
 | scaling | [Scaling](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#deploymentspec-v1-apps) | {replicas: 1} | Fluentd scaling configuration i.e replica count
 
-**`logging` with custom pvc volume for buffers** 
+**`logging` with custom pvc volume for buffers**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -133,7 +146,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with custom hostPath volume for buffers** 
+**`logging` with custom hostPath volume for buffers**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -150,31 +164,33 @@ spec:
 ```
 
 #### Fluent-bit Spec
+
 | Name                    | Type           | Default | Description                                                             |
 |-------------------------|----------------|---------|-------------------------------------------------------------------------|
 | annotations | map[string]string | {} | Extra annotations to Kubernetes resource|
 | labels | map[string]string | {} | Extra labels for fluent-bit and it's related resources |
-| tls | [TLS](#TLS-Spec) | {} | Configure TLS settings|
-| image | [ImageSpec](#Image-Spec) | {} | Fluentd image override |
+| tls | [TLS](#tls-spec) | {} | Configure TLS settings|
+| image | [ImageSpec](#image-spec) | {} | Fluentd image override |
 | resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
 | targetHost | string | *Fluentd host* | Hostname to send the logs forward |
 | targetPort | int | *Fluentd port* |  Port to send the logs forward |
 | parser | string | cri | Change fluent-bit input parse configuration. [Available parsers](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf)  |
 | tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
-| metrics | [Metrics](./logging-operator-monitoring.md#metrics-variables) | {} | Metrics defines the service monitor endpoints |
-| security | [Security](./security#security-variables) | {} | Security defines Fluentd, Fluentbit deployment security properties |
-| positiondb |  [KubernetesStorage](#KubernetesStorage) | nil | Add position db storage support. If nothing is configured an emptyDir volume will be used. |
-| inputTail | [InputTail](./fluentbit.md#tail-inputtail) | {} | Preconfigured tailer for container logs on the host. Container runtime (containerd vs. docker) is automatically detected for convenience. |
-| filterKubernetes | [FilterKubernetes](./fluentbit.md#kubernetes-filterkubernetes) | {} | Fluent Bit Kubernetes Filter allows to enrich your log files with Kubernetes metadata. |
-| bufferStorage | [BufferStorage](./fluentbit.md#bufferstorage) |  | Buffer Storage configures persistent buffer to avoid losing data in case of a failure |
-| bufferStorageVolume | [KubernetesStorage](#KubernetesStorage) | nil | Volume definition for the Buffer Storage. If nothing is configured an emptydir volume will be used. |
-| extraVolumeMounts | [][VolumeMount](#Volume-Mount) | "" | ExtraVolumeMounts defines source and destination foldersof a pod mount |
+| metrics | [Metrics]({{< relref "docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
+| security | [Security]({{< relref "docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
+| positiondb |  [KubernetesStorage](#kubernetesstorage) | nil | Add position db storage support. If nothing is configured an emptyDir volume will be used. |
+| inputTail | [InputTail]({{< relref "docs/one-eye/logging-operator/fluentbit.md#tail-inputtail" >}}) | {} | Preconfigured tailer for container logs on the host. Container runtime (containerd vs. docker) is automatically detected for convenience. |
+| filterKubernetes | [FilterKubernetes]({{< relref "docs/one-eye/logging-operator/fluentbit.md#kubernetes-filterkubernetes" >}}) | {} | Fluent Bit Kubernetes Filter allows to enrich your log files with Kubernetes metadata. |
+| bufferStorage | [BufferStorage]({{< relref "docs/one-eye/logging-operator/fluentbit.md#bufferstorage" >}}) |  | Buffer Storage configures persistent buffer to avoid losing data in case of a failure |
+| bufferStorageVolume | [KubernetesStorage](#kubernetesstorage) | nil | Volume definition for the Buffer Storage. If nothing is configured an emptydir volume will be used. |
+| extraVolumeMounts | [][VolumeMount](#volume-mount) | "" | ExtraVolumeMounts defines source and destination foldersof a pod mount |
 | customConfigSecret | string | "" | Custom secret to use as fluent-bit config.<br /> It must include all the config files necessary to run fluent-bit (_fluent-bit.conf_, _parsers*.conf_) |
 | podPriorityClassName    | string         | ""      | Name of a priority class to launch fluentbit with                       |
-| livenessProbe | [Probe](#Probe) | {} | Periodic probe of fluentbit container liveness. Container will be restarted if the probe fails. |
-| readinessProbe | [Probe](#Probe) | {} | Periodic probe of fluentbit container service readiness. Container will be removed from service endpoints if the probe fails. |
+| livenessProbe | [Probe](#probe) | {} | Periodic probe of fluentbit container liveness. Container will be restarted if the probe fails. |
+| readinessProbe | [Probe](#probe) | {} | Periodic probe of fluentbit container service readiness. Container will be removed from service endpoints if the probe fails. |
 
-**`logging` with custom fluent-bit annotations** 
+**`logging` with custom fluent-bit annotations**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -188,7 +204,8 @@ spec:
   controlNamespace: logging
 ```
 
-**`logging` with hostPath volumes for buffers and positions** 
+**`logging` with hostPath volumes for buffers and positions**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -216,7 +233,8 @@ Override default images
 | tag | string | "" | Image tag |
 | pullPolicy | string | "" | Always, IfNotPresent, Never |
 
-**`logging` with custom fluentd image** 
+**`logging` with custom fluentd image**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -232,7 +250,7 @@ spec:
   controlNamespace: logging
 ```
 
-#### TLS Spec	
+#### TLS Spec
 
 Define TLS certificate secret
 
@@ -242,8 +260,8 @@ Define TLS certificate secret
 | secretName | string | "" | Kubernetes secret that contains: **tls.crt, tls.key, ca.crt** |
 | sharedKey | string | "" | Shared secret for fluentd authentication |
 
-
 **`logging` setup with TLS**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -273,8 +291,8 @@ Defines a pod volume mount
 | destination | string | "" | Destination directory to mount to |
 | readOnly | bool | false | Whether the mount is read-only or not |
 
-
 **`logging` setup with extra volume mount**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -298,7 +316,7 @@ Define Kubernetes storage
 |-----------|------|---------|-------------|
 | hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
 | emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
-| pvc | [PersistentVolumeClaim](#Persistent Volume Claim) | - | A PersistentVolumeClaim (PVC) is a request for storage by a user. |
+| pvc | [PersistentVolumeClaim](#persistent-volume-claim) | - | A PersistentVolumeClaim (PVC) is a request for storage by a user. |
 
 #### Persistent Volume Claim
 
@@ -313,11 +331,11 @@ The Persistent Volume Claim should be created with the given `spec` and with the
 
 Redirect fluentd's stdout to file and configure rotation settings.
 
-This is important to avoid fluentd getting into a ripple effect when there is an error and the error message get's
-back to the system as a log message, which generates another error, etc... 
+This is important to avoid fluentd getting into a ripple effect when there is an error and the error message get's back to the system as a log message, which generates another error, etc.
 
 Default settings configured by the operator
-```
+
+```yaml
 spec:
   fluentd:
     fluentOutLogrotate:
@@ -328,23 +346,24 @@ spec:
 ```
 
 Disabling it and write to stdout (not recommended)
-```
+
+```yaml
 spec:
   fluentd:
     fluentOutLogrotate:
       enabled: false
 ```
 
-
 #### Scaling
 
-Scaling components 
+Scaling components
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
 | replicas | int | 1 | number of pod replicas |
 
-**`logging` with custom fluentd replica number** 
+**`logging` with custom fluentd replica number**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -366,15 +385,15 @@ Outputs are the final stage for a `logging flow`. You can define multiple `outpu
 
 ### Defining outputs
 
-The supported `Output` plugins are documented [here](./plugins/outputs)
+The supported `Output` plugins are documented [here]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}})
 
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
-| **Output Definitions** | [Output](./plugins/outputs) | nil | Named output definitions |
+| **Output Definitions** | [Output]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}}) | nil | Named output definitions |
 | loggingRef | string | "" | Specified `logging` resource reference to connect `Output` and `ClusterOutput` to |
 
-
 **`output` s3 example**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Output
@@ -411,16 +430,18 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 > `ClusterFlow` select logs from **ALL** namespace.
 
 ### Parameters
+
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
-| selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match](./log-routing.md). Kubernetes label selectors for the log. |
-| match                   | [][Match](./crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see](./log-routing.md) |
-| match                   | [][ClusterMatch](./crds/v1beta1/clusterflow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see](./log-routing.md) |
-| filters                 | [][Filter](./plugins/filters)          | []      | List of applied [filter](./plugins/filters).  |
+| selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}). Kubernetes label selectors for the log. |
+| match                   | [][Match](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}) |
+| match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}) |
+| filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}}).  |
 | loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
-| outputRefs              | []string | [] | List of [Outputs](#Defining-outputs) or [ClusterOutputs](#Defining-outputs) names |
+| outputRefs              | []string | [] | List of [Outputs](#defining-outputs) or [ClusterOutputs](#defining-outputs) names |
 
-*`flow` example with filters and output in the `default` namespace*
+**`flow` example with filters and output in the `default` namespace**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
@@ -443,10 +464,9 @@ spec:
           app: nginx
 ```
 
-
 #### Probe
-A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. [More info](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 
+A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. [More info](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
@@ -459,7 +479,8 @@ A Probe is a diagnostic performed periodically by the kubelet on a Container. To
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
 
-**`logging` with custom liveness config** 
+**`logging` with custom liveness config**
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging

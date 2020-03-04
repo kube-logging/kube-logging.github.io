@@ -1,9 +1,14 @@
-# [Parser Filter](https://docs.fluentd.org/filter/parser)
+---
+title: Parser
+---
 ## Overview
- Parses" string field in event records and mutates its
+
+The [Parser Filter](https://docs.fluentd.org/filter/parser) parses  string field in event records and mutates its
 
 ## Configuration
+
 ### ParserConfig
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | key_name | string | No | - | Specify field name in the record to parse. If you leave empty the Container Runtime default will be used.<br> |
@@ -14,9 +19,11 @@
 | inject_key_prefix | string | No | - | Store parsed values with specified key name prefix.<br> |
 | hash_value_field | string | No | - | Store parsed values as a hash value in a field.<br> |
 | emit_invalid_record_to_error | bool | No | - | Emit invalid record to @ERROR label. Invalid cases are: key not exist, format is not matched, unexpected error<br> |
-| parse | ParseSection | No | - | [Parse Section](#Parse-Section)<br> |
+| parse | ParseSection | No | - | [Parse Section](#parse-section)<br> |
 | parsers | []ParseSection | No | - | Deprecated, use `parse` instead<br> |
+
 ### Parse Section
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | type | string | No | - | Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt<br> |
@@ -32,10 +39,12 @@
 | local_time | bool | No |  true | Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc. <br> |
 | utc | bool | No |  false | If true, use UTC. Otherwise, local time is used. This is exclusive with localtime <br> |
 | timezone | string | No |  nil | Use specified timezone. one can parse/format the time value in the specified timezone. <br> |
-| patterns | []ParseSection | No | - | Only available when using type: multi_format<br>[Parse Section](#Parse-Section)<br> |
+| patterns | []ParseSection | No | - | Only available when using type: multi_format<br>[Parse Section](#parse-section)<br> |
 | format | string | No | - | Only available when using type: multi_format<br> |
- #### Example `Parser` filter configurations
- ```yaml
+
+#### Example `Parser` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -57,8 +66,9 @@ spec:
     - demo-output
  ```
 
- #### Fluentd Config Result
- ```yaml
+#### Fluentd Config Result
+
+```yaml
 <filter **>
   @type parser
   @id test_parser

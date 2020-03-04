@@ -1,10 +1,16 @@
-# Kafka output plugin for Fluentd
-## Overview
-  More info at https://github.com/fluent/fluent-plugin-kafka
->Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator](../../../docs/example-kafka-nginx.md)
+---
+title: Kafka output plugin for Fluentd
+---
 
- #### Example output configurations
- ```
+## Overview
+
+More info at https://github.com/fluent/fluent-plugin-kafka
+
+> Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator]({{< relref "docs/one-eye/logging-operator/quickstarts/kafka-nginx.md" >}})
+
+### Example output configurations
+
+```yaml
  spec:
    kafka:
      brokers: kafka-headless.kafka.svc.cluster.local:29092
@@ -20,7 +26,9 @@
  ```
 
 ## Configuration
+
 ### Kafka
+
 #### Send your logs to Kafka
 
 | Variable Name | Type | Required | Default | Description |
@@ -50,5 +58,5 @@
 | ssl_client_cert_chain | *secret.Secret | No | - | Client certificate chain<br> |
 | ssl_client_cert_key | *secret.Secret | No | - | Client certificate key<br> |
 | ssl_verify_hostname | *bool | No | - | Verify certificate hostname<br> |
-| format | *Format | Yes | - | [Format](./format.md)<br> |
-| buffer | *Buffer | No | - | [Buffer](./buffer.md)<br> |
+| format | *Format | Yes | - | [Format](../format/)<br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |

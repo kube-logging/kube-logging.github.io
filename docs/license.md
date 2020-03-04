@@ -1,4 +1,8 @@
-# License
+---
+title: License of Logging operator
+shorttitle: License
+weight: 2000
+---
 
 Copyright (c) 2017-2019 [Banzai Cloud, Inc.](https://banzaicloud.com)
 

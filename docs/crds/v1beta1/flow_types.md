@@ -1,4 +1,7 @@
-### FlowSpec
+---
+title: FlowSpec
+---
+
 #### FlowSpec is the Kubernetes spec for Flows
 
 | Variable Name | Type | Required | Default | Description |

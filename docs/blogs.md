@@ -1,8 +1,9 @@
-<p align="center"><img src="./img/lo.svg" width="260"></p>
+---
+title: Blog posts
+---
+
+<p align="center"><img src="../img/lo.svg" width="260"></p>
 <p align="center">
-
-
-# Blog posts
 
 The following list shows some of our blog posts about the Logging operator that we posted on the [Banzai Cloud Blog](https://banzaicloud.com/blog/). For a complete list of related blog posts, including recent ones, see [this list](https://banzaicloud.com/tags/logging/).
 

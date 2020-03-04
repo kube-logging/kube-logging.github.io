@@ -1,4 +1,7 @@
-### LoggingSpec
+---
+title: LoggingSpec
+---
+
 #### LoggingSpec defines the desired state of Logging
 
 | Variable Name | Type | Required | Default | Description |

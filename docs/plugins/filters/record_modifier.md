@@ -1,6 +1,8 @@
-# [Record Modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
+---
+title: Record Modifier
+---
 ## Overview
- Modify each event record.
+[Record Modifier](https://github.com/repeatedly/fluent-plugin-record-modifier) modifies each event record.
 
 ## Configuration
 ### RecordModifier

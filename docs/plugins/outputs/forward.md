@@ -1,7 +1,10 @@
-### ForwardOutput
+---
+title: ForwardOutput
+---
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| servers | []FluentdServer | Yes | - | Server definitions at least one is required<br>[Server](#Fluentd-Server)<br> |
+| servers | []FluentdServer | Yes | - | Server definitions at least one is required<br>[Server](#fluentd-server)<br> |
 | require_ack_response | bool | No | - | Change the protocol to at-least-once. The plugin waits the ack from destination's in_forward plugin.<br> |
 | ack_response_timeout | int | No |  190 | This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries. <br> |
 | send_timeout | int | No |  60 | The timeout time when sending event logs. <br> |
@@ -29,10 +32,12 @@
 | tls_cert_use_enterprise_store | bool | No | - | Enable to use certificate enterprise store on Windows system certstore. This parameter is for Windows only.<br> |
 | keepalive | bool | No |  false | Enable keepalive connection. <br> |
 | keepalive_timeout | int | No |  0 | Expired time of keepalive. Default value is nil, which means to keep connection as long as possible. <br> |
-| security | *common.Security | No | - | [Security](/docs/plugins/common/security.md)<br> |
+| security | *common.Security | No | - | [Security]({{< relref "/docs/one-eye/logging-operator/plugins/common/security.md" >}})<br> |
 | verify_connection_at_startup | bool | No |  false | Verify that a connection can be made with one of out_forward nodes at the time of startup. <br> |
-| buffer | *Buffer | No | - | [Buffer](./buffer.md)<br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+
 ### Fluentd Server
+
 #### server
 
 | Variable Name | Type | Required | Default | Description |

@@ -1,6 +1,11 @@
-<p align="center"><img src="./img/fluentbit.png" width="340"></p>
+---
+title: Fluent Bit
+weight: 600
+---
 
-# Fluent Bit 
+{{< contents >}}
+
+<p align="center"><img src="../img/fluentbit.png" width="340"></p>
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It's fully compatible with Docker and Kubernetes environments.
 
@@ -9,12 +14,15 @@ Fluent Bit is written in C, have a pluggable architecture supporting around 30 e
 Current Version: [v1.3.8](https://github.com/fluent/fluent-bit/releases/tag/v1.3.8)
 
 ## Filters
+
 ### Kubernetes (filterKubernetes)
+
 Fluent Bit Kubernetes Filter allows to enrich your log files with Kubernetes metadata.
 [More info](https://github.com/fluent/fluent-bit-docs/blob/master/filter/kubernetes.md)
 
 #### Example filter configurations
-```
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
@@ -34,7 +42,7 @@ The plugin supports the following configuration parameters:
 
 | Key | Description | Default |
 | :--- | :--- | :--- |
-| Buffer\_Size | Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the [Unit Size](../configuration/unit_sizes.md) specification. | 32k |
+| Buffer\_Size | Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. | 32k |
 | Kube\_URL      | API Server end-point  | https://kubernetes.default.svc:443 |
 | Kube\_CA\_File | CA certificate file   | /var/run/secrets/kubernetes.io/serviceaccount/ca.crt|
 | Kube\_CA\_Path | Absolute path to scan for certificate files |  |
@@ -56,13 +64,15 @@ The plugin supports the following configuration parameters:
 | Kube\_meta_preload_cache_dir | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta | |
 | Dummy\_Meta | If set, use dummy-meta data (for test/dev purposes) | Off |
 
-
 ## Inputs
+
 ### Tail (inputTail)
+
 The tail input plugin allows to monitor one or several text files. It has a similar behavior like tail -f shell command.[More Info](https://github.com/fluent/fluent-bit-docs/blob/1.3/input/tail.md)
 
 #### Example input configurations
-```
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
@@ -77,13 +87,14 @@ spec:
 ```
 
 #### Configuration Parameters
+
 The plugin supports the following configuration parameters:
 
 | Key | Description | Default |
 | :--- | :--- | :--- |
 | storage.type | Specify the buffering mechanism to use. It can be memory or filesystem. | memory |
-| Buffer\_Chunk\_Size | Set the initial buffer size to read files data. This value is used too to increase buffer size. The value must be according to the [Unit Size](../configuration/unit_sizes.md) specification. | 32k |
-| Buffer\_Max\_Size | Set the limit of the buffer size per monitored file. When a buffer needs to be increased \(e.g: very long lines\), this value is used to restrict how much the memory buffer can grow. If reading a file exceed this limit, the file is removed from the monitored file list. The value must be according to the [Unit Size](../configuration/unit_sizes.md) specification. | Buffer\_Chunk\_Size |
+| Buffer\_Chunk\_Size | Set the initial buffer size to read files data. This value is used too to increase buffer size. The value must be according to the Unit Size specification. | 32k |
+| Buffer\_Max\_Size | Set the limit of the buffer size per monitored file. When a buffer needs to be increased \(e.g: very long lines\), this value is used to restrict how much the memory buffer can grow. If reading a file exceed this limit, the file is removed from the monitored file list. The value must be according to the Unit Size specification. | Buffer\_Chunk\_Size |
 | Path | Pattern specifying a specific log files or multiple ones through the use of common wildcards. |  |
 | Path\_Key | If enabled, it appends the name of the monitored file as part of the record. The value assigned becomes the key in the map. |  |
 | Exclude\_Path | Set one or multiple shell patterns separated by commas to exclude files matching a certain criteria, e.g: exclude\_path=\*.gz,\*.zip |  |
@@ -108,8 +119,8 @@ The plugin supports the following configuration parameters:
 ## Buffering
 
 ### BufferStorage
-A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/configuration/buffering)
 
+A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/configuration/buffering)
 
 | Key | Description | Default | 
 | :--- | :--- | :--- |
@@ -118,12 +129,11 @@ A mechanism to place processed data into a temporal location until is ready to b
 | storage.checksum | Enable the data integrity check when writing and reading data from the filesystem. The storage layer uses the CRC32 algorithm. | Off |
 | storage.backlog.mem_limit | If storage.path is set, Fluent Bit will look for data chunks that were not delivered and are still in the storage layer, these are called backlog data. This option configure a hint of maximum value of memory to use when processing these records. | 5M |
 
-
 #### Default configuration
 
-If nothing is set, by default it configures the `storage.path` explicitly to use `/buffers` and leaves fluent-bit defaults for the other options. 
+If nothing is set, by default it configures the `storage.path` explicitly to use `/buffers` and leaves fluent-bit defaults for the other options.
 
-```
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:

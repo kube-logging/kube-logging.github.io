@@ -1,6 +1,8 @@
-# [Record Transformer](https://docs.fluentd.org/filter/record_transformer)
+---
+title: Record Transformer
+---
 ## Overview
- Mutates/transforms incoming event streams.
+[Record Transformer](https://docs.fluentd.org/filter/record_transformer) mutates/transforms incoming event streams.
 
 ## Configuration
 ### RecordTransformer

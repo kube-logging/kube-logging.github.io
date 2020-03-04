@@ -1,4 +1,6 @@
-# Secret definition
+---
+title: Secret definition
+---
 
 ## Define secret value
 
