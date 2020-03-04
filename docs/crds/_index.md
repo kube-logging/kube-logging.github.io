@@ -112,14 +112,14 @@ You can customize the `fluentd` statefulset with the following parameters.
 | port | int | 24240 | Fluentd target port |
 | tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
 | nodeSelector | [NodeSelector](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#nodeselector-v1-core) | {} | A node selector represents the union of the results of one or more label queries over a set of nodes |
-| metrics | [Metrics]({{< relref "logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
-| security | [Security]({{< relref "logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
+| metrics | [Metrics]({{< relref "/docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
+| security | [Security]({{< relref "/docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
 | podPriorityClassName | string | "" | Name of a priority class to launch fluentd with |
 | scaling | [scaling](#scaling)] | "" | Fluentd scaling preferences |
 | fluentLogDestination | string | "null" | Send internal fluentd logs to stdout, or use "null" to omit them, see: https://docs.fluentd.org/deployment/logging#capture-fluentd-logs |
 | fluentOutLogrotate | [FluentOutLogrotate](#FluentOutLogrotate) | nil | Write to file instead of stdout and configure logrotate params. The operator configures it by default to write to /fluentd/log/out. https://docs.fluentd.org/deployment/logging#output-to-log-file |
 | livenessProbe | [Probe](#Probe) | {} | Periodic probe of fluentd container liveness. Container will be restarted if the probe fails. |
-| livenessDefaultCheck | bool | false | Enable default liveness probe of fluentd container, which looks for stuck chunks under the buffer path. See [healthy.sh](../fluentd-image/v1.7/healthy.sh) for the details. |
+| livenessDefaultCheck | bool | false | Enable default liveness probe of fluentd container, which looks for stuck chunks under the buffer path. See [healthy.sh](https://github.com/banzaicloud/logging-operator/blob/master/fluentd-image/v1.7/healthy.sh) for the details. |
 | readinessProbe | [Probe](#Probe) | {} | Periodic probe of fluentd container service readiness. Container will be removed from service endpoints if the probe fails. |
 | scaling | [Scaling](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#deploymentspec-v1-apps) | {replicas: 1} | Fluentd scaling configuration i.e replica count
 
@@ -176,8 +176,8 @@ spec:
 | targetPort | int | *Fluentd port* |  Port to send the logs forward |
 | parser | string | cri | Change fluent-bit input parse configuration. [Available parsers](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf)  |
 | tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
-| metrics | [Metrics]({{< relref "logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
-| security | [Security]({{< relref "logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
+| metrics | [Metrics]({{< relref "/docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
+| security | [Security]({{< relref "/docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
 | positiondb |  [KubernetesStorage](#KubernetesStorage) | nil | Add position db storage support. If nothing is configured an emptyDir volume will be used. |
 | inputTail | [InputTail]({{< relref "docs/one-eye/logging-operator/fluentbit.md#tail-inputtail" >}}) | {} | Preconfigured tailer for container logs on the host. Container runtime (containerd vs. docker) is automatically detected for convenience. |
 | filterKubernetes | [FilterKubernetes]({{< relref "docs/one-eye/logging-operator/fluentbit.md#kubernetes-filterkubernetes" >}}) | {} | Fluent Bit Kubernetes Filter allows to enrich your log files with Kubernetes metadata. |
@@ -385,11 +385,11 @@ Outputs are the final stage for a `logging flow`. You can define multiple `outpu
 
 ### Defining outputs
 
-The supported `Output` plugins are documented [here](./plugins/outputs)
+The supported `Output` plugins are documented [here]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}})
 
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
-| **Output Definitions** | [Output](./plugins/outputs) | nil | Named output definitions |
+| **Output Definitions** | [Output]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}}) | nil | Named output definitions |
 | loggingRef | string | "" | Specified `logging` resource reference to connect `Output` and `ClusterOutput` to |
 
 **`output` s3 example**
@@ -433,9 +433,9 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
-| selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match](../log-routing/). Kubernetes label selectors for the log. |
-| match                   | [][Match](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see](./log-routing/) |
-| match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see](./log-routing/) |
+| selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}). Kubernetes label selectors for the log. |
+| match                   | [][Match](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}) |
+| match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}) |
 | filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}}).  |
 | loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
 | outputRefs              | []string | [] | List of [Outputs](#Defining-outputs) or [ClusterOutputs](#Defining-outputs) names |
