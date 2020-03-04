@@ -3,7 +3,6 @@ title: New Relic Logs plugin for Fluentd
 ---
 ## Overview
 **newrelic** output plugin send log data to New Relic Logs
->Example: [New Relic Output Deployment](../../../docs/example-newrelic.md)
 
  #### Example output configurations
  ```
