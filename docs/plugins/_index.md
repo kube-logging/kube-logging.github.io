@@ -8,8 +8,8 @@ For more information please click on the plugin name
 
 | Name | Type | Description | Status |Version |
 |:---|---|:---|:---:|---:|
-| **[Security](common/security/)** | common |  |  | []() |
-| **[Transport](common/transport/)** | common |  |  | []() |
+| **[Security](common/security/)** | common |  |  |  |
+| **[Transport](common/transport/)** | common |  |  |  |
 | **[Concat](filters/concat/)** | filters | Fluentd Filter plugin to concatenate multiline log separated in multiple events. | GA | [2.4.0](https://github.com/fluent-plugins-nursery/fluent-plugin-concat) |
 | **[Dedot](filters/dedot/)** | filters | Concatenate multiline log separated in multiple events | GA | [1.0.0](https://github.com/lunardial/fluent-plugin-dedot_filter) |
 | **[Exception Detector](filters/detect_exceptions/)** | filters | Exception Detector | GA | [0.0.13](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions) |
