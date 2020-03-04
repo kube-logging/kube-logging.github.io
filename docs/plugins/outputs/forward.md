@@ -4,7 +4,7 @@ title: ForwardOutput
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| servers | []FluentdServer | Yes | - | Server definitions at least one is required<br>[Server](#Fluentd-Server)<br> |
+| servers | []FluentdServer | Yes | - | Server definitions at least one is required<br>[Server](#fluentd-server)<br> |
 | require_ack_response | bool | No | - | Change the protocol to at-least-once. The plugin waits the ack from destination's in_forward plugin.<br> |
 | ack_response_timeout | int | No |  190 | This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries. <br> |
 | send_timeout | int | No |  60 | The timeout time when sending event logs. <br> |
@@ -35,7 +35,9 @@ title: ForwardOutput
 | security | *common.Security | No | - | [Security]({{< relref "/docs/one-eye/logging-operator/plugins/common/security.md" >}})<br> |
 | verify_connection_at_startup | bool | No |  false | Verify that a connection can be made with one of out_forward nodes at the time of startup. <br> |
 | buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+
 ### Fluentd Server
+
 #### server
 
 | Variable Name | Type | Required | Default | Description |

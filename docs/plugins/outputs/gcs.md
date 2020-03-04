@@ -20,10 +20,12 @@ title: GCSOutput
 | acl | string | No | - | Permission for the object in GCS: auth_read owner_full owner_read private project_private public_read<br> |
 | storage_class | string | No | - | Storage class of the file: dra nearline coldline multi_regional regional standard<br> |
 | encryption_key | string | No | - | Customer-supplied, AES-256 encryption key<br> |
-| object_metadata | []ObjectMetadata | No | - | User provided web-safe keys and arbitrary string values that will returned with requests for the file as "x-goog-meta-" response headers.<br>[Object Metadata](#ObjectMetadata)<br> |
+| object_metadata | []ObjectMetadata | No | - | User provided web-safe keys and arbitrary string values that will returned with requests for the file as "x-goog-meta-" response headers.<br>[Object Metadata](#objectmetadata)<br> |
 | format | *Format | No | - | [Format](../format/)<br> |
 | buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+
 ### ObjectMetadata
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | key | string | Yes | - | Key<br> |
