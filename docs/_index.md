@@ -6,10 +6,7 @@ cascade:
   githubEditUrl: "https://github.com/banzaicloud/logging-operator-docs/edit/master/docs/"
 ---
 
-<p align="center"><img src="img/lo.svg" width="260"></p>
-<p align="center">
-
-Welcome to the Logging operator documentation!
+Welcome to the Logging operator documentation! The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes.
 
 ## Overview
 

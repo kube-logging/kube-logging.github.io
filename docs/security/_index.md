@@ -5,8 +5,6 @@ weight: 1000
 
 {{< contents >}}
 
-<p align="center"><img src="../img/lo.svg" width="260"></p>
-
 ## Security Variables
 
 | Variable Name | Type | Required | Default | Description |
