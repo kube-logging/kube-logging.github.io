@@ -57,7 +57,9 @@ ClusterFlow:
 
 ## Examples
 
-### Example 1. Select logs with `app: nginx` labels from the namespace
+### Example 1. Select logs by label
+
+Select logs with `app: nginx` labels from the namespace:
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -74,7 +76,9 @@ ClusterFlow:
             app: nginx
   ```
 
-### Example 2. Exclude logs with `app: nginx` labels from the namespace
+### Example 2. Exclude logs by label
+
+Exclude logs with `app: nginx` labels from the namespace
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -91,7 +95,9 @@ ClusterFlow:
             app: nginx
   ```
 
-### Example 3. Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace
+### Example 3. Exclude and select logs by label
+
+Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -111,7 +117,9 @@ ClusterFlow:
             app: nginx
   ```
 
-### Example 4. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
+### Example 4. Exclude cluster logs by namespace
+
+Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -129,7 +137,9 @@ ClusterFlow:
             app: nginx
   ```
 
-### Example 5. Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
+### Example 5. Exclude and select cluster logs by namespace
+
+Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
