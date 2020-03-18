@@ -17,18 +17,6 @@ weight: 200
 
 Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-logging-operator-with-helm).
 
-1. Clone the logging-operator repo.
-
-    ```bash
-    git clone git@github.com:banzaicloud/logging-operator.git
-    ```
-
-1. Navigate to the `logging-operator` folder.
-
-    ```bash
-    cd logging-operator
-    ```
-
 1. Create a controlNamespace called "logging".
 
     ```bash
