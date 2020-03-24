@@ -47,12 +47,15 @@ ClusterFlow:
       - exclude:
           labels:
             exclude-this: label
-          namespaces: developer 
+          namespaces:
+            - developer 
       - select:
           labels:
             app: nginx
             label/xxx: example
-          namespaces: production,beta
+          namespaces:
+            - production
+            - beta
 ```
 
 ## Examples
@@ -131,7 +134,9 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
       - forward-output-sample
     match:
       - exclude:
-          namespaces: dev,sandbox
+          namespaces:
+            - dev
+            - sandbox
       - select:
           labels:
             app: nginx
@@ -151,9 +156,13 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
       - forward-output-sample
     match:
       - exclude:
-          namespaces: dev,sandbox
+          namespaces:
+            - dev
+            - sandbox
       - select:
           labels:
             app: nginx
-          namespaces: prod,infra
+          namespaces:
+            - prod
+            - infra
   ```
