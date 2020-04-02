@@ -1,20 +1,19 @@
 ---
 title: Prometheus
+weight: 200
 ---
-## Overview
 
-The [Prometheus Filter](https://github.com/fluent/fluent-plugin-prometheus#prometheus-outputfilter-plugin)' Plugin counts Incoming Records
+# [Prometheus Filter](https://github.com/fluent/fluent-plugin-prometheus#prometheus-outputfilter-plugin)
+## Overview
+ Prometheus Filter Plugin to count Incoming Records
 
 ## Configuration
-
 ### PrometheusConfig
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| metrics | []MetricSection | No | - | [Metrics Section](#metrics-section)<br> |
+| metrics | []MetricSection | No | - | [Metrics Section](#Metrics-Section)<br> |
 | labels | Label | No | - |  |
-
 ### Metrics Section
-
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | name | string | Yes | - | Metrics name<br> |
@@ -23,10 +22,8 @@ The [Prometheus Filter](https://github.com/fluent/fluent-plugin-prometheus#prome
 | key | string | No | - | Key name of record for instrumentation.<br> |
 | buckets | string | No | - | Buckets of record for instrumentation<br> |
 | labels | Label | No | - | Additional labels for this metric<br> |
-
-#### Example `Prometheus` filter configurations
-
-```yaml
+ #### Example `Prometheus` filter configurations
+ ```
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -55,9 +52,8 @@ spec:
     - demo-output
  ```
 
-#### Fluentd Config Result
-
-```yaml
+ #### Fluentd Config Result
+ ```
   <filter **>
     @type prometheus
     @id logging-demo-flow_2_prometheus

@@ -1,7 +1,4 @@
----
-title: OutputSpec
----
-
+### OutputSpec
 #### OutputSpec defines the desired state of Output
 
 | Variable Name | Type | Required | Default | Description |
@@ -22,6 +19,7 @@ title: OutputSpec
 | cloudwatch | *output.CloudWatchOutput | No | - |  |
 | kinesisStream | *output.KinesisStreamOutputConfig | No | - |  |
 | newrelic | *output.NewRelicOutputConfig | No | - |  |
+| splunkHec | *output.SplunkHecOutput | No | - |  |
 ### OutputStatus
 #### OutputStatus defines the observed state of Output
 

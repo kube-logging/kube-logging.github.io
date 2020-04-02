@@ -1,16 +1,15 @@
 ---
-title: Kafka output plugin for Fluentd
+title: Kafka
+weight: 200
 ---
 
+# Kafka output plugin for Fluentd
 ## Overview
+  More info at https://github.com/fluent/fluent-plugin-kafka
+>Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator](../../../quickstarts/kafka-nginx/)
 
-More info at https://github.com/fluent/fluent-plugin-kafka
-
-> Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator]({{< relref "docs/one-eye/logging-operator/quickstarts/kafka-nginx.md" >}})
-
-### Example output configurations
-
-```yaml
+ #### Example output configurations
+ ```
  spec:
    kafka:
      brokers: kafka-headless.kafka.svc.cluster.local:29092
@@ -26,9 +25,7 @@ More info at https://github.com/fluent/fluent-plugin-kafka
  ```
 
 ## Configuration
-
 ### Kafka
-
 #### Send your logs to Kafka
 
 | Variable Name | Type | Required | Default | Description |

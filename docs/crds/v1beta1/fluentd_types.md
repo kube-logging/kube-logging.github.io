@@ -1,7 +1,4 @@
----
-title: FluentdSpec
----
-
+### FluentdSpec
 #### FluentdSpec defines the desired state of Fluentd
 
 | Variable Name | Type | Required | Default | Description |

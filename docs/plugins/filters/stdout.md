@@ -1,8 +1,11 @@
 ---
-title: Stdout
+title: StdOut
+weight: 200
 ---
+
+# [Stdout Filter](https://docs.fluentd.org/filter/stdout)
 ## Overview
-[Stdout Filter](https://docs.fluentd.org/filter/stdout) plugin to print events to stdout
+ Fluentd Filter plugin to print events to stdout
 
 ## Configuration
 ### StdOutFilterConfig

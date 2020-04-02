@@ -1,7 +1,4 @@
----
-title: ImageSpec
----
-
+### ImageSpec
 #### ImageSpec struct hold information about image specification
 
 | Variable Name | Type | Required | Default | Description |

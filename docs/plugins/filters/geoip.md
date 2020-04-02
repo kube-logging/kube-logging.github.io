@@ -1,6 +1,9 @@
 ---
-title: Fluentd GeoIP filter
+title: Geo IP
+weight: 200
 ---
+
+# Fluentd GeoIP filter
 ## Overview
  Fluentd Filter plugin to add information about geographical location of IP addresses with Maxmind GeoIP databases.
  More information at https://github.com/y-ken/fluent-plugin-geoip

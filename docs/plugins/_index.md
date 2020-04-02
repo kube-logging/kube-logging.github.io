@@ -1,15 +1,17 @@
 ---
 title: Supported Plugins
-weight: 200
+generated_file: true
 ---
+
+# Supported Plugins
 
 For more information please click on the plugin name
 <center>
 
 | Name | Type | Description | Status |Version |
 |:---|---|:---|:---:|---:|
-| **[Security](common/security/)** | common |  |  |  |
-| **[Transport](common/transport/)** | common |  |  |  |
+| **[Security](common/security/)** | common |  |  | []() |
+| **[Transport](common/transport/)** | common |  |  | []() |
 | **[Concat](filters/concat/)** | filters | Fluentd Filter plugin to concatenate multiline log separated in multiple events. | GA | [2.4.0](https://github.com/fluent-plugins-nursery/fluent-plugin-concat) |
 | **[Dedot](filters/dedot/)** | filters | Concatenate multiline log separated in multiple events | GA | [1.0.0](https://github.com/lunardial/fluent-plugin-dedot_filter) |
 | **[Exception Detector](filters/detect_exceptions/)** | filters | Exception Detector | GA | [0.0.13](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions) |
@@ -36,6 +38,7 @@ For more information please click on the plugin name
 | **[NewRelic Logs](outputs/newrelic/)** | outputs | Send logs to New Relic Logs | GA | [1.1.5](https://github.com/newrelic/newrelic-fluentd-output) |
 | **[Alibaba Cloud Storage](outputs/oss/)** | outputs | Store logs the Alibaba Cloud Object Storage Service | GA | [0.0.2](https://github.com/aliyun/fluent-plugin-oss) |
 | **[Amazon S3](outputs/s3/)** | outputs | Store logs in Amazon S3 | GA | [1.3.0](https://github.com/fluent/fluent-plugin-s3/releases/tag/v1.3.0) |
+| **[Splunk Hec](outputs/splunk_hec/)** | outputs | Fluent Plugin Splunk Hec Release 1.2.1 | GA | [1.2.1]() |
 | **[SumoLogic](outputs/sumologic/)** | outputs | Send your logs to Sumologic | GA | [0.6.1](https://github.com/SumoLogic/fluentd-output-sumologic/releases/tag/1.6.1) |
 </center>
 

@@ -1,7 +1,4 @@
----
-title: FluentbitSpec
----
-
+### FluentbitSpec
 #### FluentbitSpec defines the desired state of Fluentbit
 
 | Variable Name | Type | Required | Default | Description |
@@ -21,6 +18,7 @@ title: FluentbitSpec
 | mountPath | string | No | - |  |
 | extraVolumeMounts | []VolumeMount | No | - |  |
 | inputTail | InputTail | No | - |  |
+| filterAws | *FilterAws | No | - |  |
 | parser | string | No | - | Deprecated, use inputTail.parser<br> |
 | filterKubernetes | FilterKubernetes | No | - |  |
 | bufferStorage | BufferStorage | No | - |  |
@@ -71,7 +69,7 @@ title: FluentbitSpec
 | Multiline | string | No | Off | If enabled, the plugin will try to discover multiline messages and use the proper parsers to compose the outgoing messages. Note that when this option is enabled the Parser option is not used. <br> |
 | Multiline_Flush | string | No | 4 | Wait period time in seconds to process queued multiline messages <br> |
 | Parser_Firstline | string | No | - | Name of the parser that machs the beginning of a multiline message. Note that the regular expression defined in the parser must include a group name (named capture)<br> |
-| Parser_N | string | No | - | Optional-extra parser to interpret and structure multiline entries. This option can be used to define multiple parsers, e.g: Parser_1 ab1,  Parser_2 ab2, Parser_N abN.<br> |
+| Parser_N | []string | No | - | Optional-extra parser to interpret and structure multiline entries. This option can be used to define multiple parsers, e.g: Parser_1 ab1,  Parser_2 ab2, Parser_N abN.<br> |
 | Docker_Mode | string | No | Off | If enabled, the plugin will recombine split Docker log lines before passing them to any parser as configured above. This mode cannot be used at the same time as Multiline. <br> |
 | Docker_Mode_Flush | string | No | 4 | Wait period time in seconds to flush queued unfinished split lines. <br> |
 ### FilterKubernetes
@@ -101,6 +99,13 @@ title: FluentbitSpec
 | Annotations | string | No | On | Include Kubernetes resource annotations in the extra metadata. <br> |
 | Kube_meta_preload_cache_dir | string | No | - | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta<br> |
 | Dummy_Meta | string | No | Off | If set, use dummy-meta data (for test/dev purposes) <br> |
+### FilterAws
+#### FilterAws The AWS Filter Enriches logs with AWS Metadata.
+
+| Variable Name | Type | Required | Default | Description |
+|---|---|---|---|---|
+| imds_version | string | No | v2 | Specify which version of the instance metadata service to use. Valid values are 'v1' or 'v2' (default).<br> |
+| Match | string | No | * | Match filtered records (default:*)<br> |
 ### VolumeMount
 #### VolumeMount defines source and destination folders of a hostPath type pod mount
 

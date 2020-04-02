@@ -25,10 +25,10 @@ function main()
   update_docs
   git add --all
   if git commit --dry-run; then
-    git commit -m "logging operator generated docs ${RELEASE_TAG}"
-    git push origin "${branch}"
+    git commit -m "Update generated docs (${RELEASE_TAG})"
+    git push origin "${BRANCH}"
     git checkout master
-    git merge "${branch}"
+    git merge "${BRANCH}"
     #git push origin master
   else
     echo "Nothing has changed."

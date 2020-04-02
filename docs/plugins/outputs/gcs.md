@@ -1,7 +1,9 @@
 ---
-title: GCSOutput
+title: Google Cloud Storage
+weight: 200
 ---
 
+### GCSOutput
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | project | string | Yes | - | Project identifier for GCS<br> |
@@ -23,9 +25,7 @@ title: GCSOutput
 | object_metadata | []ObjectMetadata | No | - | User provided web-safe keys and arbitrary string values that will returned with requests for the file as "x-goog-meta-" response headers.<br>[Object Metadata](#objectmetadata)<br> |
 | format | *Format | No | - | [Format](../format/)<br> |
 | buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
-
 ### ObjectMetadata
-
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | key | string | Yes | - | Key<br> |
