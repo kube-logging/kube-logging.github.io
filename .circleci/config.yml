@@ -1,5 +1,16 @@
 version: 2.1
 
+parameters:
+  remote-trigger:
+    type: boolean
+    default: false
+  generated-docs-update:
+    type: boolean
+    default: false
+  release-tag:
+    type: string
+    default: ""
+
 jobs:
   trigger-submodule-update:
     docker:
@@ -10,10 +21,26 @@ jobs:
           name: Trigger
           command: scripts/trigger-submodule-update.sh
 
+  update-generated-docs:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Update docs
+          command: |
+            scripts/trigger-submodule-update.sh "<<pipeline.parameters.release-tag>>"
+
 workflows:
   ci:
+    unless: << pipeline.parameters.remote-trigger >>
     jobs:
       - trigger-submodule-update:
           filters:
             branches:
               only: master
+
+  generated-docs:
+    when: << pipeline.parameters.generated-docs-update >>
+    jobs:
+      - update-generated-docs
