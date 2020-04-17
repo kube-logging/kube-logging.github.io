@@ -120,7 +120,7 @@ The plugin supports the following configuration parameters:
 
 ### BufferStorage
 
-A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/configuration/buffering)
+A mechanism to place processed data into a temporal location until is ready to be shipped. [More Info](https://docs.fluentbit.io/manual/v/1.3/configuration/buffering)
 
 | Key | Description | Default | 
 | :--- | :--- | :--- |
