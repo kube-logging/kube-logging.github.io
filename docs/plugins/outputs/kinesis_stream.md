@@ -1,6 +1,9 @@
 ---
-title: Kinesis Stream output plugin for Fluentd
+title: Amazon Kinesis
+weight: 200
 ---
+
+# Kinesis Stream output plugin for Fluentd
 ## Overview
   More info at https://github.com/awslabs/aws-fluent-plugin-kinesis#configuration-kinesis_streams
 

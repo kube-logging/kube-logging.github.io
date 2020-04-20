@@ -1,7 +1,9 @@
 ---
 title: FlowSpec
+weight: 200
 ---
 
+### FlowSpec
 #### FlowSpec is the Kubernetes spec for Flows
 
 | Variable Name | Type | Required | Default | Description |

@@ -1,34 +1,29 @@
 ---
 title: Grep
+weight: 200
 ---
 
+# [Grep Filter](https://docs.fluentd.org/filter/grep)
 ## Overview
-
-The [Grep Filter](https://docs.fluentd.org/filter/grep) plugin "greps" events by the values of specified fields.
+ The grep filter plugin "greps" events by the values of specified fields.
 
 ## Configuration
-
 ### GrepConfig
-
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
 | exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
 | or | []OrSection | No | - | [Or Directive](#Or-Directive)<br> |
 | and | []AndSection | No | - | [And Directive](#And-Directive)<br> |
-
-### [Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#Regexp-Directive}
-
+### [Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive)
 #### Specify filtering rule. This directive contains two parameters.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | key | string | Yes | - | Specify field name in the record to parse.<br> |
 | pattern | string | Yes | - | Pattern expression to evaluate<br> |
-
-#### Example `Regexp` filter configurations
-
-```yaml
+ #### Example `Regexp` filter configurations
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -44,9 +39,8 @@ spec:
     - demo-output
  ```
 
-#### Fluentd Config Result
-
-```yaml
+ #### Fluentd Config Result
+ ```yaml
   <filter **>
     @type grep
     @id demo-flow_1_grep
@@ -57,18 +51,16 @@ spec:
   </filter>
  ```
 
-### [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#Exclude-Directive}
-
-#### Specify filtering rule to reject events. This directive contains two parameters
+---
+### [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive)
+#### Specify filtering rule to reject events. This directive contains two parameters.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | key | string | Yes | - | Specify field name in the record to parse.<br> |
 | pattern | string | Yes | - | Pattern expression to evaluate<br> |
-
-#### Example `Exclude` filter configurations
-
-```yaml
+ #### Example `Exclude` filter configurations
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -84,9 +76,8 @@ spec:
     - demo-output
  ```
 
-#### Fluentd Config Result
-
-```yaml
+ #### Fluentd Config Result
+ ```yaml
   <filter **>
     @type grep
     @id demo-flow_0_grep
@@ -97,18 +88,16 @@ spec:
   </filter>
  ```
 
-### [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
-
-#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive
+---
+### [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive)
+#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
 | exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
-
-#### Example `Or` filter configurations
-
-```yaml
+ #### Example `Or` filter configurations
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -128,9 +117,8 @@ spec:
     - demo-output
 ```
 
-#### Fluentd Config Result
-
-```yaml
+ #### Fluentd Config Result
+ ```yaml
     <or>
       <exclude>
         key first
@@ -143,18 +131,16 @@ spec:
     </or>
  ```
 
-### [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
-
-#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive
+---
+### [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive)
+#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
 | exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
-
-#### Example `And` filter configurations
-
-```yaml
+ #### Example `And` filter configurations
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -174,9 +160,8 @@ spec:
     - demo-output
 ```
 
-#### Fluentd Config Result
-
-```yaml
+ #### Fluentd Config Result
+ ```yaml
     <and>
       <regexp>
         key first
