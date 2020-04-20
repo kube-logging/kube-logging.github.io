@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Update docs
           command: |
-            scripts/trigger-submodule-update.sh "<<pipeline.parameters.release-tag>>"
+            scripts/update-generated-docs.sh "<<pipeline.parameters.release-tag>>"
 
 workflows:
   ci:
