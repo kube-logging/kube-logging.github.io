@@ -29,10 +29,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup git user
+          name: Setup git
           command: |
             git config --global user.email "circleci@circleci.com"
             git config --global user.name "CircleCI"
+            git config --global --unset url.ssh://git@github.com.insteadOf
+            git config --global url."https://${GITHUB_TOKEN}:@github.com/".insteadOf "git@github.com:"
       - run:
           name: Update docs
           command: |
