@@ -24,10 +24,15 @@ jobs:
 
   update-generated-docs:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/go:1.14
     resource_class: small
     steps:
       - checkout
+      - run:
+          name: Setup git user
+          command: |
+            git config --global user.email "circleci@circleci.com"
+            git config --global user.name "CircleCI"
       - run:
           name: Update docs
           command: |
