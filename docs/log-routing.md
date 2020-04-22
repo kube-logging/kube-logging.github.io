@@ -166,3 +166,29 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
             - prod
             - infra
   ```
+
+### Example 6. Collect logs from all containers, all namespaces
+
+To collect logs from all containers, all namespaces, use an empty match statement.
+
+{{< warning >}}
+Before using such a statement on a cluster with actual load:
+
+ 1. Setup a proper output so that your logs are shipped to their destination.
+ 2. Make sure that the [scaling of Fluentd]({{< relref "/docs/one-eye/logging-operator/scaling.md" >}}) is configured properly to handle the amount of logs.
+
+We recommend starting with a more restrictive selector to avoid filling up the buffers instantly.
+{{< /warning >}}
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: Flow
+  metadata:
+    name: flow-sample
+    namespace: default
+  spec:
+    outputRefs:
+      - forward-output-sample
+    match:
+      select: {}
+```
