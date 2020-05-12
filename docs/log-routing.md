@@ -190,5 +190,5 @@ We recommend starting with a more restrictive selector to avoid filling up the b
     outputRefs:
       - forward-output-sample
     match:
-      select: {}
+      - select: {}
 ```
