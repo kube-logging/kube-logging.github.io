@@ -11,7 +11,7 @@ When scaling down Fluentd, the Logging operator does not flush the buffers befor
 To avoid this problem, you can either:
 
 - write a custom readiness check to get the last pod out from the endpoints of the service, and stop the node only when its buffers are empty, or
-- use the commercial [One Eye tool](/docs/one-eye/) that supports this behavior.
+- use the commercial [One Eye tool](/docs/one-eye/) that will support this behavior soon.
 {{< /warning >}}
 
 > Note: When multiple instances send logs to the same output, the output can receive chunks of messages out of order. Some outputs tolerate this (for example, Elasticsearch), some do not, some require fine tuning (for example, Loki).
