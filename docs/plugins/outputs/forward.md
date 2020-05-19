@@ -34,7 +34,7 @@ weight: 200
 | tls_cert_use_enterprise_store | bool | No | - | Enable to use certificate enterprise store on Windows system certstore. This parameter is for Windows only.<br> |
 | keepalive | bool | No |  false | Enable keepalive connection. <br> |
 | keepalive_timeout | int | No |  0 | Expired time of keepalive. Default value is nil, which means to keep connection as long as possible. <br> |
-| security | *common.Security | No | - | [Security](../..//common/security/)<br> |
+| security | *common.Security | No | - | [Security](../../common/security/)<br> |
 | verify_connection_at_startup | bool | No |  false | Verify that a connection can be made with one of out_forward nodes at the time of startup. <br> |
 | buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
 ### Fluentd Server

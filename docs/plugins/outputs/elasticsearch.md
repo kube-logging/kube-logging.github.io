@@ -38,6 +38,12 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 | scheme | string | No |  http | Connection scheme <br> |
 | ssl_verify | *bool | No | true | Skip ssl verification (default: true)<br> |
 | ssl_version | string | No | - | If you want to configure SSL/TLS version, you can specify ssl_version parameter. [SSLv23, TLSv1, TLSv1_1, TLSv1_2]<br> |
+| ssl_max_version | string | No | - | Specify min/max SSL/TLS version<br> |
+| ssl_min_version | string | No | - |  |
+| ca_file | *secret.Secret | No | - | CA certificate<br> |
+| client_cert | *secret.Secret | No | - | Client certificate<br> |
+| client_key | *secret.Secret | No | - | Client certificate key<br> |
+| client_key_pass | *secret.Secret | No | - | Client key password<br> |
 | logstash_format | bool | No |  false | Enable Logstash log format.<br> |
 | include_timestamp | bool | No |  false | Adds a @timestamp field to the log, following all settings logstash_format does, except without the restrictions on index_name. This allows one to log to an alias in Elasticsearch and utilize the rollover API.<br> |
 | logstash_prefix | string | No |  logstash | Set the Logstash prefix.<br> |
@@ -53,14 +59,14 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 | target_index_key | string | No | - | Tell this plugin to find the index name to write to in the record under this key in preference to other mechanisms. Key can be specified as path to nested record using dot ('.') as a separator. https://github.com/uken/fluent-plugin-elasticsearch#target_index_key<br> |
 | target_type_key | string | No |  fluentd | Similar to target_index_key config, find the type name to write to in the record under this key (or nested record). If key not found in record - fallback to type_name.<br> |
 | template_name | string | No | - | The name of the template to define. If a template by the name given is already present, it will be left unchanged, unless template_overwrite is set, in which case the template will be updated.<br> |
-| template_file | string | No | - | The path to the file containing the template to install.<br> |
+| template_file | *secret.Secret | No | - | The path to the file containing the template to install.<br>[Secret](../secret/)<br> |
 | templates | string | No | - | Specify index templates in form of hash. Can contain multiple templates.<br> |
 | customize_template | string | No | - | Specify the string and its value to be replaced in form of hash. Can contain multiple key value pair that would be replaced in the specified template_file. This setting only creates template and to add rollover index please check the rollover_index configuration.<br> |
 | rollover_index | bool | No |  false | Specify this as true when an index with rollover capability needs to be created. https://github.com/uken/fluent-plugin-elasticsearch#rollover_index<br> |
-| index_date_pattern | string | No |  now/d | Specify this to override the index date pattern for creating a rollover index.<br> |
+| index_date_pattern | *string | No |  now/d | Specify this to override the index date pattern for creating a rollover index.<br> |
 | deflector_alias | string | No | - | Specify the deflector alias which would be assigned to the rollover index created. This is useful in case of using the Elasticsearch rollover API<br> |
 | index_prefix | string | No |  logstash | Specify the index prefix for the rollover index to be created.<br> |
-| application_name | string | No |  default | Specify the application name for the rollover index to be created.<br> |
+| application_name | *string | No |  default | Specify the application name for the rollover index to be created.<br> |
 | template_overwrite | bool | No |  false | Always update the template, even if it already exists.<br> |
 | max_retry_putting_template | string | No |  10 | You can specify times of retry putting template.<br> |
 | fail_on_putting_template_retry_exceed | *bool | No | true | Indicates whether to fail when max_retry_putting_template is exceeded. If you have multiple output plugin, you could use this property to do not fail on fluentd statup.(default: true)<br> |
@@ -99,3 +105,7 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 | bulk_message_request_threshold | string | No |  20MB | Configure bulk_message request splitting threshold size.<br>Default value is 20MB. (20 * 1024 * 1024)<br>If you specify this size as negative number, bulk_message request splitting feature will be disabled. <br> |
 | sniffer_class_name | string | No | - | The default Sniffer used by the Elasticsearch::Transport class works well when Fluentd has a direct connection to all of the Elasticsearch servers and can make effective use of the _nodes API. This doesn't work well when Fluentd must connect through a load balancer or proxy. The parameter sniffer_class_name gives you the ability to provide your own Sniffer class to implement whatever connection reload logic you require. In addition, there is a new Fluent::Plugin::ElasticsearchSimpleSniffer class which reuses the hosts given in the configuration, which is typically the hostname of the load balancer or proxy. https://github.com/uken/fluent-plugin-elasticsearch#sniffer-class-name<br> |
 | buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+| enable_ilm | bool | No | - | Enable Index Lifecycle Management (ILM).<br> |
+| ilm_policy_id | string | No | - | Specify ILM policy id.<br> |
+| ilm_policy | string | No | - | Specify ILM policy contents as Hash.<br> |
+| ilm_policy_overwrite | bool | No | - | Specify whether overwriting ilm policy or not.<br> |
