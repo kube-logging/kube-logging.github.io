@@ -1,8 +1,3 @@
----
-title: Concat
-weight: 200
----
-
 # [Concat Filter](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
 ## Overview
  Fluentd Filter plugin to concatenate multiline log separated in multiple events.
