@@ -108,10 +108,10 @@ You can customize the `fluentd` statefulset with the following parameters.
 | disablePvc | bool | false | Disable PVC binding |
 | volumeModImage | [ImageSpec](#image-spec) | {} | Volume modifier image override |
 | configReloaderImage | [ImageSpec](#image-spec) | {} | Config reloader image override |
-| resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
+| resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
 | port | int | 24240 | Fluentd target port |
-| tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
-| nodeSelector | [NodeSelector](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#nodeselector-v1-core) | {} | A node selector represents the union of the results of one or more label queries over a set of nodes |
+| tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#toleration-v1-core) | {} | Pod toleration |
+| nodeSelector | [NodeSelector](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#nodeselector-v1-core) | {} | A node selector represents the union of the results of one or more label queries over a set of nodes |
 | metrics | [Metrics]({{< relref "docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
 | security | [Security]({{< relref "docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
 | podPriorityClassName | string | "" | Name of a priority class to launch fluentd with |
@@ -121,7 +121,7 @@ You can customize the `fluentd` statefulset with the following parameters.
 | livenessProbe | [Probe](#probe) | {} | Periodic probe of fluentd container liveness. Container will be restarted if the probe fails. |
 | livenessDefaultCheck | bool | false | Enable default liveness probe of fluentd container, which looks for stuck chunks under the buffer path. See [healthy.sh](https://github.com/banzaicloud/logging-operator/blob/master/fluentd-image/v1.7/healthy.sh) for the details. |
 | readinessProbe | [Probe](#probe) | {} | Periodic probe of fluentd container service readiness. Container will be removed from service endpoints if the probe fails. |
-| scaling | [Scaling](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#deploymentspec-v1-apps) | {replicas: 1} | Fluentd scaling configuration i.e replica count
+| scaling | [Scaling](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#deploymentspec-v1-apps) | {replicas: 1} | Fluentd scaling configuration i.e replica count
 
 **`logging` with custom pvc volume for buffers**
 
@@ -171,11 +171,11 @@ spec:
 | labels | map[string]string | {} | Extra labels for fluent-bit and it's related resources |
 | tls | [TLS](#tls-spec) | {} | Configure TLS settings|
 | image | [ImageSpec](#image-spec) | {} | Fluentd image override |
-| resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
+| resources | [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#resourcerequirements-v1-core) | {} | Resource requirements and limits |
 | targetHost | string | *Fluentd host* | Hostname to send the logs forward |
 | targetPort | int | *Fluentd port* |  Port to send the logs forward |
 | parser | string | cri | Change fluent-bit input parse configuration. [Available parsers](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf)  |
-| tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#toleration-v1-core) | {} | Pod toleration |
+| tolerations | [Toleration](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#toleration-v1-core) | {} | Pod toleration |
 | metrics | [Metrics]({{< relref "docs/one-eye/logging-operator/logging-operator-monitoring.md#metrics-variables" >}}) | {} | Metrics defines the service monitor endpoints |
 | security | [Security]({{< relref "docs/one-eye/logging-operator/security/_index.md#security-variables" >}}) | {} | Security defines Fluentd, Fluentbit deployment security properties |
 | positiondb |  [KubernetesStorage](#kubernetesstorage) | nil | Add position db storage support. If nothing is configured an emptyDir volume will be used. |
@@ -314,16 +314,16 @@ Define Kubernetes storage
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
-| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
+| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
+| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
 | pvc | [PersistentVolumeClaim](#persistent-volume-claim) | - | A PersistentVolumeClaim (PVC) is a request for storage by a user. |
 
 #### Persistent Volume Claim
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| spec | [PersistentVolumeClaimSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#persistentvolumeclaimspec-v1-core) | - | Spec defines the desired characteristics of a volume requested by a pod author. |
-| source | [PersistentVolumeClaimVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#persistentvolumeclaimvolumesource-v1-core) | - | PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.  |
+| spec | [PersistentVolumeClaimSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimspec-v1-core) | - | Spec defines the desired characteristics of a volume requested by a pod author. |
+| source | [PersistentVolumeClaimVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core) | - | PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.  |
 
 The Persistent Volume Claim should be created with the given `spec` and with the `name` defined in the `source`'s `claimName`.
 
