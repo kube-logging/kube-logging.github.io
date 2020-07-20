@@ -139,7 +139,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 ## Test Your Deployment with kafkacat
 
-1. Exec Kafaka test pod
+1. Exec Kafka test pod
 
     ```bash
     kubectl -n kafka exec -it kafka-test-c sh
