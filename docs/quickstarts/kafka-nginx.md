@@ -49,7 +49,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-the-logging-operator-from-kubernetes-manifests" >}})
 1. Create the `logging` resource.
 
-     ```bash
+     ```yaml
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
@@ -66,7 +66,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 1. Create an Elasticsearch `output` definition.
 
-     ```bash
+     ```yaml
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
@@ -90,7 +90,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 1. Create a `flow` resource.
 
-     ```bash
+     ```yaml
      kubectl -n logging apply -f - <<"EOF" 
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
@@ -115,7 +115,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 1. Install the demo application.
 
-     ```bash
+     ```yaml
     kubectl -n logging apply -f - <<"EOF" 
     apiVersion: apps/v1 
     kind: Deployment
