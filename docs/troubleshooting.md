@@ -243,6 +243,8 @@ fluentd:
 The following command displays the logs of the Fluentd container.
 `kubectl exec -it logging-demo-fluentd-0 cat /fluentd/log/out`
 
+> The [One Eye](/products/one-eye/) observability tool can [display Fluentd logs on its web UI](/docs/one-eye/troubleshooting/), where you can select which replica to inspect, search the logs, and use other ways to monitor and troubleshoot your logging infrastructure.
+
 ### Set stdout as an output
 
 You can use an stdout filter at any point in the flow to dump the log messages to the stdout of the Fluentd container. For example:

@@ -26,6 +26,8 @@ Logging resource define a logging infrastructure for your cluster. You can defin
 
 You can install `logging` resource via [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging) with built-in TLS generation.
 
+> The [One Eye](/products/one-eye/) observability tool can [manage the TLS certificates of the logging resource](/docs/one-eye/tls/) using cert-manager.
+
 ### Namespace separation
 
 A `logging pipeline` consist two type of resources.
