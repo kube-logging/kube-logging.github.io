@@ -1,6 +1,7 @@
 ---
 title: OutputSpec
 weight: 200
+generated_file: true
 ---
 
 ### OutputSpec
@@ -17,15 +18,18 @@ weight: 200
 | logz | *output.LogZOutput | No | - |  |
 | loki | *output.LokiOutput | No | - |  |
 | sumologic | *output.SumologicOutput | No | - |  |
+| datadog | *output.DatadogOutput | No | - |  |
 | forward | *output.ForwardOutput | No | - |  |
 | file | *output.FileOutputConfig | No | - |  |
 | nullout | *output.NullOutputConfig | No | - |  |
 | kafka | *output.KafkaOutputConfig | No | - |  |
 | cloudwatch | *output.CloudWatchOutput | No | - |  |
 | kinesisStream | *output.KinesisStreamOutputConfig | No | - |  |
+| logdna | *output.LogDNAOutput | No | - |  |
 | newrelic | *output.NewRelicOutputConfig | No | - |  |
 | splunkHec | *output.SplunkHecOutput | No | - |  |
 | http | *output.HTTPOutputConfig | No | - |  |
+| awsElasticsearch | *output.AwsElasticsearchOutputConfig | No | - |  |
 ### OutputStatus
 #### OutputStatus defines the observed state of Output
 
