@@ -1,0 +1,101 @@
+version: 2
+jobs:
+  trigger-submodule-update:
+    docker:
+    - image: cimg/base:stable
+    resource_class: small
+    steps:
+    - checkout
+    - run:
+        name: Trigger
+        command: scripts/trigger-submodule-update.sh
+  update-generated-docs:
+    docker:
+    - image: cimg/go:1.14
+    resource_class: small
+    steps:
+    - checkout
+    - run:
+        name: Setup git
+        command: |
+          set -x
+          env
+          echo ${GITHUB_TOKEN}
+          git config --global user.email "circleci@circleci.com"
+          git config --global user.name "CircleCI"
+          git config --global --unset url.ssh://git@github.com.insteadOf || true
+          git config --global url."https://${GITHUB_TOKEN}:@github.com/".insteadOf "git@github.com:"
+    - run:
+        name: Update docs
+        command: |
+          bash -x scripts/update-generated-docs.sh "3.1.0"
+workflows:
+  ci:
+    jobs:
+    - trigger-submodule-update:
+        filters:
+          branches:
+            only: master
+  generated-docs:
+    jobs:
+    - update-generated-docs
+  version: 2
+
+# Original config.yml file:
+# version: 2.1
+# 
+# parameters:
+#   remote-trigger:
+#     type: boolean
+#     default: false
+#   generated-docs-update:
+#     type: boolean
+#     default: false
+#   release-tag:
+#     type: string
+#     default: \"\"
+# 
+# jobs:
+#   trigger-submodule-update:
+#     docker:
+#       - image: cimg/base:stable
+#     resource_class: small
+#     steps:
+#       - checkout
+#       - run:
+#           name: Trigger
+#           command: scripts/trigger-submodule-update.sh
+# 
+#   update-generated-docs:
+#     docker:
+#       - image: cimg/go:1.14
+#     resource_class: small
+#     steps:
+#       - checkout
+#       - run:
+#           name: Setup git
+#           command: |
+#             set -x
+#             env
+#             echo ${GITHUB_TOKEN}
+#             git config --global user.email \"circleci@circleci.com\"
+#             git config --global user.name \"CircleCI\"
+#             git config --global --unset url.ssh://git@github.com.insteadOf || true
+#             git config --global url.\"https://${GITHUB_TOKEN}:@github.com/\".insteadOf \"git@github.com:\"
+#       - run:
+#           name: Update docs
+#           command: |
+#             bash -x scripts/update-generated-docs.sh \"3.1.0\"
+# 
+# workflows:
+#   ci:
+#     unless: << pipeline.parameters.remote-trigger >>
+#     jobs:
+#       - trigger-submodule-update:
+#           filters:
+#             branches:
+#               only: master
+# 
+#   generated-docs:
+#     jobs:
+#       - update-generated-docs
