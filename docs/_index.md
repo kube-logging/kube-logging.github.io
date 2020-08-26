@@ -1,6 +1,5 @@
 ---
 title: Logging operator
-shorttitle: Logging
 weight: 400
 cascade:
   module: logging-operator
