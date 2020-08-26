@@ -13,6 +13,20 @@ weight: 200
 - Logging operator requires Kubernetes v1.14.x or later.
 - For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
 
+## Deploy the Logging operator with One Eye {#deploy-with-one-eye}
+
+If you are using the [One Eye observability tool](/products/one-eye/), use the [one-eye command line tool](/docs/one-eye/cli/) to [install the Logging operator](/docs/one-eye/cli/reference/one-eye_logging_install/).
+
+```bash
+one-eye logging install
+```
+
+After that, you can configure your logging flows and outputs using the:
+
+- [One Eye web interface](/docs/one-eye/configuration-overview/#configure-your-logging-infrastructure),
+- [one-eye command line tool](/docs/one-eye/cli/reference/one-eye_logging_configure/), or
+- declaratively using the [Observer custom resource](/docs/one-eye/crds/oneeye_types/).
+
 ## Deploy the Logging operator from Kubernetes Manifests {#deploy-with-manifest}
 
 Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-logging-operator-with-helm).
