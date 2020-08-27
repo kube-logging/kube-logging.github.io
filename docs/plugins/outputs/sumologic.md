@@ -9,6 +9,33 @@ generated_file: true
 This plugin has been designed to output logs or metrics to SumoLogic via a HTTP collector endpoint
 More info at https://github.com/SumoLogic/fluentd-output-sumologic
 
+ Example secret for HTTP input URL
+ ```
+export URL='https://endpoint1.collection.eu.sumologic.com/receiver/v1/http/.......'
+kubectl create secret generic sumo-output --from-literal "endpoint=$URL"
+```
+
+ Example ClusterOutput
+
+```
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterOutput
+metadata:
+  name: sumo-output
+spec:
+  sumologic:
+    buffer:
+      flush_interval: 10s
+      flush_mode: interval
+    compress: true
+    endpoint:
+      valueFrom:
+        secretKeyRef:
+          key: endpoint
+          name: sumo-output
+    source_name: test1
+```
+
 ## Configuration
 ### Output Config
 | Variable Name | Type | Required | Default | Description |
@@ -28,3 +55,10 @@ More info at https://github.com/SumoLogic/fluentd-output-sumologic
 | timestamp_key | string | No |  timestamp | Field name when add_timestamp is on <br> |
 | proxy_uri | string | No | - | Add the uri of the proxy environment if present.<br> |
 | disable_cookies | bool | No |  false | Option to disable cookies on the HTTP Client. <br> |
+| delimiter | string | No |  . | Delimiter <br> |
+| custom_fields | []string | No | - | Comma-separated key=value list of fields to apply to every log. [more information](https://help.sumologic.com/Manage/Fields#http-source-fields)<br> |
+| sumo_client | string | No |  fluentd-output | Name of sumo client which is send as X-Sumo-Client header <br> |
+| compress | *bool | No |  false | Compress payload <br> |
+| compress_encoding | string | No |  gzip | Encoding method of compression (either gzip or deflate) <br> |
+| custom_dimensions | string | No | - | Dimensions string (eg "cluster=payment, service=credit_card") which is going to be added to every metric record.<br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
