@@ -47,6 +47,8 @@ For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
 
+See also our [Quickstart guides](/docs/one-eye/logging/quickstarts/).
+
 ## Support
 
 The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes. While the Logging operator itself is an [open-source project](https://github.com/banzaicloud/logging-operator/), the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) product extends the functionality of the Logging operator with commercial features (for example, collecting host logs and Kubernetes events).
