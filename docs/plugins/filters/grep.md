@@ -36,7 +36,7 @@ spec:
         - key: first
           pattern: /^5\d\d$/
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 
@@ -73,7 +73,7 @@ spec:
         - key: first
           pattern: /^5\d\d$/
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 
@@ -114,7 +114,7 @@ spec:
               pattern: /\.css$/
 
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
 ```
 
@@ -157,7 +157,7 @@ spec:
               pattern: /\.css$/
 
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
 ```
 

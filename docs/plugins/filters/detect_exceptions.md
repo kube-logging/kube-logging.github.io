@@ -45,7 +45,7 @@ spec:
           - java
           - python
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 

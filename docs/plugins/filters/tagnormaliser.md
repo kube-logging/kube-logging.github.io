@@ -36,7 +36,7 @@ spec:
     - tag_normaliser:
         format: cluster1.${namespace_name}.${pod_name}.${labels.app}
   selectors: {}
-  outputRefs:
+  globalOutputRefs:
     - demo-output
  ```
 

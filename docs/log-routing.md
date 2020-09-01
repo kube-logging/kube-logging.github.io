@@ -7,8 +7,17 @@ weight: 700
 {{< contents >}}
 
 The first step to process your logs is to select what logs goes to where.
-The logging operator uses Kubernetes labels and namespaces to separate
-different log flows.
+The logging operator uses Kubernetes labels, namespaces and other metadata
+to separate different log flows.
+
+Available routing metadata keys:
+
+| Name | Type | Description | Empty |
+|------|------|-------------|-------|
+| namespaces | []string | List of matching namespaces | All namespaces |
+| labels | map[string]string | Key - Value pairs of labels | All labels |
+| hosts | []string | List of matching hosts | All hosts |
+| container_names | []string | List of matching containers (not Pods) | All containers |
 
 ## Match statement
 
@@ -60,6 +69,23 @@ ClusterFlow:
 
 ## Examples
 
+### Example 0. Select all logs
+
+To select all logs, our if you only want to exclude some logs but retain others you need an empty select statement.
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: Flow
+  metadata:
+    name: flow-all
+    namespace: default
+  spec:
+    localOutputRefs:
+      - forward-output-sample
+    match:
+      - select: {}
+  ```
+
 ### Example 1. Select logs by label
 
 Select logs with `app: nginx` labels from the namespace:
@@ -71,7 +97,7 @@ Select logs with `app: nginx` labels from the namespace:
     name: flow-sample
     namespace: default
   spec:
-    outputRefs:
+    localOutputRefs:
       - forward-output-sample
     match:
       - select:
@@ -90,7 +116,7 @@ Exclude logs with `app: nginx` labels from the namespace
     name: flow-sample
     namespace: default
   spec:
-    outputRefs:
+    localOutputRefs:
       - forward-output-sample
     match:
       - exclude:
@@ -109,7 +135,7 @@ Exclude logs with `env: dev` labels but select `app: nginx` labels from the name
     name: flow-sample
     namespace: default
   spec:
-    outputRefs:
+    localOutputRefs:
       - forward-output-sample
     match:
       - exclude:
@@ -130,7 +156,7 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
   metadata:
     name: clusterflow-sample
   spec:
-    outputRefs:
+    globalOutputRefs:
       - forward-output-sample
     match:
       - exclude:
@@ -152,7 +178,7 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
   metadata:
     name: clusterflow-sample
   spec:
-    outputRefs:
+    globalOutputRefs:
       - forward-output-sample
     match:
       - exclude:
@@ -166,29 +192,3 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
             - prod
             - infra
   ```
-
-### Example 6. Collect logs from all containers, all namespaces
-
-To collect logs from all containers, all namespaces, use an empty match statement.
-
-{{< warning >}}
-Before using such a statement on a cluster with actual load:
-
- 1. Setup a proper output so that your logs are shipped to their destination.
- 2. Make sure that the [scaling of Fluentd]({{< relref "/docs/one-eye/logging-operator/scaling.md" >}}) is configured properly to handle the amount of logs.
-
-We recommend starting with a more restrictive selector to avoid filling up the buffers instantly.
-{{< /warning >}}
-
-  ```yaml
-  apiVersion: logging.banzaicloud.io/v1beta1
-  kind: Flow
-  metadata:
-    name: flow-sample
-    namespace: default
-  spec:
-    outputRefs:
-      - forward-output-sample
-    match:
-      - select: {}
-```

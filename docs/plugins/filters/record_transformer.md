@@ -31,7 +31,7 @@ spec:
         records:
         - foo: "bar"
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 

@@ -19,7 +19,7 @@ spec:
             country: ${country.iso_code["remote"]}
             country_name: ${country.names.en["remote"]}
             postal_code:  ${postal.code["remote"]}
-  outputRefs:
+  localOutputRefs:
     - null-output-sample
   match:
     - select:

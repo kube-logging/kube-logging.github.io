@@ -228,7 +228,7 @@ weight: 800
             labels:
               app.kubernetes.io/instance: nginx-demo
               app.kubernetes.io/name: nginx-logging-demo
-      outputRefs:
+      localOutputRefs:
         - demo-output
     EOF
     ```

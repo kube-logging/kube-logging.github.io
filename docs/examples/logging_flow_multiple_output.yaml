@@ -4,7 +4,7 @@ metadata:
   name: flow-sample
   namespace: default
 spec:
-  outputRefs:
+  localOutputRefs:
     - gcs-output-sample
     - s3-output-example
   match:

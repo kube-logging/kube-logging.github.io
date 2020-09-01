@@ -23,7 +23,7 @@ spec:
     - throttle:
         group_key: "$.kubernetes.container_name"
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 

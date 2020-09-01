@@ -49,7 +49,7 @@ spec:
           tag: ${tag}
           namespace: $.kubernetes.namespace
   selectors: {}
-  outputRefs:
+  localOutputRefs:
     - demo-output
  ```
 
