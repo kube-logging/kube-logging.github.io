@@ -4,7 +4,7 @@ metadata:
   name: flow-sample
   namespace: default
 spec:
-  outputRefs:
+  localOutputRefs:
     - forward-output-sample
   match:
     - select:

@@ -259,7 +259,7 @@ metadata:
 spec:
   filters:
     - stdout: {}
-  outputRefs:
+  localOutputRefs:
     - exchange
   selectors:
     application: exchange

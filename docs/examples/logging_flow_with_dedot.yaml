@@ -12,7 +12,7 @@ spec:
     - tag_normaliser:
         format: ${namespace_name}.${pod_name}.${container_name}
     - dedot: {}
-  outputRefs:
+  localOutputRefs:
     - s3-output
   match:
     - select:

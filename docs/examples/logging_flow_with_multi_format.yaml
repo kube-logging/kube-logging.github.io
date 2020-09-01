@@ -14,7 +14,7 @@ spec:
         - format: none
       remove_key_name_field: true
       reserve_data: true
-  outputRefs:
+  localOutputRefs:
   - s3-output
   match:
     - select:

@@ -440,7 +440,9 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 | match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see]({{< relref "docs/one-eye/logging-operator/log-routing.md">}}) |
 | filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}}).  |
 | loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
-| outputRefs              | []string | [] | List of [Outputs](#defining-outputs) or [ClusterOutputs](#defining-outputs) names |
+| outputRefs              | []string | [] | DEPRECATED |
+| localOutputRefs              | []string | [] | List of [Outputs](#defining-outputs) (Only for Flow) |
+| globalOutputRefs              | []string | [] | List of [ClusterOutputs](#defining-outputs) |
 
 **`flow` example with filters and output in the `default` namespace**
 
@@ -458,7 +460,7 @@ spec:
           type: nginx
     - tag_normaliser:
         format: ${namespace_name}.${pod_name}.${container_name}
-  outputRefs:
+  localOutputRefs:
     - s3-output
   match:
     - select:

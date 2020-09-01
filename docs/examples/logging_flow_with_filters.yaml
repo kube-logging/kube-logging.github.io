@@ -11,7 +11,7 @@ spec:
           type: nginx
     - tag_normaliser:
         format: ${namespace_name}.${pod_name}.${container_name}
-  outputRefs:
+  localOutputRefs:
     - s3-output
   match:
     - select:

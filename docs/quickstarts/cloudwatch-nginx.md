@@ -147,7 +147,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
           - select:
               labels:
                 app.kubernetes.io/name: log-generator         
-       outputRefs:
+       localOutputRefs:
          - cloudwatch-output
      EOF
      ```
