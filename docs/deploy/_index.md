@@ -26,7 +26,7 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
 1. Create a ServiceAccount and install cluster roles.
 
     ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/deploy/manifests/rbac.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/rbac.yaml
     ```
 
 1. Apply the ClusterResources.
@@ -42,7 +42,7 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
 1. Deploy the Logging operator.
 
     ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/deploy/manifests/deployment.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
     ```
 
 ## Deploy Logging operator with Helm
