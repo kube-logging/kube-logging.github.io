@@ -54,7 +54,7 @@ Complete the following steps to deploy the Logging operator using Helm. Alternat
 
 > Note: For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
 
-1. Add operator chart repository.\
+1. Add operator chart repository.
 
     ```bash
     helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
