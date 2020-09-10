@@ -11,11 +11,11 @@ weight: 200
 ## Prerequisites
 
 - Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
+- For the [Helm-based installation](#deploy-with-helm) you need Helm v2.16.0 or later.
 
 ## Deploy the Logging operator from Kubernetes Manifests {#deploy-with-manifest}
 
-Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-logging-operator-with-helm).
+Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-with-helm).
 
 1. Create a controlNamespace called "logging".
 
@@ -52,7 +52,7 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
 
 Complete the following steps to deploy the Logging operator using Helm. Alternatively, you can also [install the operator using Kubernetes manifests](#deploy-with-manifest).
 
-> Note: For the [Helm base installation](#deploy-logging-operator-with-helm) you need Helm v2.16.0 or later.
+> Note: For the Helm-based installation you need Helm v2.16.0 or later.
 
 1. Add operator chart repository.
 
