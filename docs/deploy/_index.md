@@ -45,7 +45,7 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
     kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
     ```
 
-## Deploy Logging operator with Helm
+## Deploy Logging operator with Helm {#deploy-with-helm}
 
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
