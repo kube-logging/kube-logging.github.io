@@ -3,7 +3,7 @@ title: Fluent Bit
 weight: 600
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../img/fluentbit.png" width="340"></p>
 

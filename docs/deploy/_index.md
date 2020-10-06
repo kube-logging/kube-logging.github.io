@@ -4,7 +4,7 @@ shorttitle: Deployment
 weight: 200
 ---
 
-{{< contents >}}
+
 
 > Caution: The **master branch** is under heavy development. Use [releases](https://github.com/banzaicloud/logging-operator/releases) instead of the master branch to get stable software.
 

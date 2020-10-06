@@ -4,7 +4,7 @@ shorttitle: FAQ
 weight: 900
 ---
 
-{{< contents >}}
+
 
 ## How can I run the unreleased master version?
 

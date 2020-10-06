@@ -4,7 +4,7 @@ shorttitle: CRDs
 weight: 300
 ---
 
-{{< contents >}}
+
 
 This document contains the detailed information about the CRDs Logging operator uses.
 

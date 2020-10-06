@@ -4,7 +4,7 @@ shorttitle: Monitoring
 weight: 800
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../img/lo-pro.png" width="340"></p>
 

@@ -4,7 +4,7 @@ shorttitle: Grafana Loki
 weight: 500
 ---
 
-{{< contents >}}<p align="center"><img src="../../img/nll.png" width="340"></p>
+<p align="center"><img src="../../img/nll.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 

@@ -3,7 +3,7 @@ title: Developers documentation
 weight: 800
 ---
 
-{{< contents >}}
+
 
 This documentation helps to set-up a developer environment and writing plugins for the Logging operator.
 
