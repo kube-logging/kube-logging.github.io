@@ -3,7 +3,7 @@ title: Security
 weight: 1000
 ---
 
-{{< contents >}}
+
 
 ## Security Variables
 

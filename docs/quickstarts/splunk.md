@@ -4,7 +4,7 @@ shorttitle: Splunk HEC
 weight: 300
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../../img/splunk.png" width="340"></p>
 

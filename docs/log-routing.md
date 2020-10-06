@@ -4,7 +4,7 @@ shorttitle: Log routing
 weight: 700
 ---
 
-{{< contents >}}
+
 
 The first step to process your logs is to select what logs goes to where.
 The logging operator uses Kubernetes labels, namespaces and other metadata

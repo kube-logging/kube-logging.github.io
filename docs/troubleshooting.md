@@ -4,7 +4,7 @@ shorttitle: Troubleshooting
 weight: 400
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../img/troubleshooting.svg" width="260"></p>
 <p align="center">

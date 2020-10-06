@@ -4,7 +4,7 @@ shorttitle: Kafka
 weight: 400
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
 

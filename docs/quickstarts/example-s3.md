@@ -4,7 +4,7 @@ shorttitle: Amazon S3
 weight: 200
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../../img/s3_logo.png" width="340"></p>
 

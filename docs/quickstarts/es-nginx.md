@@ -4,7 +4,7 @@ shorttitle: Elasticsearch
 weight: 300
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../../img/nle.png" width="340"></p>
 

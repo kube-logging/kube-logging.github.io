@@ -4,7 +4,7 @@ shorttitle: Amazon CloudWatch
 weight: 100
 ---
 
-{{< contents >}}
+
 
 <p align="center"><img src="../../img/nlw.png" width="340"></p>
 
