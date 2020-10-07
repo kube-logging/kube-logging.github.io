@@ -23,7 +23,7 @@ one-eye logging install
 
 After that, you can configure your logging flows and outputs using the:
 
-- [One Eye web interface](/docs/one-eye/configuration-overview/#configure-your-logging-infrastructure),
+- [One Eye web interface](/docs/one-eye/configure-logging-infrastructure/configuration-overview/),
 - [one-eye command line tool](/docs/one-eye/cli/reference/one-eye_logging_configure/), or
 - declaratively using the [Observer custom resource](/docs/one-eye/crds/oneeye_types/).
 
