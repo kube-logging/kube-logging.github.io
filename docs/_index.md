@@ -45,7 +45,7 @@ For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
 
-See also our [Quickstart guides](/docs/one-eye/logging/quickstarts/).
+See also our [Quickstart guides](/docs/one-eye/logging-operator/quickstarts/).
 
 ## Support
 
