@@ -19,7 +19,7 @@ generated_file: true
 | replace_invalid_sequence | bool | No | - | If true, invalid string is replaced with safe characters and re-parse it.<br> |
 | inject_key_prefix | string | No | - | Store parsed values with specified key name prefix.<br> |
 | hash_value_field | string | No | - | Store parsed values as a hash value in a field.<br> |
-| emit_invalid_record_to_error | bool | No | - | Emit invalid record to @ERROR label. Invalid cases are: key not exist, format is not matched, unexpected error<br> |
+| emit_invalid_record_to_error | *bool | No | - | Emit invalid record to @ERROR label. Invalid cases are: key not exist, format is not matched, unexpected error<br> |
 | parse | ParseSection | No | - | [Parse Section](#parse-section)<br> |
 | parsers | []ParseSection | No | - | Deprecated, use `parse` instead<br> |
 ### Parse Section

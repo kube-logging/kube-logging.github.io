@@ -48,7 +48,8 @@ generated_file: true
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| replicas | int | Yes | - |  |
+| replicas | int | No | - |  |
+| podManagementPolicy | string | No | - |  |
 ### FluentdTLS
 #### FluentdTLS defines the TLS configs
 
