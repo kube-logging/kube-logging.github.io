@@ -17,14 +17,14 @@ The following figure gives you an overview about how the system works. The Loggi
 1. Add loki chart repository:
 
     ```bash
-    helm repo add loki https://grafana.github.io/loki/charts
+    helm repo add grafana https://grafana.github.io/helm-charts
     helm repo update
     ```
 
 1. Install Loki
 
     ```bash
-    helm install --namespace logging --name loki loki/loki
+    helm upgrade --install --create-namespace --namespace logging --name loki loki/loki
     ```
 
     > [Grafana Loki Documentation](https://github.com/grafana/loki/tree/master/production/helm)
@@ -32,7 +32,7 @@ The following figure gives you an overview about how the system works. The Loggi
 1. Install Grafana
 
    ```bash
-    helm install --namespace logging --name grafana stable/grafana \
+    helm upgrade --install --create-namespace --namespace logging grafana grafana/grafana \
     --set "datasources.datasources\\.yaml.apiVersion=1" \
     --set "datasources.datasources\\.yaml.datasources[0].name=Loki" \
     --set "datasources.datasources\\.yaml.datasources[0].type=loki" \
@@ -46,8 +46,6 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Helm
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-with-manifest" >}}).
-
 1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
@@ -55,11 +53,17 @@ To install the Logging operator using Helm, complete these steps. If you want to
     helm repo update
     ```
 
-1. Install the Logging operator. For details, see [How to install Logging-operator with Helm]({{< relref "docs/one-eye/logging-operator/deploy/_index.md#deploy-with-helm" >}})
+1. Install the Logging operator. 
+
+    ```bash
+    helm upgrade --install --wait --create-namespace --namespace logging --name logging-operator banzaicloud-stable/logging-operator \
+      --set createCustomResource=false"
+    ```
+
 1. Install the demo application and its logging definition.
 
     ```bash
-    helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+    helm upgrade --install --wait --create-namespace --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
       --set "loki.enabled=True"
     ```
 

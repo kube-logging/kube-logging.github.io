@@ -11,7 +11,7 @@ weight: 200
 ## Prerequisites
 
 - Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm-based installation](#deploy-with-helm) you need Helm v2.16.0 or later.
+- For the [Helm-based installation](#deploy-with-helm) you need Helm v3.21.0 or later.
 
 ## Deploy the Logging operator with One Eye {#deploy-with-one-eye}
 
@@ -66,7 +66,7 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
 
 Complete the following steps to deploy the Logging operator using Helm. Alternatively, you can also [install the operator using Kubernetes manifests](#deploy-with-manifest).
 
-> Note: For the Helm-based installation you need Helm v2.16.0 or later.
+> Note: For the Helm-based installation you need Helm v3.21.0 or later.
 
 1. Add operator chart repository.
 
@@ -77,18 +77,12 @@ Complete the following steps to deploy the Logging operator using Helm. Alternat
 
 2. Install the Logging Operator
 
-    - Helm v2
-
-        ```bash
-        helm install --namespace logging --name logging banzaicloud-stable/logging-operator
-        ```
-
     - Helm v3
 
-        ```bash
-        kubectl create ns logging
-        helm install --namespace logging logging banzaicloud-stable/logging-operator --set createCustomResource=false
-        ```
+    ```bash
+    helm upgrade --install --wait --create-namespace --namespace logging --name logging-operator banzaicloud-stable/logging-operator \
+      --set createCustomResource=false"
+    ```
 
         > You can install the `logging` resource with built-in TLS generation using a [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
