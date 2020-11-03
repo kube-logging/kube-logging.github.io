@@ -55,6 +55,8 @@ generated_file: true
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
+| active | bool | No | - |  |
+| problems | []string | No | - |  |
 ### Flow
 #### Flow Kubernetes object
 

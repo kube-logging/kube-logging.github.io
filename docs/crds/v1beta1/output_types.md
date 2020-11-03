@@ -36,6 +36,8 @@ generated_file: true
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
+| active | bool | No | - |  |
+| problems | []string | No | - |  |
 ### Output
 #### Output is the Schema for the outputs API
 

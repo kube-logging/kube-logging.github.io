@@ -31,6 +31,8 @@ generated_file: true
 |---|---|---|---|---|
 | additionalLabels | map[string]string | No | - |  |
 | honorLabels | bool | No | - |  |
+| relabelings | []*v1.RelabelConfig | No | - |  |
+| metricRelabelings | []*v1.RelabelConfig | No | - |  |
 ### Security
 #### Security defines Fluentd, Fluentbit deployment security properties
 
