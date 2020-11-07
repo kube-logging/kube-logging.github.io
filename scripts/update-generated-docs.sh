@@ -12,9 +12,9 @@ function update_docs()
   mkdir -p tmp
   git clone --depth 1 -b "${RELEASE_TAG}" "https://github.com/banzaicloud/logging-operator.git" "tmp/logging-operator"
   cd 'tmp/logging-operator/'
-  rm -rf ./docs/{crds,plugins}
+  rm -rf ./docs/configuration/{crds,plugins}
   make docs
-  cp -R ./docs/{crds,plugins} "${ROOT}/docs/"
+  cp -R ./docs/configuration/{crds,plugins} "${ROOT}/docs/configuration/"
   cd -
   rm -rf tmp
 }
