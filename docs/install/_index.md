@@ -1,6 +1,6 @@
 ---
 title: Install the Logging operator
-shorttitle: Deployment
+shorttitle: Install
 weight: 200
 ---
 
