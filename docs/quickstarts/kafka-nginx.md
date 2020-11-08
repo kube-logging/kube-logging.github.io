@@ -151,4 +151,4 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
     kafkacat -C -b kafka-0.kafka-headless.kafka.svc.cluster.local:29092 -t topic
     ```
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
+> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting.md">}}).

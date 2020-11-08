@@ -180,4 +180,4 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
 <p align="center"><img src="../../img/cw.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
+> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting.md">}}).

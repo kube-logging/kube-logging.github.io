@@ -141,4 +141,4 @@ Check the output. The logs will be available in the bucket on a `path` like:
 /logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 ```
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/troubleshooting.md">}}).
+> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting.md">}}).

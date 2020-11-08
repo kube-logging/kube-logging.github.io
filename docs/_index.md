@@ -23,7 +23,7 @@ This operator helps you bundle logging information with your applications: you c
 - Secure communication (TLS)
 - Configuration validation
 - Multiple flow support (multiply logs for different transformations)
-- Multiple [output]({{< relref "docs/one-eye/logging-operator/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
+- Multiple [output]({{< relref "docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
 - Multiple logging system support (multiple Fluentd, Fluent Bit deployment on the same cluster)
 
 ## Architecture
@@ -32,13 +32,13 @@ You can define `outputs` (destinations where you want to send your log messages,
 
 You can configure the Logging operator using the following Custom Resource Descriptions.
 
-- [logging]({{< relref "docs/one-eye/logging-operator/crds/_index.md#loggings" >}}) - Represents a logging system. Includes `Fluentd` and `Fluent-bit` configuration. Specifies the `controlNamespace`. Fluentd and Fluent-bit will be deployed in the `controlNamespace`
-- [output]({{< relref "docs/one-eye/logging-operator/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an Output for a logging flow. This is a namespaced resource. See also `clusteroutput`.
-- [flow]({{< relref "docs/one-eye/logging-operator/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow with `filters` and `outputs`. You can specify `selectors` to filter logs by labels. Outputs can be `output` or `clusteroutput`.  This is a namespaced resource. See also `clusterflow`.
-- [clusteroutput]({{< relref "docs/one-eye/logging-operator/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an output without namespace restriction. Only effective in `controlNamespace`.
-- [clusterflow]({{< relref "docs/one-eye/logging-operator/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow without namespace restriction.
+- [logging]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#loggings" >}}) - Represents a logging system. Includes `Fluentd` and `Fluent-bit` configuration. Specifies the `controlNamespace`. Fluentd and Fluent-bit will be deployed in the `controlNamespace`
+- [output]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an Output for a logging flow. This is a namespaced resource. See also `clusteroutput`.
+- [flow]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow with `filters` and `outputs`. You can specify `selectors` to filter logs by labels. Outputs can be `output` or `clusteroutput`.  This is a namespaced resource. See also `clusterflow`.
+- [clusteroutput]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an output without namespace restriction. Only effective in `controlNamespace`.
+- [clusterflow]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow without namespace restriction.
 
-For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/crds/_index.md" >}}).
+For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
 
 <p align="center"><img src="img/logging-operator-v2-architecture.png" ></p>
 
