@@ -45,10 +45,10 @@ More info at https://github.com/splunk/fluent-plugin-splunk-hec
 | idle_timeout | int | No | - | If a connection has not been used for this number of seconds it will automatically be reset upon the next use to avoid attempting to send to a closed connection. nil means no timeout.<br> |
 | read_timeout | int | No | - | The amount of time allowed between reading two chunks from the socket.<br> |
 | open_timeout | int | No | - | The amount of time to wait for a connection to be opened.<br> |
-| client_cert | string | No | - | The path to a file containing a PEM-format CA certificate for this client.<br> |
-| client_key | string | No | - | The private key for this client.'<br> |
-| ca_file | string | No | - | The path to a file containing a PEM-format CA certificate.<br> |
-| ca_path | string | No | - | The path to a directory containing CA certificates in PEM format.<br> |
+| client_cert | *secret.Secret | No | - | The path to a file containing a PEM-format CA certificate for this client.<br>[Secret](../secret/)<br> |
+| client_key | *secret.Secret | No | - | The private key for this client.'<br>[Secret](../secret/)<br> |
+| ca_file | *secret.Secret | No | - | The path to a file containing a PEM-format CA certificate.<br>[Secret](../secret/)<br> |
+| ca_path | *secret.Secret | No | - | The path to a directory containing CA certificates in PEM format.<br>[Secret](../secret/)<br> |
 | ssl_ciphers | string | No | - | List of SSL ciphers allowed.<br> |
 | insecure_ssl | *bool | No | false | Indicates if insecure SSL connection is allowed <br> |
 | fields | Fields | No | - | In this case, parameters inside <fields> are used as indexed fields and removed from the original input events<br> |
