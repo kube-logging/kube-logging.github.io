@@ -387,11 +387,11 @@ Outputs are the final stage for a `logging flow`. You can define multiple `outpu
 
 ### Defining outputs
 
-The supported `Output` plugins are documented [here]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}})
+The supported `Output` plugins are documented [here]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/outputs" >}})
 
 | Name                    | Type              | Default | Description |
 |-------------------------|-------------------|---------|-------------|
-| **Output Definitions** | [Output]({{< relref "/docs/one-eye/logging-operator/plugins/outputs" >}}) | nil | Named output definitions |
+| **Output Definitions** | [Output]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/outputs" >}}) | nil | Named output definitions |
 | loggingRef | string | "" | Specified `logging` resource reference to connect `Output` and `ClusterOutput` to |
 
 **`output` s3 example**
