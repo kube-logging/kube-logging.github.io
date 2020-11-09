@@ -6,9 +6,9 @@ weight: 800
 
 
 
-<p align="center"><img src="../img/lo-pro.png" width="340"></p>
+<p align="center"><img src="../../img/lo-pro.png" width="340"></p>
 
-<p align="center"><img src="../img/monitor.png" width="900"></p>
+<p align="center"><img src="../../img/monitor.png" width="900"></p>
 
 ## Metrics Variables
 
@@ -275,7 +275,7 @@ weight: 800
 
 1. Open the [Minio Dashboard: http://localhost:9000](http://localhost:9000)
 
-    <p align="center"><img src="../img/servicemonitor_minio.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_minio.png" width="660"></p>
 
 ### Prometheus
 
@@ -287,7 +287,7 @@ weight: 800
 
 1. Open the [Prometheus Dashboard: http://localhost:9090](http://localhost:9090)
 
-    <p align="center"><img src="../img/servicemonitor_prometheus.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_prometheus.png" width="660"></p>
 
 ### Grafana
 
@@ -307,4 +307,4 @@ weight: 800
 
 1. Open [Gradana Dashboard: http://localhost:3000](http://localhost:3000)
 
-    <p align="center"><img src="../img/servicemonitor_grafana.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_grafana.png" width="660"></p>

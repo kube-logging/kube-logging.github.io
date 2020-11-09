@@ -6,7 +6,7 @@ weight: 400
 
 
 
-<p align="center"><img src="../img/troubleshooting.svg" width="260"></p>
+<p align="center"><img src="../../img/troubleshooting.svg" width="260"></p>
 <p align="center">
 
 The following tips and commands can help you to troubleshoot your Logging operator installation.
@@ -49,7 +49,7 @@ spec:
 
 ## Troubleshooting Fluent Bit
 
-<p align="center"><img src="../img/fluentbit.png" height="100"></p>
+<p align="center"><img src="../../img/fluentbit.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluent Bit component of the Logging operator.
 
@@ -135,7 +135,7 @@ You can check the buffer directory if Fluent Bit is configured to buffer queued 
 
 ## Troubleshooting Fluentd
 
-<p align="center"><img src="../img/fluentd.png" height="100"></p>
+<p align="center"><img src="../../img/fluentd.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 
