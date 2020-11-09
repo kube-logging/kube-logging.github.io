@@ -1,7 +1,7 @@
 ---
 title: Install the Logging operator
 shorttitle: Install
-weight: 200
+weight: 100
 ---
 
 
