@@ -63,7 +63,7 @@ weight: 800
     helm install --namespace logging --name logging banzaicloud-stable/logging-operator
     ```
 
-    > You also can install logging-operator from manifest [guideline is here]{{< relref "install/_index.md#deploy-logging-operator-from-kubernetes-manifests" >}}
+    > You also can install logging-operator from manifest [guideline is here]{{< relref "../install/_index.md#deploy-logging-operator-from-kubernetes-manifests" >}}
 
 1. Deploy Demo App + Logging Definition with metrics
 

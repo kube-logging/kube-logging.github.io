@@ -3,7 +3,7 @@ title: Scaling
 weight: 1200
 ---
 
-In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when `fluentd` cannot handle its [buffer](../plugins/outputs/buffer/) directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can [scale the fluentd statefulset]({{< relref "crds/_index.md#scaling" >}}).
+In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when `fluentd` cannot handle its [buffer](../plugins/outputs/buffer/) directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can [scale the fluentd statefulset]({{< relref "../configuration/crds/_index.md#scaling" >}}).
 
 {{< warning >}}
 When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don't recommend scaling Fluentd down directly from the Logging operator.

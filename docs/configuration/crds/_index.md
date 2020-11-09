@@ -438,7 +438,7 @@ Flows define a `logging flow` that defines the `filters` and `outputs`.
 | selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}). Kubernetes label selectors for the log. |
 | match                   | [][Match](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/configuration/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}) |
 | match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/configuration/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}) |
-| filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/configuration/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/plugins/filters">}}).  |
+| filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/configuration/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/configuration/plugins/filters">}}).  |
 | loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
 | outputRefs              | []string | [] | DEPRECATED |
 | localOutputRefs              | []string | [] | List of [Outputs](#defining-outputs) (Only for Flow) |
