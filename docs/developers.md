@@ -1,5 +1,5 @@
 ---
-title: Developers documentation
+title: Developers
 weight: 800
 ---
 

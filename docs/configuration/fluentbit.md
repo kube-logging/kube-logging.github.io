@@ -1,5 +1,5 @@
 ---
-title: Fluent Bit
+title: FluentBit
 weight: 600
 ---
 
