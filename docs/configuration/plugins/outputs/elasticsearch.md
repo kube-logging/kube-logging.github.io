@@ -7,7 +7,7 @@ generated_file: true
 # Elasticsearch output plugin for Fluentd
 ## Overview
 More info at https://github.com/uken/fluent-plugin-elasticsearch
->Example Deployment: [Save all logs to ElasticSearch](../../../../quickstarts/es-nginx/)
+>Example Deployment: [Save all logs to ElasticSearch](../../../quickstarts/es-nginx/)
 
  #### Example output configurations
  ```

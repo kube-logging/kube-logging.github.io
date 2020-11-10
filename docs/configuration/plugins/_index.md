@@ -1,5 +1,5 @@
 ---
-title: Plugins
+title: Supported Plugins
 generated_file: true
 ---
 
