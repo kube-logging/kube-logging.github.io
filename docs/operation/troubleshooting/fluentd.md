@@ -4,7 +4,7 @@ shorttitle: Fluentd
 weight: 200
 ---
 
-<p align="center"><img src="../../img/fluentd.png" height="100"></p>
+<p align="center"><img src="/docs/one-eye/logging-operator/img/fluentd.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 
