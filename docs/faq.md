@@ -31,7 +31,7 @@ weight: 900
     - Helm v3
 
         ```bash
-        helm install --namespace logging --name logging ./charts/logging-operator --set createCustomResource=false --set image.tag=master
+         helm upgrade --install --wait --create-namespace --namespace logging logging ./charts/logging-operator --set createCustomResource=false --set image.tag=master
         ```
 
 ## How can I support the project?

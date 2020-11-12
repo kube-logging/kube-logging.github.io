@@ -30,7 +30,7 @@ To install the Logging operator using Helm, complete these steps. If you want to
 1. Install the demo application and its logging definition.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+    helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
       --set "loki.enabled=True"
     ```
 

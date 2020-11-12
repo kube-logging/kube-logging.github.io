@@ -43,7 +43,7 @@ EOF
 ### Deploy with Helm
 
 ```bash
-helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+ helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
     --set=loggingOperator.fluentd.security.roleBasedAccessControlCreate=True \
     --set=loggingOperator.fluentbit.security.roleBasedAccessControlCreate=True
 ```
@@ -159,7 +159,7 @@ EOF
 ### Deploy with Helm {#service-account-deploy-helm}
 
 ```bash
-helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+ helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
     --set=loggingOperator.fluentd.security.serviceAccount=fluentdUser1 \
     --set=loggingOperator.fluentbit.security.serviceAccount=fluentbitUser1
 ```
@@ -194,7 +194,7 @@ EOF
 ### Deploy with Helm
 
 ```bash
-helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+ helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
     --set=loggingOperator.fluentd.security.podSecurityPolicyCreate=True \
     --set=loggingOperator.fluentd.security.roleBasedAccessControlCreate=True \
     --set=loggingOperator.fluentbit.security.podSecurityPolicyCreate=True \
@@ -332,7 +332,7 @@ EOF
 ### Deploy with Helm
 
 ```bash
-helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+ helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
     --set=loggingOperator.fluentd.security.securityContext.allowPrivilegeEscalation=False \
     --set=loggingOperator.fluentd.security.securityContext.readOnlyRootFilesystem=False \
     --set=loggingOperator.fluentd.security.podSecurityContext.fsGroup=101 \

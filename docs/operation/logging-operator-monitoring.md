@@ -32,7 +32,7 @@ weight: 800
 1. Install Prometheus Operator
 
     ```bash
-    helm install --namespace logging --name monitor stable/prometheus-operator \
+     helm upgrade --install --wait --create-namespace --namespace logging monitor stable/prometheus-operator \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.apiVersion=1" \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].orgId=1" \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].type=file" \
@@ -60,7 +60,7 @@ weight: 800
 1. Logging Operator
 
     ```bash
-    helm install --namespace logging --name logging banzaicloud-stable/logging-operator
+     helm upgrade --install --wait --create-namespace --namespace logging logging banzaicloud-stable/logging-operator
     ```
 
     > You also can install logging-operator from manifest [guideline is here]{{< relref "../install/_index.md#deploy-logging-operator-from-kubernetes-manifests" >}}
@@ -68,7 +68,7 @@ weight: 800
 1. Deploy Demo App + Logging Definition with metrics
 
     ```bash
-    helm install --namespace logging --name logging-demo banzaicloud-stable/logging-demo \
+     helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
         --set "minio.enabled=True" \
         --set=loggingOperator.fluentd.metrics.serviceMonitor=True \
         --set=loggingOperator.fluentbit.metrics.serviceMonitor=True
