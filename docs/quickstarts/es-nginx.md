@@ -14,12 +14,12 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy Elasticsearch
 
-First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the [Elastic Cloud on Kubernetes quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html)
+First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the [Elastic Cloud on Kubernetes quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html), but there are some minor configuration changes, and we install everything into the *logging* namespace.
 
 1. Install the Elasticsearch operator.
 
     ```yaml
-    kubectl apply -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one.yaml
+    kubectl apply -f https://download.elastic.co/downloads/eck/1.3.0/all-in-one.yaml
     ```
   
 1. Create the `logging` Namespace.
@@ -28,16 +28,16 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
     kubectl create ns logging
     ```
 
-1. Install the Elasticsearch cluster.
+1. Install the Elasticsearch cluster into the *logging* namespace.
 
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
-    apiVersion: elasticsearch.k8s.elastic.co/v1beta1
+    apiVersion: elasticsearch.k8s.elastic.co/v1
     kind: Elasticsearch
     metadata:
       name: quickstart
     spec:
-      version: 7.5.0
+      version: 7.10.0
       nodeSets:
       - name: default
         count: 1
@@ -49,16 +49,16 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
     EOF
     ```
 
-1. Install Kibana.
+1. Install Kibana into the *logging* namespace.
 
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
-    apiVersion: kibana.k8s.elastic.co/v1beta1
+    apiVersion: kibana.k8s.elastic.co/v1
     kind: Kibana
     metadata:
       name: quickstart
     spec:
-      version: 7.5.0
+      version: 7.10.0
       count: 1
       elasticsearchRef:
         name: quickstart
@@ -207,7 +207,7 @@ To validate that the deployment was successful, complete the following steps.
 1. Use the following command to retrieve the password of the `elastic` user:
 
     ```bash
-    kubectl -n logging get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode
+    kubectl -n logging get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode; echo
     ```
 
 1. Enable port forwarding to the Kibana Dashboard Service.
@@ -216,7 +216,7 @@ To validate that the deployment was successful, complete the following steps.
     kubectl -n logging port-forward svc/quickstart-kb-http 5601
     ```
 
-1. Open the Kibana dashboard in your browser: [https://localhost:5601](https://localhost:5601). You should see the dashboard and some sample log messages from the demo application.
+1. Open the Kibana dashboard in your browser at [https://localhost:5601](https://localhost:5601) and login as **elastic** using the retrieved password. You should see the dashboard and some sample log messages from the demo application.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
