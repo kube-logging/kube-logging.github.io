@@ -1,6 +1,8 @@
 ---
 title: FluentBit
 weight: 600
+aliases:
+    - /docs/one-eye/logging-operator/fluentbit/
 ---
 
 

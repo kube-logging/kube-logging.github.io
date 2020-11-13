@@ -2,6 +2,8 @@
 title: Install the Logging operator
 shorttitle: Install
 weight: 100
+aliases:
+    - /docs/one-eye/logging-operator/deploy/
 ---
 
 

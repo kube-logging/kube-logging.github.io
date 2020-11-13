@@ -2,6 +2,8 @@
 title: Logging operator troubleshooting
 shorttitle: Troubleshooting
 weight: 400
+aliases:
+    - /docs/one-eye/logging-operator/troubleshooting/
 ---
 
 <p align="center"><img src="/docs/one-eye/logging-operator/img/troubleshooting.svg" width="260"></p>

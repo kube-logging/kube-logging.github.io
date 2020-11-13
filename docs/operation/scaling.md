@@ -1,6 +1,8 @@
 ---
 title: Scaling
 weight: 1200
+aliases:
+    - /docs/one-eye/logging-operator/scaling/
 ---
 
 In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when `fluentd` cannot handle its [buffer](../../configuration/plugins/outputs/buffer/) directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can [scale the fluentd statefulset]({{< relref "../configuration/crds/_index.md#scaling" >}}).
