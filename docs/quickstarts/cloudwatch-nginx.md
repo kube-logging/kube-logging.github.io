@@ -31,7 +31,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false"
+      --set createCustomResource=false
     ```
 
 1. Install the demo application and its logging definition.
