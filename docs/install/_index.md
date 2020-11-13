@@ -54,6 +54,8 @@ After that, you can configure your logging flows and outputs using the:
 
     > You can install the `logging` resource with built-in TLS generation using a [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
+1. [Validate your deployment](#validate).
+
 ## Deploy the Logging operator from Kubernetes Manifests {#manifest}
 
 {{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
@@ -86,7 +88,9 @@ After that, you can configure your logging flows and outputs using the:
     kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
     ```
 
-## Check the Logging operator deployment
+1. [Validate your deployment](#validate).
+
+## Validate the deployment {#validate}
 
 To verify that the installation was successful, complete the following steps.
 
