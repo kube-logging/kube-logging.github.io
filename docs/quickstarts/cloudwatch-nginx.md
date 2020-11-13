@@ -16,11 +16,11 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy the Logging operator and a demo Application
 
-Install the Logging operator and a demo application to provide sample log messages.
+Install the Logging operator and a demo application using [Helm](#helm) or [Kubernetes manifests](#manifest).
 
-### Deploy the Logging operator with Helm
+### Deploy the Logging operator with Helm {#helm}
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -48,11 +48,13 @@ To install the Logging operator using Helm, complete these steps. If you want to
      --set "cloudwatch.aws.log_stream_name=" 
     ```
 
-### Deploy the Logging operator with Kubernetes manifests
+1. [Validate your deployment](#validate).
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
+### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+
+1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
 1. Create logging `Namespace`
 
     ```bash
@@ -182,8 +184,10 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
     EOF
      ```
 
-## Deployment Validation
+1. [Validate your deployment](#validate).
+
+## Validate the deployment {#validate}
 
 <p align="center"><img src="../../img/cw.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting/_index.md">}}).
+{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}

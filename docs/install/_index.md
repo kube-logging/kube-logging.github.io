@@ -13,7 +13,7 @@ aliases:
 ## Prerequisites
 
 - Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm-based installation](#deploy-with-helm) you need Helm v3.21.0 or later.
+- For the [Helm-based installation](#helm) you need Helm v3.21.0 or later.
 
 ## Deploy the Logging operator with One Eye {#deploy-with-one-eye}
 
@@ -29,9 +29,9 @@ After that, you can configure your logging flows and outputs using the:
 - [one-eye command line tool](/docs/one-eye/cli/reference/one-eye_logging_configure/), or
 - declaratively using the [Observer custom resource](/docs/one-eye/crds/oneeye_types/).
 
-## Deploy the Logging operator from Kubernetes Manifests {#deploy-with-manifest}
+## Deploy the Logging operator from Kubernetes Manifests {#manifest}
 
-Complete the following steps to deploy the Logging operator using Kubernetes manifests. Alternatively, you can also [install the operator using Helm](#deploy-with-helm).
+{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
 
 1. Create a controlNamespace called "logging".
 
@@ -61,14 +61,12 @@ Complete the following steps to deploy the Logging operator using Kubernetes man
     kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
     ```
 
-## Deploy Logging operator with Helm {#deploy-with-helm}
+## Deploy Logging operator with Helm {#helm}
 
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
 
-Complete the following steps to deploy the Logging operator using Helm. Alternatively, you can also [install the operator using Kubernetes manifests](#deploy-with-manifest).
-
-> Note: For the Helm-based installation you need Helm v3.21.0 or later.
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add operator chart repository.
 
