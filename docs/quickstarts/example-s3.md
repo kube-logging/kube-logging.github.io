@@ -4,8 +4,6 @@ shorttitle: Amazon S3
 weight: 200
 ---
 
-
-
 <p align="center"><img src="../../img/s3_logo.png" width="340"></p>
 
 This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.

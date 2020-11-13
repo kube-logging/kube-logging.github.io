@@ -6,8 +6,6 @@ aliases:
     - /docs/one-eye/logging-operator/deploy/
 ---
 
-
-
 > Caution: The **master branch** is under heavy development. Use [releases](https://github.com/banzaicloud/logging-operator/releases) instead of the master branch to get stable software.
 
 ## Prerequisites
@@ -36,16 +34,14 @@ After that, you can configure your logging flows and outputs using the:
 
 {{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
-1. Add operator chart repository.
+1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
     helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
     helm repo update
     ```
 
-2. Install the Logging Operator
-
-    - Helm v3
+1. Install the Logging operator.
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \

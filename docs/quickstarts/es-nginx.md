@@ -4,8 +4,6 @@ shorttitle: Elasticsearch
 weight: 300
 ---
 
-
-
 <p align="center"><img src="../../img/nle.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
@@ -103,7 +101,7 @@ Install the Logging operator and a demo application to provide sample log messag
 {{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
 
 1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "/docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
-1. Create the `logging` resource.\
+1. Create the `logging` resource.
 
      ```bash
      kubectl -n logging apply -f - <<"EOF" 

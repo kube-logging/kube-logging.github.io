@@ -45,7 +45,6 @@ First, deploy Splunk Standalone in your Kubernetes cluster. The following proced
     EOF
     ```
 
-
 ## Deploy the Logging operator and a demo Application
 
 Install the Logging operator and a demo application to provide sample log messages.

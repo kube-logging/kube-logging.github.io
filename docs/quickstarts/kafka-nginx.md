@@ -4,8 +4,6 @@ shorttitle: Kafka
 weight: 400
 ---
 
-
-
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.

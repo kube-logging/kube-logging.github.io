@@ -4,8 +4,6 @@ shorttitle: Amazon CloudWatch
 weight: 100
 ---
 
-
-
 <p align="center"><img src="../../img/nlw.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.
@@ -29,7 +27,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
     helm repo update
     ```
 
-1. Install the Logging operator. 
+1. Install the Logging operator.
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
