@@ -10,7 +10,7 @@ weight: 100
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.
 
-The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to CloudWatch). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
 
 <p align="center"><img src="../../img/nginx-cloudwatch.png" width="900"></p>
 

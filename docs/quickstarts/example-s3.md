@@ -10,6 +10,8 @@ weight: 200
 
 This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.
 
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
+
 <p align="center"><img src="../../img/s3_flow.png" width="900"></p>
 
 ## Deploy the Logging operator
