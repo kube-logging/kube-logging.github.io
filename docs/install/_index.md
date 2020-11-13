@@ -29,6 +29,31 @@ After that, you can configure your logging flows and outputs using the:
 - [one-eye command line tool](/docs/one-eye/cli/reference/one-eye_logging_configure/), or
 - declaratively using the [Observer custom resource](/docs/one-eye/crds/oneeye_types/).
 
+## Deploy Logging operator with Helm {#helm}
+
+<p align="center"><img src="../img/helm.svg" width="150"></p>
+<p align="center">
+
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+
+1. Add operator chart repository.
+
+    ```bash
+    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+    helm repo update
+    ```
+
+2. Install the Logging Operator
+
+    - Helm v3
+
+    ```bash
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
+      --set createCustomResource=false"
+    ```
+
+    > You can install the `logging` resource with built-in TLS generation using a [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
+
 ## Deploy the Logging operator from Kubernetes Manifests {#manifest}
 
 {{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
@@ -60,31 +85,6 @@ After that, you can configure your logging flows and outputs using the:
     ```bash
     kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
     ```
-
-## Deploy Logging operator with Helm {#helm}
-
-<p align="center"><img src="../img/helm.svg" width="150"></p>
-<p align="center">
-
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
-
-1. Add operator chart repository.
-
-    ```bash
-    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
-    helm repo update
-    ```
-
-2. Install the Logging Operator
-
-    - Helm v3
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false"
-    ```
-
-        > You can install the `logging` resource with built-in TLS generation using a [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
 ## Check the Logging operator deployment
 
