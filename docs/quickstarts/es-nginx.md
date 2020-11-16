@@ -216,7 +216,9 @@ To validate that the deployment was successful, complete the following steps.
     kubectl -n logging port-forward svc/quickstart-kb-http 5601
     ```
 
-1. Open the Kibana dashboard in your browser at [https://localhost:5601](https://localhost:5601) and login as **elastic** using the retrieved password. You should see the dashboard and some sample log messages from the demo application.
+1. Open the Kibana dashboard in your browser at [https://localhost:5601](https://localhost:5601) and login as **elastic** using the retrieved password.
+
+1. By default, the Logging operator sends the incoming log messages into an index called *fluentd*. Create an Index Pattern that includes this index (for example, *fluentd\**), then select **Menu > Kibana > Discover**. You should see the dashboard and some sample log messages from the demo application.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
