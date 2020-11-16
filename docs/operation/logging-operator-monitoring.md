@@ -2,6 +2,8 @@
 title: Monitor your logging pipeline with Prometheus Operator
 shorttitle: Monitoring
 weight: 800
+aliases:
+    - /docs/one-eye/logging-operator/logging-operator-monitoring/
 ---
 
 

@@ -45,16 +45,15 @@ First, deploy Splunk Standalone in your Kubernetes cluster. The following proced
     EOF
     ```
 
-
 ## Deploy the Logging operator and a demo Application
 
 Install the Logging operator and a demo application to provide sample log messages.
 
-### Deploy the Logging operator with Kubernetes manifests
+### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-helm" >}}).
+To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm]({{< relref "docs/one-eye/logging-operator/install/_index.md#helm" >}}).
 
-1. Install the Logging operator. For details, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+1. Install the Logging operator. For details, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
 1. Create the `logging` resource.
 
     ```bash
@@ -160,7 +159,9 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
     EOF
      ```
 
-## Validate the deployment
+1. [Validate your deployment](#validate).
+
+## Validate the deployment {#validate}
 
 To validate that the deployment was successful, complete the following steps.
 
@@ -180,4 +181,4 @@ To validate that the deployment was successful, complete the following steps.
 
 <p align="center"><img src="../../img/splunk_dash.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting/_index.md">}}).
+{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}

@@ -4,13 +4,11 @@ shorttitle: Kafka
 weight: 400
 ---
 
-
-
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
-The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Kafka). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
@@ -23,9 +21,9 @@ The following figure gives you an overview about how the system works. The Loggi
 
 Install the Logging operator and a demo application to provide sample log messages.
 
-### Deploy the Logging operator with Helm
+### Deploy the Logging operator with Helm {#helm}
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -40,7 +38,7 @@ To install the Logging operator using Helm, complete these steps. If you want to
     helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
       --set "loki.enabled=True"
     ```
-   
+
 1. Install the demo application and its logging definition.
 
     ```bash
@@ -48,9 +46,13 @@ To install the Logging operator using Helm, complete these steps. If you want to
       --set "kafka.enabled=True"
     ```
 
-### Deploy the Logging operator with Kubernetes manifests
+1. [Validate your deployment](#validate).
 
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}})
+### Deploy the Logging operator with Kubernetes manifests {#manifest}
+
+{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+
+1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}})
 1. Create the `logging` resource.
 
      ```yaml
@@ -141,18 +143,20 @@ To install the Logging operator using Helm, complete these steps. If you want to
     EOF
      ```
 
-## Test Your Deployment with kafkacat
+1. [Validate your deployment](#validate).
 
-1. Exec Kafka test pod
+## Validate the deployment {#validate}
+
+1. Exec into the Kafka test pod:
 
     ```bash
     kubectl -n kafka exec -it kafka-test-c sh
     ```
 
-1. Run kafkacat
+1. Run kafkacat:
 
     ```bash
     kafkacat -C -b kafka-0.kafka-headless.kafka.svc.cluster.local:29092 -t topic
     ```
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting/_index.md">}}).
+{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}

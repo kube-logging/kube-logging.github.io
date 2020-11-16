@@ -4,24 +4,22 @@ shorttitle: Elasticsearch
 weight: 300
 ---
 
-
-
 <p align="center"><img src="../../img/nle.png" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 
-The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Elasticsearch). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
 
 <p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
 
 ## Deploy Elasticsearch
 
-First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the [Elastic Cloud on Kubernetes quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html)
+First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the [Elastic Cloud on Kubernetes quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html), but there are some minor configuration changes, and we install everything into the *logging* namespace.
 
 1. Install the Elasticsearch operator.
 
     ```yaml
-    kubectl apply -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one.yaml
+    kubectl apply -f https://download.elastic.co/downloads/eck/1.3.0/all-in-one.yaml
     ```
   
 1. Create the `logging` Namespace.
@@ -30,16 +28,16 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
     kubectl create ns logging
     ```
 
-1. Install the Elasticsearch cluster.
+1. Install the Elasticsearch cluster into the *logging* namespace.
 
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
-    apiVersion: elasticsearch.k8s.elastic.co/v1beta1
+    apiVersion: elasticsearch.k8s.elastic.co/v1
     kind: Elasticsearch
     metadata:
       name: quickstart
     spec:
-      version: 7.5.0
+      version: 7.10.0
       nodeSets:
       - name: default
         count: 1
@@ -51,16 +49,16 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
     EOF
     ```
 
-1. Install Kibana.
+1. Install Kibana into the *logging* namespace.
 
     ```yaml
     cat <<EOF | kubectl apply -n logging -f -
-    apiVersion: kibana.k8s.elastic.co/v1beta1
+    apiVersion: kibana.k8s.elastic.co/v1
     kind: Kibana
     metadata:
       name: quickstart
     spec:
-      version: 7.5.0
+      version: 7.10.0
       count: 1
       elasticsearchRef:
         name: quickstart
@@ -71,9 +69,9 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
 
 Install the Logging operator and a demo application to provide sample log messages.
 
-### Deploy the Logging operator with Helm
+### Deploy the Logging operator with Helm {#helm}
 
-To install the Logging operator using Helm, complete these steps. If you want to install the Logging operator using Kubernetes manifests, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -82,13 +80,13 @@ To install the Logging operator using Helm, complete these steps. If you want to
     helm repo update
     ```
 
-1. Install the Logging operator. 
+1. Install the Logging operator.
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false"
+      --set createCustomResource=false
     ```
-   
+
 1. Install the demo application and its logging definition.
 
     ```bash
@@ -96,12 +94,14 @@ To install the Logging operator using Helm, complete these steps. If you want to
       --set "elasticsearch.enabled=True"
     ```
 
-### Deploy the Logging operator with Kubernetes manifests
+1. [Validate your deployment](#validate).
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
+### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "/docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
-1. Create the `logging` resource.\
+{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+
+1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "/docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
+1. Create the `logging` resource.
 
      ```bash
      kubectl -n logging apply -f - <<"EOF" 
@@ -198,14 +198,16 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
     EOF
      ```
 
-## Validate the deployment
+1. [Validate your deployment](#validate).
+
+## Validate the deployment {#validate}
 
 To validate that the deployment was successful, complete the following steps.
 
 1. Use the following command to retrieve the password of the `elastic` user:
 
     ```bash
-    kubectl -n logging get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode
+    kubectl -n logging get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode; echo
     ```
 
 1. Enable port forwarding to the Kibana Dashboard Service.
@@ -214,8 +216,10 @@ To validate that the deployment was successful, complete the following steps.
     kubectl -n logging port-forward svc/quickstart-kb-http 5601
     ```
 
-1. Open the Kibana dashboard in your browser: [https://localhost:5601](https://localhost:5601). You should see the dashboard and some sample log messages from the demo application.
+1. Open the Kibana dashboard in your browser at [https://localhost:5601](https://localhost:5601) and login as **elastic** using the retrieved password.
+
+1. By default, the Logging operator sends the incoming log messages into an index called *fluentd*. Create an Index Pattern that includes this index (for example, *fluentd\**), then select **Menu > Kibana > Discover**. You should see the dashboard and some sample log messages from the demo application.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting/_index.md">}}).
+{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}

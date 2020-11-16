@@ -8,7 +8,7 @@ weight: 500
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 
-The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Loki). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
 
 <p align="center"><img src="../../img/nginx-loki.png" width="900"></p>
 
@@ -44,7 +44,9 @@ The following figure gives you an overview about how the system works. The Loggi
 
 Install the Logging operator and a demo application to provide sample log messages.
 
-### Deploy the Logging operator with Helm
+### Deploy the Logging operator with Helm {#helm}
+
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -57,7 +59,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false"
+      --set createCustomResource=false
     ```
 
 1. Install the demo application and its logging definition.
@@ -67,11 +69,13 @@ Install the Logging operator and a demo application to provide sample log messag
       --set "loki.enabled=True"
     ```
 
-### Deploy the Logging operator with Kubernetes manifests
+1. [Validate your deployment](#validate).
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm](#deploy-the-logging-operator-with-helm).
+### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#deploy-with-manifest" >}}).
+{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+
+1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
 1. Create the `logging` resource.
 
      ```bash
@@ -159,7 +163,9 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
     EOF
      ```
 
-## Deployment Validation
+1. [Validate your deployment](#validate).
+
+## Validate the deployment {#validate}
 
 ### Grafana Dashboard
 
@@ -179,4 +185,4 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 
     <p align="center"><img src="../../img/loki1.png" width="660"></p>
 
-> If you don't get the expected result you can find help in the [troubleshooting section]({{< relref "docs/one-eye/logging-operator/operation/troubleshooting/_index.md">}}).
+{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
