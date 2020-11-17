@@ -147,10 +147,29 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ## Validate the deployment {#validate}
 
+1. Deploy a pod with the *kafkacat* tool:
+
+    ```bash
+    kubectl create -f - <<EOF
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      namespace: kafka
+      name: kafka-client
+    spec:
+      containers:
+      - name: kafka-client
+        image: solsson/kafkacat:alpine
+        # Just spin & wait forever
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 3000; done;" ]
+    EOF
+    ```
+
 1. Exec into the Kafka test pod:
 
     ```bash
-    kubectl -n kafka exec -it kafka-test-c sh
+    kubectl -n kafka exec -it kafka-client sh
     ```
 
 1. Run kafkacat:
