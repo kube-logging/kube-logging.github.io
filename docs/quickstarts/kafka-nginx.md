@@ -32,11 +32,11 @@ Install the Logging operator and a demo application to provide sample log messag
     helm repo update
     ```
 
-1. Install the demo application and its logging definition.
+1. Install the Logging operator into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
-      --set "loki.enabled=True"
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
+      --set createCustomResource=false
     ```
 
 1. Install the demo application and its logging definition.
