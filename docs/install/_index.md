@@ -65,7 +65,7 @@ After that, you can configure your logging flows and outputs using the:
 1. Create a ServiceAccount and install cluster roles.
 
     ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/rbac.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/install/manifests/rbac.yaml
     ```
 
 1. Apply the ClusterResources.
@@ -81,7 +81,7 @@ After that, you can configure your logging flows and outputs using the:
 1. Deploy the Logging operator.
 
     ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/deploy/manifests/deployment.yaml
+    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/install/manifests/deployment.yaml
     ```
 
 1. [Validate your deployment](#validate).

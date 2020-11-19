@@ -87,10 +87,6 @@ rules:
       - jobs
     verbs:
       - "*"
-
----
----
-title: Source: logging-operator/templates/rbac.yaml
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
