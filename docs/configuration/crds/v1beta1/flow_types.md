@@ -50,6 +50,7 @@ generated_file: true
 | grep | *filter.GrepConfig | No | - |  |
 | prometheus | *filter.PrometheusConfig | No | - |  |
 | throttle | *filter.Throttle | No | - |  |
+| sumologic | *filter.SumoLogic | No | - |  |
 ### FlowStatus
 #### FlowStatus defines the observed state of Flow
 

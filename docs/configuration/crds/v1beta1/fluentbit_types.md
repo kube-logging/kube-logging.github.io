@@ -36,6 +36,7 @@ generated_file: true
 | livenessProbe | *corev1.Probe | No | - |  |
 | livenessDefaultCheck | bool | No | - |  |
 | readinessProbe | *corev1.Probe | No | - |  |
+| network | *FluentbitNetwork | No | - |  |
 ### FluentbitTLS
 #### FluentbitTLS defines the TLS configs
 
@@ -44,6 +45,15 @@ generated_file: true
 | enabled | bool | Yes | - |  |
 | secretName | string | No | - |  |
 | sharedKey | string | No | - |  |
+### FluentbitNetwork
+#### FluentbitNetwork defines network configuration for fluentbit
+
+| Variable Name | Type | Required | Default | Description |
+|---|---|---|---|---|
+| connectTimeout | *uint32 | No |  10 | Sets the timeout for connecting to an upstream <br> |
+| keepalive | *bool | No |  true | Whether or not TCP keepalive is used for the upstream connection <br> |
+| keepaliveIdleTimeout | *uint32 | No |  30 | How long in seconds a TCP keepalive connection can be idle before being recycled <br> |
+| keepaliveMaxRecycle | *uint32 | No |  0, disabled | How many times a TCP keepalive connection can be used before being recycled <br> |
 ### BufferStorage
 #### BufferStorage is the Service Section Configuration of fluent-bit
 
