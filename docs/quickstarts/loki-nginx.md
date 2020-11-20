@@ -14,14 +14,15 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy Loki and Grafana
 
-1. Add loki chart repository:
+1. Add the chart repositories of Loki and Grafana using the following commands:
 
     ```bash
     helm repo add grafana https://grafana.github.io/helm-charts
+    helm repo add loki https://grafana.github.io/loki/charts
     helm repo update
     ```
 
-1. Install Loki
+1. Install Loki into the *logging* namespace:
 
     ```bash
     helm upgrade --install --create-namespace --namespace logging loki loki/loki
@@ -29,7 +30,7 @@ This guide describes how to collect application and container logs in Kubernetes
 
     > [Grafana Loki Documentation](https://github.com/grafana/loki/tree/master/production/helm)
 
-1. Install Grafana
+1. Install Grafana into the *logging* namespace:
 
    ```bash
     helm upgrade --install --create-namespace --namespace logging grafana grafana/grafana \
@@ -40,7 +41,7 @@ This guide describes how to collect application and container logs in Kubernetes
     --set "datasources.datasources\\.yaml.datasources[0].access=proxy"
     ```
 
-## Deploy the Logging operator and a demo Application
+## Deploy the Logging operator and a demo application
 
 Install the Logging operator and a demo application to provide sample log messages.
 
@@ -55,7 +56,7 @@ Install the Logging operator and a demo application to provide sample log messag
     helm repo update
     ```
 
-1. Install the Logging operator. 
+1. Install the Logging operator into the *logging* namespace:
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
@@ -93,7 +94,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
      > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
 
-1. Create an Loki `output` definition.
+1. Create a Loki `output` definition.
 
      ```bash
     kubectl -n logging apply -f - <<"EOF" 
@@ -169,13 +170,13 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Grafana Dashboard
 
-1. Get Grafana login credentials
+1. Use the following command to retrieve the password of the Grafana `admin` user:
 
     ```bash
-    kubectl -n logging get secrets grafana -o json | jq '.data | map_values(@base64d)'
+    kubectl get secret --namespace logging grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
     ```
 
-1. Forward Grafana Service
+1. Enable port forwarding to the Grafana Service.
 
     ```bash
     kubectl -n logging port-forward svc/grafana 3000:80
@@ -183,6 +184,10 @@ Install the Logging operator and a demo application to provide sample log messag
 
 1. Open the Grafana Dashboard: [http://localhost:3000](http://localhost:3000)
 
-    <p align="center"><img src="../../img/loki1.png" width="660"></p>
+1. Use the `admin` username and the password retrieved in Step 1 to log in.
+
+1. Select **Menu > Explore**, select **Data source > Loki**, then select **Log labels > namespace > logging**. A list of logs should appear.
+
+    ![Sample log messages in Loki](../../img/loki1.png)
 
 {{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}

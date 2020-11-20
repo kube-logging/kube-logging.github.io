@@ -80,7 +80,7 @@ Install the Logging operator and a demo application to provide sample log messag
     helm repo update
     ```
 
-1. Install the Logging operator.
+1. Install the Logging operator into the *logging* namespace:
 
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
