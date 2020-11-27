@@ -36,6 +36,7 @@ generated_file: true
 | podPriorityClassName | string | No | - |  |
 | fluentLogDestination | string | No | - |  |
 | fluentOutLogrotate | *FluentOutLogrotate | No | - | FluentOutLogrotate sends fluent's stdout to file and rotates it<br> |
+| forwardInputConfig | *input.ForwardInputConfig | No | - |  |
 ### FluentOutLogrotate
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|

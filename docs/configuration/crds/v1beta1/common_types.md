@@ -12,6 +12,7 @@ generated_file: true
 | repository | string | No | - |  |
 | tag | string | No | - |  |
 | pullPolicy | string | No | - |  |
+| imagePullSecrets | []corev1.LocalObjectReference | No | - |  |
 ### Metrics
 #### Metrics defines the service monitor endpoints
 

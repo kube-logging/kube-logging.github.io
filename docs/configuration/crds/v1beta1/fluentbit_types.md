@@ -15,6 +15,10 @@ generated_file: true
 | tls | FluentbitTLS | No | - |  |
 | targetHost | string | No | - |  |
 | targetPort | int32 | No | - |  |
+| flush | int32 | No | 1 | Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1)<br> |
+| grace | int32 | No | 5 | Set the grace time in seconds as Integer value. The engine loop uses a Grace timeout to define wait time on exit (default: 5)<br> |
+| logLevel | string | No | info | Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. (default: info)<br> |
+| coroStackSize | int32 | No | 24576 | Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don't set too small value (say 4096), or coroutine threads can overrun the stack buffer.<br>Do not change the default value of this parameter unless you know what you are doing. (default: 24576)<br> |
 | resources | corev1.ResourceRequirements | No | - |  |
 | tolerations | []corev1.Toleration | No | - |  |
 | nodeSelector | map[string]string | No | - |  |
@@ -37,6 +41,7 @@ generated_file: true
 | livenessDefaultCheck | bool | No | - |  |
 | readinessProbe | *corev1.Probe | No | - |  |
 | network | *FluentbitNetwork | No | - |  |
+| enableUpstream | bool | No | - |  |
 ### FluentbitTLS
 #### FluentbitTLS defines the TLS configs
 
@@ -124,6 +129,14 @@ generated_file: true
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | imds_version | string | No | v2 | Specify which version of the instance metadata service to use. Valid values are 'v1' or 'v2' (default).<br> |
+| az | *bool | No | true | The availability zone (default:true).<br> |
+| ec2_instance_id | *bool | No | true | The EC2 instance ID. (default:true)<br> |
+| ec2_instance_type | *bool | No | false | The EC2 instance type. (default:false)<br> |
+| private_ip | *bool | No | false | The EC2 instance private ip. (default:false)<br> |
+| ami_id | *bool | No | false | The EC2 instance image id. (default:false)<br> |
+| account_id | *bool | No | false | The account ID for current EC2 instance. (default:false)<br> |
+| hostname | *bool | No | false | The hostname for current EC2 instance. (default:false)<br> |
+| vpc_id | *bool | No | false | The VPC ID for current EC2 instance. (default:false)<br> |
 | Match | string | No | * | Match filtered records (default:*)<br> |
 ### VolumeMount
 #### VolumeMount defines source and destination folders of a hostPath type pod mount
