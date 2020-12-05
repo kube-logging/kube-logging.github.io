@@ -41,6 +41,7 @@ generated_file: true
 | livenessDefaultCheck | bool | No | - |  |
 | readinessProbe | *corev1.Probe | No | - |  |
 | network | *FluentbitNetwork | No | - |  |
+| forwardOptions | *ForwardOptions | No | - |  |
 | enableUpstream | bool | No | - |  |
 ### FluentbitTLS
 #### FluentbitTLS defines the TLS configs
@@ -146,3 +147,13 @@ generated_file: true
 | source | string | Yes | - | Source folder<br> |
 | destination | string | Yes | - | Destination Folder<br> |
 | readOnly | bool | No | - | Mount Mode<br> |
+### ForwardOptions
+#### ForwardOptions defines custom forward output plugin options, see https://docs.fluentbit.io/manual/pipeline/outputs/forward
+
+| Variable Name | Type | Required | Default | Description |
+|---|---|---|---|---|
+| Time_as_Integer | bool | No | - |  |
+| Send_options | bool | No | - |  |
+| Require_ack_response | bool | No | - |  |
+| Tag | string | No | - |  |
+| Retry_Limit | string | No | - |  |

@@ -32,7 +32,10 @@ generated_file: true
 | security | *Security | No | - |  |
 | scaling | *FluentdScaling | No | - |  |
 | workers | int32 | No | - |  |
+| rootDir | string | No | - |  |
 | logLevel | string | No | - |  |
+| ignoreSameLogInterval | string | No | - | Ignore same log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_same_log_interval)<br> |
+| ignoreRepeatedLogInterval | string | No | - | Ignore repeated log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval)<br> |
 | podPriorityClassName | string | No | - |  |
 | fluentLogDestination | string | No | - |  |
 | fluentOutLogrotate | *FluentOutLogrotate | No | - | FluentOutLogrotate sends fluent's stdout to file and rotates it<br> |

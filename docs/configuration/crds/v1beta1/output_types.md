@@ -31,6 +31,7 @@ generated_file: true
 | http | *output.HTTPOutputConfig | No | - |  |
 | awsElasticsearch | *output.AwsElasticsearchOutputConfig | No | - |  |
 | redis | *output.RedisOutputConfig | No | - |  |
+| syslog | *output.SyslogOutputConfig | No | - |  |
 ### OutputStatus
 #### OutputStatus defines the observed state of Output
 
