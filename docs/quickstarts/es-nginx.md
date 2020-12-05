@@ -164,7 +164,7 @@ Install the Logging operator and a demo application to provide sample log messag
              reserve_data: true
              parse:
                type: nginx
-        match:
+       match:
           - select:
               labels:
                 app.kubernetes.io/name: log-generator
