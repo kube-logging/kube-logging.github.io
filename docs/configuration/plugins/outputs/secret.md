@@ -29,10 +29,9 @@ There are cases when you can't inject secret into the configuration because the 
 
 ```yaml
 tls_cert_path:
-  valueFrom:
-    mountFrom:
-      name: <kubernetes-secret-name>
-      key: <kubernetes-secret-key>
+  mountFrom:
+    name: <kubernetes-secret-name>
+    key: <kubernetes-secret-key>
 ```
 
 The operator will collect the secret and copy it to the `fluentd-output` secret. The fluentd configuration will contain the secret path.
@@ -43,7 +42,7 @@ The operator will collect the secret and copy it to the `fluentd-output` secret.
     @type forward
     tls_cert_path /fluentd/etc/secret/default-fluentd-tls-tls.crt
     ...
-</match>     
+</match>
 ```
 
 ### How it works?
@@ -62,7 +61,7 @@ metadata:
 data:
   tls.crt: SGVsbG8gV29ybGQ=
 ```
- 
+
 > The annotation format is `logging.banzaicloud.io/<loggingRef>: watched`. Since the `name` part of the an annotation can't be empty the `default` applies to empty `loggingRef` value as well.
 
 The mount path is generated from the secret information
