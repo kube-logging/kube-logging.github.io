@@ -51,6 +51,7 @@ generated_file: true
 | prometheus | *filter.PrometheusConfig | No | - |  |
 | throttle | *filter.Throttle | No | - |  |
 | sumologic | *filter.SumoLogic | No | - |  |
+| enhanceK8s | *filter.EnhanceK8s | No | - |  |
 ### FlowStatus
 #### FlowStatus defines the observed state of Flow
 

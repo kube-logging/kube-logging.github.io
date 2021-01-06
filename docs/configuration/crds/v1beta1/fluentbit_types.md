@@ -32,7 +32,8 @@ generated_file: true
 | inputTail | InputTail | No | - |  |
 | filterAws | *FilterAws | No | - |  |
 | parser | string | No | - | Deprecated, use inputTail.parser<br> |
-| filterKubernetes | FilterKubernetes | No | - |  |
+| filterKubernetes | FilterKubernetes | No | - | Parameters for Kubernetes metadata filter<br> |
+| disableKubernetesFilter | *bool | No | - | Disable Kubernetes metadata filter<br> |
 | bufferStorage | BufferStorage | No | - |  |
 | bufferStorageVolume | volume.KubernetesVolume | No | - | [volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types)<br> |
 | customConfigSecret | string | No | - |  |

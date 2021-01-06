@@ -15,6 +15,7 @@ For more information please click on the plugin name
 | **[Concat](filters/concat/)** | filters | Fluentd Filter plugin to concatenate multiline log separated in multiple events. | GA | [2.4.0](https://github.com/fluent-plugins-nursery/fluent-plugin-concat) |
 | **[Dedot](filters/dedot/)** | filters | Concatenate multiline log separated in multiple events | GA | [1.0.0](https://github.com/lunardial/fluent-plugin-dedot_filter) |
 | **[Exception Detector](filters/detect_exceptions/)** | filters | Exception Detector | GA | [0.0.13](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions) |
+| **[Enhance K8s Metadata](filters/enhance_k8s/)** | filters | Fluentd output plugin to add extra Kubernetes metadata to the events. | GA | [0.0.0](https://github.com/SumoLogic/sumologic-kubernetes-collection/tree/main/fluent-plugin-enhance-k8s-metadata) |
 | **[Geo IP](filters/geoip/)** | filters | Fluentd GeoIP filter | GA | [1.3.2](https://github.com/y-ken/fluent-plugin-geoip) |
 | **[Grep](filters/grep/)** | filters | Grep events by the values | GA | [more info](https://docs.fluentd.org/filter/grep) |
 | **[Parser](filters/parser/)** | filters | Parses" string field in event records and mutates its | GA | [more info](https://docs.fluentd.org/filter/parser) |
@@ -26,7 +27,7 @@ For more information please click on the plugin name
 | **[Tag Normaliser](filters/tagnormaliser/)** | filters | Re-tag based on log metadata | GA | [0.1.1](https://github.com/banzaicloud/fluent-plugin-tag-normaliser) |
 | **[Throttle](filters/throttle/)** | filters | A sentry plugin to throttle logs. Logs are grouped by a configurable key. When a group exceeds a configuration rate, logs are dropped for this group. | GA | [0.0.5](https://github.com/rubrikinc/fluent-plugin-throttle) |
 | **[Amazon Elasticsearch](outputs/aws_elasticsearch/)** | outputs | Fluent plugin for Amazon Elasticsearch | Testing | [2.4.0](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service) |
-| **[Azure Storage](outputs/azurestore/)** | outputs | Store logs in Azure Storage | GA | [0.1.0](https://github.com/htgc/fluent-plugin-azurestorage/releases/tag/v0.1.0) |
+| **[Azure Storage](outputs/azurestore/)** | outputs | Store logs in Azure Storage | GA | [0.2.1](https://github.com/microsoft/fluent-plugin-azure-storage-append-blob) |
 | **[Buffer](outputs/buffer/)** | outputs | Fluentd event buffer | GA | [mode info](https://docs.fluentd.org/configuration/buffer-section) |
 | **[Amazon CloudWatch](outputs/cloudwatch/)** | outputs | Send your logs to AWS CloudWatch | GA | [0.10.2](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs/releases/tag/v0.10.2) |
 | **[Datadog](outputs/datadog/)** | outputs | Send your logs to Datadog | Testing | [0.12.1](https://github.com/DataDog/fluent-plugin-datadog/releases/tag/v0.12.1) |

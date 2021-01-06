@@ -15,6 +15,7 @@ generated_file: true
 | fluentbit | *FluentbitSpec | No | - |  |
 | fluentd | *FluentdSpec | No | - |  |
 | defaultFlow | *DefaultFlowSpec | No | - |  |
+| globalFilters | []Filter | No | - |  |
 | watchNamespaces | []string | No | - |  |
 | controlNamespace | string | Yes | - |  |
 | allowClusterResourcesFromAllNamespaces | bool | No | - |  |
