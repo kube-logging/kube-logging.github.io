@@ -6,7 +6,7 @@ generated_file: true
 
 # LogZ output plugin for Fluentd
 ## Overview
-More info at https://github.com/logzio/fluent-plugin-logzio
+More info at https://github.com/tarokkk/fluent-plugin-logzio
 
  #### Example output configurations
  ```
@@ -24,8 +24,9 @@ More info at https://github.com/logzio/fluent-plugin-logzio
      output_include_time: true
      buffer:
        type: file
+       flush_mode: interval
        flush_thread_count: 4
-       flush_interval: 3s
+       flush_interval: 5s
        chunk_limit_size: 16m
        queue_limit_length: 4096
  ```
