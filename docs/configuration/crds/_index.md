@@ -381,50 +381,6 @@ spec:
   controlNamespace: logging
 ```
 
-## Outputs, Clusteroutputs
-
-Outputs are the final stage for a `logging flow`. You can define multiple `outputs` and attach them to multiple `flows`.
-
-> Note: `Flow` can be connected to `Output` and `ClusterOutput` but `ClusterFlow` is only attachable to `ClusterOutput`.
-
-### Defining outputs
-
-The supported `Output` plugins are documented [here]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/outputs" >}})
-
-| Name                    | Type              | Default | Description |
-|-------------------------|-------------------|---------|-------------|
-| **Output Definitions** | [Output]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/outputs" >}}) | nil | Named output definitions |
-| loggingRef | string | "" | Specified `logging` resource reference to connect `Output` and `ClusterOutput` to |
-
-**`output` s3 example**
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Output
-metadata:
-  name: s3-output-sample
-spec:
-  s3:
-    aws_key_id:
-      valueFrom:
-        secretKeyRef:
-          name: s3-secret
-          key: awsAccessKeyId
-          namespace: default
-    aws_sec_key:
-      valueFrom:
-        secretKeyRef:
-          name: s3-secret
-          key: awsSecretAccessKey
-          namespace: default
-    s3_bucket: example-logging-bucket
-    s3_region: eu-west-1
-    path: logs/${tag}/%Y/%m/%d/
-    buffer:
-      timekey: 1m
-      timekey_wait: 10s
-      timekey_use_utc: true
-```
 
 ## flows, clusterflows
 
