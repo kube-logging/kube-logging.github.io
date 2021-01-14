@@ -18,15 +18,9 @@ Available CRDs:
 - [clusteroutputs.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml)
 - [clusterflows.logging.banzaicloud.io](https://github.com/banzaicloud/logging-operator/tree/master/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml)
 
-> You can find example yamls [in our GitHub repository](https://github.com/banzaicloud/logging-operator/tree/master/docs/examples)
+> You can find [example yamls in our GitHub repository](https://github.com/banzaicloud/logging-operator/tree/master/config/samples).
 
-## loggings
-
-Logging resource define a logging infrastructure for your cluster. You can define **one** or **more** `logging` resource. This resource holds together a `logging pipeline`. It is responsible to deploy `fluentd` and `fluent-bit` on the cluster. It declares a `controlNamespace` and `watchNamespaces` if applicable.
-
-> Note: The `logging` resources are referenced by `loggingRef`. If you setup multiple `logging flow` you have to reference other objects to this field. This can happen if you want to run multiple fluentd with separated configuration.
-
-You can install `logging` resource via [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging) with built-in TLS generation.
+## Namespace separation
 
 > The [One Eye](/products/one-eye/) observability tool can [manage the TLS certificates of the logging resource](/docs/one-eye/tls/) using cert-manager.
 
@@ -41,64 +35,10 @@ The `namespaced` resources only effective in their **own** namespace. `Global` r
 
 > You can only create `ClusterFlow` and `ClusterOutput` in the `controlNamespace`. It **MUST** be a **protected** namespace that only **administrators** have access.
 
-Create a namespace for logging:
 
-```bash
-kubectl create ns logging
-```
+The `namespaced` resources are only effective in their **own** namespace. `Global` resources are **cluster wide**.
 
-**`logging` plain example**
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: default-logging-simple
-  namespace: logging
-spec:
-  fluentd: {}
-  fluentbit: {}
-  controlNamespace: logging
-```
-
-**`logging` with filtered namespaces**
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: default-logging-namespaced
-  namespace: logging
-spec:
-  fluentd: {}
-  fluentbit: {}
-  controlNamespace: logging
-  watchNamespaces: ["prod", "test"]
-```
-
-### Logging parameters
-
-| Name                    | Type           | Default | Description                                                             |
-|-------------------------|----------------|---------|-------------------------------------------------------------------------|
-| loggingRef              | string         | ""      | Reference name of the logging deployment                                |
-| flowConfigCheckDisabled | bool           | False   | Disable configuration check before deploy                               |
-| flowConfigOverride      | string         | ""      | Use static configuration instead of generated config.                   |  
-| fluentbit               | [FluentbitSpec](#fluent-bit-spec) | {}      | Fluent-bit configurations                                               |
-| fluentd                 | [FluentdSpec](#fluentd-spec)   | {}      | Fluentd configurations                                                  |
-| watchNamespaces         | []string       | ""      | Limit namespaces from where to read Flow and Output specs               |
-| controlNamespace        | string         | ""      | Control namespace that contains ClusterOutput and ClusterFlow resources |
-| enableRecreateWorkloadOnImmutableFieldChange | bool | false | Recreate workloads that cannot be updated, see details below |
-
-**enableRecreateWorkloadOnImmutableFieldChange**
-
-Not all fields can be updated on Kubernetes objects. This is especially true for Statefulsets and Daemonsets.
-In case there is a change that requires recreating the fluentd/fluentbit workloads use this field  
-to move on but make sure to understand the consequences:
-
-- As of fluentd, to avoid data loss, make sure to use a persistent volume for buffers `logging.spec.fluentd.`, which is the default, unless explicitly disabled or configured differently.
-- As of fluent-bit, to avoid duplicated logs, make sure to configure a hostPath volume for the positions through `logging.spec.fluentbit.spec.positiondb`.
-
-```
+> You can create `ClusterFlow` and `ClusterOutput` resources only in the `controlNamespace`. This namespace **MUST** be a **protected** namespace so that only **administrators** can access it.
 
 #### Fluent-bit Spec
 
