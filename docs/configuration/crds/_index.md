@@ -254,36 +254,9 @@ spec:
   controlNamespace: logging
 ```
 
-#### TLS Spec
 
-Define TLS certificate secret
 
-| Name                    | Type           | Default | Description |
-|-------------------------|----------------|---------|-------------|
-| enabled | string | "" | Image repository |
-| secretName | string | "" | Kubernetes secret that contains: **tls.crt, tls.key, ca.crt** |
-| sharedKey | string | "" | Shared secret for fluentd authentication |
 
-**`logging` setup with TLS**
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: default-logging-tls
-spec:
-  fluentd:
-    tls:
-      enabled: true
-      secretName: fluentd-tls
-      sharedKey: asdadas
-  fluentbit:
-    tls:
-      enabled: true
-      secretName: fluentbit-tls
-      sharedKey: asdadas
-  controlNamespace: logging
-```
 
 #### Volume Mount
 
