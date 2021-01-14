@@ -32,15 +32,15 @@ You can define `outputs` (destinations where you want to send your log messages,
 
 You can configure the Logging operator using the following Custom Resource Descriptions.
 
-- [logging]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#loggings" >}}) - Represents a logging system. Includes `Fluentd` and `Fluent-bit` configuration. Specifies the `controlNamespace`. Fluentd and Fluent-bit will be deployed in the `controlNamespace`
-- [output]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an Output for a logging flow. This is a namespaced resource. See also `clusteroutput`.
-- [flow]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow with `filters` and `outputs`. You can specify `selectors` to filter logs by labels. Outputs can be `output` or `clusteroutput`.  This is a namespaced resource. See also `clusterflow`.
-- [clusteroutput]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#outputs-clusteroutputs" >}}) - Defines an output without namespace restriction. Only effective in `controlNamespace`.
-- [clusterflow]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md#flows-clusterflows" >}}) - Defines a logging flow without namespace restriction.
+- [logging]({{< relref "docs/one-eye/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluentd and Fluent-bit.
+- [output]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an Output for a logging flow, where the log messages are sent. This is a namespaced resource. See also `clusteroutput`.
+- [flow]({{< relref "docs/one-eye/logging-operator/configuration/flow.md" >}}) - Defines a logging flow using `filters` and `outputs`. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also `clusterflow`.
+- [clusteroutput]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an output without namespace restriction. Only effective in `controlNamespace`.
+- [clusterflow]({{< relref "docs/one-eye/logging-operator/configuration/flow.md" >}}) - Defines a logging flow without namespace restriction.
 
 For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
 
-<p align="center"><img src="img/logging-operator-v2-architecture.png" ></p>
+![Logging operator architecture](img/logging-operator-v2-architecture.png)
 
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>

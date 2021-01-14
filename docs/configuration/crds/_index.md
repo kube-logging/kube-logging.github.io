@@ -6,9 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/crds/
 ---
 
-
-
-This document contains the detailed information about the CRDs Logging operator uses.
+This document contains detailed information about the Custom Resource Descriptions that the Logging operator uses.
 
 Available CRDs:
 
@@ -22,19 +20,10 @@ Available CRDs:
 
 ## Namespace separation
 
-> The [One Eye](/products/one-eye/) observability tool can [manage the TLS certificates of the logging resource](/docs/one-eye/tls/) using cert-manager.
-
-### Namespace separation
-
-A `logging pipeline` consist two type of resources.
+A `logging pipeline` consist of two types of resources.
 
 - `Namespaced` resources: `Flow`, `Output`
 - `Global` resources: `ClusterFlow`, `ClusterOutput`
-
-The `namespaced` resources only effective in their **own** namespace. `Global` resources are operate **cluster wide**.
-
-> You can only create `ClusterFlow` and `ClusterOutput` in the `controlNamespace`. It **MUST** be a **protected** namespace that only **administrators** have access.
-
 
 The `namespaced` resources are only effective in their **own** namespace. `Global` resources are **cluster wide**.
 
