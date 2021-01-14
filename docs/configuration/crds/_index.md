@@ -354,51 +354,6 @@ spec:
   controlNamespace: logging
 ```
 
-
-## flows, clusterflows
-
-Flows define a `logging flow` that defines the `filters` and `outputs`.
-
-> `Flow` resources are `namespaced`, the `selector` only select `Pod` logs within namespace.
-> `ClusterFlow` select logs from **ALL** namespace.
-
-### Parameters
-
-| Name                    | Type              | Default | Description |
-|-------------------------|-------------------|---------|-------------|
-| selectors (DEPRECATED)  | map[string]string | {}      | DEPRECATED inf favor of [match]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}). Kubernetes label selectors for the log. |
-| match                   | [][Match](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/configuration/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `Flow` resources, [see]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}) |
-| match                   | [][ClusterMatch](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/configuration/crds/v1beta1/flow_types.md#match) | {}      | Applicable to `ClusterFlow` resources, [see]({{< relref "docs/one-eye/logging-operator/configuration/log-routing.md">}}) |
-| filters                 | [][Filter]({{< relref "docs/one-eye/logging-operator/configuration/plugins/filters">}})          | []      | List of applied [filter]({{< relref "docs/one-eye/logging-operator/configuration/plugins/filters">}}).  |
-| loggingRef              | string | "" | Specified `logging` resource reference to connect `FLow` and `ClusterFlow` to |
-| outputRefs              | []string | [] | DEPRECATED |
-| localOutputRefs              | []string | [] | List of [Outputs](#defining-outputs) (Only for Flow) |
-| globalOutputRefs              | []string | [] | List of [ClusterOutputs](#defining-outputs) |
-
-**`flow` example with filters and output in the `default` namespace**
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Flow
-metadata:
-  name: flow-sample
-  namespace: default
-spec:
-  filters:
-    - parser:
-        remove_key_name_field: true
-        parse:
-          type: nginx
-    - tag_normaliser:
-        format: ${namespace_name}.${pod_name}.${container_name}
-  localOutputRefs:
-    - s3-output
-  match:
-    - select:
-        labels:
-          app: nginx
-```
-
 #### Probe
 
 A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. [More info](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
