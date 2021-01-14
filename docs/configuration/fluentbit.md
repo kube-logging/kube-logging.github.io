@@ -74,3 +74,79 @@ spec:
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
 [More Info](https://docs.fluentbit.io/manual/v/1.3/configuration/buffering).
+
+### HostPath volumes for buffers and positions
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd: {}
+  fluentbit:
+    bufferStorageVolume:
+      hostPath:
+        path: "" # leave it empty to automatically generate
+    positiondb:
+      hostPath:
+        path: "" # leave it empty to automatically generate
+  controlNamespace: logging
+```
+
+## Custom Fluent-bit image
+
+You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.
+
+The following example deploys a custom fluentd image:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd:
+    image:
+      repository: banzaicloud/fluentd
+      tag: v1.10.4-alpine-1
+      pullPolicy: IfNotPresent
+  fluentbit: {}
+  controlNamespace: logging
+```
+
+## Volume Mount
+
+Defines a pod volume mount. For example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-tls
+spec:
+  fluentd: {}
+  fluentbit:
+    extraVolumeMounts:
+    - source: /opt/docker
+      destination: /opt/docker
+      readOnly: true
+  controlNamespace: logging
+```
+
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
+
+## Custom Fluent-bit annotations
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd: {}
+  fluentbit:
+    annotations:
+      my-annotations/enable: true
+  controlNamespace: logging
+```
