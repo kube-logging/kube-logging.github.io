@@ -28,19 +28,11 @@ This operator helps you bundle logging information with your applications: you c
 
 ## Architecture
 
-You can define `outputs` (destinations where you want to send your log messages, for example, Elasticsearch, or and Amazon S3 bucket), and `flows` that use filters and selectors to route log messages to the appropriate outputs. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users cannot modify.
-
-You can configure the Logging operator using the following Custom Resource Descriptions.
-
-- [logging]({{< relref "docs/one-eye/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluentd and Fluent-bit.
-- [output]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an Output for a logging flow, where the log messages are sent. This is a namespaced resource. See also `clusteroutput`.
-- [flow]({{< relref "docs/one-eye/logging-operator/configuration/flow.md" >}}) - Defines a logging flow using `filters` and `outputs`. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also `clusterflow`.
-- [clusteroutput]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an output without namespace restriction. Only effective in `controlNamespace`.
-- [clusterflow]({{< relref "docs/one-eye/logging-operator/configuration/flow.md" >}}) - Defines a logging flow without namespace restriction.
+{{< include-headless "component-overview.md" "one-eye/logging-operator" >}}
 
 For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
 
-![Logging operator architecture](img/logging-operator-v2-architecture.png)
+![Logging operator architecture](/docs/one-eye/logging-operator/img/logging-operator-v2-architecture.png)
 
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
