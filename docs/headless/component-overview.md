@@ -1,6 +1,6 @@
 You can define `outputs` (destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket), and `flows` that use filters and selectors to route log messages to the appropriate outputs. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users cannot modify.
 
-You can configure the Logging operator using the following Custom Resource Descriptions.
+You can configure the Logging operator using the following Custom Resource Definitions.
 
 - [logging]({{< relref "docs/one-eye/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluentd and Fluent-bit.
 - [output]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an Output for a logging flow, where the log messages are sent. This is a namespaced resource. See also `clusteroutput`.
