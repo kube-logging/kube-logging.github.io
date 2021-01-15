@@ -9,8 +9,6 @@ The `logging` resource defines the logging infrastructure for your cluster that 
 You can define multiple `logging` resources if needed, for example, if you want to run multiple fluentd instances with separate configurations.
 You can customize the fluentd and fluent-bit configuration in the logging resource). It also declares `watchNamespaces` if applicable to narrow down the namespaces in which the logging operator should evaluate and incorporate`Flow` and `Output` resources into fluentd's configuration.
 
-> Note: The `logging` resources are referenced by `loggingRef`.
-
 You can install a `logging` resource with built-in TLS generation using the [logging Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
 > The [One Eye](/products/one-eye/) observability tool can [manage the TLS certificates of the logging resource](/docs/one-eye/tls/) using cert-manager.
