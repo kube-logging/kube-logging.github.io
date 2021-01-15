@@ -4,7 +4,7 @@ shorttitle: Logging
 weight: 20
 ---
 
-The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for Fluentd and Fluent-bit. It also establishes the `controlNamespace`, the administrative namespace of the Logging operator. The Fluentd statefulset and Fluent-bit daemonset are deployed in this namespace, and non-namespaced resources like `ClusterOutput` and `ClusterFlow` are *only* effective in this namespace - they are ignored in any other namespace.
+The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for Fluentd and Fluent-bit. It also establishes the `controlNamespace`, the administrative namespace of the Logging operator. The Fluentd statefulset and Fluent-bit daemonset are deployed in this namespace, and global resources like `ClusterOutput` and `ClusterFlow` are evaluated only in this namespace by default - they are ignored in any other namespace unless `allowClusterResourcesFromAllNamespaces` is set to true.
 
 You can define multiple `logging` resources if needed, for example, if you want to run multiple fluentd instances with separate configurations.
 You you can customize the fluentd and fluent-bit configuration in the logging resource). It also declares `watchNamespaces` if applicable.
