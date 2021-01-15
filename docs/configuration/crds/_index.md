@@ -6,7 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/crds/
 ---
 
-This document contains detailed information about the Custom Resource Descriptions that the Logging operator uses.
+This document contains detailed information about the Custom Resource Definitions that the Logging operator uses.
 
 Available CRDs:
 
