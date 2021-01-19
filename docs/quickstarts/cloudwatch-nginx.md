@@ -149,10 +149,10 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
              reserve_data: true
              parse:
                type: nginx
-        match:
-          - select:
-              labels:
-                app.kubernetes.io/name: log-generator         
+       match:
+         - select:
+             labels:
+               app.kubernetes.io/name: log-generator         
        localOutputRefs:
          - cloudwatch-output
      EOF
