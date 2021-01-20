@@ -14,8 +14,7 @@ More info at https://github.com/GoogleCloudPlatform/fluent-plugin-detect-excepti
  #### Example output configurations
  ```
 filters:
-  spec:
-    detectExceptions:
+  - detectExceptions:
       languages: java, python
       multiline_flush_interval: 0.1
  ```
