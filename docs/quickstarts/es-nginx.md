@@ -182,10 +182,9 @@ Install the Logging operator and a demo application to provide sample log messag
     metadata:
       name: log-generator
     spec:
-      match:
-        - select:
-            labels:
-              app.kubernetes.io/name: log-generator
+      selector:
+        matchLabels:
+          app.kubernetes.io/name: log-generator
       replicas: 1
       template:
         metadata:
