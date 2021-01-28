@@ -32,6 +32,38 @@ The following tips and commands can help you to troubleshoot your Logging operat
     logging-demo-log-generator-6448d45cd9-z7zk8   1/1     Running     0          24m
     ```
 
+1. Check the status of your resources. Beginning with Logging Operator 3.8, all custom resources have a `Status` and a `Problems` field. In a healthy system, the Problems field of the resources is empty, for example:
+
+    ```bash
+    $ kubectl get clusteroutput -A
+    NAMESPACE   NAME      ACTIVE   PROBLEMS
+    default     nullout   true
+    ```
+
+    The `ACTIVE` column indicates that the `ClusterOutput` has successfully passed the `configcheck` and presented it in the current fluentd configuration. When no errors are reported the `PROBLEMS` column is empty.
+
+    Take a look at another example, in which we have an incorrect `ClusterFlow`.
+
+    ```bash
+    $ kubectl get clusterflow -o wide
+    NAME      ACTIVE   PROBLEMS
+    all-log   true
+    nullout   false    1
+    ```
+
+    You can see that the **nullout** `Clusterflow` is inactive and there is *1* problem with the configuration. To display the problem, check the `status` field of the object, for example:
+
+    ```bash
+    $ kubectl get clusterflow nullout -o=jsonpath='{.status}' | jq
+    {
+    "active": false,
+    "problems": [
+        "dangling global output reference: nullout2"
+    ],
+    "problemsCount": 1
+    }
+    ```
+
 After that, check the following sections for further tips.
 
 {{< toc >}}
