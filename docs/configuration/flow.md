@@ -4,7 +4,7 @@ weight: 100
 ---
 
 Flows define a `logging flow` that defines the `filters` and `outputs`.
-`Flow` defines a logging flow with **filters** and **outputs**. This is a `namespaced` resource as well, so only logs from the same namespaces are collected. You can specify `selectors` to filter logs according to Kubernetes `labels`, and can define one or more `filters` within a Flow. These filters are applied in the order in the definition. You can find the list of supported filters [here]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/filters">}}). At the end of the Flow, you can attach one or more outputs, which may also be `Output` or `ClusterOutput` resources.
+`Flow` defines a logging flow with **filters** and **outputs**. This is a `namespaced` resource as well, so only logs from the same namespaces are collected. You can specify `match` statements to select or exclude logs according to Kubernetes `labels`, container and host names. (Match statements are evaluated in the order they are defined and processed only until the first matching `select` or `exclude` rule applies.) You can define one or more `filters` within a Flow. These filters are applied in the order in the definition. You can find the list of supported filters [here]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/filters">}}). At the end of the Flow, you can attach one or more outputs, which may also be `Output` or `ClusterOutput` resources.
 
 > `Flow` resources are `namespaced`, the `selector` only select `Pod` logs within namespace.
 > `ClusterFlow` defines a Flow **without** namespace restrictions. It is also only effective in the `controlNamespace`.
