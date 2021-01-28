@@ -1,34 +1,18 @@
-# Complete Sumologic
-
-Logging Operator & Sumologic
+# Logging Operator & Sumologic
 
 What is the same and what is different of sumologic
 
 Sumnologic add Prometheus and logging capabilities as well. We will only talk about the logging part not the metrics.
 
 
-What is Sumologic
+## Configuration
 
-What features are extended
-
-Enhance K8s
-This plugin enhance logs with several extra metadata
-Service ref
-Owner ref
-RBAC requirement
-Sumologic Filter
-This filter prunes the logs a bit. Moves metadata from actual log to Headers when ingesting sumologic. These datas will be handled as field on sumolopgic.
-Sumologic Output
-This output is the last step of processing logs. It will transform the prepared message to payload and headers.
-
-
-Configuration
-
-GlobalFilters
+### GlobalFilters
 
 The first thing we need to ensure is that the EnhanceK8s filter is added to the Logging spec globalFilters section.
 This will ensure to add additional data to the log lines (like deployment and service names)
-```yaml
+
+```bash
 kubectl apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
