@@ -1,16 +1,23 @@
 # Logging Operator & Sumologic
 
-What is the same and what is different of sumologic
-
-Sumnologic add Prometheus and logging capabilities as well. We will only talk about the logging part not the metrics.
+This guide walk you through a simple Sumologic setup via Logging Operator.
+Sumnologic has Prometheus and logging capabilities as well. Now we only focus logging part.
 
 
 ## Configuration
 
+There are 3 crucial plugins needed for a proper Sumologic setup.
+1. Kubernetes metadata enhancer
+2. Sumologic filter
+3. Sumologic outout
+
+
+Let's setup the logging first.
+
 ### GlobalFilters
 
-The first thing we need to ensure is that the EnhanceK8s filter is added to the Logging spec globalFilters section.
-This will ensure to add additional data to the log lines (like deployment and service names)
+The first thing we need to ensure is that the `EnhanceK8s` filter is present in the Logging spec `globalFilters` section.
+This will ensure to add additional data to the log lines (like deployment and service names).
 
 ```bash
 kubectl apply -f - <<"EOF"
@@ -40,13 +47,13 @@ spec:
 EOF
 ```
 
-ClusterFlow
+### ClusterFlow
 
-Now we can create a ClusterFlow. The sumologic filter will use the Kubernetes metadata and moves them in a special field.
-All those moved fields will be sent as HTTP Header to the sumologic.
+Now we can create a ClusterFlow. We add the Sumologic filter to the `fitlers` section.
+It will use the Kubernetes metadata and moves them to a special field called `_sumo_metadata`.
+All those moved fields will be sent as HTTP Header to the Sumologic endpoint.
 
-> Note: As we are using fluentbit Kubernetes metadata we need to specify the field names where the metada is stored.
->
+> Note: As we are using fluentbit to enrich Kubernetes metadata, we need to specify the field names where this data is stored.
 
 ```bash
 kubectl -n logging apply -f - <<"EOF"
@@ -68,16 +75,17 @@ spec:
 EOF
 ```
 
-1. Create a Sumologic output secret from the URL.
+
+### ClusterOutput
+Fist we reate a Sumologic output secret from the URL.
 
 ```bash
 kubectl create secret generic logging-sumo -n logging --from-literal "sumoURL=https://endpoint1.collection.eu.sumologic.com/......"
 ```
 
+Finally we create the Sumologic output.
 
-ClusterOutput
 
-Finally we need a sumologic output.
 ```bash
 kubectl -n logging apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
