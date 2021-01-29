@@ -1,4 +1,8 @@
-# Logging Operator & Sumologic
+---
+title: Demo Sumologic with Logging operator
+shorttitle: Splunk HEC
+weight: 300
+---
 
 This guide walk you through a simple Sumologic setup via Logging Operator.
 Sumnologic has Prometheus and logging capabilities as well. Now we only focus logging part.
