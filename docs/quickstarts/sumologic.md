@@ -1,6 +1,6 @@
 ---
 title: Demo Sumologic with Logging operator
-shorttitle: Splunk HEC
+shorttitle: Sumologic
 weight: 300
 ---
 
