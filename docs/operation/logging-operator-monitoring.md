@@ -6,13 +6,15 @@ aliases:
     - /docs/one-eye/logging-operator/logging-operator-monitoring/
 ---
 
-
-
 <p align="center"><img src="../../img/lo-pro.png" width="340"></p>
 
 <p align="center"><img src="../../img/monitor.png" width="900"></p>
 
+You can configure the Logging operator to expose metrics endpoints for FluentD and Fluent-bit using ServiceMonitor resources. That way, a Prometheus operator running in same cluster can automatically fetch your logging metrics.
+
 ## Metrics Variables
+
+You can configure the following metrics-related options in the **fluentdSpec** and **fluentbitSpec** sections of your Logging resource.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
@@ -22,6 +24,20 @@ aliases:
 | path | int | No | - | Metrics Path. |
 | serviceMonitor | bool | No | false | Enable to create ServiceMonitor for Prometheus operator |
 | prometheusAnnotations | bool | No | false | Add prometheus labels to fluent pods. |
+
+For example:
+
+```yaml
+spec:
+  fluentdSpec:
+    metrics:
+      serviceMonitor: true
+  fluentbitSpec:
+    metrics:
+      serviceMonitor: true
+```
+
+For more details on installing the Prometheus operator and configuring and accessing metrics, see the following procedures.
 
 ## Install Prometheus Operator with Helm
 
