@@ -10,7 +10,7 @@ aliases:
 
 <p align="center"><img src="../../img/monitor.png" width="900"></p>
 
-You can configure the Logging operator to expose metrics endpoints for FluentD and Fluent-bit using ServiceMonitor resources. That way, a Prometheus operator running in same cluster can automatically fetch your logging metrics.
+You can configure the Logging operator to expose metrics endpoints for FluentD and Fluent-bit using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 
 ## Metrics Variables
 
