@@ -8,7 +8,7 @@ If there is a FluentD plugin that the Logging operator does not support (for exa
 
 1. Add the plugin to the latest FluentD dockerfile used by the Logging operator [for example, at the moment v1.11](https://github.com/banzaicloud/logging-operator/blob/master/fluentd-image/v1.11/Dockerfile).
 1. Write the Go code to have the Output CRD support the new plugin. You can use the [Redis plugin pull request](https://github.com/banzaicloud/logging-operator/pull/549/files) as an example.
-1. Generate the custom resource definitions and the CRD documentation from the Go code by running `make generate manifests`
+1. Execute code and CRD generation by running `make generate manifests`
     If you want to see what has changed, run `make check-diff`
 
 For more details, see {{% xref "/docs/one-eye/logging-operator/developers.md" %}}.
