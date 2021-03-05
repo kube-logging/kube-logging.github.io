@@ -1,5 +1,6 @@
 ---
 title: Secret definition
+weight: 900
 ---
 
 ## Define secret value
