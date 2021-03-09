@@ -6,7 +6,7 @@ generated_file: true
 
 # [Parser Filter](https://docs.fluentd.org/filter/parser)
 ## Overview
- Parses" string field in event records and mutates its
+ Parses a string field in event records and mutates its event record with the parsed result.
 
 ## Configuration
 ### ParserConfig
