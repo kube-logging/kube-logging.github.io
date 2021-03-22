@@ -1,3 +1,9 @@
+---
+title: Throttle
+weight: 200
+generated_file: true
+---
+
 # [Throttle Filter](https://github.com/rubrikinc/fluent-plugin-throttle)
 ## Overview
  A sentry plugin to throttle logs. Logs are grouped by a configurable key. When a group exceeds a configuration rate, logs are dropped for this group.
