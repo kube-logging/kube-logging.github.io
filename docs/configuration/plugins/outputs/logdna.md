@@ -17,7 +17,11 @@ generated_file: true
 | api_key | string | Yes | - | LogDNA Api key<br> |
 | hostname | string | Yes | - | Hostname<br> |
 | app | string | No | - | Application name<br> |
-| buffer_chunk_limit | string | No | - | Do not increase past 8m (8MB) or your logs will be rejected by LogDNA server.<br> |
+| tags | string | No | - | Comma-Separated List of Tags, Optional<br> |
+| request_timeout | string | No |  30 s | HTTPS POST Request Timeout, Optional. Supports s and ms Suffices <br> |
+| ingester_domain | string | No |  https://logs.logdna.com | Custom Ingester URL, Optional <br> |
+| ingester_endpoint | string | No |  /logs/ingest | Custom Ingester Endpoint, Optional <br> |
+| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
  #### Example `LogDNA` filter configurations
  ```
  apiVersion: logging.banzaicloud.io/v1beta1
@@ -29,6 +33,9 @@ generated_file: true
      api_key: xxxxxxxxxxxxxxxxxxxxxxxxxxx
      hostname: logging-operator
      app: my-app
+     tags: web,dev
+     ingester_domain https://logs.logdna.com
+     ingester_endpoint /logs/ingest
  ```
 
  #### Fluentd Config Result

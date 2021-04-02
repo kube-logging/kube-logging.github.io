@@ -12,7 +12,7 @@ generated_file: true
 | annotations | map[string]string | No | - |  |
 | labels | map[string]string | No | - |  |
 | image | ImageSpec | No | - |  |
-| tls | FluentbitTLS | No | - |  |
+| tls | *FluentbitTLS | No | - |  |
 | targetHost | string | No | - |  |
 | targetPort | int32 | No | - |  |
 | flush | int32 | No | 1 | Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1)<br> |
@@ -28,7 +28,7 @@ generated_file: true
 | positiondb | volume.KubernetesVolume | No | - | [volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types)<br> |
 | position_db | *volume.KubernetesVolume | No | - | Deprecated, use positiondb<br> |
 | mountPath | string | No | - |  |
-| extraVolumeMounts | []VolumeMount | No | - |  |
+| extraVolumeMounts | []*VolumeMount | No | - |  |
 | inputTail | InputTail | No | - |  |
 | filterAws | *FilterAws | No | - |  |
 | parser | string | No | - | Deprecated, use inputTail.parser<br> |
@@ -49,7 +49,7 @@ generated_file: true
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| enabled | bool | Yes | - |  |
+| enabled | *bool | Yes | - |  |
 | secretName | string | No | - |  |
 | sharedKey | string | No | - |  |
 ### FluentbitNetwork
@@ -147,7 +147,7 @@ generated_file: true
 |---|---|---|---|---|
 | source | string | Yes | - | Source folder<br> |
 | destination | string | Yes | - | Destination Folder<br> |
-| readOnly | bool | No | - | Mount Mode<br> |
+| readOnly | *bool | No | - | Mount Mode<br> |
 ### ForwardOptions
 #### ForwardOptions defines custom forward output plugin options, see https://docs.fluentbit.io/manual/pipeline/outputs/forward
 

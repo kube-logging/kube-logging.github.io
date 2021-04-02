@@ -19,6 +19,7 @@ generated_file: true
 | watchNamespaces | []string | No | - | Limit namespaces to watch Flow and Output custom reasources.<br> |
 | controlNamespace | string | Yes | - | Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput.<br>This should be a protected namespace from regular users.<br>Resources like fluentbit and fluentd will run in this namespace as well.<br> |
 | allowClusterResourcesFromAllNamespaces | bool | No | - | Allow configuration of cluster resources from any namespace. Mutually exclusive with ControlNamespace restriction of Cluster resources<br> |
+| nodeAgents | []*NodeAgent | No | - | NodeAgent Configuration<br> |
 | enableRecreateWorkloadOnImmutableFieldChange | bool | No | - | EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn't be managed with a simple update.<br> |
 ### LoggingStatus
 #### LoggingStatus defines the observed state of Logging

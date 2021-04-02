@@ -15,6 +15,7 @@ For more information please click on the name
 | **[FluentbitSpec](fluentbit_types/)** | FluentbitSpec defines the desired state of Fluentbit | v1beta1 |
 | **[FluentdSpec](fluentd_types/)** | FluentdSpec defines the desired state of Fluentd | v1beta1 |
 | **[Logging](logging_types/)** | Logging system configuration | v1beta1 |
+| **[NodeAgent](node_agent_types/)** |  | v1beta1 |
 | **[OutputSpec](output_types/)** | OutputSpec defines the desired state of Output | v1beta1 |
 </center>
 

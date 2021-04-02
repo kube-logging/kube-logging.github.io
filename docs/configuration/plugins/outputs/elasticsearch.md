@@ -88,7 +88,7 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 | write_operation | string | No |  index | The write_operation can be any of: (index,create,update,upsert)<br> |
 | reconnect_on_error | bool | No |  false | Indicates that the plugin should reset connection on any error (reconnect on next send). By default it will reconnect only on "host unreachable exceptions". We recommended to set this true in the presence of elasticsearch shield.<br> |
 | with_transporter_log | bool | No |  false | This is debugging purpose option to enable to obtain transporter layer log. <br> |
-| content_type | string | No |  application/json | With content_type application/x-ndjson, elasticsearch plugin adds application/x-ndjson as Content-Type in payload. <br> |
+| content_type | string | No |  application/json | With content_type application/x-ndjson, elasticsearch plugin adds application/x-ndjson as Content-Profile in payload. <br> |
 | include_index_in_url | bool | No | - | With this option set to true, Fluentd manifests the index name in the request URL (rather than in the request body). You can use this option to enforce an URL-based access control.<br> |
 | time_parse_error_tag | string | No | - | With logstash_format true, elasticsearch plugin parses timestamp field for generating index name. If the record has invalid timestamp value, this plugin emits an error event to @ERROR label with time_parse_error_tag configured tag.<br> |
 | http_backend | string | No |  excon | With http_backend typhoeus, elasticsearch plugin uses typhoeus faraday http backend. Typhoeus can handle HTTP keepalive. <br> |
