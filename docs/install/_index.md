@@ -11,7 +11,7 @@ aliases:
 ## Prerequisites
 
 - Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm-based installation](#helm) you need Helm v3.21.0 or later.
+- For the [Helm-based installation](#helm) you need Helm v3.2.1 or later.
 
 ## Deploy the Logging operator with One Eye {#deploy-with-one-eye}
 
