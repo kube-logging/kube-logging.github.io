@@ -5,7 +5,7 @@ weight: 200
 
 To use TLS encryption in your logging infrastructure, you have to configure encryption:
 
-- for the log collection part of your logging pipeline (between FLuent-bit and Fluentd), and
+- for the log collection part of your logging pipeline (between Fluent-bit and Fluentd), and
 - for the output plugin (between Fluentd and the output backend).
 
 For configuring the output, see the documentation of the output plugin you want to use at {{% xref "/docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" %}}.
