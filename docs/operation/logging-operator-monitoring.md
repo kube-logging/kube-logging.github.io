@@ -57,7 +57,7 @@ For more details on installing the Prometheus operator and configuring and acces
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].disableDeletion=false" \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].options.path=/var/lib/grafana/dashboards/default" \
         --set "grafana.dashboards.default.logging.gnetId=7752" \
-        --set "grafana.dashboards.default.logging.revision=4" \
+        --set "grafana.dashboards.default.logging.revision=5" \
         --set "grafana.dashboards.default.logging.datasource=Prometheus" \
         --set "prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=False"
     ```
