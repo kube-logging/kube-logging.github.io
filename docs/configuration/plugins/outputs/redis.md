@@ -1,5 +1,5 @@
 ---
-title: Http
+title: Redis
 weight: 200
 generated_file: true
 ---
