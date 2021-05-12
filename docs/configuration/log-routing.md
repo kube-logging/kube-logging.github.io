@@ -25,10 +25,12 @@ Available routing metadata keys:
 
 To select or exclude logs you can use the `match` statement. Match is a collection
 of `select` and `exclude` expressions. In both expression you can use the `labels`
-attribute to filter for pod's labels. Moreover in Cluster flow you can use `namespaces`
+attribute to filter for pod's labels. Moreover, in Cluster flow you can use `namespaces`
 as a selecting or excluding criteria.
 
-The list of `select` and `exclude` statements are evaluated **in order**!
+If you specify more than one label in a `select` or `exclude` expression, the labels have a logical AND connection between them. For example, an `exclude` expression with two labels excludes messages that have both labels. If you want an OR connection between labels, list them in separate expressions. For example, to exclude messages that have one of two specified labels, create a separate `exclude` expression for each label.
+
+The `select` and `exclude` statements are evaluated **in order**!
 
 Flow:
 
@@ -193,4 +195,46 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
           namespaces:
             - prod
             - infra
+  ```
+
+### Example 6. Multiple labels - AND
+
+Exclude logs that have both the `app: nginx` and `app.kubernetes.io/instance: nginx-demo` labels
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: Flow
+  metadata:
+    name: flow-sample
+    namespace: default
+  spec:
+    localOutputRefs:
+      - forward-output-sample
+    match:
+      - exclude:
+          labels:
+            app: nginx
+            app.kubernetes.io/instance: nginx-demo
+  ```
+
+### Example 6. Multiple labels - OR
+
+Exclude logs that have either the `app: nginx` or the `app.kubernetes.io/instance: nginx-demo` labels
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: Flow
+  metadata:
+    name: flow-sample
+    namespace: default
+  spec:
+    localOutputRefs:
+      - forward-output-sample
+    match:
+      - exclude:
+          labels:
+            app: nginx
+      - exclude:
+          labels:
+            app.kubernetes.io/instance: nginx-demo
   ```
