@@ -44,6 +44,7 @@ generated_file: true
 | network | *FluentbitNetwork | No | - |  |
 | forwardOptions | *ForwardOptions | No | - |  |
 | enableUpstream | bool | No | - |  |
+| serviceAccount | *typeoverride.ServiceAccount | No | - |  |
 ### FluentbitTLS
 #### FluentbitTLS defines the TLS configs
 
@@ -104,7 +105,7 @@ generated_file: true
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | Match | string | No | kubernetes.* | Match filtered records (default:kube.*)<br> |
-| Buffer_Size | string | No | 32k | Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. <br> |
+| Buffer_Size | string | No | "0" | Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. A value of 0 results in no limit, and the buffer will expand as-needed. Note that if pod specifications exceed the buffer limit, the API response will be discarded when retrieving metadata, and some kubernetes metadata will fail to be injected to the logs. If this value is empty we will set it "0". <br> |
 | Kube_URL | string | No | https://kubernetes.default.svc:443 | API Server end-point (default:https://kubernetes.default.svc:443)<br> |
 | Kube_CA_File | string | No | /var/run/secrets/kubernetes.io/serviceaccount/ca.crt | CA certificate file (default:/var/run/secrets/kubernetes.io/serviceaccount/ca.crt)<br> |
 | Kube_CA_Path | string | No | - | Absolute path to scan for certificate files<br> |
@@ -125,6 +126,10 @@ generated_file: true
 | Annotations | string | No | On | Include Kubernetes resource annotations in the extra metadata. <br> |
 | Kube_meta_preload_cache_dir | string | No | - | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta<br> |
 | Dummy_Meta | string | No | Off | If set, use dummy-meta data (for test/dev purposes) <br> |
+| DNS_Retries | string | No | 6 | DNS lookup retries N times until the network start working <br> |
+| DNS_Wait_Time | string | No | 30 | DNS lookup interval between network status checks <br> |
+| Use_Kubelet | string | No | Off | This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log. <br> |
+| Kubelet_Port | string | No | 10250 | kubelet port using for HTTP request, this only works when Use_Kubelet  set to On <br> |
 ### FilterAws
 #### FilterAws The AWS Filter Enriches logs with AWS Metadata.
 

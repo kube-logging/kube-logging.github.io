@@ -25,6 +25,7 @@ generated_file: true
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | logstash_format | bool | No | - | logstash_format<br> |
+| logstash_prefix | string | No | - | logstash_prefix<br> |
 | include_tag_key | bool | No | - | include_tag_key<br> |
 | tag_key | string | No | - | tag_key<br> |
 | flush_interval | string | No | - | flush_interval<br> |

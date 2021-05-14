@@ -29,6 +29,9 @@ generated_file: true
 | nodeSelector | map[string]string | No | - |  |
 | affinity | *corev1.Affinity | No | - |  |
 | metrics | *Metrics | No | - |  |
+| bufferVolumeMetrics | *Metrics | No | - |  |
+| bufferVolumeImage | ImageSpec | No | - |  |
+| bufferVolumeArgs | []string | No | - |  |
 | security | *Security | No | - |  |
 | scaling | *FluentdScaling | No | - |  |
 | workers | int32 | No | - |  |
@@ -40,6 +43,7 @@ generated_file: true
 | fluentLogDestination | string | No | - |  |
 | fluentOutLogrotate | *FluentOutLogrotate | No | - | FluentOutLogrotate sends fluent's stdout to file and rotates it<br> |
 | forwardInputConfig | *input.ForwardInputConfig | No | - |  |
+| serviceAccount | *typeoverride.ServiceAccount | No | - |  |
 ### FluentOutLogrotate
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|

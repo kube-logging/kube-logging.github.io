@@ -36,6 +36,7 @@ generated_file: true
 | partition_key | string | No |  "partition" | Partition <br> |
 | partition_key_key | string | No |  "partition_key" | Partition Key <br> |
 | message_key_key | string | No |  "message_key" | Message Key <br> |
+| client_id | string | No |  "kafka" | Client ID <br> |
 | default_topic | string | No |  nil | The name of default topic .<br> |
 | default_partition_key | string | No |  nil | The name of default partition key .<br> |
 | default_message_key | string | No |  nil | The name of default message key .<br> |
@@ -54,6 +55,9 @@ generated_file: true
 | required_acks | int | No |  -1 | The number of acks required per request .<br> |
 | ack_timeout | int | No |  nil => Uses default of ruby-kafka library | How long the producer waits for acks. The unit is seconds <br> |
 | compression_codec | string | No |  nil | The codec the producer uses to compress messages . The available options are gzip and snappy.<br> |
+| kafka_agg_max_bytes | int | No |  4096 | Maximum value of total message size to be included in one batch transmission. .<br> |
+| kafka_agg_max_messages | string | No |  nil | Maximum number of messages to include in one batch transmission. .<br> |
+| discard_kafka_delivery_failed | bool | No |  false | Discard the record where Kafka DeliveryFailed occurred <br> |
 | ssl_ca_certs_from_system | *bool | No |  false | System's CA cert store <br> |
 | ssl_ca_cert | *secret.Secret | No | - | CA certificate<br> |
 | ssl_client_cert | *secret.Secret | No | - | Client certificate<br> |

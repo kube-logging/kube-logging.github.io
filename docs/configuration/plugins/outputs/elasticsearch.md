@@ -111,3 +111,5 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 | ilm_policy_id | string | No | - | Specify ILM policy id.<br> |
 | ilm_policy | string | No | - | Specify ILM policy contents as Hash.<br> |
 | ilm_policy_overwrite | bool | No | - | Specify whether overwriting ilm policy or not.<br> |
+| data_stream_enable | *bool | No | - | Use @type elasticsearch_data_stream<br> |
+| data_stream_name | string | No | - | You can specify Elasticsearch data stream name by this parameter. This parameter is mandatory for elasticsearch_data_stream. There are some limitations about naming rule. For more details https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-data-stream.html#indices-create-data-stream-api-path-params<br> |
