@@ -11,9 +11,10 @@ generated_file: true
  #### Example output configurations
  ```
  spec:
-   kinesisStream:
-     stream_name: example-stream-name
-     region: us-east-1
+   awsElasticsearch:
+     endpoint:
+       url: https://example-es-url
+       region: us-east-1
      format:
        type: json
  ```
