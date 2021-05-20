@@ -4,7 +4,7 @@ shorttitle: Fluentd
 weight: 200
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/fluentd.png" height="100"></p>
+<p align="center"><img src="/docs/logging-operator/img/fluentd.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 
@@ -112,9 +112,9 @@ fluentd:
 The following command displays the logs of the Fluentd container.
 `kubectl exec -it logging-demo-fluentd-0 cat /fluentd/log/out`
 
-> The [One Eye](/products/one-eye/) observability tool can [display Fluentd logs on its web UI](/docs/one-eye/troubleshooting/), where you can select which replica to inspect, search the logs, and use other ways to monitor and troubleshoot your logging infrastructure.
+> The [One Eye](https://banzaicloud.com/products/one-eye/) observability tool can [display Fluentd logs on its web UI](/docs/troubleshooting/), where you can select which replica to inspect, search the logs, and use other ways to monitor and troubleshoot your logging infrastructure.
 
-> Tip: If the logs include the `error="can't create buffer file ...` error message, FluentD can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/one-eye/logging-operator/configuration/fluentd/).
+> Tip: If the logs include the `error="can't create buffer file ...` error message, FluentD can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/logging-operator/configuration/fluentd/).
 
 ## Set stdout as an output
 
@@ -147,4 +147,4 @@ logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a9
 logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a996ff2671.buffer.meta
 ```
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" "logging-operator" >}}

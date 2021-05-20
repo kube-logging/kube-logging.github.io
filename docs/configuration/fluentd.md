@@ -4,7 +4,7 @@ shorttitle: Fluentd
 weight: 40
 ---
 
-You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
+You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
 
 ## Custom pvc volume for Fluentd buffers
 
@@ -75,7 +75,7 @@ spec:
 
 ## Scaling
 
-You can scale the Fluentd deployment by increasing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. For example:
+You can scale the Fluentd deployment by increasing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -92,7 +92,7 @@ spec:
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

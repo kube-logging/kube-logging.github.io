@@ -3,7 +3,7 @@ title: Routing your logs with match directive
 shorttitle: Log routing
 weight: 700
 aliases:
-    - /docs/one-eye/logging-operator/log-routing/
+    - /docs/logging-operator/log-routing/
 ---
 
 

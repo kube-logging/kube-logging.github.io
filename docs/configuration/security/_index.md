@@ -2,7 +2,7 @@
 title: Security
 weight: 1000
 aliases:
-    - /docs/one-eye/logging-operator/security/
+    - /docs/logging-operator/security/
 ---
 
 
