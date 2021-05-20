@@ -11,4 +11,4 @@ If there is a FluentD plugin that the Logging operator does not support (for exa
 1. Execute code and CRD generation by running `make generate manifests`
     To make sure the CI won't complain, commit your changes and run `make check-diff`
 
-For more details, see {{% xref "/docs/one-eye/logging-operator/developers.md" %}}.
+For more details, see {{% xref "/docs/logging-operator/developers.md" %}}.

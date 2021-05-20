@@ -4,7 +4,7 @@ shorttitle: Fluent Bit
 weight: 200
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/fluentbit.png" height="100"></p>
+<p align="center"><img src="/docs/logging-operator/img/fluentbit.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluent Bit component of the Logging operator.
 
@@ -88,4 +88,4 @@ You can check the buffer directory if Fluent Bit is configured to buffer queued 
 
 `kubectl exec -it logging-demo-fluentbit-9dpzg ls /buffers`
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" "logging-operator" >}}

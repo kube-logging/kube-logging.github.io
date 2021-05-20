@@ -16,4 +16,4 @@ spec:
     disablePvc: true
 ```
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" "logging-operator" >}}

@@ -8,13 +8,13 @@ weight: 400
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
-{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "quickstart-figure-intro.md" "logging-operator" >}}
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
 ## Deploy Kafka
 
-In this demo we are using our [Kafka operator](/docs/supertubes/kafka-operator/). For details on installing it, see the [Kafka operator installation guide](/docs/supertubes/kafka-operator/install-kafka-operator/).
+In this demo we are using our [Kafka operator](https://github.com/banzaicloud/kafka-operator/). For details on installing it, see the [Kafka operator installation guide](https://github.com/banzaicloud/kafka-operator-docs/).
 
 ## Deploy the Logging operator and a demo Application
 
@@ -22,7 +22,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Helm {#helm}
 
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" "logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -49,9 +49,9 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-manifest-intro.md" "logging-operator" >}}
 
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}})
+1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/logging-operator/install/_index.md#manifest" >}})
 1. Create the `logging` resource.
 
      ```yaml
@@ -159,4 +159,4 @@ Expected output:
 {"stream":"stdout","logtag":"F","kubernetes":{"pod_name":"logging-demo-log-generator-5f9f9cdb9f-mpp98","namespace_name":"logging","pod_id":"e2822c26-961c-4be8-99a2-b17517494ca1","labels":{"app.kubernetes.io/instance":"logging-demo","app.kubernetes.io/name":"log-generator","pod-template-hash":"5f9f9cdb9f"},"host":"ip-192-168-2-102.eu-west-2.compute.internal","container_name":"log-generator","docker_id":"26ffbec769e52e468216fe43a331f4ce5374075f9b2717d9b9ae0a7f0747b3e2","container_hash":"ghcr.io/banzaicloud/log-generator@sha256:814a69be8ab8a67aa6b009d83f6fa6c4776beefbe629a869ff16690fde8ac362","container_image":"ghcr.io/banzaicloud/log-generator:0.3.3"},"remote":"26.220.126.5","host":"-","user":"-","method":"POST","path":"/","code":"200","size":"14370","referer":"-","agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0","http_x_forwarded_for":"-"}
 ```
 
-{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "note-troubleshooting.md" "logging-operator" >}}

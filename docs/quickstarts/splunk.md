@@ -10,7 +10,7 @@ weight: 300
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Splunk.
 
-Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Splunk). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/one-eye/logging-operator/_index.md">}}).
+Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Splunk). For more details about the Logging operator, see the [Logging operator overview]({{< relref "docs/logging-operator/_index.md">}}).
 
 ## Deploy Splunk
 
@@ -51,9 +51,9 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Kubernetes manifests {#manifest}
 
-To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm]({{< relref "docs/one-eye/logging-operator/install/_index.md#helm" >}}).
+To deploy the Logging operator using Kubernetes manifests, complete these steps. If you want to install the Logging operator using Helm, see [Deploy the Logging operator with Helm]({{< relref "docs/logging-operator/install/_index.md#helm" >}}).
 
-1. Install the Logging operator. For details, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
+1. Install the Logging operator. For details, see [Deploy the Logging operator with Kubernetes manifests]({{< relref "docs/logging-operator/install/_index.md#manifest" >}}).
 1. Create the `logging` resource.
 
     ```bash
@@ -181,4 +181,4 @@ To validate that the deployment was successful, complete the following steps.
 
 <p align="center"><img src="../../img/splunk_dash.png" width="660"></p>
 
-{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "note-troubleshooting.md" "logging-operator" >}}

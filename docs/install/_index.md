@@ -3,7 +3,7 @@ title: Install the Logging operator
 shorttitle: Install
 weight: 100
 aliases:
-    - /docs/one-eye/logging-operator/deploy/
+    - /docs/logging-operator/deploy/
 ---
 
 > Caution: The **master branch** is under heavy development. Use [releases](https://github.com/banzaicloud/logging-operator/releases) instead of the master branch to get stable software.
@@ -15,7 +15,7 @@ aliases:
 
 ## Deploy the Logging operator with One Eye {#deploy-with-one-eye}
 
-If you are using the [One Eye observability tool](/products/one-eye/), use the [one-eye command line tool](/docs/one-eye/cli/) to [install the Logging operator](/docs/one-eye/cli/reference/one-eye_logging_install/).
+If you are using the [One Eye observability tool](https://banzaicloud.com/products/one-eye/), use the [one-eye command line tool](/docs/cli/) to [install the Logging operator](/docs/cli/reference/one-eye_logging_install/).
 
 ```bash
 one-eye logging install
@@ -23,16 +23,16 @@ one-eye logging install
 
 After that, you can configure your logging flows and outputs using the:
 
-- [One Eye web interface](/docs/one-eye/configure-logging-infrastructure/configuration-overview/),
-- [one-eye command line tool](/docs/one-eye/cli/reference/one-eye_logging_configure/), or
-- declaratively using the [Observer custom resource](/docs/one-eye/crds/oneeye_types/).
+- [One Eye web interface](/docs/configure-logging-infrastructure/configuration-overview/),
+- [one-eye command line tool](/docs/cli/reference/one-eye_logging_configure/), or
+- declaratively using the [Observer custom resource](/docs/crds/oneeye_types/).
 
 ## Deploy Logging operator with Helm {#helm}
 
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
 
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" "logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -54,7 +54,7 @@ After that, you can configure your logging flows and outputs using the:
 
 ## Deploy the Logging operator from Kubernetes Manifests {#manifest}
 
-{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-manifest-intro.md" "logging-operator" >}}
 
 1. Create a controlNamespace called "logging".
 

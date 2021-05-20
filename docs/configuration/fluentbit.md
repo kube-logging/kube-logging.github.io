@@ -2,14 +2,14 @@
 title: FluentBit
 weight: 600
 aliases:
-    - /docs/one-eye/logging-operator/fluentbit/
+    - /docs/logging-operator/fluentbit/
 ---
 
 <p align="center"><img src="../../img/fluentbit.png" width="340"></p>
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
 
-You can configure the Fluent-bit deployment via the **fluentbit** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluent-bit. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+You can configure the Fluent-bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluent-bit. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
 
 ## Filters
 
@@ -31,7 +31,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
 [More info](https://github.com/fluent/fluent-bit-docs/blob/master/filter/kubernetes.md)
 
 ## Tail input
@@ -52,7 +52,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
 [More Info](https://github.com/fluent/fluent-bit-docs/blob/1.3/input/tail.md).
 
 ## Buffering
@@ -72,7 +72,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
 [More Info](https://docs.fluentbit.io/manual/v/1.3/configuration/buffering).
 
 ### HostPath volumes for buffers and positions
@@ -134,7 +134,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
 
 ## Custom Fluent-bit annotations
 

@@ -10,9 +10,9 @@ Outputs are the final stage for a `logging flow`. You can define multiple `outpu
 
 > Note: `Flow` can be connected to `Output` and `ClusterOutput`, but `ClusterFlow` can be attached only to `ClusterOutput`.
 
-- For the details of the supported output plugins, see {{% xref "/docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" %}}.
-- For the details of `Output` custom resource, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/output_types.md" %}}.
-- For the details of `ClusterOutput` custom resource, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/clusteroutput_types.md" %}}.
+- For the details of the supported output plugins, see {{% xref "/docs/logging-operator/configuration/plugins/outputs/_index.md" %}}.
+- For the details of `Output` custom resource, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/output_types.md" %}}.
+- For the details of `ClusterOutput` custom resource, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/clusteroutput_types.md" %}}.
 
 ## S3 output example
 

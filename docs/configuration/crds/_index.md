@@ -3,7 +3,7 @@ title: Custom Resource Definitions
 shorttitle: CRDs
 weight: 300
 aliases:
-    - /docs/one-eye/logging-operator/crds/
+    - /docs/logging-operator/crds/
 ---
 
 This document contains detailed information about the Custom Resource Definitions that the Logging operator uses.

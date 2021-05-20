@@ -3,10 +3,10 @@ title: Logging operator troubleshooting
 shorttitle: Troubleshooting
 weight: 400
 aliases:
-    - /docs/one-eye/logging-operator/troubleshooting/
+    - /docs/logging-operator/troubleshooting/
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/troubleshooting.svg" width="260"></p>
+<p align="center"><img src="/docs/logging-operator/img/troubleshooting.svg" width="260"></p>
 <p align="center">
 
 The following tips and commands can help you to troubleshoot your Logging operator installation.
@@ -68,4 +68,4 @@ After that, check the following sections for further tips.
 
 {{< toc >}}
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" "logging-operator" >}}
