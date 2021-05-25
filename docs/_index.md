@@ -6,7 +6,7 @@ cascade:
   githubEditUrl: "https://github.com/banzaicloud/logging-operator-docs/edit/master/docs/"
 ---
 
-Welcome to the Logging operator documentation! The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes.
+Welcome to the Logging operator documentation! The Logging operator is a core part of the [Cisco {{< product >}}](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes.
 
 ## Overview
 
@@ -41,7 +41,7 @@ See also our [Quickstart guides](/docs/logging-operator/quickstarts/).
 
 ## Support
 
-The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes. While the Logging operator itself is an [open-source project](https://github.com/banzaicloud/logging-operator/), the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) product extends the functionality of the Logging operator with commercial features (for example, collecting host logs and Kubernetes events).
+The Logging operator is a core part of the [Cisco {{< product >}}](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes. While the Logging operator itself is an [open-source project](https://github.com/banzaicloud/logging-operator/), the [Cisco {{< product >}}](https://banzaicloud.com/products/one-eye/) product extends the functionality of the Logging operator with commercial features (for example, collecting host logs and Kubernetes events).
 
 ### Community support
 
