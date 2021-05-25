@@ -25,7 +25,7 @@ After that, you can configure your logging flows and outputs using the:
 
 - [One Eye web interface](/docs/configure-logging-infrastructure/configuration-overview/),
 - [one-eye command line tool](/docs/cli/reference/one-eye_logging_configure/), or
-- declaratively using the [Observer custom resource](/docs/crds/oneeye_types/).
+- declaratively using the [Observer custom resource](/docs/configure-logging-infrastructure/crds/oneeye_types/).
 
 ## Deploy Logging operator with Helm {#helm}
 
