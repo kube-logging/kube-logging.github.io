@@ -4,27 +4,54 @@ weight: 200
 generated_file: true
 ---
 
-### ClusterOutput
-#### ClusterOutput is the Schema for the clusteroutputs API
+## ClusterOutput
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ObjectMeta | No | - |  |
-| spec | ClusterOutputSpec | Yes | - |  |
-| status | OutputStatus | No | - |  |
-### ClusterOutputSpec
-#### ClusterOutputSpec contains Kubernetes spec for CLusterOutput
+ClusterOutput is the Schema for the clusteroutputs API
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | OutputSpec | Yes | - |  |
-| enabledNamespaces | []string | No | - |  |
-### ClusterOutputList
-#### ClusterOutputList contains a list of ClusterOutput
+###  (metav1.TypeMeta, required) {#clusteroutput-}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ListMeta | No | - |  |
-| items | []ClusterOutput | Yes | - |  |
+Default: -
+
+### metadata (metav1.ObjectMeta, optional) {#clusteroutput-metadata}
+
+Default: -
+
+### spec (ClusterOutputSpec, required) {#clusteroutput-spec}
+
+Default: -
+
+### status (OutputStatus, optional) {#clusteroutput-status}
+
+Default: -
+
+
+## ClusterOutputSpec
+
+ClusterOutputSpec contains Kubernetes spec for CLusterOutput
+
+###  (OutputSpec, required) {#clusteroutputspec-}
+
+Default: -
+
+### enabledNamespaces ([]string, optional) {#clusteroutputspec-enablednamespaces}
+
+Default: -
+
+
+## ClusterOutputList
+
+ClusterOutputList contains a list of ClusterOutput
+
+###  (metav1.TypeMeta, required) {#clusteroutputlist-}
+
+Default: -
+
+### metadata (metav1.ListMeta, optional) {#clusteroutputlist-metadata}
+
+Default: -
+
+### items ([]ClusterOutput, required) {#clusteroutputlist-items}
+
+Default: -
+
+

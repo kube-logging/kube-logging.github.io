@@ -21,10 +21,15 @@ Available kubernetes metadata
 | ${docker_id} | Docker UUID of the container | 3a38148aa37aa3... |
 
 ## Configuration
-### Tag Normaliser parameters
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| format | string | No | ${namespace_name}.${pod_name}.${container_name} | Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser)<br> |
+## Tag Normaliser parameters
+
+### format (string, optional) {#tag normaliser parameters-format}
+
+Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser)<br>
+
+Default: ${namespace_name}.${pod_name}.${container_name}
+
+
  #### Example `Parser` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

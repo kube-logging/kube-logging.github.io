@@ -4,76 +4,197 @@ weight: 200
 generated_file: true
 ---
 
-### FlowSpec
-#### FlowSpec is the Kubernetes spec for Flows
+## FlowSpec
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| selectors | map[string]string | No | - | Deprecated<br> |
-| match | []Match | No | - |  |
-| filters | []Filter | No | - |  |
-| loggingRef | string | No | - |  |
-| outputRefs | []string | No | - | Deprecated<br> |
-| globalOutputRefs | []string | No | - |  |
-| localOutputRefs | []string | No | - |  |
-### Match
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| select | *Select | No | - |  |
-| exclude | *Exclude | No | - |  |
-### Select
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| labels | map[string]string | No | - |  |
-| hosts | []string | No | - |  |
-| container_names | []string | No | - |  |
-### Exclude
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| labels | map[string]string | No | - |  |
-| hosts | []string | No | - |  |
-| container_names | []string | No | - |  |
-### Filter
-#### Filter definition for FlowSpec
+FlowSpec is the Kubernetes spec for Flows
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| stdout | *filter.StdOutFilterConfig | No | - |  |
-| parser | *filter.ParserConfig | No | - |  |
-| tag_normaliser | *filter.TagNormaliser | No | - |  |
-| dedot | *filter.DedotFilterConfig | No | - |  |
-| record_transformer | *filter.RecordTransformer | No | - |  |
-| record_modifier | *filter.RecordModifier | No | - |  |
-| geoip | *filter.GeoIP | No | - |  |
-| concat | *filter.Concat | No | - |  |
-| detectExceptions | *filter.DetectExceptions | No | - |  |
-| grep | *filter.GrepConfig | No | - |  |
-| prometheus | *filter.PrometheusConfig | No | - |  |
-| throttle | *filter.Throttle | No | - |  |
-| sumologic | *filter.SumoLogic | No | - |  |
-| enhanceK8s | *filter.EnhanceK8s | No | - |  |
-### FlowStatus
-#### FlowStatus defines the observed state of Flow
+### selectors (map[string]string, optional) {#flowspec-selectors}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| active | *bool | No | - |  |
-| problems | []string | No | - |  |
-| problemsCount | int | No | - |  |
-### Flow
-#### Flow Kubernetes object
+Deprecated<br>
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ObjectMeta | No | - |  |
-| spec | FlowSpec | No | - |  |
-| status | FlowStatus | No | - |  |
-### FlowList
-#### FlowList contains a list of Flow
+Default: -
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ListMeta | No | - |  |
-| items | []Flow | Yes | - |  |
+### match ([]Match, optional) {#flowspec-match}
+
+Default: -
+
+### filters ([]Filter, optional) {#flowspec-filters}
+
+Default: -
+
+### loggingRef (string, optional) {#flowspec-loggingref}
+
+Default: -
+
+### outputRefs ([]string, optional) {#flowspec-outputrefs}
+
+Deprecated<br>
+
+Default: -
+
+### globalOutputRefs ([]string, optional) {#flowspec-globaloutputrefs}
+
+Default: -
+
+### localOutputRefs ([]string, optional) {#flowspec-localoutputrefs}
+
+Default: -
+
+
+## Match
+
+### select (*Select, optional) {#match-select}
+
+Default: -
+
+### exclude (*Exclude, optional) {#match-exclude}
+
+Default: -
+
+
+## Select
+
+### labels (map[string]string, optional) {#select-labels}
+
+Default: -
+
+### hosts ([]string, optional) {#select-hosts}
+
+Default: -
+
+### container_names ([]string, optional) {#select-container_names}
+
+Default: -
+
+
+## Exclude
+
+### labels (map[string]string, optional) {#exclude-labels}
+
+Default: -
+
+### hosts ([]string, optional) {#exclude-hosts}
+
+Default: -
+
+### container_names ([]string, optional) {#exclude-container_names}
+
+Default: -
+
+
+## Filter
+
+Filter definition for FlowSpec
+
+### stdout (*filter.StdOutFilterConfig, optional) {#filter-stdout}
+
+Default: -
+
+### parser (*filter.ParserConfig, optional) {#filter-parser}
+
+Default: -
+
+### tag_normaliser (*filter.TagNormaliser, optional) {#filter-tag_normaliser}
+
+Default: -
+
+### dedot (*filter.DedotFilterConfig, optional) {#filter-dedot}
+
+Default: -
+
+### record_transformer (*filter.RecordTransformer, optional) {#filter-record_transformer}
+
+Default: -
+
+### record_modifier (*filter.RecordModifier, optional) {#filter-record_modifier}
+
+Default: -
+
+### geoip (*filter.GeoIP, optional) {#filter-geoip}
+
+Default: -
+
+### concat (*filter.Concat, optional) {#filter-concat}
+
+Default: -
+
+### detectExceptions (*filter.DetectExceptions, optional) {#filter-detectexceptions}
+
+Default: -
+
+### grep (*filter.GrepConfig, optional) {#filter-grep}
+
+Default: -
+
+### prometheus (*filter.PrometheusConfig, optional) {#filter-prometheus}
+
+Default: -
+
+### throttle (*filter.Throttle, optional) {#filter-throttle}
+
+Default: -
+
+### sumologic (*filter.SumoLogic, optional) {#filter-sumologic}
+
+Default: -
+
+### enhanceK8s (*filter.EnhanceK8s, optional) {#filter-enhancek8s}
+
+Default: -
+
+
+## FlowStatus
+
+FlowStatus defines the observed state of Flow
+
+### active (*bool, optional) {#flowstatus-active}
+
+Default: -
+
+### problems ([]string, optional) {#flowstatus-problems}
+
+Default: -
+
+### problemsCount (int, optional) {#flowstatus-problemscount}
+
+Default: -
+
+
+## Flow
+
+Flow Kubernetes object
+
+###  (metav1.TypeMeta, required) {#flow-}
+
+Default: -
+
+### metadata (metav1.ObjectMeta, optional) {#flow-metadata}
+
+Default: -
+
+### spec (FlowSpec, optional) {#flow-spec}
+
+Default: -
+
+### status (FlowStatus, optional) {#flow-status}
+
+Default: -
+
+
+## FlowList
+
+FlowList contains a list of Flow
+
+###  (metav1.TypeMeta, required) {#flowlist-}
+
+Default: -
+
+### metadata (metav1.ListMeta, optional) {#flowlist-metadata}
+
+Default: -
+
+### items ([]Flow, required) {#flowlist-items}
+
+Default: -
+
+

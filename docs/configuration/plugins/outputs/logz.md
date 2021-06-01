@@ -32,24 +32,79 @@ More info at https://github.com/tarokkk/fluent-plugin-logzio
  ```
 
 ## Configuration
-### Logzio
-#### LogZ Send your logs to LogZ.io
+## Logzio
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| endpoint | *Endpoint | Yes | - | Define LogZ endpoint URL<br> |
-| output_include_time | bool | No | - | Should the appender add a timestamp to your logs on their process time (recommended).<br> |
-| output_include_tags | bool | No | - | Should the appender add the fluentd tag to the document, called "fluentd_tag"<br> |
-| http_idle_timeout | int | No | - | Timeout in seconds that the http persistent connection will stay open without traffic.<br> |
-| retry_count | int | No | - | How many times to resend failed bulks.<br> |
-| retry_sleep | int | No | - | How long to sleep initially between retries, exponential step-off.<br> |
-| gzip | bool | No | - | Should the plugin ship the logs in gzip compression. Default is false.<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
-### Endpoint
-#### Endpoint defines connection details for LogZ.io.
+LogZ Send your logs to LogZ.io
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| url | string | No | https://listener.logz.io | LogZ URL.<br> |
-| port | int | No | 8071 | Port over which to connect to LogZ URL.<br> |
-| token | *secret.Secret | No | - | LogZ API Token.<br>[Secret](../secret/)<br> |
+### endpoint (*Endpoint, required) {#logzio-endpoint}
+
+Define LogZ endpoint URL<br>
+
+Default: -
+
+### output_include_time (bool, optional) {#logzio-output_include_time}
+
+Should the appender add a timestamp to your logs on their process time (recommended).<br>
+
+Default: -
+
+### output_include_tags (bool, optional) {#logzio-output_include_tags}
+
+Should the appender add the fluentd tag to the document, called "fluentd_tag"<br>
+
+Default: -
+
+### http_idle_timeout (int, optional) {#logzio-http_idle_timeout}
+
+Timeout in seconds that the http persistent connection will stay open without traffic.<br>
+
+Default: -
+
+### retry_count (int, optional) {#logzio-retry_count}
+
+How many times to resend failed bulks.<br>
+
+Default: -
+
+### retry_sleep (int, optional) {#logzio-retry_sleep}
+
+How long to sleep initially between retries, exponential step-off.<br>
+
+Default: -
+
+### gzip (bool, optional) {#logzio-gzip}
+
+Should the plugin ship the logs in gzip compression. Default is false.<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#logzio-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
+## Endpoint
+
+Endpoint defines connection details for LogZ.io.
+
+### url (string, optional) {#endpoint-url}
+
+LogZ URL.<br>
+
+Default: https://listener.logz.io
+
+### port (int, optional) {#endpoint-port}
+
+Port over which to connect to LogZ URL.<br>
+
+Default: 8071
+
+### token (*secret.Secret, optional) {#endpoint-token}
+
+LogZ API Token.<br>[Secret](../secret/)<br>
+
+Default: -
+
+

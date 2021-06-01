@@ -9,20 +9,58 @@ generated_file: true
  Prometheus Filter Plugin to count Incoming Records
 
 ## Configuration
-### PrometheusConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| metrics | []MetricSection | No | - | [Metrics Section](#metrics-section)<br> |
-| labels | Label | No | - |  |
-### Metrics Section
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| name | string | Yes | - | Metrics name<br> |
-| type | string | Yes | - | Metrics type [counter](https://github.com/fluent/fluent-plugin-prometheus#counter-type), [gauge](https://github.com/fluent/fluent-plugin-prometheus#gauge-type), [summary](https://github.com/fluent/fluent-plugin-prometheus#summary-type), [histogram](https://github.com/fluent/fluent-plugin-prometheus#histogram-type)<br> |
-| desc | string | Yes | - | Description of metric<br> |
-| key | string | No | - | Key name of record for instrumentation.<br> |
-| buckets | string | No | - | Buckets of record for instrumentation<br> |
-| labels | Label | No | - | Additional labels for this metric<br> |
+## PrometheusConfig
+
+### metrics ([]MetricSection, optional) {#prometheusconfig-metrics}
+
+[Metrics Section](#metrics-section)<br>
+
+Default: -
+
+### labels (Label, optional) {#prometheusconfig-labels}
+
+Default: -
+
+
+## Metrics Section
+
+### name (string, required) {#metrics section-name}
+
+Metrics name<br>
+
+Default: -
+
+### type (string, required) {#metrics section-type}
+
+Metrics type [counter](https://github.com/fluent/fluent-plugin-prometheus#counter-type), [gauge](https://github.com/fluent/fluent-plugin-prometheus#gauge-type), [summary](https://github.com/fluent/fluent-plugin-prometheus#summary-type), [histogram](https://github.com/fluent/fluent-plugin-prometheus#histogram-type)<br>
+
+Default: -
+
+### desc (string, required) {#metrics section-desc}
+
+Description of metric<br>
+
+Default: -
+
+### key (string, optional) {#metrics section-key}
+
+Key name of record for instrumentation.<br>
+
+Default: -
+
+### buckets (string, optional) {#metrics section-buckets}
+
+Buckets of record for instrumentation<br>
+
+Default: -
+
+### labels (Label, optional) {#metrics section-labels}
+
+Additional labels for this metric<br>
+
+Default: -
+
+
  #### Example `Prometheus` filter configurations
  ```
 apiVersion: logging.banzaicloud.io/v1beta1

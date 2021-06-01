@@ -9,19 +9,59 @@ generated_file: true
  This plugin has been designed to output logs to LogDNA. Example Deployment: [Transport Nginx Access Logs into LogDNA with Logging Operator](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/examples/logging_output_logdna.yaml)
 
 ## Configuration
-### LogDNA
-#### Send your logs to LogDNA
+## LogDNA
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| api_key | string | Yes | - | LogDNA Api key<br> |
-| hostname | string | Yes | - | Hostname<br> |
-| app | string | No | - | Application name<br> |
-| tags | string | No | - | Comma-Separated List of Tags, Optional<br> |
-| request_timeout | string | No |  30 s | HTTPS POST Request Timeout, Optional. Supports s and ms Suffices <br> |
-| ingester_domain | string | No |  https://logs.logdna.com | Custom Ingester URL, Optional <br> |
-| ingester_endpoint | string | No |  /logs/ingest | Custom Ingester Endpoint, Optional <br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+Send your logs to LogDNA
+
+### api_key (string, required) {#logdna-api_key}
+
+LogDNA Api key<br>
+
+Default: -
+
+### hostname (string, required) {#logdna-hostname}
+
+Hostname<br>
+
+Default: -
+
+### app (string, optional) {#logdna-app}
+
+Application name<br>
+
+Default: -
+
+### tags (string, optional) {#logdna-tags}
+
+Comma-Separated List of Tags, Optional<br>
+
+Default: -
+
+### request_timeout (string, optional) {#logdna-request_timeout}
+
+HTTPS POST Request Timeout, Optional. Supports s and ms Suffices <br>
+
+Default:  30 s
+
+### ingester_domain (string, optional) {#logdna-ingester_domain}
+
+Custom Ingester URL, Optional <br>
+
+Default:  https://logs.logdna.com
+
+### ingester_endpoint (string, optional) {#logdna-ingester_endpoint}
+
+Custom Ingester Endpoint, Optional <br>
+
+Default:  /logs/ingest
+
+### buffer (*Buffer, optional) {#logdna-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
  #### Example `LogDNA` filter configurations
  ```
  apiVersion: logging.banzaicloud.io/v1beta1

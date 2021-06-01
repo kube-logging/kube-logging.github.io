@@ -26,43 +26,218 @@ generated_file: true
  ```
 
 ## Configuration
-### Kafka
-#### Send your logs to Kafka
+## Kafka
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| brokers | string | Yes | - | The list of all seed brokers, with their host and port information.<br> |
-| topic_key | string | No |  "topic" | Topic Key <br> |
-| partition_key | string | No |  "partition" | Partition <br> |
-| partition_key_key | string | No |  "partition_key" | Partition Key <br> |
-| message_key_key | string | No |  "message_key" | Message Key <br> |
-| client_id | string | No |  "kafka" | Client ID <br> |
-| default_topic | string | No |  nil | The name of default topic .<br> |
-| default_partition_key | string | No |  nil | The name of default partition key .<br> |
-| default_message_key | string | No |  nil | The name of default message key .<br> |
-| exclude_topic_key | bool | No |  false | Exclude Topic key <br> |
-| exclude_partion_key | bool | No |  false | Exclude Partition key <br> |
-| get_kafka_client_log | bool | No |  false | Get Kafka Client log <br> |
-| headers | map[string]string | No |  {} | Headers <br> |
-| headers_from_record | map[string]string | No |  {} | Headers from Record <br> |
-| use_default_for_unknown_topic | bool | No |  false | Use default for unknown topics <br> |
-| idempotent | bool | No |  false | Idempotent <br> |
-| sasl_over_ssl | bool | Yes |  true | SASL over SSL <br> |
-| username | *secret.Secret | No | - | Username when using PLAIN/SCRAM SASL authentication<br> |
-| password | *secret.Secret | No | - | Password when using PLAIN/SCRAM SASL authentication<br> |
-| scram_mechanism | string | No | - | If set, use SCRAM authentication with specified mechanism. When unset, default to PLAIN authentication<br> |
-| max_send_retries | int | No |  1 | Number of times to retry sending of messages to a leader <br> |
-| required_acks | int | No |  -1 | The number of acks required per request .<br> |
-| ack_timeout | int | No |  nil => Uses default of ruby-kafka library | How long the producer waits for acks. The unit is seconds <br> |
-| compression_codec | string | No |  nil | The codec the producer uses to compress messages . The available options are gzip and snappy.<br> |
-| kafka_agg_max_bytes | int | No |  4096 | Maximum value of total message size to be included in one batch transmission. .<br> |
-| kafka_agg_max_messages | string | No |  nil | Maximum number of messages to include in one batch transmission. .<br> |
-| discard_kafka_delivery_failed | bool | No |  false | Discard the record where Kafka DeliveryFailed occurred <br> |
-| ssl_ca_certs_from_system | *bool | No |  false | System's CA cert store <br> |
-| ssl_ca_cert | *secret.Secret | No | - | CA certificate<br> |
-| ssl_client_cert | *secret.Secret | No | - | Client certificate<br> |
-| ssl_client_cert_chain | *secret.Secret | No | - | Client certificate chain<br> |
-| ssl_client_cert_key | *secret.Secret | No | - | Client certificate key<br> |
-| ssl_verify_hostname | *bool | No | - | Verify certificate hostname<br> |
-| format | *Format | Yes | - | [Format](../format/)<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+Send your logs to Kafka
+
+### brokers (string, required) {#kafka-brokers}
+
+The list of all seed brokers, with their host and port information.<br>
+
+Default: -
+
+### topic_key (string, optional) {#kafka-topic_key}
+
+Topic Key <br>
+
+Default:  "topic"
+
+### partition_key (string, optional) {#kafka-partition_key}
+
+Partition <br>
+
+Default:  "partition"
+
+### partition_key_key (string, optional) {#kafka-partition_key_key}
+
+Partition Key <br>
+
+Default:  "partition_key"
+
+### message_key_key (string, optional) {#kafka-message_key_key}
+
+Message Key <br>
+
+Default:  "message_key"
+
+### client_id (string, optional) {#kafka-client_id}
+
+Client ID <br>
+
+Default:  "kafka"
+
+### default_topic (string, optional) {#kafka-default_topic}
+
+The name of default topic .<br>
+
+Default:  nil
+
+### default_partition_key (string, optional) {#kafka-default_partition_key}
+
+The name of default partition key .<br>
+
+Default:  nil
+
+### default_message_key (string, optional) {#kafka-default_message_key}
+
+The name of default message key .<br>
+
+Default:  nil
+
+### exclude_topic_key (bool, optional) {#kafka-exclude_topic_key}
+
+Exclude Topic key <br>
+
+Default:  false
+
+### exclude_partion_key (bool, optional) {#kafka-exclude_partion_key}
+
+Exclude Partition key <br>
+
+Default:  false
+
+### get_kafka_client_log (bool, optional) {#kafka-get_kafka_client_log}
+
+Get Kafka Client log <br>
+
+Default:  false
+
+### headers (map[string]string, optional) {#kafka-headers}
+
+Headers <br>
+
+Default:  {}
+
+### headers_from_record (map[string]string, optional) {#kafka-headers_from_record}
+
+Headers from Record <br>
+
+Default:  {}
+
+### use_default_for_unknown_topic (bool, optional) {#kafka-use_default_for_unknown_topic}
+
+Use default for unknown topics <br>
+
+Default:  false
+
+### idempotent (bool, optional) {#kafka-idempotent}
+
+Idempotent <br>
+
+Default:  false
+
+### sasl_over_ssl (bool, required) {#kafka-sasl_over_ssl}
+
+SASL over SSL <br>
+
+Default:  true
+
+### username (*secret.Secret, optional) {#kafka-username}
+
+Username when using PLAIN/SCRAM SASL authentication<br>
+
+Default: -
+
+### password (*secret.Secret, optional) {#kafka-password}
+
+Password when using PLAIN/SCRAM SASL authentication<br>
+
+Default: -
+
+### scram_mechanism (string, optional) {#kafka-scram_mechanism}
+
+If set, use SCRAM authentication with specified mechanism. When unset, default to PLAIN authentication<br>
+
+Default: -
+
+### max_send_retries (int, optional) {#kafka-max_send_retries}
+
+Number of times to retry sending of messages to a leader <br>
+
+Default:  1
+
+### required_acks (int, optional) {#kafka-required_acks}
+
+The number of acks required per request .<br>
+
+Default:  -1
+
+### ack_timeout (int, optional) {#kafka-ack_timeout}
+
+How long the producer waits for acks. The unit is seconds <br>
+
+Default:  nil => Uses default of ruby-kafka library
+
+### compression_codec (string, optional) {#kafka-compression_codec}
+
+The codec the producer uses to compress messages . The available options are gzip and snappy.<br>
+
+Default:  nil
+
+### kafka_agg_max_bytes (int, optional) {#kafka-kafka_agg_max_bytes}
+
+Maximum value of total message size to be included in one batch transmission. .<br>
+
+Default:  4096
+
+### kafka_agg_max_messages (string, optional) {#kafka-kafka_agg_max_messages}
+
+Maximum number of messages to include in one batch transmission. .<br>
+
+Default:  nil
+
+### discard_kafka_delivery_failed (bool, optional) {#kafka-discard_kafka_delivery_failed}
+
+Discard the record where Kafka DeliveryFailed occurred <br>
+
+Default:  false
+
+### ssl_ca_certs_from_system (*bool, optional) {#kafka-ssl_ca_certs_from_system}
+
+System's CA cert store <br>
+
+Default:  false
+
+### ssl_ca_cert (*secret.Secret, optional) {#kafka-ssl_ca_cert}
+
+CA certificate<br>
+
+Default: -
+
+### ssl_client_cert (*secret.Secret, optional) {#kafka-ssl_client_cert}
+
+Client certificate<br>
+
+Default: -
+
+### ssl_client_cert_chain (*secret.Secret, optional) {#kafka-ssl_client_cert_chain}
+
+Client certificate chain<br>
+
+Default: -
+
+### ssl_client_cert_key (*secret.Secret, optional) {#kafka-ssl_client_cert_key}
+
+Client certificate key<br>
+
+Default: -
+
+### ssl_verify_hostname (*bool, optional) {#kafka-ssl_verify_hostname}
+
+Verify certificate hostname<br>
+
+Default: -
+
+### format (*Format, required) {#kafka-format}
+
+[Format](../format/)<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#kafka-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+

@@ -9,16 +9,51 @@ generated_file: true
  This plugin has been designed to output logs or metrics to File.
 
 ## Configuration
-### FileOutputConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| path | string | Yes | - | The Path of the file. The actual path is path + time + ".log" by default.<br> |
-| append | bool | No | - | The flushed chunk is appended to existence file or not. The default is not appended.<br> |
-| add_path_suffix | *bool | No | true | Add path suffix(default: true)<br> |
-| path_suffix | string | No |  ".log" | The suffix of output result.<br> |
-| symlink_path | bool | No |  false | Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs.<br> |
-| format | *Format | No | - | [Format](../format/)<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## FileOutputConfig
+
+### path (string, required) {#fileoutputconfig-path}
+
+The Path of the file. The actual path is path + time + ".log" by default.<br>
+
+Default: -
+
+### append (bool, optional) {#fileoutputconfig-append}
+
+The flushed chunk is appended to existence file or not. The default is not appended.<br>
+
+Default: -
+
+### add_path_suffix (*bool, optional) {#fileoutputconfig-add_path_suffix}
+
+Add path suffix(default: true)<br>
+
+Default: true
+
+### path_suffix (string, optional) {#fileoutputconfig-path_suffix}
+
+The suffix of output result.<br>
+
+Default:  ".log"
+
+### symlink_path (bool, optional) {#fileoutputconfig-symlink_path}
+
+Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs.<br>
+
+Default:  false
+
+### format (*Format, optional) {#fileoutputconfig-format}
+
+[Format](../format/)<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#fileoutputconfig-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
  #### Example `File` output configurations
  ```
 apiVersion: logging.banzaicloud.io/v1beta1

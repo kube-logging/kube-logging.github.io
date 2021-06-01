@@ -9,20 +9,50 @@ generated_file: true
  The grep filter plugin "greps" events by the values of specified fields.
 
 ## Configuration
-### GrepConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
-| exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
-| or | []OrSection | No | - | [Or Directive](#Or-Directive)<br> |
-| and | []AndSection | No | - | [And Directive](#And-Directive)<br> |
-### [Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#Regexp-Directive}
-#### Specify filtering rule. This directive contains two parameters.
+## GrepConfig
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| key | string | Yes | - | Specify field name in the record to parse.<br> |
-| pattern | string | Yes | - | Pattern expression to evaluate<br> |
+### regexp ([]RegexpSection, optional) {#grepconfig-regexp}
+
+[Regexp Directive](#Regexp-Directive)<br>
+
+Default: -
+
+### exclude ([]ExcludeSection, optional) {#grepconfig-exclude}
+
+[Exclude Directive](#Exclude-Directive)<br>
+
+Default: -
+
+### or ([]OrSection, optional) {#grepconfig-or}
+
+[Or Directive](#Or-Directive)<br>
+
+Default: -
+
+### and ([]AndSection, optional) {#grepconfig-and}
+
+[And Directive](#And-Directive)<br>
+
+Default: -
+
+
+## [Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#Regexp-Directive}
+
+Specify filtering rule. This directive contains two parameters.
+
+### key (string, required) {#[regexp directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#regexp-directive}-key}
+
+Specify field name in the record to parse.<br>
+
+Default: -
+
+### pattern (string, required) {#[regexp directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#regexp-directive}-pattern}
+
+Pattern expression to evaluate<br>
+
+Default: -
+
+
  #### Example `Regexp` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -53,13 +83,23 @@ spec:
  ```
 
 ---
-### [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#Exclude-Directive}
-#### Specify filtering rule to reject events. This directive contains two parameters.
+## [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#Exclude-Directive}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| key | string | Yes | - | Specify field name in the record to parse.<br> |
-| pattern | string | Yes | - | Pattern expression to evaluate<br> |
+Specify filtering rule to reject events. This directive contains two parameters.
+
+### key (string, required) {#[exclude directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#exclude-directive}-key}
+
+Specify field name in the record to parse.<br>
+
+Default: -
+
+### pattern (string, required) {#[exclude directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#exclude-directive}-pattern}
+
+Pattern expression to evaluate<br>
+
+Default: -
+
+
  #### Example `Exclude` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -90,13 +130,23 @@ spec:
  ```
 
 ---
-### [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
-#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+## [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
-| exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
+Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+
+### regexp ([]RegexpSection, optional) {#[or directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#or-directive}-regexp}
+
+[Regexp Directive](#Regexp-Directive)<br>
+
+Default: -
+
+### exclude ([]ExcludeSection, optional) {#[or directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#or-directive}-exclude}
+
+[Exclude Directive](#Exclude-Directive)<br>
+
+Default: -
+
+
  #### Example `Or` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -133,13 +183,23 @@ spec:
  ```
 
 ---
-### [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
-#### Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+## [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| regexp | []RegexpSection | No | - | [Regexp Directive](#Regexp-Directive)<br> |
-| exclude | []ExcludeSection | No | - | [Exclude Directive](#Exclude-Directive)<br> |
+Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+
+### regexp ([]RegexpSection, optional) {#[and directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#and-directive}-regexp}
+
+[Regexp Directive](#Regexp-Directive)<br>
+
+Default: -
+
+### exclude ([]ExcludeSection, optional) {#[and directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#and-directive}-exclude}
+
+[Exclude Directive](#Exclude-Directive)<br>
+
+Default: -
+
+
  #### Example `And` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

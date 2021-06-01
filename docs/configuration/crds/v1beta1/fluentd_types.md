@@ -4,65 +4,207 @@ weight: 200
 generated_file: true
 ---
 
-### FluentdSpec
-#### FluentdSpec defines the desired state of Fluentd
+## FluentdSpec
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| annotations | map[string]string | No | - |  |
-| configCheckAnnotations | map[string]string | No | - |  |
-| labels | map[string]string | No | - |  |
-| tls | FluentdTLS | No | - |  |
-| image | ImageSpec | No | - |  |
-| disablePvc | bool | No | - |  |
-| bufferStorageVolume | volume.KubernetesVolume | No | - | BufferStorageVolume is by default configured as PVC using FluentdPvcSpec<br>[volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types)<br> |
-| fluentdPvcSpec | *volume.KubernetesVolume | No | - | Deprecated, use bufferStorageVolume<br> |
-| volumeMountChmod | bool | No | - |  |
-| volumeModImage | ImageSpec | No | - |  |
-| configReloaderImage | ImageSpec | No | - |  |
-| resources | corev1.ResourceRequirements | No | - |  |
-| livenessProbe | *corev1.Probe | No | - |  |
-| livenessDefaultCheck | bool | No | - |  |
-| readinessProbe | *corev1.Probe | No | - |  |
-| port | int32 | No | - |  |
-| tolerations | []corev1.Toleration | No | - |  |
-| nodeSelector | map[string]string | No | - |  |
-| affinity | *corev1.Affinity | No | - |  |
-| metrics | *Metrics | No | - |  |
-| bufferVolumeMetrics | *Metrics | No | - |  |
-| bufferVolumeImage | ImageSpec | No | - |  |
-| bufferVolumeArgs | []string | No | - |  |
-| security | *Security | No | - |  |
-| scaling | *FluentdScaling | No | - |  |
-| workers | int32 | No | - |  |
-| rootDir | string | No | - |  |
-| logLevel | string | No | - |  |
-| ignoreSameLogInterval | string | No | - | Ignore same log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_same_log_interval)<br> |
-| ignoreRepeatedLogInterval | string | No | - | Ignore repeated log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval)<br> |
-| podPriorityClassName | string | No | - |  |
-| fluentLogDestination | string | No | - |  |
-| fluentOutLogrotate | *FluentOutLogrotate | No | - | FluentOutLogrotate sends fluent's stdout to file and rotates it<br> |
-| forwardInputConfig | *input.ForwardInputConfig | No | - |  |
-| serviceAccount | *typeoverride.ServiceAccount | No | - |  |
-### FluentOutLogrotate
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| enabled | bool | Yes | - |  |
-| path | string | No | - |  |
-| age | string | No | - |  |
-| size | string | No | - |  |
-### FluentdScaling
-#### FluentdScaling enables configuring the scaling behaviour of the fluentd statefulset
+FluentdSpec defines the desired state of Fluentd
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| replicas | int | No | - |  |
-| podManagementPolicy | string | No | - |  |
-### FluentdTLS
-#### FluentdTLS defines the TLS configs
+### annotations (map[string]string, optional) {#fluentdspec-annotations}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| enabled | bool | Yes | - |  |
-| secretName | string | No | - |  |
-| sharedKey | string | No | - |  |
+Default: -
+
+### configCheckAnnotations (map[string]string, optional) {#fluentdspec-configcheckannotations}
+
+Default: -
+
+### labels (map[string]string, optional) {#fluentdspec-labels}
+
+Default: -
+
+### tls (FluentdTLS, optional) {#fluentdspec-tls}
+
+Default: -
+
+### image (ImageSpec, optional) {#fluentdspec-image}
+
+Default: -
+
+### disablePvc (bool, optional) {#fluentdspec-disablepvc}
+
+Default: -
+
+### bufferStorageVolume (volume.KubernetesVolume, optional) {#fluentdspec-bufferstoragevolume}
+
+BufferStorageVolume is by default configured as PVC using FluentdPvcSpec<br>[volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types)<br>
+
+Default: -
+
+### fluentdPvcSpec (*volume.KubernetesVolume, optional) {#fluentdspec-fluentdpvcspec}
+
+Deprecated, use bufferStorageVolume<br>
+
+Default: -
+
+### volumeMountChmod (bool, optional) {#fluentdspec-volumemountchmod}
+
+Default: -
+
+### volumeModImage (ImageSpec, optional) {#fluentdspec-volumemodimage}
+
+Default: -
+
+### configReloaderImage (ImageSpec, optional) {#fluentdspec-configreloaderimage}
+
+Default: -
+
+### resources (corev1.ResourceRequirements, optional) {#fluentdspec-resources}
+
+Default: -
+
+### livenessProbe (*corev1.Probe, optional) {#fluentdspec-livenessprobe}
+
+Default: -
+
+### livenessDefaultCheck (bool, optional) {#fluentdspec-livenessdefaultcheck}
+
+Default: -
+
+### readinessProbe (*corev1.Probe, optional) {#fluentdspec-readinessprobe}
+
+Default: -
+
+### port (int32, optional) {#fluentdspec-port}
+
+Default: -
+
+### tolerations ([]corev1.Toleration, optional) {#fluentdspec-tolerations}
+
+Default: -
+
+### nodeSelector (map[string]string, optional) {#fluentdspec-nodeselector}
+
+Default: -
+
+### affinity (*corev1.Affinity, optional) {#fluentdspec-affinity}
+
+Default: -
+
+### metrics (*Metrics, optional) {#fluentdspec-metrics}
+
+Default: -
+
+### bufferVolumeMetrics (*Metrics, optional) {#fluentdspec-buffervolumemetrics}
+
+Default: -
+
+### bufferVolumeImage (ImageSpec, optional) {#fluentdspec-buffervolumeimage}
+
+Default: -
+
+### bufferVolumeArgs ([]string, optional) {#fluentdspec-buffervolumeargs}
+
+Default: -
+
+### security (*Security, optional) {#fluentdspec-security}
+
+Default: -
+
+### scaling (*FluentdScaling, optional) {#fluentdspec-scaling}
+
+Default: -
+
+### workers (int32, optional) {#fluentdspec-workers}
+
+Default: -
+
+### rootDir (string, optional) {#fluentdspec-rootdir}
+
+Default: -
+
+### logLevel (string, optional) {#fluentdspec-loglevel}
+
+Default: -
+
+### ignoreSameLogInterval (string, optional) {#fluentdspec-ignoresameloginterval}
+
+Ignore same log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_same_log_interval)<br>
+
+Default: -
+
+### ignoreRepeatedLogInterval (string, optional) {#fluentdspec-ignorerepeatedloginterval}
+
+Ignore repeated log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval)<br>
+
+Default: -
+
+### podPriorityClassName (string, optional) {#fluentdspec-podpriorityclassname}
+
+Default: -
+
+### fluentLogDestination (string, optional) {#fluentdspec-fluentlogdestination}
+
+Default: -
+
+### fluentOutLogrotate (*FluentOutLogrotate, optional) {#fluentdspec-fluentoutlogrotate}
+
+FluentOutLogrotate sends fluent's stdout to file and rotates it<br>
+
+Default: -
+
+### forwardInputConfig (*input.ForwardInputConfig, optional) {#fluentdspec-forwardinputconfig}
+
+Default: -
+
+### serviceAccount (*typeoverride.ServiceAccount, optional) {#fluentdspec-serviceaccount}
+
+Default: -
+
+
+## FluentOutLogrotate
+
+### enabled (bool, required) {#fluentoutlogrotate-enabled}
+
+Default: -
+
+### path (string, optional) {#fluentoutlogrotate-path}
+
+Default: -
+
+### age (string, optional) {#fluentoutlogrotate-age}
+
+Default: -
+
+### size (string, optional) {#fluentoutlogrotate-size}
+
+Default: -
+
+
+## FluentdScaling
+
+FluentdScaling enables configuring the scaling behaviour of the fluentd statefulset
+
+### replicas (int, optional) {#fluentdscaling-replicas}
+
+Default: -
+
+### podManagementPolicy (string, optional) {#fluentdscaling-podmanagementpolicy}
+
+Default: -
+
+
+## FluentdTLS
+
+FluentdTLS defines the TLS configs
+
+### enabled (bool, required) {#fluentdtls-enabled}
+
+Default: -
+
+### secretName (string, optional) {#fluentdtls-secretname}
+
+Default: -
+
+### sharedKey (string, optional) {#fluentdtls-sharedkey}
+
+Default: -
+
+

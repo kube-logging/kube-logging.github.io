@@ -9,15 +9,45 @@ generated_file: true
  Fluentd output plugin for GELF.
 
 ## Configuration
-### Output Config
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| host | string | Yes | - | Destination host<br> |
-| port | int | Yes | - | Destination host port<br> |
-| protocol | string | No |  "udp" | Transport Protocol <br> |
-| tls | *bool | No |  false | Enable TlS <br> |
-| tls_options | map[string]string | No |  {} | TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## Output Config
+
+### host (string, required) {#output config-host}
+
+Destination host<br>
+
+Default: -
+
+### port (int, required) {#output config-port}
+
+Destination host port<br>
+
+Default: -
+
+### protocol (string, optional) {#output config-protocol}
+
+Transport Protocol <br>
+
+Default:  "udp"
+
+### tls (*bool, optional) {#output config-tls}
+
+Enable TlS <br>
+
+Default:  false
+
+### tls_options (map[string]string, optional) {#output config-tls_options}
+
+TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12<br>
+
+Default:  {}
+
+### buffer (*Buffer, optional) {#output config-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
 
  #### Example `GELF` output configurations
  ```

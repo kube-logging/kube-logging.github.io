@@ -9,11 +9,21 @@ generated_file: true
  Fluentd Filter plugin to de-dot field name for elasticsearch.
 
 ## Configuration
-### DedotFilterConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| de_dot_nested | bool | No |  false | Will cause the plugin to recurse through nested structures (hashes and arrays), and remove dots in those key-names too.<br> |
-| de_dot_separator | string | No | _ | Separator <br> |
+## DedotFilterConfig
+
+### de_dot_nested (bool, optional) {#dedotfilterconfig-de_dot_nested}
+
+Will cause the plugin to recurse through nested structures (hashes and arrays), and remove dots in those key-names too.<br>
+
+Default:  false
+
+### de_dot_separator (string, optional) {#dedotfilterconfig-de_dot_separator}
+
+Separator <br>
+
+Default: _
+
+
  #### Example `Dedot` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

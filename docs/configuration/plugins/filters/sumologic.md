@@ -9,35 +9,165 @@ generated_file: true
 More info at https://github.com/SumoLogic/sumologic-kubernetes-collection
 
 ## Configuration
-### SumoLogic
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| source_category | string | No |  "%{namespace}/%{pod_name}" | Source Category <br> |
-| source_category_replace_dash | string | No |  "/" | Source Category Replace Dash <br> |
-| source_category_prefix | string | No |  kubernetes/ | Source Category Prefix <br> |
-| source_name | string | No |  "%{namespace}.%{pod}.%{container}" | Source Name <br> |
-| log_format | string | No |  json | Log Format <br> |
-| source_host | string | No |  "" | Source Host <br> |
-| exclude_container_regex | string | No |  "" | Exclude Container Regex <br> |
-| exclude_facility_regex | string | No |  "" | Exclude Facility Regex <br> |
-| exclude_host_regex | string | No |  "" | Exclude Host Regex <br> |
-| exclude_namespace_regex | string | No |  "" | Exclude Namespace Regex <br> |
-| exclude_pod_regex | string | No |  "" | Exclude Pod Regex <br> |
-| exclude_priority_regex | string | No |  "" | Exclude Priority Regex <br> |
-| exclude_unit_regex | string | No |  "" | Exclude Unit Regex <br> |
-| tracing_format | *bool | No |  false | Tracing Format <br> |
-| tracing_namespace | string | No |  "namespace" | Tracing Namespace <br> |
-| tracing_pod | string | No |  "pod" | Tracing Pod <br> |
-| tracing_pod_id | string | No |  "pod_id" | Tracing Pod ID <br> |
-| tracing_container_name | string | No |  "container_name" | Tracing Container Name <br> |
-| tracing_host | string | No |  "hostname" | Tracing Host <br> |
-| tracing_label_prefix | string | No |  "pod_label_" | Tracing Label Prefix <br> |
-| tracing_annotation_prefix | string | No |  "pod_annotation_" | Tracing Annotation Prefix <br> |
-| source_host_key_name | string | No |  "_sourceHost" | Source HostKey Name <br> |
-| source_category_key_name | string | No |  "_sourceCategory" | Source CategoryKey Name <br> |
-| source_name_key_name | string | No |  "_sourceName" | Source NameKey Name <br> |
-| collector_key_name | string | No |  "_collector" | CollectorKey Name <br> |
-| collector_value | string | No |  "undefined" | Collector Value <br> |
+## SumoLogic
+
+### source_category (string, optional) {#sumologic-source_category}
+
+Source Category <br>
+
+Default:  "%{namespace}/%{pod_name}"
+
+### source_category_replace_dash (string, optional) {#sumologic-source_category_replace_dash}
+
+Source Category Replace Dash <br>
+
+Default:  "/"
+
+### source_category_prefix (string, optional) {#sumologic-source_category_prefix}
+
+Source Category Prefix <br>
+
+Default:  kubernetes/
+
+### source_name (string, optional) {#sumologic-source_name}
+
+Source Name <br>
+
+Default:  "%{namespace}.%{pod}.%{container}"
+
+### log_format (string, optional) {#sumologic-log_format}
+
+Log Format <br>
+
+Default:  json
+
+### source_host (string, optional) {#sumologic-source_host}
+
+Source Host <br>
+
+Default:  ""
+
+### exclude_container_regex (string, optional) {#sumologic-exclude_container_regex}
+
+Exclude Container Regex <br>
+
+Default:  ""
+
+### exclude_facility_regex (string, optional) {#sumologic-exclude_facility_regex}
+
+Exclude Facility Regex <br>
+
+Default:  ""
+
+### exclude_host_regex (string, optional) {#sumologic-exclude_host_regex}
+
+Exclude Host Regex <br>
+
+Default:  ""
+
+### exclude_namespace_regex (string, optional) {#sumologic-exclude_namespace_regex}
+
+Exclude Namespace Regex <br>
+
+Default:  ""
+
+### exclude_pod_regex (string, optional) {#sumologic-exclude_pod_regex}
+
+Exclude Pod Regex <br>
+
+Default:  ""
+
+### exclude_priority_regex (string, optional) {#sumologic-exclude_priority_regex}
+
+Exclude Priority Regex <br>
+
+Default:  ""
+
+### exclude_unit_regex (string, optional) {#sumologic-exclude_unit_regex}
+
+Exclude Unit Regex <br>
+
+Default:  ""
+
+### tracing_format (*bool, optional) {#sumologic-tracing_format}
+
+Tracing Format <br>
+
+Default:  false
+
+### tracing_namespace (string, optional) {#sumologic-tracing_namespace}
+
+Tracing Namespace <br>
+
+Default:  "namespace"
+
+### tracing_pod (string, optional) {#sumologic-tracing_pod}
+
+Tracing Pod <br>
+
+Default:  "pod"
+
+### tracing_pod_id (string, optional) {#sumologic-tracing_pod_id}
+
+Tracing Pod ID <br>
+
+Default:  "pod_id"
+
+### tracing_container_name (string, optional) {#sumologic-tracing_container_name}
+
+Tracing Container Name <br>
+
+Default:  "container_name"
+
+### tracing_host (string, optional) {#sumologic-tracing_host}
+
+Tracing Host <br>
+
+Default:  "hostname"
+
+### tracing_label_prefix (string, optional) {#sumologic-tracing_label_prefix}
+
+Tracing Label Prefix <br>
+
+Default:  "pod_label_"
+
+### tracing_annotation_prefix (string, optional) {#sumologic-tracing_annotation_prefix}
+
+Tracing Annotation Prefix <br>
+
+Default:  "pod_annotation_"
+
+### source_host_key_name (string, optional) {#sumologic-source_host_key_name}
+
+Source HostKey Name <br>
+
+Default:  "_sourceHost"
+
+### source_category_key_name (string, optional) {#sumologic-source_category_key_name}
+
+Source CategoryKey Name <br>
+
+Default:  "_sourceCategory"
+
+### source_name_key_name (string, optional) {#sumologic-source_name_key_name}
+
+Source NameKey Name <br>
+
+Default:  "_sourceName"
+
+### collector_key_name (string, optional) {#sumologic-collector_key_name}
+
+CollectorKey Name <br>
+
+Default:  "_collector"
+
+### collector_value (string, optional) {#sumologic-collector_value}
+
+Collector Value <br>
+
+Default:  "undefined"
+
+
  #### Example `Parser` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

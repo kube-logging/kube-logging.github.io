@@ -9,15 +9,45 @@ generated_file: true
  Modify each event record.
 
 ## Configuration
-### RecordModifier
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| prepare_value | string | No | - | Prepare values for filtering in configure phase. Prepared values can be used in <record>. You can write any ruby code.<br> |
-| char_encoding | string | No | - | Fluentd including some plugins treats logs as a BINARY by default to forward. To overide that, use a target encoding or a from:to encoding here.<br> |
-| remove_keys | string | No | - | A comma-delimited list of keys to delete<br> |
-| whitelist_keys | string | No | - | This is exclusive with remove_keys<br> |
-| replaces | []Replace | No | - | Replace specific value for keys<br> |
-| records | []Record | No | - | Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier<br>Records are represented as maps: `key: value`<br> |
+## RecordModifier
+
+### prepare_value (string, optional) {#recordmodifier-prepare_value}
+
+Prepare values for filtering in configure phase. Prepared values can be used in <record>. You can write any ruby code.<br>
+
+Default: -
+
+### char_encoding (string, optional) {#recordmodifier-char_encoding}
+
+Fluentd including some plugins treats logs as a BINARY by default to forward. To overide that, use a target encoding or a from:to encoding here.<br>
+
+Default: -
+
+### remove_keys (string, optional) {#recordmodifier-remove_keys}
+
+A comma-delimited list of keys to delete<br>
+
+Default: -
+
+### whitelist_keys (string, optional) {#recordmodifier-whitelist_keys}
+
+This is exclusive with remove_keys<br>
+
+Default: -
+
+### replaces ([]Replace, optional) {#recordmodifier-replaces}
+
+Replace specific value for keys<br>
+
+Default: -
+
+### records ([]Record, optional) {#recordmodifier-records}
+
+Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier<br>Records are represented as maps: `key: value`<br>
+
+Default: -
+
+
  #### Example `Record Modifier` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -46,11 +76,26 @@ spec:
  ```
 
 ---
-### [Replace Directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)
-#### Specify replace rule. This directive contains three parameters.
+## [Replace Directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| key | string | Yes | - | Key to search for<br> |
-| expression | string | Yes | - | Regular expression<br> |
-| replace | string | Yes | - | Value to replace with<br> |
+Specify replace rule. This directive contains three parameters.
+
+### key (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-key}
+
+Key to search for<br>
+
+Default: -
+
+### expression (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-expression}
+
+Regular expression<br>
+
+Default: -
+
+### replace (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-replace}
+
+Value to replace with<br>
+
+Default: -
+
+

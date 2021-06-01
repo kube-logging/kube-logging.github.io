@@ -4,50 +4,125 @@ weight: 200
 generated_file: true
 ---
 
-### ClusterFlow
-#### ClusterFlow is the Schema for the clusterflows API
+## ClusterFlow
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ObjectMeta | No | - |  |
-| spec | ClusterFlowSpec | No | - | Name of the logging cluster to be attached<br> |
-| status | FlowStatus | No | - |  |
-### ClusterMatch
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| select | *ClusterSelect | No | - |  |
-| exclude | *ClusterExclude | No | - |  |
-### ClusterSelect
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| namespaces | []string | No | - |  |
-| labels | map[string]string | No | - |  |
-| hosts | []string | No | - |  |
-| container_names | []string | No | - |  |
-### ClusterExclude
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| namespaces | []string | No | - |  |
-| labels | map[string]string | No | - |  |
-| hosts | []string | No | - |  |
-| container_names | []string | No | - |  |
-### ClusterFlowSpec
-#### FlowSpec is the Kubernetes spec for Flows
+ClusterFlow is the Schema for the clusterflows API
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| selectors | map[string]string | No | - | Deprecated<br> |
-| match | []ClusterMatch | No | - |  |
-| filters | []Filter | No | - |  |
-| loggingRef | string | No | - |  |
-| outputRefs | []string | No | - | Deprecated<br> |
-| globalOutputRefs | []string | No | - |  |
-### ClusterFlowList
-#### ClusterFlowList contains a list of ClusterFlow
+###  (metav1.TypeMeta, required) {#clusterflow-}
 
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-|  | metav1.TypeMeta | Yes | - |  |
-| metadata | metav1.ListMeta | No | - |  |
-| items | []ClusterFlow | Yes | - |  |
+Default: -
+
+### metadata (metav1.ObjectMeta, optional) {#clusterflow-metadata}
+
+Default: -
+
+### spec (ClusterFlowSpec, optional) {#clusterflow-spec}
+
+Name of the logging cluster to be attached<br>
+
+Default: -
+
+### status (FlowStatus, optional) {#clusterflow-status}
+
+Default: -
+
+
+## ClusterMatch
+
+### select (*ClusterSelect, optional) {#clustermatch-select}
+
+Default: -
+
+### exclude (*ClusterExclude, optional) {#clustermatch-exclude}
+
+Default: -
+
+
+## ClusterSelect
+
+### namespaces ([]string, optional) {#clusterselect-namespaces}
+
+Default: -
+
+### labels (map[string]string, optional) {#clusterselect-labels}
+
+Default: -
+
+### hosts ([]string, optional) {#clusterselect-hosts}
+
+Default: -
+
+### container_names ([]string, optional) {#clusterselect-container_names}
+
+Default: -
+
+
+## ClusterExclude
+
+### namespaces ([]string, optional) {#clusterexclude-namespaces}
+
+Default: -
+
+### labels (map[string]string, optional) {#clusterexclude-labels}
+
+Default: -
+
+### hosts ([]string, optional) {#clusterexclude-hosts}
+
+Default: -
+
+### container_names ([]string, optional) {#clusterexclude-container_names}
+
+Default: -
+
+
+## ClusterFlowSpec
+
+FlowSpec is the Kubernetes spec for Flows
+
+### selectors (map[string]string, optional) {#clusterflowspec-selectors}
+
+Deprecated<br>
+
+Default: -
+
+### match ([]ClusterMatch, optional) {#clusterflowspec-match}
+
+Default: -
+
+### filters ([]Filter, optional) {#clusterflowspec-filters}
+
+Default: -
+
+### loggingRef (string, optional) {#clusterflowspec-loggingref}
+
+Default: -
+
+### outputRefs ([]string, optional) {#clusterflowspec-outputrefs}
+
+Deprecated<br>
+
+Default: -
+
+### globalOutputRefs ([]string, optional) {#clusterflowspec-globaloutputrefs}
+
+Default: -
+
+
+## ClusterFlowList
+
+ClusterFlowList contains a list of ClusterFlow
+
+###  (metav1.TypeMeta, required) {#clusterflowlist-}
+
+Default: -
+
+### metadata (metav1.ListMeta, optional) {#clusterflowlist-metadata}
+
+Default: -
+
+### items ([]ClusterFlow, required) {#clusterflowlist-items}
+
+Default: -
+
+

@@ -10,15 +10,45 @@ generated_file: true
  More information at https://github.com/y-ken/fluent-plugin-geoip
 
 ## Configuration
-### GeoIP
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| geoip_lookup_keys | string | No |  host | Specify one or more geoip lookup field which has ip address <br> |
-| geoip_database | string | No | - | Specify optional geoip database (using bundled GeoLiteCity databse by default)<br> |
-| geoip_2_database | string | No | - | Specify optional geoip2 database (using bundled GeoLite2-City.mmdb by default)<br> |
-| backend_library | string | No | - | Specify backend library (geoip2_c, geoip, geoip2_compat)<br> |
-| skip_adding_null_record | bool | No | true | To avoid get stacktrace error with `[null, null]` array for elasticsearch.<br> |
-| records | []Record | No | - | Records are represented as maps: `key: value`<br> |
+## GeoIP
+
+### geoip_lookup_keys (string, optional) {#geoip-geoip_lookup_keys}
+
+Specify one or more geoip lookup field which has ip address <br>
+
+Default:  host
+
+### geoip_database (string, optional) {#geoip-geoip_database}
+
+Specify optional geoip database (using bundled GeoLiteCity databse by default)<br>
+
+Default: -
+
+### geoip_2_database (string, optional) {#geoip-geoip_2_database}
+
+Specify optional geoip2 database (using bundled GeoLite2-City.mmdb by default)<br>
+
+Default: -
+
+### backend_library (string, optional) {#geoip-backend_library}
+
+Specify backend library (geoip2_c, geoip, geoip2_compat)<br>
+
+Default: -
+
+### skip_adding_null_record (bool, optional) {#geoip-skip_adding_null_record}
+
+To avoid get stacktrace error with `[null, null]` array for elasticsearch.<br>
+
+Default: true
+
+### records ([]Record, optional) {#geoip-records}
+
+Records are represented as maps: `key: value`<br>
+
+Default: -
+
+
  #### Example `GeoIP` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

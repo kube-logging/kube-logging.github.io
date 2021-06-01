@@ -37,28 +37,138 @@ spec:
 ```
 
 ## Configuration
-### Output Config
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| data_type | string | No |  logs | The type of data that will be sent to Sumo Logic, either logs or metrics <br> |
-| endpoint | *secret.Secret | Yes | - | SumoLogic HTTP Collector URL<br> |
-| verify_ssl | bool | No |  true | Verify ssl certificate. <br> |
-| metric_data_format | string | No |  graphite | The format of metrics you will be sending, either graphite or carbon2 or prometheus <br> |
-| log_format | string | No |  json | Format to post logs into Sumo. <br> |
-| log_key | string | No |  message | Used to specify the key when merging json or sending logs in text format <br> |
-| source_category | string | No |  nil | Set _sourceCategory metadata field within SumoLogic <br> |
-| source_name | string | Yes | - | Set _sourceName metadata field within SumoLogic - overrides source_name_key (default is nil)<br> |
-| source_name_key | string | No |  source_name | Set as source::path_key's value so that the source_name can be extracted from Fluentd's buffer <br> |
-| source_host | string | No |  nil | Set _sourceHost metadata field within SumoLogic <br> |
-| open_timeout | int | No |  60 | Set timeout seconds to wait until connection is opened. <br> |
-| add_timestamp | bool | No |  true | Add timestamp (or timestamp_key) field to logs before sending to sumologic <br> |
-| timestamp_key | string | No |  timestamp | Field name when add_timestamp is on <br> |
-| proxy_uri | string | No | - | Add the uri of the proxy environment if present.<br> |
-| disable_cookies | bool | No |  false | Option to disable cookies on the HTTP Client. <br> |
-| delimiter | string | No |  . | Delimiter <br> |
-| custom_fields | []string | No | - | Comma-separated key=value list of fields to apply to every log. [more information](https://help.sumologic.com/Manage/Fields#http-source-fields)<br> |
-| sumo_client | string | No |  fluentd-output | Name of sumo client which is send as X-Sumo-Client header <br> |
-| compress | *bool | No |  false | Compress payload <br> |
-| compress_encoding | string | No |  gzip | Encoding method of compression (either gzip or deflate) <br> |
-| custom_dimensions | string | No | - | Dimensions string (eg "cluster=payment, service=credit_card") which is going to be added to every metric record.<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## Output Config
+
+### data_type (string, optional) {#output config-data_type}
+
+The type of data that will be sent to Sumo Logic, either logs or metrics <br>
+
+Default:  logs
+
+### endpoint (*secret.Secret, required) {#output config-endpoint}
+
+SumoLogic HTTP Collector URL<br>
+
+Default: -
+
+### verify_ssl (bool, optional) {#output config-verify_ssl}
+
+Verify ssl certificate. <br>
+
+Default:  true
+
+### metric_data_format (string, optional) {#output config-metric_data_format}
+
+The format of metrics you will be sending, either graphite or carbon2 or prometheus <br>
+
+Default:  graphite
+
+### log_format (string, optional) {#output config-log_format}
+
+Format to post logs into Sumo. <br>
+
+Default:  json
+
+### log_key (string, optional) {#output config-log_key}
+
+Used to specify the key when merging json or sending logs in text format <br>
+
+Default:  message
+
+### source_category (string, optional) {#output config-source_category}
+
+Set _sourceCategory metadata field within SumoLogic <br>
+
+Default:  nil
+
+### source_name (string, required) {#output config-source_name}
+
+Set _sourceName metadata field within SumoLogic - overrides source_name_key (default is nil)<br>
+
+Default: -
+
+### source_name_key (string, optional) {#output config-source_name_key}
+
+Set as source::path_key's value so that the source_name can be extracted from Fluentd's buffer <br>
+
+Default:  source_name
+
+### source_host (string, optional) {#output config-source_host}
+
+Set _sourceHost metadata field within SumoLogic <br>
+
+Default:  nil
+
+### open_timeout (int, optional) {#output config-open_timeout}
+
+Set timeout seconds to wait until connection is opened. <br>
+
+Default:  60
+
+### add_timestamp (bool, optional) {#output config-add_timestamp}
+
+Add timestamp (or timestamp_key) field to logs before sending to sumologic <br>
+
+Default:  true
+
+### timestamp_key (string, optional) {#output config-timestamp_key}
+
+Field name when add_timestamp is on <br>
+
+Default:  timestamp
+
+### proxy_uri (string, optional) {#output config-proxy_uri}
+
+Add the uri of the proxy environment if present.<br>
+
+Default: -
+
+### disable_cookies (bool, optional) {#output config-disable_cookies}
+
+Option to disable cookies on the HTTP Client. <br>
+
+Default:  false
+
+### delimiter (string, optional) {#output config-delimiter}
+
+Delimiter <br>
+
+Default:  .
+
+### custom_fields ([]string, optional) {#output config-custom_fields}
+
+Comma-separated key=value list of fields to apply to every log. [more information](https://help.sumologic.com/Manage/Fields#http-source-fields)<br>
+
+Default: -
+
+### sumo_client (string, optional) {#output config-sumo_client}
+
+Name of sumo client which is send as X-Sumo-Client header <br>
+
+Default:  fluentd-output
+
+### compress (*bool, optional) {#output config-compress}
+
+Compress payload <br>
+
+Default:  false
+
+### compress_encoding (string, optional) {#output config-compress_encoding}
+
+Encoding method of compression (either gzip or deflate) <br>
+
+Default:  gzip
+
+### custom_dimensions (string, optional) {#output config-custom_dimensions}
+
+Dimensions string (eg "cluster=payment, service=credit_card") which is going to be added to every metric record.<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#output config-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+

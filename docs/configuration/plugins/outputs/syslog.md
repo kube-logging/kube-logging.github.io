@@ -9,16 +9,51 @@ generated_file: true
  Fluentd output plugin for remote syslog with RFC5424 headers logs.
 
 ## Configuration
-### SyslogOutputConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| host | string | Yes | - | Destination host address<br> |
-| port | int | No |  "514" | Destination host port <br> |
-| transport | string | No |  "tls" | Transport Protocol <br> |
-| insecure | *bool | No |  false | skip ssl validation <br> |
-| trusted_ca_path | *secret.Secret | No | - | file path to ca to trust<br> |
-| format | *FormatRfc5424 | No | - | [Format](../format/)<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## SyslogOutputConfig
+
+### host (string, required) {#syslogoutputconfig-host}
+
+Destination host address<br>
+
+Default: -
+
+### port (int, optional) {#syslogoutputconfig-port}
+
+Destination host port <br>
+
+Default:  "514"
+
+### transport (string, optional) {#syslogoutputconfig-transport}
+
+Transport Protocol <br>
+
+Default:  "tls"
+
+### insecure (*bool, optional) {#syslogoutputconfig-insecure}
+
+skip ssl validation <br>
+
+Default:  false
+
+### trusted_ca_path (*secret.Secret, optional) {#syslogoutputconfig-trusted_ca_path}
+
+file path to ca to trust<br>
+
+Default: -
+
+### format (*FormatRfc5424, optional) {#syslogoutputconfig-format}
+
+[Format](../format/)<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#syslogoutputconfig-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
  #### Example `File` output configurations
  ```
 apiVersion: logging.banzaicloud.io/v1beta1

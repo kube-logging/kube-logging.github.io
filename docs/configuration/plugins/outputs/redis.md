@@ -20,16 +20,66 @@ generated_file: true
  ```
 
 ## Configuration
-### Output Config
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| host | string | No |  localhost | Host Redis endpoint <br> |
-| port | int | No |  6379 | Port of the Redis server <br> |
-| db_number | int | No |  0 | DbNumber database number is optional. <br> |
-| password | *secret.Secret | No | - | Redis Server password<br> |
-| insert_key_prefix | string | No |  "${tag}" | insert_key_prefix <br> |
-| strftime_format | string | No |  "%s" | strftime_format Users can set strftime format. <br> |
-| allow_duplicate_key | bool | No |  false | allow_duplicate_key Allow insert key duplicate. It will work as update values. <br> |
-| ttl | int | No | - | ttl If 0 or negative value is set, ttl is not set in each key.<br> |
-| format | *Format | No | - | [Format](../format/)<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## Output Config
+
+### host (string, optional) {#output config-host}
+
+Host Redis endpoint <br>
+
+Default:  localhost
+
+### port (int, optional) {#output config-port}
+
+Port of the Redis server <br>
+
+Default:  6379
+
+### db_number (int, optional) {#output config-db_number}
+
+DbNumber database number is optional. <br>
+
+Default:  0
+
+### password (*secret.Secret, optional) {#output config-password}
+
+Redis Server password<br>
+
+Default: -
+
+### insert_key_prefix (string, optional) {#output config-insert_key_prefix}
+
+insert_key_prefix <br>
+
+Default:  "${tag}"
+
+### strftime_format (string, optional) {#output config-strftime_format}
+
+strftime_format Users can set strftime format. <br>
+
+Default:  "%s"
+
+### allow_duplicate_key (bool, optional) {#output config-allow_duplicate_key}
+
+allow_duplicate_key Allow insert key duplicate. It will work as update values. <br>
+
+Default:  false
+
+### ttl (int, optional) {#output config-ttl}
+
+ttl If 0 or negative value is set, ttl is not set in each key.<br>
+
+Default: -
+
+### format (*Format, optional) {#output config-format}
+
+[Format](../format/)<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#output config-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+

@@ -9,10 +9,15 @@ generated_file: true
  Fluentd Filter plugin to print events to stdout
 
 ## Configuration
-### StdOutFilterConfig
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| output_type | string | No | - | This is the option of stdout format.<br> |
+## StdOutFilterConfig
+
+### output_type (string, optional) {#stdoutfilterconfig-output_type}
+
+This is the option of stdout format.<br>
+
+Default: -
+
+
  #### Example `StdOut` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

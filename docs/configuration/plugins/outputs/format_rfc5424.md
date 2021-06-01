@@ -4,14 +4,54 @@ weight: 200
 generated_file: true
 ---
 
-### FormatRfc5424
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| type | string | No |  json | Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value <br> |
-| rfc6587_message_size | *bool | No |  true | Prepends message length for syslog transmission <br> |
-| hostname_field | string | No |  hostname | Sets host name in syslog from field in fluentd, delimited by '.' <br> |
-| app_name_field | string | No |  app_name | Sets app name in syslog from field in fluentd, delimited by '.' <br> |
-| proc_id_field | string | No |  proc_id | Sets proc id in syslog from field in fluentd, delimited by '.'  <br> |
-| message_id_field | string | No |  message_id | Sets msg id in syslog from field in fluentd, delimited by '.' <br> |
-| structured_data_field | string | No | - | Sets structured data in syslog from field in fluentd, delimited by '.' (default structured_data)<br> |
-| log_field | string | No |  log | Sets log in syslog from field in fluentd, delimited by '.' <br> |
+## FormatRfc5424
+
+### type (string, optional) {#formatrfc5424-type}
+
+Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value <br>
+
+Default:  json
+
+### rfc6587_message_size (*bool, optional) {#formatrfc5424-rfc6587_message_size}
+
+Prepends message length for syslog transmission <br>
+
+Default:  true
+
+### hostname_field (string, optional) {#formatrfc5424-hostname_field}
+
+Sets host name in syslog from field in fluentd, delimited by '.' <br>
+
+Default:  hostname
+
+### app_name_field (string, optional) {#formatrfc5424-app_name_field}
+
+Sets app name in syslog from field in fluentd, delimited by '.' <br>
+
+Default:  app_name
+
+### proc_id_field (string, optional) {#formatrfc5424-proc_id_field}
+
+Sets proc id in syslog from field in fluentd, delimited by '.'  <br>
+
+Default:  proc_id
+
+### message_id_field (string, optional) {#formatrfc5424-message_id_field}
+
+Sets msg id in syslog from field in fluentd, delimited by '.' <br>
+
+Default:  message_id
+
+### structured_data_field (string, optional) {#formatrfc5424-structured_data_field}
+
+Sets structured data in syslog from field in fluentd, delimited by '.' (default structured_data)<br>
+
+Default: -
+
+### log_field (string, optional) {#formatrfc5424-log_field}
+
+Sets log in syslog from field in fluentd, delimited by '.' <br>
+
+Default:  log
+
+

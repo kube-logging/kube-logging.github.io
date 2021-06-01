@@ -20,27 +20,132 @@ This plugin will poll events from MNS queue and extract object keys from these e
 More info at https://github.com/aliyun/fluent-plugin-oss
 
 ## Configuration
-### Output Config
-| Variable Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| endpoint | string | Yes | - | OSS endpoint to connect to'<br> |
-| bucket | string | Yes | - | Your bucket name<br> |
-| access_key_id | *secret.Secret | Yes | - | Your access key id<br>[Secret](../secret/)<br> |
-| aaccess_key_secret | *secret.Secret | Yes | - | Your access secret key<br>[Secret](../secret/)<br> |
-| path | string | No |  fluent/logs | Path prefix of the files on OSS <br> |
-| upload_crc_enable | bool | No |  true | Upload crc enabled <br> |
-| download_crc_enable | bool | No |  true | Download crc enabled <br> |
-| open_timeout | int | No |  10 | Timeout for open connections <br> |
-| read_timeout | int | No |  120 | Timeout for read response <br> |
-| oss_sdk_log_dir | string | No |  /var/log/td-agent | OSS SDK log directory <br> |
-| key_format | string | No |  %{path}/%{time_slice}_%{index}_%{thread_id}.%{file_extension} | The format of OSS object keys <br> |
-| store_as | string | No |  gzip | Archive format on OSS: gzip, json, text, lzo, lzma2 <br> |
-| auto_create_bucket | bool | No |  false | desc 'Create OSS bucket if it does not exists <br> |
-| overwrite | bool | No |  false | Overwrite already existing path <br> |
-| check_bucket | bool | No |  true | Check bucket if exists or not <br> |
-| check_object | bool | No |  true | Check object before creation <br> |
-| hex_random_length | int | No |  4 | The length of `%{hex_random}` placeholder(4-16) <br> |
-| index_format | string | No |  %d | `sprintf` format for `%{index}` <br> |
-| warn_for_delay | string | No | - | Given a threshold to treat events as delay, output warning logs if delayed events were put into OSS<br> |
-| format | *Format | No | - | [Format](../format/)<br> |
-| buffer | *Buffer | No | - | [Buffer](../buffer/)<br> |
+## Output Config
+
+### endpoint (string, required) {#output config-endpoint}
+
+OSS endpoint to connect to'<br>
+
+Default: -
+
+### bucket (string, required) {#output config-bucket}
+
+Your bucket name<br>
+
+Default: -
+
+### access_key_id (*secret.Secret, required) {#output config-access_key_id}
+
+Your access key id<br>[Secret](../secret/)<br>
+
+Default: -
+
+### aaccess_key_secret (*secret.Secret, required) {#output config-aaccess_key_secret}
+
+Your access secret key<br>[Secret](../secret/)<br>
+
+Default: -
+
+### path (string, optional) {#output config-path}
+
+Path prefix of the files on OSS <br>
+
+Default:  fluent/logs
+
+### upload_crc_enable (bool, optional) {#output config-upload_crc_enable}
+
+Upload crc enabled <br>
+
+Default:  true
+
+### download_crc_enable (bool, optional) {#output config-download_crc_enable}
+
+Download crc enabled <br>
+
+Default:  true
+
+### open_timeout (int, optional) {#output config-open_timeout}
+
+Timeout for open connections <br>
+
+Default:  10
+
+### read_timeout (int, optional) {#output config-read_timeout}
+
+Timeout for read response <br>
+
+Default:  120
+
+### oss_sdk_log_dir (string, optional) {#output config-oss_sdk_log_dir}
+
+OSS SDK log directory <br>
+
+Default:  /var/log/td-agent
+
+### key_format (string, optional) {#output config-key_format}
+
+The format of OSS object keys <br>
+
+Default:  %{path}/%{time_slice}_%{index}_%{thread_id}.%{file_extension}
+
+### store_as (string, optional) {#output config-store_as}
+
+Archive format on OSS: gzip, json, text, lzo, lzma2 <br>
+
+Default:  gzip
+
+### auto_create_bucket (bool, optional) {#output config-auto_create_bucket}
+
+desc 'Create OSS bucket if it does not exists <br>
+
+Default:  false
+
+### overwrite (bool, optional) {#output config-overwrite}
+
+Overwrite already existing path <br>
+
+Default:  false
+
+### check_bucket (bool, optional) {#output config-check_bucket}
+
+Check bucket if exists or not <br>
+
+Default:  true
+
+### check_object (bool, optional) {#output config-check_object}
+
+Check object before creation <br>
+
+Default:  true
+
+### hex_random_length (int, optional) {#output config-hex_random_length}
+
+The length of `%{hex_random}` placeholder(4-16) <br>
+
+Default:  4
+
+### index_format (string, optional) {#output config-index_format}
+
+`sprintf` format for `%{index}` <br>
+
+Default:  %d
+
+### warn_for_delay (string, optional) {#output config-warn_for_delay}
+
+Given a threshold to treat events as delay, output warning logs if delayed events were put into OSS<br>
+
+Default: -
+
+### format (*Format, optional) {#output config-format}
+
+[Format](../format/)<br>
+
+Default: -
+
+### buffer (*Buffer, optional) {#output config-buffer}
+
+[Buffer](../buffer/)<br>
+
+Default: -
+
+
