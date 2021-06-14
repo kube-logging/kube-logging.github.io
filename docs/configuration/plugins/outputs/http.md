@@ -138,7 +138,7 @@ Default:  [503]
 
 ### auth (*HTTPAuth, optional) {#output config-auth}
 
-[HTTP auth](#http_auth)<br>
+[HTTP auth](#http-auth-config)<br>
 
 Default: -
 

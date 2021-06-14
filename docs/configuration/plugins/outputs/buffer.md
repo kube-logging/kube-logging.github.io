@@ -26,9 +26,9 @@ Default:  operator generated
 
 ### chunk_limit_size (string, optional) {#buffer-chunk_limit_size}
 
-The max size of each chunks: events will be written into chunks until the size of chunks become this size<br>
+The max size of each chunks: events will be written into chunks until the size of chunks become this size (default: 8MB)<br>
 
-Default: -
+Default: 8MB
 
 ### chunk_limit_records (int, optional) {#buffer-chunk_limit_records}
 
