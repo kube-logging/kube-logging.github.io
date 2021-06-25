@@ -20,6 +20,10 @@ Default: -
 
 Default: -
 
+### envVars ([]corev1.EnvVar, optional) {#fluentdspec-envvars}
+
+Default: -
+
 ### tls (FluentdTLS, optional) {#fluentdspec-tls}
 
 Default: -
@@ -190,6 +194,10 @@ Default: -
 
 Default: -
 
+### drain (FluentdDrainConfig, optional) {#fluentdscaling-drain}
+
+Default: -
+
 
 ## FluentdTLS
 
@@ -204,6 +212,23 @@ Default: -
 Default: -
 
 ### sharedKey (string, optional) {#fluentdtls-sharedkey}
+
+Default: -
+
+
+## FluentdDrainConfig
+
+FluentdDrainConfig enables configuring the drain behavior when scaling down the fluentd statefulset
+
+### enabled (bool, optional) {#fluentddrainconfig-enabled}
+
+Should buffers on persistent volumes left after scaling down the statefulset be drained<br>
+
+Default: -
+
+### image (ImageSpec, optional) {#fluentddrainconfig-image}
+
+Container image to use for the drain watch sidecar<br>
 
 Default: -
 

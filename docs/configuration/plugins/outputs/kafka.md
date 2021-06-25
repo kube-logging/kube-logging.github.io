@@ -180,7 +180,7 @@ Maximum value of total message size to be included in one batch transmission. .<
 
 Default:  4096
 
-### kafka_agg_max_messages (string, optional) {#kafka-kafka_agg_max_messages}
+### kafka_agg_max_messages (int, optional) {#kafka-kafka_agg_max_messages}
 
 Maximum number of messages to include in one batch transmission. .<br>
 

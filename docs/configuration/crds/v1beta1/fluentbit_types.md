@@ -16,6 +16,10 @@ Default: -
 
 Default: -
 
+### envVars ([]corev1.EnvVar, optional) {#fluentbitspec-envvars}
+
+Default: -
+
 ### image (ImageSpec, optional) {#fluentbitspec-image}
 
 Default: -
