@@ -43,7 +43,7 @@ Default: -
 
 ### format (*FormatRfc5424, optional) {#syslogoutputconfig-format}
 
-[Format](../format/)<br>
+[Format](../format_rfc5424/)<br>
 
 Default: -
 
