@@ -205,6 +205,16 @@ spec:
       repository: banzaicloud/fluentd
       tag: v1.10.4-alpine-1
       pullPolicy: IfNotPresent
+    configReloaderImage:
+      repository: jimmidyson/configmap-reload
+      tag: v0.4.0
+      pullPolicy: IfNotPresent
+    scaling:
+      drain:
+        image:
+          repository: ghcr.io/banzaicloud/fluentd-drain-watch
+          tag: v0.0.1
+          pullPolicy: IfNotPresent
   fluentbit: {}
   controlNamespace: logging
 ```
