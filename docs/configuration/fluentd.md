@@ -215,6 +215,10 @@ spec:
           repository: ghcr.io/banzaicloud/fluentd-drain-watch
           tag: v0.0.1
           pullPolicy: IfNotPresent
+    bufferVolumeImage:
+      repository: quay.io/prometheus/node-exporter
+      tag: v1.1.2
+      pullPolicy: IfNotPresent
   fluentbit: {}
   controlNamespace: logging
 ```
