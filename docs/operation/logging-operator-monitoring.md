@@ -81,8 +81,6 @@ For more details on installing the Prometheus operator and configuring and acces
      helm upgrade --install --wait --create-namespace --namespace logging logging banzaicloud-stable/logging-operator
     ```
 
-    > You also can install logging-operator from manifest [guideline is here]{{< relref "../install/_index.md#deploy-logging-operator-from-kubernetes-manifests" >}}
-
 1. Deploy Demo App + Logging Definition with metrics
 
     ```bash

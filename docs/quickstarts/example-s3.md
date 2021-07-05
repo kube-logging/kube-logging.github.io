@@ -36,11 +36,6 @@ Install the Logging operator.
 
 1. [Validate your deployment](#validate).
 
-### Deploy the Logging operator with Kubernetes manifests {#manifest}
-
-{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
-
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}}).
 1. Create logging `Namespace`
 
     ```bash
