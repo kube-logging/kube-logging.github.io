@@ -37,7 +37,7 @@ kind: Logging
 metadata:
   name: default-logging-simple
 spec:
-  fluentd: 
+  fluentd:
     disablePvc: true
     bufferStorageVolume:
       hostPath:
@@ -105,7 +105,7 @@ spec:
       periodSeconds: 60
       initialDelaySeconds: 600
       exec:
-        command: 
+        command:
         - "/bin/sh"
         - "-c"
         - >

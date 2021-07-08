@@ -21,7 +21,7 @@ First, deploy Elasticsearch in your Kubernetes cluster. The following procedure 
     ```yaml
     kubectl apply -f https://download.elastic.co/downloads/eck/1.3.0/all-in-one.yaml
     ```
-  
+
 1. Create the `logging` Namespace.
 
     ```bash
@@ -104,7 +104,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create the `logging` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
      metadata:
@@ -121,7 +121,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create an Elasticsearch `output` definition.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Output
      metadata:
@@ -151,7 +151,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create a `flow` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
      metadata:
@@ -176,8 +176,8 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Install the demo application.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF" 
-    apiVersion: apps/v1 
+    kubectl -n logging apply -f - <<"EOF"
+    apiVersion: apps/v1
     kind: Deployment
     metadata:
       name: log-generator
@@ -188,7 +188,7 @@ Install the Logging operator and a demo application to provide sample log messag
       replicas: 1
       template:
         metadata:
-          labels:   
+          labels:
             app.kubernetes.io/name: log-generator
         spec:
           containers:
