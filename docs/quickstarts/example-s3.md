@@ -58,7 +58,7 @@ Install the Logging operator.
     Or set up the secret manually.
 
     ```bash
-        kubectl -n logging apply -f - <<"EOF" 
+        kubectl -n logging apply -f - <<"EOF"
         apiVersion: v1
         kind: Secret
         metadata:
@@ -73,7 +73,7 @@ Install the Logging operator.
 1. Create the `logging` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
      metadata:
@@ -90,7 +90,7 @@ Install the Logging operator.
 1. Create an S3 `output` definition.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
     metadata:
@@ -123,7 +123,7 @@ Install the Logging operator.
 1. Create a `flow` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
      metadata:

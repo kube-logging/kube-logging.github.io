@@ -43,7 +43,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
      --set "cloudwatch.aws.access_key=" \
      --set "cloudwatch.aws.region=" \
      --set "cloudwatch.aws.log_group_name=" \
-     --set "cloudwatch.aws.log_stream_name=" 
+     --set "cloudwatch.aws.log_stream_name="
     ```
 
 1. [Validate your deployment](#validate).
@@ -70,7 +70,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
     Or set up the secret manually.
 
     ```bash
-        kubectl -n logging apply -f - <<"EOF" 
+        kubectl -n logging apply -f - <<"EOF"
         apiVersion: v1
         kind: Secret
         metadata:
@@ -85,7 +85,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
 1. Create the `logging` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
      metadata:
@@ -102,7 +102,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
 1. Create an CloudWatch `output` definition.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
     metadata:
@@ -136,7 +136,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
 1. Create a `flow` resource.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
      metadata:
@@ -152,7 +152,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
        match:
          - select:
              labels:
-               app.kubernetes.io/name: log-generator         
+               app.kubernetes.io/name: log-generator
        localOutputRefs:
          - cloudwatch-output
      EOF
@@ -161,8 +161,8 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
 1. Install the demo application.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF" 
-    apiVersion: apps/v1 
+    kubectl -n logging apply -f - <<"EOF"
+    apiVersion: apps/v1
     kind: Deployment
     metadata:
       name: log-generator
@@ -173,7 +173,7 @@ Install the Logging operator and a demo application using [Helm](#helm) or [Kube
       replicas: 1
       template:
         metadata:
-          labels:   
+          labels:
             app.kubernetes.io/name: log-generator
         spec:
           containers:

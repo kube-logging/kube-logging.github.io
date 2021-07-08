@@ -105,7 +105,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Deploy Minio
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -173,7 +173,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Create `logging` resource
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Logging
     metadata:
@@ -194,7 +194,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Create Minio output definition
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
     metadata:
@@ -228,7 +228,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Create `flow` resource
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Flow
     metadata:
@@ -254,8 +254,8 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Install test deployment
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
-    apiVersion: apps/v1 
+    kubectl -n logging apply -f - <<"EOF"
+    apiVersion: apps/v1
     kind: Deployment
     metadata:
       name: nginx-deployment

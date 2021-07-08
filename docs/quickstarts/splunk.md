@@ -27,11 +27,11 @@ First, deploy Splunk Standalone in your Kubernetes cluster. The following proced
     ```yaml
     kubectl apply -n logging -f https://tiny.cc/splunk-operator-install
     ```
-  
+
 1. Install the Splunk cluster.
 
     ```yaml
-    kubectl apply -n logging -f - <<"EOF" 
+    kubectl apply -n logging -f - <<"EOF"
     apiVersion: enterprise.splunk.com/v1alpha2
     kind: Standalone
     metadata:
@@ -57,7 +57,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 1. Create the `logging` resource.
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Logging
     metadata:
@@ -96,14 +96,14 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
         hec_host: splunk-single-standalone-headless
         insecure_ssl: true
         hec_port: 8088
-        hec_token: 
+        hec_token:
             valueFrom:
                secretKeyRef:
                   name:  splunk-token
                   key: SplunkHecToken
         index: main
         format:
-          type: json 
+          type: json
     EOF
     ```
 
@@ -136,7 +136,7 @@ To deploy the Logging operator using Kubernetes manifests, complete these steps.
 1. Install the demo application.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: apps/v1
     kind: Deployment
     metadata:

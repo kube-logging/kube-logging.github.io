@@ -4,7 +4,7 @@ weight: 200
 generated_file: true
 ---
 
-# Loki output plugin 
+# Loki output plugin
 ## Overview
 Fluentd output plugin to ship logs to a Loki server.
 More info at https://github.com/banzaicloud/fluent-plugin-kubernetes-loki
