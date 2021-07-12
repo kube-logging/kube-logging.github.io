@@ -55,7 +55,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create the `logging` resource.
 
      ```yaml
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
      metadata:
@@ -72,7 +72,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create a Kafka `output` definition.
 
      ```yaml
-    kubectl -n logging apply -f - <<"EOF" 
+    kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
     metadata:
@@ -81,8 +81,8 @@ Install the Logging operator and a demo application to provide sample log messag
       kafka:
         brokers: kafka-headless.kafka.svc.cluster.local:29092
         default_topic: topic
-        format: 
-          type: json    
+        format:
+          type: json
         buffer:
           tags: topic
           timekey: 1m
@@ -96,7 +96,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create a `flow` resource.
 
      ```yaml
-     kubectl -n logging apply -f - <<"EOF" 
+     kubectl -n logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
      metadata:
@@ -121,8 +121,8 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Install the demo application.
 
      ```yaml
-    kubectl -n logging apply -f - <<"EOF" 
-    apiVersion: apps/v1 
+    kubectl -n logging apply -f - <<"EOF"
+    apiVersion: apps/v1
     kind: Deployment
     metadata:
       name: log-generator
@@ -133,7 +133,7 @@ Install the Logging operator and a demo application to provide sample log messag
       replicas: 1
       template:
         metadata:
-          labels:   
+          labels:
             app.kubernetes.io/name: log-generator
         spec:
           containers:

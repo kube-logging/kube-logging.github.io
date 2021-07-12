@@ -61,7 +61,7 @@ ClusterFlow:
           labels:
             exclude-this: label
           namespaces:
-            - developer 
+            - developer
       - select:
           labels:
             app: nginx
