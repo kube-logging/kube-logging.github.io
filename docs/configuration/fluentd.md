@@ -94,6 +94,7 @@ spec:
 
 While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
 You can enable graceful draining in the **scaling** subsection:
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
@@ -108,12 +109,13 @@ spec:
   controlNamespace: logging
 ```
 
-When graceful draining is enabled, the operator will start up drainer jobs for any undrained volumes.
+When graceful draining is enabled, the operator starts drainer jobs for any undrained volumes.
 The drainer job flushes any remaining buffers before terminating, and the operator marks the associated volume (the PVC, actually) as *drained* until it gets used again.
 The drainer job has a template very similar to that of the Fluentd deployment with the addition of a sidecar container that oversees the buffers and signals Fluentd to terminate when all buffers are gone.
 Pods created by the job are labeled as not to receive any further logs, thus buffers will clear out eventually.
 
 If you want, you can specify a custom drainer job sidecar image in the **drain** subsection:
+
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
