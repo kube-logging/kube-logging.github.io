@@ -34,8 +34,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Install the Logging operator into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
     ```
 
 1. Install the demo application and its logging definition.
@@ -47,11 +46,6 @@ Install the Logging operator and a demo application to provide sample log messag
 
 1. [Validate your deployment](#validate).
 
-### Deploy the Logging operator with Kubernetes manifests {#manifest}
-
-{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
-
-1. Install the Logging operator. For details, see [How to install Logging-operator from manifests]({{< relref "docs/one-eye/logging-operator/install/_index.md#manifest" >}})
 1. Create the `logging` resource.
 
      ```yaml

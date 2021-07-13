@@ -44,47 +44,11 @@ After that, you can configure your logging flows and outputs using the:
 1. Install the Logging operator.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator \
-      --set createCustomResource=false"
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
     ```
 
-    > You can install the `logging` resource with built-in TLS generation using a [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
+    > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
-1. [Validate your deployment](#validate).
-
-## Deploy the Logging operator from Kubernetes Manifests {#manifest}
-
-{{< include-headless "deploy-manifest-intro.md" "one-eye/logging-operator" >}}
-
-1. Create a controlNamespace called "logging".
-
-    ```bash
-    kubectl create ns logging
-    ```
-
-1. Create a ServiceAccount and install cluster roles.
-
-    ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/install/manifests/rbac.yaml
-    ```
-
-1. Apply the ClusterResources.
-
-    ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_clusterflows.yaml
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_clusteroutputs.yaml
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_flows.yaml
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_loggings.yaml
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator/master/config/crd/bases/logging.banzaicloud.io_outputs.yaml
-    ```
-
-1. Deploy the Logging operator.
-
-    ```bash
-    kubectl -n logging create -f https://raw.githubusercontent.com/banzaicloud/logging-operator-docs/master/docs/install/manifests/deployment.yaml
-    ```
-
-1. [Validate your deployment](#validate).
 
 ## Validate the deployment {#validate}
 
