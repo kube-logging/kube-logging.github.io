@@ -75,7 +75,7 @@ spec:
 
 ## Scaling
 
-You can scale the Fluentd deployment by increasing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
+You can scale the Fluentd deployment by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -89,6 +89,52 @@ spec:
   fluentbit: {}
   controlNamespace: logging
 ```
+
+### Graceful draining
+
+While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
+You can enable graceful draining in the **scaling** subsection:
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd:
+    scaling:
+      drain:
+        enabled: true
+  fluentbit: {}
+  controlNamespace: logging
+```
+
+When graceful draining is enabled, the operator will start up drainer jobs for any undrained volumes.
+The drainer job flushes any remaining buffers before terminating, and the operator marks the associated volume (the PVC, actually) as *drained* until it gets used again.
+The drainer job has a template very similar to that of the Fluentd deployment with the addition of a sidecar container that oversees the buffers and signals Fluentd to terminate when all buffers are gone.
+Pods created by the job are labeled as not to receive any further logs, thus buffers will clear out eventually.
+
+If you want, you can specify a custom drainer job sidecar image in the **drain** subsection:
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd:
+    scaling:
+      drain:
+        enabled: true
+        image:
+          repository: ghcr.io/banzaicloud/fluentd-drain-watch
+          tag: latest
+  fluentbit: {}
+  controlNamespace: logging
+```
+
+In addition to the drainer job, the operator also creates a placeholder pod with the same name as the terminated pod of the Fluentd deployment to keep the deployment from recreating that pod which would result in concurrent access of the volume.
+The placeholder pod just runs a pause container, and goes away as soon as the job has finished successfully or the deployment is scaled back up and explicitly flushing the buffers is no longer necessary because the newly created replica will take care of processing them.
+
+You can mark volumes that should be ignored by the drain logic by adding the label `logging.banzaicloud.io/drain: no` to the PVC.
 
 ## Probe
 
