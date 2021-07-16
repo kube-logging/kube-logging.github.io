@@ -7,11 +7,14 @@ aliases:
 
 ## Watch specific resources
 
-In a large-scale infrastructure, there can be use-cases when it is required to limit the resources monitored by logging-operator and this way save cpu, memory resources can be saved.
+The logging-operator watches resources in all namespaces, which is required because it manages cluster scoped objects and objects in multiple namespaces as well.
+
+However in a large-scale infrastructure, where the number of resources is large it makes sense to limit the scope of resources monitored by the logging-operator to save considerable amount of memory and container restarts.
+
+Previously this wasn't possible, but as of logging-operator version 3.12.0 this is now available using command line arguments passed to the operator.
 
 Yop can use the following loggin-oprtator commandline parameters:
 
 - `watch-namespace` Namespace to filter the list of watched objects
 - `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the app.kubernetes.io/managed-by label
-
 
