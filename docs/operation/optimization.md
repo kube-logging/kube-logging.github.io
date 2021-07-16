@@ -13,8 +13,7 @@ However in a large-scale infrastructure, where the number of resources is large 
 
 Previously this wasn't possible, but as of logging-operator version 3.12.0 this is now available using command line arguments passed to the operator.
 
-Yop can use the following loggin-oprtator commandline parameters:
+You can use the following logging-operator command line parameters:
 
 - `watch-namespace` Namespace to filter the list of watched objects
 - `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the app.kubernetes.io/managed-by label
-
