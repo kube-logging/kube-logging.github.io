@@ -17,3 +17,18 @@ You can use the following logging-operator command line parameters:
 
 - `watch-namespace` Namespace to filter the list of watched objects. Doesn't apply to objects where it is till required to watch in all namespaces, like `Flows` and `Outputs`.
 - `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the `app.kubernetes.io/managed-by` label.
+
+
+### Configure by One-eye operator's Observer CRD
+
+```yalm
+apiVersion: one-eye.banzaicloud.io/v1alpha1
+kind: Observer
+metadata:
+  name: one-eye
+spec:
+  logging:
+    operator:
+      watchLoggingName: 'one-eye'
+      watchNamespace: 'default'
+```
