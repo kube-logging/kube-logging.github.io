@@ -15,5 +15,5 @@ Previously this wasn't possible, but as of logging-operator version 3.12.0 this 
 
 You can use the following logging-operator command line parameters:
 
-- `watch-namespace` Namespace to filter the list of watched objects
-- `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the app.kubernetes.io/managed-by label
+- `watch-namespace` Namespace to filter the list of watched objects. Doesn't apply to objects where it is till required to watch in all namespaces, like `Flows` and `Outputs`.
+- `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the `app.kubernetes.io/managed-by` label.
