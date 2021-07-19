@@ -7,21 +7,20 @@ aliases:
 
 ## Watch specific resources
 
-The logging-operator watches resources in all namespaces, which is required because it manages cluster scoped objects and objects in multiple namespaces as well.
+The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.
 
-However in a large-scale infrastructure, where the number of resources is large it makes sense to limit the scope of resources monitored by the logging-operator to save considerable amount of memory and container restarts.
+However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.
 
-Previously this wasn't possible, but as of logging-operator version 3.12.0 this is now available using command line arguments passed to the operator.
+Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.
 
-You can use the following logging-operator command line parameters:
+- `watch-namespace`: Watch only objects in this namespace. Note that even if the `watch-namespace` option is set, the operator must watch certain objects (like `Flows` and `Outputs`) in every namespace.
+- `watch-logging-name`: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the `app.kubernetes.io/managed-by` label.
 
-- `watch-namespace` Namespace to filter the list of watched objects. Doesn't apply to objects where it is till required to watch in all namespaces, like `Flows` and `Outputs`.
-- `watch-logging-name` Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the `app.kubernetes.io/managed-by` label.
+### Configure using the One Eye operator Observer CRD
 
+To configure the `watch-namespace` and `watch-logging-name` options using the Observer custom resource, see the following snippet.
 
-### Configure by One-eye operator's Observer CRD
-
-```yalm
+```yaml
 apiVersion: one-eye.banzaicloud.io/v1alpha1
 kind: Observer
 metadata:
