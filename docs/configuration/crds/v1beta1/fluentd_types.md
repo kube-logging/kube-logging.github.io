@@ -64,6 +64,14 @@ Default: -
 
 Default: -
 
+### configCheckResources (corev1.ResourceRequirements, optional) {#fluentdspec-configcheckresources}
+
+Default: -
+
+### configReloaderResources (corev1.ResourceRequirements, optional) {#fluentdspec-configreloaderresources}
+
+Default: -
+
 ### livenessProbe (*corev1.Probe, optional) {#fluentdspec-livenessprobe}
 
 Default: -

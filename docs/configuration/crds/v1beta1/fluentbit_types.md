@@ -388,6 +388,12 @@ If enabled, the plugin will recombine split Docker log lines before passing them
 
 Default: Off
 
+### Docker_Mode_Parser (string, optional) {#inputtail-docker_mode_parser}
+
+Specify an optional parser for the first line of the docker multiline mode.<br>
+
+Default: -
+
 ### Docker_Mode_Flush (string, optional) {#inputtail-docker_mode_flush}
 
 Wait period time in seconds to flush queued unfinished split lines. <br>
@@ -665,6 +671,12 @@ Default: -
 Default: -
 
 ### Retry_Limit (string, optional) {#forwardoptions-retry_limit}
+
+Default: -
+
+### storage.total_limit_size (string, optional) {#forwardoptions-storage.total_limit_size}
+
+`storage.total_limit_size` Limit the maximum number of Chunks in the filesystem for the current output logical destination.<br>
 
 Default: -
 
