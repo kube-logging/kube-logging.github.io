@@ -176,6 +176,14 @@ Default: -
 
 Default: -
 
+### dnsPolicy (corev1.DNSPolicy, optional) {#fluentbitspec-dnspolicy}
+
+Default: -
+
+### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentbitspec-dnsconfig}
+
+Default: -
+
 
 ## FluentbitTLS
 

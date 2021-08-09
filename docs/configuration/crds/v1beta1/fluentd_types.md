@@ -84,6 +84,10 @@ Default: -
 
 Default: -
 
+### readinessDefaultCheck (ReadinessDefaultCheck, optional) {#fluentdspec-readinessdefaultcheck}
+
+Default: -
+
 ### port (int32, optional) {#fluentdspec-port}
 
 Default: -
@@ -167,6 +171,14 @@ Default: -
 Default: -
 
 ### serviceAccount (*typeoverride.ServiceAccount, optional) {#fluentdspec-serviceaccount}
+
+Default: -
+
+### dnsPolicy (corev1.DNSPolicy, optional) {#fluentdspec-dnspolicy}
+
+Default: -
+
+### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentdspec-dnsconfig}
 
 Default: -
 

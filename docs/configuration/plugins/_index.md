@@ -50,6 +50,7 @@ For more information please click on the plugin name
 | **[Redis](outputs/redis/)** | outputs | Sends logs to Redis endpoints. | GA | [0.3.5](https://github.com/fluent-plugins-nursery/fluent-plugin-redis) |
 | **[Amazon S3](outputs/s3/)** | outputs | Store logs in Amazon S3 | GA | [1.6.0](https://github.com/fluent/fluent-plugin-s3/releases/tag/v1.6.0) |
 | **[Splunk Hec](outputs/splunk_hec/)** | outputs | Fluent Plugin Splunk Hec Release 1.2.3 | GA | [1.2.7]() |
+| **[SQS](outputs/sqs/)** | outputs | Output plugin writes fluent-events as queue messages to Amazon SQS | Testing | [v2.1.0](https://github.com/ixixi/fluent-plugin-sqs) |
 | **[SumoLogic](outputs/sumologic/)** | outputs | Send your logs to Sumologic | GA | [2.0.0](https://github.com/SumoLogic/fluentd-output-sumologic/releases/tag/2.0.0) |
 | **[Syslog](outputs/syslog/)** | outputs | Output plugin writes events to syslog | GA | [0.9.0.rc.8](https://github.com/cloudfoundry/fluent-plugin-syslog_rfc5424) |
 </center>

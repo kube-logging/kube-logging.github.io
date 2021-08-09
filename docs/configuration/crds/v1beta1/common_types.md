@@ -104,3 +104,46 @@ Default: -
 Default: -
 
 
+## ReadinessDefaultCheck
+
+ReadinessDefaultCheck Enable default readiness checks
+
+### bufferFreeSpace (bool, optional) {#readinessdefaultcheck-bufferfreespace}
+
+Enable default Readiness check it'll fail if the buffer volume free space exceeds the `readinessDefaultThreshold` percentage (90%).<br>
+
+Default: -
+
+### bufferFreeSpaceThreshold (int32, optional) {#readinessdefaultcheck-bufferfreespacethreshold}
+
+Default: -
+
+### bufferFileNumber (bool, optional) {#readinessdefaultcheck-bufferfilenumber}
+
+Default: -
+
+### bufferFileNumberMax (int32, optional) {#readinessdefaultcheck-bufferfilenumbermax}
+
+Default: -
+
+### initialDelaySeconds (int32, optional) {#readinessdefaultcheck-initialdelayseconds}
+
+Default: -
+
+### timeoutSeconds (int32, optional) {#readinessdefaultcheck-timeoutseconds}
+
+Default: -
+
+### periodSeconds (int32, optional) {#readinessdefaultcheck-periodseconds}
+
+Default: -
+
+### successThreshold (int32, optional) {#readinessdefaultcheck-successthreshold}
+
+Default: -
+
+### failureThreshold (int32, optional) {#readinessdefaultcheck-failurethreshold}
+
+Default: -
+
+
