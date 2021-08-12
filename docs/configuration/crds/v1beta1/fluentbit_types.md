@@ -176,6 +176,14 @@ Default: -
 
 Default: -
 
+### dnsPolicy (corev1.DNSPolicy, optional) {#fluentbitspec-dnspolicy}
+
+Default: -
+
+### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentbitspec-dnsconfig}
+
+Default: -
+
 
 ## FluentbitTLS
 
@@ -387,6 +395,12 @@ Default: -
 If enabled, the plugin will recombine split Docker log lines before passing them to any parser as configured above. This mode cannot be used at the same time as Multiline. <br>
 
 Default: Off
+
+### Docker_Mode_Parser (string, optional) {#inputtail-docker_mode_parser}
+
+Specify an optional parser for the first line of the docker multiline mode.<br>
+
+Default: -
 
 ### Docker_Mode_Flush (string, optional) {#inputtail-docker_mode_flush}
 
@@ -665,6 +679,12 @@ Default: -
 Default: -
 
 ### Retry_Limit (string, optional) {#forwardoptions-retry_limit}
+
+Default: -
+
+### storage.total_limit_size (string, optional) {#forwardoptions-storage.total_limit_size}
+
+`storage.total_limit_size` Limit the maximum number of Chunks in the filesystem for the current output logical destination.<br>
 
 Default: -
 

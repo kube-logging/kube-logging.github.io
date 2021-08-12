@@ -104,6 +104,10 @@ Default: -
 
 Default: -
 
+### sqs (*output.SQSOutputConfig, optional) {#outputspec-sqs}
+
+Default: -
+
 
 ## OutputStatus
 

@@ -64,6 +64,14 @@ Default: -
 
 Default: -
 
+### configCheckResources (corev1.ResourceRequirements, optional) {#fluentdspec-configcheckresources}
+
+Default: -
+
+### configReloaderResources (corev1.ResourceRequirements, optional) {#fluentdspec-configreloaderresources}
+
+Default: -
+
 ### livenessProbe (*corev1.Probe, optional) {#fluentdspec-livenessprobe}
 
 Default: -
@@ -73,6 +81,10 @@ Default: -
 Default: -
 
 ### readinessProbe (*corev1.Probe, optional) {#fluentdspec-readinessprobe}
+
+Default: -
+
+### readinessDefaultCheck (ReadinessDefaultCheck, optional) {#fluentdspec-readinessdefaultcheck}
 
 Default: -
 
@@ -159,6 +171,14 @@ Default: -
 Default: -
 
 ### serviceAccount (*typeoverride.ServiceAccount, optional) {#fluentdspec-serviceaccount}
+
+Default: -
+
+### dnsPolicy (corev1.DNSPolicy, optional) {#fluentdspec-dnspolicy}
+
+Default: -
+
+### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentdspec-dnsconfig}
 
 Default: -
 
