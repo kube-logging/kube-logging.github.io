@@ -447,6 +447,12 @@ This parameter adds additional headers to request. Example: {"token":"secret"} <
 
 Default:  {}
 
+### api_key (*secret.Secret, optional) {#elasticsearch-api_key}
+
+api_key parameter adds authentication header.<br>
+
+Default: -
+
 ### log_es_400_reason (bool, optional) {#elasticsearch-log_es_400_reason}
 
 By default, the error logger won't record the reason for a 400 error from the Elasticsearch API unless you set log_level to debug. However, this results in a lot of log spam, which isn't desirable if all you want is the 400 error reasons. You can set this true to capture the 400 error reasons without all the other debug logs. <br>
