@@ -14,7 +14,7 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy Kafka
 
-In this demo we are using our [Kafka operator](/docs/supertubes/kafka-operator/). For details on installing it, see the [Kafka operator installation guide](/docs/supertubes/kafka-operator/install-kafka-operator/).
+In this demo we are using our [Koperator](/docs/supertubes/kafka-operator/). For details on installing it, see the [Koperator installation guide](/docs/supertubes/kafka-operator/install-kafka-operator/).
 
 ## Deploy the Logging operator and a demo Application
 
