@@ -2,7 +2,7 @@ You can define `outputs` (destinations where you want to send your log messages,
 
 You can configure the Logging operator using the following Custom Resource Definitions.
 
-- [logging]({{< relref "docs/one-eye/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluentd and Fluent-bit.
+- [logging]({{< relref "docs/one-eye/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluentd and Fluent Bit.
 - [output]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an Output for a logging flow, where the log messages are sent. This is a namespaced resource. See also `clusteroutput`.
 - [flow]({{< relref "docs/one-eye/logging-operator/configuration/flow.md" >}}) - Defines a logging flow using `filters` and `outputs`. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also `clusterflow`.
 - [clusteroutput]({{< relref "docs/one-eye/logging-operator/configuration/output.md" >}}) - Defines an output that is available from all flows and clusterflows. The operator evaluates clusteroutputs in the `controlNamespace` only unless `allowClusterResourcesFromAllNamespaces` is set to true.

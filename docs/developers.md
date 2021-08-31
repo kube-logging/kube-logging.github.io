@@ -99,7 +99,7 @@ To document the plugins logging-operator uses the Go `tags` (like JSON tags). Lo
 
 #### Special tag `default`
 
-The default tag helps to give `default` values for parameters. These parameters are explicitly set in the generated fluentd configuration.
+The default tag helps to give `default` values for parameters. These parameters are explicitly set in the generated Fluentd configuration.
 
 ```go
 RetryForever bool `json:"retry_forever" plugin:"default:true"`

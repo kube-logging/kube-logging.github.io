@@ -9,7 +9,7 @@ aliases:
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
 
-You can configure the Fluent-bit deployment via the **fluentbit** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluent-bit. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
 
 ## Filters
 
@@ -57,7 +57,7 @@ For the detailed list of available parameters for this plugin, see {{% xref "/do
 
 ## Buffering
 
-Buffering in Fluent-bit places the processed data into a temporal location until is sent to Fluentd. By default, the Logging operator sets `storage.path` to `/buffers` and leaves fluent-bit defaults for the other options.
+Buffering in Fluent Bit places the processed data into a temporal location until is sent to Fluentd. By default, the Logging operator sets `storage.path` to `/buffers` and leaves Fluent Bit defaults for the other options.
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -94,11 +94,11 @@ spec:
   controlNamespace: logging
 ```
 
-## Custom Fluent-bit image
+## Custom Fluent Bit image
 
-You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.
+You can deploy custom images by overriding the default images using the following parameters in the Fluentd or fluentbit sections of the logging resource.
 
-The following example deploys a custom fluentd image:
+The following example deploys a custom Fluentd image:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -136,7 +136,7 @@ spec:
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
 
-## Custom Fluent-bit annotations
+## Custom Fluent Bit annotations
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

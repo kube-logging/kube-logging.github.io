@@ -4,10 +4,10 @@ shorttitle: Logging
 weight: 20
 ---
 
-The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for Fluentd and Fluent-bit. It also establishes the `controlNamespace`, the administrative namespace of the Logging operator. The Fluentd statefulset and Fluent-bit daemonset are deployed in this namespace, and global resources like `ClusterOutput` and `ClusterFlow` are evaluated only in this namespace by default - they are ignored in any other namespace unless `allowClusterResourcesFromAllNamespaces` is set to true.
+The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for Fluentd and Fluent Bit. It also establishes the `controlNamespace`, the administrative namespace of the Logging operator. The Fluentd statefulset and Fluent Bit daemonset are deployed in this namespace, and global resources like `ClusterOutput` and `ClusterFlow` are evaluated only in this namespace by default - they are ignored in any other namespace unless `allowClusterResourcesFromAllNamespaces` is set to true.
 
-You can define multiple `logging` resources if needed, for example, if you want to run multiple fluentd instances with separate configurations.
-You can customize the fluentd and fluent-bit configuration in the logging resource). It also declares `watchNamespaces` if applicable to narrow down the namespaces in which the logging operator should evaluate and incorporate`Flow` and `Output` resources into fluentd's configuration.
+You can define multiple `logging` resources if needed, for example, if you want to run multiple Fluentd instances with separate configurations.
+You can customize the Fluentd and Fluent Bit configuration in the logging resource). It also declares `watchNamespaces` if applicable to narrow down the namespaces in which the logging operator should evaluate and incorporate`Flow` and `Output` resources into Fluentd's configuration.
 
 You can install a `logging` resource with built-in TLS generation using the [logging Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
@@ -17,7 +17,7 @@ For the list of available parameters for logging resource, see {{% xref "/docs/o
 
 You can also customize the `fluentd` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/one-eye/logging-operator/configuration/fluentd.md" %}}.
 
-You can also customize the `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent-bit configuration, see {{% xref "/docs/one-eye/logging-operator/configuration/fluentbit.md" %}}.
+You can also customize the `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent Bit configuration, see {{% xref "/docs/one-eye/logging-operator/configuration/fluentbit.md" %}}.
 
 The following example snippets use the **logging** namespace. To create this namespace if it does not already exist, run:
 

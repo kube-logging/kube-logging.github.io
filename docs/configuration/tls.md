@@ -5,18 +5,18 @@ weight: 200
 
 To use TLS encryption in your logging infrastructure, you have to configure encryption:
 
-- for the log collection part of your logging pipeline (between FLuent-bit and Fluentd), and
+- for the log collection part of your logging pipeline (between Fluent Bit and Fluentd), and
 - for the output plugin (between Fluentd and the output backend).
 
 For configuring the output, see the documentation of the output plugin you want to use at {{% xref "/docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" %}}.
 
-For Fluentd and Fluent-bit, you can configure encryption in the `logging` resource using the following parameters:
+For Fluentd and Fluent Bit, you can configure encryption in the `logging` resource using the following parameters:
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
 | enabled | bool | "Yes" | Enable TLS encryption |
 | secretName | string | "" | Kubernetes secret that contains: **tls.crt, tls.key, ca.crt** |
-| sharedKey | string | "" | Shared secret for fluentd authentication |
+| sharedKey | string | "" | Shared secret for Fluentd authentication |
 
 For example:
 
