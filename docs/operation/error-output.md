@@ -4,7 +4,7 @@ shorttitle: Fluentd errors
 weight: 1100
 ---
 
-This section describes how to collect Fluentd error messages (those messages that sent to the [@ERROR label](https://docs.fluentd.org/configuration/config-file#error-label) from another plugin in Fluentd).
+This section describes how to collect Fluentd error messages (messages that are sent to the [@ERROR label](https://docs.fluentd.org/configuration/config-file#error-label) from another plugin in Fluentd).
 
 > Note: It depends on the specific plugin implementation what messages sent to the @ERROR label. A simple example is a parsing plugin that failes to parse a line and send that line to the @ERROR label.
 
