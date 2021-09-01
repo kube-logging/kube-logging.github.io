@@ -57,6 +57,10 @@ Default: -
 
 Default: -
 
+### prometheusRules (bool, optional) {#metrics-prometheusrules}
+
+Default: -
+
 
 ## ServiceMonitorConfig
 
