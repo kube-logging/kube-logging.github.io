@@ -44,6 +44,12 @@ Default flow for unmatched logs. This Flow configuration collects all logs that 
 
 Default: -
 
+### errorOutputRef (string, optional) {#loggingspec-erroroutputref}
+
+GlobalOutput name to flush ERROR events to<br>
+
+Default: -
+
 ### globalFilters ([]Filter, optional) {#loggingspec-globalfilters}
 
 Global filters to apply on logs before any match or filter mechanism.<br>
