@@ -32,21 +32,21 @@ To collect the error messages of Fluentd, complete the following steps.
 1. Set the `errorOutputRef` in the Logging resource to your prefered ClusterOutput. 
 
     ```yaml
-  apiVersion: logging.banzaicloud.io/v1beta1
-  kind: Logging
-  metadata:
-    name: one-eye
-  spec:
-    controlNamespace: default
-    enableRecreateWorkloadOnImmutableFieldChange: true
-    errorOutputRef: error-file
-    fluentbit:
-      bufferStorage: {}
-      bufferStorageVolume:
-        hostPath:
-          path: ""
-      filterKubernetes: {}
-      ...
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: Logging
+    metadata:
+      name: one-eye
+    spec:
+      controlNamespace: default
+      enableRecreateWorkloadOnImmutableFieldChange: true
+      errorOutputRef: error-file
+      fluentbit:
+        bufferStorage: {}
+        bufferStorageVolume:
+          hostPath:
+            path: ""
+        filterKubernetes: {}
+    # rest of the resource is omitted
     ```
 
     You cannot apply filters for this specific error flow.
