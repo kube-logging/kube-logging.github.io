@@ -4,7 +4,9 @@ shorttitle: Fluentd errors
 weight: 1100
 ---
 
-This section describes how to collect Fluentd error messages (that is, messages that have the [@ERROR label](https://docs.fluentd.org/configuration/config-file#error-label) in Fluentd).
+This section describes how to collect Fluentd error messages (those messages that sent to the [@ERROR label](https://docs.fluentd.org/configuration/config-file#error-label) from another plugin in Fluentd).
+
+> Note: It depends on the specific plugin implementation what messages sent to the @ERROR label. A simple example is a parsing plugin that failes to parse a line and send that line to the @ERROR label.
 
 ## Prerequisites
 
@@ -27,19 +29,26 @@ To collect the error messages of Fluentd, complete the following steps.
             path: /tmp/error.log
     ```
 
-1. Create a ClusterFlow resource, and reference the error output in its **spec.errorOutputRef** section. The resource should contain only a reference to the error output, for example:
+1. Set the `errorOutputRef` in the Logging resource to your prefered ClusterOutput. 
 
     ```yaml
-    apiVersion: logging.banzaicloud.io/v1beta1
-    kind: ClusterFlow
-    metadata:
-      name: error-flow
-      namespace: default
-    spec:
-      controlNamespace: default
-      errorOutputRef: error-file
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: Logging
+  metadata:
+    name: one-eye
+  spec:
+    controlNamespace: default
+    enableRecreateWorkloadOnImmutableFieldChange: true
+    errorOutputRef: error-file
+    fluentbit:
+      bufferStorage: {}
+      bufferStorageVolume:
+        hostPath:
+          path: ""
+      filterKubernetes: {}
+      ...
     ```
 
-    You cannot use filters or transform the messages in this flow.
+    You cannot apply filters for this specific error flow.
 
-1. Apply the ClusterOutput and the ClusterFlow to your cluster.
+1. Apply the ClusterOutput and Logging to your cluster.
