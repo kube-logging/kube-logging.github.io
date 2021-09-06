@@ -54,3 +54,30 @@ To enable these alerts on your cluster, see [Enable the default alerting rules](
 ## Add custom alerting rules {#custom-alerting-rules}
 
 Although you cannot modify the default alerting rules, you can add your own custom rules to the cluster by creating and applying [AlertmanagerConfig resources to the Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/alerting.md).
+
+For example, the Logging operator creates the following alerting rule to detect if a Fluentd node is down:
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+  name: logging-demo-fluentd-metrics
+  namespace: logging
+spec:
+  groups:
+  - name: fluentd
+    rules:
+    - alert: FluentdNodeDown
+      annotations:
+        description: Prometheus could not scrape {{ "{{ $labels.job }}" }} for more
+          than 30 minutes
+        summary: fluentd cannot be scraped
+      expr: up{job="logging-demo-fluentd-metrics", namespace="logging"} == 0
+      for: 10m
+      labels:
+        service: fluentd
+        severity: critical
+```
+
+On the Prometheus web interface, this rule looks like:
+
+![Fluentd alerting rule on the Prometheus web interface](../alerting-rule-in-prometheus.png)
