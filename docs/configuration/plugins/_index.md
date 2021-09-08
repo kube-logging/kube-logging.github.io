@@ -31,7 +31,7 @@ For more information please click on the plugin name
 | **[Buffer](outputs/buffer/)** | outputs | Fluentd event buffer | GA | [mode info](https://docs.fluentd.org/configuration/buffer-section) |
 | **[Amazon CloudWatch](outputs/cloudwatch/)** | outputs | Send your logs to AWS CloudWatch | GA | [0.14.0](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs/releases/tag/v0.14.0) |
 | **[Datadog](outputs/datadog/)** | outputs | Send your logs to Datadog | Testing | [0.13.0](https://github.com/DataDog/fluent-plugin-datadog/releases/tag/v0.13.0) |
-| **[Elasticsearch](outputs/elasticsearch/)** | outputs | Send your logs to Elasticsearch | GA | [5.1.0](https://github.com/uken/fluent-plugin-elasticsearch/releases/tag/v5.1.0) |
+| **[Elasticsearch](outputs/elasticsearch/)** | outputs | Send your logs to Elasticsearch | GA | [5.0.5](https://github.com/uken/fluent-plugin-elasticsearch/releases/tag/v5.0.5) |
 | **[File](outputs/file/)** | outputs | Output plugin writes events to files | GA | [more info](https://docs.fluentd.org/output/file) |
 | **[Format](outputs/format/)** | outputs | Specify how to format output record. | GA | [more info](https://docs.fluentd.org/configuration/format-section) |
 | **[Format rfc5424](outputs/format_rfc5424/)** | outputs | Specify how to format output record. | GA | [more info](https://github.com/cloudfoundry/fluent-plugin-syslog_rfc5424#format-section) |
