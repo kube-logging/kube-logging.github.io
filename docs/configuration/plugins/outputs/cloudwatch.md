@@ -126,7 +126,7 @@ Specified field of records as AWS tags for the log group<br>
 
 Default: -
 
-### log_group_name (string, optional) {#output config-log_group_name}
+### log_group_name (string, required) {#output config-log_group_name}
 
 Name of log group to store logs<br>
 
