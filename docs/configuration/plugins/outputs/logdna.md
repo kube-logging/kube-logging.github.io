@@ -15,49 +15,49 @@ Send your logs to LogDNA
 
 ### api_key (string, required) {#logdna-api_key}
 
-LogDNA Api key<br>
+LogDNA Api key 
 
 Default: -
 
 ### hostname (string, required) {#logdna-hostname}
 
-Hostname<br>
+Hostname 
 
 Default: -
 
 ### app (string, optional) {#logdna-app}
 
-Application name<br>
+Application name 
 
 Default: -
 
 ### tags (string, optional) {#logdna-tags}
 
-Comma-Separated List of Tags, Optional<br>
+Comma-Separated List of Tags, Optional 
 
 Default: -
 
 ### request_timeout (string, optional) {#logdna-request_timeout}
 
-HTTPS POST Request Timeout, Optional. Supports s and ms Suffices <br>
+HTTPS POST Request Timeout, Optional. Supports s and ms Suffices  
 
 Default:  30 s
 
 ### ingester_domain (string, optional) {#logdna-ingester_domain}
 
-Custom Ingester URL, Optional <br>
+Custom Ingester URL, Optional  
 
 Default:  https://logs.logdna.com
 
 ### ingester_endpoint (string, optional) {#logdna-ingester_endpoint}
 
-Custom Ingester Endpoint, Optional <br>
+Custom Ingester Endpoint, Optional  
 
 Default:  /logs/ingest
 
 ### buffer (*Buffer, optional) {#logdna-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 

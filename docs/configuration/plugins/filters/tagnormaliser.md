@@ -25,7 +25,7 @@ Available kubernetes metadata
 
 ### format (string, optional) {#tag normaliser parameters-format}
 
-Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser)<br>
+Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser) 
 
 Default: ${namespace_name}.${pod_name}.${container_name}
 

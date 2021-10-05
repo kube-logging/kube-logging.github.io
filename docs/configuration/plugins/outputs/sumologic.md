@@ -41,133 +41,133 @@ spec:
 
 ### data_type (string, optional) {#output config-data_type}
 
-The type of data that will be sent to Sumo Logic, either logs or metrics <br>
+The type of data that will be sent to Sumo Logic, either logs or metrics  
 
 Default:  logs
 
 ### endpoint (*secret.Secret, required) {#output config-endpoint}
 
-SumoLogic HTTP Collector URL<br>
+SumoLogic HTTP Collector URL 
 
 Default: -
 
 ### verify_ssl (bool, optional) {#output config-verify_ssl}
 
-Verify ssl certificate. <br>
+Verify ssl certificate.  
 
 Default:  true
 
 ### metric_data_format (string, optional) {#output config-metric_data_format}
 
-The format of metrics you will be sending, either graphite or carbon2 or prometheus <br>
+The format of metrics you will be sending, either graphite or carbon2 or prometheus  
 
 Default:  graphite
 
 ### log_format (string, optional) {#output config-log_format}
 
-Format to post logs into Sumo. <br>
+Format to post logs into Sumo.  
 
 Default:  json
 
 ### log_key (string, optional) {#output config-log_key}
 
-Used to specify the key when merging json or sending logs in text format <br>
+Used to specify the key when merging json or sending logs in text format  
 
 Default:  message
 
 ### source_category (string, optional) {#output config-source_category}
 
-Set _sourceCategory metadata field within SumoLogic <br>
+Set _sourceCategory metadata field within SumoLogic  
 
 Default:  nil
 
 ### source_name (string, required) {#output config-source_name}
 
-Set _sourceName metadata field within SumoLogic - overrides source_name_key (default is nil)<br>
+Set _sourceName metadata field within SumoLogic - overrides source_name_key (default is nil) 
 
 Default: -
 
 ### source_name_key (string, optional) {#output config-source_name_key}
 
-Set as source::path_key's value so that the source_name can be extracted from Fluentd's buffer <br>
+Set as source::path_key's value so that the source_name can be extracted from Fluentd's buffer  
 
 Default:  source_name
 
 ### source_host (string, optional) {#output config-source_host}
 
-Set _sourceHost metadata field within SumoLogic <br>
+Set _sourceHost metadata field within SumoLogic  
 
 Default:  nil
 
 ### open_timeout (int, optional) {#output config-open_timeout}
 
-Set timeout seconds to wait until connection is opened. <br>
+Set timeout seconds to wait until connection is opened.  
 
 Default:  60
 
 ### add_timestamp (bool, optional) {#output config-add_timestamp}
 
-Add timestamp (or timestamp_key) field to logs before sending to sumologic <br>
+Add timestamp (or timestamp_key) field to logs before sending to sumologic  
 
 Default:  true
 
 ### timestamp_key (string, optional) {#output config-timestamp_key}
 
-Field name when add_timestamp is on <br>
+Field name when add_timestamp is on  
 
 Default:  timestamp
 
 ### proxy_uri (string, optional) {#output config-proxy_uri}
 
-Add the uri of the proxy environment if present.<br>
+Add the uri of the proxy environment if present. 
 
 Default: -
 
 ### disable_cookies (bool, optional) {#output config-disable_cookies}
 
-Option to disable cookies on the HTTP Client. <br>
+Option to disable cookies on the HTTP Client.  
 
 Default:  false
 
 ### delimiter (string, optional) {#output config-delimiter}
 
-Delimiter <br>
+Delimiter  
 
 Default:  .
 
 ### custom_fields ([]string, optional) {#output config-custom_fields}
 
-Comma-separated key=value list of fields to apply to every log. [more information](https://help.sumologic.com/Manage/Fields#http-source-fields)<br>
+Comma-separated key=value list of fields to apply to every log. [more information](https://help.sumologic.com/Manage/Fields#http-source-fields) 
 
 Default: -
 
 ### sumo_client (string, optional) {#output config-sumo_client}
 
-Name of sumo client which is send as X-Sumo-Client header <br>
+Name of sumo client which is send as X-Sumo-Client header  
 
 Default:  fluentd-output
 
 ### compress (*bool, optional) {#output config-compress}
 
-Compress payload <br>
+Compress payload  
 
 Default:  false
 
 ### compress_encoding (string, optional) {#output config-compress_encoding}
 
-Encoding method of compression (either gzip or deflate) <br>
+Encoding method of compression (either gzip or deflate)  
 
 Default:  gzip
 
 ### custom_dimensions (string, optional) {#output config-custom_dimensions}
 
-Dimensions string (eg "cluster=payment, service=credit_card") which is going to be added to every metric record.<br>
+Dimensions string (eg "cluster=payment, service=credit_card") which is going to be added to every metric record. 
 
 Default: -
 
 ### buffer (*Buffer, optional) {#output config-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 

@@ -114,7 +114,7 @@ ReadinessDefaultCheck Enable default readiness checks
 
 ### bufferFreeSpace (bool, optional) {#readinessdefaultcheck-bufferfreespace}
 
-Enable default Readiness check it'll fail if the buffer volume free space exceeds the `readinessDefaultThreshold` percentage (90%).<br>
+Enable default Readiness check it'll fail if the buffer volume free space exceeds the `readinessDefaultThreshold` percentage (90%). 
 
 Default: -
 

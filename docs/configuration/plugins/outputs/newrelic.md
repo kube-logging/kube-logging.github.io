@@ -24,19 +24,19 @@ generated_file: true
 
 ### api_key (*secret.Secret, optional) {#output config-api_key}
 
-New Relic API Insert key<br>[Secret](../secret/)<br>
+New Relic API Insert key [Secret](../secret/) 
 
 Default: -
 
 ### license_key (*secret.Secret, optional) {#output config-license_key}
 
-New Relic License Key (recommended)<br>[Secret](../secret/"<br>LicenseKey *secret.Secret `json:"license_key)`<br>
+New Relic License Key (recommended) [Secret](../secret/" LicenseKey *secret.Secret `json:"license_key)` 
 
 Default: -
 
 ### base_uri (string, optional) {#output config-base_uri}
 
-New Relic ingestion endpoint<br>[Secret](../secret/)<br>
+New Relic ingestion endpoint [Secret](../secret/) 
 
 Default: https://log-api.newrelic.com/log/v1
 

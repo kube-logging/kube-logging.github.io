@@ -10,79 +10,79 @@ LoggingSpec defines the desired state of Logging
 
 ### loggingRef (string, optional) {#loggingspec-loggingref}
 
-Reference to the logging system. Each of the `loggingRef`s can manage a fluentbit daemonset and a fluentd statefulset.<br>
+Reference to the logging system. Each of the `loggingRef`s can manage a fluentbit daemonset and a fluentd statefulset. 
 
 Default: -
 
 ### flowConfigCheckDisabled (bool, optional) {#loggingspec-flowconfigcheckdisabled}
 
-Disable configuration check before applying new fluentd configuration.<br>
+Disable configuration check before applying new fluentd configuration. 
 
 Default: -
 
 ### flowConfigOverride (string, optional) {#loggingspec-flowconfigoverride}
 
-Override generated config. This is a *raw* configuration string for troubleshooting purposes.<br>
+Override generated config. This is a *raw* configuration string for troubleshooting purposes. 
 
 Default: -
 
 ### fluentbit (*FluentbitSpec, optional) {#loggingspec-fluentbit}
 
-Fluentbit daemonset configuration.<br>
+Fluentbit daemonset configuration. 
 
 Default: -
 
 ### fluentd (*FluentdSpec, optional) {#loggingspec-fluentd}
 
-Fluentd statefulset configuration<br>
+Fluentd statefulset configuration 
 
 Default: -
 
 ### defaultFlow (*DefaultFlowSpec, optional) {#loggingspec-defaultflow}
 
-Default flow for unmatched logs. This Flow configuration collects all logs that didn't matched any other Flow.<br>
+Default flow for unmatched logs. This Flow configuration collects all logs that didn't matched any other Flow. 
 
 Default: -
 
 ### errorOutputRef (string, optional) {#loggingspec-erroroutputref}
 
-GlobalOutput name to flush ERROR events to<br>
+GlobalOutput name to flush ERROR events to 
 
 Default: -
 
 ### globalFilters ([]Filter, optional) {#loggingspec-globalfilters}
 
-Global filters to apply on logs before any match or filter mechanism.<br>
+Global filters to apply on logs before any match or filter mechanism. 
 
 Default: -
 
 ### watchNamespaces ([]string, optional) {#loggingspec-watchnamespaces}
 
-Limit namespaces to watch Flow and Output custom reasources.<br>
+Limit namespaces to watch Flow and Output custom reasources. 
 
 Default: -
 
 ### controlNamespace (string, required) {#loggingspec-controlnamespace}
 
-Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput.<br>This should be a protected namespace from regular users.<br>Resources like fluentbit and fluentd will run in this namespace as well.<br>
+Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 
 
 Default: -
 
 ### allowClusterResourcesFromAllNamespaces (bool, optional) {#loggingspec-allowclusterresourcesfromallnamespaces}
 
-Allow configuration of cluster resources from any namespace. Mutually exclusive with ControlNamespace restriction of Cluster resources<br>
+Allow configuration of cluster resources from any namespace. Mutually exclusive with ControlNamespace restriction of Cluster resources 
 
 Default: -
 
 ### nodeAgents ([]*NodeAgent, optional) {#loggingspec-nodeagents}
 
-NodeAgent Configuration<br>
+NodeAgent Configuration 
 
 Default: -
 
 ### enableRecreateWorkloadOnImmutableFieldChange (bool, optional) {#loggingspec-enablerecreateworkloadonimmutablefieldchange}
 
-EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn't be managed with a simple update.<br>
+EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future) in case there is a change in an immutable field that otherwise couldn't be managed with a simple update. 
 
 Default: -
 
@@ -144,7 +144,7 @@ Default: -
 
 ### outputRefs ([]string, optional) {#defaultflowspec-outputrefs}
 
-Deprecated<br>
+Deprecated 
 
 Default: -
 

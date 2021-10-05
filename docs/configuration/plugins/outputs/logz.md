@@ -38,49 +38,49 @@ LogZ Send your logs to LogZ.io
 
 ### endpoint (*Endpoint, required) {#logzio-endpoint}
 
-Define LogZ endpoint URL<br>
+Define LogZ endpoint URL 
 
 Default: -
 
 ### output_include_time (bool, optional) {#logzio-output_include_time}
 
-Should the appender add a timestamp to your logs on their process time (recommended).<br>
+Should the appender add a timestamp to your logs on their process time (recommended). 
 
 Default: -
 
 ### output_include_tags (bool, optional) {#logzio-output_include_tags}
 
-Should the appender add the fluentd tag to the document, called "fluentd_tag"<br>
+Should the appender add the fluentd tag to the document, called "fluentd_tag" 
 
 Default: -
 
 ### http_idle_timeout (int, optional) {#logzio-http_idle_timeout}
 
-Timeout in seconds that the http persistent connection will stay open without traffic.<br>
+Timeout in seconds that the http persistent connection will stay open without traffic. 
 
 Default: -
 
 ### retry_count (int, optional) {#logzio-retry_count}
 
-How many times to resend failed bulks.<br>
+How many times to resend failed bulks. 
 
 Default: -
 
 ### retry_sleep (int, optional) {#logzio-retry_sleep}
 
-How long to sleep initially between retries, exponential step-off.<br>
+How long to sleep initially between retries, exponential step-off. 
 
 Default: -
 
 ### gzip (bool, optional) {#logzio-gzip}
 
-Should the plugin ship the logs in gzip compression. Default is false.<br>
+Should the plugin ship the logs in gzip compression. Default is false. 
 
 Default: -
 
 ### buffer (*Buffer, optional) {#logzio-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 
@@ -91,19 +91,19 @@ Endpoint defines connection details for LogZ.io.
 
 ### url (string, optional) {#endpoint-url}
 
-LogZ URL.<br>
+LogZ URL. 
 
 Default: https://listener.logz.io
 
 ### port (int, optional) {#endpoint-port}
 
-Port over which to connect to LogZ URL.<br>
+Port over which to connect to LogZ URL. 
 
 Default: 8071
 
 ### token (*secret.Secret, optional) {#endpoint-token}
 
-LogZ API Token.<br>[Secret](../secret/)<br>
+LogZ API Token. [Secret](../secret/) 
 
 Default: -
 

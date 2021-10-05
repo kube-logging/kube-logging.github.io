@@ -7,37 +7,37 @@
 
 ### group_key (string, optional) {#throttle-group_key}
 
-Used to group logs. Groups are rate limited independently <br>
+Used to group logs. Groups are rate limited independently  
 
 Default:  kubernetes.container_name
 
 ### group_bucket_period_s (int, optional) {#throttle-group_bucket_period_s}
 
-This is the period of of time over which group_bucket_limit applies <br>
+This is the period of of time over which group_bucket_limit applies  
 
 Default:  60
 
 ### group_bucket_limit (int, optional) {#throttle-group_bucket_limit}
 
-Maximum number logs allowed per groups over the period of group_bucket_period_s <br>
+Maximum number logs allowed per groups over the period of group_bucket_period_s  
 
 Default:  6000
 
 ### group_drop_logs (bool, optional) {#throttle-group_drop_logs}
 
-When a group reaches its limit, logs will be dropped from further processing if this value is true <br>
+When a group reaches its limit, logs will be dropped from further processing if this value is true  
 
 Default:  true
 
 ### group_reset_rate_s (int, optional) {#throttle-group_reset_rate_s}
 
-After a group has exceeded its bucket limit, logs are dropped until the rate per second falls below or equal to group_reset_rate_s. <br>
+After a group has exceeded its bucket limit, logs are dropped until the rate per second falls below or equal to group_reset_rate_s.  
 
 Default:  group_bucket_limit/group_bucket_period_s
 
 ### group_warning_delay_s (int, optional) {#throttle-group_warning_delay_s}
 
-When a group reaches its limit and as long as it is not reset, a warning message with the current log rate of the group is emitted repeatedly. This is the delay between every repetition. <br>
+When a group reaches its limit and as long as it is not reset, a warning message with the current log rate of the group is emitted repeatedly. This is the delay between every repetition.  
 
 Default:  10 seconds
 

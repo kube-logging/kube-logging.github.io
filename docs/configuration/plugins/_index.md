@@ -18,6 +18,7 @@ For more information please click on the plugin name
 | **[Enhance K8s Metadata](filters/enhance_k8s/)** | filters | Fluentd output plugin to add extra Kubernetes metadata to the events. | GA | [2.0.0](https://github.com/SumoLogic/sumologic-kubernetes-collection/tree/main/fluent-plugin-enhance-k8s-metadata) |
 | **[Geo IP](filters/geoip/)** | filters | Fluentd GeoIP filter | GA | [1.3.2](https://github.com/y-ken/fluent-plugin-geoip) |
 | **[Grep](filters/grep/)** | filters | Grep events by the values | GA | [more info](https://docs.fluentd.org/filter/grep) |
+| **[Kubernetes Events Timestamp](filters/kube_events_timestamp/)** | filters | Fluentd Filter plugin to select particular timestamp into an additional field | GA | [0.1.4](https://github.com/banzaicloud/fluentd-filter-kube-events-timestamp) |
 | **[Parser](filters/parser/)** | filters | Parses a string field in event records and mutates its event record with the parsed result. | GA | [more info](https://docs.fluentd.org/filter/parser) |
 | **[Prometheus](filters/prometheus/)** | filters | Prometheus Filter Plugin to count Incoming Records | GA | [2.0.2](https://github.com/fluent/fluent-plugin-prometheus#prometheus-outputfilter-plugin) |
 | **[Record Modifier](filters/record_modifier/)** | filters | Modify each event record. | GA | [2.1.0](https://github.com/repeatedly/fluent-plugin-record-modifier) |

@@ -24,43 +24,43 @@ filters:
 
 ### message (string, optional) {#detectexceptions-message}
 
-The field which contains the raw message text in the input JSON data. <br>
+The field which contains the raw message text in the input JSON data.  
 
 Default:  ""
 
 ### remove_tag_prefix (string, optional) {#detectexceptions-remove_tag_prefix}
 
-The prefix to be removed from the input tag when outputting a record. <br>
+The prefix to be removed from the input tag when outputting a record.  
 
 Default:  ""
 
 ### multiline_flush_interval (string, optional) {#detectexceptions-multiline_flush_interval}
 
-The interval of flushing the buffer for multiline format. <br>
+The interval of flushing the buffer for multiline format.  
 
 Default:  nil
 
 ### languages ([]string, optional) {#detectexceptions-languages}
 
-Programming languages for which to detect exceptions. <br>
+Programming languages for which to detect exceptions.  
 
 Default:  []
 
 ### max_lines (int, optional) {#detectexceptions-max_lines}
 
-Maximum number of lines to flush (0 means no limit) <br>
+Maximum number of lines to flush (0 means no limit)  
 
 Default:  1000
 
 ### max_bytes (int, optional) {#detectexceptions-max_bytes}
 
-Maximum number of bytes to flush (0 means no limit) <br>
+Maximum number of bytes to flush (0 means no limit)  
 
 Default:  0
 
 ### stream (string, optional) {#detectexceptions-stream}
 
-Separate log streams by this field in the input JSON data. <br>
+Separate log streams by this field in the input JSON data.  
 
 Default:  ""
 

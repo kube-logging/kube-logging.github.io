@@ -13,157 +13,157 @@ More info at https://github.com/SumoLogic/sumologic-kubernetes-collection
 
 ### source_category (string, optional) {#sumologic-source_category}
 
-Source Category <br>
+Source Category  
 
 Default:  "%{namespace}/%{pod_name}"
 
 ### source_category_replace_dash (string, optional) {#sumologic-source_category_replace_dash}
 
-Source Category Replace Dash <br>
+Source Category Replace Dash  
 
 Default:  "/"
 
 ### source_category_prefix (string, optional) {#sumologic-source_category_prefix}
 
-Source Category Prefix <br>
+Source Category Prefix  
 
 Default:  kubernetes/
 
 ### source_name (string, optional) {#sumologic-source_name}
 
-Source Name <br>
+Source Name  
 
 Default:  "%{namespace}.%{pod}.%{container}"
 
 ### log_format (string, optional) {#sumologic-log_format}
 
-Log Format <br>
+Log Format  
 
 Default:  json
 
 ### source_host (string, optional) {#sumologic-source_host}
 
-Source Host <br>
+Source Host  
 
 Default:  ""
 
 ### exclude_container_regex (string, optional) {#sumologic-exclude_container_regex}
 
-Exclude Container Regex <br>
+Exclude Container Regex  
 
 Default:  ""
 
 ### exclude_facility_regex (string, optional) {#sumologic-exclude_facility_regex}
 
-Exclude Facility Regex <br>
+Exclude Facility Regex  
 
 Default:  ""
 
 ### exclude_host_regex (string, optional) {#sumologic-exclude_host_regex}
 
-Exclude Host Regex <br>
+Exclude Host Regex  
 
 Default:  ""
 
 ### exclude_namespace_regex (string, optional) {#sumologic-exclude_namespace_regex}
 
-Exclude Namespace Regex <br>
+Exclude Namespace Regex  
 
 Default:  ""
 
 ### exclude_pod_regex (string, optional) {#sumologic-exclude_pod_regex}
 
-Exclude Pod Regex <br>
+Exclude Pod Regex  
 
 Default:  ""
 
 ### exclude_priority_regex (string, optional) {#sumologic-exclude_priority_regex}
 
-Exclude Priority Regex <br>
+Exclude Priority Regex  
 
 Default:  ""
 
 ### exclude_unit_regex (string, optional) {#sumologic-exclude_unit_regex}
 
-Exclude Unit Regex <br>
+Exclude Unit Regex  
 
 Default:  ""
 
 ### tracing_format (*bool, optional) {#sumologic-tracing_format}
 
-Tracing Format <br>
+Tracing Format  
 
 Default:  false
 
 ### tracing_namespace (string, optional) {#sumologic-tracing_namespace}
 
-Tracing Namespace <br>
+Tracing Namespace  
 
 Default:  "namespace"
 
 ### tracing_pod (string, optional) {#sumologic-tracing_pod}
 
-Tracing Pod <br>
+Tracing Pod  
 
 Default:  "pod"
 
 ### tracing_pod_id (string, optional) {#sumologic-tracing_pod_id}
 
-Tracing Pod ID <br>
+Tracing Pod ID  
 
 Default:  "pod_id"
 
 ### tracing_container_name (string, optional) {#sumologic-tracing_container_name}
 
-Tracing Container Name <br>
+Tracing Container Name  
 
 Default:  "container_name"
 
 ### tracing_host (string, optional) {#sumologic-tracing_host}
 
-Tracing Host <br>
+Tracing Host  
 
 Default:  "hostname"
 
 ### tracing_label_prefix (string, optional) {#sumologic-tracing_label_prefix}
 
-Tracing Label Prefix <br>
+Tracing Label Prefix  
 
 Default:  "pod_label_"
 
 ### tracing_annotation_prefix (string, optional) {#sumologic-tracing_annotation_prefix}
 
-Tracing Annotation Prefix <br>
+Tracing Annotation Prefix  
 
 Default:  "pod_annotation_"
 
 ### source_host_key_name (string, optional) {#sumologic-source_host_key_name}
 
-Source HostKey Name <br>
+Source HostKey Name  
 
 Default:  "_sourceHost"
 
 ### source_category_key_name (string, optional) {#sumologic-source_category_key_name}
 
-Source CategoryKey Name <br>
+Source CategoryKey Name  
 
 Default:  "_sourceCategory"
 
 ### source_name_key_name (string, optional) {#sumologic-source_name_key_name}
 
-Source NameKey Name <br>
+Source NameKey Name  
 
 Default:  "_sourceName"
 
 ### collector_key_name (string, optional) {#sumologic-collector_key_name}
 
-CollectorKey Name <br>
+CollectorKey Name  
 
 Default:  "_collector"
 
 ### collector_value (string, optional) {#sumologic-collector_value}
 
-Collector Value <br>
+Collector Value  
 
 Default:  "undefined"
 
