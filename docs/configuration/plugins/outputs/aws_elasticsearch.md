@@ -25,49 +25,49 @@ Send your logs to a Amazon Elasticsearch Service
 
 ### logstash_format (bool, optional) {#amazon elasticsearch-logstash_format}
 
-logstash_format<br>
+logstash_format 
 
 Default: -
 
 ### logstash_prefix (string, optional) {#amazon elasticsearch-logstash_prefix}
 
-logstash_prefix<br>
+logstash_prefix 
 
 Default: -
 
 ### include_tag_key (bool, optional) {#amazon elasticsearch-include_tag_key}
 
-include_tag_key<br>
+include_tag_key 
 
 Default: -
 
 ### tag_key (string, optional) {#amazon elasticsearch-tag_key}
 
-tag_key<br>
+tag_key 
 
 Default: -
 
 ### flush_interval (string, optional) {#amazon elasticsearch-flush_interval}
 
-flush_interval<br>
+flush_interval 
 
 Default: -
 
 ### endpoint (*EndpointCredentials, optional) {#amazon elasticsearch-endpoint}
 
-AWS Endpoint Credentials<br>
+AWS Endpoint Credentials 
 
 Default: -
 
 ### format (*Format, optional) {#amazon elasticsearch-format}
 
-[Format](../format/)<br>
+[Format](../format/) 
 
 Default: -
 
 ### buffer (*Buffer, optional) {#amazon elasticsearch-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 
@@ -78,55 +78,55 @@ endpoint
 
 ### region (string, optional) {#endpoint credentials-region}
 
-AWS region. It should be in form like us-east-1, us-west-2. Default nil, which means try to find from environment variable AWS_REGION.<br>
+AWS region. It should be in form like us-east-1, us-west-2. Default nil, which means try to find from environment variable AWS_REGION. 
 
 Default: -
 
 ### url (string, optional) {#endpoint credentials-url}
 
-AWS connection url.<br>
+AWS connection url. 
 
 Default: -
 
 ### access_key_id (*secret.Secret, optional) {#endpoint credentials-access_key_id}
 
-AWS access key id. This parameter is required when your agent is not running on EC2 instance with an IAM Role.<br>
+AWS access key id. This parameter is required when your agent is not running on EC2 instance with an IAM Role. 
 
 Default: -
 
 ### secret_access_key (*secret.Secret, optional) {#endpoint credentials-secret_access_key}
 
-AWS secret key. This parameter is required when your agent is not running on EC2 instance with an IAM Role.<br>
+AWS secret key. This parameter is required when your agent is not running on EC2 instance with an IAM Role. 
 
 Default: -
 
 ### assume_role_arn (*secret.Secret, optional) {#endpoint credentials-assume_role_arn}
 
-Typically, you can use AssumeRole for cross-account access or federation.<br>
+Typically, you can use AssumeRole for cross-account access or federation. 
 
 Default: -
 
 ### ecs_container_credentials_relative_uri (*secret.Secret, optional) {#endpoint credentials-ecs_container_credentials_relative_uri}
 
-Set with AWS_CONTAINER_CREDENTIALS_RELATIVE_URI environment variable value<br>
+Set with AWS_CONTAINER_CREDENTIALS_RELATIVE_URI environment variable value 
 
 Default: -
 
 ### assume_role_session_name (*secret.Secret, optional) {#endpoint credentials-assume_role_session_name}
 
-AssumeRoleWithWebIdentity https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html<br>
+AssumeRoleWithWebIdentity https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html 
 
 Default: -
 
 ### assume_role_web_identity_token_file (*secret.Secret, optional) {#endpoint credentials-assume_role_web_identity_token_file}
 
-AssumeRoleWithWebIdentity https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html<br>
+AssumeRoleWithWebIdentity https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html 
 
 Default: -
 
 ### sts_credentials_region (*secret.Secret, optional) {#endpoint credentials-sts_credentials_region}
 
-By default, the AWS Security Token Service (AWS STS) is available as a global service, and all AWS STS requests go to a single endpoint at https://sts.amazonaws.com. AWS recommends using Regional AWS STS endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity. https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html<br>
+By default, the AWS Security Token Service (AWS STS) is available as a global service, and all AWS STS requests go to a single endpoint at https://sts.amazonaws.com. AWS recommends using Regional AWS STS endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity. https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html 
 
 Default: -
 

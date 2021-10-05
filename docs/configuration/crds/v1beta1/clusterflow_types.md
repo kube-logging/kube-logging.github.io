@@ -18,7 +18,7 @@ Default: -
 
 ### spec (ClusterFlowSpec, optional) {#clusterflow-spec}
 
-Name of the logging cluster to be attached<br>
+Name of the logging cluster to be attached 
 
 Default: -
 
@@ -82,7 +82,7 @@ FlowSpec is the Kubernetes spec for Flows
 
 ### selectors (map[string]string, optional) {#clusterflowspec-selectors}
 
-Deprecated<br>
+Deprecated 
 
 Default: -
 
@@ -100,7 +100,7 @@ Default: -
 
 ### outputRefs ([]string, optional) {#clusterflowspec-outputrefs}
 
-Deprecated<br>
+Deprecated 
 
 Default: -
 

@@ -13,43 +13,43 @@ generated_file: true
 
 ### path (string, required) {#fileoutputconfig-path}
 
-The Path of the file. The actual path is path + time + ".log" by default.<br>
+The Path of the file. The actual path is path + time + ".log" by default. 
 
 Default: -
 
 ### append (bool, optional) {#fileoutputconfig-append}
 
-The flushed chunk is appended to existence file or not. The default is not appended.<br>
+The flushed chunk is appended to existence file or not. The default is not appended. 
 
 Default: -
 
 ### add_path_suffix (*bool, optional) {#fileoutputconfig-add_path_suffix}
 
-Add path suffix(default: true)<br>
+Add path suffix(default: true) 
 
 Default: true
 
 ### path_suffix (string, optional) {#fileoutputconfig-path_suffix}
 
-The suffix of output result.<br>
+The suffix of output result. 
 
 Default:  ".log"
 
 ### symlink_path (bool, optional) {#fileoutputconfig-symlink_path}
 
-Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs.<br>
+Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs. 
 
 Default:  false
 
 ### format (*Format, optional) {#fileoutputconfig-format}
 
-[Format](../format/)<br>
+[Format](../format/) 
 
 Default: -
 
 ### buffer (*Buffer, optional) {#fileoutputconfig-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 

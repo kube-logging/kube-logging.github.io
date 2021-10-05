@@ -10,7 +10,7 @@ FlowSpec is the Kubernetes spec for Flows
 
 ### selectors (map[string]string, optional) {#flowspec-selectors}
 
-Deprecated<br>
+Deprecated 
 
 Default: -
 
@@ -28,7 +28,7 @@ Default: -
 
 ### outputRefs ([]string, optional) {#flowspec-outputrefs}
 
-Deprecated<br>
+Deprecated 
 
 Default: -
 
@@ -139,6 +139,10 @@ Default: -
 Default: -
 
 ### enhanceK8s (*filter.EnhanceK8s, optional) {#filter-enhancek8s}
+
+Default: -
+
+### kube_events_timestamp (*filter.KubeEventsTimestampConfig, optional) {#filter-kube_events_timestamp}
 
 Default: -
 

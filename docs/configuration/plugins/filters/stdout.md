@@ -13,7 +13,7 @@ generated_file: true
 
 ### output_type (string, optional) {#stdoutfilterconfig-output_type}
 
-This is the option of stdout format.<br>
+This is the option of stdout format. 
 
 Default: -
 

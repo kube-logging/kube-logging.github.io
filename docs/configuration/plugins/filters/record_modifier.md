@@ -13,37 +13,37 @@ generated_file: true
 
 ### prepare_value (string, optional) {#recordmodifier-prepare_value}
 
-Prepare values for filtering in configure phase. Prepared values can be used in <record>. You can write any ruby code.<br>
+Prepare values for filtering in configure phase. Prepared values can be used in <record>. You can write any ruby code. 
 
 Default: -
 
 ### char_encoding (string, optional) {#recordmodifier-char_encoding}
 
-Fluentd including some plugins treats logs as a BINARY by default to forward. To overide that, use a target encoding or a from:to encoding here.<br>
+Fluentd including some plugins treats logs as a BINARY by default to forward. To overide that, use a target encoding or a from:to encoding here. 
 
 Default: -
 
 ### remove_keys (string, optional) {#recordmodifier-remove_keys}
 
-A comma-delimited list of keys to delete<br>
+A comma-delimited list of keys to delete 
 
 Default: -
 
 ### whitelist_keys (string, optional) {#recordmodifier-whitelist_keys}
 
-This is exclusive with remove_keys<br>
+This is exclusive with remove_keys 
 
 Default: -
 
 ### replaces ([]Replace, optional) {#recordmodifier-replaces}
 
-Replace specific value for keys<br>
+Replace specific value for keys 
 
 Default: -
 
 ### records ([]Record, optional) {#recordmodifier-records}
 
-Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier<br>Records are represented as maps: `key: value`<br>
+Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier Records are represented as maps: `key: value` 
 
 Default: -
 
@@ -82,19 +82,19 @@ Specify replace rule. This directive contains three parameters.
 
 ### key (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-key}
 
-Key to search for<br>
+Key to search for 
 
 Default: -
 
 ### expression (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-expression}
 
-Regular expression<br>
+Regular expression 
 
 Default: -
 
 ### replace (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-replace}
 
-Value to replace with<br>
+Value to replace with 
 
 Default: -
 

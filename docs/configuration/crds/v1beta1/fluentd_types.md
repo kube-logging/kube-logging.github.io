@@ -38,13 +38,13 @@ Default: -
 
 ### bufferStorageVolume (volume.KubernetesVolume, optional) {#fluentdspec-bufferstoragevolume}
 
-BufferStorageVolume is by default configured as PVC using FluentdPvcSpec<br>[volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types)<br>
+BufferStorageVolume is by default configured as PVC using FluentdPvcSpec [volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types) 
 
 Default: -
 
 ### fluentdPvcSpec (*volume.KubernetesVolume, optional) {#fluentdspec-fluentdpvcspec}
 
-Deprecated, use bufferStorageVolume<br>
+Deprecated, use bufferStorageVolume 
 
 Default: -
 
@@ -142,13 +142,13 @@ Default: -
 
 ### ignoreSameLogInterval (string, optional) {#fluentdspec-ignoresameloginterval}
 
-Ignore same log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_same_log_interval)<br>
+Ignore same log lines [more info]( https://docs.fluentd.org/deployment/logging#ignore_same_log_interval) 
 
 Default: -
 
 ### ignoreRepeatedLogInterval (string, optional) {#fluentdspec-ignorerepeatedloginterval}
 
-Ignore repeated log lines<br>[more info]( https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval)<br>
+Ignore repeated log lines [more info]( https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval) 
 
 Default: -
 
@@ -162,7 +162,7 @@ Default: -
 
 ### fluentOutLogrotate (*FluentOutLogrotate, optional) {#fluentdspec-fluentoutlogrotate}
 
-FluentOutLogrotate sends fluent's stdout to file and rotates it<br>
+FluentOutLogrotate sends fluent's stdout to file and rotates it 
 
 Default: -
 
@@ -242,13 +242,13 @@ FluentdDrainConfig enables configuring the drain behavior when scaling down the 
 
 ### enabled (bool, optional) {#fluentddrainconfig-enabled}
 
-Should buffers on persistent volumes left after scaling down the statefulset be drained<br>
+Should buffers on persistent volumes left after scaling down the statefulset be drained 
 
 Default: -
 
 ### image (ImageSpec, optional) {#fluentddrainconfig-image}
 
-Container image to use for the drain watch sidecar<br>
+Container image to use for the drain watch sidecar 
 
 Default: -
 

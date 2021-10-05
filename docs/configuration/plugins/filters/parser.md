@@ -13,61 +13,61 @@ generated_file: true
 
 ### key_name (string, optional) {#parserconfig-key_name}
 
-Specify field name in the record to parse. If you leave empty the Container Runtime default will be used.<br>
+Specify field name in the record to parse. If you leave empty the Container Runtime default will be used. 
 
 Default: -
 
 ### reserve_time (bool, optional) {#parserconfig-reserve_time}
 
-Keep original event time in parsed result.<br>
+Keep original event time in parsed result. 
 
 Default: -
 
 ### reserve_data (bool, optional) {#parserconfig-reserve_data}
 
-Keep original key-value pair in parsed result.<br>
+Keep original key-value pair in parsed result. 
 
 Default: -
 
 ### remove_key_name_field (bool, optional) {#parserconfig-remove_key_name_field}
 
-Remove key_name field when parsing is succeeded<br>
+Remove key_name field when parsing is succeeded 
 
 Default: -
 
 ### replace_invalid_sequence (bool, optional) {#parserconfig-replace_invalid_sequence}
 
-If true, invalid string is replaced with safe characters and re-parse it.<br>
+If true, invalid string is replaced with safe characters and re-parse it. 
 
 Default: -
 
 ### inject_key_prefix (string, optional) {#parserconfig-inject_key_prefix}
 
-Store parsed values with specified key name prefix.<br>
+Store parsed values with specified key name prefix. 
 
 Default: -
 
 ### hash_value_field (string, optional) {#parserconfig-hash_value_field}
 
-Store parsed values as a hash value in a field.<br>
+Store parsed values as a hash value in a field. 
 
 Default: -
 
 ### emit_invalid_record_to_error (*bool, optional) {#parserconfig-emit_invalid_record_to_error}
 
-Emit invalid record to @ERROR label. Invalid cases are: key not exist, format is not matched, unexpected error<br>
+Emit invalid record to @ERROR label. Invalid cases are: key not exist, format is not matched, unexpected error 
 
 Default: -
 
 ### parse (ParseSection, optional) {#parserconfig-parse}
 
-[Parse Section](#parse-section)<br>
+[Parse Section](#parse-section) 
 
 Default: -
 
 ### parsers ([]ParseSection, optional) {#parserconfig-parsers}
 
-Deprecated, use `parse` instead<br>
+Deprecated, use `parse` instead 
 
 Default: -
 
@@ -76,121 +76,121 @@ Default: -
 
 ### type (string, optional) {#parse section-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt<br>
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt 
 
 Default: -
 
 ### expression (string, optional) {#parse section-expression}
 
-Regexp expression to evaluate<br>
+Regexp expression to evaluate 
 
 Default: -
 
 ### time_key (string, optional) {#parse section-time_key}
 
-Specify time field for event time. If the event doesn't have this field, current time is used.<br>
+Specify time field for event time. If the event doesn't have this field, current time is used. 
 
 Default: -
 
 ### null_value_pattern (string, optional) {#parse section-null_value_pattern}
 
-Specify null value pattern.<br>
+Specify null value pattern. 
 
 Default: -
 
 ### null_empty_string (bool, optional) {#parse section-null_empty_string}
 
-If true, empty string field is replaced with nil<br>
+If true, empty string field is replaced with nil 
 
 Default: -
 
 ### estimate_current_event (bool, optional) {#parse section-estimate_current_event}
 
-If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified.<br>
+If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified. 
 
 Default: -
 
 ### keep_time_key (bool, optional) {#parse section-keep_time_key}
 
-If true, keep time field in the record.<br>
+If true, keep time field in the record. 
 
 Default: -
 
 ### types (string, optional) {#parse section-types}
 
-Types casting the fields to proper types example: field1:type, field2:type<br>
+Types casting the fields to proper types example: field1:type, field2:type 
 
 Default: -
 
 ### time_format (string, optional) {#parse section-time_format}
 
-Process value using specified format. This is available only when time_type is string<br>
+Process value using specified format. This is available only when time_type is string 
 
 Default: -
 
 ### time_type (string, optional) {#parse section-time_type}
 
-Parse/format value according to this type available values: float, unixtime, string <br>
+Parse/format value according to this type available values: float, unixtime, string  
 
 Default:  string
 
 ### local_time (bool, optional) {#parse section-local_time}
 
-Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc. <br>
+Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc.  
 
 Default:  true
 
 ### utc (bool, optional) {#parse section-utc}
 
-If true, use UTC. Otherwise, local time is used. This is exclusive with localtime <br>
+If true, use UTC. Otherwise, local time is used. This is exclusive with localtime  
 
 Default:  false
 
 ### timezone (string, optional) {#parse section-timezone}
 
-Use specified timezone. one can parse/format the time value in the specified timezone. <br>
+Use specified timezone. one can parse/format the time value in the specified timezone.  
 
 Default:  nil
 
 ### format (string, optional) {#parse section-format}
 
-Only available when using type: multi_format<br>
+Only available when using type: multi_format 
 
 Default: -
 
 ### format_firstline (string, optional) {#parse section-format_firstline}
 
-Only available when using type: multi_format<br>
+Only available when using type: multi_format 
 
 Default: -
 
 ### delimiter (string, optional) {#parse section-delimiter}
 
-Only available when using type: ltsv <br>
+Only available when using type: ltsv  
 
 Default:  "\t"
 
 ### delimiter_pattern (string, optional) {#parse section-delimiter_pattern}
 
-Only available when using type: ltsv<br>
+Only available when using type: ltsv 
 
 Default: -
 
 ### label_delimiter (string, optional) {#parse section-label_delimiter}
 
-Only available when using type: ltsv <br>
+Only available when using type: ltsv  
 
 Default:  ":"
 
 ### multiline ([]string, optional) {#parse section-multiline}
 
-The multiline parser plugin parses multiline logs.<br>
+The multiline parser plugin parses multiline logs. 
 
 Default: -
 
 ### patterns ([]SingleParseSection, optional) {#parse section-patterns}
 
-Only available when using type: multi_format<br>[Parse Section](#parse-section)<br>
+Only available when using type: multi_format [Parse Section](#parse-section) 
 
 Default: -
 
@@ -199,85 +199,85 @@ Default: -
 
 ### type (string, optional) {#parse section (single)-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt<br>
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt 
 
 Default: -
 
 ### expression (string, optional) {#parse section (single)-expression}
 
-Regexp expression to evaluate<br>
+Regexp expression to evaluate 
 
 Default: -
 
 ### time_key (string, optional) {#parse section (single)-time_key}
 
-Specify time field for event time. If the event doesn't have this field, current time is used.<br>
+Specify time field for event time. If the event doesn't have this field, current time is used. 
 
 Default: -
 
 ### null_value_pattern (string, optional) {#parse section (single)-null_value_pattern}
 
-Specify null value pattern.<br>
+Specify null value pattern. 
 
 Default: -
 
 ### null_empty_string (bool, optional) {#parse section (single)-null_empty_string}
 
-If true, empty string field is replaced with nil<br>
+If true, empty string field is replaced with nil 
 
 Default: -
 
 ### estimate_current_event (bool, optional) {#parse section (single)-estimate_current_event}
 
-If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified.<br>
+If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified. 
 
 Default: -
 
 ### keep_time_key (bool, optional) {#parse section (single)-keep_time_key}
 
-If true, keep time field in the record.<br>
+If true, keep time field in the record. 
 
 Default: -
 
 ### types (string, optional) {#parse section (single)-types}
 
-Types casting the fields to proper types example: field1:type, field2:type<br>
+Types casting the fields to proper types example: field1:type, field2:type 
 
 Default: -
 
 ### time_format (string, optional) {#parse section (single)-time_format}
 
-Process value using specified format. This is available only when time_type is string<br>
+Process value using specified format. This is available only when time_type is string 
 
 Default: -
 
 ### time_type (string, optional) {#parse section (single)-time_type}
 
-Parse/format value according to this type available values: float, unixtime, string <br>
+Parse/format value according to this type available values: float, unixtime, string  
 
 Default:  string
 
 ### local_time (bool, optional) {#parse section (single)-local_time}
 
-Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc. <br>
+Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc.  
 
 Default:  true
 
 ### utc (bool, optional) {#parse section (single)-utc}
 
-If true, use UTC. Otherwise, local time is used. This is exclusive with localtime <br>
+If true, use UTC. Otherwise, local time is used. This is exclusive with localtime  
 
 Default:  false
 
 ### timezone (string, optional) {#parse section (single)-timezone}
 
-Use specified timezone. one can parse/format the time value in the specified timezone. <br>
+Use specified timezone. one can parse/format the time value in the specified timezone.  
 
 Default:  nil
 
 ### format (string, optional) {#parse section (single)-format}
 
-Only available when using type: multi_format<br>
+Only available when using type: multi_format 
 
 Default: -
 

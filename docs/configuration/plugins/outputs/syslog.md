@@ -13,43 +13,43 @@ generated_file: true
 
 ### host (string, required) {#syslogoutputconfig-host}
 
-Destination host address<br>
+Destination host address 
 
 Default: -
 
 ### port (int, optional) {#syslogoutputconfig-port}
 
-Destination host port <br>
+Destination host port  
 
 Default:  "514"
 
 ### transport (string, optional) {#syslogoutputconfig-transport}
 
-Transport Protocol <br>
+Transport Protocol  
 
 Default:  "tls"
 
 ### insecure (*bool, optional) {#syslogoutputconfig-insecure}
 
-skip ssl validation <br>
+skip ssl validation  
 
 Default:  false
 
 ### trusted_ca_path (*secret.Secret, optional) {#syslogoutputconfig-trusted_ca_path}
 
-file path to ca to trust<br>
+file path to ca to trust 
 
 Default: -
 
 ### format (*FormatRfc5424, optional) {#syslogoutputconfig-format}
 
-[Format](../format_rfc5424/)<br>
+[Format](../format_rfc5424/) 
 
 Default: -
 
 ### buffer (*Buffer, optional) {#syslogoutputconfig-buffer}
 
-[Buffer](../buffer/)<br>
+[Buffer](../buffer/) 
 
 Default: -
 
