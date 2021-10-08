@@ -26,13 +26,14 @@ aws_key_id:
 
 ## Define secret mount
 
-There are cases when you can't inject secret into the configuration because the plugin need a file to read from. For this cases you can use `mountSecret`.
+There are cases when you can't inject secret into the configuration because the plugin need a file to read from. For this cases you can use `mountFrom`.
 
 ```yaml
 tls_cert_path:
   mountFrom:
-    name: <kubernetes-secret-name>
-    key: <kubernetes-secret-key>
+    secretKeyRef:
+      name: <kubernetes-secret-name>
+      key: <kubernetes-secret-key>
 ```
 
 The operator will collect the secret and copy it to the `fluentd-output` secret. The fluentd configuration will contain the secret path.
