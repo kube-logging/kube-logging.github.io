@@ -29,9 +29,11 @@ Logging operator comes with a number of default alerting rules that help you mon
       namespace: logging
     spec:
       fluentd:
-        prometheusRules: true
+        metrics:
+          prometheusRules: true
       fluentbit:
-        prometheusRules: true
+        metrics:
+          prometheusRules: true
       controlNamespace: logging
     ```
 
