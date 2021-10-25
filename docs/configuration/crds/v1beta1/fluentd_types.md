@@ -104,6 +104,10 @@ Default: -
 
 Default: -
 
+### topologySpreadConstraints ([]corev1.TopologySpreadConstraint, optional) {#fluentdspec-topologyspreadconstraints}
+
+Default: -
+
 ### metrics (*Metrics, optional) {#fluentdspec-metrics}
 
 Default: -
@@ -179,6 +183,14 @@ Default: -
 Default: -
 
 ### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentdspec-dnsconfig}
+
+Default: -
+
+### serviceTopologyKeys ([]string, optional) {#fluentdspec-servicetopologykeys}
+
+Default: -
+
+### headlessServiceTopologyKeys ([]string, optional) {#fluentdspec-headlessservicetopologykeys}
 
 Default: -
 

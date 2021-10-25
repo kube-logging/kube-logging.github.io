@@ -41,6 +41,18 @@ Create symlink to temporary buffered file when buffer_type is file. This is usef
 
 Default:  false
 
+### compress (string, optional) {#fileoutputconfig-compress}
+
+Compresses flushed files using gzip. No compression is performed by default. 
+
+Default: -
+
+### recompress (bool, optional) {#fileoutputconfig-recompress}
+
+Performs compression again even if the buffer chunk is already compressed.  
+
+Default:  false
+
 ### format (*Format, optional) {#fileoutputconfig-format}
 
 [Format](../format/) 
