@@ -92,6 +92,12 @@ Specify time field for event time. If the event doesn't have this field, current
 
 Default: -
 
+### keys (string, optional) {#parse section-keys}
+
+Names for fields on each line. (seperated by coma) 
+
+Default: -
+
 ### null_value_pattern (string, optional) {#parse section-null_value_pattern}
 
 Specify null value pattern. 

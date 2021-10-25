@@ -531,4 +531,16 @@ You can specify Elasticsearch data stream name by this parameter. This parameter
 
 Default: -
 
+### data_stream_template_name (string, optional) {#elasticsearch-data_stream_template_name}
+
+Specify an existing index template for the data stream. If not present, a new template is created and named after the data stream.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
+
+Default:  data_stream_name
+
+### data_stream_ilm_name (string, optional) {#elasticsearch-data_stream_ilm_name}
+
+Specify an existing ILM policy to be applied to the data stream. If not present, either the specified template's or a new ILM default policy is applied.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
+
+Default:  data_stream_name
+
 

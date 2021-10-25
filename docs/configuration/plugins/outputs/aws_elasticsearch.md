@@ -35,6 +35,18 @@ logstash_prefix
 
 Default: -
 
+### index_name (string, optional) {#amazon elasticsearch-index_name}
+
+index_name 
+
+Default: -
+
+### include_timestamp (string, optional) {#amazon elasticsearch-include_timestamp}
+
+include_timestamp 
+
+Default: -
+
 ### include_tag_key (bool, optional) {#amazon elasticsearch-include_tag_key}
 
 include_tag_key 

@@ -41,12 +41,6 @@ TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/7291
 
 Default:  {}
 
-### buffer (*Buffer, optional) {#output config-buffer}
-
-[Buffer](../buffer/) 
-
-Default: -
-
 
 
  #### Example `GELF` output configurations
@@ -59,13 +53,6 @@ spec:
   gelf:
     host: gelf-host
     port: 12201
-    buffer:
-      flush_thread_count: 8
-      flush_interval: 5s
-      chunk_limit_size: 8M
-      queue_limit_length: 512
-      retry_max_interval: 30
-      retry_forever: true
  ```
 
  #### Fluentd Config Result
@@ -75,16 +62,6 @@ spec:
 	@id test_gelf
 	host gelf-host
 	port 12201
-	<buffer tag,time>
-	  @type file
-	  path /buffers/test_file.*.buffer
-    flush_thread_count 8
-    flush_interval 5s
-    chunk_limit_size 8M
-    queue_limit_length 512
-    retry_max_interval 30
-    retry_forever true
-	</buffer>
   </match>
  ```
 
