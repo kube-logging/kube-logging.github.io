@@ -64,6 +64,12 @@ Separate log streams by this field in the input JSON data.
 
 Default:  ""
 
+### force_line_breaks (bool, optional) {#detectexceptions-force_line_breaks}
+
+Force line breaks between each lines when comibining exception stacks.  
+
+Default:  false
+
 
  #### Example `Exception Detector` filter configurations
  ```yaml
