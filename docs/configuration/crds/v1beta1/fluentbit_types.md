@@ -408,6 +408,12 @@ Wait period time in seconds to flush queued unfinished split lines.
 
 Default: 4
 
+### multiline.parser ([]string, optional) {#inputtail-multiline.parser}
+
+Specify one or multiple parser definitions to apply to the content. Part of the new Multiline Core support in 1.8  
+
+Default:  ""
+
 
 ## FilterKubernetes
 

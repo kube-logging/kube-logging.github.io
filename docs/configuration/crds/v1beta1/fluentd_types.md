@@ -258,9 +258,19 @@ Should buffers on persistent volumes left after scaling down the statefulset be 
 
 Default: -
 
-### image (ImageSpec, optional) {#fluentddrainconfig-image}
+### annotations (map[string]string, optional) {#fluentddrainconfig-annotations}
 
 Container image to use for the drain watch sidecar 
+
+Default: -
+
+### image (ImageSpec, optional) {#fluentddrainconfig-image}
+
+Default: -
+
+### pauseImage (ImageSpec, optional) {#fluentddrainconfig-pauseimage}
+
+Container image to use for the fluentd placeholder pod 
 
 Default: -
 

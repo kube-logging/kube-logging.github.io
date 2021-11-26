@@ -82,6 +82,14 @@ Default: -
 
 Default: -
 
+### scheme (string, optional) {#servicemonitorconfig-scheme}
+
+Default: -
+
+### tlsConfig (*v1.TLSConfig, optional) {#servicemonitorconfig-tlsconfig}
+
+Default: -
+
 
 ## Security
 
