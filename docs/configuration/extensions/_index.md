@@ -17,8 +17,6 @@ Logging-extensions are now part of Logging-operator by default.
 
 ## Features
 
-* [Kubernetes Event Tailer](kubernetes-event-tailer.md)
-* [Kubernetes Host Tailer](kubernetes-host-tailer.md)
-* [File Tailer Webhook](tailer-webhook.md)
+{{< toc >}}
 
-> Check `config/samples/extensions` for examples
+> Check our [configuration snippets](https://github.com/banzaicloud/logging-operator/tree/master/config/samples/extensions) for examples.
