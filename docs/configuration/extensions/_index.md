@@ -13,7 +13,7 @@ why some pods were evicted from the node.
 - Collect logs from the nodes like `kubelet` logs.
 - Collect logs from files on the nodes, for example, `audit` logs, or the `systemd` journal.
 
-Logging-extensions are now part of Logging-operator by default.
+Starting with Logging operator version 3.17.0, logging-extensions are open source and part of Logging operator.
 
 ## Features
 
