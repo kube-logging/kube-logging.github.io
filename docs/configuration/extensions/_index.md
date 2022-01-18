@@ -5,8 +5,6 @@ aliases:
     - /docs/one-eye/logging-operator/extensions/
 ---
 
-# Logging-extensions
-
 Logging extensions were specifically developed to solve the problems of users:
 
 - Collecting Kubernetes events to provide insight into what is happening
