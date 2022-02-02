@@ -6,6 +6,12 @@ generated_file: true
 
 ## Buffer
 
+### disabled (bool, optional) {#buffer-disabled}
+
+Disable buffer section (default: false) 
+
+Default: false,hidden
+
 ### type (string, optional) {#buffer-type}
 
 Fluentd core bundles memory and file plugins. 3rd party plugins are also available when installed. 
