@@ -4,16 +4,14 @@ shorttitle: File Tailer Webhook
 weight: 1000
 ---
 
-# File Tailer Webhook
-
-Another way to keep your custom file's content tailed aside of [`host file tailer`]({{< relref "/docs/logging-extensions/reference/hosttailer_types.md" >}}) service, to configure and use the `file tailer webhook` service.
-While the containers of the `host file tailers` run in a separated pod, `file tailer webhook` uses a different approach, it injects a sidecar container for every tailed file into your pod, triggered by a simple pod annotation.
+Another way to keep your custom file's content tailed aside of the [`host file tailer`]({{< relref "/docs/one-eye/logging-operator/configuration/crds/extensions/v1alpha1/hosttailer_types.md" >}}) service, is to configure and use the `file tailer webhook` service.
+While the containers of the `host file tailers` run in a separated pod, `file tailer webhook` uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.
 
 ## Triggering the webhook
 
-`File tailer webhook` is based on a [`Mutating Admission Webhook`](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) which gets called every time when a pod starts, and will be triggered when a pod specification contains an annotation with the `sidecar.logging-extensions.banzaicloud.io/tail` key. For example:
+`File tailer webhook` is based on a [`Mutating Admission Webhook`](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) which gets called every time when a pod starts, and will be triggered when a pod specification contains an annotation with the `sidecar.logging-extensions.banzaicloud.io/tail` key. The value of the annotation is the file (including path) you want to tail. For example:
 
-```bash
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -34,6 +32,17 @@ spec:
 ...
 ```
 
+To tail multiple files, add only one annotation, and separate the filenames with commas, for example:
+
+```yaml
+...
+metadata:
+    name: test-pod
+    annotations: {"sidecar.logging-extensions.banzaicloud.io/tail": "/var/log/date,/var/log/mycustomfile"}
+spec:
+...
+```
+
 > Note: if the pod contains multiple containers, see [Multi-container pods](#multi-container-pods).
 
 ### About the File Tailer Webhook annotation
@@ -47,7 +56,7 @@ The basic format of a `file tailer webhook` annotation is the following:
 
 For example:
 
-```bash
+```yaml
 ...
 metadata:
     name: test-pod

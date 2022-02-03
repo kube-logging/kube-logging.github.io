@@ -12,6 +12,12 @@ Server definitions at least one is required [Server](#fluentd-server)
 
 Default: -
 
+### transport (string, optional) {#forwardoutput-transport}
+
+The transport protocol to use [ tcp, tls ] 
+
+Default: -
+
 ### require_ack_response (bool, optional) {#forwardoutput-require_ack_response}
 
 Change the protocol to at-least-once. The plugin waits the ack from destination's in_forward plugin. 
@@ -74,9 +80,9 @@ Default:  60
 
 ### expire_dns_cache (int, optional) {#forwardoutput-expire_dns_cache}
 
-Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache. (defult: 0) 
+Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.  
 
-Default: -
+Default:  0
 
 ### dns_round_robin (bool, optional) {#forwardoutput-dns_round_robin}
 

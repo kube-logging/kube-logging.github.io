@@ -42,6 +42,10 @@ BufferStorageVolume is by default configured as PVC using FluentdPvcSpec [volume
 
 Default: -
 
+### extraVolumes ([]ExtraVolume, optional) {#fluentdspec-extravolumes}
+
+Default: -
+
 ### fluentdPvcSpec (*volume.KubernetesVolume, optional) {#fluentdspec-fluentdpvcspec}
 
 Deprecated, use bufferStorageVolume 
