@@ -10,7 +10,7 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 >Example Deployment: [Save all logs to ElasticSearch](../../../../quickstarts/es-nginx/)
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    elasticsearch:
      host: elasticsearch-elasticsearch-cluster.default.svc.cluster.local

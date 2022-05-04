@@ -9,7 +9,7 @@ generated_file: true
 More info at https://github.com/tarokkk/fluent-plugin-logzio
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    logz:
      endpoint:
