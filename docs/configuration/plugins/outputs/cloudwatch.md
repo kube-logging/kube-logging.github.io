@@ -10,7 +10,7 @@ This plugin has been designed to output logs or metrics to Amazon CloudWatch.
 More info at https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
   cloudwatch:
     aws_key_id:

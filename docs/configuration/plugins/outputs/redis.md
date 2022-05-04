@@ -10,7 +10,7 @@ generated_file: true
  More info at https://github.com/fluent-plugins-nursery/fluent-plugin-redis
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    redis:
      host: redis-master.prod.svc.cluster.local

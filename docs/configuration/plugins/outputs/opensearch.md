@@ -10,7 +10,7 @@ More info at https://github.com/fluent/fluent-plugin-opensearch
 >Example Deployment: [Save all logs to OpenSearch](../../../../quickstarts/es-nginx/)
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    opensearch:
      host: opensearch-cluster.default.svc.cluster.local

@@ -9,7 +9,7 @@ generated_file: true
 **newrelic** output plugin send log data to New Relic Logs
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    newrelic:
      license_key:

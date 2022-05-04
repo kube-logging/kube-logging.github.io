@@ -103,7 +103,7 @@ Default: -
 
 
  #### Example `File` output configurations
- ```
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Output
 metadata:

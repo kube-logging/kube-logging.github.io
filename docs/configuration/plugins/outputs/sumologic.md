@@ -17,7 +17,7 @@ kubectl create secret generic sumo-output --from-literal "endpoint=$URL"
 
  Example ClusterOutput
 
-```
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: ClusterOutput
 metadata:
