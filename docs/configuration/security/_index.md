@@ -9,15 +9,17 @@ aliases:
 
 ## Security Variables
 
+You can use the following variables in the `Logging` custom resource to configure the security settings of the containers deployed by the Logging operator.
+
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
-| roleBasedAccessControlCreate | bool | No | True | create RBAC resources |
-| podSecurityPolicyCreate | bool | No | False | create PSP resources |
-| serviceAccount | string | No | - | Set ServiceAccount |
-| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. |
-| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. |
+| roleBasedAccessControlCreate | bool | No | True | Create RBAC resources. For examples, see [Using RBAC Authorization](#rbac). |
+| podSecurityPolicyCreate | bool | No | False | Create PSP resources. |
+| serviceAccount | string | No | - | Set ServiceAccount. For examples, see [Service Account](#service-account). |
+| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. For examples, see [Security Context](#security-context). |
+| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. For examples, see [Enabling Pod Security Policies](#psp). |
 
-## Using [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) Authorization
+## Using [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) Authorization {#rbac}
 
 > By default, RBAC is enabled.
 
@@ -135,7 +137,7 @@ subjects:
   namespace: logging
 ```
 
-## Service Account ([SA](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/))
+## Service Account ([SA](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/)) {#service-account}
 
 ### Deploy with Kubernetes Manifests {#service-account-deploy-kubernetes-manifests}
 
@@ -166,7 +168,7 @@ EOF
     --set=loggingOperator.fluentbit.security.serviceAccount=fluentbitUser1
 ```
 
-## Enabling Pod Security Policies ([PSP](https://kubernetes.io/docs/concepts/policy/pod-security-policy/))
+## Enabling Pod Security Policies ([PSP](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)) {#psp}
 
 > This option depends on the roleBasedAccessControlCreate enabled status because the psp requires rbac roles also.
 
@@ -297,7 +299,7 @@ spec:
   - hostPath
 ```
 
-## [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+## [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) {#security-context}
 
 - [Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#securitycontext-v1-core)
 - [POD Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#podsecuritycontext-v1-core)
