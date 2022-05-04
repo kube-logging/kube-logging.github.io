@@ -14,8 +14,8 @@ aliases:
 | roleBasedAccessControlCreate | bool | No | True | create RBAC resources |
 | podSecurityPolicyCreate | bool | No | False | create PSP resources |
 | serviceAccount | string | No | - | Set ServiceAccount |
-| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. |
-| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. Some |
+| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. |
+| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. |
 
 ## Using [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) Authorization
 
@@ -168,7 +168,7 @@ EOF
 
 ## Enabling Pod Security Policies ([PSP](https://kubernetes.io/docs/concepts/policy/pod-security-policy/))
 
-> This option depends on the roleBasedAccessControlCreate enabled status because the psp require rbac roles also.
+> This option depends on the roleBasedAccessControlCreate enabled status because the psp requires rbac roles also.
 
 ### Deploy with Kubernetes Manifests {#psp-deploy-kubernetes-manifests}
 
@@ -299,8 +299,8 @@ spec:
 
 ## [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
 
-- [Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)
-- [POD Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podsecuritycontext-v1-core)
+- [Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#securitycontext-v1-core)
+- [POD Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#podsecuritycontext-v1-core)
 
 ### Deploy with Kubernetes Manifests
 
