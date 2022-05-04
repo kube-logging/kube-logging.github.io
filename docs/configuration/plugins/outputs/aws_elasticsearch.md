@@ -23,42 +23,6 @@ generated_file: true
 
 Send your logs to a Amazon Elasticsearch Service
 
-### logstash_format (bool, optional) {#amazon elasticsearch-logstash_format}
-
-logstash_format 
-
-Default: -
-
-### logstash_prefix (string, optional) {#amazon elasticsearch-logstash_prefix}
-
-logstash_prefix 
-
-Default: -
-
-### index_name (string, optional) {#amazon elasticsearch-index_name}
-
-index_name 
-
-Default: -
-
-### include_timestamp (string, optional) {#amazon elasticsearch-include_timestamp}
-
-include_timestamp 
-
-Default: -
-
-### include_tag_key (bool, optional) {#amazon elasticsearch-include_tag_key}
-
-include_tag_key 
-
-Default: -
-
-### tag_key (string, optional) {#amazon elasticsearch-tag_key}
-
-tag_key 
-
-Default: -
-
 ### flush_interval (string, optional) {#amazon elasticsearch-flush_interval}
 
 flush_interval 
@@ -80,6 +44,12 @@ Default: -
 ### buffer (*Buffer, optional) {#amazon elasticsearch-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+###  (*ElasticsearchOutput, optional) {#amazon elasticsearch-}
+
+ElasticSearch 
 
 Default: -
 

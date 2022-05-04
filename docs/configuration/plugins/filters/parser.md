@@ -76,7 +76,7 @@ Default: -
 
 ### type (string, optional) {#parse section-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt 
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok 
 
 Default: -
 
@@ -200,6 +200,42 @@ Only available when using type: multi_format [Parse Section](#parse-section)
 
 Default: -
 
+### grok_pattern (string, optional) {#parse section-grok_pattern}
+
+Only available when using type: grok. The pattern of grok. You cannot specify multiple grok pattern with this. 
+
+Default: -
+
+### custom_pattern_path (string, optional) {#parse section-custom_pattern_path}
+
+Only available when using type: grok. Path to the file that includes custom grok patterns. 
+
+Default: -
+
+### grok_failure_key (string, optional) {#parse section-grok_failure_key}
+
+Only available when using type: grok. The key has grok failure reason. 
+
+Default: -
+
+### grok_name_key (string, optional) {#parse section-grok_name_key}
+
+Only available when using type: grok. The key name to store grok section's name. 
+
+Default: -
+
+### multi_line_start_regexp (string, optional) {#parse section-multi_line_start_regexp}
+
+Only available when using type: multiline_grok The regexp to match beginning of multiline. 
+
+Default: -
+
+### grok_patterns ([]GrokSection, optional) {#parse section-grok_patterns}
+
+Only available when using type: grok. [Grok Section](#grok-section) Specify grok pattern series set. 
+
+Default: -
+
 
 ## Parse Section (single)
 
@@ -284,6 +320,45 @@ Default:  nil
 ### format (string, optional) {#parse section (single)-format}
 
 Only available when using type: multi_format 
+
+Default: -
+
+
+## Grok Section
+
+### name (string, optional) {#grok section-name}
+
+The name of grok section. 
+
+Default: -
+
+### pattern (string, required) {#grok section-pattern}
+
+The pattern of grok. 
+
+Default: -
+
+### keep_time_key (bool, optional) {#grok section-keep_time_key}
+
+If true, keep time field in the record. 
+
+Default: -
+
+### time_key (string, optional) {#grok section-time_key}
+
+Specify time field for event time. If the event doesn't have this field, current time is used. 
+
+Default: time
+
+### time_format (string, optional) {#grok section-time_format}
+
+Process value using specified format. This is available only when time_type is string. 
+
+Default: -
+
+### timezone (string, optional) {#grok section-timezone}
+
+Use specified timezone. one can parse/format the time value in the specified timezone. 
 
 Default: -
 

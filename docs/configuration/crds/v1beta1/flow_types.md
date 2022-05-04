@@ -102,6 +102,10 @@ Default: -
 
 Default: -
 
+### elasticsearch_genid (*filter.ElasticsearchGenId, optional) {#filter-elasticsearch_genid}
+
+Default: -
+
 ### record_transformer (*filter.RecordTransformer, optional) {#filter-record_transformer}
 
 Default: -
