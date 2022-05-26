@@ -75,7 +75,7 @@ spec:
 
 ## Scaling
 
-You can scale the Fluentd deployment by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
+You can scale the Fluentd deployment manually by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -89,6 +89,8 @@ spec:
   fluentbit: {}
   controlNamespace: logging
 ```
+
+For automatic scaling, see [Autoscaling with HPA](#autoscaling).
 
 ### Graceful draining
 
@@ -137,6 +139,67 @@ In addition to the drainer job, the operator also creates a placeholder pod with
 The placeholder pod just runs a pause container, and goes away as soon as the job has finished successfully or the deployment is scaled back up and explicitly flushing the buffers is no longer necessary because the newly created replica will take care of processing them.
 
 You can mark volumes that should be ignored by the drain logic by adding the label `logging.banzaicloud.io/drain: no` to the PVC.
+
+### Autoscaling with HPA {#autoscaling}
+
+To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscaler (HPA), complete the following steps.
+
+1. [Configure the aggregation layer](https://kubernetes.io/docs/tasks/extend-kubernetes/configure-aggregation-layer/). Many providers already have this configured, including `kind`.
+1. Install Prometheus and the [Prometheus Adapter](https://github.com/kubernetes-sigs/prometheus-adapter) if you don't already have them installed on the cluster. Adjust the default Prometheus address values as needed for your environment (set `prometheus.url`, `prometheus.port`, and `prometheus.path` to the appropriate values).
+1. (Optional) Install [`metrics-server`](https://github.com/kubernetes-sigs/metrics-server) to access basic metrics. If the readiness of the `metrics-server` pod fails with HTTP 500, try adding the `--kubelet-insecure-tls` flag to the container.
+1. If you want to use a custom metric for autoscaling Fluentd and the necessary metric is not available in Prometheus, define a Prometheus recording rule:
+
+    ```yaml
+    groups:
+    - name: my-logging-hpa.rules
+      rules:
+      - expr: (node_filesystem_size_bytes{container="buffer-metrics-sidecar",mountpoint="/buffers"}-node_filesystem_free_bytes{container="buffer-metrics-sidecar",mountpoint="/buffers"})/node_filesystem_size_bytes{container="buffer-metrics-sidecar",mountpoint="/buffers"}
+        record: buffer_space_usage_ratio
+    ```
+
+    Alternatively, you can define the derived metric as a configuration rule in the Prometheus Adapter's config map.
+
+1. If it's not already installed, install the logging-operator and configure a logging resource with at least one flow. Make sure that the logging resource has buffer volume metrics monitoring enabled under `spec.fluentd`:
+
+    ```yaml
+    #spec:
+    #  fluentd:
+        bufferVolumeMetrics:
+          serviceMonitor: true
+    ```
+
+1. Verify that the custom metric is available by running:
+
+    ```sh
+    kubectl get --raw '/apis/custom.metrics.k8s.io/v1beta1/namespaces/default/pods/*/buffer_space_usage_ratio'
+    ```
+
+1. The logging-operator enforces the replica count of the stateful set based on the logging resource's replica count, even if it's not set explicitly. To allow for HPA to control the replica count of the stateful set, this coupling has to be severed.
+**Currently, the only way to do that is by deleting the logging-operator deployment.**
+
+1. Create a HPA resource. The following example tries to keep the average buffer volume usage of Fluentd instances at 80%.
+
+    ```yaml
+    apiVersion: autoscaling/v2beta2
+    kind: HorizontalPodAutoscaler
+    metadata:
+      name: one-eye-fluentd
+    spec:
+      scaleTargetRef:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: one-eye-fluentd
+      minReplicas: 1
+      maxReplicas: 10
+      metrics:
+      - type: Pods
+        pods:
+          metric:
+            name: buffer_space_usage_ratio
+          target:
+            type: AverageValue
+            averageValue: 800m
+    ```
 
 ## Probe
 
