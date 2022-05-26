@@ -140,7 +140,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 
 You can mark volumes that should be ignored by the drain logic by adding the label `logging.banzaicloud.io/drain: no` to the PVC.
 
-### Autoscaling with HPA
+### Autoscaling with HPA {#autoscaling}
 
 To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscaler (HPA), complete the following steps.
 
