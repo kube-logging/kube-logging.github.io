@@ -2,6 +2,8 @@
 title: File Tailer Webhook
 shorttitle: File Tailer Webhook
 weight: 1000
+aliases:
+    - /docs/logging-extensions/webhooks/
 ---
 
 Another way to keep your custom file's content tailed aside of the [`host file tailer`]({{< relref "/docs/logging-operator/configuration/crds/extensions/v1alpha1/hosttailer_types.md" >}}) service, is to configure and use the `file tailer webhook` service.

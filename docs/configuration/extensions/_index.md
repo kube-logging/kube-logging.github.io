@@ -3,6 +3,7 @@ title: Extensions
 weight: 1000
 aliases:
     - /docs/one-eye/logging-operator/extensions/
+    - /docs/logging-extensions/
 ---
 
 Logging extensions were specifically developed to solve the problems of users:

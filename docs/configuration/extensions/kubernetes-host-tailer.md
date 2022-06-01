@@ -1,6 +1,8 @@
 ---
 title: Kubernetes Host Tailer
 weight: 200
+aliases:
+    - /docs/logging-extensions/kubernetes-host-tailer/
 ---
 
 Kubernetes host tailer allows you to tail logs like `kubelet`, `audit` logs, or the `systemd` journal from the nodes.

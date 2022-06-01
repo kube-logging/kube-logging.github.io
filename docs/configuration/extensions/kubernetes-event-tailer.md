@@ -1,6 +1,8 @@
 ---
 title: Kubernetes Event Tailer
 weight: 100
+aliases:
+    - /docs/logging-extensions/kubernetes-event-tailer/
 ---
 
 Kubernetes events are objects that provide insight into what is happening
