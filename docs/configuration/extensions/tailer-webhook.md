@@ -4,7 +4,7 @@ shorttitle: File Tailer Webhook
 weight: 1000
 ---
 
-Another way to keep your custom file's content tailed aside of the [`host file tailer`]({{< relref "/docs/one-eye/logging-operator/configuration/crds/extensions/v1alpha1/hosttailer_types.md" >}}) service, is to configure and use the `file tailer webhook` service.
+Another way to keep your custom file's content tailed aside of the [`host file tailer`]({{< relref "/docs/logging-operator/configuration/crds/extensions/v1alpha1/hosttailer_types.md" >}}) service, is to configure and use the `file tailer webhook` service.
 While the containers of the `host file tailers` run in a separated pod, `file tailer webhook` uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.
 
 ## Triggering the webhook
