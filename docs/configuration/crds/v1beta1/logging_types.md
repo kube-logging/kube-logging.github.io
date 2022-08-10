@@ -44,6 +44,12 @@ Fluentd statefulset configuration
 
 Default: -
 
+### syslogNG (*SyslogNGSpec, optional) {#loggingspec-syslogng}
+
+Syslog-NG statefulset configuration 
+
+Default: -
+
 ### defaultFlow (*DefaultFlowSpec, optional) {#loggingspec-defaultflow}
 
 Default flow for unmatched logs. This Flow configuration collects all logs that didn't matched any other Flow. 
