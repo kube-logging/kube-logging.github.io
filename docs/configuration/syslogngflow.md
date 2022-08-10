@@ -1,6 +1,6 @@
 ---
 title: SyslogNGFlow and SyslogNGClusterFlow
-weight: 100
+weight: 160
 ---
 
 `SyslogNGFlow` defines a logging flow with **filters** and **outputs**.
