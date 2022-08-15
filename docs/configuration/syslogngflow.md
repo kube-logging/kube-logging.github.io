@@ -16,13 +16,30 @@ At the end of the Flow, you can attach one or more [outputs]({{< relref "/docs/l
 > `SyslogNGClusterFlow` defines a SyslogNGFlow **without** namespace restrictions. It is also only effective in the `controlNamespace`.
  `SyslogNGClusterFlow` selects logs from **ALL** namespace.
 
-The following example ...
+The following example selects only messages sent by the log-generator application and forwards them to a syslog output.
 
-<!-- FIXME syslogngflow example -->
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: TestFlow
+  namespace: default
+spec:
+  match:
+    and:
+    - regexp:
+        value: json.kubernetes.labels.app.kubernetes.io/instance
+        pattern: one-eye-log-generator
+        type: string
+    - regexp:
+        value:  json.kubernetes.labels.app.kubernetes.io/name
+        pattern: log-generator
+        type: string
+  localOutputRefs:
+    - syslog-output
+```
 
 - For the details of the `SyslogNGFlow` custom resource, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/syslogng_flow_types.md" %}}.
 - For the details of the `SyslogNGClusterFlow` custom resource, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/syslogng_clusterflow_types.md" %}}.
 - For details on selecting messages, see {{% xref "/docs/logging-operator/configuration/log-routing.md" %}}
-<!-- FIXME Add a link to the page describing the syslog-ng filters
-- See the [list of supported filters]({{< relref "/docs/logging-operator/configuration/plugins/filters">}}).
--->
+- See the [list of supported filters]({{% xref "/docs/logging-operator/configuration/plugins/syslog-ng-filters/_index.md" %}}).
