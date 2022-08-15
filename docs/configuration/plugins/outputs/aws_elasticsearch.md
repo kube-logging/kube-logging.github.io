@@ -9,7 +9,7 @@ generated_file: true
   More info at https://github.com/atomita/fluent-plugin-aws-elasticsearch-service
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    kinesisStream:
      stream_name: example-stream-name
@@ -80,6 +80,12 @@ Default: -
 ### buffer (*Buffer, optional) {#amazon elasticsearch-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+###  (*ElasticsearchOutput, optional) {#amazon elasticsearch-}
+
+ElasticSearch 
 
 Default: -
 

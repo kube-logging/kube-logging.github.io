@@ -10,7 +10,7 @@ This plugin has been designed to output logs or metrics to Amazon CloudWatch.
 More info at https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
   cloudwatch:
     aws_key_id:
@@ -126,7 +126,7 @@ Specified field of records as AWS tags for the log group
 
 Default: -
 
-### log_group_name (string, required) {#output config-log_group_name}
+### log_group_name (string, optional) {#output config-log_group_name}
 
 Name of log group to store logs 
 
@@ -144,7 +144,7 @@ Output rejected_log_events_info request log.
 
 Default:  false
 
-### log_stream_name (string, required) {#output config-log_stream_name}
+### log_stream_name (string, optional) {#output config-log_stream_name}
 
 Name of log stream to store logs 
 

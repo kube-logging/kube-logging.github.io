@@ -9,7 +9,7 @@ generated_file: true
   More info at https://github.com/awslabs/aws-fluent-plugin-kinesis#configuration-kinesis_streams
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    kinesisStream:
      stream_name: example-stream-name

@@ -9,7 +9,7 @@ generated_file: true
 More info at https://github.com/splunk/fluent-plugin-splunk-hec
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    splunkHec:
      hec_host: splunk.default.svc.cluster.local

@@ -9,7 +9,7 @@ generated_file: true
 More info at https://github.com/tarokkk/fluent-plugin-logzio
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    logz:
      endpoint:
@@ -69,6 +69,18 @@ Default: -
 ### retry_sleep (int, optional) {#logzio-retry_sleep}
 
 How long to sleep initially between retries, exponential step-off. 
+
+Default: -
+
+### bulk_limit (int, optional) {#logzio-bulk_limit}
+
+Limit to the size of the Logz.io upload bulk. Defaults to 1000000 bytes leaving about 24kB for overhead. 
+
+Default: -
+
+### bulk_limit_warning_limit (int, optional) {#logzio-bulk_limit_warning_limit}
+
+Limit to the size of the Logz.io warning message when a record exceeds bulk_limit to prevent a recursion when Fluent warnings are sent to the Logz.io output. 
 
 Default: -
 
