@@ -3,7 +3,7 @@ title: Flow and ClusterFlow
 weight: 100
 ---
 
-`Flow` defines a logging flow with **filters** and **outputs**.
+`Flow` defines a logging flow for **Fluentd** with **filters** and **outputs**.
 
 The Flow is a `namespaced` resource, so only logs from the same namespaces are collected. You can specify `match` statements to select or exclude logs according to Kubernetes `labels`, container and host names. (Match statements are evaluated in the order they are defined and processed only until the first matching `select` or `exclude` rule applies.) For detailed examples on using the match statement, see [log routing]({{< relref "/docs/logging-operator/configuration/log-routing.md" >}}).
 

@@ -3,7 +3,7 @@ title: Output and ClusterOutput
 weight: 50
 ---
 
-The `Output` resource defines an output where your Flows can send the log messages. The output is a `namespaced` resource which means only a `Flow` within the *same* namespace can access it. You can use `secrets` in these definitions, but they must also be in the same namespace.
+The `Output` resource defines an output where your **Fluentd** Flows can send the log messages. The output is a `namespaced` resource which means only a `Flow` within the *same* namespace can access it. You can use `secrets` in these definitions, but they must also be in the same namespace.
 Outputs are the final stage for a `logging flow`. You can define multiple `outputs` and attach them to multiple `flows`.
 
 `ClusterOutput` defines an Output **without** namespace restrictions. It is only evaluated in the `controlNamespace` by default unless `allowClusterResourcesFromAllNamespaces` is set to true.

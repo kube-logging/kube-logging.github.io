@@ -3,7 +3,7 @@ title: SyslogNGOutput and SyslogNGClusterOutput
 weight: 150
 ---
 
-The `SyslogNGOutput` resource defines an output where your SyslogNGFlows can send the log messages. The output is a `namespaced` resource which means only a `SyslogNGFlow` within the *same* namespace can access it. You can use `secrets` in these definitions, but they must also be in the same namespace.
+The `SyslogNGOutput` resource defines an output for **syslog-ng** where your SyslogNGFlows can send the log messages. The output is a `namespaced` resource which means only a `SyslogNGFlow` within the *same* namespace can access it. You can use `secrets` in these definitions, but they must also be in the same namespace.
 Outputs are the final stage for a `logging flow`. You can define multiple `SyslogNGoutputs` and attach them to multiple `SyslogNGFlows`.
 
 `SyslogNGClusterOutput` defines a SyslogNGOutput **without** namespace restrictions. It is only evaluated in the `controlNamespace` by default unless `allowClusterResourcesFromAllNamespaces` is set to true.
