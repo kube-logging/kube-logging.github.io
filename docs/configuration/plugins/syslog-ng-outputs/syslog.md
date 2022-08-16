@@ -68,3 +68,80 @@ spec:
 ```
 
 For details on the available options of the output, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124).
+
+### host (string, required) {#syslogoutput-host}
+
+Default: -
+
+### port (int, optional) {#syslogoutput-port}
+
+Default: -
+
+### transport (string, optional) {#syslogoutput-transport}
+
+Default: -
+
+### close_on_input (*bool, optional) {#syslogoutput-close_on_input}
+
+Default: -
+
+### flags ([]string, optional) {#syslogoutput-flags}
+
+Default: -
+
+### flush_lines (int, optional) {#syslogoutput-flush_lines}
+
+Default: -
+
+### so_keepalive (*bool, optional) {#syslogoutput-so_keepalive}
+
+Default: -
+
+### suppress (int, optional) {#syslogoutput-suppress}
+
+Default: -
+
+### template (string, optional) {#syslogoutput-template}
+
+Default: -
+
+### template_escape (*bool, optional) {#syslogoutput-template_escape}
+
+Default: -
+
+### tls (*TLS, optional) {#syslogoutput-tls}
+
+Default: -
+
+### ts_format (string, optional) {#syslogoutput-ts_format}
+
+Default: -
+
+### disk_buffer (*DiskBuffer, optional) {#syslogoutput-disk_buffer}
+
+Default: -
+
+
+## TLS
+
+### ca_dir (*secret.Secret, optional) {#tls-ca_dir}
+
+Default: -
+
+### ca_file (*secret.Secret, optional) {#tls-ca_file}
+
+Default: -
+
+### key_file (*secret.Secret, optional) {#tls-key_file}
+
+Default: -
+
+### cert_file (*secret.Secret, optional) {#tls-cert_file}
+
+Default: -
+
+### use-system-cert-store (*bool, optional) {#tls-use-system-cert-store}
+
+Default: -
+
+
