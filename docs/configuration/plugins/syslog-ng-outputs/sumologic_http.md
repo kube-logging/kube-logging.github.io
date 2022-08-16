@@ -9,20 +9,6 @@ The `sumologic-http` output sends log records over HTTP to Sumo Logic.
 
 You need a Sumo Logic account to use this output. For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/55#TOPIC-1829118).
 
-## Parameters
-
-```yaml
-  body: # Body content template to send
-  deployment: # Deployment code for sumologic. More info: https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security
-  collector: # Sumo Logic service token (secret)
-  headers: # Extra headers for Sumologic like X-Sumo-Name
-  tls: # Required TLS configuration for Sumologic. Minimal config is use-system-cert-store: true
-  disk_buffer: # Disk buffer parameters
-  batch-lines: # Collect messages into batches number of lines (recommended)
-  batch-bytes: # Collect messages into batches size of batch 
-  batch-timeout: # Time out for sending batch if no input available
-```
-
 ## Example
 
 ```yaml
@@ -56,3 +42,72 @@ spec:
     tls:
       use-system-cert-store: true
 ```
+
+## Configuration
+## SumologicHTTPOutput
+
+### ca_dir (*secret.Secret, optional) {#sumologichttpoutput-ca_dir}
+
+The name of a directory that contains a set of trusted CA certificates in PEM format. +docLink:"Secret,../secret/"  
+
+Default:  none
+
+### ca_file (*secret.Secret, optional) {#sumologichttpoutput-ca_file}
+
+The name of a file that contains a set of trusted CA certificates in PEM format. The syslog-ng OSE application uses the CA certificates in this file to validate the certificate of the peer. +docLink:"Secret,../secret/"  
+
+Default:  empty
+
+### collector (*secret.Secret, optional) {#sumologichttpoutput-collector}
+
+The Cloud Syslog Cloud Token that you received from the Sumo Logic service while configuring your cloud syslog source.  
+
+Default:  empty
+
+### deployment (string, optional) {#sumologichttpoutput-deployment}
+
+This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security   
+
+Default:  empty
+
+### headers ([]string, optional) {#sumologichttpoutput-headers}
+
+Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   
+
+Default:  empty
+
+### time_reopen (int, optional) {#sumologichttpoutput-time_reopen}
+
+The time to wait in seconds before a dead connection is reestablished.  
+
+Default:  60
+
+### tls (*TLS, optional) {#sumologichttpoutput-tls}
+
+This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193 
+
+Default: -
+
+### disk_buffer (*DiskBuffer, optional) {#sumologichttpoutput-disk_buffer}
+
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.   
+
+Default:  false
+
+### body (string, optional) {#sumologichttpoutput-body}
+
+Default: -
+
+### batch-lines (int, optional) {#sumologichttpoutput-batch-lines}
+
+Default: -
+
+### batch-bytes (int, optional) {#sumologichttpoutput-batch-bytes}
+
+Default: -
+
+### batch-timeout (int, optional) {#sumologichttpoutput-batch-timeout}
+
+Default: -
+
+
