@@ -11,18 +11,6 @@ More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-so
 ## Configuration
 ## SumologicSyslogOutput
 
-### ca_dir (*secret.Secret, optional) {#sumologicsyslogoutput-ca_dir}
-
-The name of a directory that contains a set of trusted CA certificates in PEM format. +docLink:"Secret,../secret/"  
-
-Default:  none
-
-### ca_file (*secret.Secret, optional) {#sumologicsyslogoutput-ca_file}
-
-The name of a file that contains a set of trusted CA certificates in PEM format. The syslog-ng OSE application uses the CA certificates in this file to validate the certificate of the peer. +docLink:"Secret,../secret/"  
-
-Default:  empty
-
 ### port (int, optional) {#sumologicsyslogoutput-port}
 
 This option sets the port number of the Sumo Logic server to connect to.  
@@ -49,7 +37,7 @@ Default: -
 
 ### tls (string, optional) {#sumologicsyslogoutput-tls}
 
-This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193 
+This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193). 
 
 Default: -
 
@@ -58,5 +46,9 @@ Default: -
 This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.   
 
 Default:  false
+
+### persist_name (string, optional) {#sumologicsyslogoutput-persist_name}
+
+Default: -
 
 

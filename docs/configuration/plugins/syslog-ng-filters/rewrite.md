@@ -160,3 +160,16 @@ Default: -
 Default: -
 
 
+## GroupUnsetConfig
+
+https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/78#TOPIC-1829212
+
+### pattern (string, required) {#groupunsetconfig-pattern}
+
+Default: -
+
+### condition (*MatchExpr, optional) {#groupunsetconfig-condition}
+
+Default: -
+
+

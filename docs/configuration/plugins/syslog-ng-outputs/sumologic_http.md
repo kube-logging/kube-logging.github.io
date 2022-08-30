@@ -46,18 +46,6 @@ spec:
 ## Configuration
 ## SumologicHTTPOutput
 
-### ca_dir (*secret.Secret, optional) {#sumologichttpoutput-ca_dir}
-
-The name of a directory that contains a set of trusted CA certificates in PEM format. +docLink:"Secret,../secret/"  
-
-Default:  none
-
-### ca_file (*secret.Secret, optional) {#sumologichttpoutput-ca_file}
-
-The name of a file that contains a set of trusted CA certificates in PEM format. The syslog-ng OSE application uses the CA certificates in this file to validate the certificate of the peer. +docLink:"Secret,../secret/"  
-
-Default:  empty
-
 ### collector (*secret.Secret, optional) {#sumologichttpoutput-collector}
 
 The Cloud Syslog Cloud Token that you received from the Sumo Logic service while configuring your cloud syslog source.  
@@ -107,6 +95,10 @@ Default: -
 Default: -
 
 ### batch-timeout (int, optional) {#sumologichttpoutput-batch-timeout}
+
+Default: -
+
+### persist_name (string, optional) {#sumologichttpoutput-persist_name}
 
 Default: -
 

@@ -54,3 +54,8 @@ Default:  false
 
 Default: -
 
+### persist_name (string, optional) {#fileoutput-persist_name}
+
+Default: -
+
+
