@@ -2,6 +2,8 @@
 title: Sumo Logic with Logging operator and Fluentd
 shorttitle: Sumo Logic with Fluentd
 weight: 300
+aliases:
+    - /docs/logging-operator/quickstarts/sumologic/
 ---
 
 This guide walks you through a simple Sumo Logic setup using the Logging Operator.

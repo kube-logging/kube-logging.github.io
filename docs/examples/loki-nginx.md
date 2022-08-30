@@ -2,6 +2,8 @@
 title: Store Nginx Access Logs in Grafana Loki with Logging operator
 shorttitle: Grafana Loki
 weight: 500
+aliases:
+    - /docs/logging-operator/quickstarts/loki-nginx/
 ---
 
 <p align="center"><img src="../../img/nll.png" width="340"></p>

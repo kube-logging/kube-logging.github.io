@@ -2,6 +2,8 @@
 title: Demo Splunk operator with Logging operator
 shorttitle: Splunk HEC
 weight: 300
+aliases:
+    - /docs/logging-operator/quickstarts/splunk/
 ---
 
 

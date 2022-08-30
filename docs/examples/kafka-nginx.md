@@ -2,6 +2,8 @@
 title: Transport Nginx Access Logs into Kafka with Logging operator
 shorttitle: Kafka
 weight: 400
+aliases:
+    - /docs/logging-operator/quickstarts/kafka-nginx/
 ---
 
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
