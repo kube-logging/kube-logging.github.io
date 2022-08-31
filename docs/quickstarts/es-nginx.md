@@ -95,6 +95,8 @@ Install the Logging operator and a demo application to provide sample log messag
 
 1. [Validate your deployment](#validate).
 
+## Configure the Logging operator
+
 1. Create the `logging` resource.
 
      ```bash

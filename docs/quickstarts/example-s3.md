@@ -36,6 +36,8 @@ Install the Logging operator.
 
 1. [Validate your deployment](#validate).
 
+## Configure the Logging operator
+
 1. Create logging `Namespace`
 
     ```bash
