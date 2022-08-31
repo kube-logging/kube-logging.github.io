@@ -1,6 +1,6 @@
 ---
 title: Splunk operator with Logging operator
-shorttitle: Splunk HEC
+shorttitle: Splunk HEC with Fluentd
 weight: 300
 aliases:
     - /docs/logging-operator/quickstarts/splunk/

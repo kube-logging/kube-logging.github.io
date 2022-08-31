@@ -1,6 +1,6 @@
 ---
 title: Transport Nginx Access Logs into Kafka with Logging operator
-shorttitle: Kafka
+shorttitle: Kafka with Fluentd
 weight: 400
 aliases:
     - /docs/logging-operator/quickstarts/kafka-nginx/
