@@ -1,8 +1,14 @@
-You can define `outputs` (destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket), and `flows` that use filters and selectors to route log messages to the appropriate outputs. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify.
+The Logging operator manages the log collectors and log forwarders of your logging infrastructure, and the routing rules that specify where you want to send your different log messages.
+
+The **log collectors** are endpoint agents that collect the logs of your Kubernetes nodes and send them to the log forwarders. Logging operator currently uses Fluent Bit as log collector agents.
+
+The **log forwarder** instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders. Which log forwarder is best for you depends on your logging requirements. For tips, see {{% xref "/docs/logging-operator/configuration/fluentd-vs-syslog-ng.md" %}}.
+
+You can filter and process the incoming log messages in the **flow** custom resource of the log forwarder to route them to the appropriate output. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify. Note that flows and outputs are specific to the type of log forwarder you use (Fluentd or syslog-ng).
 
 You can configure the Logging operator using the following Custom Resource Definitions.
 
-- [logging]({{< relref "docs/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure for your cluster that collects and transports your log messages. It also contains configurations for Fluent Bit, Fluentd, and syslog-ng.
+- [logging]({{< relref "docs/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure (the log collectors and forwarders) for your cluster that collects and transports your log messages. It also contains configurations for Fluent Bit, Fluentd, and syslog-ng.
 - CRDs for Fluentd:
     - [output]({{< relref "docs/logging-operator/configuration/output.md" >}}) - Defines a Fluentd Output for a logging flow, where the log messages are sent using Fluentd. This is a namespaced resource. See also `clusteroutput`. To configure syslog-ng outputs, see `SyslogNGOutput`.
     - [flow]({{< relref "docs/logging-operator/configuration/flow.md" >}}) - Defines a Fluentd logging flow using `filters` and `outputs`. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also `clusterflow`. To configure syslog-ng flows, see `SyslogNGFlow`.
