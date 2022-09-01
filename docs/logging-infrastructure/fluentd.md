@@ -1,10 +1,12 @@
 ---
 title: Configure Fluentd
-shorttitle: Fluentd
-weight: 40
+shorttitle: Fluentd log forwarder
+weight: 200
+aliases:
+    - /docs/logging-operator/configuration/fluentd/
 ---
 
-You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
+You can configure the deployment of the Fluentd log forwarder via the **fluentd** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
 
 ## Custom pvc volume for Fluentd buffers
 

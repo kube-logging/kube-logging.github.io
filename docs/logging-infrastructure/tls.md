@@ -1,6 +1,8 @@
 ---
 title: TLS encryption
-weight: 200
+weight: 800
+aliases:
+    - /docs/logging-operator/configuration/tls/
 ---
 
 To use TLS encryption in your logging infrastructure, you have to configure encryption:

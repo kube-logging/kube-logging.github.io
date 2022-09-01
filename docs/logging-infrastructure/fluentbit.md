@@ -1,13 +1,16 @@
 ---
-title: Fluent Bit
-weight: 600
+title: Fluent Bit log collector
+weight: 400
 aliases:
     - /docs/logging-operator/fluentbit/
+    - /docs/logging-operator/configuration/fluentbit/
 ---
 
 <p align="center"><img src="../../img/fluentbit.png" width="340"></p>
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
+
+Logging operator uses Fluent Bit as a log collector agent: Logging operator deploys Fluent Bit to your Kubernetes nodes where it collects and enriches the local logs and transfers them to a log forwarder instance.
 
 You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
 
