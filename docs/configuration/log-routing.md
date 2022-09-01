@@ -1,7 +1,7 @@
 ---
 title: Routing your logs with Fluentd match directives
 shorttitle: Log routing with Fluentd
-weight: 700
+weight: 200
 aliases:
     - /docs/logging-operator/log-routing/
 ---

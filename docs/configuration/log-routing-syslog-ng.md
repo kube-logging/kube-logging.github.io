@@ -1,7 +1,7 @@
 ---
 title: Routing your logs with syslog-ng
 shorttitle: Log routing with syslog-ng
-weight: 700
+weight: 200
 ---
 
 > Note: This page describes routing logs with **syslog-ng**. If you are using Fluentd to route your log messages, see {{% xref "/docs/logging-operator/configuration/log-routing.md" %}}.
