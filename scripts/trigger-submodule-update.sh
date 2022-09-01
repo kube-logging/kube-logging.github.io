@@ -2,21 +2,18 @@
 
 set -euf
 
-PROJECT_SLUG='gh/banzaicloud/banzaicloud.github.io'
+OWNER='banzaicloud'
+REPO='banzaicloud.github.io'
+WORKFLOW='submodule-update.yml'
 
 function main()
 {
     curl \
-        -u "${CIRCLE_TOKEN}:" \
-        -X POST \
-        --header "Content-Type: application/json" \
-        -d "{
-            \"branch\": \"gh-pages\",
-            \"parameters\": {
-                \"remote-trigger\": true,
-                \"module\": \"logging-operator\"
-            }
-        }" "https://circleci.com/api/v2/project/${PROJECT_SLUG}/pipeline"
+      -X POST \
+      -H "Accept: application/vnd.github+json" \
+      -H "Authorization: token ${GITHUB_TOKEN}" \
+      "https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/dispatches" \
+      -d '{"ref":"master","inputs":{"module":"logging-operator"}}'
 }
 
 main "$@"
