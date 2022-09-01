@@ -31,7 +31,6 @@ function main()
     git push origin master
   else
     echo "Nothing has changed."
-    circleci-agent step halt
     exit 0
   fi
 }
