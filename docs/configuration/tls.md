@@ -5,12 +5,12 @@ weight: 200
 
 To use TLS encryption in your logging infrastructure, you have to configure encryption:
 
-- for the log collection part of your logging pipeline (between FLuent-bit and Fluentd), and
-- for the output plugin (between Fluentd and the output backend).
+- for the log collection part of your logging pipeline (between Fluent Bit and Fluentd or Fluent bit and syslog-ng), and
+- for the output plugin (between Fluentd or syslog-ng and the output backend).
 
 For configuring the output, see the documentation of the output plugin you want to use at {{% xref "/docs/logging-operator/configuration/plugins/outputs/_index.md" %}}.
 
-For Fluentd and Fluent-bit, you can configure encryption in the `logging` resource using the following parameters:
+For Fluentd and Fluent Bit, you can configure encryption in the `logging` resource using the following parameters:
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
