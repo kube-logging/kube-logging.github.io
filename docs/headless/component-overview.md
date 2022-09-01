@@ -8,7 +8,7 @@ You can filter and process the incoming log messages in the **flow** custom reso
 
 You can configure the Logging operator using the following Custom Resource Definitions.
 
-- [logging]({{< relref "docs/logging-operator/configuration/logging.md" >}}) - The `logging` resource defines the logging infrastructure (the log collectors and forwarders) for your cluster that collects and transports your log messages. It also contains configurations for Fluent Bit, Fluentd, and syslog-ng.
+- [logging]({{< relref "docs/logging-operator/logging-infrastructure/logging.md" >}}) - The `logging` resource defines the logging infrastructure (the log collectors and forwarders) for your cluster that collects and transports your log messages. It also contains configurations for Fluent Bit, Fluentd, and syslog-ng.
 - CRDs for Fluentd:
     - [output]({{< relref "docs/logging-operator/configuration/output.md" >}}) - Defines a Fluentd Output for a logging flow, where the log messages are sent using Fluentd. This is a namespaced resource. See also `clusteroutput`. To configure syslog-ng outputs, see `SyslogNGOutput`.
     - [flow]({{< relref "docs/logging-operator/configuration/flow.md" >}}) - Defines a Fluentd logging flow using `filters` and `outputs`. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also `clusterflow`. To configure syslog-ng flows, see `SyslogNGFlow`.

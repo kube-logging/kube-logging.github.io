@@ -15,9 +15,9 @@ You can install a `logging` resource with built-in TLS generation using the [log
 
 For the list of available parameters for logging resource, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/logging_types.md" %}}.
 
-You can also customize the `fluentd` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/logging-operator/configuration/fluentd.md" %}}.
+You can also customize the `fluentd` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/logging-operator/logging-infrastructure/fluentd.md" %}}.
 
-You can also customize the `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent-bit configuration, see {{% xref "/docs/logging-operator/configuration/fluentbit.md" %}}.
+You can also customize the `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent-bit configuration, see {{% xref "/docs/logging-operator/logging-infrastructure/fluentbit.md" %}}.
 
 The following example snippets use the **logging** namespace. To create this namespace if it does not already exist, run:
 

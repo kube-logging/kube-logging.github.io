@@ -4,7 +4,7 @@ shorttitle: Fluentd
 weight: 40
 ---
 
-You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
+You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
 
 ## Custom pvc volume for Fluentd buffers
 
@@ -75,7 +75,7 @@ spec:
 
 ## Scaling
 
-You can scale the Fluentd deployment manually by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
+You can scale the Fluentd deployment manually by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -94,7 +94,7 @@ For automatic scaling, see [Autoscaling with HPA](#autoscaling).
 
 ### Graceful draining
 
-While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
+While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
 You can enable graceful draining in the **scaling** subsection:
 
 ```yaml
@@ -203,7 +203,7 @@ To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscal
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

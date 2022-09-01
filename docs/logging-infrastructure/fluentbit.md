@@ -9,7 +9,7 @@ aliases:
 
 Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
 
-You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
 
 ## Filters
 
