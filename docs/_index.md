@@ -10,11 +10,11 @@ Welcome to the Logging operator documentation! The Logging operator is a core pa
 
 ## Overview
 
-The Logging operator automates the deployment and configuration of a Kubernetes logging pipeline:
+The Logging operator solves your logging-related problems in Kubernetes environments by automating the deployment and configuration of a Kubernetes logging pipeline.
 
-1. The operator deploys and configures a Fluent Bit DaemonSet on every node to collect container and application logs from the node file system.
-1. Fluent Bit queries the Kubernetes API and enriches the logs with metadata about the pods, and transfers both the logs and the metadata to a Fluentd or syslog-ng instance.
-1. The Fluentd or syslog-ng instance receives and filters the logs, and transfers them to one or more destination outputs.
+1. The operator deploys and configures a log collector (currently a Fluent Bit DaemonSet) on every node to collect container and application logs from the node file system.
+1. Fluent Bit queries the Kubernetes API and enriches the logs with metadata about the pods, and transfers both the logs and the metadata to a log forwarder instance.
+1. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders.
 
 Your logs are always transferred on authenticated and encrypted channels.
 
