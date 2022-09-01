@@ -1,5 +1,5 @@
 ---
-title: sumologic-http
+title: Sumo Logic HTTP
 weight: 200
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: Sumo Logic HTTP
+title: HTTP
 weight: 200
 generated_file: true
 ---
 
-# Storing messages in Sumo Logic over http
+# Forwarding messages over HTTP
 ## Overview
  More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/55
 
@@ -19,7 +19,7 @@ Default: -
 
 ### headers ([]string, optional) {#httpoutput-headers}
 
-Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   
+Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   s
 
 Default:  empty
 
@@ -31,13 +31,13 @@ Default:  60
 
 ### tls (*TLS, optional) {#httpoutput-tls}
 
-This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193 
+This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193). 
 
 Default: -
 
 ### disk_buffer (*DiskBuffer, optional) {#httpoutput-disk_buffer}
 
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.   
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
 
 Default:  false
 
