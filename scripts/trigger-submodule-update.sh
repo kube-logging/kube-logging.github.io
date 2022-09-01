@@ -13,7 +13,7 @@ function main()
       -H "Accept: application/vnd.github+json" \
       -H "Authorization: token ${GITHUB_TOKEN}" \
       "https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/dispatches" \
-      -d '{"ref":"master","inputs":{"module":"logging-operator"}}'
+      -d '{"ref":"gh-pages","inputs":{"module":"logging-operator"}}'
 }
 
 main "$@"
