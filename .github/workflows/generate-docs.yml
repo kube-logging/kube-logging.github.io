@@ -29,6 +29,6 @@ jobs:
 
       - name: Update generated docs
         env:
-          GITHUB_TOKEN: '${{ secrets.CR_PAT }}'
+          GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}'
         run: |
           scripts/update-generated-docs.sh "${{ inputs.release-tag }}"
