@@ -557,6 +557,12 @@ When enabled, the filter reads logs coming in Journald format.
 
 Default: Off
 
+### Cache_Use_Docker_Id (string, optional) {#filterkubernetes-cache_use_docker_id}
+
+When enabled, metadata will be fetched from K8s when docker_id is changed.  
+
+Default: Off
+
 ### Regex_Parser (string, optional) {#filterkubernetes-regex_parser}
 
 Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. The parser must be registered in a parsers file (refer to parser filter-kube-test as an example). 

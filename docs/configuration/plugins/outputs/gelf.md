@@ -11,31 +11,31 @@ generated_file: true
 ## Configuration
 ## Output Config
 
-### host (string, required) {#output-config-host}
+### host (string, required) {#output config-host}
 
 Destination host 
 
 Default: -
 
-### port (int, required) {#output-config-port}
+### port (int, required) {#output config-port}
 
 Destination host port 
 
 Default: -
 
-### protocol (string, optional) {#output-config-protocol}
+### protocol (string, optional) {#output config-protocol}
 
 Transport Protocol  
 
 Default:  "udp"
 
-### tls (*bool, optional) {#output-config-tls}
+### tls (*bool, optional) {#output config-tls}
 
 Enable TlS  
 
 Default:  false
 
-### tls_options (map[string]string, optional) {#output-config-tls_options}
+### tls_options (map[string]string, optional) {#output config-tls_options}
 
 TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12 
 

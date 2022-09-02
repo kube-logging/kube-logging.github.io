@@ -32,6 +32,10 @@ Default: -
 
 Default: -
 
+### opensearch (*output.OpenSearchOutput, optional) {#outputspec-opensearch}
+
+Default: -
+
 ### logz (*output.LogZOutput, optional) {#outputspec-logz}
 
 Default: -
