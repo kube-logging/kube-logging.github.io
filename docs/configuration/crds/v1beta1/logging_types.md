@@ -20,6 +20,12 @@ Disable configuration check before applying new fluentd configuration.
 
 Default: -
 
+### skipInvalidResources (bool, optional) {#loggingspec-skipinvalidresources}
+
+Skip Invalid Resources 
+
+Default: -
+
 ### flowConfigOverride (string, optional) {#loggingspec-flowconfigoverride}
 
 Override generated config. This is a *raw* configuration string for troubleshooting purposes. 
@@ -58,7 +64,7 @@ Default: -
 
 ### watchNamespaces ([]string, optional) {#loggingspec-watchnamespaces}
 
-Limit namespaces to watch Flow and Output custom reasources. 
+Limit namespaces to watch Flow and Output custom resources. 
 
 Default: -
 

@@ -164,6 +164,12 @@ Ignore repeated log lines [more info]( https://docs.fluentd.org/deployment/loggi
 
 Default: -
 
+### enableMsgpackTimeSupport (bool, optional) {#fluentdspec-enablemsgpacktimesupport}
+
+Allows Time object in buffer's MessagePack serde [more info]( https://docs.fluentd.org/deployment/system-config#enable_msgpack_time_support) 
+
+Default: -
+
 ### podPriorityClassName (string, optional) {#fluentdspec-podpriorityclassname}
 
 Default: -
@@ -191,6 +197,10 @@ Default: -
 Default: -
 
 ### dnsConfig (*corev1.PodDNSConfig, optional) {#fluentdspec-dnsconfig}
+
+Default: -
+
+### extraArgs ([]string, optional) {#fluentdspec-extraargs}
 
 Default: -
 

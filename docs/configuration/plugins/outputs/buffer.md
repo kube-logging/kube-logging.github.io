@@ -18,7 +18,7 @@ Fluentd core bundles memory and file plugins. 3rd party plugins are also availab
 
 Default: -
 
-### tags (string, optional) {#buffer-tags}
+### tags (*string, optional) {#buffer-tags}
 
 When tag is specified as buffer chunk key, output plugin writes events into chunks separately per tags.  
 

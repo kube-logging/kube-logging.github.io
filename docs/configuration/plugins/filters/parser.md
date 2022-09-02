@@ -202,29 +202,29 @@ Default: -
 
 ### grok_pattern (string, optional) {#parse section-grok_pattern}
 
-Only available when using type: grok. The pattern of grok. You cannot specify multiple grok pattern with this. 
+Only available when using type: grok, multiline_grok. The pattern of grok. You cannot specify multiple grok pattern with this. 
 
 Default: -
 
-### custom_pattern_path (string, optional) {#parse section-custom_pattern_path}
+### custom_pattern_path (*secret.Secret, optional) {#parse section-custom_pattern_path}
 
-Only available when using type: grok. Path to the file that includes custom grok patterns. 
+Only available when using type: grok, multiline_grok. File that includes custom grok patterns. 
 
 Default: -
 
 ### grok_failure_key (string, optional) {#parse section-grok_failure_key}
 
-Only available when using type: grok. The key has grok failure reason. 
+Only available when using type: grok, multiline_grok. The key has grok failure reason. 
 
 Default: -
 
 ### grok_name_key (string, optional) {#parse section-grok_name_key}
 
-Only available when using type: grok. The key name to store grok section's name. 
+Only available when using type: grok, multiline_grok. The key name to store grok section's name. 
 
 Default: -
 
-### multi_line_start_regexp (string, optional) {#parse section-multi_line_start_regexp}
+### multiline_start_regexp (string, optional) {#parse section-multiline_start_regexp}
 
 Only available when using type: multiline_grok The regexp to match beginning of multiline. 
 
@@ -232,7 +232,7 @@ Default: -
 
 ### grok_patterns ([]GrokSection, optional) {#parse section-grok_patterns}
 
-Only available when using type: grok. [Grok Section](#grok-section) Specify grok pattern series set. 
+Only available when using type: grok, multiline_grok. [Grok Section](#grok-section) Specify grok pattern series set. 
 
 Default: -
 
@@ -241,7 +241,7 @@ Default: -
 
 ### type (string, optional) {#parse section (single)-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt 
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok 
 
 Default: -
 
@@ -320,6 +320,42 @@ Default:  nil
 ### format (string, optional) {#parse section (single)-format}
 
 Only available when using type: multi_format 
+
+Default: -
+
+### grok_pattern (string, optional) {#parse section (single)-grok_pattern}
+
+Only available when using format: grok, multiline_grok. The pattern of grok. You cannot specify multiple grok pattern with this. 
+
+Default: -
+
+### custom_pattern_path (*secret.Secret, optional) {#parse section (single)-custom_pattern_path}
+
+Only available when using format: grok, multiline_grok. File that includes custom grok patterns. 
+
+Default: -
+
+### grok_failure_key (string, optional) {#parse section (single)-grok_failure_key}
+
+Only available when using format: grok, multiline_grok. The key has grok failure reason. 
+
+Default: -
+
+### grok_name_key (string, optional) {#parse section (single)-grok_name_key}
+
+Only available when using format: grok, multiline_grok. The key name to store grok section's name. 
+
+Default: -
+
+### multiline_start_regexp (string, optional) {#parse section (single)-multiline_start_regexp}
+
+Only available when using format: multiline_grok The regexp to match beginning of multiline. 
+
+Default: -
+
+### grok_patterns ([]GrokSection, optional) {#parse section (single)-grok_patterns}
+
+Only available when using format: grok, multiline_grok. [Grok Section](#grok-section) Specify grok pattern series set. 
 
 Default: -
 

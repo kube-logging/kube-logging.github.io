@@ -72,6 +72,18 @@ How long to sleep initially between retries, exponential step-off.
 
 Default: -
 
+### bulk_limit (int, optional) {#logzio-bulk_limit}
+
+Limit to the size of the Logz.io upload bulk. Defaults to 1000000 bytes leaving about 24kB for overhead. 
+
+Default: -
+
+### bulk_limit_warning_limit (int, optional) {#logzio-bulk_limit_warning_limit}
+
+Limit to the size of the Logz.io warning message when a record exceeds bulk_limit to prevent a recursion when Fluent warnings are sent to the Logz.io output. 
+
+Default: -
+
 ### gzip (bool, optional) {#logzio-gzip}
 
 Should the plugin ship the logs in gzip compression. Default is false. 

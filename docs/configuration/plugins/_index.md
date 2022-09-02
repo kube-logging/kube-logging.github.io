@@ -48,7 +48,7 @@ For more information please click on the plugin name
 | **[LogZ](outputs/logz/)** | outputs | Store logs in LogZ.io | GA | [0.0.21](https://github.com/logzio/fluent-plugin-logzio/releases/tag/v0.0.21) |
 | **[Grafana Loki](outputs/loki/)** | outputs | Transfer logs to Loki | GA | [1.2.17](https://github.com/grafana/loki/tree/master/fluentd/fluent-plugin-grafana-loki) |
 | **[NewRelic Logs](outputs/newrelic/)** | outputs | Send logs to New Relic Logs | GA | [1.2.1](https://github.com/newrelic/newrelic-fluentd-output) |
-| **[OpenSearch](outputs/opensearch/)** | outputs | Send your logs to OpenSearch | GA | [1.0.4](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.0.4) |
+| **[OpenSearch](outputs/opensearch/)** | outputs | Send your logs to OpenSearch | GA | [1.0.5](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.0.5) |
 | **[Alibaba Cloud Storage](outputs/oss/)** | outputs | Store logs the Alibaba Cloud Object Storage Service | GA | [0.0.2](https://github.com/aliyun/fluent-plugin-oss) |
 | **[Redis](outputs/redis/)** | outputs | Sends logs to Redis endpoints. | GA | [0.3.5](https://github.com/fluent-plugins-nursery/fluent-plugin-redis) |
 | **[Amazon S3](outputs/s3/)** | outputs | Store logs in Amazon S3 | GA | [1.6.1](https://github.com/fluent/fluent-plugin-s3/releases/tag/v1.6.1) |

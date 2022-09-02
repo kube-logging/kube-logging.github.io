@@ -339,6 +339,12 @@ Similar to parent_key config, will add _routing into elasticsearch command if ro
 
 Default: -
 
+### remove_keys (string, optional) {#elasticsearch-remove_keys}
+
+https://github.com/uken/fluent-plugin-elasticsearch#remove_keys 
+
+Default: -
+
 ### remove_keys_on_update (string, optional) {#elasticsearch-remove_keys_on_update}
 
 Remove keys on update will not update the configured keys in elasticsearch when a record is being updated. This setting only has any effect if the write operation is update or upsert. 
@@ -542,5 +548,17 @@ Default:  data_stream_name
 Specify an existing ILM policy to be applied to the data stream. If not present, either the specified template's or a new ILM default policy is applied.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
 
 Default:  data_stream_name
+
+### data_stream_ilm_policy (string, optional) {#elasticsearch-data_stream_ilm_policy}
+
+Specify data stream ILM policy contents as Hash. 
+
+Default: -
+
+### data_stream_ilm_policy_overwrite (bool, optional) {#elasticsearch-data_stream_ilm_policy_overwrite}
+
+Specify whether overwriting data stream ilm policy or not. 
+
+Default: -
 
 

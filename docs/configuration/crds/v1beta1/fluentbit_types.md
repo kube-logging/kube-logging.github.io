@@ -148,6 +148,18 @@ Default: -
 
 Default: -
 
+### bufferVolumeMetrics (*Metrics, optional) {#fluentbitspec-buffervolumemetrics}
+
+Default: -
+
+### bufferVolumeImage (ImageSpec, optional) {#fluentbitspec-buffervolumeimage}
+
+Default: -
+
+### bufferVolumeArgs ([]string, optional) {#fluentbitspec-buffervolumeargs}
+
+Default: -
+
 ### customConfigSecret (string, optional) {#fluentbitspec-customconfigsecret}
 
 Default: -
