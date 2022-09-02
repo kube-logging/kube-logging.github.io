@@ -21,14 +21,15 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v3
+        with:
+           token: '${{ secrets.CR_PAT }}'
+           fetch-depth: 0
 
-      - name: Setup git user
+      - name: Setup git
         run: |
           git config --global user.email "build@banzaicloud.com"
           git config --global user.name "banzaicloud-build"
 
       - name: Update generated docs
-        env:
-          GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}'
         run: |
           scripts/update-generated-docs.sh "${{ inputs.release-tag }}"
