@@ -249,6 +249,8 @@ You can use the following parameters:
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
 
+> Note: To configure readiness probes, see {{% xref "/docs/logging-operator/operation/readiness-probe.md" %}}.
+
 ## Custom Fluentd image {#custom-fluentd-image}
 
 You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.
