@@ -33,3 +33,5 @@ spec:
               requests:
                 storage: 10Gi
 ```
+
+{{< include-headless "cpu-memory-requirements.md" "logging-operator" >}}

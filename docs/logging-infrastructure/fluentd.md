@@ -308,3 +308,5 @@ Define Kubernetes storage.
 | source | [PersistentVolumeClaimVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core) | - | PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.  |
 
 The Persistent Volume Claim should be created with the given `spec` and with the `name` defined in the `source`'s `claimName`.
+
+{{< include-headless "cpu-memory-requirements.md" "logging-operator" >}}
