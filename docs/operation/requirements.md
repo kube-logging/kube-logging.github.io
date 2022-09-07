@@ -19,20 +19,16 @@ The resource requirements and limits of your Logging operator deployment must ma
       - memory: 50M
     ```
 
-- For **Fluentd**:
+- For **Fluentd** and **syslog-ng**:
 
     ```yaml
     - Limits:
-      - cpu: 1
-      - memory: 200M
+      - cpu: 1000m
+      - memory: 400M
     - Requests:
       - cpu: 500m
       - memory:  100M
     ```
-
-- For **syslog-ng**:
-
-  <!-- FIXME add defaults -->
 
 You can adjust these values in the Logging custom resource, for example:
 
