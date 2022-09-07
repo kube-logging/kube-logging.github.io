@@ -240,11 +240,11 @@ You can use the following parameters:
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
-| initialDelaySeconds | int | 0 | Number of seconds after the container has started before liveness probes are initiated. |
-| timeoutSeconds | int | 1 | Number of seconds after which the probe times out. |
-| periodSeconds | int | 10 | How often (in seconds) to perform the probe. |
-| successThreshold | int | 1 | Minimum consecutive successes for the probe to be considered successful after having failed. |
-| failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
+| initialDelaySeconds | int | 600 | Number of seconds after the container has started before liveness probes are initiated. |
+| timeoutSeconds | int | 0 | Number of seconds after which the probe times out. |
+| periodSeconds | int | 60 | How often (in seconds) to perform the probe. |
+| successThreshold | int | 0 | Minimum consecutive successes for the probe to be considered successful after having failed. |
+| failureThreshold | int | 0 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
 | exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
