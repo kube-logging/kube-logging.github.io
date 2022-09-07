@@ -15,3 +15,5 @@ The following points help you decide which forwarder to use.
 - If you have lots of logging flows or need complex routing or log message processing, use syslog-ng.
 
 > Note: Depending on which log forwarder you use, some of the CRDs you have to create and configure are different.
+
+{{< include-headless "syslog-ng-minimum-version.md" "logging-operator" >}}

@@ -6,6 +6,8 @@ weight: 200
 
 > Note: This page describes routing logs with **syslog-ng**. If you are using Fluentd to route your log messages, see {{% xref "/docs/logging-operator/configuration/log-routing.md" %}}.
 
+{{< include-headless "syslog-ng-minimum-version.md" "logging-operator" >}}
+
 The first step to process your logs is to select which logs go where.
 
 The `match` field of the `SyslogNGFlow` and `SyslogNGClusterFlow` resources define the routing rules of the logs.

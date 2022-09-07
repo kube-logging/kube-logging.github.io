@@ -56,6 +56,8 @@ using the [record modifier filter](/docs/logging-operator/configuration/plugins/
 
 `SyslogNGFlow` defines a logging flow for **syslog-ng** with **filters** and **outputs**.
 
+{{< include-headless "syslog-ng-minimum-version.md" "logging-operator" >}}
+
 The Flow is a `namespaced` resource, so only logs from the same namespaces are collected. You can specify `match` statements to select or exclude logs according to Kubernetes `labels`, container and host names. For detailed examples on using the match statement, see [log routing with syslog-ng]({{< relref "/docs/logging-operator/configuration/log-routing-syslog-ng.md" >}}).
 
 You can define one or more filters within a Flow. Filters can perform various actions on the logs, for example, add additional data, transform the logs, or parse values from the records.
