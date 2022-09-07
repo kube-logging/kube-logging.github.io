@@ -164,3 +164,50 @@ Define Kubernetes storage.
 | emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
 
 {{< include-headless "cpu-memory-requirements.md" "logging-operator" >}}
+
+## Probe
+
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluent Bit in the **livenessProbe** section of the {{% xref "/docs/logging-operator/logging-infrastructure/logging.md" %}}. For example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentbit:
+    livenessProbe:
+      periodSeconds: 60
+      initialDelaySeconds: 600
+      exec:
+        command:
+        - "/bin/sh"
+        - "-c"
+        - >
+          LIVENESS_THRESHOLD_SECONDS=${LIVENESS_THRESHOLD_SECONDS:-300};
+          if [ ! -e /buffers ];
+          then
+            exit 1;
+          fi;
+          touch -d "${LIVENESS_THRESHOLD_SECONDS} seconds ago" /tmp/marker-liveness;
+          if [ -z "$(find /buffers -type d -newer /tmp/marker-liveness -print -quit)" ];
+          then
+            exit 1;
+          fi;
+  controlNamespace: logging
+```
+
+You can use the following parameters:
+
+| Name                    | Type           | Default | Description |
+|-------------------------|----------------|---------|-------------|
+| initialDelaySeconds | int | 10 | Number of seconds after the container has started before liveness probes are initiated. |
+| timeoutSeconds | int | 0 | Number of seconds after which the probe times out. |
+| periodSeconds | int | 10 | How often (in seconds) to perform the probe. |
+| successThreshold | int | 0 | Minimum consecutive successes for the probe to be considered successful after having failed. |
+| failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
+| exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
+| httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
+| tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
+
+> Note: To configure readiness probes, see {{% xref "/docs/logging-operator/operation/readiness-probe.md" %}}.
