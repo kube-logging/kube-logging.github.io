@@ -201,3 +201,101 @@ EOF
 | command | `[]string` | No | - |  |
 | volumeMounts | `[]corev1.VolumeMount` | No | - |  |
 | securityContext | `*corev1.SecurityContext` | No | - |  |
+
+### Example PSP
+```bash
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: logging-op-host-tailer
+  namespace: logging
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: logging-op-host-tailer
+  namespace: logging
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: logging-op-host-tailer-psp
+  namespace: logging
+rules:
+  - verbs:
+      - use
+    apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    resourceNames:
+      - logging-op-host-tailer
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: logging-op-host-tailer
+  namespace: logging
+subjects:
+  - kind: ServiceAccount
+    name: logging-op-host-tailer
+    namespace: logging
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: logging-op-host-tailer
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: logging-op-host-tailer-psp
+  namespace: logging
+subjects:
+  - kind: ServiceAccount
+    name: logging-op-host-tailer
+    namespace: logging
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: logging-op-host-tailer-psp
+---
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: logging-op-host-tailer
+spec:
+  volumes:
+    - "*"
+  seLinux:
+    rule: RunAsAny
+  runAsUser:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: true
+  allowedHostPaths:
+    - pathPrefix: /var/pos
+      #readOnly: false
+    - pathPrefix: /var/log/kubernetes
+      readOnly: true
+    - pathPrefix: /var/log/
+      readOnly: true
+```
