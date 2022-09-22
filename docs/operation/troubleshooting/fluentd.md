@@ -21,7 +21,7 @@ logging-demo-fluentd   1/1     1m
 
 ## ConfigCheck
 
-The Logging operator has a builtin mechanism that validates the generated fluentd configuration before applying it to fluentd. You should be able to see the configcheck pod and it's log output. The result of the check is written into the `status` field of the corresponding `Logging` resource.
+The Logging operator has a builtin mechanism that validates the generated fluentd configuration before applying it to fluentd. You should be able to see the configcheck pod and its log output. The result of the check is written into the `status` field of the corresponding `Logging` resource.
 
 In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.
 
