@@ -35,7 +35,7 @@ The Cloud Syslog Cloud Token that you received from the Sumo Logic service while
 
 Default: -
 
-### tls (string, optional) {#sumologicsyslogoutput-tls}
+### tls (*TLS, optional) {#sumologicsyslogoutput-tls}
 
 This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193). 
 
@@ -43,7 +43,7 @@ Default: -
 
 ### disk_buffer (*DiskBuffer, optional) {#sumologicsyslogoutput-disk_buffer}
 
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.   
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
 
 Default:  false
 

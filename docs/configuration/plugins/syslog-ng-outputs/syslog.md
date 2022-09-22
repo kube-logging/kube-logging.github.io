@@ -28,7 +28,7 @@ The `syslog` output sends log records over a socket using the Syslog protocol (R
               key: tls.key
 ```
 
-The following example also configures disk-based buffering for the output (see the `disk_buffer` section):
+The following example also configures disk-based buffering for the output. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -70,6 +70,8 @@ spec:
 For details on the available options of the output, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124).
 
 ### host (string, required) {#syslogoutput-host}
+
+Address of the destination host 
 
 Default: -
 
@@ -141,7 +143,7 @@ Default: -
 
 ### disk_buffer (*DiskBuffer, optional) {#syslogoutput-disk_buffer}
 
-Enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. [more information](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#kanchor860) 
+Enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/). 
 
 Default: -
 

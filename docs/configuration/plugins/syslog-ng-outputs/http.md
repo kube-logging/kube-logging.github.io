@@ -19,7 +19,7 @@ Default: -
 
 ### headers ([]string, optional) {#httpoutput-headers}
 
-Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   s
+Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   
 
 Default:  empty
 
