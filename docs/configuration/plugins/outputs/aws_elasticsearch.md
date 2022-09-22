@@ -10,12 +10,19 @@ generated_file: true
 
  #### Example output configurations
  ```yaml
- spec:
-   kinesisStream:
-     stream_name: example-stream-name
-     region: us-east-1
-     format:
-       type: json
+spec:
+  awsElasticsearch:
+    logstash_format: true
+    include_tag_key: true
+    tag_key: "@log_name"
+    flush_interval: 1s
+    endpoint:
+      url: https://CLUSTER_ENDPOINT_URL
+      region: eu-west-1
+      access_key_id:
+        value: aws-key
+      secret_access_key:
+        value: aws_secrets
  ```
 
 ## Configuration
