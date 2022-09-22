@@ -12,6 +12,10 @@ SyslogNGOutputSpec defines the desired state of SyslogNGOutput
 
 Default: -
 
+### loggly (*output.Loggly, optional) {#syslogngoutputspec-loggly}
+
+Default: -
+
 ### syslog (*output.SyslogOutput, optional) {#syslogngoutputspec-syslog}
 
 Default: -
@@ -25,6 +29,10 @@ Default: -
 Default: -
 
 ### sumologic-syslog (*output.SumologicSyslogOutput, optional) {#syslogngoutputspec-sumologic-syslog}
+
+Default: -
+
+### http (*output.HTTPOutput, optional) {#syslogngoutputspec-http}
 
 Default: -
 
