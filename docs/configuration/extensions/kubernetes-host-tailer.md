@@ -7,7 +7,7 @@ aliases:
 
 Kubernetes host tailer allows you to tail logs like `kubelet`, `audit` logs, or the `systemd` journal from the nodes.
 
-![Host-tailer](/assets/blog/logging-extensions/logging-extensions-host-tailer.png)
+![Host-tailer](../logging-extensions-host-tailer.png)
 
 ## Create host tailer
 
@@ -38,7 +38,7 @@ EOF
 
 When an application (mostly legacy programs) is not logging in a Kubernetes-native way, Logging operator cannot process its logs. (For example, an old application does not send its logs to `stdout`, but uses some log files instead.) `File-tailer` helps to solve this problem: It configures Fluent Bit to tail the given file(s), and sends the logs to the `stdout`, to implement Kubernetes-native logging.
 
-![Host-tailer](/assets/blog/logging-extensions/logging-extensions-host-tailer2.png)
+![Host-tailer](../logging-extensions-host-tailer2.png)
 
 However, `file-tailer` cannot access the pod's local dir, so the logfiles need to be written on a mounted volume.
 
