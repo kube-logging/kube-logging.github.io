@@ -1,5 +1,6 @@
 ---
-title: Kubernetes Host Tailer
+title: Kubernetes host logs, journals, and logfiles
+shorttitle: Kubernetes Host Tailer
 weight: 200
 aliases:
     - /docs/logging-extensions/kubernetes-host-tailer/
