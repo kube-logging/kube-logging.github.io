@@ -174,4 +174,4 @@ pvc-6af02cb2-3a62-4d24-8201-dc749034651e   1Gi        RWO            Delete     
 
 ## Configuration options
 
-For the detailed list of configuration options, see the [EventTailer CRD reference]({{< relref "../crds/extensions/v1alpha1/eventtailer_types.md" >}}).
+For the detailed list of configuration options, see the [EventTailer CRD reference]({{< relref "../crds/extensions/eventtailer_types.md" >}}).
