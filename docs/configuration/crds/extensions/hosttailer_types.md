@@ -10,13 +10,13 @@ HostTailerSpec defines the desired state of HostTailer
 
 ### fileTailers ([]FileTailer, optional) {#hosttailerspec-filetailers}
 
-List of [file tailers](#filetailer). 
+List of [file tailers](#filetailer).
 
 Default: -
 
 ### systemdTailers ([]SystemdTailer, optional) {#hosttailerspec-systemdtailers}
 
-List of [systemd tailers](#systemdtailer). 
+List of [systemd tailers](#systemdtailer).
 
 Default: -
 
