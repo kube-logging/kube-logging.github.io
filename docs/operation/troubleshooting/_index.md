@@ -35,7 +35,12 @@ The following tips and commands can help you to troubleshoot your Logging operat
 1. Check the status of your resources. Beginning with Logging Operator 3.8, all custom resources have a `Status` and a `Problems` field. In a healthy system, the Problems field of the resources is empty, for example:
 
     ```bash
-    $ kubectl get clusteroutput -A
+    kubectl get clusteroutput -A
+    ```
+
+    Sample output:
+
+    ```bash
     NAMESPACE   NAME      ACTIVE   PROBLEMS
     default     nullout   true
     ```
@@ -45,7 +50,12 @@ The following tips and commands can help you to troubleshoot your Logging operat
     Take a look at another example, in which we have an incorrect `ClusterFlow`.
 
     ```bash
-    $ kubectl get clusterflow -o wide
+    kubectl get clusterflow -o wide
+    ```
+
+    Sample output:
+
+    ```bash
     NAME      ACTIVE   PROBLEMS
     all-log   true
     nullout   false    1
@@ -54,7 +64,12 @@ The following tips and commands can help you to troubleshoot your Logging operat
     You can see that the **nullout** `Clusterflow` is inactive and there is *1* problem with the configuration. To display the problem, check the `status` field of the object, for example:
 
     ```bash
-    $ kubectl get clusterflow nullout -o=jsonpath='{.status}' | jq
+    kubectl get clusterflow nullout -o=jsonpath='{.status}' | jq
+    ```
+
+    Sample output:
+
+    ```bash
     {
     "active": false,
     "problems": [

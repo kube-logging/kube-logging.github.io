@@ -1,7 +1,7 @@
 ---
 title: Logging operator Operation
 shorttitle: Operation
-weight: 300
+weight: 350
 ---
 
 {{< toc >}}

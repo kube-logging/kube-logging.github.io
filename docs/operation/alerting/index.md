@@ -13,13 +13,14 @@ Using alerting rules requires the following:
 
 - Logging operator 3.14.0 or newer installed on the cluster.
 - Prometheus operator installed on the cluster. For details, see {{% xref "logging-operator-monitoring.md" %}}.
+- {{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
 
 ## Enable the default alerting rules {#enable-default-alerts}
 
 Logging operator comes with a number of default alerting rules that help you monitor your logging environment and ensure that it's working properly. To enable the default rules, complete the following steps.
 
 1. Verify that your cluster meets the [Prerequisites](#prerequisites).
-1. Enable the alerting rules in your **logging** CR. You can enable alerting separately for Fluentd and Fluent Bit. For example:
+1. Enable the alerting rules in your **logging** CR. You can enable alerting separately for Fluentd, syslog-ng, and Fluent Bit. For example:
 
     ```yaml
     apiVersion: logging.banzaicloud.io/v1beta1
@@ -34,6 +35,9 @@ Logging operator comes with a number of default alerting rules that help you mon
       fluentbit:
         metrics:
           prometheusRules: true
+      syslogNG:
+        metrics:
+          prometheusRules: true
       controlNamespace: logging
     ```
 
@@ -43,13 +47,23 @@ Logging operator comes with a number of default alerting rules that help you mon
 
 The default alerting rules trigger alerts when:
 
-- Prometheus cannot access the Fluentd node
-- Fluentd buffers are quickly filling up
-- Traffic to Fluentd is increasing at a high rate
-- The number of Fluent Bit or Fluentd errors or retries is high
-- Fluentd buffers are over 90% full
+For the **Fluent Bit** log collector:
 
-Currently, you cannot modify the default alerting rules, because they are generated from the source files. For the detailed list of alerts, see the source code of the [Prometheus alerts for Fluentd](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentd/prometheusrules.go) and [Fluent Bit](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentbit/prometheusrules.go).
+- The number of Fluent Bit errors or retries is high
+
+For the **Fluentd** and **syslog-ng** log forwarders:
+
+- Prometheus cannot access the log forwarder node
+- The buffers of the log forwarder are filling up quickly
+- Traffic to the log forwarder is increasing at a high rate
+- The number of errors or retries is high on the log forwarder
+- The buffers are over 90% full
+
+Currently, you cannot modify the default alerting rules, because they are generated from the source files. For the detailed list of alerts, see the source code:
+
+- For [Fluentd](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentd/prometheusrules.go)
+- For [syslog-ng](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/syslogng/prometheusrules.go)
+- For [Fluent Bit](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentbit/prometheusrules.go)
 
 To enable these alerts on your cluster, see [Enable the default alerting rules](#enable-default-alerts).
 
