@@ -1,3 +1,9 @@
+---
+title: NodeAgent
+weight: 200
+generated_file: true
+---
+
 ## NodeAgent
 
 ### name (string, optional) {#nodeagent-name}

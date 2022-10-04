@@ -1,3 +1,8 @@
+---
+title: ElasticsearchGenId
+weight: 200
+generated_file: true
+---
 ## ElasticsearchGenId
 
 ### hash_id_key (string, optional) {#elasticsearchgenid-hash_id_key}

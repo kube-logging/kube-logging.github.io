@@ -2,7 +2,7 @@
 title: Available CRDs
 generated_file: true
 ---
-	
+
 For more information please click on the name
 <center>
 
@@ -20,5 +20,10 @@ For more information please click on the name
 | **[Logging](logging_types/)** | Logging system configuration | v1beta1 |
 | **[NodeAgent](node_agent_types/)** |  | v1beta1 |
 | **[OutputSpec](output_types/)** | OutputSpec defines the desired state of Output | v1beta1 |
+| **[SyslogNGClusterFlow](syslogng_clusterflow_types/)** | SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API | v1beta1 |
+| **[SyslogNGClusterOutput](syslogng_clusteroutput_types/)** | SyslogNGClusterOutput is the Schema for the syslog-ng clusteroutputs API | v1beta1 |
+| **[SyslogNGFlowSpec](syslogng_flow_types/)** | SyslogNGFlowSpec is the Kubernetes spec for SyslogNGFlows | v1beta1 |
+| **[SyslogNGOutputSpec](syslogng_output_types/)** | SyslogNGOutputSpec defines the desired state of SyslogNGOutput | v1beta1 |
+| **[SyslogNGSpec](syslogng_types/)** | SyslogNGSpec defines the desired state of SyslogNG | v1beta1 |
 </center>
 

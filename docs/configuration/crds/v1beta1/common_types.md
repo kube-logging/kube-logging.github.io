@@ -62,6 +62,19 @@ Default: -
 Default: -
 
 
+## BufferMetrics
+
+BufferMetrics defines the service monitor endpoints
+
+###  (Metrics, required) {#buffermetrics-}
+
+Default: -
+
+### mount_name (string, optional) {#buffermetrics-mount_name}
+
+Default: -
+
+
 ## ServiceMonitorConfig
 
 ServiceMonitorConfig defines the ServiceMonitor properties
