@@ -32,6 +32,3 @@ weight: 900
 
 - Give a star to [this repository](https://github.com/banzaicloud/logging-operator) {{% emoji ":star:" %}}
 - Add your company to the [adopters](https://github.com/banzaicloud/logging-operator/blob/master/ADOPTERS.md) list
-
-  You can follow the procedure in this video to add your company to the list:
-  [![video](http://img.youtube.com/vi/2iaK8adpwfk/0.jpg)](http://www.youtube.com/watch?v=2iaK8adpwfk)
