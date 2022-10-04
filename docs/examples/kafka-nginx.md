@@ -10,7 +10,7 @@ aliases:
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
-{{< include-headless "quickstart-figure-intro.md" "logging-operator" >}}
+{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
 
 <p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
 
@@ -24,7 +24,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Helm {#helm}
 
-{{< include-headless "deploy-helm-intro.md" "logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 

@@ -18,9 +18,9 @@ You can install a `logging` resource with built-in TLS generation using the [log
 You can customize the following sections of the logging resource:
 
 - Generic parameters of the logging resource. For the list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/logging_types.md" %}}.
-- The `fluentd` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/logging-operator/logging-infrastructure/fluentd.md" %}}.
+- The `fluentd` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/fluentd.md" %}}.
 - The `syslogNG` statefulset that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/syslogng_types.md" %}}. For examples on customizing the Fluentd configuration, see {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/syslog-ng.md" %}}.
-- The `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent-bit configuration, see {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/fluentbit.md" %}}.
+- The `fluent-bit` that Logging operator deploys. For a list of parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}. For examples on customizing the Fluent-bit configuration, see {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/fluentbit.md" %}}.
 
 The following example snippets use the **logging** namespace. To create this namespace if it does not already exist, run:
 

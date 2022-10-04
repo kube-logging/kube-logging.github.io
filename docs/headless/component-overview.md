@@ -2,7 +2,7 @@ The Logging operator manages the log collectors and log forwarders of your loggi
 
 The **log collectors** are endpoint agents that collect the logs of your Kubernetes nodes and send them to the log forwarders. Logging operator currently uses Fluent Bit as log collector agents.
 
-The **log forwarder** instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders. Which log forwarder is best for you depends on your logging requirements. For tips, see {{% xref "/docs/one-eye/slogging-operator/configuration/fluentd-vs-syslog-ng.md" %}}.
+The **log forwarder** instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders. Which log forwarder is best for you depends on your logging requirements. For tips, see {{% xref "/docs/one-eye/logging-operator/configuration/fluentd-vs-syslog-ng.md" %}}.
 
 You can filter and process the incoming log messages using the [**flow**]({{< relref "/docs/one-eye/logging-operator/configuration/flow.md" >}}) custom resource of the log forwarder to route them to the appropriate [**output**]({{< relref "/docs/one-eye/logging-operator/configuration/output.md" >}}). The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify. Note that flows and outputs are specific to the type of log forwarder you use (Fluentd or syslog-ng).
 
