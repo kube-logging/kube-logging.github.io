@@ -18,14 +18,13 @@ This guide describes how to collect application and container logs in Kubernetes
 
     ```bash
     helm repo add grafana https://grafana.github.io/helm-charts
-    helm repo add loki https://grafana.github.io/loki/charts
     helm repo update
     ```
 
 1. Install Loki into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --create-namespace --namespace logging loki loki/loki
+    helm upgrade --install --create-namespace --namespace logging loki grafana/loki
     ```
 
     > [Grafana Loki Documentation](https://github.com/grafana/loki/tree/master/production/helm)
