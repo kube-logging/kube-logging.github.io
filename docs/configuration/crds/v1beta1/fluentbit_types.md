@@ -208,6 +208,10 @@ Default: -
 
 Default: -
 
+### syslogng_output (*FluentbitTCPOutput, optional) {#fluentbitspec-syslogng_output}
+
+Default: -
+
 
 ## FluentbitTLS
 
@@ -224,6 +228,19 @@ Default: -
 ### sharedKey (string, optional) {#fluentbittls-sharedkey}
 
 Default: -
+
+
+## FluentbitTCPOutput
+
+FluentbitTCPOutput defines the TLS configs
+
+### json_date_key (string, optional) {#fluentbittcpoutput-json_date_key}
+
+Default: ts
+
+### json_date_format (string, optional) {#fluentbittcpoutput-json_date_format}
+
+Default: iso8601
 
 
 ## FluentbitNetwork

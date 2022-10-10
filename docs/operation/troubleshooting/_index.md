@@ -24,6 +24,8 @@ The following tips and commands can help you to troubleshoot your Logging operat
     outputs.logging.banzaicloud.io          2019-12-05T15:11:48Z
     ```
 
+    <!-- FIXME syslog-ng-sek is letrejonnek automatikusan? -->
+
 1. Verify that the Logging operator pod is running. Issue the following command: `kubectl get pods |grep logging-operator`
    The output should include the a running pod, for example:
 

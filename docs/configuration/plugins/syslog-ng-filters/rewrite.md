@@ -5,6 +5,7 @@ weight: 200
 
 Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
 
+- [group_unset](#groupunset)
 - [rename](#rename)
 - [set](#set)
 - [substitute](#subst)
@@ -12,42 +13,53 @@ Rewrite filters can be used to modify record contents. Logging operator currentl
 
 > Note: All rewrite functions support an optional `condition` which has the same syntax as the [match filter](../match/).
 
+## Group unset {#groupunset}
+
+The `group_unset` function removes from the record a group of fields matching a pattern.
+
+{{< highlight yaml >}}
+  filters:
+  - rewrite:
+    - group_unset:
+        pattern: "json.kubernetes.annotations.*"
+{{</ highlight >}}
+
 ## Rename
 
 The `rename` function changes the name of an existing field name.
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - rewrite:
     - rename:
         oldName: "json.kubernetes.labels.app"
         newName: "json.kubernetes.labels.app.kubernetes.io/name"
-```
+{{</ highlight >}}
 
 ## Set
 
 The `set` function sets the value of a field.
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - rewrite:
     - set:
         field: "json.kubernetes.cluster"
         value: "prod-us"
-```
+{{</ highlight >}}
 
 ## Substitute (subst) {#subst}
 
 The `subst` function replaces parts of a field with a replacement value based on a pattern.
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - rewrite:
     - subst:
         pattern: "\d\d\d\d-\d\d\d\d-\d\d\d\d-\d\d\d\d"
         replace: "[redacted bank card number]"
         field: "MESSAGE"
-```
+{{</ highlight >}}
 
 The function also supports the `type` and `flags` fields for specifying pattern type and flags as described in the [match expression regexp function](../match/).
 
@@ -57,15 +69,19 @@ You can unset macros or fields of the message.
 
 > Note: Unsetting a field completely deletes any previous value of the field.
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - rewrite:
     - unset:
         field: "json.kubernetes.cluster"
-```
+{{</ highlight >}}
 
 ## Configuration
 ## RewriteConfig
+
+### group_unset (*GroupUnsetConfig, optional) {#rewriteconfig-group_unset}
+
+Default: -
 
 ### rename (*RenameConfig, optional) {#rewriteconfig-rename}
 

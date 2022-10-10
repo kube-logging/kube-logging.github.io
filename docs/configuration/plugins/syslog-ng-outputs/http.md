@@ -4,9 +4,9 @@ weight: 200
 generated_file: true
 ---
 
-# Forwarding messages over HTTP
+# Sending messages over HTTP
 ## Overview
- More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/55
+ More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/40#TOPIC-1829058
 
 ## Configuration
 ## HTTPOutput

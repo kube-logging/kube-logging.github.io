@@ -12,26 +12,26 @@ Parser filters can be used to extract key-value pairs from message data. Logging
 
 The regexp parser can use regular expressions to parse fields from a message.
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - parser:
       regexp:
         patterns:
         - ".*test_field -> (?<test_field>.*)$"
         prefix: .regexp.
-```
+{{</ highlight >}}
 
-For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90#TOPIC-1768848).
+For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/91#TOPIC-1829263).
 
 ## Syslog parser {#syslog}
 
 The syslog parser can parse syslog messages. For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/83#TOPIC-1829231).
 
-```yaml
+{{< highlight yaml >}}
   filters:
   - parser:
-      syslog-parser: {} 
-```
+      syslog-parser: {}
+{{</ highlight >}}
 
 ## Configuration
 ## [Parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/82#TOPIC-1768819)

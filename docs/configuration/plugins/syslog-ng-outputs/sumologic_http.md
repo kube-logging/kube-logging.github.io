@@ -11,7 +11,7 @@ You need a Sumo Logic account to use this output. For details, see the [syslog-n
 
 ## Example
 
-```yaml
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: SyslogNGOutput
 metadata:
@@ -41,7 +41,7 @@ spec:
     - 'X-Sumo-Category: source-category'
     tls:
       use-system-cert-store: true
-```
+{{</ highlight >}}
 
 ## Configuration
 ## SumologicHTTPOutput
