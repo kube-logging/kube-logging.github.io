@@ -35,19 +35,19 @@ The output should be similar to the following:
 
 ``` -->
 
-## Set Fluentd log Level
+<!-- ## Set syslog-ng log Level
 
-Use the following command to change the log level of Fluentd.
+Use the following command to change the log level of syslog-ng.
 `kubectl edit loggings.logging.banzaicloud.io logging-demo`
 
 ```yaml
-fluentd:
+syslogNG:
   logLevel: debug
 ```
 
-## Get Fluentd logs
+## Get syslog-ng logs
 
-The following command displays the logs of the Fluentd container.
-`kubectl exec -it logging-demo-fluentd-0 cat /fluentd/log/out`
+The following command displays the logs of the syslog-ng container.
+`kubectl exec -it logging-demo-fluentd-0 cat /syslog-ng/log/out` -->
 
 {{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
