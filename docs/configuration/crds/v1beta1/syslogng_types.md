@@ -56,6 +56,22 @@ Default: -
 
 Default: -
 
+### jsonKeyPrefix (string, optional) {#syslogngspec-jsonkeyprefix}
+
+Default: -
+
+### jsonKeyDelim (string, optional) {#syslogngspec-jsonkeydelim}
+
+Default: -
+
+### maxConnections (int, optional) {#syslogngspec-maxconnections}
+
+Default: -
+
+### logIWSize (int, optional) {#syslogngspec-logiwsize}
+
+Default: -
+
 
 ## SyslogNGTLS
 

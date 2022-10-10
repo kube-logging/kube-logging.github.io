@@ -1,11 +1,11 @@
 ---
-title: Syslog
+title: Syslog (RFC5424) output
 weight: 200
 ---
 
 The `syslog` output sends log records over a socket using the Syslog protocol (RFC 5424).
 
-```yaml
+{{< highlight yaml >}}
   spec:
     syslog:
       host: 10.12.34.56
@@ -26,11 +26,11 @@ The `syslog` output sends log records over a socket using the Syslog protocol (R
             secretKeyRef:
               name: tls-secret
               key: tls.key
-```
+{{</ highlight >}}
 
 The following example also configures disk-based buffering for the output. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
 
-```yaml
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: SyslogNGOutput
 metadata:
@@ -65,7 +65,7 @@ spec:
             key: tls.key
             name: syslog-tls-cert
     transport: tls
-```
+{{</ highlight >}}
 
 For details on the available options of the output, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124).
 
