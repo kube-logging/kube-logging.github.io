@@ -54,7 +54,7 @@ spec:
 
 ## Log Mount Path
 
-If the container logs of your k8s cloud provider or deployed k8s environment are not saved in the default directory, you can use the mountPath field to modify. For example:
+If the container logs of your k8s cloud provider or deployed k8s environment are not saved in the default directory, set the `mountPath` field to the path where they are saved. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
