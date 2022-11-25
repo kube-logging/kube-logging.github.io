@@ -399,7 +399,7 @@ Use specified timezone. one can parse/format the time value in the specified tim
 Default: -
 
 
- #### Example `Parser` filter configurations
+ ## Example `Parser` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

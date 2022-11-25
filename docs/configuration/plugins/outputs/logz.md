@@ -8,7 +8,7 @@ generated_file: true
 ## Overview
 More info at https://github.com/tarokkk/fluent-plugin-logzio
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    logz:
@@ -93,6 +93,12 @@ Default: -
 ### buffer (*Buffer, optional) {#logzio-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#logzio-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

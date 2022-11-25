@@ -208,6 +208,10 @@ Default: -
 
 Default: -
 
+### updateStrategy (appsv1.DaemonSetUpdateStrategy, optional) {#fluentbitspec-updatestrategy}
+
+Default: -
+
 
 ## FluentbitTLS
 
@@ -395,6 +399,18 @@ Default: -
 Set a default synchronization (I/O) method. Values: Extra, Full, Normal, Off. This flag affects how the internal SQLite engine do synchronization to disk, for more details about each option please refer to this section.  
 
 Default: Full
+
+### DB.locking (*bool, optional) {#inputtail-db.locking}
+
+Specify that the database will be accessed only by Fluent Bit. Enabling this feature helps to increase performance when accessing the database but it restrict any external tool to query the content.  
+
+Default:  true
+
+### DB.journal_mode (string, optional) {#inputtail-db.journal_mode}
+
+sets the journal mode for databases (WAL). Enabling WAL provides higher performance. Note that WAL is not compatible with shared network file systems.  
+
+Default:  WAL
 
 ### Mem_Buf_Limit (string, optional) {#inputtail-mem_buf_limit}
 

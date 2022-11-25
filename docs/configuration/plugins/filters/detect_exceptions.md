@@ -11,7 +11,7 @@ More info at https://github.com/GoogleCloudPlatform/fluent-plugin-detect-excepti
 
  > Note: As Tag management is not supported yet, this Plugin is **mutually exclusive** with [Tag normaliser](../tagnormaliser)
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
 filters:
   - detectExceptions:
@@ -32,7 +32,7 @@ Default:  ""
 
 The prefix to be removed from the input tag when outputting a record.  
 
-Default:  ""
+Default:  kubernetes
 
 ### multiline_flush_interval (string, optional) {#detectexceptions-multiline_flush_interval}
 
@@ -70,8 +70,14 @@ Force line breaks between each lines when comibining exception stacks.
 
 Default:  false
 
+### match_tag (string, optional) {#detectexceptions-match_tag}
 
- #### Example `Exception Detector` filter configurations
+Tag used in match directive.  
+
+Default:  kubernetes.**
+
+
+ ## Example `Exception Detector` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

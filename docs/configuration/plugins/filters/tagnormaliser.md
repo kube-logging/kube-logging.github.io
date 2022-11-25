@@ -29,8 +29,14 @@ Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugi
 
 Default: ${namespace_name}.${pod_name}.${container_name}
 
+### match_tag (string, optional) {#tag normaliser parameters-match_tag}
 
- #### Example `Parser` filter configurations
+Tag used in match directive.  
+
+Default:  kubernetes.**
+
+
+ ## Example `Parser` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

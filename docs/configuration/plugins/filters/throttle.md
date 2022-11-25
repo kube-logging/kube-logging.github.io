@@ -42,7 +42,7 @@ When a group reaches its limit and as long as it is not reset, a warning message
 Default:  10 seconds
 
 
- #### Example `Throttle` filter configurations
+ ## Example `Throttle` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

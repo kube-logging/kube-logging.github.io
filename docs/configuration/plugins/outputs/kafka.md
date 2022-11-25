@@ -9,7 +9,7 @@ generated_file: true
   More info at https://github.com/fluent/fluent-plugin-kafka
 >Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator](../../../../quickstarts/kafka-nginx/)
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    kafka:
@@ -132,6 +132,14 @@ SASL over SSL
 
 Default:  true
 
+### principal (string, optional) {#kafka-principal}
+
+Default: -
+
+### keytab (*secret.Secret, optional) {#kafka-keytab}
+
+Default: -
+
 ### username (*secret.Secret, optional) {#kafka-username}
 
 Username when using PLAIN/SCRAM SASL authentication 
@@ -237,6 +245,12 @@ Default: -
 ### buffer (*Buffer, optional) {#kafka-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#kafka-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

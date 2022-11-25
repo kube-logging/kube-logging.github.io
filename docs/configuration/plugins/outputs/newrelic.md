@@ -8,7 +8,7 @@ generated_file: true
 ## Overview
 **newrelic** output plugin send log data to New Relic Logs
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    newrelic:

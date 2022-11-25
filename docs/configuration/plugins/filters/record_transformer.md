@@ -54,7 +54,7 @@ Add records docs at: https://docs.fluentd.org/filter/record_transformer Records 
 Default: -
 
 
- #### Example `Record Transformer` filter configurations
+ ## Example `Record Transformer` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

@@ -65,8 +65,14 @@ Default: -
 
 Default: -
 
+### slow_flush_log_threshold (string, optional) {#fileoutputconfig-slow_flush_log_threshold}
 
- #### Example `File` output configurations
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
+
+Default: -
+
+
+ ## Example `File` output configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Output

@@ -68,6 +68,12 @@ Limit namespaces to watch Flow and Output custom resources.
 
 Default: -
 
+### clusterDomain (*string, optional) {#loggingspec-clusterdomain}
+
+Cluster domain name to be used when templating URLs to services . 
+
+Default:  "cluster.local"
+
 ### controlNamespace (string, required) {#loggingspec-controlnamespace}
 
 Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 

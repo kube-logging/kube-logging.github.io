@@ -8,8 +8,8 @@ generated_file: true
 ## Overview
   More info at https://github.com/atomita/fluent-plugin-aws-elasticsearch-service
 
- #### Example output configurations
- ```yaml
+## Example output configurations
+{{< highlight yaml >}}
 spec:
   awsElasticsearch:
     logstash_format: true
@@ -22,8 +22,8 @@ spec:
       access_key_id:
         value: aws-key
       secret_access_key:
-        value: aws_secrets
- ```
+        value: aws_secret
+{{</ highlight >}}
 
 ## Configuration
 ## Amazon Elasticsearch

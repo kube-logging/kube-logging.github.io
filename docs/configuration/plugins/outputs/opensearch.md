@@ -9,7 +9,7 @@ generated_file: true
 More info at https://github.com/fluent/fluent-plugin-opensearch
 >Example Deployment: [Save all logs to OpenSearch](../../../../quickstarts/es-nginx/)
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    opensearch:
@@ -516,6 +516,12 @@ target_index_affinity
 Default:  false
 
 ### buffer (*Buffer, optional) {#opensearch-buffer}
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#opensearch-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

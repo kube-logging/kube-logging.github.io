@@ -18,7 +18,7 @@ This is the option of stdout format.
 Default: -
 
 
- #### Example `StdOut` filter configurations
+ ## Example `StdOut` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

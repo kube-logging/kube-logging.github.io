@@ -102,7 +102,7 @@ If true, keep partial metadata
 Default: -
 
 
- #### Example `Concat` filter configurations
+ ## Example `Concat` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

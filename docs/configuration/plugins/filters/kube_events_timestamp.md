@@ -24,7 +24,7 @@ Added time field name
 Default:  triggerts
 
 
- #### Example `Kubernetes Events Timestamp` filter configurations
+ ## Example `Kubernetes Events Timestamp` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

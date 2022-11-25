@@ -10,7 +10,7 @@ Fluentd output plugin to ship logs to a Loki server.
 More info at https://github.com/banzaicloud/fluent-plugin-kubernetes-loki
 >Example: [Store Nginx Access Logs in Grafana Loki with Logging Operator](../../../../quickstarts/loki-nginx/)
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    loki:
@@ -117,6 +117,12 @@ Default:  false
 ### buffer (*Buffer, optional) {#output config-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#output config-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

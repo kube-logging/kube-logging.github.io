@@ -9,7 +9,7 @@ generated_file: true
 More info at https://github.com/uken/fluent-plugin-elasticsearch
 >Example Deployment: [Save all logs to ElasticSearch](../../../../quickstarts/es-nginx/)
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
    elasticsearch:
@@ -279,6 +279,12 @@ Indicates whether to fail when max_retry_putting_template is exceeded. If you ha
 
 Default: true
 
+### fail_on_detecting_es_version_retry_exceed (*bool, optional) {#elasticsearch-fail_on_detecting_es_version_retry_exceed}
+
+fail_on_detecting_es_version_retry_exceed (default: true) 
+
+Default: true
+
 ### max_retry_get_es_version (string, optional) {#elasticsearch-max_retry_get_es_version}
 
 You can specify times of retry obtaining Elasticsearch version. 
@@ -498,6 +504,12 @@ Default: -
 ### buffer (*Buffer, optional) {#elasticsearch-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#elasticsearch-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

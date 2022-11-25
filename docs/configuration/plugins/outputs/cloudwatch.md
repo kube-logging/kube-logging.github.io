@@ -7,9 +7,9 @@ generated_file: true
 # CloudWatch output plugin for Fluentd
 ## Overview
 This plugin has been designed to output logs or metrics to Amazon CloudWatch.
-More info at https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs
+More info at [https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs).
 
- #### Example output configurations
+ ## Example output configurations
  ```yaml
  spec:
   cloudwatch:
@@ -249,6 +249,12 @@ Default: -
 ### buffer (*Buffer, optional) {#output config-buffer}
 
 [Buffer](../buffer/) 
+
+Default: -
+
+### slow_flush_log_threshold (string, optional) {#output config-slow_flush_log_threshold}
+
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
 
 Default: -
 

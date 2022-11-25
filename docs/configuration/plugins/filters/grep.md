@@ -53,7 +53,7 @@ Pattern expression to evaluate
 Default: -
 
 
- #### Example `Regexp` filter configurations
+ ## Example `Regexp` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
@@ -100,7 +100,7 @@ Pattern expression to evaluate
 Default: -
 
 
- #### Example `Exclude` filter configurations
+ ## Example `Exclude` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
@@ -147,7 +147,7 @@ Default: -
 Default: -
 
 
- #### Example `Or` filter configurations
+ ## Example `Or` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
@@ -200,7 +200,7 @@ Default: -
 Default: -
 
 
- #### Example `And` filter configurations
+ ## Example `And` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow

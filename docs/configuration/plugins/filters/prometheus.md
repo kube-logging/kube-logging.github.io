@@ -61,7 +61,7 @@ Additional labels for this metric
 Default: -
 
 
- #### Example `Prometheus` filter configurations
+ ## Example `Prometheus` filter configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
