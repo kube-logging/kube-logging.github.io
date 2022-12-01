@@ -52,6 +52,22 @@ spec:
   controlNamespace: logging
 ```
 
+## Log Mount Path
+
+If the container logs of your k8s cloud provider or deployed k8s environment are not saved in the default directory, set the `mountPath` field to the path where they are saved. For example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd: {}
+  fluentbit:
+    mountPath: /data/docker/containers
+  controlNamespace: logging
+```
+
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
 [More Info](https://github.com/fluent/fluent-bit-docs/blob/1.3/input/tail.md).
 
