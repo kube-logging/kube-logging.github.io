@@ -50,8 +50,4 @@ syslogNG:
 The following command displays the logs of the syslog-ng container.
 `kubectl exec -it logging-demo-fluentd-0 cat /syslog-ng/log/out` -->
 
-<<<<<<< HEAD
 {{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
-=======
-{{< include-headless "support-troubleshooting.md" "logging-operator" >}}
->>>>>>> a08c05a (Adds placeholder file for syslog-ng troubleshooting)
