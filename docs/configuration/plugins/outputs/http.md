@@ -10,7 +10,7 @@ generated_file: true
  More info at https://docs.fluentd.org/output/http.
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    http:
      endpoint: http://logserver.com:9000/api
@@ -132,7 +132,7 @@ Default:  true
 
 ### retryable_response_codes ([]int, optional) {#output config-retryable_response_codes}
 
-List of retryable response codes. If the response code is included in this list, the plugin retries the buffer flush.  
+List of retryable response codes. If the response code is included in this list, the plugin retries the buffer flush. Since Fluentd v2 the Status code 503 is going to be removed from default.  
 
 Default:  [503]
 

@@ -62,7 +62,7 @@ Default: -
 
 
  #### Example `Prometheus` filter configurations
- ```
+ ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:

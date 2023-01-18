@@ -20,6 +20,12 @@ Disable configuration check before applying new fluentd configuration.
 
 Default: -
 
+### skipInvalidResources (bool, optional) {#loggingspec-skipinvalidresources}
+
+Skip Invalid Resources 
+
+Default: -
+
 ### flowConfigOverride (string, optional) {#loggingspec-flowconfigoverride}
 
 Override generated config. This is a *raw* configuration string for troubleshooting purposes. 
@@ -35,6 +41,12 @@ Default: -
 ### fluentd (*FluentdSpec, optional) {#loggingspec-fluentd}
 
 Fluentd statefulset configuration 
+
+Default: -
+
+### syslogNG (*SyslogNGSpec, optional) {#loggingspec-syslogng}
+
+Syslog-NG statefulset configuration 
 
 Default: -
 
@@ -58,13 +70,13 @@ Default: -
 
 ### watchNamespaces ([]string, optional) {#loggingspec-watchnamespaces}
 
-Limit namespaces to watch Flow and Output custom reasources. 
+Limit namespaces to watch Flow and Output custom resources. 
 
 Default: -
 
 ### controlNamespace (string, required) {#loggingspec-controlnamespace}
 
-Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 
+Namespace for cluster wide configuration resources like ClusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 
 
 Default: -
 

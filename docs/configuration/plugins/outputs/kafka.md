@@ -10,7 +10,7 @@ generated_file: true
 >Example Deployment: [Transport Nginx Access Logs into Kafka with Logging Operator](../../../../quickstarts/kafka-nginx/)
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    kafka:
      brokers: kafka-headless.kafka.svc.cluster.local:29092
@@ -131,6 +131,14 @@ Default:  false
 SASL over SSL  
 
 Default:  true
+
+### principal (string, optional) {#kafka-principal}
+
+Default: -
+
+### keytab (*secret.Secret, optional) {#kafka-keytab}
+
+Default: -
 
 ### username (*secret.Secret, optional) {#kafka-username}
 

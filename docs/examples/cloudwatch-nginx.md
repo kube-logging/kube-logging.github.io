@@ -1,7 +1,9 @@
 ---
 title: Store Nginx Access Logs in Amazon CloudWatch with Logging Operator
-shorttitle: Amazon CloudWatch
+shorttitle: Amazon CloudWatch with Fluentd
 weight: 100
+aliases:
+    - /docs/logging-operator/quickstarts/cloudwatch-nginx/
 ---
 
 <p align="center"><img src="../../img/nlw.png" width="340"></p>

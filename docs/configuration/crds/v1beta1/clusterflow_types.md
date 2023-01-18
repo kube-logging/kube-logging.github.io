@@ -78,7 +78,7 @@ Default: -
 
 ## ClusterFlowSpec
 
-FlowSpec is the Kubernetes spec for Flows
+ClusterFlowSpec is the Kubernetes spec for ClusterFlows
 
 ### selectors (map[string]string, optional) {#clusterflowspec-selectors}
 

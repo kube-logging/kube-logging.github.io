@@ -1,19 +1,21 @@
 ---
-title: Demo Sumologic with Logging operator
-shorttitle: Sumologic
+title: Sumo Logic with Logging operator and Fluentd
+shorttitle: Sumo Logic with Fluentd
 weight: 300
+aliases:
+    - /docs/logging-operator/quickstarts/sumologic/
 ---
 
-This guide walks you through a simple Sumologic setup using the Logging Operator.
-Sumologic has Prometheus and logging capabilities as well. Now we only focus on the logging part.
+This guide walks you through a simple Sumo Logic setup using the Logging Operator.
+Sumo Logic has Prometheus and logging capabilities as well. Now we only focus on the logging part.
 
 ## Configuration
 
-There are 3 crucial plugins needed for a proper Sumologic setup.
+There are 3 crucial plugins needed for a proper Sumo Logic setup.
 
 1. Kubernetes metadata enhancer
-2. Sumologic filter
-3. Sumologic output
+2. Sumo Logic filter
+3. Sumo Logic output
 
 Let's setup the logging first.
 
@@ -52,9 +54,9 @@ EOF
 
 ### ClusterFlow
 
-Now we can create a ClusterFlow. Add the Sumologic filter to the `filters` section of the ClusterFlow spec.
+Now we can create a ClusterFlow. Add the Sumo Logic filter to the `filters` section of the ClusterFlow spec.
 It will use the Kubernetes metadata and moves them to a special field called `_sumo_metadata`.
-All those moved fields will be sent as HTTP Header to the Sumologic endpoint.
+All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.
 
 > Note: As we are using Fluent Bit to enrich Kubernetes metadata, we need to specify the field names where this data is stored.
 
@@ -80,13 +82,13 @@ EOF
 
 ### ClusterOutput
 
-Create a Sumologic output secret from the URL.
+Create a Sumo Logic output secret from the URL.
 
 ```bash
 kubectl create secret generic logging-sumo -n logging --from-literal "sumoURL=https://endpoint1.collection.eu.sumologic.com/......"
 ```
 
-Finally create the Sumologic output.
+Finally create the Sumo Logic output.
 
 ```bash
 kubectl -n logging apply -f - <<"EOF"

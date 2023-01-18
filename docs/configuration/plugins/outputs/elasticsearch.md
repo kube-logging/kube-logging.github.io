@@ -10,7 +10,7 @@ More info at https://github.com/uken/fluent-plugin-elasticsearch
 >Example Deployment: [Save all logs to ElasticSearch](../../../../quickstarts/es-nginx/)
 
  #### Example output configurations
- ```
+ ```yaml
  spec:
    elasticsearch:
      host: elasticsearch-elasticsearch-cluster.default.svc.cluster.local
@@ -279,6 +279,12 @@ Indicates whether to fail when max_retry_putting_template is exceeded. If you ha
 
 Default: true
 
+### fail_on_detecting_es_version_retry_exceed (*bool, optional) {#elasticsearch-fail_on_detecting_es_version_retry_exceed}
+
+fail_on_detecting_es_version_retry_exceed (default: true) 
+
+Default: true
+
 ### max_retry_get_es_version (string, optional) {#elasticsearch-max_retry_get_es_version}
 
 You can specify times of retry obtaining Elasticsearch version. 
@@ -336,6 +342,12 @@ Default: -
 ### routing_key (string, optional) {#elasticsearch-routing_key}
 
 Similar to parent_key config, will add _routing into elasticsearch command if routing_key is set and the field does exist in input event. 
+
+Default: -
+
+### remove_keys (string, optional) {#elasticsearch-remove_keys}
+
+https://github.com/uken/fluent-plugin-elasticsearch#remove_keys 
 
 Default: -
 
@@ -542,5 +554,17 @@ Default:  data_stream_name
 Specify an existing ILM policy to be applied to the data stream. If not present, either the specified template's or a new ILM default policy is applied.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
 
 Default:  data_stream_name
+
+### data_stream_ilm_policy (string, optional) {#elasticsearch-data_stream_ilm_policy}
+
+Specify data stream ILM policy contents as Hash. 
+
+Default: -
+
+### data_stream_ilm_policy_overwrite (bool, optional) {#elasticsearch-data_stream_ilm_policy_overwrite}
+
+Specify whether overwriting data stream ilm policy or not. 
+
+Default: -
 
 

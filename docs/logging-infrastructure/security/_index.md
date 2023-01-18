@@ -3,6 +3,7 @@ title: Security
 weight: 1000
 aliases:
     - /docs/logging-operator/security/
+    - /docs/logging-operator/configuration/security/
 ---
 
 

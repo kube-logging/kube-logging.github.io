@@ -8,6 +8,10 @@ generated_file: true
 
 FluentbitSpec defines the desired state of Fluentbit
 
+### daemonsetAnnotations (map[string]string, optional) {#fluentbitspec-daemonsetannotations}
+
+Default: -
+
 ### annotations (map[string]string, optional) {#fluentbitspec-annotations}
 
 Default: -
@@ -112,6 +116,10 @@ Default: -
 
 Default: -
 
+### filterModify ([]FilterModify, optional) {#fluentbitspec-filtermodify}
+
+Default: -
+
 ### parser (string, optional) {#fluentbitspec-parser}
 
 Deprecated, use inputTail.parser 
@@ -137,6 +145,18 @@ Default: -
 ### bufferStorageVolume (volume.KubernetesVolume, optional) {#fluentbitspec-bufferstoragevolume}
 
 [volume.KubernetesVolume](https://github.com/banzaicloud/operator-tools/tree/master/docs/types) 
+
+Default: -
+
+### bufferVolumeMetrics (*Metrics, optional) {#fluentbitspec-buffervolumemetrics}
+
+Default: -
+
+### bufferVolumeImage (ImageSpec, optional) {#fluentbitspec-buffervolumeimage}
+
+Default: -
+
+### bufferVolumeArgs ([]string, optional) {#fluentbitspec-buffervolumeargs}
 
 Default: -
 
@@ -184,6 +204,14 @@ Default: -
 
 Default: -
 
+### HostNetwork (bool, optional) {#fluentbitspec-hostnetwork}
+
+Default: -
+
+### syslogng_output (*FluentbitTCPOutput, optional) {#fluentbitspec-syslogng_output}
+
+Default: -
+
 
 ## FluentbitTLS
 
@@ -202,6 +230,19 @@ Default: -
 Default: -
 
 
+## FluentbitTCPOutput
+
+FluentbitTCPOutput defines the TLS configs
+
+### json_date_key (string, optional) {#fluentbittcpoutput-json_date_key}
+
+Default: ts
+
+### json_date_format (string, optional) {#fluentbittcpoutput-json_date_format}
+
+Default: iso8601
+
+
 ## FluentbitNetwork
 
 FluentbitNetwork defines network configuration for fluentbit
@@ -211,6 +252,30 @@ FluentbitNetwork defines network configuration for fluentbit
 Sets the timeout for connecting to an upstream  
 
 Default:  10
+
+### connectTimeoutLogError (*bool, optional) {#fluentbitnetwork-connecttimeoutlogerror}
+
+On connection timeout, specify if it should log an error. When disabled, the timeout is logged as a debug message  
+
+Default:  true
+
+### dnsMode (string, optional) {#fluentbitnetwork-dnsmode}
+
+Sets the primary transport layer protocol used by the asynchronous DNS resolver for connections established  
+
+Default:  UDP, UDP or TCP
+
+### dnsPreferIpv4 (*bool, optional) {#fluentbitnetwork-dnspreferipv4}
+
+Prioritize IPv4 DNS results when trying to establish a connection  
+
+Default:  false
+
+### dnsResolver (string, optional) {#fluentbitnetwork-dnsresolver}
+
+Select the primary DNS resolver type  
+
+Default:  ASYNC, LEGACY or ASYNC
 
 ### keepalive (*bool, optional) {#fluentbitnetwork-keepalive}
 
@@ -229,6 +294,12 @@ Default:  30
 How many times a TCP keepalive connection can be used before being recycled  
 
 Default:  0, disabled
+
+### sourceAddress (string, optional) {#fluentbitnetwork-sourceaddress}
+
+Specify network address (interface) to use for connection and data traffic.  
+
+Default:  disabled
 
 
 ## BufferStorage
@@ -300,6 +371,12 @@ Set one or multiple shell patterns separated by commas to exclude files matching
 
 Default: -
 
+### Read_From_Head (bool, optional) {#inputtail-read_from_head}
+
+For new discovered files on start (without a database offset/position), read the content from the head of the file, not tail. 
+
+Default: -
+
 ### Refresh_Interval (string, optional) {#inputtail-refresh_interval}
 
 The interval of refreshing the list of watched files in seconds.  
@@ -335,6 +412,18 @@ Default: -
 Set a default synchronization (I/O) method. Values: Extra, Full, Normal, Off. This flag affects how the internal SQLite engine do synchronization to disk, for more details about each option please refer to this section.  
 
 Default: Full
+
+### DB.locking (*bool, optional) {#inputtail-db.locking}
+
+Specify that the database will be accessed only by Fluent Bit. Enabling this feature helps to increase performance when accessing the database but it restrict any external tool to query the content.  
+
+Default:  true
+
+### DB.journal_mode (string, optional) {#inputtail-db.journal_mode}
+
+sets the journal mode for databases (WAL). Enabling WAL provides higher performance. Note that WAL is not compatible with shared network file systems.  
+
+Default:  WAL
 
 ### Mem_Buf_Limit (string, optional) {#inputtail-mem_buf_limit}
 
@@ -509,6 +598,12 @@ When enabled, the filter reads logs coming in Journald format.
 
 Default: Off
 
+### Cache_Use_Docker_Id (string, optional) {#filterkubernetes-cache_use_docker_id}
+
+When enabled, metadata will be fetched from K8s when docker_id is changed.  
+
+Default: Off
+
 ### Regex_Parser (string, optional) {#filterkubernetes-regex_parser}
 
 Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. The parser must be registered in a parsers file (refer to parser filter-kube-test as an example). 
@@ -639,6 +734,182 @@ Default: false
 Match filtered records (default:*) 
 
 Default: *
+
+
+## FilterModify
+
+FilterModify The Modify Filter plugin allows you to change records using rules and conditions.
+
+### rules ([]FilterModifyRule, optional) {#filtermodify-rules}
+
+Fluentbit Filter Modification Rule 
+
+Default: -
+
+### conditions ([]FilterModifyCondition, optional) {#filtermodify-conditions}
+
+Fluentbit Filter Modification Condition 
+
+Default: -
+
+
+## FilterModifyRule
+
+FilterModifyRule The Modify Filter plugin allows you to change records using rules and conditions.
+
+### Set (*FilterKeyValue, optional) {#filtermodifyrule-set}
+
+Add a key/value pair with key KEY and value VALUE. If KEY already exists, this field is overwritten 
+
+Default: -
+
+### Add (*FilterKeyValue, optional) {#filtermodifyrule-add}
+
+Add a key/value pair with key KEY and value VALUE if KEY does not exist 
+
+Default: -
+
+### Remove (*FilterKey, optional) {#filtermodifyrule-remove}
+
+Remove a key/value pair with key KEY if it exists 
+
+Default: -
+
+### Remove_wildcard (*FilterKey, optional) {#filtermodifyrule-remove_wildcard}
+
+Remove all key/value pairs with key matching wildcard KEY 
+
+Default: -
+
+### Remove_regex (*FilterKey, optional) {#filtermodifyrule-remove_regex}
+
+Remove all key/value pairs with key matching regexp KEY 
+
+Default: -
+
+### Rename (*FilterKeyValue, optional) {#filtermodifyrule-rename}
+
+Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists AND RENAMED_KEY does not exist 
+
+Default: -
+
+### Hard_rename (*FilterKeyValue, optional) {#filtermodifyrule-hard_rename}
+
+Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists. If RENAMED_KEY already exists, this field is overwritten 
+
+Default: -
+
+### Copy (*FilterKeyValue, optional) {#filtermodifyrule-copy}
+
+Copy a key/value pair with key KEY to COPIED_KEY if KEY exists AND COPIED_KEY does not exist 
+
+Default: -
+
+### Hard_copy (*FilterKeyValue, optional) {#filtermodifyrule-hard_copy}
+
+Copy a key/value pair with key KEY to COPIED_KEY if KEY exists. If COPIED_KEY already exists, this field is overwritten 
+
+Default: -
+
+
+## FilterModifyCondition
+
+FilterModifyCondition The Modify Filter plugin allows you to change records using rules and conditions.
+
+### Key_exists (*FilterKey, optional) {#filtermodifycondition-key_exists}
+
+Is true if KEY exists 
+
+Default: -
+
+### Key_does_not_exist (*FilterKeyValue, optional) {#filtermodifycondition-key_does_not_exist}
+
+Is true if KEY does not exist 
+
+Default: -
+
+### A_key_matches (*FilterKey, optional) {#filtermodifycondition-a_key_matches}
+
+Is true if a key matches regex KEY 
+
+Default: -
+
+### No_key_matches (*FilterKey, optional) {#filtermodifycondition-no_key_matches}
+
+Is true if no key matches regex KEY 
+
+Default: -
+
+### Key_value_equals (*FilterKeyValue, optional) {#filtermodifycondition-key_value_equals}
+
+Is true if KEY exists and its value is VALUE 
+
+Default: -
+
+### Key_value_does_not_equal (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_equal}
+
+Is true if KEY exists and its value is not VALUE 
+
+Default: -
+
+### Key_value_matches (*FilterKeyValue, optional) {#filtermodifycondition-key_value_matches}
+
+Is true if key KEY exists and its value matches VALUE 
+
+Default: -
+
+### Key_value_does_not_match (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_match}
+
+Is true if key KEY exists and its value does not match VALUE 
+
+Default: -
+
+### Matching_keys_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_have_matching_values}
+
+Is true if all keys matching KEY have values that match VALUE 
+
+Default: -
+
+### Matching_keys_do_not_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_do_not_have_matching_values}
+
+Is true if all keys matching KEY have values that do not match VALUE 
+
+Default: -
+
+
+## Operation
+
+Operation Doc stub
+
+### Op (string, optional) {#operation-op}
+
+Default: -
+
+### Key (string, optional) {#operation-key}
+
+Default: -
+
+### Value (string, optional) {#operation-value}
+
+Default: -
+
+
+## FilterKey
+
+### key (string, optional) {#filterkey-key}
+
+Default: -
+
+
+## FilterKeyValue
+
+### key (string, optional) {#filterkeyvalue-key}
+
+Default: -
+
+### value (string, optional) {#filterkeyvalue-value}
+
+Default: -
 
 
 ## VolumeMount

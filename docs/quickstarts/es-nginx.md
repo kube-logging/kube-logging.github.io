@@ -1,6 +1,6 @@
 ---
 title: Store NGINX access logs in Elasticsearch with Logging operator
-shorttitle: Elasticsearch
+shorttitle: Elasticsearch with Fluentd
 weight: 300
 ---
 
@@ -94,6 +94,8 @@ Install the Logging operator and a demo application to provide sample log messag
     ```
 
 1. [Validate your deployment](#validate).
+
+## Configure the Logging operator
 
 1. Create the `logging` resource.
 

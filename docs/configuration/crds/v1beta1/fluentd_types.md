@@ -8,6 +8,10 @@ generated_file: true
 
 FluentdSpec defines the desired state of Fluentd
 
+### statefulsetAnnotations (map[string]string, optional) {#fluentdspec-statefulsetannotations}
+
+Default: -
+
 ### annotations (map[string]string, optional) {#fluentdspec-annotations}
 
 Default: -
@@ -160,6 +164,12 @@ Ignore repeated log lines [more info]( https://docs.fluentd.org/deployment/loggi
 
 Default: -
 
+### enableMsgpackTimeSupport (bool, optional) {#fluentdspec-enablemsgpacktimesupport}
+
+Allows Time object in buffer's MessagePack serde [more info]( https://docs.fluentd.org/deployment/system-config#enable_msgpack_time_support) 
+
+Default: -
+
 ### podPriorityClassName (string, optional) {#fluentdspec-podpriorityclassname}
 
 Default: -
@@ -190,11 +200,7 @@ Default: -
 
 Default: -
 
-### serviceTopologyKeys ([]string, optional) {#fluentdspec-servicetopologykeys}
-
-Default: -
-
-### headlessServiceTopologyKeys ([]string, optional) {#fluentdspec-headlessservicetopologykeys}
+### extraArgs ([]string, optional) {#fluentdspec-extraargs}
 
 Default: -
 
@@ -214,6 +220,27 @@ Default: -
 Default: -
 
 ### size (string, optional) {#fluentoutlogrotate-size}
+
+Default: -
+
+
+## ExtraVolume
+
+ExtraVolume defines the fluentd extra volumes
+
+### volumeName (string, optional) {#extravolume-volumename}
+
+Default: -
+
+### path (string, optional) {#extravolume-path}
+
+Default: -
+
+### containerName (string, optional) {#extravolume-containername}
+
+Default: -
+
+### volume (*volume.KubernetesVolume, optional) {#extravolume-volume}
 
 Default: -
 

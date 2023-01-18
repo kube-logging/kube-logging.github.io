@@ -8,12 +8,12 @@ spec:
     aws_key_id:
       valueFrom:
         secretKeyRef:
-          name: logging-s3
+          name: logging-cloudwatch
           key: awsAccessKeyId
     aws_sec_key:
       valueFrom:
         secretKeyRef:
-          name: logging-s3
+          name: logging-cloudwatch
           key: awsSecretAccessKey
     log_group_name: operator-log-group
     log_stream_name: operator-log-stream
