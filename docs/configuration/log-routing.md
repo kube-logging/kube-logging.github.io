@@ -1,15 +1,15 @@
 ---
-title: Routing your logs with match directive
-shorttitle: Log routing
-weight: 700
+title: Routing your logs with Fluentd match directives
+shorttitle: Log routing with Fluentd
+weight: 200
 aliases:
     - /docs/one-eye/logging-operator/log-routing/
 ---
 
+> Note: This page describes routing logs with **Fluentd**. If you are using syslog-ng to route your log messages, see {{% xref "/docs/one-eye/logging-operator/configuration/log-routing-syslog-ng.md" %}}.
 
-
-The first step to process your logs is to select what logs goes to where.
-The logging operator uses Kubernetes labels, namespaces and other metadata
+The first step to process your logs is to select which logs go where.
+The Logging operator uses Kubernetes labels, namespaces and other metadata
 to separate different log flows.
 
 Available routing metadata keys:

@@ -1,7 +1,9 @@
 ---
 title: Store Nginx Access Logs in Grafana Loki with Logging operator
-shorttitle: Grafana Loki
+shorttitle: Grafana Loki with Fluentd
 weight: 500
+aliases:
+    - /docs/one-eye/logging-operator/quickstarts/loki-nginx/
 ---
 
 <p align="center"><img src="../../img/nll.png" width="340"></p>

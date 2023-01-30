@@ -44,6 +44,12 @@ Fluentd statefulset configuration
 
 Default: -
 
+### syslogNG (*SyslogNGSpec, optional) {#loggingspec-syslogng}
+
+Syslog-NG statefulset configuration 
+
+Default: -
+
 ### defaultFlow (*DefaultFlowSpec, optional) {#loggingspec-defaultflow}
 
 Default flow for unmatched logs. This Flow configuration collects all logs that didn't matched any other Flow. 
@@ -76,7 +82,7 @@ Default:  "cluster.local"
 
 ### controlNamespace (string, required) {#loggingspec-controlnamespace}
 
-Namespace for cluster wide configuration resources like CLusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 
+Namespace for cluster wide configuration resources like ClusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well. 
 
 Default: -
 

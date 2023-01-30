@@ -1,7 +1,9 @@
 ---
 title: Transport Nginx Access Logs into Kafka with Logging operator
-shorttitle: Kafka
+shorttitle: Kafka with Fluentd
 weight: 400
+aliases:
+    - /docs/one-eye/logging-operator/quickstarts/kafka-nginx/
 ---
 
 <p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
@@ -14,7 +16,7 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy Kafka
 
-In this demo we are using our [Koperator](/docs/supertubes/kafka-operator/). For details on installing it, see the [Koperator installation guide](/docs/supertubes/kafka-operator/install-kafka-operator/).
+In this demo we are using our [Koperator](https://banzaicloud.com/docs/supertubes/kafka-operator/) to create an Apache Kafka cluster in Kubernetes. For details on installing it, see the [Koperator installation guide](https://banzaicloud.com/docs/supertubes/kafka-operator/install-kafka-operator/).
 
 ## Deploy the Logging operator and a demo Application
 

@@ -1,0 +1,1 @@
+syslog-ng is supported only in Logging operator 4.0 or newer.

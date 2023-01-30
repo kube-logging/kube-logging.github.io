@@ -13,25 +13,25 @@ generated_file: true
 
 ### regexp ([]RegexpSection, optional) {#grepconfig-regexp}
 
-[Regexp Directive](#Regexp-Directive) 
+[Regexp Directive](#grepconfig-regexp) 
 
 Default: -
 
 ### exclude ([]ExcludeSection, optional) {#grepconfig-exclude}
 
-[Exclude Directive](#Exclude-Directive) 
+[Exclude Directive](#grepconfig-exclude) 
 
 Default: -
 
 ### or ([]OrSection, optional) {#grepconfig-or}
 
-[Or Directive](#Or-Directive) 
+[Or Directive](#grepconfig-or) 
 
 Default: -
 
 ### and ([]AndSection, optional) {#grepconfig-and}
 
-[And Directive](#And-Directive) 
+[And Directive](#grepconfig-and) 
 
 Default: -
 

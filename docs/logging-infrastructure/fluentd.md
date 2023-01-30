@@ -1,10 +1,12 @@
 ---
 title: Configure Fluentd
-shorttitle: Fluentd
-weight: 40
+shorttitle: Fluentd log forwarder
+weight: 200
+aliases:
+    - /docs/one-eye/logging-operator/configuration/fluentd/
 ---
 
-You can configure the Fluentd deployment via the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
+You can configure the deployment of the Fluentd log forwarder via the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentd_types.md" %}}.
 
 ## Custom pvc volume for Fluentd buffers
 
@@ -75,7 +77,7 @@ spec:
 
 ## Scaling
 
-You can scale the Fluentd deployment manually by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. For example:
+You can scale the Fluentd deployment manually by changing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -94,7 +96,7 @@ For automatic scaling, see [Autoscaling with HPA](#autoscaling).
 
 ### Graceful draining
 
-While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
+While you can scale down the Fluentd deployment by decreasing the number of replicas in the **fluentd** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}, it won't automatically be graceful, as the controller will stop the extra replica pods without waiting for any remaining buffers to be flushed.
 You can enable graceful draining in the **scaling** subsection:
 
 ```yaml
@@ -203,7 +205,7 @@ To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscal
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/one-eye/logging-operator/configuration/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -238,16 +240,18 @@ You can use the following parameters:
 
 | Name                    | Type           | Default | Description |
 |-------------------------|----------------|---------|-------------|
-| initialDelaySeconds | int | 0 | Number of seconds after the container has started before liveness probes are initiated. |
-| timeoutSeconds | int | 1 | Number of seconds after which the probe times out. |
-| periodSeconds | int | 10 | How often (in seconds) to perform the probe. |
-| successThreshold | int | 1 | Minimum consecutive successes for the probe to be considered successful after having failed. |
-| failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
+| initialDelaySeconds | int | 600 | Number of seconds after the container has started before liveness probes are initiated. |
+| timeoutSeconds | int | 0 | Number of seconds after which the probe times out. |
+| periodSeconds | int | 60 | How often (in seconds) to perform the probe. |
+| successThreshold | int | 0 | Minimum consecutive successes for the probe to be considered successful after having failed. |
+| failureThreshold | int | 0 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
 | exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
 
-## Custom Fluentd image
+> Note: To configure readiness probes, see {{% xref "/docs/one-eye/logging-operator/operation/readiness-probe.md" %}}.
+
+## Custom Fluentd image {#custom-fluentd-image}
 
 You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.
 
@@ -294,15 +298,17 @@ Define Kubernetes storage.
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
-| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
+| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
+| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
 | pvc | [PersistentVolumeClaim](#persistent-volume-claim) | - | A PersistentVolumeClaim (PVC) is a request for storage by a user. |
 
 ## Persistent Volume Claim
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| spec | [PersistentVolumeClaimSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#persistentvolumeclaimspec-v1-core) | - | Spec defines the desired characteristics of a volume requested by a pod author. |
-| source | [PersistentVolumeClaimVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#persistentvolumeclaimvolumesource-v1-core) | - | PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.  |
+| spec | [PersistentVolumeClaimSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimspec-v1-core) | - | Spec defines the desired characteristics of a volume requested by a pod author. |
+| source | [PersistentVolumeClaimVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core) | - | PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.  |
 
 The Persistent Volume Claim should be created with the given `spec` and with the `name` defined in the `source`'s `claimName`.
+
+{{< include-headless "cpu-memory-requirements.md" "one-eye/logging-operator" >}}

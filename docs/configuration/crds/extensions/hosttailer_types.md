@@ -10,13 +10,13 @@ HostTailerSpec defines the desired state of HostTailer
 
 ### fileTailers ([]FileTailer, optional) {#hosttailerspec-filetailers}
 
-List of [file tailers](#filetailer). 
+List of [file tailers](#filetailer).
 
 Default: -
 
 ### systemdTailers ([]SystemdTailer, optional) {#hosttailerspec-systemdtailers}
 
-List of [systemd tailers](#systemdtailer). 
+List of [systemd tailers](#systemdtailer).
 
 Default: -
 
@@ -101,6 +101,30 @@ Default: -
 ### disabled (bool, optional) {#filetailer-disabled}
 
 Disable tailing the file 
+
+Default: -
+
+### buffer_max_size (string, optional) {#filetailer-buffer_max_size}
+
+Set the limit of the buffer size per active filetailer 
+
+Default: -
+
+### buffer_chunk_size (string, optional) {#filetailer-buffer_chunk_size}
+
+Set the buffer chunk size per active filetailer 
+
+Default: -
+
+### skip_long_lines (string, optional) {#filetailer-skip_long_lines}
+
+Skip long line when exceeding Buffer_Max_Size 
+
+Default: -
+
+### read_from_head (bool, optional) {#filetailer-read_from_head}
+
+Start reading from the head of new log files 
 
 Default: -
 

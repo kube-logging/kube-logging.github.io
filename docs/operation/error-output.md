@@ -6,7 +6,7 @@ weight: 1100
 
 This section describes how to collect Fluentd error messages (messages that are sent to the [@ERROR label](https://docs.fluentd.org/configuration/config-file#error-label) from another plugin in Fluentd).
 
-> Note: It depends on the specific plugin implementation what messages sent to the @ERROR label. A simple example is a parsing plugin that failes to parse a line and send that line to the @ERROR label.
+> Note: It depends on the specific plugin implementation what messages are sent to the @ERROR label. For example, a parsing plugin that fails to parse a line could send that line to the @ERROR label.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To collect the error messages of Fluentd, complete the following steps.
             path: /tmp/error.log
     ```
 
-1. Set the `errorOutputRef` in the Logging resource to your prefered ClusterOutput. 
+1. Set the `errorOutputRef` in the Logging resource to your preferred ClusterOutput.
 
     ```yaml
     apiVersion: logging.banzaicloud.io/v1beta1

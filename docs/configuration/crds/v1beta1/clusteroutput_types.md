@@ -27,7 +27,7 @@ Default: -
 
 ## ClusterOutputSpec
 
-ClusterOutputSpec contains Kubernetes spec for CLusterOutput
+ClusterOutputSpec contains Kubernetes spec for ClusterOutput
 
 ###  (OutputSpec, required) {#clusteroutputspec-}
 

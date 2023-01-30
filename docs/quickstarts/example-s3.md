@@ -1,6 +1,6 @@
 ---
 title: Transport all logs into Amazon S3  with Logging operator
-shorttitle: Amazon S3
+shorttitle: Amazon S3 with Fluentd
 weight: 200
 ---
 
@@ -35,6 +35,8 @@ Install the Logging operator.
     ```
 
 1. [Validate your deployment](#validate).
+
+## Configure the Logging operator
 
 1. Create logging `Namespace`
 
