@@ -1,6 +1,7 @@
 ---
 title: File
 weight: 200
+generated_file: true
 ---
 
 The `file` output stores log records in a plain text file.

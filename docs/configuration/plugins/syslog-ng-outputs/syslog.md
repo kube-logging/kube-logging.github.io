@@ -1,6 +1,7 @@
 ---
 title: Syslog (RFC5424) output
 weight: 200
+generated_file: true
 ---
 
 The `syslog` output sends log records over a socket using the Syslog protocol (RFC 5424).

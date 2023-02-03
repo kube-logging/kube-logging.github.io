@@ -1,6 +1,7 @@
 ---
 title: Sumo Logic HTTP
 weight: 200
+generated_file: true
 ---
 
 The `sumologic-http` output sends log records over HTTP to Sumo Logic.

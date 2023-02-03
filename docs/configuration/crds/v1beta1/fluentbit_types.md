@@ -208,11 +208,11 @@ Default: -
 
 Default: -
 
-### updateStrategy (appsv1.DaemonSetUpdateStrategy, optional) {#fluentbitspec-updatestrategy}
+### syslogng_output (*FluentbitTCPOutput, optional) {#fluentbitspec-syslogng_output}
 
 Default: -
 
-### syslogng_output (*FluentbitTCPOutput, optional) {#fluentbitspec-syslogng_output}
+### updateStrategy (appsv1.DaemonSetUpdateStrategy, optional) {#fluentbitspec-updatestrategy}
 
 Default: -
 
