@@ -1,6 +1,7 @@
 ---
 title: Match
 weight: 200
+generated_file: true
 ---
 
 Match filters can be used to select the log records to process. These filters have the same options and syntax as the [syslog-ng flow match expressions]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/syslog-ng-filters/match.md" >}}).
@@ -24,13 +25,9 @@ Match filters can be used to select the log records to process. These filters ha
 
 ### and ([]MatchExpr, optional) {#matchexpr-and}
 
-[And Directive](#And-Directive) 
-
 Default: -
 
 ### not (*MatchExpr, optional) {#matchexpr-not}
-
-[Not Directive](#Exclude-Directive) 
 
 Default: -
 
@@ -42,8 +39,6 @@ Default: -
 
 ### or ([]MatchExpr, optional) {#matchexpr-or}
 
-[Or Directive](#Or-Directive) 
-
 Default: -
 
 
@@ -51,31 +46,31 @@ Default: -
 
 Specify filtering rule.
 
-### pattern (string, required) {#[regexp directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#topic-1829171) {#regexp-directive}-pattern}
+### pattern (string, required) {#regexp-directive-pattern}
 
 Pattern expression to evaluate 
 
 Default: -
 
-### template (string, optional) {#[regexp directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#topic-1829171) {#regexp-directive}-template}
+### template (string, optional) {#regexp-directive-template}
 
 Specify a template of the record fields to match against. 
 
 Default: -
 
-### value (string, optional) {#[regexp directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#topic-1829171) {#regexp-directive}-value}
+### value (string, optional) {#regexp-directive-value}
 
 Specify a field name of the record to match against the value of. 
 
 Default: -
 
-### flags ([]string, optional) {#[regexp directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#topic-1829171) {#regexp-directive}-flags}
+### flags ([]string, optional) {#regexp-directive-flags}
 
 Pattern flags 
 
 Default: -
 
-### type (string, optional) {#[regexp directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#topic-1829171) {#regexp-directive}-type}
+### type (string, optional) {#regexp-directive-type}
 
 Pattern type 
 
