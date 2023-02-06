@@ -1,6 +1,7 @@
 ---
 title: Parser
 weight: 200
+generated_file: true
 ---
 
 Parser filters can be used to extract key-value pairs from message data. Logging operator currently supports the following parsers:

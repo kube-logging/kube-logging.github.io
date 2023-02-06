@@ -1,6 +1,7 @@
 ---
 title: Rewrite
 weight: 200
+generated_file: true
 ---
 
 Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:

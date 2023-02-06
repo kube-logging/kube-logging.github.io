@@ -40,13 +40,13 @@ Default: -
 
 Specify filtering rule. This directive contains two parameters.
 
-### key (string, required) {#[regexp directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#regexp-directive}-key}
+### key (string, required) {#regexp-directive-key}
 
 Specify field name in the record to parse. 
 
 Default: -
 
-### pattern (string, required) {#[regexp directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#regexp-directive}-pattern}
+### pattern (string, required) {#regexp-directive-pattern}
 
 Pattern expression to evaluate 
 
@@ -87,13 +87,13 @@ spec:
 
 Specify filtering rule to reject events. This directive contains two parameters.
 
-### key (string, required) {#[exclude directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#exclude-directive}-key}
+### key (string, required) {#exclude-directive-key}
 
 Specify field name in the record to parse. 
 
 Default: -
 
-### pattern (string, required) {#[exclude directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#exclude-directive}-pattern}
+### pattern (string, required) {#exclude-directive-pattern}
 
 Pattern expression to evaluate 
 
@@ -134,15 +134,15 @@ spec:
 
 Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
 
-### regexp ([]RegexpSection, optional) {#[or directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#or-directive}-regexp}
+### regexp ([]RegexpSection, optional) {#or-directive-regexp}
 
-[Regexp Directive](#Regexp-Directive) 
+[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) 
 
 Default: -
 
-### exclude ([]ExcludeSection, optional) {#[or directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#or-directive}-exclude}
+### exclude ([]ExcludeSection, optional) {#or-directive-exclude}
 
-[Exclude Directive](#Exclude-Directive) 
+[Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) 
 
 Default: -
 
@@ -187,15 +187,15 @@ spec:
 
 Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
 
-### regexp ([]RegexpSection, optional) {#[and directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#and-directive}-regexp}
+### regexp ([]RegexpSection, optional) {#and-directive-regexp}
 
-[Regexp Directive](#Regexp-Directive) 
+[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) 
 
 Default: -
 
-### exclude ([]ExcludeSection, optional) {#[and directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#and-directive}-exclude}
+### exclude ([]ExcludeSection, optional) {#and-directive-exclude}
 
-[Exclude Directive](#Exclude-Directive) 
+[Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) 
 
 Default: -
 
