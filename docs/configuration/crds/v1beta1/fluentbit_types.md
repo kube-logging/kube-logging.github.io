@@ -674,6 +674,12 @@ kubelet port using for HTTP request, this only works when Use_Kubelet  set to On
 
 Default: 10250
 
+### Kube_Meta_Cache_TTL (string, optional) {#filterkubernetes-kube_meta_cache_ttl}
+
+configurable TTL for K8s cached metadata. By default, it is set to 0 which means TTL for cache entries is disabled and cache entries are evicted at random when capacity is reached. In order to enable this option, you should set the number to a time interval. For example, set this value to 60 or 60s and cache entries which have been created more than 60s will be evicted.
+
+Default: 0
+
 
 ## FilterAws
 
