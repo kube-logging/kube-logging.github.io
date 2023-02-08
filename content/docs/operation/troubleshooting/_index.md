@@ -6,7 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/troubleshooting/
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/troubleshooting.svg" width="260"></p>
+<p align="center"><img src="/docs/img/troubleshooting.svg" width="260"></p>
 <p align="center">
 
 The following tips and commands can help you to troubleshoot your Logging operator installation.

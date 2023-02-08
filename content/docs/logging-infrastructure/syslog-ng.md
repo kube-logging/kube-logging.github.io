@@ -6,9 +6,9 @@ weight: 300
 
 {{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
 
-You can configure the deployment of the syslog-ng log forwarder via the **syslogNG** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/syslogng_types.md" %}}.
+You can configure the deployment of the syslog-ng log forwarder via the **syslogNG** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_types.md" %}}.
 
-The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if {{% xref "/docs/one-eye/logging-operator/configuration/plugins/syslog-ng-outputs/disk_buffer.md" %}} is configured in the output).
+The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if {{% xref "/docs/configuration/plugins/syslog-ng-outputs/disk_buffer.md" %}} is configured in the output).
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -40,7 +40,7 @@ spec:
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for syslog-ng in the **livenessProbe** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for syslog-ng in the **livenessProbe** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -73,4 +73,4 @@ You can use the following parameters:
 | failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
 | exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
 
-> Note: To configure readiness probes, see {{% xref "/docs/one-eye/logging-operator/operation/readiness-probe.md" %}}.
+> Note: To configure readiness probes, see {{% xref "/docs/operation/readiness-probe.md" %}}.

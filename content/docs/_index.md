@@ -39,12 +39,12 @@ This operator helps you bundle logging information with your applications: you c
 
 For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
 
-![Logging operator architecture](/docs/one-eye/logging-operator/img/logging-operator-v2-architecture.png)
+![Logging operator architecture](/docs/img/logging-operator-v2-architecture.png)
 
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
 
-See also our [Quickstart guides](/docs/one-eye/logging-operator/quickstarts/).
+See also our [Quickstart guides](/docs/quickstarts/).
 
 ## Support
 

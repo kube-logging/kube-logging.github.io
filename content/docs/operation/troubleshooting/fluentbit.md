@@ -4,7 +4,7 @@ shorttitle: Fluent Bit
 weight: 200
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/fluentbit.png" height="100"></p>
+<p align="center"><img src="/docs/img/fluentbit.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluent Bit component of the Logging operator.
 

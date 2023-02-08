@@ -4,7 +4,7 @@ shorttitle: Log routing with syslog-ng
 weight: 200
 ---
 
-> Note: This page describes routing logs with **syslog-ng**. If you are using Fluentd to route your log messages, see {{% xref "/docs/one-eye/logging-operator/configuration/log-routing.md" %}}.
+> Note: This page describes routing logs with **syslog-ng**. If you are using Fluentd to route your log messages, see {{% xref "/docs/configuration/log-routing.md" %}}.
 
 {{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
 

@@ -6,7 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/log-routing/
 ---
 
-> Note: This page describes routing logs with **Fluentd**. If you are using syslog-ng to route your log messages, see {{% xref "/docs/one-eye/logging-operator/configuration/log-routing-syslog-ng.md" %}}.
+> Note: This page describes routing logs with **Fluentd**. If you are using syslog-ng to route your log messages, see {{% xref "/docs/configuration/log-routing-syslog-ng.md" %}}.
 
 The first step to process your logs is to select which logs go where.
 The Logging operator uses Kubernetes labels, namespaces and other metadata

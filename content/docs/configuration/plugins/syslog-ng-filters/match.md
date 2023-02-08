@@ -4,7 +4,7 @@ weight: 200
 generated_file: true
 ---
 
-Match filters can be used to select the log records to process. These filters have the same options and syntax as the [syslog-ng flow match expressions]({{< relref "/docs/one-eye/logging-operator/configuration/plugins/syslog-ng-filters/match.md" >}}).
+Match filters can be used to select the log records to process. These filters have the same options and syntax as the [syslog-ng flow match expressions]({{< relref "/docs/configuration/plugins/syslog-ng-filters/match.md" >}}).
 
 {{< highlight yaml >}}
   filters:

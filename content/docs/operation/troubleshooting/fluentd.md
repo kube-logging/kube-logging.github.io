@@ -4,7 +4,7 @@ shorttitle: Fluentd
 weight: 200
 ---
 
-<p align="center"><img src="/docs/one-eye/logging-operator/img/fluentd.png" height="100"></p>
+<p align="center"><img src="/docs/img/fluentd.png" height="100"></p>
 
 The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 
@@ -114,7 +114,7 @@ The following command displays the logs of the Fluentd container.
 
 > The [One Eye](/products/one-eye/) observability tool can [display Fluentd logs on its web UI](/docs/one-eye/troubleshooting/), where you can select which replica to inspect, search the logs, and use other ways to monitor and troubleshoot your logging infrastructure.
 
-> Tip: If the logs include the `error="can't create buffer file ...` error message, FluentD can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/one-eye/logging-operator/configuration/fluentd/).
+> Tip: If the logs include the `error="can't create buffer file ...` error message, FluentD can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/configuration/fluentd/).
 
 ## Set stdout as an output
 

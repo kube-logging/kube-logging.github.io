@@ -10,7 +10,7 @@ To use TLS encryption in your logging infrastructure, you have to configure encr
 - for the log collection part of your logging pipeline (between Fluent Bit and Fluentd or Fluent bit and syslog-ng), and
 - for the output plugin (between Fluentd or syslog-ng and the output backend).
 
-For configuring the output, see the documentation of the output plugin you want to use at {{% xref "/docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" %}}.
+For configuring the output, see the documentation of the output plugin you want to use at {{% xref "/docs/configuration/plugins/outputs/_index.md" %}}.
 
 For Fluentd and Fluent Bit, you can configure encryption in the `logging` resource using the following parameters:
 
@@ -41,4 +41,4 @@ spec:
   controlNamespace: logging
 ```
 
-For other parameters of the logging resource, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/logging_types.md" %}}.
+For other parameters of the logging resource, see {{% xref "/docs/configuration/crds/v1beta1/logging_types.md" %}}.

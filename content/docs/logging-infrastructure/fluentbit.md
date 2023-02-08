@@ -12,7 +12,7 @@ Fluent Bit is an open source and multi-platform Log Processor and Forwarder whic
 
 Logging operator uses Fluent Bit as a log collector agent: Logging operator deploys Fluent Bit to your Kubernetes nodes where it collects and enriches the local logs and transfers them to a log forwarder instance.
 
-You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md" %}}.
 
 ## Filters
 
@@ -34,7 +34,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
 [More info](https://github.com/fluent/fluent-bit-docs/blob/master/filter/kubernetes.md)
 
 ## Tail input
@@ -55,7 +55,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
 [More Info](https://github.com/fluent/fluent-bit-docs/blob/1.3/input/tail.md).
 
 ## Buffering
@@ -75,7 +75,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
 [More Info](https://docs.fluentbit.io/manual/v/1.3/configuration/buffering).
 
 ### HostPath volumes for buffers and positions
@@ -137,7 +137,7 @@ spec:
   controlNamespace: logging
 ```
 
-For the detailed list of available parameters for this plugin, see {{% xref "/docs/one-eye/logging-operator/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
+For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
 
 ## Custom Fluent Bit annotations
 
@@ -167,7 +167,7 @@ Define Kubernetes storage.
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluent Bit in the **livenessProbe** section of the {{% xref "/docs/one-eye/logging-operator/logging-infrastructure/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluent Bit in the **livenessProbe** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -210,4 +210,4 @@ You can use the following parameters:
 | httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
 | tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
 
-> Note: To configure readiness probes, see {{% xref "/docs/one-eye/logging-operator/operation/readiness-probe.md" %}}.
+> Note: To configure readiness probes, see {{% xref "/docs/operation/readiness-probe.md" %}}.
