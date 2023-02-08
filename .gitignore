@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+.vscode
+resources/
+public/
+tmp/
+bin/
+scripts/__pycache__/
+node_modules/
+*.swp
+*~
