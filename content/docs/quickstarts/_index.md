@@ -6,4 +6,4 @@ weight: 200
 
 Try out Logging Operator with these quick start guides!
 
-{{< toc >}}
+

@@ -6,4 +6,4 @@ SyslogNGOutput and SyslogNGClusterOutput resources have almost the same structur
 
 You can use the following **syslog-ng** outputs in your `SyslogNGOutput` and `SyslogNGClusterOutput` resources.
 
-{{< toc >}}
+

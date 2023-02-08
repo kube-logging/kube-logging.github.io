@@ -23,4 +23,4 @@ The `namespaced` resources are only effective in their **own** namespace. `Globa
 
 ## Available CRDs
 
-{{< toc >}}
+

@@ -83,6 +83,6 @@ The following tips and commands can help you to troubleshoot your Logging operat
 
 After that, check the following sections for further tips.
 
-{{< toc >}}
+
 
 {{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
