@@ -1,9 +1,9 @@
 name: Trigger submodule update
 
-on:
-  push:
-    branches:
-      - master
+#on:
+#  push:
+#    branches:
+#      - master
 
 jobs:
   trigger-submodule-update:
