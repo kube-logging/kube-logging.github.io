@@ -13,8 +13,6 @@ You can customize the configuration of Fluentd, syslog-ng, and Fluent Bit in the
 
 You can install a `logging` resource with built-in TLS generation using the [logging Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
 
-> The [One Eye](https://banzaicloud.com/products/one-eye/) observability tool can [manage the TLS certificates of the logging resource](/docs/one-eye/tls/) using cert-manager.
-
 You can customize the following sections of the logging resource:
 
 - Generic parameters of the logging resource. For the list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/logging_types.md" %}}.

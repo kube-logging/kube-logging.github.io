@@ -1,12 +1,9 @@
 ---
 title: Logging operator
 weight: 400
-cascade:
-  module: logging-operator
-  githubEditUrl: "https://github.com/banzaicloud/logging-operator-docs/edit/master/docs/"
 ---
 
-Welcome to the Logging operator documentation! The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes.
+Welcome to the Logging operator documentation!
 
 ## Overview
 
@@ -48,12 +45,4 @@ See also our [Quickstart guides](/docs/quickstarts/).
 
 ## Support
 
-The Logging operator is a core part of the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) observability tool for Kubernetes. While the Logging operator itself is an [open-source project](https://github.com/banzaicloud/logging-operator/), the [Banzai Cloud One Eye](https://banzaicloud.com/products/one-eye/) product extends the functionality of the Logging operator with commercial features (for example, collecting host logs and Kubernetes events).
-
-### Community support
-
-If you encounter problems while using the Logging operator the documentation does not address, [open an issue](https://github.com/banzaicloud/logging-operator/issues) or talk to us on the Banzai Cloud Slack channel [#logging-operator](/invite-slack/).
-
-### Commercial support
-
-If you are using the Logging operator in a production environment and [require commercial support, contact Banzai Cloud](https://banzaicloud.com/contact/), the company backing the development of the Logging operator.
+If you encounter problems while using the Logging operator the documentation does not address, [open an issue](https://github.com/banzaicloud/logging-operator/issues) or talk to us on the Banzai Cloud Slack channel [#logging-operator](https://banzaicloud.com/invite-slack/).

@@ -112,8 +112,6 @@ fluentd:
 The following command displays the logs of the Fluentd container.
 `kubectl exec -it logging-demo-fluentd-0 cat /fluentd/log/out`
 
-> The [One Eye](/products/one-eye/) observability tool can [display Fluentd logs on its web UI](/docs/one-eye/troubleshooting/), where you can select which replica to inspect, search the logs, and use other ways to monitor and troubleshoot your logging infrastructure.
-
 > Tip: If the logs include the `error="can't create buffer file ...` error message, FluentD can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/configuration/fluentd/).
 
 ## Set stdout as an output
