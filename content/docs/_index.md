@@ -41,7 +41,7 @@ For the detailed CRD documentation, see [List of CRDs]({{< relref "/docs/configu
 ## Quickstart
 <script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
 
-See also our [Quickstart guides](/docs/quickstarts/).
+See also our [Quickstart guides]({{< relref "/docs/quickstarts/_index.md" >}}).
 
 ## Support
 

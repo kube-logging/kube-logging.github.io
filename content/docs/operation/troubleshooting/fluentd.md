@@ -112,7 +112,7 @@ fluentd:
 The following command displays the logs of the Fluentd container.
 `kubectl exec -it logging-demo-fluentd-0 cat /fluentd/log/out`
 
-> Tip: If the logs include the `error="can't create buffer file ...` error message, Fluentd can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration](/docs/configuration/fluentd/).
+> Tip: If the logs include the `error="can't create buffer file ...` error message, Fluentd can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your [Fluentd configuration]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md" >}}).
 
 ## Set stdout as an output
 

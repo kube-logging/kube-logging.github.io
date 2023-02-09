@@ -45,7 +45,7 @@ spec:
 ```
 
 > Note: In a multi-cluster setup you cannot easily determine which cluster the logs come from. You can append your own labels to each log
-using the [record modifier filter](/docs/configuration/plugins/filters/record_modifier/).
+using the [record modifier filter]({{< relref "/docs/configuration/plugins/filters/record_modifier.md" >}}).
 
 - For the details of `Flow` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/flow_types.md" %}}.
 - For the details of `ClusterFlow` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/clusterflow_types.md" %}}.
