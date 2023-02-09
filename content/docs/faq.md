@@ -1,5 +1,5 @@
 ---
-title: Logging Operator frequently asked questions
+title: Frequently asked questions
 shorttitle: FAQ
 weight: 900
 ---

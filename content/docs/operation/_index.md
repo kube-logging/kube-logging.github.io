@@ -1,6 +1,5 @@
 ---
-title: Logging operator Operation
-shorttitle: Operation
+title: Operation
 weight: 350
 ---
 

@@ -1,9 +1,6 @@
 ---
-title: Logging Operator quick start guides
-shorttitle: Quick start
+title: Quick start guides
 weight: 200
 ---
 
 Try out Logging Operator with these quick start guides!
-
-
