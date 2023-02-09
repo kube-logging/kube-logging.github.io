@@ -29,7 +29,7 @@ This operator helps you bundle logging information with your applications: you c
 - Secure communication (TLS)
 - Configuration validation
 - Multiple flow support (multiply logs for different transformations)
-- Multiple [output]({{< relref "docs/one-eye/logging-operator/configuration/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
+- Multiple [output]({{< relref "/docs/configuration/plugins/outputs/_index.md" >}}) support (store the same logs in multiple storage: S3, GCS, ES, Loki and more...)
 - Multiple logging system support (multiple Fluentd, Fluent Bit deployment on the same cluster)
 - Support for both syslog-ng and Fluentd as the central log routing component
 
@@ -37,7 +37,7 @@ This operator helps you bundle logging information with your applications: you c
 
 {{< include-headless "component-overview.md" >}}
 
-For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
+For the detailed CRD documentation, see [List of CRDs]({{< relref "/docs/configuration/crds/_index.md" >}}).
 
 ![Logging operator architecture](/docs/img/logging-operator-v2-architecture.png)
 
