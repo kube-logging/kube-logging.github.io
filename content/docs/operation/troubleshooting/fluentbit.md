@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Fluent Bit
-shorttitle: Fluent Bit
+linktitle: Fluent Bit
 weight: 200
 ---
 

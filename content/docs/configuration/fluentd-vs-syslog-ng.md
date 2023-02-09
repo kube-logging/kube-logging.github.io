@@ -1,6 +1,6 @@
 ---
 title: Which log forwarder to use
-shorttitle: Fluentd or syslog-ng
+linktitle: Fluentd or syslog-ng
 weight: 10
 ---
 

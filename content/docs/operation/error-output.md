@@ -1,6 +1,6 @@
 ---
 title: Collect Fluentd errors
-shorttitle: Fluentd errors
+linktitle: Fluentd errors
 weight: 1100
 ---
 

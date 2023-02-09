@@ -1,6 +1,6 @@
 ---
 title: Tail logfiles with a webhook
-shorttitle: File Tailer Webhook
+linktitle: File Tailer Webhook
 weight: 1000
 ---
 

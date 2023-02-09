@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting syslog-ng
-shorttitle: syslog-ng
+linktitle: syslog-ng
 weight: 200
 ---
 

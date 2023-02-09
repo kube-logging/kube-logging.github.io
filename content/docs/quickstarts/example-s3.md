@@ -1,6 +1,6 @@
 ---
 title: Transport all logs into Amazon S3  with Logging operator
-shorttitle: Amazon S3 with Fluentd
+linktitle: Amazon S3 with Fluentd
 weight: 200
 ---
 

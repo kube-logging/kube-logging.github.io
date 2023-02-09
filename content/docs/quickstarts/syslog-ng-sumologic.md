@@ -1,6 +1,6 @@
 ---
 title: Sumo Logic with Logging operator and syslog-ng
-shorttitle: Sumo Logic with syslog-ng
+linktitle: Sumo Logic with syslog-ng
 weight: 300
 ---
 

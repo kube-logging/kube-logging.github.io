@@ -1,6 +1,6 @@
 ---
 title: Routing your logs with syslog-ng
-shorttitle: Log routing with syslog-ng
+linktitle: Log routing with syslog-ng
 weight: 200
 ---
 

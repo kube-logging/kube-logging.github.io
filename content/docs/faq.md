@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions
-shorttitle: FAQ
+linktitle: FAQ
 weight: 900
 ---
 

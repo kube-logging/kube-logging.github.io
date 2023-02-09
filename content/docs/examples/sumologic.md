@@ -1,6 +1,6 @@
 ---
 title: Sumo Logic with Logging operator and Fluentd
-shorttitle: Sumo Logic with Fluentd
+linktitle: Sumo Logic with Fluentd
 weight: 300
 aliases:
     - /docs/one-eye/logging-operator/quickstarts/sumologic/

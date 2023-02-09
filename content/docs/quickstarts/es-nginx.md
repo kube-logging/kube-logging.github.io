@@ -1,6 +1,6 @@
 ---
 title: Store NGINX access logs in Elasticsearch with Logging operator
-shorttitle: Elasticsearch with Fluentd
+linktitle: Elasticsearch with Fluentd
 weight: 300
 ---
 

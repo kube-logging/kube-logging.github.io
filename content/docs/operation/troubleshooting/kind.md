@@ -1,6 +1,6 @@
 ---
 title: Running on KinD
-shorttitle: KinD
+linktitle: KinD
 weight: 400
 ---
 

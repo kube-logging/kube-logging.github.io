@@ -1,6 +1,6 @@
 ---
 title: Configure Fluentd
-shorttitle: Fluentd log forwarder
+linktitle: Fluentd log forwarder
 weight: 200
 aliases:
     - /docs/one-eye/logging-operator/configuration/fluentd/

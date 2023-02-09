@@ -1,6 +1,6 @@
 ---
 title: Configure syslog-ng
-shorttitle: syslog-ng log forwarder
+linktitle: syslog-ng log forwarder
 weight: 300
 ---
 

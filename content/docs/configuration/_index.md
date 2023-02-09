@@ -1,6 +1,6 @@
 ---
 title: Configure log routing
-shorttitle: Routing logs
+linktitle: Routing logs
 weight: 300
 ---
 

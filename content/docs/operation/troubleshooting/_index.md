@@ -1,6 +1,6 @@
 ---
 title: Logging operator troubleshooting
-shorttitle: Troubleshooting
+linktitle: Troubleshooting
 weight: 400
 aliases:
     - /docs/one-eye/logging-operator/troubleshooting/

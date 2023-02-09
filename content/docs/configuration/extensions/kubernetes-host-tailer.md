@@ -1,6 +1,6 @@
 ---
 title: Kubernetes host logs, journals, and logfiles
-shorttitle: Kubernetes Host Tailer
+linktitle: Kubernetes Host Tailer
 weight: 200
 ---
 

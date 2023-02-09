@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Fluentd
-shorttitle: Fluentd
+linktitle: Fluentd
 weight: 200
 ---
 

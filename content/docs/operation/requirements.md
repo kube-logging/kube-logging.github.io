@@ -1,6 +1,6 @@
 ---
 title: CPU and memory requirements
-shorttitle: Resource requirements
+linktitle: Resource requirements
 weight: 1300
 aliases:
     - /docs/one-eye/logging-operator/requirements/
