@@ -31,4 +31,4 @@ weight: 900
 ## How can I support the project?
 
 - Give a star to [this repository](https://github.com/banzaicloud/logging-operator)
-- Add your company to the [adopters](https://github.com/banzaicloud/logging-operator/blob/master/ADOPTERS.md) list
+- Add your company to the [adopters](https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md) list

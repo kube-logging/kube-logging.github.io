@@ -6,7 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/deploy/
 ---
 
-> Caution: The **master branch** is under heavy development. Use [releases](https://github.com/banzaicloud/logging-operator/releases) instead of the master branch to get stable software.
+> Caution: The **master branch** is under heavy development. Use [releases](https://github.com/kube-logging/logging-operator/releases) instead of the master branch to get stable software.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ aliases:
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
     ```
 
-    > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/banzaicloud/logging-operator/tree/master/charts/logging-operator-logging).
+    > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator-logging).
 
 ## Validate the deployment {#validate}
 

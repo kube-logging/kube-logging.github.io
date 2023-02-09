@@ -25,4 +25,4 @@ Logging-operator handles the new features the well-known way: it uses custom res
     Kubernetes host tailer allows you to tail logs like `kubelet`, `audit` logs, or the `systemd` journal from the nodes.
 - [Tailer-webhook]({{< relref "tailer-webhook.md" >}}) is a different approach for the same problem: parsing legacy application's log file. Instead of running a `host-tailer` instance on every node, `tailer-webhook` attaches a `sidecar container` to the pod, and reads the specified file(s).
 
-> Check our [configuration snippets](https://github.com/banzaicloud/logging-operator/tree/master/config/samples/extensions) for examples.
+> Check our [configuration snippets](https://github.com/kube-logging/logging-operator/tree/master/config/samples/extensions) for examples.

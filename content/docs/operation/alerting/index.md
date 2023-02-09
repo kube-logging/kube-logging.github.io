@@ -61,9 +61,9 @@ For the **Fluentd** and **syslog-ng** log forwarders:
 
 Currently, you cannot modify the default alerting rules, because they are generated from the source files. For the detailed list of alerts, see the source code:
 
-- For [Fluentd](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentd/prometheusrules.go)
-- For [syslog-ng](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/syslogng/prometheusrules.go)
-- For [Fluent Bit](https://github.com/banzaicloud/logging-operator/blob/master/pkg/resources/fluentbit/prometheusrules.go)
+- For [Fluentd](https://github.com/kube-logging/logging-operator/blob/master/pkg/resources/fluentd/prometheusrules.go)
+- For [syslog-ng](https://github.com/kube-logging/logging-operator/blob/master/pkg/resources/syslogng/prometheusrules.go)
+- For [Fluent Bit](https://github.com/kube-logging/logging-operator/blob/master/pkg/resources/fluentbit/prometheusrules.go)
 
 To enable these alerts on your cluster, see [Enable the default alerting rules](#enable-default-alerts).
 

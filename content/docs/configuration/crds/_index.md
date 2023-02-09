@@ -8,7 +8,7 @@ aliases:
 
 This document contains detailed information about the Custom Resource Definitions that the Logging operator uses.
 
-> You can find [example yamls in our GitHub repository](https://github.com/banzaicloud/logging-operator/tree/master/config/samples).
+> You can find [example yamls in our GitHub repository](https://github.com/kube-logging/logging-operator/tree/master/config/samples).
 
 ## Namespace separation
 
