@@ -4,7 +4,7 @@ shorttitle: syslog-ng log forwarder
 weight: 300
 ---
 
-{{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
+{{< include-headless "syslog-ng-minimum-version.md" >}}
 
 You can configure the deployment of the syslog-ng log forwarder via the **syslogNG** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_types.md" %}}.
 
@@ -36,7 +36,7 @@ spec:
                 storage: 10Gi
 ```
 
-{{< include-headless "cpu-memory-requirements.md" "one-eye/logging-operator" >}}
+{{< include-headless "cpu-memory-requirements.md" >}}
 
 ## Probe
 

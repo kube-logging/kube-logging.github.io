@@ -147,4 +147,4 @@ logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a9
 logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a996ff2671.buffer.meta
 ```
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" >}}

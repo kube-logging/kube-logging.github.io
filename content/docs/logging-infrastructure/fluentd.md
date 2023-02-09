@@ -311,4 +311,4 @@ Define Kubernetes storage.
 
 The Persistent Volume Claim should be created with the given `spec` and with the `name` defined in the `source`'s `claimName`.
 
-{{< include-headless "cpu-memory-requirements.md" "one-eye/logging-operator" >}}
+{{< include-headless "cpu-memory-requirements.md" >}}

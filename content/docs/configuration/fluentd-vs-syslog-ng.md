@@ -16,4 +16,4 @@ The following points help you decide which forwarder to use.
 
 > Note: Depending on which log forwarder you use, some of the CRDs you have to create and configure are different.
 
-{{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
+{{< include-headless "syslog-ng-minimum-version.md" >}}

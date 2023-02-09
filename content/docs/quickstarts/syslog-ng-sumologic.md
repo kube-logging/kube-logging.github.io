@@ -25,7 +25,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Helm {#helm}
 
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -165,4 +165,4 @@ Check the output. The logs will be available in the bucket on a `path` like:
 /logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 ```
 
-{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "note-troubleshooting.md" >}}

@@ -32,7 +32,7 @@ After that, you can configure your logging flows and outputs using the:
 <p align="center"><img src="../img/helm.svg" width="150"></p>
 <p align="center">
 
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 

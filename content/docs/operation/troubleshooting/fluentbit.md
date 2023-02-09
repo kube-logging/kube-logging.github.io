@@ -88,4 +88,4 @@ You can check the buffer directory if Fluent Bit is configured to buffer queued 
 
 `kubectl exec -it logging-demo-fluentbit-9dpzg ls /buffers`
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" >}}

@@ -8,7 +8,7 @@ This section describes how to configure readiness probes for your Fluentd and sy
 ## Prerequisites
 
 - Configuring readiness probes requires Logging operator 3.14.0 or newer installed on the cluster.
-- {{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
+- {{< include-headless "syslog-ng-minimum-version.md" >}}
 
 ## Overview of default readiness probes
 

@@ -182,4 +182,4 @@ To validate that the deployment was successful, complete the following steps.
 
 <p align="center"><img src="../../img/splunk_dash.png" width="660"></p>
 
-{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "note-troubleshooting.md" >}}

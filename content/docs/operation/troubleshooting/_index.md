@@ -85,4 +85,4 @@ After that, check the following sections for further tips.
 
 
 
-{{< include-headless "support-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "support-troubleshooting.md" >}}

@@ -8,7 +8,7 @@ weight: 300
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 
-{{< include-headless "quickstart-figure-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "quickstart-figure-intro.md" >}}
 
 <p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
 
@@ -71,7 +71,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 ### Deploy the Logging operator with Helm {#helm}
 
-{{< include-headless "deploy-helm-intro.md" "one-eye/logging-operator" >}}
+{{< include-headless "deploy-helm-intro.md" >}}
 
 1. Add the chart repository of the Logging operator using the following commands:
 
@@ -217,4 +217,4 @@ To validate that the deployment was successful, complete the following steps.
 
 <p align="center"><img src="../../img/es_kibana.png" width="660"></p>
 
-{{< include-headless "note-troubleshooting.md" "one-eye/logging-operator" >}}
+{{< include-headless "note-troubleshooting.md" >}}

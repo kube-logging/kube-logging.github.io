@@ -35,7 +35,7 @@ This operator helps you bundle logging information with your applications: you c
 
 ## Architecture
 
-{{< include-headless "component-overview.md" "one-eye/logging-operator" >}}
+{{< include-headless "component-overview.md" >}}
 
 For the detailed CRD documentation, see [List of CRDs]({{< relref "docs/one-eye/logging-operator/configuration/crds/_index.md" >}}).
 

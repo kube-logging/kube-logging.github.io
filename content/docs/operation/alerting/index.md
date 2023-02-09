@@ -13,7 +13,7 @@ Using alerting rules requires the following:
 
 - Logging operator 3.14.0 or newer installed on the cluster.
 - Prometheus operator installed on the cluster. For details, see {{% xref "logging-operator-monitoring.md" %}}.
-- {{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
+- {{< include-headless "syslog-ng-minimum-version.md" >}}
 
 ## Enable the default alerting rules {#enable-default-alerts}
 

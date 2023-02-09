@@ -6,7 +6,7 @@ weight: 200
 
 > Note: This page describes routing logs with **syslog-ng**. If you are using Fluentd to route your log messages, see {{% xref "/docs/configuration/log-routing.md" %}}.
 
-{{< include-headless "syslog-ng-minimum-version.md" "one-eye/logging-operator" >}}
+{{< include-headless "syslog-ng-minimum-version.md" >}}
 
 The first step to process your logs is to select which logs go where.
 
