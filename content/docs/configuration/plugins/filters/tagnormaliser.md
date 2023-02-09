@@ -23,13 +23,13 @@ Available kubernetes metadata
 ## Configuration
 ## Tag Normaliser parameters
 
-### format (string, optional) {#tag normaliser parameters-format}
+### format (string, optional) {#tag normaliser-parameters-format}
 
 Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser) 
 
 Default: ${namespace_name}.${pod_name}.${container_name}
 
-### match_tag (string, optional) {#tag normaliser parameters-match_tag}
+### match_tag (string, optional) {#tag normaliser-parameters-match_tag}
 
 Tag used in match directive.  
 

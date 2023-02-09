@@ -209,49 +209,49 @@ Default: -
 
 server
 
-### host (string, required) {#fluentd server-host}
+### host (string, required) {#fluentd-server-host}
 
 The IP address or host name of the server. 
 
 Default: -
 
-### name (string, optional) {#fluentd server-name}
+### name (string, optional) {#fluentd-server-name}
 
 The name of the server. Used for logging and certificate verification in TLS transport (when host is address). 
 
 Default: -
 
-### port (int, optional) {#fluentd server-port}
+### port (int, optional) {#fluentd-server-port}
 
 The port number of the host. Note that both TCP packets (event stream) and UDP packets (heartbeat message) are sent to this port.  
 
 Default:  24224
 
-### shared_key (*secret.Secret, optional) {#fluentd server-shared_key}
+### shared_key (*secret.Secret, optional) {#fluentd-server-shared_key}
 
 The shared key per server. 
 
 Default: -
 
-### username (*secret.Secret, optional) {#fluentd server-username}
+### username (*secret.Secret, optional) {#fluentd-server-username}
 
 The username for authentication. 
 
 Default: -
 
-### password (*secret.Secret, optional) {#fluentd server-password}
+### password (*secret.Secret, optional) {#fluentd-server-password}
 
 The password for authentication. 
 
 Default: -
 
-### standby (bool, optional) {#fluentd server-standby}
+### standby (bool, optional) {#fluentd-server-standby}
 
 Marks a node as the standby node for an Active-Standby model between Fluentd nodes. When an active node goes down, the standby node is promoted to an active node. The standby node is not used by the out_forward plugin until then. 
 
 Default: -
 
-### weight (int, optional) {#fluentd server-weight}
+### weight (int, optional) {#fluentd-server-weight}
 
 The load balancing weight. If the weight of one server is 20 and the weight of the other server is 30, events are sent in a 2:3 ratio. . 
 

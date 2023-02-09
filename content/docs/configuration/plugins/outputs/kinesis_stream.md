@@ -124,31 +124,31 @@ Default: -
 
 assume_role_credentials
 
-### role_arn (string, required) {#assume role credentials-role_arn}
+### role_arn (string, required) {#assume role-credentials-role_arn}
 
 The Amazon Resource Name (ARN) of the role to assume 
 
 Default: -
 
-### role_session_name (string, required) {#assume role credentials-role_session_name}
+### role_session_name (string, required) {#assume role-credentials-role_session_name}
 
 An identifier for the assumed role session 
 
 Default: -
 
-### policy (string, optional) {#assume role credentials-policy}
+### policy (string, optional) {#assume role-credentials-policy}
 
 An IAM policy in JSON format 
 
 Default: -
 
-### duration_seconds (string, optional) {#assume role credentials-duration_seconds}
+### duration_seconds (string, optional) {#assume role-credentials-duration_seconds}
 
 The duration, in seconds, of the role session (900-3600) 
 
 Default: -
 
-### external_id (string, optional) {#assume role credentials-external_id}
+### external_id (string, optional) {#assume role-credentials-external_id}
 
 A unique identifier that is used by third parties when assuming roles in their customers' accounts. 
 
@@ -159,7 +159,7 @@ Default: -
 
 process_credentials
 
-### process (string, required) {#process credentials-process}
+### process (string, required) {#process-credentials-process}
 
 Command more info: https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/ProcessCredentials.html 
 
