@@ -46,6 +46,9 @@ jobs:
           cd themes/docsy
           npm install
 
+      - name: Set up PostCSS
+        run: npm install --save-dev autoprefixer postcss-cli postcss
+
       - name: Build
         run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}
 
