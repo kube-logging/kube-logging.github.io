@@ -1,0 +1,40 @@
+{{- $file := .Get 0 -}}
+{{- $ext := (.Get 1 | default "bash" ) -}}
+{{- $opts := .Get 2 -}}
+{{- $text := "" -}}
+{{- $url := "" -}}
+{{- $found_file := false -}}
+
+{{ if (fileExists (print .Page.File.Dir $file)) -}}
+  <!-- First try as relative path -->
+  {{- $text = readFile (print .Page.File.Dir $file) -}}
+  {{- $url = (print .Page.Site.BaseURL .Page.File.Dir $file) -}}
+  {{- $found_file = true -}}
+{{ else }}
+  {{ if (fileExists $file) -}}
+    <!-- Then as project-relative path-->
+    {{- $text = readFile $file -}}
+    {{- $url = (print .Page.Site.BaseURL $file) -}}
+    {{- $found_file = true -}}
+  {{- end }}
+{{- end }}
+
+{{ if not $found_file -}}
+  {{ if in $opts "optional" }}
+    {{- warnf "Cannot find file to include %q %s" $file .Position -}}
+  {{ else if in $opts "suppress" }}
+    <!-- Silently fail without any error or warning -->
+  {{ else }}
+    {{- errorf "Cannot find file to include %q %s" $file .Position -}}
+  {{- end }}
+{{- end }}
+
+<div class="hl-container">
+  <div class="toolbar">
+      <button class="copybtn" style="background-image:url('{{"img/content-copy.png" | absURL }}')" aria-label="Copy sample code"></button>
+      <a href="{{ $url }}" target="_new">
+        <button class="downloadbtn" style="background-image:url('{{"img/cloud-download.png" | absURL }}')" aria-label="Download sample code"></button>
+      </a>
+  </div>
+{{- highlight $text $ext $opts -}}
+</div>
