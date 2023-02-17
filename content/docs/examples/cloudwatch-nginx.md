@@ -25,20 +25,20 @@ Install the Logging operator and a demo application using [Helm](#helm).
 1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
-    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+    helm repo add kube-logging https://kube-logging.github.io/helm-charts
     helm repo update
     ```
 
 1. Install the Logging operator.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
 1. Install the demo application and its logging definition.
 
     ```bash
-   helm upgrade --install --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
+   helm upgrade --install --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
      --set "cloudwatch.enabled=True" \
      --set "cloudwatch.aws.secret_key=" \
      --set "cloudwatch.aws.access_key=" \

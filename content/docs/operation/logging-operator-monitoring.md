@@ -75,19 +75,19 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Add operator chart repository:
 
     ```bash
-    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+    helm repo add kube-logging https://kube-logging.github.io/helm-charts
     ```
 
 1. Logging Operator
 
     ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging logging banzaicloud-stable/logging-operator
+     helm upgrade --install --wait --create-namespace --namespace logging logging kube-logging/logging-operator
     ```
 
 1. Deploy Demo App + Logging Definition with metrics
 
     ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
+     helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
         --set "minio.enabled=True" \
         --set=loggingOperator.fluentd.metrics.serviceMonitor=True \
         --set=loggingOperator.fluentbit.metrics.serviceMonitor=True

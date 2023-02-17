@@ -22,14 +22,14 @@ aliases:
 1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
-    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+    helm repo add kube-logging https://kube-logging.github.io/helm-charts
     helm repo update
     ```
 
 1. Install the Logging operator.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
     > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator-logging).
