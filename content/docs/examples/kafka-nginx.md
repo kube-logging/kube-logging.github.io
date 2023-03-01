@@ -29,20 +29,20 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
-    helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+    helm repo add kube-logging https://kube-logging.github.io/helm-charts
     helm repo update
     ```
 
 1. Install the Logging operator into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator banzaicloud-stable/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
 1. Install the demo application and its logging definition.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo banzaicloud-stable/logging-demo \
+    helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
       --set "kafka.enabled=True"
     ```
 
