@@ -15,7 +15,7 @@ This Flow sends every message with the `app: nginx` label to the output called `
 
 ### Flow with multiple outputs
 
-This Flow sends every message with the `app: nginx` label to the `gcs-output-sample` nad `s3-output-example` outputs.
+This Flow sends every message with the `app: nginx` label to the `gcs-output-sample` and `s3-output-example` outputs.
 
 {{< include-code "logging_flow_multiple_output.yaml" "yaml" >}}
 
