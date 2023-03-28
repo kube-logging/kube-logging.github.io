@@ -174,6 +174,6 @@ Description: Match the strings against a pattern containing '*' and '?' wildcard
 > NOTE:
 >
 > - The wildcards can match the `/` character.
-> - You cannot use the `*` and `?` literally in the pattern.
+> - You cannot use the `*` and `?` characters literally in the pattern.
 
 Glob patterns cannot have any flags.
