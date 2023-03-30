@@ -177,3 +177,195 @@ Description: Match the strings against a pattern containing '*' and '?' wildcard
 > - You cannot use the `*` and `?` characters literally in the pattern.
 
 Glob patterns cannot have any flags.
+
+## Examples
+
+### Select all logs
+
+To select all logs, our if you only want to exclude some logs but retain others you need an empty select statement.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-all
+  namespace: default
+spec:
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/instance
+      pattern: "*"
+      type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Select logs by label
+
+Select logs with `app: nginx` labels from the namespace:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-app-nginx
+  namespace: default
+spec:
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/name
+      pattern: nginx
+      type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Exclude logs by label
+
+Exclude logs with `app: nginx` labels from the namespace.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-not-nginx
+  namespace: default
+spec:
+  match:
+    not:
+      regexp:
+        value: json.kubernetes.labels.app.kubernetes.io/name
+        pattern: nginx
+        type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Exclude and select logs by label
+
+Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-not-nginx
+  namespace: default
+spec:
+  match:
+    and:
+    - regexp:
+        value: json.kubernetes.labels.app.kubernetes.io/name
+        pattern: nginx
+        type: glob
+    - not:
+        regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/env
+          pattern: dev
+          type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+<!-- FIXME how can you filter on namespaces with syslog-ng? -->
+<!--### Exclude cluster logs by namespace
+
+Exclude cluster logs from the `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGClusterFlow
+metadata:
+  name: clusterflow-sample
+spec:
+  globalOutputRefs:
+    - forward-output-sample
+  match:
+    - exclude:
+        namespaces:
+          - dev
+          - sandbox
+    - select:
+        labels:
+          app: nginx
+```
+
+### Exclude and select cluster logs by namespace
+
+Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: ClusterFlow
+  metadata:
+    name: clusterflow-sample
+  spec:
+    globalOutputRefs:
+      - forward-output-sample
+    match:
+      - exclude:
+          namespaces:
+            - dev
+            - sandbox
+      - select:
+          labels:
+            app: nginx
+          namespaces:
+            - prod
+            - infra
+  ```
+-->
+
+### Multiple labels - AND
+
+Exclude logs that have both the `app: nginx` and `app.kubernetes.io/instance: nginx-demo` labels.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-sample
+  namespace: default
+spec:
+  localOutputRefs:
+    - forward-output-sample
+  match:
+    not:
+      and:
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/name
+          pattern: nginx
+          type: glob
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/instance
+          pattern: nginx-demo
+          type: glob
+```
+
+### Multiple labels - OR
+
+Exclude logs that have either the `app: nginx` or the `app.kubernetes.io/instance: nginx-demo` labels
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-sample
+  namespace: default
+spec:
+  localOutputRefs:
+    - forward-output-sample
+  match:
+    not:
+      or:
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/name
+          pattern: nginx
+          type: glob
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/instance
+          pattern: nginx-demo
+          type: glob
+```
+
+<!-- FIXME add content-filtering examples -->
