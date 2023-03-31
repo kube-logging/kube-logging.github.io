@@ -27,33 +27,48 @@ Available routing metadata keys:
 
 ## Match statement
 
-Match expressions are basically a combination of filtering functions using the `and`, `or`, and `not` boolean operators.
+Match expressions select messages by applying patterns on the content or metadata of the messages. You can use simple string matching, and also complex regular expressions. You can combine matches using the `and`, `or`, and `not` boolean operators to create complex expressions to select or exclude messages as needed for your use case.
+
 Currently, only a pattern matching function is supported (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion).
 
 The `match` field can have one of the following options:
 
-```yaml
-  match:
-    and: <list of nested match expressions>  // Logical AND between expressions
-    or: <list of nested match expressions>   // Logical OR between expressions
-    not: <nested match expression>           // Logical NOT of an expression
-    regexp: ... // Pattern matching on a field's value or a templated value
-```
+- `regexp`: A pattern that matches the value of a field or a templated value. For example:
 
-The `regexp` field (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion)) can have the following fields:
+    ```yaml
+      match:
+        regexp: <parameters>
+    ```
 
-```yaml
-  regexp:
-    pattern: <a pattern string>                            // Pattern match against, e.g. "my-app-\d+". The pattern's type is determined by the type field.
-    value: <a field reference>                             // Reference to a field whose value to match. If this field is set, the template field cannot be used.
-    template: <a templated string combining field values>  // Template expression whose value to match. If this field is set, the value field cannot be used. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197
-    type: <pattern type>                                   // Pattern type. Default is PCRE. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/81#TOPIC-1829223
-    flags: <list of flags>                                 // Pattern flags. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/81#TOPIC-1829224
-```
+- `and`: Combines the nested match expressions with the logical AND operator.
 
-{{< warning >}}You need to use the `json.` prefix in field names.{{< /warning >}}
+    ```yaml
+      match:
+        and: <list of nested match expressions>
+    ```
 
-You can reference fields using the *dot notation*, for example, if the log contains `{"kubernetes": {"namespace_name": "default"}}`, then you can reference the `namespace_name` field using `json.kubernetes.namespace_name`.
+- `or`: Combines the nested match expressions with the logical OR operator.
+
+    ```yaml
+      match:
+        or: <list of nested match expressions>
+    ```
+
+- `not`: Matches the logical NOT of the nested match expressions with the logical AND operator.
+
+    ```yaml
+      match:
+        not: <list of nested match expressions>
+    ```
+
+## `regexp` patterns
+
+The `regexp` field (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion) defines the pattern that selects the matching messages. You can do two different kinds of matching:
+
+- Find a pattern in the value of a field of the messages, for example, to select the messages of a specific application. To do that, set the `pattern` and `value` fields (and optionally the `type` and `flags` fields).
+- Find a pattern in a template expression created from multiple fields of the message. To do that, set the `pattern` and `template` fields (and optionally the `type` and `flags` fields).
+
+{{< include-headless "field-names-json-prefix.md" >}}
 
 The following example filters for specific Pod labels:
 
@@ -70,9 +85,42 @@ The following example filters for specific Pod labels:
         type: string
 ```
 
-<!-- FIXME adapt Fluentd examples/add syslog-ng specific ones -->
+## `regexp` parameters
 
-## Types of `regexp`
+The `regexp` field can have the following parameters:
+
+### `pattern` (string) {#regexp-pattern class="property-required"}
+
+Defines the pattern to match against the messages. The [`type` field](#regexp-type) determines how the pattern is interpreted (for example, string or regular expression).
+
+### `value` (string) {#regexp-value class="property-optional"}
+
+References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field.
+
+{{< include-headless "field-names-json-prefix.md" >}}
+
+For example:
+
+```yaml
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/name
+      pattern: nginx
+```
+
+### `template` (string) {#regexp-template class="property-optional"}
+
+Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197).
+
+### `type` (string) {#regexp-type class="property-optional"}
+
+Specifies how the `pattern` is interpreted. For details, see [Types of `regexp`](#regexp-types).
+
+### `flags` (list) {#regexp-flags class="property-optional"}
+
+Specifies flags for the `type` field.
+
+## `regexp` types {#regexp-types}
 
 By default, syslog-ng uses PCRE-style regular expressions. Since evaluating complex regular expressions can greatly increase CPU usage and are not always needed, you can following expression types:
 
@@ -177,3 +225,195 @@ Description: Match the strings against a pattern containing '*' and '?' wildcard
 > - You cannot use the `*` and `?` characters literally in the pattern.
 
 Glob patterns cannot have any flags.
+
+## Examples
+
+### Select all logs
+
+To select all logs, or if you only want to exclude some logs but retain others you need an empty select statement.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-all
+  namespace: default
+spec:
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/instance
+      pattern: "*"
+      type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Select logs by label
+
+Select logs with `app: nginx` labels from the namespace:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-app-nginx
+  namespace: default
+spec:
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/name
+      pattern: nginx
+      type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Exclude logs by label
+
+Exclude logs with `app: nginx` labels from the namespace.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-not-nginx
+  namespace: default
+spec:
+  match:
+    not:
+      regexp:
+        value: json.kubernetes.labels.app.kubernetes.io/name
+        pattern: nginx
+        type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+### Exclude and select logs by label
+
+Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-not-nginx
+  namespace: default
+spec:
+  match:
+    and:
+    - regexp:
+        value: json.kubernetes.labels.app.kubernetes.io/name
+        pattern: nginx
+        type: glob
+    - not:
+        regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/env
+          pattern: dev
+          type: glob
+  localOutputRefs:
+    - syslog-output
+```
+
+<!-- FIXME how can you filter on namespaces with syslog-ng? -->
+<!--### Exclude cluster logs by namespace
+
+Exclude cluster logs from the `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGClusterFlow
+metadata:
+  name: clusterflow-sample
+spec:
+  globalOutputRefs:
+    - forward-output-sample
+  match:
+    - exclude:
+        namespaces:
+          - dev
+          - sandbox
+    - select:
+        labels:
+          app: nginx
+```
+
+### Exclude and select cluster logs by namespace
+
+Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: ClusterFlow
+  metadata:
+    name: clusterflow-sample
+  spec:
+    globalOutputRefs:
+      - forward-output-sample
+    match:
+      - exclude:
+          namespaces:
+            - dev
+            - sandbox
+      - select:
+          labels:
+            app: nginx
+          namespaces:
+            - prod
+            - infra
+  ```
+-->
+
+### Multiple labels - AND
+
+Exclude logs that have both the `app: nginx` and `app.kubernetes.io/instance: nginx-demo` labels.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-sample
+  namespace: default
+spec:
+  localOutputRefs:
+    - forward-output-sample
+  match:
+    not:
+      and:
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/name
+          pattern: nginx
+          type: glob
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/instance
+          pattern: nginx-demo
+          type: glob
+```
+
+### Multiple labels - OR
+
+Exclude logs that have either the `app: nginx` or the `app.kubernetes.io/instance: nginx-demo` labels
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGFlow
+metadata:
+  name: flow-sample
+  namespace: default
+spec:
+  localOutputRefs:
+    - forward-output-sample
+  match:
+    not:
+      or:
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/name
+          pattern: nginx
+          type: glob
+      - regexp:
+          value: json.kubernetes.labels.app.kubernetes.io/instance
+          pattern: nginx-demo
+          type: glob
+```
+
+<!-- FIXME add content-filtering examples -->
