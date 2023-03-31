@@ -89,11 +89,11 @@ The following example filters for specific Pod labels:
 
 The `regexp` field can have the following parameters:
 
-### `pattern` (string, required) {#regexp-pattern}
+### `pattern` (string) {#regexp-pattern class="property-required"}
 
 Defines the pattern to match against the messages. The [`type` field](#regexp-type) determines how the pattern is interpreted (for example, string or regular expression).
 
-### `value` (string, optional) {#regexp-value class="string optional"}
+### `value` (string) {#regexp-value class="property-optional"}
 
 References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field.
 
@@ -108,15 +108,15 @@ For example:
       pattern: nginx
 ```
 
-### `template` (string, optional) {#regexp-template}
+### `template` (string) {#regexp-template class="property-optional"}
 
 Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197).
 
-### `type` (string, optional) {#regexp-type}
+### `type` (string) {#regexp-type class="property-optional"}
 
 Specifies how the `pattern` is interpreted. For details, see [Types of `regexp`](#regexp-types).
 
-### `flags` (list, optional) {#regexp-flags}
+### `flags` (list) {#regexp-flags class="property-optional"}
 
 Specifies flags for the `type` field.
 
