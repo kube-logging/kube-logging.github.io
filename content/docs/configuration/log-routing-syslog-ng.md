@@ -85,15 +85,15 @@ The following example filters for specific Pod labels:
         type: string
 ```
 
-### `regexp` parameters
+## `regexp` parameters
 
 The `regexp` field can have the following parameters:
 
-#### `pattern` (string, required) {#regexp-pattern}
+### `pattern` (string, required) {#regexp-pattern}
 
 Defines the pattern to match against the messages. The [`type` field](#regexp-type) determines how the pattern is interpreted (for example, string or regular expression).
 
-#### `value` (string, optional) {#regexp-value class="string optional"}
+### `value` (string, optional) {#regexp-value class="string optional"}
 
 References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field.
 
@@ -108,20 +108,19 @@ For example:
       pattern: nginx
 ```
 
-#### `template` (string, optional) {#regexp-template}
+### `template` (string, optional) {#regexp-template}
 
 Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197).
 
-#### `type` (string, optional) {#regexp-type}
+### `type` (string, optional) {#regexp-type}
 
-Specifies how the `pattern` is interpreted.
-<!-- FIXME add link or combine with other PR -->
+Specifies how the `pattern` is interpreted. For details, see [Types of `regexp`](#regexp-types).
 
-#### `flags` (list, optional) {#regexp-flags}
+### `flags` (list, optional) {#regexp-flags}
 
 Specifies flags for the `type` field.
 
-## Types of `regexp`
+## `regexp` types {#regexp-types}
 
 By default, syslog-ng uses PCRE-style regular expressions. Since evaluating complex regular expressions can greatly increase CPU usage and are not always needed, you can following expression types:
 
