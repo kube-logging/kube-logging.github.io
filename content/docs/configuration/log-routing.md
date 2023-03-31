@@ -75,7 +75,7 @@ ClusterFlow:
 
 ### Example 0. Select all logs
 
-To select all logs, our if you only want to exclude some logs but retain others you need an empty select statement.
+To select all logs, or if you only want to exclude some logs but retain others you need an empty select statement.
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
