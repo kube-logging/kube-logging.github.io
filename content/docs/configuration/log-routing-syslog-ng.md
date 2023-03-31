@@ -27,33 +27,48 @@ Available routing metadata keys:
 
 ## Match statement
 
-Match expressions are basically a combination of filtering functions using the `and`, `or`, and `not` boolean operators.
+Match expressions select messages by applying patterns on the content or metadata of the messages. You can use simple string matching, and also complex regular expressions. You can combine matches using the `and`, `or`, and `not` boolean operators to create complex expressions to select or exclude messages as needed for your use case.
+
 Currently, only a pattern matching function is supported (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion).
 
 The `match` field can have one of the following options:
 
-```yaml
-  match:
-    and: <list of nested match expressions>  // Logical AND between expressions
-    or: <list of nested match expressions>   // Logical OR between expressions
-    not: <nested match expression>           // Logical NOT of an expression
-    regexp: ... // Pattern matching on a field's value or a templated value
-```
+- `regexp`: A pattern that matches the value of a field or a templated value. For example:
 
-The `regexp` field (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion)) can have the following fields:
+    ```yaml
+      match:
+        regexp: <parameters>
+    ```
 
-```yaml
-  regexp:
-    pattern: <a pattern string>                            // Pattern match against, e.g. "my-app-\d+". The pattern's type is determined by the type field.
-    value: <a field reference>                             // Reference to a field whose value to match. If this field is set, the template field cannot be used.
-    template: <a templated string combining field values>  // Template expression whose value to match. If this field is set, the value field cannot be used. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197
-    type: <pattern type>                                   // Pattern type. Default is PCRE. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/81#TOPIC-1829223
-    flags: <list of flags>                                 // Pattern flags. For more info, see https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/81#TOPIC-1829224
-```
+- `and`: Combines the nested match expressions with the logical AND operator.
 
-{{< warning >}}You need to use the `json.` prefix in field names.{{< /warning >}}
+    ```yaml
+      match:
+        and: <list of nested match expressions>
+    ```
 
-You can reference fields using the *dot notation*, for example, if the log contains `{"kubernetes": {"namespace_name": "default"}}`, then you can reference the `namespace_name` field using `json.kubernetes.namespace_name`.
+- `or`: Combines the nested match expressions with the logical OR operator.
+
+    ```yaml
+      match:
+        or: <list of nested match expressions>
+    ```
+
+- `not`: Matches the logical NOT of the nested match expressions with the logical AND operator.
+
+    ```yaml
+      match:
+        not: <list of nested match expressions>
+    ```
+
+## `regexp` patterns
+
+The `regexp` field (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion) defines the pattern that selects the matching messages. You can do two different kinds of matching:
+
+- Find a pattern in the value of a field of the messages, for example, to select the messages of a specific application. To do that, set the `pattern` and `value` fields (and optionally the `type` and `flags` fields).
+- Find a pattern in a template expression created from multiple fields of the message. To do that, set the `pattern` and `template` fields (and optionally the `type` and `flags` fields).
+
+{{< include-headless "field-names-json-prefix.md" >}}
 
 The following example filters for specific Pod labels:
 
@@ -70,7 +85,41 @@ The following example filters for specific Pod labels:
         type: string
 ```
 
-<!-- FIXME adapt Fluentd examples/add syslog-ng specific ones -->
+### `regexp` parameters
+
+The `regexp` field can have the following parameters:
+
+#### `pattern` (string, required) {#regexp-pattern}
+
+Defines the pattern to match against the messages. The [`type` field](#regexp-type) determines how the pattern is interpreted (for example, string or regular expression).
+
+#### `value` (string, optional) {#regexp-value class="string optional"}
+
+References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field.
+
+{{< include-headless "field-names-json-prefix.md" >}}
+
+For example:
+
+```yaml
+  match:
+    regexp:
+      value: json.kubernetes.labels.app.kubernetes.io/name
+      pattern: nginx
+```
+
+#### `template` (string, optional) {#regexp-template}
+
+Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197).
+
+#### `type` (string, optional) {#regexp-type}
+
+Specifies how the `pattern` is interpreted.
+<!-- FIXME add link or combine with other PR -->
+
+#### `flags` (list, optional) {#regexp-flags}
+
+Specifies flags for the `type` field.
 
 ## Types of `regexp`
 
