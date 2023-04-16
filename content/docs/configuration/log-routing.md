@@ -32,6 +32,8 @@ If you specify more than one label in a `select` or `exclude` expression, the la
 
 The `select` and `exclude` statements are evaluated **in order**!
 
+Without at least one `select` criteria, no messages will be selected!
+
 Flow:
 
 ```yaml
@@ -126,11 +128,12 @@ Exclude logs with `app: nginx` labels from the namespace
       - exclude:
           labels:
             app: nginx
+      - select: {}
   ```
 
 ### Example 3. Exclude and select logs by label
 
-Exclude logs with `env: dev` labels but select `app: nginx` labels from the namespace
+Select logs with `app: nginx` labels from the `default` namespace but exclude logs with `env: dev` labels 
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -152,7 +155,7 @@ Exclude logs with `env: dev` labels but select `app: nginx` labels from the name
 
 ### Example 4. Exclude cluster logs by namespace
 
-Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all namespaces
+Select `app: nginx` from all namespaces except from `dev` and `sandbox` 
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -174,7 +177,7 @@ Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` f
 
 ### Example 5. Exclude and select cluster logs by namespace
 
-Exclude cluster logs from  `dev`, `sandbox` namespaces and select `app: nginx` from all `prod` and `infra` namespaces
+Select `app: nginx` from all `prod` and `infra` namespaces but exclude cluster logs from  `dev`, `sandbox` namespaces 
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -215,6 +218,7 @@ Exclude logs that have both the `app: nginx` and `app.kubernetes.io/instance: ng
           labels:
             app: nginx
             app.kubernetes.io/instance: nginx-demo
+      - select: {}
   ```
 
 ### Example 6. Multiple labels - OR
@@ -233,8 +237,9 @@ Exclude logs that have either the `app: nginx` or the `app.kubernetes.io/instanc
     match:
       - exclude:
           labels:
-            app: nginx
+          app: nginx
       - exclude:
           labels:
-            app.kubernetes.io/instance: nginx-demo
+          app.kubernetes.io/instance: nginx-demo
+      - select: {}
   ```
