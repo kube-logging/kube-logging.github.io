@@ -149,11 +149,11 @@ twitter = "calisti12"
     url = "https://banzaicloud.com/invite-slack/"
     icon = "fab fa-slack"
     desc = "Chat with the project developers"
-  #[[params.links.developer]]
-  #  name = "Developer mailing list"
-  #  url = "https://example.org/mail"
-  #  icon = "fa fa-envelope"
-  #  desc = "Discuss development issues around the project"
+  [[params.links.developer]]
+    name = "Discord"
+    url = "https://discord.gg/eAcqmAVU2u"
+    icon = "fab fa-discord"
+    desc = "Chat with the project developers"
 
 ###############################################################################
 # Hugo - Top-level navigation (horizontal)
