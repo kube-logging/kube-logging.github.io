@@ -151,7 +151,7 @@ twitter = "calisti12"
     desc = "Chat with the project developers"
   [[params.links.developer]]
     name = "Discord"
-    url = "https://discord.gg/eAcqmAVU2u"
+    url = "https://discord.gg/9ACY4RDsYN"
     icon = "fab fa-discord"
     desc = "Chat with the project developers"
 
