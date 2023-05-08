@@ -16,7 +16,7 @@ This guide describes how to collect application and container logs in Kubernetes
 
 ## Deploy Kafka
 
-In this demo we are using our [Koperator](https://banzaicloud.com/docs/supertubes/kafka-operator/) to create an Apache Kafka cluster in Kubernetes. For details on installing it, see the [Koperator installation guide](https://banzaicloud.com/docs/supertubes/kafka-operator/install-kafka-operator/).
+This demo uses [Koperator](https://github.com/banzaicloud/koperator/) to create an Apache Kafka cluster in Kubernetes. For details on installing it, see the [Koperator installation guide](https://banzaicloud.com/docs/supertubes/kafka-operator/install-kafka-operator/).
 
 ## Deploy the Logging operator and a demo Application
 
