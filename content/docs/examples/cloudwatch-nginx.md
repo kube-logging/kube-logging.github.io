@@ -35,26 +35,6 @@ Install the Logging operator and a demo application using [Helm](#helm).
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
-1. Install the demo application and its logging definition.
-
-    ```bash
-   helm upgrade --install --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-     --set "cloudwatch.enabled=True" \
-     --set "cloudwatch.aws.secret_key=" \
-     --set "cloudwatch.aws.access_key=" \
-     --set "cloudwatch.aws.region=" \
-     --set "cloudwatch.aws.log_group_name=" \
-     --set "cloudwatch.aws.log_stream_name="
-    ```
-
-1. [Validate your deployment](#validate).
-
-1. Create logging `Namespace`
-
-    ```bash
-    kubectl create ns logging
-    ```
-
 1. Create AWS `secret`
 
     > If you have your `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` set you can use the following snippet.
@@ -154,28 +134,10 @@ Install the Logging operator and a demo application using [Helm](#helm).
      EOF
      ```
 
-1. Install the demo application.
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF"
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: log-generator
-    spec:
-      selector:
-        matchLabels:
-          app.kubernetes.io/name: log-generator
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app.kubernetes.io/name: log-generator
-        spec:
-          containers:
-          - name: nginx
-            image: banzaicloud/log-generator:0.3.2
-    EOF
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
      ```
 
 1. [Validate your deployment](#validate).

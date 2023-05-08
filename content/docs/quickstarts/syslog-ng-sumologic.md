@@ -34,31 +34,27 @@ Install the Logging operator and a demo application to provide sample log messag
     helm repo update
     ```
 
-1. Install the demo application and its logging definition.
+1. Install the logging-operator
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-      --set "loki.enabled=True"
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
 1. [Validate your deployment](#validate).
 
 ## Configure the Logging operator
 
-1. Create logging `Namespace`
+1. Create the `logging` resource with a persistent syslog-ng installation.
 
     ```bash
-    kubectl create ns logging
-    ```
-
-1. Create the `logging` resource.
-
-    ```bash
-    kubectl -n logging apply -f - <<"EOF"
+    kubectl apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Logging
-      name: test
+    metadata:
+      name: demo
     spec:
+      controlNamespace: logging
+      fluentbit: {}
       syslogNG:
         statefulSet:
           spec:
@@ -78,6 +74,7 @@ Install the Logging operator and a demo application to provide sample log messag
                 resources:
                   requests:
                     storage: 10Gi
+    EOF
     ```
 
     > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
@@ -85,28 +82,36 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Create a Sumo Logic output secret from the URL of your Sumo Logic collection.
 
     ```bash
-    kubectl create secret generic logging-sumo -n logging --from-literal "sumoURL=https://endpoint1.collection.eu.sumologic.com/......"
+    kubectl create secret generic sumo-collector -n logging --from-literal "token=XYZ"
     ```
 
-1. Create a `ClusterOutput` resource.
+1. Create a `SyslogNGOutput` resource.
 
     ```bash
     kubectl -n logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
-    kind: ClusterOutput
+    kind: SyslogNGOutput
     metadata:
       name: sumologic-syslog-ng-output
     spec:
-      sumologic:
-        buffer:
-          flush_interval: 10s
-          flush_mode: interval
-        endpoint:
+      sumologic-http: 
+        collector:
           valueFrom:
             secretKeyRef:
-              name:  logging-sumo
-              key: sumoURL
-        source_name: kubernetes
+              key: token
+              name: sumo-collector
+        deployment: us2
+        batch-lines: 1000
+        disk_buffer:
+          disk_buf_size: 512000000
+          dir: /buffers
+          reliable: true
+        body: "$(format-json --subkeys json. --exclude json.kubernetes.annotations.* json.kubernetes.annotations=literal($(format-flat-json --subkeys json.kubernetes.annotations.)) --exclude json.kubernetes.labels.* json.kubernetes.labels=literal($(format-flat-json --subkeys json.kubernetes.labels.)))"
+        headers:
+          - 'X-Sumo-Name: source-name'
+          - 'X-Sumo-Category: source-category'
+        tls:
+          use-system-cert-store: true
     EOF
     ```
 
@@ -117,14 +122,13 @@ Install the Logging operator and a demo application to provide sample log messag
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: SyslogNGFlow
     metadata:
-      name: TestFlow
-      namespace: default
+      name: log-generator
     spec:
       match:
         and:
         - regexp:
             value: json.kubernetes.labels.app.kubernetes.io/instance
-            pattern: one-eye-log-generator
+            pattern: log-generator
             type: string
         - regexp:
             value:  json.kubernetes.labels.app.kubernetes.io/name
@@ -153,16 +157,13 @@ Install the Logging operator and a demo application to provide sample log messag
                 type: string
       localOutputRefs:
         - sumologic-syslog-ng-output
+    EOF
     ```
 
-1. [Validate your deployment](#validate).
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
-## Validate the deployment {#validate}
-
-Check the output. The logs will be available in the bucket on a `path` like:
-
-```bash
-/logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
-```
+     ```bash
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     ```
 
 {{< include-headless "note-troubleshooting.md" >}}

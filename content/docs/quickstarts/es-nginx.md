@@ -86,13 +86,6 @@ Install the Logging operator and a demo application to provide sample log messag
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
-1. Install the demo application and its logging definition.
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-      --set "elasticsearch.enabled=True"
-    ```
-
 1. [Validate your deployment](#validate).
 
 ## Configure the Logging operator
@@ -144,7 +137,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
 
-1. Create a `flow` resource.
+1. Create a `flow` resource. (Mind the label selector in the `match` that selects a set of pods that we will install in the next step)
 
      ```bash
      kubectl -n logging apply -f - <<"EOF"
@@ -171,33 +164,20 @@ Install the Logging operator and a demo application to provide sample log messag
 
 1. Install the demo application.
 
-     ```bash
-    kubectl -n logging apply -f - <<"EOF"
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: log-generator
-    spec:
-      selector:
-        matchLabels:
-          app.kubernetes.io/name: log-generator
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app.kubernetes.io/name: log-generator
-        spec:
-          containers:
-          - name: nginx
-            image: banzaicloud/log-generator:0.3.2
-    EOF
-     ```
+   ```bash
+   helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+   ```
 
 1. [Validate your deployment](#validate).
 
 ## Validate the deployment {#validate}
 
 To validate that the deployment was successful, complete the following steps.
+
+1. Check fluentd logs:
+   ```bash
+   kubectl exec -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
+   ```
 
 1. Use the following command to retrieve the password of the `elastic` user:
 

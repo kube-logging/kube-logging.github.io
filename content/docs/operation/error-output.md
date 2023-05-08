@@ -35,7 +35,7 @@ To collect the error messages of Fluentd, complete the following steps.
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Logging
     metadata:
-      name: one-eye
+      name: example
     spec:
       controlNamespace: default
       enableRecreateWorkloadOnImmutableFieldChange: true

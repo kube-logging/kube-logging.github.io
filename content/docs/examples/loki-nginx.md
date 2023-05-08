@@ -63,17 +63,8 @@ Install the Logging operator and a demo application to provide sample log messag
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
-
-1. Install the demo application and its logging definition.
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-      --set "loki.enabled=True"
-    ```
-
-1. [Validate your deployment](#validate).
-
-1. Create the `logging` resource.
+1. 
+2. Create the `logging` resource.
 
      ```bash
      kubectl -n logging apply -f - <<"EOF"
@@ -136,28 +127,10 @@ Install the Logging operator and a demo application to provide sample log messag
      EOF
      ```
 
-1. Install the demo application.
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF"
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: log-generator
-    spec:
-      selector:
-        matchLabels:
-          app.kubernetes.io/name: log-generator
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app.kubernetes.io/name: log-generator
-        spec:
-          containers:
-          - name: nginx
-            image: banzaicloud/log-generator:0.3.2
-    EOF
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
      ```
 
 1. [Validate your deployment](#validate).

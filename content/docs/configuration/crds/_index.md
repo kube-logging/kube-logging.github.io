@@ -22,5 +22,3 @@ The `namespaced` resources are only effective in their **own** namespace. `Globa
 > You can create `ClusterFlow`, `ClusterOutput`, `SyslogNGClusterFlow`, and `SyslogNGClusterOutput` resources only in the `controlNamespace`, unless the [`allowClusterResourcesFromAllNamespaces`]({{< relref "/docs/configuration/crds/v1beta1/logging_types.md#loggingspec-allowclusterresourcesfromallnamespaces" >}}) option is enabled in the logging resource. This namespace **MUST** be a **protected** namespace so that only **administrators** can access it.
 
 ## Available CRDs
-
-

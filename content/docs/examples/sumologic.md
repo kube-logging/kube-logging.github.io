@@ -29,7 +29,7 @@ kubectl apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
-  name: one-eye
+  name: sumologic
 spec:
   controlNamespace: logging
   enableRecreateWorkloadOnImmutableFieldChange: true

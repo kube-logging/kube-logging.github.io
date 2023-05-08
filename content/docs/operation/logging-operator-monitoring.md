@@ -70,7 +70,7 @@ For more details on installing the Prometheus operator and configuring and acces
     > The logging-operator metrics function depends on the prometheus-operator's resources.
     > If those do not exist in the cluster it may cause the logging-operator's malfunction.
 
-## Install with Helm
+## Install Logging Operator with Helm
 
 1. Add operator chart repository:
 
@@ -81,21 +81,10 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Logging Operator
 
     ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging logging kube-logging/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging-operator logging kube-logging/logging-operator
     ```
 
-1. Deploy Demo App + Logging Definition with metrics
-
-    ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-        --set "minio.enabled=True" \
-        --set=loggingOperator.fluentd.metrics.serviceMonitor=True \
-        --set=loggingOperator.fluentbit.metrics.serviceMonitor=True
-    ```
-
-## Install from manifest
-
-### Install Minio
+## Install Minio
 
 1. Create Minio Credential Secret
 
@@ -174,7 +163,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Create `logging` resource
 
     ```bash
-    kubectl -n logging apply -f - <<"EOF"
+    kubectl apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Logging
     metadata:
@@ -245,36 +234,18 @@ For more details on installing the Prometheus operator and configuring and acces
       match:
         - select:
             labels:
-              app.kubernetes.io/instance: nginx-demo
-              app.kubernetes.io/name: nginx-logging-demo
+              app.kubernetes.io/instance: log-generator
+              app.kubernetes.io/name: log-generator
       localOutputRefs:
         - demo-output
     EOF
     ```
 
-1. Install test deployment
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
-    ```bash
-    kubectl -n logging apply -f - <<"EOF"
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: nginx-deployment
-    spec:
-      selector:
-        matchLabels:
-          app: nginx
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - name: nginx
-            image: banzaicloud/loggen:latest
-    EOF
-    ```
+     ```bash
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     ```
 
 ## Validation
 

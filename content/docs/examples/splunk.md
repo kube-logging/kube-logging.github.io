@@ -134,31 +134,12 @@ To install the Logging operator using Helm, see [Deploy the Logging operator wit
     EOF
     ```
 
-1. Install the demo application.
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF"
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: log-generator
-      labels:
-        app.kubernetes.io/name: log-generator
-    spec:
-      replicas: 3
-      selector:
-        matchLabels:
-          app.kubernetes.io/name: log-generator
-      template:
-        metadata:
-          labels:
-            app.kubernetes.io/name: log-generator
-        spec:
-          containers:
-          - name: log-generator
-            image: banzaicloud/log-generator:0.3.2
-    EOF
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
      ```
+
 
 1. [Validate your deployment](#validate).
 
