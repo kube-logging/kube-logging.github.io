@@ -30,9 +30,11 @@ FailureThreshold: 1
 
 Currently, you cannot modify the default readiness probes, because they are generated from the source files. For the detailed list of readiness probes, see the [Default readiness probes](#default-readiness-probes). However, you can customize their values in the Logging custom resource, separately for the Fluentd and syslog-ng log forwarder. For example:
 
+### Fluentd readiness probe settings
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
+metadata:
   name: logging-demo
 spec:
   controlNamespace: logging
@@ -47,6 +49,16 @@ spec:
       periodSeconds: 30
       successThreshold: 3
       timeoutSeconds: 3
+```
+
+### SyslogNG readiness probe settings
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: logging-demo
+spec:
+  controlNamespace: logging
   syslogNG:
     readinessDefaultCheck:
       bufferFileNumber: true

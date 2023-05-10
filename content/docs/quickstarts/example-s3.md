@@ -27,29 +27,22 @@ Install the Logging operator.
     helm repo update
     ```
 
-1. Install the demo application and its logging definition.
+1. Install the Logging operator into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-demo kube-logging/logging-demo \
-      --set "loki.enabled=True"
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
 1. [Validate your deployment](#validate).
 
 ## Configure the Logging operator
 
-1. Create logging `Namespace`
-
-    ```bash
-    kubectl create ns logging
-    ```
-
 1. Create AWS `secret`
 
     > If you have your `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` set you can use the following snippet.
 
     ```bash
-        kubectl -n logging create secret generic logging-s3 --from-literal "awsAccessKeyId=$AWS_ACCESS_KEY_ID" --from-literal "awsSecretAccessKey=$AWS_SECRET_ACCESS_KEY"
+    kubectl -n logging create secret generic logging-s3 --from-literal "awsAccessKeyId=$AWS_ACCESS_KEY_ID" --from-literal "awsSecretAccessKey=$AWS_SECRET_ACCESS_KEY"
     ```
 
     Or set up the secret manually.
@@ -117,7 +110,7 @@ Install the Logging operator.
 
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
 
-1. Create a `flow` resource.
+1. Create a `flow` resource. (Mind the label selector in the `match` that selects a set of pods that we will install in the next step)
 
      ```bash
      kubectl -n logging apply -f - <<"EOF"
@@ -137,12 +130,22 @@ Install the Logging operator.
      EOF
      ```
 
+1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
+
+     ```bash
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     ```
+
 1. [Validate your deployment](#validate).
 
 ## Validate the deployment {#validate}
 
-Check the output. The logs will be available in the bucket on a `path` like:
+Check fluentd logs (errors with AWS credentials should be visible here):
+```bash
+kubectl exec -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
+```
 
+Check the output. The logs will be available in the bucket on a `path` like:
 ```bash
 /logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 ```

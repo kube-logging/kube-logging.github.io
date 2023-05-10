@@ -185,12 +185,12 @@ To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscal
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler
     metadata:
-      name: one-eye-fluentd
+      name: logging-fluentd
     spec:
       scaleTargetRef:
         apiVersion: apps/v1
         kind: StatefulSet
-        name: one-eye-fluentd
+        name: logging-fluentd
       minReplicas: 1
       maxReplicas: 10
       metrics:

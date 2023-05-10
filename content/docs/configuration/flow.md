@@ -82,7 +82,7 @@ spec:
     and:
     - regexp:
         value: json.kubernetes.labels.app.kubernetes.io/instance
-        pattern: one-eye-log-generator
+        pattern: log-generator
         type: string
     - regexp:
         value:  json.kubernetes.labels.app.kubernetes.io/name

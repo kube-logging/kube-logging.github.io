@@ -15,19 +15,3 @@ Starting with Logging operator version 3.12.0, this is now available by passing 
 
 - `watch-namespace`: Watch only objects in this namespace. Note that even if the `watch-namespace` option is set, the operator must watch certain objects (like `Flows` and `Outputs`) in every namespace.
 - `watch-logging-name`: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the `app.kubernetes.io/managed-by` label.
-
-### Configure using the One Eye operator Observer CRD
-
-To configure the `watch-namespace` and `watch-logging-name` options using the Observer custom resource, see the following snippet.
-
-```yaml
-apiVersion: one-eye.banzaicloud.io/v1alpha1
-kind: Observer
-metadata:
-  name: one-eye
-spec:
-  logging:
-    operator:
-      watchLoggingName: 'one-eye'
-      watchNamespace: 'default'
-```

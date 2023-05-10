@@ -77,7 +77,7 @@ The following example filters for specific Pod labels:
     and:
     - regexp:
         value: json.kubernetes.labels.app.kubernetes.io/instance
-        pattern: one-eye-log-generator
+        pattern: log-generator
         type: string
     - regexp:
         value: json.kubernetes.labels.app.kubernetes.io/name
@@ -158,7 +158,7 @@ For example:
     and:
     - regexp:
         value: json.kubernetes.labels.app.kubernetes.io/instance
-        pattern: one-eye-log-generator
+        pattern: log-generator
         flag: ignore-case
 ```
 
