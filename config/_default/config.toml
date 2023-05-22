@@ -45,9 +45,9 @@ twitter = "calisti12"
 
 [params]
 
-  email = "mailto:calisti-support@cisco.com"
+  # email = ""
 
-  copyright = "Cisco Systems, Inc"
+  copyright = "kube-logging authors"
 
   relativeURLs = true
 
