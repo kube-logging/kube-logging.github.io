@@ -5,6 +5,7 @@ weight: 2000
 
 Copyright (c) 2017-2019 [Banzai Cloud, Inc.](https://banzaicloud.com)
 Copyright (c) 2020-2023 [Cisco Systems, Inc.](https://cisco.com)
+Copyright (c) 2023- [kube-logging authors](https://github.com/kube-logging/)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
