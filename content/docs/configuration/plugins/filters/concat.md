@@ -101,6 +101,30 @@ If true, keep partial metadata
 
 Default: -
 
+### partial_metadata_format (string, optional) {#concat-partial_metadata_format}
+
+Input format of the partial metadata (fluentd or journald docker log driver) (docker-fluentd, docker-journald, docker-journald-lowercase)
+
+Default: docker-fluentd
+
+### use_partial_cri_logtag (bool, optional) {#concat-use_partial_cri_logtag}
+
+Use cri log tag to concatenate multiple records
+
+Default: False
+
+### partial_cri_logtag_key (string, optional) {#concat-partial_cri_logtag_key}
+
+The key name that is referred to concatenate records on cri log
+
+Default: -
+
+### partial_cri_stream_key (string, optional) {#concat-partial_cri_stream_key}
+
+The key name that is referred to detect stream name on cri log
+
+Default: stream
+
 
  ## Example `Concat` filter configurations
  ```yaml
