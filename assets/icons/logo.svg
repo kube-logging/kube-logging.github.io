@@ -1,22 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="374" height="319" viewBox="0 0 374 319">
-  <g id="Group_2064" data-name="Group 2064" transform="translate(-10446 -7365)">
-    <g id="Polygon_688" data-name="Polygon 688" transform="translate(10446 7365)" fill="none">
-      <path d="M187,0,374,319H0Z" stroke="none"/>
-      <path d="M 187 79.09524536132812 L 69.814453125 279 L 304.185546875 279 L 187 79.09524536132812 M 187 0 L 374 319 L 0 319 L 187 0 Z" stroke="none" fill="#fff"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 3237.738 490.023"
+   version="1.1"
+   id="svg142"
+   sodipodi:docname="logo-new2.svg"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs146" />
+  <sodipodi:namedview
+     id="namedview144"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.37340884"
+     inkscape:cx="1620.208"
+     inkscape:cy="243.70071"
+     inkscape:window-width="705"
+     inkscape:window-height="480"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg142" />
+  <g
+     id="Group_2068"
+     data-name="Group 2068"
+     transform="translate(-43577.297 -34456.625)">
+    <g
+       id="Group_2067"
+       data-name="Group 2067"
+       transform="translate(27723.789 24565.273)">
+      <path
+         id="Path_4217"
+         data-name="Path 4217"
+         d="M47842.219,34024.414l-276.027,475.07h71.242l240.227-414.1Z"
+         transform="translate(-31703.996 -24123.111)"
+         fill="#d6d7d9"
+         stroke="#d6d7d9"
+         stroke-width="10" />
+      <path
+         id="Path_4218"
+         data-name="Path 4218"
+         d="M47831.324,34080.781l166.754,287.355h-333.035Z"
+         transform="translate(-31640.254 -24086.76)"
+         fill="#fff"
+         stroke="#fff"
+         stroke-width="10" />
+      <path
+         id="Path_4220"
+         data-name="Path 4220"
+         d="M47668.742,34274.2l-37.727,64.1h442.43l-37.156-64.1Z"
+         transform="translate(-31662.199 -23962.018)"
+         fill="#d6d7d9"
+         stroke="#d6d7d9"
+         stroke-width="10" />
+      <path
+         id="Path_4222"
+         data-name="Path 4222"
+         d="M11294.989,10157.944l311.97-.01-156.218-269.074-78.621,135.83Z"
+         transform="translate(4740.338 117.39)"
+         fill="#fff" />
+      <path
+         id="Path_4224"
+         data-name="Path 4224"
+         d="M47787.594,34159.125l-54.391,93.035h108.039Z"
+         transform="translate(-31596.297 -24036.238)"
+         fill="#13142c"
+         stroke="#13132d"
+         stroke-width="10" />
     </g>
-    <g id="Path_3304" data-name="Path 3304" transform="translate(10465 7382)" fill="none">
-      <path d="M167.5,0,335,290H0Z" stroke="none"/>
-      <path d="M 167.5 79.97557067871094 L 69.29623413085938 250 L 265.7037658691406 250 L 167.5 79.97557067871094 M 167.5 0 L 335 290 L 0 290 L 167.5 0 Z" stroke="none" fill="#000"/>
-    </g>
-    <g id="Path_3383" data-name="Path 3383" transform="translate(10563 7438)" fill="none">
-      <path d="M102,0l25.365,43.766,12.523,21.608L204,176H0Z" stroke="none"/>
-      <path d="M 102 79.77281951904297 L 69.41378784179688 136 L 134.5862121582031 136 L 102 79.77281951904297 M 102 0 L 204 176 L 0 176 L 102 0 Z" stroke="none" fill="#496bb8"/>
-    </g>
-    <line id="Line_13" data-name="Line 13" x1="146" y2="252" transform="translate(10516.5 7424.5)" fill="none" stroke="#fff" stroke-width="18"/>
-    <line id="Line_14" data-name="Line 14" x1="232" transform="translate(10547.5 7622.88)" fill="none" stroke="#fff" stroke-width="18"/>
-    <g id="Polygon_689" data-name="Polygon 689" transform="translate(10632 7518)" fill="none">
-      <path d="M33,0,66,56H0Z" stroke="none"/>
-      <path d="M 33 0 L 66 56 L 0 56 L 33 0 Z" stroke="none" fill="#fff"/>
-    </g>
+    <text
+       id="Logging_Operator"
+       data-name="Logging Operator"
+       transform="translate(45475.035 34799.609)"
+       fill="#fff"
+       font-size="267"
+       font-family="Montserrat-Bold, Montserrat"
+       font-weight="700"
+       letter-spacing="0.046em"><tspan
+         x="-1339.806"
+         y="0"
+         id="tspan138">Logging Operator</tspan></text>
   </g>
 </svg>
