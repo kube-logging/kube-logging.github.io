@@ -121,9 +121,9 @@ Default: -
 
 ### partial_cri_stream_key (string, optional) {#concat-partial_cri_stream_key}
 
-The key name that is referred to detect stream name on cri log 
+The key name that is referred to detect stream name on cri log
 
-Default: -
+Default: stream
 
 
  ## Example `Concat` filter configurations
