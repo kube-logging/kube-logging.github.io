@@ -45,6 +45,11 @@ The Logging operator manages the log collectors and log forwarders of your loggi
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq.svg" width="150px" /></a>
 </div>
 </div>
+<div class="row">
+<div class="col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco.svg" width="200px" /></a>
+</div>
+</div>
 {{% /blocks/lead %}}
 
 {{< blocks/section color="dark" type="features">}}
