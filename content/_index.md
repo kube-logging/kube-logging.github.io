@@ -27,7 +27,7 @@ The Logging operator manages the log collectors and log forwarders of your loggi
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.svg" width="200px" /></a>
 </div>
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo_dark.svg" width="200px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo_dark.svg" width="150px" /></a>
 </div>
 <div class="col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
@@ -42,7 +42,7 @@ The Logging operator manages the log collectors and log forwarders of your loggi
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-color.svg" width="300px" /></a>
 </div>
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq.svg" width="150px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq.svg" width="100px" /></a>
 </div>
 </div>
 <div class="row">
