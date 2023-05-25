@@ -1,4 +1,4 @@
-baseurl = "https://kube-logging.github.io/"
+baseurl = "https://kube-logging.dev/"
 buildDrafts = false
 #googleAnalytics = "G-FIXME"
 
@@ -9,4 +9,4 @@ buildDrafts = false
 
 [params]
 
-url_latest_version = "https://kube-logging.github.io/"
+url_latest_version = "https://kube-logging.dev/"
