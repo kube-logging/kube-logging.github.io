@@ -1,6 +1,6 @@
 # kube-logging.github.io - Logging operator documentation
 
-This repository is the source of the Logging operator documentation, published at [https://kube-logging.github.io](https://kube-logging.github.io/docs/).
+This repository is the source of the Logging operator documentation, published at [https://kube-logging.dev](https://kube-logging.dev).
 
 The documentation is built using [Hugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/docs/).
 
