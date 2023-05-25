@@ -18,16 +18,28 @@ title: Logging operator
 The Logging operator manages the log collectors and log forwarders of your logging infrastructure, and the routing rules that specify where you want to send your different log messages. You can filter and process the incoming log messages using the flow custom resource of the log forwarder to route them to the appropriate output. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify.
 {{% /blocks/lead %}}
 
-{{% blocks/lead color="blue" %}}
+{{% blocks/lead color="primary" %}}
 <div class="mb-4 h2">
   Trusted by
 </div>
 <div class="row">
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.svg" width="200px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" /></a>
 </div>
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo_dark.svg" width="150px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.png" width="200px" /></a>
+</div>
+<div class="col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.jpg" width="100px" /></a>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" /></a>
+</div>
+<div class="col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" width="300px" /></a>
 </div>
 <div class="col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
@@ -36,18 +48,13 @@ The Logging operator manages the log collectors and log forwarders of your loggi
 
 <div class="row">
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/codefactory-logo.9dde0f1b.png" width="200px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.png" width="200px" /></a>
 </div>
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-color.svg" width="300px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.png" width="150px" /></a>
 </div>
 <div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq.svg" width="100px" /></a>
-</div>
-</div>
-<div class="row">
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco.svg" width="200px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.png" width="200px" /></a>
 </div>
 </div>
 {{% /blocks/lead %}}
