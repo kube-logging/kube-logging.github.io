@@ -29,13 +29,13 @@ For example:
 
 ```yaml
 spec:
-  fluentdSpec:
+  fluentd:
     metrics:
       serviceMonitor: true
-  fluentbitSpec:
+  fluentbit:
     metrics:
       serviceMonitor: true
-  syslogNGSpec:
+  syslogNG:
     metrics:
       serviceMonitor: true
 ```
