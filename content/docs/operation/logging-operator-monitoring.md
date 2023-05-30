@@ -14,7 +14,7 @@ You can configure the Logging operator to expose metrics endpoints for Fluentd, 
 
 ## Metrics Variables
 
-You can configure the following metrics-related options in the **fluentdSpec**, **syslogNGSpec**, and **fluentbitSpec** sections of your Logging resource.
+You can configure the following metrics-related options in the **spec.fluentd.metrics**, **spec.syslogNG.metrics**, and **spec.fluentbit.metrics** sections of your Logging resource.
 
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
