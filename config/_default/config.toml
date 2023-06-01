@@ -155,6 +155,19 @@ twitter = "calisti12"
     icon = "fab fa-discord"
     desc = "Chat with the project developers"
 
+########################
+# Release versions
+#######################
+# Add your release versions here
+[[params.versions]]
+  version = "latest (4.0.0)"
+  githubbranch = "master"
+  url = "/docs/"
+[[params.versions]]
+  version = "3.17.11"
+  githubbranch = "3.17"
+  url = "/3.17/"
+
 ###############################################################################
 # Hugo - Top-level navigation (horizontal)
 ###############################################################################
