@@ -25,7 +25,7 @@ languageName ="English"
 weight = 1
 
 [outputs]
-    home = ["HTML", "print"]
+    home = ["HTML", "print", "releases"]
     # Enable print this section menu item
     section = [ "HTML", "print" ]
 
@@ -68,6 +68,7 @@ twitter = "calisti12"
   # Used in the "version-banner" partial to display a version number for the 
   # current doc set.
   version = "4.0.0"
+  version_menu = "Releases"
   version_menu_canonicallinks = true
 
   # A link to latest version of the docs. Used in the "version-banner" partial to
@@ -187,6 +188,18 @@ twitter = "calisti12"
     weight = -100
     #pre = "<i class='fas fa-book pr-2'></i>"
     url = "/docs/"
+
+################################
+# Definitions for generating a 
+# separate releases.html file for
+# including in navbar-version-selector.html
+################################
+[outputFormats]
+  [outputFormats.releases]
+    baseName = 'releases'
+    path = 'static'
+    isPlainText = true
+    mediaType = 'text/html'
 
 ###############################################################################
 # Misc customizations
