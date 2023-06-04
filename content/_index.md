@@ -24,38 +24,38 @@ The Logging operator <b>manages the log collectors and log forwarders</b> of you
 <div class="mb-4 h2">
   Trusted and supported by
 </div>
-<div class="row">
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" /></a>
+<div class="row trustedby-row">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.png" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" /></a>
+</div>
+</div>
+
+<div class="row trustedby-row">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" /></a>
+</div>
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" width="300px" /></a>
+</div>
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.jpg" width="100px" /></a>
 </div>
 </div>
 
-<div class="row">
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" /></a>
-</div>
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" width="300px" /></a>
-</div>
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
-</div>
-</div>
-
-<div class="row">
-<div class="col">
+<div class="row trustedby-row">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.png" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.png" width="150px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.png" width="200px" /></a>
 </div>
 </div>

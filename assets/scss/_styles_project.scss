@@ -32,6 +32,15 @@ assets/scss/_styles_project.scss
   display: none;
 }
 
+// Main-page specific customizations
 .lead-text {
   line-height: 1.8;
+}
+
+.trustedby-row {
+  display: flex;
+}
+
+.trustedby-col {
+  margin: auto;
 }
