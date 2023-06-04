@@ -20,7 +20,7 @@ The Logging operator manages the log collectors and log forwarders of your loggi
 
 {{% blocks/lead color="success" %}}
 <div class="mb-4 h2">
-  Trusted by
+  Trusted and supported by
 </div>
 <div class="row">
 <div class="col">
