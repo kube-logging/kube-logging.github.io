@@ -15,45 +15,47 @@ title: Logging operator
 {{< /blocks/cover >}}
 
 {{% blocks/lead color="primary" %}}
-The Logging operator manages the log collectors and log forwarders of your logging infrastructure, and the routing rules that specify where you want to send your different log messages. You can filter and process the incoming log messages using the flow custom resource of the log forwarder to route them to the appropriate output. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify.
+<div class="lead-text">
+The Logging operator <b>manages the log collectors and log forwarders</b> of your logging infrastructure, and the <b>routing rules</b> that specify where you want to send your different log messages. You can <b>filter and process</b> the incoming log messages using the flow custom resource of the log forwarder to <b>route them to the appropriate output</b>. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also <b>define cluster-wide outputs and flows</b>, for example, to use a centralized output that namespaced users can reference but cannot modify.
+</div>
 {{% /blocks/lead %}}
 
-{{% blocks/lead color="primary" %}}
+{{% blocks/lead color="success" %}}
 <div class="mb-4 h2">
-  Trusted by
+  Trusted and supported by
 </div>
-<div class="row">
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" /></a>
+<div class="row trustedby-row">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.png" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" /></a>
+</div>
+</div>
+
+<div class="row trustedby-row">
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" /></a>
+</div>
+<div class="col trustedby-col">
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" width="300px" /></a>
+</div>
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.jpg" width="100px" /></a>
 </div>
 </div>
 
-<div class="row">
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" /></a>
-</div>
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" width="300px" /></a>
-</div>
-<div class="col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" width="200px" /></a>
-</div>
-</div>
-
-<div class="row">
-<div class="col">
+<div class="row trustedby-row">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.png" width="200px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.png" width="150px" /></a>
 </div>
-<div class="col">
+<div class="col trustedby-col">
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.png" width="200px" /></a>
 </div>
 </div>

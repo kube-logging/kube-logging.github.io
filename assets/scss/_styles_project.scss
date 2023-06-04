@@ -31,3 +31,16 @@ assets/scss/_styles_project.scss
 .td-navbar .navbar-brand__name {
   display: none;
 }
+
+// Main-page specific customizations
+.lead-text {
+  line-height: 1.8;
+}
+
+.trustedby-row {
+  display: flex;
+}
+
+.trustedby-col {
+  margin: auto;
+}
