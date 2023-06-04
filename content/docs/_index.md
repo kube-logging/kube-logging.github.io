@@ -39,9 +39,8 @@ For the detailed CRD documentation, see [List of CRDs]({{< relref "/docs/configu
 ![Logging operator architecture](/docs/img/logging-operator-v2-architecture.png)
 
 ## Quickstart
-<script id="asciicast-315998" src="https://asciinema.org/a/315998.js" async></script>
 
-See also our [Quickstart guides]({{< relref "/docs/quickstarts/_index.md" >}}).
+See our [Quickstart guides]({{< relref "/docs/quickstarts/_index.md" >}}).
 
 ## Support
 
