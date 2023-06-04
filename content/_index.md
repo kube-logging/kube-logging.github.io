@@ -18,7 +18,7 @@ title: Logging operator
 The Logging operator manages the log collectors and log forwarders of your logging infrastructure, and the routing rules that specify where you want to send your different log messages. You can filter and process the incoming log messages using the flow custom resource of the log forwarder to route them to the appropriate output. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify.
 {{% /blocks/lead %}}
 
-{{% blocks/lead color="primary" %}}
+{{% blocks/lead color="success" %}}
 <div class="mb-4 h2">
   Trusted by
 </div>
