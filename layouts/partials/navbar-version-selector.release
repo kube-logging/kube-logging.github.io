@@ -1,8 +1,5 @@
 {{ if .Site.Params.versions -}}
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	{{ .Site.Params.version_menu }}
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	{{/*  Snippet from the original navbar-version-selector.html  */}}
 	{{ $path := "" }}
 	{{ if .Site.Params.version_menu_pagelinks }}
 		{{ $path = .Page.RelPermalink }}
@@ -10,5 +7,4 @@
 	{{ range .Site.Params.versions }}
 	<a class="dropdown-item" href="{{ .url }}{{ $path }}">{{ .version }}</a>
 	{{ end }}
-</div>
 {{ end }}

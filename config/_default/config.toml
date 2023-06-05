@@ -165,7 +165,7 @@ twitter = "calisti12"
 [[params.versions]]
   version = "latest (4.0.0)"
   githubbranch = "master"
-  url = "/"
+  url = ""
 [[params.versions]]
   version = "3.17.11"
   githubbranch = "3.17"
