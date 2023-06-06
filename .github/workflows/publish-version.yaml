@@ -77,9 +77,13 @@ jobs:
         with:
           ref: 'gh-pages-test'
           path: 'tmp/gh-pages'
+      - uses: actions/download-artifact@v3
+        with:
+          name: github-pages
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Copy built site to GH pages
         run: |
-          ls
           rm -rf tmp/gh-pages/${{ env.doc_versionnumber }}
           mkdir -p tmp/gh-pages/${{ env.doc_versionnumber }}
           mv public/ tmp/gh-pages/${{ env.doc_versionnumber }}
@@ -89,4 +93,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: 'Publish updated docs for ${{ env.doc_versionnumber }}, ${date}'
           branch: 'gh-pages-test'
-
