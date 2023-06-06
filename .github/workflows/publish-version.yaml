@@ -1,8 +1,11 @@
 name: Publish version
 
+env:
+  doc_versionnumber: 4.0
+
 on:
   push:
-    branches: [ master ]
+    branches: [ release-$doc_versionnumber ]
   workflow_dispatch:
 
 permissions:
@@ -43,7 +46,7 @@ jobs:
         run: npm install --save-dev autoprefixer postcss-cli postcss
 
       - name: Build
-        run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}/
+        run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}/$doc_versionnumber/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
@@ -69,6 +72,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@af48cf94a42f2c634308b1c9dc0151830b6f190a # v2.0.1
+      - name: Checkout code
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+        with:
+          ref: 'gh-pages'
+          path: 'tmp/gh-pages'
+      - name: Copy built site to GH pages
+        run: rm -rf tmp/gh-pages/content/$doc_versionnumber; mkdir -p tmp/gh-pages/content/$doc_versionnumber; mv public/content/docs/ tmp/gh-pages/content/$doc_versionnumber
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Publish updated docs for $doc_versionnumber, ${date}'
+          branch: 'gh-pages'
+

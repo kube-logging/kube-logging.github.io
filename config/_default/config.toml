@@ -171,6 +171,13 @@ twitter = "calisti12"
   githubbranch = "3.17"
   url = "/3.17/"
 
+# Cascade version number to every doc page (needed to create sections for pagefind search)
+# Update this parameter when creating a new version
+[[cascade]]
+body_attribute = 'data-pagefind-filter="section:4.0"'
+[cascade._target]
+  path = '/docs/**'
+
 ###############################################################################
 # Hugo - Top-level navigation (horizontal)
 ###############################################################################
