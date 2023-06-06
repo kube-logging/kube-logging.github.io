@@ -75,7 +75,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
-          ref: 'gh-pages'
+          ref: 'gh-pages-test'
           path: 'tmp/gh-pages'
       - name: Copy built site to GH pages
         run: rm -rf tmp/gh-pages/content/${{ env.doc_versionnumber }}; mkdir -p tmp/gh-pages/content/${{ env.doc_versionnumber }}; mv public/content/docs/ tmp/gh-pages/content/${{ env.doc_versionnumber }}
@@ -83,6 +83,6 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'gh-pages'
           message: 'Publish updated docs for ${{ env.doc_versionnumber }}, ${date}'
+          branch: 'gh-pages-test'
 
