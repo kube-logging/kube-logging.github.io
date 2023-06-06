@@ -30,7 +30,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Add the chart repository of the Logging operator using the following commands:
 
     ```bash
-    helm repo add kube-logging https://kube-logging.github.io/helm-charts
+    helm repo add kube-logging https://kube-logging.dev/helm-charts
     helm repo update
     ```
 

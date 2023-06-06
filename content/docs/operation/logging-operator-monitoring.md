@@ -75,7 +75,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Add operator chart repository:
 
     ```bash
-    helm repo add kube-logging https://kube-logging.github.io/helm-charts
+    helm repo add kube-logging https://kube-logging.dev/helm-charts
     ```
 
 1. Logging Operator

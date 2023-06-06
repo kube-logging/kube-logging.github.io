@@ -1,4 +1,4 @@
-# kube-logging.github.io - Logging operator documentation
+# kube-logging.dev - Logging operator documentation
 
 This repository is the source of the Logging operator documentation, published at [https://kube-logging.dev](https://kube-logging.dev).
 
