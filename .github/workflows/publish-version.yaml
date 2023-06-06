@@ -8,24 +8,24 @@ on:
     branches: [ release-4.0 ]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-environment:
-  name: github-pages-test
-  url: ${{ steps.deployment.outputs.page_url }}
-
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    
+    environment:
+      name: github-pages-test
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
