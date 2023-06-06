@@ -10,6 +10,16 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+  environment:
+    name: github-pages-test
+    url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   build:
@@ -46,41 +56,19 @@ jobs:
         run: npm install --save-dev autoprefixer postcss-cli postcss
 
       - name: Build
-        run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}/docs/${{ env.doc_versionnumber }}/
+        run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}/${{ env.doc_versionnumber }}/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
-        with:
-          path: ./public/
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
+      #   with:
+      #     path: ./public/
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
-
-    environment:
-      name: github-pages-test
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Checkout code
+      - name: Checkout code to update
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           ref: 'gh-pages-test'
           path: 'tmp/gh-pages'
-      - uses: actions/download-artifact@v3
-        with:
-          name: github-pages
-      - name: Display structure of downloaded files
+      - name: Display file structure
         run: ls -R
       - name: Copy built site to GH pages
         run: |
