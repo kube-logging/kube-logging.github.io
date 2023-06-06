@@ -17,9 +17,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-  environment:
-    name: github-pages-test
-    url: ${{ steps.deployment.outputs.page_url }}
+environment:
+  name: github-pages-test
+  url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   build:
