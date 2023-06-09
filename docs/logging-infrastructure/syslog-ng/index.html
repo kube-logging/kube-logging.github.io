@@ -26,13 +26,13 @@ The following example sets a volume mount that syslog-ng can use for buffering m
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging name: test spec: syslogNG: statefulSet: spec: template: spec: containers: - name: syslog-ng volumeMounts: - mountPath: /buffers name: buffer volumeClaimTemplates: - metadata: name: buffer spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi CPU and memory requirements To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see CPU and memory requirements.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-09T12:17:33+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-09T13:31:36+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure syslog-ng">
 <meta itemprop="description" content="syslog-ng is supported only in Logging operator 4.0 or newer.
 You can configure the deployment of the syslog-ng log forwarder via the syslogNG section of the The Logging custom resource. For the detailed list of available parameters, see SyslogNGSpec.
 The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if Disk buffer is configured in the output).
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging name: test spec: syslogNG: statefulSet: spec: template: spec: containers: - name: syslog-ng volumeMounts: - mountPath: /buffers name: buffer volumeClaimTemplates: - metadata: name: buffer spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi CPU and memory requirements To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see CPU and memory requirements.">
-<meta itemprop="dateModified" content="2023-06-09T12:17:33+00:00">
+<meta itemprop="dateModified" content="2023-06-09T13:31:36+00:00">
 <meta itemprop="wordCount" content="298">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure syslog-ng">
@@ -47,6 +47,7 @@ apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging name: test spec: syslog
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/logging-infrastructure/">
 </head><body class="td-page">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -552,7 +553,7 @@ Releases
 <td>failureThreshold</td><td>int</td><td>3</td><td>Minimum consecutive failures for the probe to be considered failed after having succeeded.</td></tr><tr>
 <td>exec</td><td>array</td><td>{}</td><td>Exec specifies the action to take. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
 <p>Note: To configure readiness probes, see <a href="/docs/operation/readiness-probe/">Readiness probe</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e56e9f4f34ec5e19d431f8138b5dfd7751baebc5">Merge 5499eca87c7abaad44216564e74b39e17a82a4b6 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (e56e9f4)</a>
+Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/0eff8cf016af8f6c3e4f8c258877ddc4a2459cbe">Merge 0ecf5c75e02f2d7f1f4381d7f6b0301df4ef8ee2 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (0eff8cf)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

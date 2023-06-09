@@ -32,7 +32,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-09T12:17:33+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-09T13:31:36+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the syslog-ng documentation.
@@ -41,7 +41,7 @@ Default: -
 create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2023-06-09T12:17:33+00:00">
+<meta itemprop="dateModified" content="2023-06-09T13:31:36+00:00">
 <meta itemprop="wordCount" content="218">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -59,6 +59,7 @@ dir_group (string, optional) The group of the directories created by syslog-ng. 
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/">
 </head><body class="td-page">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -523,7 +524,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/36#TOPIC-1829044">syslog-ng documentation</a>.</p><h3 id="fileoutput-path">path (string, required)</h3><p>Store file path</p><p>Default: -</p><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-owner().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the create-dirs() option). For octal numbers prefix the number with 0, for example use 0755 for rwxr-xr-x.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-template">template (string, optional)</h3><p>Default: -</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e56e9f4f34ec5e19d431f8138b5dfd7751baebc5">Merge 5499eca87c7abaad44216564e74b39e17a82a4b6 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (e56e9f4)</a>
+Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/0eff8cf016af8f6c3e4f8c258877ddc4a2459cbe">Merge 0ecf5c75e02f2d7f1f4381d7f6b0301df4ef8ee2 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (0eff8cf)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
