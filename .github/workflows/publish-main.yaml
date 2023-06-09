@@ -89,6 +89,6 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Publish updated main docs, ${date}'
+          message: 'Publish updated main docs, ${{ github.event.repository.pushed_at}}'
           branch: 'gh-pages-test'
           directory: 'tmp/gh-pages'
