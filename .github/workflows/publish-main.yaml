@@ -84,7 +84,7 @@ jobs:
           rm -rf tmp/gh-pages/scss
           rm -rf tmp/gh-pages/js
           rm -rf tmp/gh-pages/_print
-          mv public/* tmp/gh-pages/
+          mv -f public/* tmp/gh-pages/
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
