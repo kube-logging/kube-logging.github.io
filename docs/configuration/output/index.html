@@ -22,11 +22,11 @@ Fluentd outputs The Output resource defines an output where your Fluentd Flows c
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/output/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-09T09:00:20+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-09T12:17:33+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Output and ClusterOutput">
 <meta itemprop="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
-<meta itemprop="dateModified" content="2023-06-09T09:00:20+00:00">
+<meta itemprop="dateModified" content="2023-06-09T12:17:33+00:00">
 <meta itemprop="wordCount" content="446">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Output and ClusterOutput">
@@ -55,7 +55,7 @@ Fluentd outputs The Output resource defines an output where your Fluentd Flows c
 Releases
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-<div w3-include-html="/docs/configuration/output//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+<div w3-include-html="/docs/configuration/output//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
 <div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.40d7fac87a7c4f833c699d0e20bccdca.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
@@ -560,7 +560,7 @@ Outputs are the final stage for a <code>logging flow</code>. You can define mult
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">transport</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tls</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><ul>
 <li>For the details of the supported output plugins, see <a href="/docs/configuration/plugins/syslog-ng-outputs/">syslog-ng outputs</a>.</li><li>For the details of <code>SyslogNGOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_output_types/">SyslogNGOutputSpec</a>.</li><li>For the details of <code>SyslogNGClusterOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/">SyslogNGClusterOutput</a>.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7e5f5f689b69971c964b489bef2b561b76969afa">Merge b12627bbab001d42dd9d30eeff1ee132d1d63864 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (7e5f5f6)</a>
+Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e56e9f4f34ec5e19d431f8138b5dfd7751baebc5">Merge 5499eca87c7abaad44216564e74b39e17a82a4b6 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (e56e9f4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

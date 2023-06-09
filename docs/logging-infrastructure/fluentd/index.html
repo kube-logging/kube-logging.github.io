@@ -22,11 +22,11 @@ Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-09T09:00:20+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-09T12:17:33+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="You can configure the deployment of the Fluentd log forwarder via the fluentd section of the The Logging custom resource. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see FluentdSpec.
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
-<meta itemprop="dateModified" content="2023-06-09T09:00:20+00:00">
+<meta itemprop="dateModified" content="2023-06-09T12:17:33+00:00">
 <meta itemprop="wordCount" content="1314">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
@@ -55,7 +55,7 @@ Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1
 Releases
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-<div w3-include-html="/docs/logging-infrastructure/fluentd//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+<div w3-include-html="/docs/logging-infrastructure/fluentd//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
 <div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.40d7fac87a7c4f833c699d0e20bccdca.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
@@ -700,7 +700,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
 <td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7e5f5f689b69971c964b489bef2b561b76969afa">Merge b12627bbab001d42dd9d30eeff1ee132d1d63864 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (7e5f5f6)</a>
+Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e56e9f4f34ec5e19d431f8138b5dfd7751baebc5">Merge 5499eca87c7abaad44216564e74b39e17a82a4b6 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (e56e9f4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
