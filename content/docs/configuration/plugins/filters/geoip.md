@@ -24,7 +24,7 @@ Specify optional geoip database (using bundled GeoLiteCity databse by default)
 
 Default: -
 
-### geoip_2_database (string, optional) {#geoip-geoip_2_database}
+### geoip2_database (string, optional) {#geoip-geoip2_database}
 
 Specify optional geoip2 database (using bundled GeoLite2-City.mmdb by default) 
 
@@ -36,7 +36,7 @@ Specify backend library (geoip2_c, geoip, geoip2_compat)
 
 Default: -
 
-### skip_adding_null_record (bool, optional) {#geoip-skip_adding_null_record}
+### skip_adding_null_record (*bool, optional) {#geoip-skip_adding_null_record}
 
 To avoid get stacktrace error with `[null, null]` array for elasticsearch. 
 

@@ -94,9 +94,30 @@ Default: -
 
 ### stats_level (*int, optional) {#globaloptions-stats_level}
 
+Deprecated. Use stats/level from 4.1+ 
+
 Default: -
 
 ### stats_freq (*int, optional) {#globaloptions-stats_freq}
+
+Deprecated. Use stats/level from 4.1+ 
+
+Default: -
+
+### stats (*Stats, optional) {#globaloptions-stats}
+
+TODO switch to this by default 
+
+Default: -
+
+
+## Stats
+
+### level (*int, optional) {#stats-level}
+
+Default: -
+
+### freq (*int, optional) {#stats-freq}
 
 Default: -
 
