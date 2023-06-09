@@ -32,7 +32,7 @@ base_uri (string, optional) New Relic ingestion endpoint Secret
 Default: https://log-api.newrelic.com/log/v1">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/4.0/docs/configuration/plugins/outputs/newrelic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-09T12:57:30+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-09T15:32:49+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="NewRelic">
 <meta itemprop="description" content="New Relic Logs plugin for Fluentd Overview newrelic output plugin send log data to New Relic Logs
 Example output configurations spec: newrelic: license_key: valueFrom: secretKeyRef: name: logging-newrelic key: licenseKey Configuration Output Config api_key (*secret.Secret, optional) New Relic API Insert key Secret
@@ -41,7 +41,7 @@ license_key (*secret.Secret, optional) New Relic License Key (recommended) [Secr
 Default: -
 base_uri (string, optional) New Relic ingestion endpoint Secret
 Default: https://log-api.newrelic.com/log/v1">
-<meta itemprop="dateModified" content="2023-06-09T12:57:30+02:00">
+<meta itemprop="dateModified" content="2023-06-09T15:32:49+02:00">
 <meta itemprop="wordCount" content="67">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NewRelic">
@@ -59,6 +59,7 @@ Default: https://log-api.newrelic.com/log/v1">
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/4.0/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/outputs/">
 </head><body class="td-page">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -526,7 +527,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging-newrelic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">licenseKey</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-api_key">api_key (*secret.Secret, optional)</h3><p>New Relic API Insert key <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-license_key">license_key (*secret.Secret, optional)</h3><p>New Relic License Key (recommended) [Secret](../secret/" LicenseKey *secret.Secret <code>json:"license_key)</code></p><p>Default: -</p><h3 id="output-config-base_uri">base_uri (string, optional)</h3><p>New Relic ingestion endpoint <a href="../secret/">Secret</a></p><p>Default: <a href="https://log-api.newrelic.com/log/v1">https://log-api.newrelic.com/log/v1</a></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/05b5b96dd94a63b449f5fe6d1ba0a32da9c1439d">Include path fixes for navselector (05b5b96)</a>
+Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dd3cb3c96a20faacbe1b6d6803520bfb00291daa">Generate canonical url for versioned docs (dd3cb3c)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
