@@ -3,8 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.110.0">
-<link rel="alternate" type="text/html" href="https://kube-logging.dev/docs/_print/">
-<link rel="alternate" type="text/releases" href="https://kube-logging.dev/docs/releases.releases">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/docs/configuration/plugins/outputs/forward/releases.releases">
 <meta name="robots" content="index, follow">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
 <link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
@@ -16,15 +15,51 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Logging operator | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
-<meta property="og:title" content="Logging operator">
-<meta property="og:description" content="Documentation for the Logging operator">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kube-logging.dev/docs/"><meta property="og:site_name" content="Logging operator">
-<meta itemprop="name" content="Logging operator">
-<meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Logging operator">
-<meta name="twitter:description" content="Documentation for the Logging operator">
+<title>Forward | Logging operator</title><meta name="description" content="ForwardOutput servers ([]FluentdServer, required) Server definitions at least one is required Server
+Default: -
+transport (string, optional) The transport protocol to use [ tcp, tls ]
+Default: -
+require_ack_response (bool, optional) Change the protocol to at-least-once. The plugin waits the ack from destination&amp;rsquo;s in_forward plugin.
+Default: -
+ack_response_timeout (int, optional) This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.
+Default: 190
+send_timeout (int, optional) The timeout time when sending event logs.">
+<meta property="og:title" content="Forward">
+<meta property="og:description" content="ForwardOutput servers ([]FluentdServer, required) Server definitions at least one is required Server
+Default: -
+transport (string, optional) The transport protocol to use [ tcp, tls ]
+Default: -
+require_ack_response (bool, optional) Change the protocol to at-least-once. The plugin waits the ack from destination&rsquo;s in_forward plugin.
+Default: -
+ack_response_timeout (int, optional) This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.
+Default: 190
+send_timeout (int, optional) The timeout time when sending event logs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/forward/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2023-06-09T09:00:20+00:00"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Forward">
+<meta itemprop="description" content="ForwardOutput servers ([]FluentdServer, required) Server definitions at least one is required Server
+Default: -
+transport (string, optional) The transport protocol to use [ tcp, tls ]
+Default: -
+require_ack_response (bool, optional) Change the protocol to at-least-once. The plugin waits the ack from destination&rsquo;s in_forward plugin.
+Default: -
+ack_response_timeout (int, optional) This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.
+Default: 190
+send_timeout (int, optional) The timeout time when sending event logs.">
+<meta itemprop="dateModified" content="2023-06-09T09:00:20+00:00">
+<meta itemprop="wordCount" content="754">
+<meta itemprop="keywords" content><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Forward">
+<meta name="twitter:description" content="ForwardOutput servers ([]FluentdServer, required) Server definitions at least one is required Server
+Default: -
+transport (string, optional) The transport protocol to use [ tcp, tls ]
+Default: -
+require_ack_response (bool, optional) Change the protocol to at-least-once. The plugin waits the ack from destination&rsquo;s in_forward plugin.
+Default: -
+ack_response_timeout (int, optional) This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.
+Default: 190
+send_timeout (int, optional) The timeout time when sending event logs.">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" as="style">
 <link href="/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" rel="stylesheet" integrity>
@@ -32,7 +67,7 @@
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
-</head><body class="td-section">
+</head><body class="td-page">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
@@ -48,7 +83,7 @@
 Releases
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-<div w3-include-html="/docs//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+<div w3-include-html="/docs/configuration/plugins/outputs/forward//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
 <div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.40d7fac87a7c4f833c699d0e20bccdca.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
@@ -65,7 +100,7 @@ Releases
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
-<a href="/docs/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="td-sidebar-nav-active-item">Logging operator</span></a>
+<a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span>Logging operator</span></a>
 <ul class="ul-1">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsinstall-li">
 <input type="checkbox" id="m-docsinstall-check">
@@ -83,8 +118,8 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsquickstartssyslog-ng-sumologic-check">
 <label for="m-docsquickstartssyslog-ng-sumologic-check"><a href="/docs/quickstarts/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfiguration-li">
-<input type="checkbox" id="m-docsconfiguration-check">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfiguration-li">
+<input type="checkbox" id="m-docsconfiguration-check" checked>
 <label for="m-docsconfiguration-check"><a href="/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfiguration"><span>Routing logs</span></a></label>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
@@ -175,8 +210,8 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsextensionshosttailer_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsextensionshosttailer_types-check">
 <label for="m-docsconfigurationcrdsextensionshosttailer_types-check"><a href="/docs/configuration/crds/extensions/hosttailer_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsextensionshosttailer_types"><span>HostTailer</span></a></label>
-</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationplugins-li">
-<input type="checkbox" id="m-docsconfigurationplugins-check">
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationplugins-li">
+<input type="checkbox" id="m-docsconfigurationplugins-check" checked>
 <label for="m-docsconfigurationplugins-check"><a href="/docs/configuration/plugins/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationplugins"><span>Supported Plugins</span></a></label>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginscommonsecurity-li">
@@ -237,8 +272,8 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersthrottle-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfiltersthrottle-check">
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationpluginsoutputs-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
@@ -280,9 +315,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsformat_rfc5424-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsformat_rfc5424-check">
 <label for="m-docsconfigurationpluginsoutputsformat_rfc5424-check"><a href="/docs/configuration/plugins/outputs/format_rfc5424/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsformat_rfc5424"><span>Format rfc5424</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsforward-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsforward-check">
-<label for="m-docsconfigurationpluginsoutputsforward-check"><a href="/docs/configuration/plugins/outputs/forward/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsforward"><span>Forward</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsconfigurationpluginsoutputsforward-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsforward-check" checked>
+<label for="m-docsconfigurationpluginsoutputsforward-check"><a href="/docs/configuration/plugins/outputs/forward/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsforward"><span class="td-sidebar-nav-active-item">Forward</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsgelf-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsgelf-check">
 <label for="m-docsconfigurationpluginsoutputsgelf-check"><a href="/docs/configuration/plugins/outputs/gelf/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsgelf"><span>GELF</span></a></label>
@@ -465,59 +500,35 @@ Releases
 <label for="m-docslicense-check"><a href="/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslicense"><span>License</span></a></label>
 </li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
-<a href="https://github.com/kube-logging/kube-logging.github.io/edit/master/content/docs/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
-<a href="https://github.com/kube-logging/kube-logging.github.io/new/master/content/docs/_index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
-<a href="https://github.com/kube-logging/kube-logging.github.io/issues/new?title=Logging%20operator" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/plugins/outputs/forward.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/edit/master/content/docs/configuration/plugins/outputs/forward.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/new/master/content/docs/configuration/plugins/outputs/forward.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/issues/new?title=Forward" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
 <a href="https://github.com/kube-logging/logging-operator/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
-<a id="print" href="https://kube-logging.dev/docs/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://kube-logging.dev/docs/configuration/plugins/outputs/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#overview">Overview</a></li><li><a href="#feature-highlights">Feature highlights</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#quickstart">Quickstart</a></li><li><a href="#support">Support</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-<nav aria-label="breadcrumb" class="td-breadcrumbs td-breadcrumbs__single">
+<li><a href="#forwardoutput">ForwardOutput</a>
+<ul>
+<li><a href="#forwardoutput-servers">servers ([]FluentdServer, required)</a></li><li><a href="#forwardoutput-transport">transport (string, optional)</a></li><li><a href="#forwardoutput-require_ack_response">require_ack_response (bool, optional)</a></li><li><a href="#forwardoutput-ack_response_timeout">ack_response_timeout (int, optional)</a></li><li><a href="#forwardoutput-send_timeout">send_timeout (int, optional)</a></li><li><a href="#forwardoutput-connect_timeout">connect_timeout (int, optional)</a></li><li><a href="#forwardoutput-recover_wait">recover_wait (int, optional)</a></li><li><a href="#forwardoutput-heartbeat_type">heartbeat_type (string, optional)</a></li><li><a href="#forwardoutput-heartbeat_interval">heartbeat_interval (int, optional)</a></li><li><a href="#forwardoutput-phi_failure_detector">phi_failure_detector (bool, optional)</a></li><li><a href="#forwardoutput-phi_threshold">phi_threshold (int, optional)</a></li><li><a href="#forwardoutput-hard_timeout">hard_timeout (int, optional)</a></li><li><a href="#forwardoutput-expire_dns_cache">expire_dns_cache (int, optional)</a></li><li><a href="#forwardoutput-dns_round_robin">dns_round_robin (bool, optional)</a></li><li><a href="#forwardoutput-ignore_network_errors_at_startup">ignore_network_errors_at_startup (bool, optional)</a></li><li><a href="#forwardoutput-tls_version">tls_version (string, optional)</a></li><li><a href="#forwardoutput-tls_ciphers">tls_ciphers (string, optional)</a></li><li><a href="#forwardoutput-tls_insecure_mode">tls_insecure_mode (bool, optional)</a></li><li><a href="#forwardoutput-tls_allow_self_signed_cert">tls_allow_self_signed_cert (bool, optional)</a></li><li><a href="#forwardoutput-tls_verify_hostname">tls_verify_hostname (bool, optional)</a></li><li><a href="#forwardoutput-tls_cert_path">tls_cert_path (*secret.Secret, optional)</a></li><li><a href="#forwardoutput-tls_client_cert_path">tls_client_cert_path (*secret.Secret, optional)</a></li><li><a href="#forwardoutput-tls_client_private_key_path">tls_client_private_key_path (*secret.Secret, optional)</a></li><li><a href="#forwardoutput-tls_client_private_key_passphrase">tls_client_private_key_passphrase (*secret.Secret, optional)</a></li><li><a href="#forwardoutput-tls_cert_thumbprint">tls_cert_thumbprint (string, optional)</a></li><li><a href="#forwardoutput-tls_cert_logical_store_name">tls_cert_logical_store_name (string, optional)</a></li><li><a href="#forwardoutput-tls_cert_use_enterprise_store">tls_cert_use_enterprise_store (bool, optional)</a></li><li><a href="#forwardoutput-keepalive">keepalive (bool, optional)</a></li><li><a href="#forwardoutput-keepalive_timeout">keepalive_timeout (int, optional)</a></li><li><a href="#forwardoutput-security">security (*common.Security, optional)</a></li><li><a href="#forwardoutput-verify_connection_at_startup">verify_connection_at_startup (bool, optional)</a></li><li><a href="#forwardoutput-buffer">buffer (*Buffer, optional)</a></li><li><a href="#forwardoutput-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</a></li></ul></li><li><a href="#fluentd-server">Fluentd Server</a>
+<ul>
+<li><a href="#fluentd-server-host">host (string, required)</a></li><li><a href="#fluentd-server-name">name (string, optional)</a></li><li><a href="#fluentd-server-port">port (int, optional)</a></li><li><a href="#fluentd-server-shared_key">shared_key (*secret.Secret, optional)</a></li><li><a href="#fluentd-server-username">username (*secret.Secret, optional)</a></li><li><a href="#fluentd-server-password">password (*secret.Secret, optional)</a></li><li><a href="#fluentd-server-standby">standby (bool, optional)</a></li><li><a href="#fluentd-server-weight">weight (int, optional)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<nav aria-label="breadcrumb" class="td-breadcrumbs">
 <ol class="breadcrumb">
-<li class="breadcrumb-item active" aria-current="page">
-<a href="https://kube-logging.dev/docs/" aria-disabled="true" class="btn-link disabled">Logging operator</a>
+<li class="breadcrumb-item">
+<a href="https://kube-logging.dev/docs/">Logging operator</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/docs/configuration/">Routing logs</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/docs/configuration/plugins/">Supported Plugins</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Outputs</a>
+</li><li class="breadcrumb-item active" aria-current="page">
+<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/forward/" aria-disabled="true" class="btn-link disabled">Forward</a>
 </li></ol></nav><div class="td-content">
-<h1>Logging operator</h1><header class="article-meta">
-</header><p>Welcome to the Logging operator documentation!</p><h2 id="overview">Overview</h2><p>The Logging operator solves your logging-related problems in Kubernetes environments by automating the deployment and configuration of a Kubernetes logging pipeline.</p><ol>
-<li>The operator deploys and configures a log collector (currently a Fluent Bit DaemonSet) on every node to collect container and application logs from the node file system.</li><li>Fluent Bit queries the Kubernetes API and enriches the logs with metadata about the pods, and transfers both the logs and the metadata to a log forwarder instance.</li><li>The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders.</li></ol><p>Your logs are always transferred on authenticated and encrypted channels.</p><p>This operator helps you bundle logging information with your applications: you can describe the behavior of your application in its charts, the Logging operator does the rest.</p><p align="center"><img src="img/logging_operator_flow.png"></p><h2 id="feature-highlights">Feature highlights</h2><ul>
-<li>Namespace isolation</li><li>Native Kubernetes label selectors</li><li>Secure communication (TLS)</li><li>Configuration validation</li><li>Multiple flow support (multiply logs for different transformations)</li><li>Multiple <a href="/docs/configuration/plugins/outputs/">output</a> support (store the same logs in multiple storage: S3, GCS, ES, Loki and more&mldr;)</li><li>Multiple logging system support (multiple Fluentd, Fluent Bit deployment on the same cluster)</li><li>Support for both syslog-ng and Fluentd as the central log routing component</li></ul><h2 id="architecture">Architecture</h2><p>The Logging operator manages the log collectors and log forwarders of your logging infrastructure, and the routing rules that specify where you want to send your different log messages.</p><p>The <strong>log collectors</strong> are endpoint agents that collect the logs of your Kubernetes nodes and send them to the log forwarders. Logging operator currently uses Fluent Bit as log collector agents.</p><p>The <strong>log forwarder</strong> instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders. Which log forwarder is best for you depends on your logging requirements. For tips, see <a href="/docs/configuration/fluentd-vs-syslog-ng/">Which log forwarder to use</a>.</p><p>You can filter and process the incoming log messages using the <a href="/docs/configuration/flow/"><strong>flow</strong></a> custom resource of the log forwarder to route them to the appropriate <a href="/docs/configuration/output/"><strong>output</strong></a>. The outputs are the destinations where you want to send your log messages, for example, Elasticsearch, or an Amazon S3 bucket. You can also define cluster-wide outputs and flows, for example, to use a centralized output that namespaced users can reference but cannot modify. Note that flows and outputs are specific to the type of log forwarder you use (Fluentd or syslog-ng).</p><p>You can configure the Logging operator using the following Custom Resource Definitions.</p><ul>
-<li><a href="/docs/logging-infrastructure/logging/">logging</a> - The <code>logging</code> resource defines the logging infrastructure (the log collectors and forwarders) for your cluster that collects and transports your log messages. It also contains configurations for Fluent Bit, Fluentd, and syslog-ng.</li><li>CRDs for Fluentd:
-<ul>
-<li><a href="/docs/configuration/output/">output</a> - Defines a Fluentd Output for a logging flow, where the log messages are sent using Fluentd. This is a namespaced resource. See also <code>clusteroutput</code>. To configure syslog-ng outputs, see <code>SyslogNGOutput</code>.</li><li><a href="/docs/configuration/flow/">flow</a> - Defines a Fluentd logging flow using <code>filters</code> and <code>outputs</code>. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also <code>clusterflow</code>. To configure syslog-ng flows, see <code>SyslogNGFlow</code>.</li><li><a href="/docs/configuration/output/">clusteroutput</a> - Defines a Fluentd output that is available from all flows and clusterflows. The operator evaluates clusteroutputs in the <code>controlNamespace</code> only unless <code>allowClusterResourcesFromAllNamespaces</code> is set to true.</li><li><a href="/docs/configuration/flow/">clusterflow</a> - Defines a Fluentd logging flow that collects logs from all namespaces by default. The operator evaluates clusterflows in the <code>controlNamespace</code> only unless <code>allowClusterResourcesFromAllNamespaces</code> is set to true. To configure syslog-ng clusterflows, see <code>SyslogNGClusterFlow</code>.</li></ul></li><li>CRDs for syslog-ng (these resources like their Fluentd counterparts, but are tailored to features available via syslog-ng):
-<ul>
-<li><a href="/docs/configuration/output/#syslogngoutput">SyslogNGOutput</a> - Defines a syslog-ng Output for a logging flow, where the log messages are sent using Fluentd. This is a namespaced resource. See also <code>SyslogNGClusterOutput</code>. To configure Fluentd outputs, see <code>output</code>.</li><li><a href="/docs/configuration/flow/#syslogngflow">SyslogNGFlow</a> - Defines a syslog-ng logging flow using <code>filters</code> and <code>outputs</code>. Basically, the flow routes the selected log messages to the specified outputs. This is a namespaced resource. See also <code>SyslogNGClusterFlow</code>. To configure Fluentd flows, see <code>flow</code>.</li><li><a href="/docs/configuration/output/#syslogngoutput">SyslogNGClusterOutput</a> - Defines a syslog-ng output that is available from all flows and clusterflows. The operator evaluates clusteroutputs in the <code>controlNamespace</code> only unless <code>allowClusterResourcesFromAllNamespaces</code> is set to true.</li><li><a href="/docs/configuration/flow/#syslogngflow">SyslogNGClusterFlow</a> - Defines a syslog-ng logging flow that collects logs from all namespaces by default. The operator evaluates clusterflows in the <code>controlNamespace</code> only unless <code>allowClusterResourcesFromAllNamespaces</code> is set to true. To configure Fluentd clusterflows, see <code>clusterflow</code>.</li></ul></li></ul><p>For the detailed CRD documentation, see <a href="/docs/configuration/crds/">List of CRDs</a>.</p><p><img src="/docs/img/logging-operator-v2-architecture.png" alt="Logging operator architecture"></p><h2 id="quickstart">Quickstart</h2><p>See our <a href="/docs/quickstarts/">Quickstart guides</a>.</p><h2 id="support">Support</h2><p>If you encounter problems while using the Logging operator the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">open an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><div class="section-index">
-<hr class="panel-line">
-<div class="entry">
-<h5>
-<a href="/docs/install/">Install</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/quickstarts/">Quick start guides</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/configuration/">Configure log routing</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/examples/">Examples</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/logging-infrastructure/">Logging infrastructure setup</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/operation/">Operation</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/developers/">For developers</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/faq/">Frequently asked questions</a>
-</h5><p></p></div><div class="entry">
-<h5>
-<a href="/docs/license/">License</a>
-</h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
+<h1>Forward</h1><header class="article-meta">
+</header><h2 id="forwardoutput">ForwardOutput</h2><h3 id="forwardoutput-servers">servers ([]FluentdServer, required)</h3><p>Server definitions at least one is required <a href="#fluentd-server">Server</a></p><p>Default: -</p><h3 id="forwardoutput-transport">transport (string, optional)</h3><p>The transport protocol to use [ tcp, tls ]</p><p>Default: -</p><h3 id="forwardoutput-require_ack_response">require_ack_response (bool, optional)</h3><p>Change the protocol to at-least-once. The plugin waits the ack from destination&rsquo;s in_forward plugin.</p><p>Default: -</p><h3 id="forwardoutput-ack_response_timeout">ack_response_timeout (int, optional)</h3><p>This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.</p><p>Default: 190</p><h3 id="forwardoutput-send_timeout">send_timeout (int, optional)</h3><p>The timeout time when sending event logs.</p><p>Default: 60</p><h3 id="forwardoutput-connect_timeout">connect_timeout (int, optional)</h3><p>The timeout time for socket connect. When the connection timed out during establishment, Errno::ETIMEDOUT is raised.</p><p>Default: -</p><h3 id="forwardoutput-recover_wait">recover_wait (int, optional)</h3><p>The wait time before accepting a server fault recovery.</p><p>Default: 10</p><h3 id="forwardoutput-heartbeat_type">heartbeat_type (string, optional)</h3><p>The transport protocol to use for heartbeats. Set &ldquo;none&rdquo; to disable heartbeat. [transport, tcp, udp, none]</p><p>Default: -</p><h3 id="forwardoutput-heartbeat_interval">heartbeat_interval (int, optional)</h3><p>The interval of the heartbeat packer.</p><p>Default: 1</p><h3 id="forwardoutput-phi_failure_detector">phi_failure_detector (bool, optional)</h3><p>Use the &ldquo;Phi accrual failure detector&rdquo; to detect server failure.</p><p>Default: true</p><h3 id="forwardoutput-phi_threshold">phi_threshold (int, optional)</h3><p>The threshold parameter used to detect server faults. <code>phi_threshold</code> is deeply related to <code>heartbeat_interval</code>. If you are using longer <code>heartbeat_interval</code>, please use the larger <code>phi_threshold</code>. Otherwise you will see frequent detachments of destination servers. The default value 16 is tuned for <code>heartbeat_interval</code> 1s.</p><p>Default: 16</p><h3 id="forwardoutput-hard_timeout">hard_timeout (int, optional)</h3><p>The hard timeout used to detect server failure. The default value is equal to the send_timeout parameter.</p><p>Default: 60</p><h3 id="forwardoutput-expire_dns_cache">expire_dns_cache (int, optional)</h3><p>Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.</p><p>Default: 0</p><h3 id="forwardoutput-dns_round_robin">dns_round_robin (bool, optional)</h3><p>Enable client-side DNS round robin. Uniform randomly pick an IP address to send data when a hostname has several IP addresses. <code>heartbeat_type udp</code> is not available with <code>dns_round_robin true</code>. Use <code>heartbeat_type tcp</code> or <code>heartbeat_type none</code>.</p><p>Default: -</p><h3 id="forwardoutput-ignore_network_errors_at_startup">ignore_network_errors_at_startup (bool, optional)</h3><p>Ignore DNS resolution and errors at startup time.</p><p>Default: -</p><h3 id="forwardoutput-tls_version">tls_version (string, optional)</h3><p>The default version of TLS transport. [TLSv1_1, TLSv1_2]</p><p>Default: TLSv1_2</p><h3 id="forwardoutput-tls_ciphers">tls_ciphers (string, optional)</h3><p>The cipher configuration of TLS transport.</p><p>Default: ALL:!aNULL:!eNULL:!SSLv2</p><h3 id="forwardoutput-tls_insecure_mode">tls_insecure_mode (bool, optional)</h3><p>Skip all verification of certificates or not.</p><p>Default: false</p><h3 id="forwardoutput-tls_allow_self_signed_cert">tls_allow_self_signed_cert (bool, optional)</h3><p>Allow self signed certificates or not.</p><p>Default: false</p><h3 id="forwardoutput-tls_verify_hostname">tls_verify_hostname (bool, optional)</h3><p>Verify hostname of servers and certificates or not in TLS transport.</p><p>Default: true</p><h3 id="forwardoutput-tls_cert_path">tls_cert_path (*secret.Secret, optional)</h3><p>The additional CA certificate path for TLS.</p><p>Default: -</p><h3 id="forwardoutput-tls_client_cert_path">tls_client_cert_path (*secret.Secret, optional)</h3><p>The client certificate path for TLS</p><p>Default: -</p><h3 id="forwardoutput-tls_client_private_key_path">tls_client_private_key_path (*secret.Secret, optional)</h3><p>The client private key path for TLS.</p><p>Default: -</p><h3 id="forwardoutput-tls_client_private_key_passphrase">tls_client_private_key_passphrase (*secret.Secret, optional)</h3><p>The client private key passphrase for TLS.</p><p>Default: -</p><h3 id="forwardoutput-tls_cert_thumbprint">tls_cert_thumbprint (string, optional)</h3><p>The certificate thumbprint for searching from Windows system certstore This parameter is for Windows only.</p><p>Default: -</p><h3 id="forwardoutput-tls_cert_logical_store_name">tls_cert_logical_store_name (string, optional)</h3><p>The certificate logical store name on Windows system certstore. This parameter is for Windows only.</p><p>Default: -</p><h3 id="forwardoutput-tls_cert_use_enterprise_store">tls_cert_use_enterprise_store (bool, optional)</h3><p>Enable to use certificate enterprise store on Windows system certstore. This parameter is for Windows only.</p><p>Default: -</p><h3 id="forwardoutput-keepalive">keepalive (bool, optional)</h3><p>Enable keepalive connection.</p><p>Default: false</p><h3 id="forwardoutput-keepalive_timeout">keepalive_timeout (int, optional)</h3><p>Expired time of keepalive. Default value is nil, which means to keep connection as long as possible.</p><p>Default: 0</p><h3 id="forwardoutput-security">security (*common.Security, optional)</h3><p><a href="../../common/security/">Security</a></p><p>Default: -</p><h3 id="forwardoutput-verify_connection_at_startup">verify_connection_at_startup (bool, optional)</h3><p>Verify that a connection can be made with one of out_forward nodes at the time of startup.</p><p>Default: false</p><h3 id="forwardoutput-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="forwardoutput-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><h2 id="fluentd-server">Fluentd Server</h2><p>server</p><h3 id="fluentd-server-host">host (string, required)</h3><p>The IP address or host name of the server.</p><p>Default: -</p><h3 id="fluentd-server-name">name (string, optional)</h3><p>The name of the server. Used for logging and certificate verification in TLS transport (when host is address).</p><p>Default: -</p><h3 id="fluentd-server-port">port (int, optional)</h3><p>The port number of the host. Note that both TCP packets (event stream) and UDP packets (heartbeat message) are sent to this port.</p><p>Default: 24224</p><h3 id="fluentd-server-shared_key">shared_key (*secret.Secret, optional)</h3><p>The shared key per server.</p><p>Default: -</p><h3 id="fluentd-server-username">username (*secret.Secret, optional)</h3><p>The username for authentication.</p><p>Default: -</p><h3 id="fluentd-server-password">password (*secret.Secret, optional)</h3><p>The password for authentication.</p><p>Default: -</p><h3 id="fluentd-server-standby">standby (bool, optional)</h3><p>Marks a node as the standby node for an Active-Standby model between Fluentd nodes. When an active node goes down, the standby node is promoted to an active node. The standby node is not used by the out_forward plugin until then.</p><p>Default: -</p><h3 id="fluentd-server-weight">weight (int, optional)</h3><p>The load balancing weight. If the weight of one server is 20 and the weight of the other server is 30, events are sent in a 2:3 ratio. .</p><p>Default: 60</p><div class="text-muted mt-5 pt-3 border-top">
 Last modified June 9, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7e5f5f689b69971c964b489bef2b561b76969afa">Merge b12627bbab001d42dd9d30eeff1ee132d1d63864 into a3691cd8869d8b3dcec5eb6423546d36920b0c26 (7e5f5f6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
