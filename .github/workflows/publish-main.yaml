@@ -8,6 +8,11 @@ on:
     branches:
       - master
       - gha-test
+  pull_request:
+    branches:
+      - "master"
+    paths:
+      - ".github/workflows/publish-main.yaml"
   workflow_dispatch:
 
 jobs:
