@@ -5,8 +5,9 @@ env:
 
 on:
   push:
-    # branches: [ master ]
-    branches: [ gha-test ]
+    branches:
+      - master
+      - gha-test
   workflow_dispatch:
 
 jobs:
