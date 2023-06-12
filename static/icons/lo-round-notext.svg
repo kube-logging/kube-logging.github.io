@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 3237.738 490.023"
+   width="232.03413"
+   height="231.98"
+   viewBox="0 0 232.03413 231.98"
    version="1.1"
-   id="svg142"
-   sodipodi:docname="logo.svg"
+   id="svg61"
+   sodipodi:docname="lo-round-notext.svg"
    inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview63"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.5585865"
+     inkscape:cx="115.47003"
+     inkscape:cy="212.14261"
+     inkscape:window-width="1792"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg61" />
   <defs
-     id="defs146">
+     id="defs15">
     <linearGradient
        id="linear-gradient"
        x1="-2835.9221"
@@ -19,7 +40,7 @@
        x2="-2521.9678"
        y2="-75.446091"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.95374771,0,0,1.0484953,1573.5767,928.44131)">
+       gradientTransform="matrix(0.95374771,0,0,1.0484953,13.147086,-3.0900201e-4)">
       <stop
          offset="0.403"
          stop-color="#56bdc1"
@@ -36,7 +57,7 @@
        x2="-3406.6536"
        y2="-93.8545"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.72660838,0,0,1.3762572,1560.4297,929.61731)">
+       gradientTransform="matrix(0.72660838,0,0,1.3762572,8.6461113e-5,1.175691)">
       <stop
          offset="0.403"
          stop-color="#1771bb"
@@ -59,91 +80,55 @@
          id="image12" />
     </pattern>
   </defs>
-  <sodipodi:namedview
-     id="namedview144"
-     pagecolor="#505050"
-     bordercolor="#ffffff"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="1"
-     inkscape:deskcolor="#505050"
-     showgrid="false"
-     inkscape:zoom="0.37340884"
-     inkscape:cx="1308.2176"
-     inkscape:cy="636.03208"
-     inkscape:window-width="1792"
-     inkscape:window-height="1003"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg142" />
-  <text
-     id="Logging_Operator"
-     data-name="Logging Operator"
-     fill="#ffffff"
-     font-size="267px"
-     font-family="Montserrat-Bold, Montserrat"
-     font-weight="700"
-     letter-spacing="0.046em"
-     x="1897.738"
-     y="342.98401"><tspan
-       x="557.93195"
-       y="342.98401"
-       id="tspan138">Logging Operator</tspan></text>
+  <path
+     id="Path_357"
+     data-name="Path 357"
+     d="m 231.90609,115.96169 a 115.953,115.953 0 1 0 -115.954,115.947 115.959,115.959 0 0 0 115.954,-115.947 z"
+     fill="#0a518f" />
+  <path
+     id="Path_358"
+     data-name="Path 358"
+     d="m 21.017086,182.49969 a 115.99,115.99 0 1 0 74.23,-180.619999 c 2.047,66.788 -22.9,134.692999 -74.23,180.619999 z"
+     fill="url(#linear-gradient)"
+     style="fill:url(#linear-gradient)" />
+  <path
+     id="Path_359"
+     data-name="Path 359"
+     d="M 8.6461113e-5,115.96169 A 115.385,115.385 0 0 0 21.017086,182.49869 c 51.334,-45.923 76.276,-113.830999 74.228,-180.622999 A 115.966,115.966 0 0 0 8.6461113e-5,115.96169 Z"
+     fill="url(#linear-gradient-2)"
+     style="fill:url(#linear-gradient-2)" />
   <g
-     id="g777"
-     transform="matrix(2.1548552,0,0,2.1548552,-3351.8013,-2004.6777)">
-    <path
-       id="Path_357"
-       data-name="Path 357"
-       d="m 1792.3357,1044.4033 a 115.953,115.953 0 1 0 -115.954,115.947 115.959,115.959 0 0 0 115.954,-115.947 z"
-       fill="#0a518f" />
-    <path
-       id="Path_358"
-       data-name="Path 358"
-       d="m 1581.4467,1110.9413 a 115.99,115.99 0 1 0 74.23,-180.61999 c 2.047,66.788 -22.9,134.69299 -74.23,180.61999 z"
-       fill="url(#linear-gradient)"
-       style="fill:url(#linear-gradient)" />
-    <path
-       id="Path_359"
-       data-name="Path 359"
-       d="m 1560.4297,1044.4033 a 115.385,115.385 0 0 0 21.017,66.537 c 51.334,-45.923 76.276,-113.83099 74.228,-180.62299 a 115.966,115.966 0 0 0 -95.245,114.08599 z"
-       fill="url(#linear-gradient-2)"
-       style="fill:url(#linear-gradient-2)" />
+     id="Group_219"
+     data-name="Group 219"
+     transform="translate(18.146086,43.866691)">
+    <rect
+       id="Rectangle_275"
+       data-name="Rectangle 275"
+       width="199.965"
+       height="152.537"
+       opacity="0.5"
+       fill="url(#pattern)"
+       x="0"
+       y="0" />
     <g
-       id="Group_219"
-       data-name="Group 219"
-       transform="translate(1578.5757,972.30831)">
-      <rect
-         id="Rectangle_275"
-         data-name="Rectangle 275"
-         width="199.965"
-         height="152.537"
-         opacity="0.5"
-         fill="url(#pattern)"
-         x="0"
-         y="0" />
+       id="Group_218"
+       data-name="Group 218"
+       transform="translate(45.42,45.42)">
       <g
-         id="Group_218"
-         data-name="Group 218"
-         transform="translate(45.42,45.42)">
-        <g
-           id="Group_217"
-           data-name="Group 217">
-          <path
-             id="Path_388"
-             data-name="Path 388"
-             d="M 64.429,80.756 V 93.5 H 23.8 V 33.625 h 15.227 v 47.128 h 25.4 z"
-             transform="translate(-23.803,-33.118)"
-             fill="#ffffff" />
-          <path
-             id="Path_389"
-             data-name="Path 389"
-             d="m 105.01,63.8 c 0,17.449 -13.854,30.705 -32.417,30.705 C 54.119,94.5 40.265,81.33 40.265,63.8 40.265,46.351 54.119,33.437 72.594,33.437 91.153,33.435 105.01,46.435 105.01,63.8 Z m -49.179,0.085 c 0,10.092 7.784,17.873 16.936,17.873 9.237,0 16.594,-7.782 16.594,-17.873 0,-10.091 -7.361,-17.709 -16.594,-17.709 -9.233,0 -16.936,7.616 -16.936,17.708 z"
-             transform="translate(3.696,-33.435)"
-             fill="#ffffff" />
-        </g>
+         id="Group_217"
+         data-name="Group 217">
+        <path
+           id="Path_388"
+           data-name="Path 388"
+           d="M 64.429,80.756 V 93.5 H 23.8 V 33.625 h 15.227 v 47.128 h 25.4 z"
+           transform="translate(-23.803,-33.118)"
+           fill="#ffffff" />
+        <path
+           id="Path_389"
+           data-name="Path 389"
+           d="m 105.01,63.8 c 0,17.449 -13.854,30.705 -32.417,30.705 C 54.119,94.5 40.265,81.33 40.265,63.8 40.265,46.351 54.119,33.437 72.594,33.437 91.153,33.435 105.01,46.435 105.01,63.8 Z m -49.179,0.085 c 0,10.092 7.784,17.873 16.936,17.873 9.237,0 16.594,-7.782 16.594,-17.873 0,-10.091 -7.361,-17.709 -16.594,-17.709 -9.233,0 -16.936,7.616 -16.936,17.708 z"
+           transform="translate(3.696,-33.435)"
+           fill="#ffffff" />
       </g>
     </g>
   </g>

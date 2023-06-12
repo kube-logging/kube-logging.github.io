@@ -2,7 +2,7 @@
 title: Logging operator
 ---
 
-{{< blocks/cover title="Welcome to Logging operator!" image_anchor="top" avatar_image="/icons/logo-no-black.svg" width="min" color="gray" >}}
+{{< blocks/cover title="Welcome to Logging operator!" image_anchor="top" avatar_image="/icons/lo-round-notext.svg" width="min" color="gray" >}}
 <div class="mx-auto">
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs/" >}}">
 		Learn More <i class="fa-solid fa-circle-right ml-2"></i>
