@@ -6,7 +6,6 @@ generated_file: true
 
 # logscale
 ## Overview
- {{</ highlight >}}
 
 ## Configuration
 ## LogScaleOutput
