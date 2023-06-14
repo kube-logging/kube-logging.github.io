@@ -260,10 +260,38 @@ Default: -
 
 ### customParsers (string, optional) {#fluentbitspec-customparsers}
 
-Specify a custom parser file to load in addition to the default parsers file. It must be a valid key in the configmap specified by customConfig 
+Available in Logging operator version 4.2 and later.
+
+Specify a custom parser file to load in addition to the default parsers file. It must be a valid key in the configmap specified by customConfig.
 
 Default: -
 
+The following example defines a [Fluentd parser]({{< relref "/docs/configuration/plugins/filters/parser.md" >}}) that places the parsed containerd log messages into the `log` field instead of the `message` field.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: containerd
+spec:
+  inputTail:
+    Parser: cri-log-key
+  # Parser that populates `log` instead of `message` to enable the Kubernetes filter's Merge_Log feature to work
+  # Mind the indentation, otherwise Fluent Bit will parse the whole message into the `log` key
+  customParsers: |
+                  [PARSER]
+                      Name cri-log-key
+                      Format regex
+                      Regex ^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>[^ ]*) (?<log>.*)$
+                      Time_Key    time
+                      Time_Format %Y-%m-%dT%H:%M:%S.%L%z
+  # Required key remap if one wants to rely on the existing auto-detected log key in the fluentd parser and concat filter otherwise should be omitted
+  filterModify:
+    - rules:
+      - Rename:
+          key: log
+          value: message
+```
 
 ## FluentbitStatus
 
