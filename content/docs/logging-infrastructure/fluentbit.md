@@ -26,6 +26,7 @@ The standalone FluentbitAgent CRD is only available in Logging operator version 
 
 - RBAC control over the FluentbitAgent CRD, so you can have separate roles that can manage the Logging resource and the FluentbitAgent resource (that is, the Fluent Bit deployment).
 - It reduces the size of the Logging resource, which can reach the size limit in case of complex configurations.
+- It allows you to use multiple different Fluent Bit configurations within the same cluster. For details, see {{% xref "/docs/logging-infrastructure/fluentbit-multiple.md" %}}.
 
 To migrate your **spec.fluentbit** configuration from the Logging resource to a separate FluentbitAgent CRD, complete the following steps.
 
@@ -79,7 +80,9 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
 
 1. Delete the **spec.fluentbit** section from the Logging resource, then apply the Logging and the FluentbitAgent CRDs.
 
-<!-- FIXME add a step on how to check that everything is working, for example, how to check the ownership? -->
+<!-- FIXME add a step on how to check that everything is working, for example, how to check the ownership? 
+The ownerrefs of the managed resources changed from the Logging resource to the new FluentbitAgent resource.
+-->
 
 ## Examples
 
