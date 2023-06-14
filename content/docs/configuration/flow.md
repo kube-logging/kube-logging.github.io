@@ -95,4 +95,4 @@ spec:
 - For the details of the `SyslogNGFlow` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_flow_types.md" %}}.
 - For the details of the `SyslogNGClusterFlow` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_clusterflow_types.md" %}}.
 - For details on selecting messages, see {{% xref "/docs/configuration/log-routing-syslog-ng.md" %}}
-- See the [list of supported filters]({{% xref "/docs/configuration/plugins/syslog-ng-filters/_index.md" %}}).
+- See the [list of supported filters]({{< relref "/docs/configuration/plugins/syslog-ng-filters/_index.md" >}}).
