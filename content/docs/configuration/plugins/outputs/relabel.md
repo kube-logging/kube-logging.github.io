@@ -8,7 +8,7 @@ Available in Logging Operator version 4.2 and later.
 
 The relabel output uses the [relabel output plugin of Fluentd](https://docs.fluentd.org/output/relabel) to route events back to a specific Flow, where they can be processed again.
 
-This is useful, for example, if the metadata of the message doesn’t contain the information needed for the routing decision, but the content of the message contains the required information. In this case, you can create a Flow that extracts the required information from the content of the message (for example, using the {{% xref "/docs/configuration/plugins/filters/grep.md" %}} or the {{% xref "/docs/configuration/plugins/filters/parser.md" %}} filter plugins), and uses the relabel output to send the message to a different Flow.
+This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.
 
 The value of the `label` parameter of the relabel output must be the same as the value of the `flowLabel` parameter of the Flow (or ClusterFlow) where you want to send the messages.
 
