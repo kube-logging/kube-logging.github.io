@@ -5,16 +5,16 @@ weight: 500
 
 There can be at least two different use cases where one might need multiple sets of node agents running with different configuration while still forwarding logs to the same aggregator.
 
-One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous config.
+One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous configuration.
 
-The other use case is when there are different node groups in a cluster for multitenancy reasons for example. 
-You might need different Fluent Bit configurations on the separate node groups in that case. 
+The other use case is when there are different node groups in a cluster for multitenancy reasons for example. You might need different Fluent Bit configurations on the separate node groups in that case.
 
 Starting with Logging operator version 4.2, you can do that by using the FluentbitAgent CRD. This allows you to implement hard multitenancy on the node group level.
 
 For details on using the FluentbitAgent CRD, see {{% xref "/docs/logging-infrastructure/fluentbit.md" %}}.
 
-To configure multiple FluentbitAgent CRDs for a cluster, complete the following steps. The examples refer to a scenario where you have two node groups that have the Kubernetes label `nodeGroup=A` and `nodeGroup=B`.
+To configure multiple FluentbitAgent CRDs for a cluster, complete the following steps.
+
 
 1. If you are updating an existing deployment, make sure that it already uses a Logging configuration based on FluentbitAgent CRD. If not, first [migrate your configuration to use a FluentbitAgent CRD]({{< relref "/docs/logging-infrastructure/fluentbit.md#migrating" >}}).
 1. Edit your existing FluentbitAgent CRD, and set the **spec.nodeSelector** field so it applies only to the node group you want to apply this Fluent Bit configuration on, for example, nodes that have the label `nodeGroup=A`. For details, see [nodeSelector in the Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector).
