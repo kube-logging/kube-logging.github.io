@@ -14,7 +14,7 @@ Logging operator uses Fluent Bit as a log collector agent: Logging operator depl
 
 ## Ways to configure Fluent Bit
 
-There are three ways to configure the Fluent Bit deployment:
+There are three ways to configure the Fluent Bit daemonset:
 
 1. Using the **spec.fluentbit** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}. This is the traditional way.
 1. Using the standalone FluentbitAgent CRD. This method is only available in Logging operator version 4.2 and newer, and the specification of the CRD is compatible with the **spec.fluentbit** configuration method.
