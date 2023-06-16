@@ -26,12 +26,6 @@ To configure multiple FluentbitAgent CRDs for a cluster, complete the following 
       # Use the same name as the logging resource does
       name: multi
     spec:
-      positiondb:
-        hostPath:
-          path: ""
-      bufferStorageVolume:
-        hostPath:
-          path: ""
       nodeSelector:
         nodeGroup: "A"
     ```
