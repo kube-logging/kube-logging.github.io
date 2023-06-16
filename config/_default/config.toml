@@ -25,7 +25,7 @@ languageName ="English"
 weight = 1
 
 [outputs]
-    home = ["HTML", "print"]
+    home = ["HTML", "print", "releases"]
     # Enable print this section menu item
     section = [ "HTML", "print", "releases" ]
     page = ['HTML', "releases" ]
