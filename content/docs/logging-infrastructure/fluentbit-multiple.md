@@ -3,7 +3,14 @@ title: Multiple Fluent Bit agents in the cluster
 weight: 500
 ---
 
-In case there are different node groups in a cluster, you might need different Fluent Bit configurations on the different node groups. Starting with Logging operator version 4.2, you can do that by using the FluentbitAgent CRD. This also allows you to create hard multitenancy on the node group level.
+There can be at least two different use cases where one might need multiple sets of node agents running with different configuration while still forwarding logs to the same aggregator.
+
+One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous config.
+
+The other use case is when there are different node groups in a cluster for multitenancy reasons for example. 
+You might need different Fluent Bit configurations on the separate node groups in that case. 
+
+Starting with Logging operator version 4.2, you can do that by using the FluentbitAgent CRD. This allows you to implement hard multitenancy on the node group level.
 
 For details on using the FluentbitAgent CRD, see {{% xref "/docs/logging-infrastructure/fluentbit.md" %}}.
 
