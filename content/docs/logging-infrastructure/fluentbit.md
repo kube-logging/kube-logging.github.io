@@ -25,7 +25,7 @@ There are three ways to configure the Fluent Bit daemonset:
 The standalone FluentbitAgent CRD is only available in Logging operator version 4.2 and newer. Its specification and logic is identical with the **spec.fluentbit** configuration method. Using the FluentbitAgent CRD allows you to remove the **spec.fluentbit** section from the Logging CRD, which has the following benefits.
 
 - RBAC control over the FluentbitAgent CRD, so you can have separate roles that can manage the Logging resource and the FluentbitAgent resource (that is, the Fluent Bit deployment).
-- It reduces the size of the Logging resource, which can reach the size limit in case of complex configurations.
+- It reduces the size of the Logging resource, which can grow big enough to reach the annotation size limit in certain scenarios (e.g. when using `kubectl apply`).
 - It allows you to use multiple different Fluent Bit configurations within the same cluster. For details, see {{% xref "/docs/logging-infrastructure/fluentbit-multiple.md" %}}.
 
 To migrate your **spec.fluentbit** configuration from the Logging resource to a separate FluentbitAgent CRD, complete the following steps.
