@@ -20,10 +20,10 @@
 <meta property="og:description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/logging/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-16T14:24:20+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-16T14:45:22+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="The Logging custom resource">
 <meta itemprop="description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
-<meta itemprop="dateModified" content="2023-06-16T14:24:20+00:00">
+<meta itemprop="dateModified" content="2023-06-16T14:45:22+00:00">
 <meta itemprop="wordCount" content="349">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Logging custom resource">
@@ -511,7 +511,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">controlNamespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">watchNamespaces</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:700">[</span><span style="color:#4e9a06">&#34;prod&#34;</span><span style="color:#000;font-weight:700">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test&#34;</span><span style="color:#000;font-weight:700">]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 16, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a49c215b60f1fbbd5be801bbe3ce8bcc67194f19">Merge 6b1d3dda30ef18f7da49eea7463c97f05eed9dc0 into 58d79cb5784ee94e66dca758fe87a2c6d2d916a1 (a49c215)</a>
+Last modified June 16, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a11ed3d66006ebac46a0b1ead504937b6a6e658b">Merge c828f7f3df07f29aef7bdd955dfad2b4dbb32750 into 58d79cb5784ee94e66dca758fe87a2c6d2d916a1 (a11ed3d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
