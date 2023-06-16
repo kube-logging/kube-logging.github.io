@@ -60,8 +60,8 @@ To configure multiple FluentbitAgent CRDs for a cluster, complete the following 
     spec:
       match:
         - select:
-          labels:
-            nodeGroup: "A"
+            labels:
+              nodeGroup: "A"
       localOutputRefs:
         - "output-for-nodegroup-A"
     ```
@@ -74,8 +74,8 @@ To configure multiple FluentbitAgent CRDs for a cluster, complete the following 
     spec:
       match:
         - select:
-          labels:
-            nodeGroup: "B"
+            labels:
+              nodeGroup: "B"
       localOutputRefs:
         - "output-for-nodegroup-B"
     ```
