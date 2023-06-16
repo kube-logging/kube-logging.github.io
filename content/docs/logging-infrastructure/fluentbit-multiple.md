@@ -1,5 +1,5 @@
 ---
-title: Multiple Fluent Bits in the cluster
+title: Multiple Fluent Bit agents in the cluster
 weight: 500
 ---
 
