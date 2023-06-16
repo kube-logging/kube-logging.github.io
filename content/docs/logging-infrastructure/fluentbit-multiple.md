@@ -15,6 +15,7 @@ For details on using the FluentbitAgent CRD, see {{% xref "/docs/logging-infrast
 
 To configure multiple FluentbitAgent CRDs for a cluster, complete the following steps.
 
+> Note: The examples refer to a scenario where you have two node groups that have the Kubernetes label `nodeGroup=A` and `nodeGroup=B`. These labels are fictional and are used only as examples. Node labels are not available in the log metadata, to have similar labels, you have to apply the node labels directly to the pods. How to do that is beyond the scope of this guide (for example, you can use a policy engine, like [Kyverno](https://kyverno.io/)).
 
 1. If you are updating an existing deployment, make sure that it already uses a Logging configuration based on FluentbitAgent CRD. If not, first [migrate your configuration to use a FluentbitAgent CRD]({{< relref "/docs/logging-infrastructure/fluentbit.md#migrating" >}}).
 1. Edit your existing FluentbitAgent CRD, and set the **spec.nodeSelector** field so it applies only to the node group you want to apply this Fluent Bit configuration on, for example, nodes that have the label `nodeGroup=A`. For details, see [nodeSelector in the Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector).
