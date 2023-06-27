@@ -26,13 +26,13 @@ Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-27T13:10:30+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-27T13:48:58+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Disk buffer">
 <meta itemprop="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. Documentation: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
-<meta itemprop="dateModified" content="2023-06-27T13:10:30+00:00">
+<meta itemprop="dateModified" content="2023-06-27T13:48:58+00:00">
 <meta itemprop="wordCount" content="197">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Disk buffer">
@@ -509,7 +509,7 @@ Releases
 <h1>Disk buffer</h1><header class="article-meta">
 </header><h2 id="diskbuffer">DiskBuffer</h2><p>The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side.
 Documentation: <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124">https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124</a></p><h3 id="diskbuffer-disk_buf_size">disk_buf_size (int64, required)</h3><p>This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.</p><p>Default: -</p><h3 id="diskbuffer-reliable">reliable (bool, required)</h3><p>If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash. This solution provides a slower, but reliable disk-buffer option.</p><p>Default: -</p><h3 id="diskbuffer-compaction">compaction (*bool, optional)</h3><p>Prunes the unused space in the LogMessage representation</p><p>Default: -</p><h3 id="diskbuffer-dir">dir (string, optional)</h3><p>Description: Defines the folder where the disk-buffer files are stored.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_length">mem_buf_length (*int64, optional)</h3><p>Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_size">mem_buf_size (*int64, optional)</h3><p>Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer.</p><p>Default: -</p><h3 id="diskbuffer-q_out_size">q_out_size (*int64, optional)</h3><p>The number of messages stored in the output buffer of the destination.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/be3cee861fcbe05d6f4ab574963a83689474e965">Merge 05ca8ff3ea0387576c802b083462ac25cfc08410 into 5485896f3654726018e51dd96652e2ca9a4a8a55 (be3cee8)</a>
+Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/13721ac15493972c96714b7c4ddd71254ed60b27">Merge 172935e1c3bcb9f6636325b39a3c0aadd5872aaa into 5485896f3654726018e51dd96652e2ca9a4a8a55 (13721ac)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

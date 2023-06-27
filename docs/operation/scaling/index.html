@@ -24,12 +24,12 @@ CAUTION:
 When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/scaling/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-27T13:10:30+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-27T13:48:58+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Scaling">
 <meta itemprop="description" content="In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when fluentd cannot handle its buffer directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can scale the fluentd statefulset.
 CAUTION:
 When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.">
-<meta itemprop="dateModified" content="2023-06-27T13:10:30+00:00">
+<meta itemprop="dateModified" content="2023-06-27T13:48:58+00:00">
 <meta itemprop="wordCount" content="163">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scaling">
@@ -497,7 +497,7 @@ Releases
 </header><p>In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when <code>fluentd</code> cannot handle its <a href="../../configuration/plugins/outputs/buffer/">buffer</a> directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can <a href="/docs/logging-infrastructure/fluentd/#scaling">scale the fluentd statefulset</a>.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p><p>When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.</p><p>To avoid this problem, you can either write a custom readiness check to get the last pod out from the endpoints of the service, and stop the node only when its buffers are empty.</p></div><blockquote>
 <p>Note: When multiple instances send logs to the same output, the output can receive chunks of messages out of order. Some outputs tolerate this (for example, Elasticsearch), some do not, some require fine tuning (for example, Loki).</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/be3cee861fcbe05d6f4ab574963a83689474e965">Merge 05ca8ff3ea0387576c802b083462ac25cfc08410 into 5485896f3654726018e51dd96652e2ca9a4a8a55 (be3cee8)</a>
+Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/13721ac15493972c96714b7c4ddd71254ed60b27">Merge 172935e1c3bcb9f6636325b39a3c0aadd5872aaa into 5485896f3654726018e51dd96652e2ca9a4a8a55 (13721ac)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
