@@ -1,4 +1,4 @@
-name: Publish version
+name: Publish version 4.0
 
 env:
   doc_versionnumber: "4.0"
