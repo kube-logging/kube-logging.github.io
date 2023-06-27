@@ -20,10 +20,10 @@
 <meta property="og:description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/tailer-webhook/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-16T14:45:22+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-27T13:10:30+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Tail logfiles with a webhook">
 <meta itemprop="description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
-<meta itemprop="dateModified" content="2023-06-16T14:45:22+00:00">
+<meta itemprop="dateModified" content="2023-06-27T13:10:30+00:00">
 <meta itemprop="wordCount" content="1228">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tail logfiles with a webhook">
@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/extensions/">
-</head><body class="td-page">
+</head><body class="td-page" data-pagefind-filter="section:4.2">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
@@ -630,7 +630,7 @@ There are more sophisticated ways to load the CA into this field, but this solut
 <td>sample-container2:/var/log/anotherfile</td><td>tails file /var/log/anotherfile in sample-container2</td></tr><tr>
 <td>/var/log/mycustomfile</td><td>tails file /var/log/mycustomfile in default container (sample-container)</td></tr><tr>
 <td>foobarbaz:/foo/bar/baz</td><td>will be discarded due to non-existing container name</td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 16, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a11ed3d66006ebac46a0b1ead504937b6a6e658b">Merge c828f7f3df07f29aef7bdd955dfad2b4dbb32750 into 58d79cb5784ee94e66dca758fe87a2c6d2d916a1 (a11ed3d)</a>
+Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/be3cee861fcbe05d6f4ab574963a83689474e965">Merge 05ca8ff3ea0387576c802b083462ac25cfc08410 into 5485896f3654726018e51dd96652e2ca9a4a8a55 (be3cee8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
