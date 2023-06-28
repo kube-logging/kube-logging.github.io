@@ -34,7 +34,7 @@ Default: -
 azure_storage_sas_token (*secret.Secret, optional) Your azure storage sas token Secret">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/azurestore/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-28T10:57:36+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-28T13:08:32+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Azure Storage">
 <meta itemprop="description" content="Azure Storage output plugin for Fluentd Overview Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically. More info at https://github.com/microsoft/fluent-plugin-azure-storage-append-blob
 Configuration Output Config path (string, optional) Path prefix of the files on Azure
@@ -44,7 +44,7 @@ Default: -
 azure_storage_access_key (*secret.Secret, optional) Your azure storage access key Secret
 Default: -
 azure_storage_sas_token (*secret.Secret, optional) Your azure storage sas token Secret">
-<meta itemprop="dateModified" content="2023-06-28T10:57:36+00:00">
+<meta itemprop="dateModified" content="2023-06-28T13:08:32+02:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Azure Storage">
@@ -525,7 +525,7 @@ Releases
 <h1>Azure Storage</h1><header class="article-meta">
 </header><h1 id="azure-storage-output-plugin-for-fluentd">Azure Storage output plugin for Fluentd</h1><h2 id="overview">Overview</h2><p>Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically.
 More info at <a href="https://github.com/microsoft/fluent-plugin-azure-storage-append-blob">https://github.com/microsoft/fluent-plugin-azure-storage-append-blob</a></p><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-path">path (string, optional)</h3><p>Path prefix of the files on Azure</p><p>Default: -</p><h3 id="output-config-azure_storage_account">azure_storage_account (*secret.Secret, required)</h3><p>Your azure storage account <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_storage_access_key">azure_storage_access_key (*secret.Secret, optional)</h3><p>Your azure storage access key <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_storage_sas_token">azure_storage_sas_token (*secret.Secret, optional)</h3><p>Your azure storage sas token <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_container">azure_container (string, required)</h3><p>Your azure storage container</p><p>Default: -</p><h3 id="output-config-azure_imds_api_version">azure_imds_api_version (string, optional)</h3><p>Azure Instance Metadata Service API Version</p><p>Default: -</p><h3 id="output-config-azure_object_key_format">azure_object_key_format (string, optional)</h3><p>Object key format</p><p>Default: %{path}%{time_slice}_%{index}.%{file_extension}</p><h3 id="output-config-auto_create_container">auto_create_container (bool, optional)</h3><p>Automatically create container if not exists</p><p>Default: true</p><h3 id="output-config-format">format (string, optional)</h3><p>Compat format type: out_file, json, ltsv (default: out_file)</p><p>Default: json</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/5c382da18a17113d587abfb6852cde69adaa5608">Merge 92795d22a257f415dcf8172531bb456e17ed3365 into 5485896f3654726018e51dd96652e2ca9a4a8a55 (5c382da)</a>
+Last modified June 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/be290e71166ec5d2a36953d1cd4b4169dcc38fec">Merge pull request #147 from kube-logging/doc-versioning-main (be290e7)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
