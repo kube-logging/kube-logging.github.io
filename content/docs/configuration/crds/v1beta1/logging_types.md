@@ -22,7 +22,7 @@ Default: -
 
 ### skipInvalidResources (bool, optional) {#loggingspec-skipinvalidresources}
 
-Skip Invalid Resources 
+Whether to skip invalid Flow and ClusterFlow resources 
 
 Default: -
 
@@ -34,7 +34,7 @@ Default: -
 
 ### fluentbit (*FluentbitSpec, optional) {#loggingspec-fluentbit}
 
-Fluentbit daemonset configuration. 
+FluentbitAgent daemonset configuration. Deprecated, will be removed with next major version Migrate to the standalone NodeAgent resource 
 
 Default: -
 
@@ -92,9 +92,9 @@ Allow configuration of cluster resources from any namespace. Mutually exclusive 
 
 Default: -
 
-### nodeAgents ([]*NodeAgent, optional) {#loggingspec-nodeagents}
+### nodeAgents ([]*InlineNodeAgent, optional) {#loggingspec-nodeagents}
 
-NodeAgent Configuration 
+InlineNodeAgent Configuration Deprecated, will be removed with next major version 
 
 Default: -
 
@@ -110,6 +110,10 @@ Default: -
 LoggingStatus defines the observed state of Logging
 
 ### configCheckResults (map[string]bool, optional) {#loggingstatus-configcheckresults}
+
+Default: -
+
+### problems ([]string, optional) {#loggingstatus-problems}
 
 Default: -
 
@@ -167,6 +171,14 @@ Deprecated
 Default: -
 
 ### globalOutputRefs ([]string, optional) {#defaultflowspec-globaloutputrefs}
+
+Default: -
+
+### flowLabel (string, optional) {#defaultflowspec-flowlabel}
+
+Default: -
+
+### includeLabelInRouter (*bool, optional) {#defaultflowspec-includelabelinrouter}
 
 Default: -
 

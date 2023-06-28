@@ -112,6 +112,14 @@ Default: -
 
 Default: -
 
+### mattermost (*output.MattermostOutputConfig, optional) {#outputspec-mattermost}
+
+Default: -
+
+### relabel (*output.RelabelOutputConfig, optional) {#outputspec-relabel}
+
+Default: -
+
 
 ## OutputStatus
 

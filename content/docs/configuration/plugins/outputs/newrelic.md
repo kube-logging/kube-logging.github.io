@@ -40,4 +40,16 @@ New Relic ingestion endpoint [Secret](../secret/)
 
 Default: https://log-api.newrelic.com/log/v1
 
+### format (*Format, optional) {#output-config-format}
+
+[Format](../format/) 
+
+Default: -
+
+### buffer (*Buffer, optional) {#output-config-buffer}
+
+[Buffer](../buffer/) 
+
+Default: -
+
 

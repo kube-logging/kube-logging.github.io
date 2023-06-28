@@ -12,7 +12,83 @@ Fluent Bit is an open source and multi-platform Log Processor and Forwarder whic
 
 Logging operator uses Fluent Bit as a log collector agent: Logging operator deploys Fluent Bit to your Kubernetes nodes where it collects and enriches the local logs and transfers them to a log forwarder instance.
 
-You can configure the Fluent Bit deployment via the **fluentbit** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+## Ways to configure Fluent Bit
+
+There are three ways to configure the Fluent Bit daemonset:
+
+1. Using the **spec.fluentbit** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}. This method is deprecated and will be removed in the next major release.
+1. Using the standalone FluentbitAgent CRD. This method is only available in Logging operator version 4.2 and newer, and the specification of the CRD is compatible with the **spec.fluentbit** configuration method.
+1. Using the **spec.nodeagents** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}. This method is deprecated and will be removed from the Logging operator. (Note that this configuration isn't compatible with the FluentbitAgent CRD.)
+
+### Migrating from **spec.fluentbit** to FluentbitAgent {#migrating}
+
+The standalone FluentbitAgent CRD is only available in Logging operator version 4.2 and newer. Its specification and logic is identical with the **spec.fluentbit** configuration method. Using the FluentbitAgent CRD allows you to remove the **spec.fluentbit** section from the Logging CRD, which has the following benefits.
+
+- RBAC control over the FluentbitAgent CRD, so you can have separate roles that can manage the Logging resource and the FluentbitAgent resource (that is, the Fluent Bit deployment).
+- It reduces the size of the Logging resource, which can grow big enough to reach the annotation size limit in certain scenarios (e.g. when using `kubectl apply`).
+- It allows you to use multiple different Fluent Bit configurations within the same cluster. For details, see {{% xref "/docs/logging-infrastructure/fluentbit-multiple.md" %}}.
+
+To migrate your **spec.fluentbit** configuration from the Logging resource to a separate FluentbitAgent CRD, complete the following steps.
+
+1. Open your Logging resource and find the **spec.fluentbit** section. For example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: Logging
+    metadata:
+      name: example-logging-resource
+    spec:
+      fluentd: {}
+      fluentbit:
+        positiondb:
+          hostPath:
+            path: ""
+        bufferStorageVolume:
+          hostPath:
+            path: ""
+      controlNamespace: default
+    ```
+
+1. Create a new FluentbitAgent CRD. For the value of **metadata.name**, use the name of the Logging resource, for example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: FluentbitAgent
+    metadata:
+      # Use the name of the logging resource
+      name: example-logging-resource
+    ```
+
+1. Copy the the **spec.fluentbit** section from the Logging resource into the **spec** section of the FluentbitAgent CRD, then fix the indentation.
+
+1. Specify the paths for the positiondb and the bufferStorageVolume. If you used the default settings in the **spec.fluentbit** configuration, set empty strings as paths, like in the following example. This is needed to retain the existing buffers of the deployment, otherwise data loss may occur.
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: FluentbitAgent
+    metadata:
+      # Use the name of the logging resource
+      name: example-logging-resource
+    spec:
+      positiondb:
+        hostPath:
+          path: ""
+      bufferStorageVolume:
+        hostPath:
+          path: ""
+    ```
+
+1. Delete the **spec.fluentbit** section from the Logging resource, then apply the Logging and the FluentbitAgent CRDs.
+
+<!-- FIXME add a step on how to check that everything is working, for example, how to check the ownership? 
+The ownerrefs of the managed resources changed from the Logging resource to the new FluentbitAgent resource.
+-->
+
+## Examples
+
+The following sections show you some examples on configuring Fluent Bit. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+
+> Note: These examples use the traditional method that configures the Fluent Bit deployment using **spec.fluentbit** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}.
 
 ## Filters
 
@@ -160,7 +236,7 @@ Define Kubernetes storage.
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to "/opt/logging-operator/<name of the logging CR>/<name of the volume>" |
+| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to `/opt/logging-operator/<name of the logging CR>/<name of the volume>` |
 | emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
 
 {{< include-headless "cpu-memory-requirements.md" >}}

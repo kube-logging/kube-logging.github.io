@@ -7,7 +7,8 @@ generated_file: true
 # Loki output plugin 
 ## Overview
 Fluentd output plugin to ship logs to a Loki server.
-More info at https://github.com/banzaicloud/fluent-plugin-kubernetes-loki
+More info at https://grafana.com/docs/loki/latest/clients/fluentd/
+
 >Example: [Store Nginx Access Logs in Grafana Loki with Logging Operator](../../../../examples/loki-nginx/)
 
  ## Example output configurations

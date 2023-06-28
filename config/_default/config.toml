@@ -68,7 +68,8 @@ twitter = "calisti12"
   # The version number for the version of the docs represented in this doc set.
   # Used in the "version-banner" partial to display a version number for the 
   # current doc set.
-  version = "4.0"
+
+  version = "4.2.0"
   version_menu = "Releases"
   version_menu_canonicallinks = true
   version_menu_pagelinks = true

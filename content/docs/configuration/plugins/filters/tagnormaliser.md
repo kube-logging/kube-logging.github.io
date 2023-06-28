@@ -6,7 +6,7 @@ generated_file: true
 
 # Fluentd Plugin to re-tag based on log metadata
 ## Overview
-More info at https://github.com/banzaicloud/fluent-plugin-tag-normaliser
+ More info at https://github.com/kube-logging/fluent-plugin-tag-normaliser
 
 Available kubernetes metadata
 
@@ -23,13 +23,13 @@ Available kubernetes metadata
 ## Configuration
 ## Tag Normaliser parameters
 
-### format (string, optional) {#tag normaliser-parameters-format}
+### format (string, optional) {#tag-normaliser-parameters-format}
 
-Re-Tag log messages info at [github](https://github.com/banzaicloud/fluent-plugin-tag-normaliser) 
+Re-Tag log messages info at [github](https://github.com/kube-logging/fluent-plugin-tag-normaliser) 
 
 Default: ${namespace_name}.${pod_name}.${container_name}
 
-### match_tag (string, optional) {#tag normaliser-parameters-match_tag}
+### match_tag (string, optional) {#tag-normaliser-parameters-match_tag}
 
 Tag used in match directive.  
 

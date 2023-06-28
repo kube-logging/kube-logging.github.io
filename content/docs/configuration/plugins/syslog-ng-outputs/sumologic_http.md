@@ -87,6 +87,10 @@ Default:  false
 
 Default: -
 
+### url (*secret.Secret, optional) {#sumologichttpoutput-url}
+
+Default: -
+
 ### batch-lines (int, optional) {#sumologichttpoutput-batch-lines}
 
 Default: -
