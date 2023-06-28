@@ -3,9 +3,7 @@ title: For developers
 weight: 800
 ---
 
-
-
-This documentation helps to set-up a developer environment and writing plugins for the Logging operator.
+This documentation helps to set up a developer environment and writing plugins for the Logging operator.
 
 ## Setting up Kind
 
