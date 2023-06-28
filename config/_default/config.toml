@@ -25,9 +25,10 @@ languageName ="English"
 weight = 1
 
 [outputs]
-    home = ["HTML", "print"]
+    home = ["HTML", "print", "releases"]
     # Enable print this section menu item
-    section = [ "HTML", "print" ]
+    section = [ "HTML", "print", "releases" ]
+    page = ['HTML', "releases" ]
 
 [social]
 # Used as twitter:site in page metadata
@@ -67,8 +68,10 @@ twitter = "calisti12"
   # The version number for the version of the docs represented in this doc set.
   # Used in the "version-banner" partial to display a version number for the 
   # current doc set.
-  version = "4.0.0"
+  version = "4.0"
+  version_menu = "Releases"
   version_menu_canonicallinks = true
+  version_menu_pagelinks = true
 
   # A link to latest version of the docs. Used in the "version-banner" partial to
   # point people to the main doc site.
@@ -155,6 +158,26 @@ twitter = "calisti12"
     icon = "fab fa-discord"
     desc = "Chat with the project developers"
 
+########################
+# Release versions
+#######################
+# Add your release versions here
+[[params.versions]]
+  version = "latest (4.2.0)"
+  githubbranch = "master"
+  url = ""
+[[params.versions]]
+  version = "4.0"
+  githubbranch = "release-4.0"
+  url = "/4.0/"
+
+# Cascade version number to every doc page (needed to create sections for pagefind search)
+# Update this parameter when creating a new version
+[[cascade]]
+body_attribute = 'data-pagefind-filter="section:4.2"'
+[cascade._target]
+  path = '/docs/**'
+
 ###############################################################################
 # Hugo - Top-level navigation (horizontal)
 ###############################################################################
@@ -174,6 +197,21 @@ twitter = "calisti12"
     weight = -100
     #pre = "<i class='fas fa-book pr-2'></i>"
     url = "/docs/"
+
+################################
+# Definitions for generating a 
+# separate releases.html file for
+# including in navbar-version-selector.html
+################################
+[outputFormats]
+  [outputFormats.releases]
+    baseName = 'releases'
+    isPlainText = true
+    mediaType = 'text/releases'
+
+[mediaTypes]
+  [mediaTypes."text/releases"]
+    suffixes = ["releases"]
 
 ###############################################################################
 # Misc customizations
