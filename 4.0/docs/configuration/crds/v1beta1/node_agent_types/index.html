@@ -15,70 +15,90 @@
 <link rel="icon" type="image/png" href="/4.0/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/4.0/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/4.0/favicons/android-192x192.png" sizes="192x192">
-<title>NodeAgent | Logging operator</title><meta name="description" content="NodeAgent name (string, optional) NodeAgent unique name.
+<title>NodeAgent | Logging operator</title><meta name="description" content="NodeAgent NodeAgent
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ObjectMeta, optional) Default: -
+spec (NodeAgentSpec, optional) Default: -
+status (NodeAgentStatus, optional) Default: -
+NodeAgentSpec NodeAgentSpec
+loggingRef (string, optional) Default: -
+(NodeAgentConfig, required) InlineNodeAgent
 Default: -
-profile (string, optional) Specify the Logging-Operator nodeAgents profile. It can be linux or windows .
-Default: linux
+NodeAgentConfig profile (string, optional) Default: -
 metadata (types.MetaBase, optional) Default: -
 nodeAgentFluentbit (*NodeAgentFluentbit, optional) Default: -
-NodeAgentFluentbit enabled (*bool, optional) Default: -
-daemonSet (*typeoverride.DaemonSet, optional) Default: -
-serviceAccount (*typeoverride.ServiceAccount, optional) Default: -
-tls (*FluentbitTLS, optional) Default: -
-targetHost (string, optional) Default: -
-targetPort (int32, optional) Default: -
-flush (int32, optional) Set the flush time in seconds.">
+NodeAgentStatus NodeAgentStatus
+NodeAgentList NodeAgentList
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ListMeta, optional) Default: -
+items ([]NodeAgent, required) Default: -
+InlineNodeAgent InlineNodeAgent @deprecated, replaced by NodeAgent">
 <meta property="og:title" content="NodeAgent">
-<meta property="og:description" content="NodeAgent name (string, optional) NodeAgent unique name.
+<meta property="og:description" content="NodeAgent NodeAgent
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ObjectMeta, optional) Default: -
+spec (NodeAgentSpec, optional) Default: -
+status (NodeAgentStatus, optional) Default: -
+NodeAgentSpec NodeAgentSpec
+loggingRef (string, optional) Default: -
+(NodeAgentConfig, required) InlineNodeAgent
 Default: -
-profile (string, optional) Specify the Logging-Operator nodeAgents profile. It can be linux or windows .
-Default: linux
+NodeAgentConfig profile (string, optional) Default: -
 metadata (types.MetaBase, optional) Default: -
 nodeAgentFluentbit (*NodeAgentFluentbit, optional) Default: -
-NodeAgentFluentbit enabled (*bool, optional) Default: -
-daemonSet (*typeoverride.DaemonSet, optional) Default: -
-serviceAccount (*typeoverride.ServiceAccount, optional) Default: -
-tls (*FluentbitTLS, optional) Default: -
-targetHost (string, optional) Default: -
-targetPort (int32, optional) Default: -
-flush (int32, optional) Set the flush time in seconds.">
+NodeAgentStatus NodeAgentStatus
+NodeAgentList NodeAgentList
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ListMeta, optional) Default: -
+items ([]NodeAgent, required) Default: -
+InlineNodeAgent InlineNodeAgent @deprecated, replaced by NodeAgent">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/4.0/docs/configuration/crds/v1beta1/node_agent_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-27T15:10:15+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-28T13:14:07+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="NodeAgent">
-<meta itemprop="description" content="NodeAgent name (string, optional) NodeAgent unique name.
+<meta itemprop="description" content="NodeAgent NodeAgent
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ObjectMeta, optional) Default: -
+spec (NodeAgentSpec, optional) Default: -
+status (NodeAgentStatus, optional) Default: -
+NodeAgentSpec NodeAgentSpec
+loggingRef (string, optional) Default: -
+(NodeAgentConfig, required) InlineNodeAgent
 Default: -
-profile (string, optional) Specify the Logging-Operator nodeAgents profile. It can be linux or windows .
-Default: linux
+NodeAgentConfig profile (string, optional) Default: -
 metadata (types.MetaBase, optional) Default: -
 nodeAgentFluentbit (*NodeAgentFluentbit, optional) Default: -
-NodeAgentFluentbit enabled (*bool, optional) Default: -
-daemonSet (*typeoverride.DaemonSet, optional) Default: -
-serviceAccount (*typeoverride.ServiceAccount, optional) Default: -
-tls (*FluentbitTLS, optional) Default: -
-targetHost (string, optional) Default: -
-targetPort (int32, optional) Default: -
-flush (int32, optional) Set the flush time in seconds.">
-<meta itemprop="dateModified" content="2023-06-27T15:10:15+02:00">
-<meta itemprop="wordCount" content="343">
+NodeAgentStatus NodeAgentStatus
+NodeAgentList NodeAgentList
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ListMeta, optional) Default: -
+items ([]NodeAgent, required) Default: -
+InlineNodeAgent InlineNodeAgent @deprecated, replaced by NodeAgent">
+<meta itemprop="dateModified" content="2023-06-28T13:14:07+02:00">
+<meta itemprop="wordCount" content="392">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeAgent">
-<meta name="twitter:description" content="NodeAgent name (string, optional) NodeAgent unique name.
+<meta name="twitter:description" content="NodeAgent NodeAgent
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ObjectMeta, optional) Default: -
+spec (NodeAgentSpec, optional) Default: -
+status (NodeAgentStatus, optional) Default: -
+NodeAgentSpec NodeAgentSpec
+loggingRef (string, optional) Default: -
+(NodeAgentConfig, required) InlineNodeAgent
 Default: -
-profile (string, optional) Specify the Logging-Operator nodeAgents profile. It can be linux or windows .
-Default: linux
+NodeAgentConfig profile (string, optional) Default: -
 metadata (types.MetaBase, optional) Default: -
 nodeAgentFluentbit (*NodeAgentFluentbit, optional) Default: -
-NodeAgentFluentbit enabled (*bool, optional) Default: -
-daemonSet (*typeoverride.DaemonSet, optional) Default: -
-serviceAccount (*typeoverride.ServiceAccount, optional) Default: -
-tls (*FluentbitTLS, optional) Default: -
-targetHost (string, optional) Default: -
-targetPort (int32, optional) Default: -
-flush (int32, optional) Set the flush time in seconds.">
+NodeAgentStatus NodeAgentStatus
+NodeAgentList NodeAgentList
+(metav1.TypeMeta, required) Default: -
+metadata (metav1.ListMeta, optional) Default: -
+items ([]NodeAgent, required) Default: -
+InlineNodeAgent InlineNodeAgent @deprecated, replaced by NodeAgent">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/4.0/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" as="style">
-<link href="/4.0/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" rel="stylesheet" integrity>
+<link rel="preload" href="/4.0/scss/main.min.bfa6177d6facd3a0bd510cb1b36b7b8a8ac42dae3ba4bae37847c8589cbf6be8.css" as="style">
+<link href="/4.0/scss/main.min.bfa6177d6facd3a0bd510cb1b36b7b8a8ac42dae3ba4bae37847c8589cbf6be8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/4.0/css/prism.css">
@@ -88,7 +108,7 @@ flush (int32, optional) Set the flush time in seconds.">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/4.0/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.2.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -103,7 +123,7 @@ Releases
 <div w3-include-html="/docs/configuration/crds/v1beta1/node_agent_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/4.0/offline-search-index.b83b22d848aadcc349ccf8ffa3830dfd.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/4.0/offline-search-index.f5d29a384a6ed36c94a5cf54bb5358e6.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -111,7 +131,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/4.0/offline-search-index.b83b22d848aadcc349ccf8ffa3830dfd.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/4.0/offline-search-index.f5d29a384a6ed36c94a5cf54bb5358e6.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -356,6 +376,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputslogz-li">
 <input type="checkbox" id="m-40docsconfigurationpluginsoutputslogz-check">
 <label for="m-40docsconfigurationpluginsoutputslogz-check"><a href="/4.0/docs/configuration/plugins/outputs/logz/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputslogz"><span>LogZ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputsmattermost-li">
+<input type="checkbox" id="m-40docsconfigurationpluginsoutputsmattermost-check">
+<label for="m-40docsconfigurationpluginsoutputsmattermost-check"><a href="/4.0/docs/configuration/plugins/outputs/mattermost/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputsmattermost"><span>Mattermost</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-40docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-40docsconfigurationpluginsoutputsnewrelic-check"><a href="/4.0/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
@@ -365,6 +388,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputsredis-li">
 <input type="checkbox" id="m-40docsconfigurationpluginsoutputsredis-check">
 <label for="m-40docsconfigurationpluginsoutputsredis-check"><a href="/4.0/docs/configuration/plugins/outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputsrelabel-li">
+<input type="checkbox" id="m-40docsconfigurationpluginsoutputsrelabel-check">
+<label for="m-40docsconfigurationpluginsoutputsrelabel-check"><a href="/4.0/docs/configuration/plugins/outputs/relabel/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputsrelabel"><span>Relabel</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginsoutputssplunk_hec-li">
 <input type="checkbox" id="m-40docsconfigurationpluginsoutputssplunk_hec-check">
 <label for="m-40docsconfigurationpluginsoutputssplunk_hec-check"><a href="/4.0/docs/configuration/plugins/outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginsoutputssplunk_hec"><span>Splunk</span></a></label>
@@ -409,6 +435,12 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginssyslog-ng-outputsloggly-li">
 <input type="checkbox" id="m-40docsconfigurationpluginssyslog-ng-outputsloggly-check">
 <label for="m-40docsconfigurationpluginssyslog-ng-outputsloggly-check"><a href="/4.0/docs/configuration/plugins/syslog-ng-outputs/loggly/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginssyslog-ng-outputsloggly"><span>Loggly output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginssyslog-ng-outputslogscale-li">
+<input type="checkbox" id="m-40docsconfigurationpluginssyslog-ng-outputslogscale-check">
+<label for="m-40docsconfigurationpluginssyslog-ng-outputslogscale-check"><a href="/4.0/docs/configuration/plugins/syslog-ng-outputs/logscale/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginssyslog-ng-outputslogscale"><span>LogScale</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginssyslog-ng-outputsmqtt-li">
+<input type="checkbox" id="m-40docsconfigurationpluginssyslog-ng-outputsmqtt-check">
+<label for="m-40docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/4.0/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docsconfigurationpluginssyslog-ng-outputssumologic_http-li">
 <input type="checkbox" id="m-40docsconfigurationpluginssyslog-ng-outputssumologic_http-check">
 <label for="m-40docsconfigurationpluginssyslog-ng-outputssumologic_http-check"><a href="/4.0/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docsconfigurationpluginssyslog-ng-outputssumologic_http"><span>Sumo Logic HTTP</span></a></label>
@@ -459,6 +491,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docslogging-infrastructurefluentbit-li">
 <input type="checkbox" id="m-40docslogging-infrastructurefluentbit-check">
 <label for="m-40docslogging-infrastructurefluentbit-check"><a href="/4.0/docs/logging-infrastructure/fluentbit/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docslogging-infrastructurefluentbit"><span>Fluent Bit log collector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docslogging-infrastructurefluentbit-multiple-li">
+<input type="checkbox" id="m-40docslogging-infrastructurefluentbit-multiple-check">
+<label for="m-40docslogging-infrastructurefluentbit-multiple-check"><a href="/4.0/docs/logging-infrastructure/fluentbit-multiple/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docslogging-infrastructurefluentbit-multiple"><span>Multiple Fluent Bit agents in the cluster</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-40docslogging-infrastructuretls-li">
 <input type="checkbox" id="m-40docslogging-infrastructuretls-check">
 <label for="m-40docslogging-infrastructuretls-check"><a href="/4.0/docs/logging-infrastructure/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-40docslogging-infrastructuretls"><span>TLS encryption</span></a></label>
@@ -528,7 +563,15 @@ Releases
 <ul>
 <li><a href="#nodeagent">NodeAgent</a>
 <ul>
-<li><a href="#nodeagent-name">name (string, optional)</a></li><li><a href="#nodeagent-profile">profile (string, optional)</a></li><li><a href="#nodeagent-metadata">metadata (types.MetaBase, optional)</a></li><li><a href="#nodeagent-nodeagentfluentbit">nodeAgentFluentbit (*NodeAgentFluentbit, optional)</a></li></ul></li><li><a href="#nodeagentfluentbit">NodeAgentFluentbit</a>
+<li><a href="#nodeagent-">(metav1.TypeMeta, required)</a></li><li><a href="#nodeagent-metadata">metadata (metav1.ObjectMeta, optional)</a></li><li><a href="#nodeagent-spec">spec (NodeAgentSpec, optional)</a></li><li><a href="#nodeagent-status">status (NodeAgentStatus, optional)</a></li></ul></li><li><a href="#nodeagentspec">NodeAgentSpec</a>
+<ul>
+<li><a href="#nodeagentspec-loggingref">loggingRef (string, optional)</a></li><li><a href="#nodeagentspec-">(NodeAgentConfig, required)</a></li></ul></li><li><a href="#nodeagentconfig">NodeAgentConfig</a>
+<ul>
+<li><a href="#nodeagentconfig-profile">profile (string, optional)</a></li><li><a href="#nodeagentconfig-metadata">metadata (types.MetaBase, optional)</a></li><li><a href="#nodeagentconfig-nodeagentfluentbit">nodeAgentFluentbit (*NodeAgentFluentbit, optional)</a></li></ul></li><li><a href="#nodeagentstatus">NodeAgentStatus</a></li><li><a href="#nodeagentlist">NodeAgentList</a>
+<ul>
+<li><a href="#nodeagentlist-">(metav1.TypeMeta, required)</a></li><li><a href="#nodeagentlist-metadata">metadata (metav1.ListMeta, optional)</a></li><li><a href="#nodeagentlist-items">items ([]NodeAgent, required)</a></li></ul></li><li><a href="#inlinenodeagent">InlineNodeAgent</a>
+<ul>
+<li><a href="#inlinenodeagent-name">name (string, optional)</a></li><li><a href="#inlinenodeagent-">(NodeAgentConfig, required)</a></li></ul></li><li><a href="#nodeagentfluentbit">NodeAgentFluentbit</a>
 <ul>
 <li><a href="#nodeagentfluentbit-enabled">enabled (*bool, optional)</a></li><li><a href="#nodeagentfluentbit-daemonset">daemonSet (*typeoverride.DaemonSet, optional)</a></li><li><a href="#nodeagentfluentbit-serviceaccount">serviceAccount (*typeoverride.ServiceAccount, optional)</a></li><li><a href="#nodeagentfluentbit-tls">tls (*FluentbitTLS, optional)</a></li><li><a href="#nodeagentfluentbit-targethost">targetHost (string, optional)</a></li><li><a href="#nodeagentfluentbit-targetport">targetPort (int32, optional)</a></li><li><a href="#nodeagentfluentbit-flush">flush (int32, optional)</a></li><li><a href="#nodeagentfluentbit-grace">grace (int32, optional)</a></li><li><a href="#nodeagentfluentbit-loglevel">logLevel (string, optional)</a></li><li><a href="#nodeagentfluentbit-corostacksize">coroStackSize (int32, optional)</a></li><li><a href="#nodeagentfluentbit-metrics">metrics (*Metrics, optional)</a></li><li><a href="#nodeagentfluentbit-metricsservice">metricsService (*typeoverride.Service, optional)</a></li><li><a href="#nodeagentfluentbit-security">security (*Security, optional)</a></li><li><a href="#nodeagentfluentbit-positiondb">positiondb (volume.KubernetesVolume, optional)</a></li><li><a href="#nodeagentfluentbit-containerspath">containersPath (string, optional)</a></li><li><a href="#nodeagentfluentbit-varlogspath">varLogsPath (string, optional)</a></li><li><a href="#nodeagentfluentbit-extravolumemounts">extraVolumeMounts ([]*VolumeMount, optional)</a></li><li><a href="#nodeagentfluentbit-inputtail">inputTail (InputTail, optional)</a></li><li><a href="#nodeagentfluentbit-filteraws">filterAws (*FilterAws, optional)</a></li><li><a href="#nodeagentfluentbit-filterkubernetes">filterKubernetes (FilterKubernetes, optional)</a></li><li><a href="#nodeagentfluentbit-disablekubernetesfilter">disableKubernetesFilter (*bool, optional)</a></li><li><a href="#nodeagentfluentbit-bufferstorage">bufferStorage (BufferStorage, optional)</a></li><li><a href="#nodeagentfluentbit-bufferstoragevolume">bufferStorageVolume (volume.KubernetesVolume, optional)</a></li><li><a href="#nodeagentfluentbit-customconfigsecret">customConfigSecret (string, optional)</a></li><li><a href="#nodeagentfluentbit-podpriorityclassname">podPriorityClassName (string, optional)</a></li><li><a href="#nodeagentfluentbit-livenessdefaultcheck">livenessDefaultCheck (*bool, optional)</a></li><li><a href="#nodeagentfluentbit-network">network (*FluentbitNetwork, optional)</a></li><li><a href="#nodeagentfluentbit-forwardoptions">forwardOptions (*ForwardOptions, optional)</a></li><li><a href="#nodeagentfluentbit-enableupstream">enableUpstream (*bool, optional)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -545,8 +588,9 @@ Releases
 <a href="https://kube-logging.dev/4.0/docs/configuration/crds/v1beta1/node_agent_types/" aria-disabled="true" class="btn-link disabled">NodeAgent</a>
 </li></ol></nav><div class="td-content">
 <h1>NodeAgent</h1><header class="article-meta">
-</header><h2 id="nodeagent">NodeAgent</h2><h3 id="nodeagent-name">name (string, optional)</h3><p>NodeAgent unique name.</p><p>Default: -</p><h3 id="nodeagent-profile">profile (string, optional)</h3><p>Specify the Logging-Operator nodeAgents profile. It can be linux or windows .</p><p>Default: linux</p><h3 id="nodeagent-metadata">metadata (types.MetaBase, optional)</h3><p>Default: -</p><h3 id="nodeagent-nodeagentfluentbit">nodeAgentFluentbit (*NodeAgentFluentbit, optional)</h3><p>Default: -</p><h2 id="nodeagentfluentbit">NodeAgentFluentbit</h2><h3 id="nodeagentfluentbit-enabled">enabled (*bool, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-daemonset">daemonSet (*typeoverride.DaemonSet, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-serviceaccount">serviceAccount (*typeoverride.ServiceAccount, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-tls">tls (*FluentbitTLS, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-targethost">targetHost (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-targetport">targetPort (int32, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-flush">flush (int32, optional)</h3><p>Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1)</p><p>Default: 1</p><h3 id="nodeagentfluentbit-grace">grace (int32, optional)</h3><p>Set the grace time in seconds as Integer value. The engine loop uses a Grace timeout to define wait time on exit (default: 5)</p><p>Default: 5</p><h3 id="nodeagentfluentbit-loglevel">logLevel (string, optional)</h3><p>Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if &lsquo;debug&rsquo; is set, it will include error, warning, info and debug. Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. (default: info)</p><p>Default: info</p><h3 id="nodeagentfluentbit-corostacksize">coroStackSize (int32, optional)</h3><p>Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don&rsquo;t set too small value (say 4096), or coroutine threads can overrun the stack buffer. Do not change the default value of this parameter unless you know what you are doing. (default: 24576)</p><p>Default: 24576</p><h3 id="nodeagentfluentbit-metrics">metrics (*Metrics, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-metricsservice">metricsService (*typeoverride.Service, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-security">security (*Security, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-positiondb">positiondb (volume.KubernetesVolume, optional)</h3><p><a href="https://github.com/banzaicloud/operator-tools/tree/master/docs/types">volume.KubernetesVolume</a></p><p>Default: -</p><h3 id="nodeagentfluentbit-containerspath">containersPath (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-varlogspath">varLogsPath (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-extravolumemounts">extraVolumeMounts ([]*VolumeMount, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-inputtail">inputTail (InputTail, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-filteraws">filterAws (*FilterAws, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-filterkubernetes">filterKubernetes (FilterKubernetes, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-disablekubernetesfilter">disableKubernetesFilter (*bool, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-bufferstorage">bufferStorage (BufferStorage, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-bufferstoragevolume">bufferStorageVolume (volume.KubernetesVolume, optional)</h3><p><a href="https://github.com/banzaicloud/operator-tools/tree/master/docs/types">volume.KubernetesVolume</a></p><p>Default: -</p><h3 id="nodeagentfluentbit-customconfigsecret">customConfigSecret (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-podpriorityclassname">podPriorityClassName (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-livenessdefaultcheck">livenessDefaultCheck (*bool, optional)</h3><p>Default: true</p><h3 id="nodeagentfluentbit-network">network (*FluentbitNetwork, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-forwardoptions">forwardOptions (*ForwardOptions, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-enableupstream">enableUpstream (*bool, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/05ca8ff3ea0387576c802b083462ac25cfc08410">Adds pagefind version tag to body (05ca8ff)</a>
+</header><h2 id="nodeagent">NodeAgent</h2><p>NodeAgent</p><h3 id="nodeagent-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="nodeagent-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="nodeagent-spec">spec (NodeAgentSpec, optional)</h3><p>Default: -</p><h3 id="nodeagent-status">status (NodeAgentStatus, optional)</h3><p>Default: -</p><h2 id="nodeagentspec">NodeAgentSpec</h2><p>NodeAgentSpec</p><h3 id="nodeagentspec-loggingref">loggingRef (string, optional)</h3><p>Default: -</p><h3 id="nodeagentspec-">(NodeAgentConfig, required)</h3><p>InlineNodeAgent</p><p>Default: -</p><h2 id="nodeagentconfig">NodeAgentConfig</h2><h3 id="nodeagentconfig-profile">profile (string, optional)</h3><p>Default: -</p><h3 id="nodeagentconfig-metadata">metadata (types.MetaBase, optional)</h3><p>Default: -</p><h3 id="nodeagentconfig-nodeagentfluentbit">nodeAgentFluentbit (*NodeAgentFluentbit, optional)</h3><p>Default: -</p><h2 id="nodeagentstatus">NodeAgentStatus</h2><p>NodeAgentStatus</p><h2 id="nodeagentlist">NodeAgentList</h2><p>NodeAgentList</p><h3 id="nodeagentlist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="nodeagentlist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="nodeagentlist-items">items ([]NodeAgent, required)</h3><p>Default: -</p><h2 id="inlinenodeagent">InlineNodeAgent</h2><p>InlineNodeAgent
+@deprecated, replaced by NodeAgent</p><h3 id="inlinenodeagent-name">name (string, optional)</h3><p>InlineNodeAgent unique name.</p><p>Default: -</p><h3 id="inlinenodeagent-">(NodeAgentConfig, required)</h3><p>Default: -</p><h2 id="nodeagentfluentbit">NodeAgentFluentbit</h2><h3 id="nodeagentfluentbit-enabled">enabled (*bool, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-daemonset">daemonSet (*typeoverride.DaemonSet, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-serviceaccount">serviceAccount (*typeoverride.ServiceAccount, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-tls">tls (*FluentbitTLS, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-targethost">targetHost (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-targetport">targetPort (int32, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-flush">flush (int32, optional)</h3><p>Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1)</p><p>Default: 1</p><h3 id="nodeagentfluentbit-grace">grace (int32, optional)</h3><p>Set the grace time in seconds as Integer value. The engine loop uses a Grace timeout to define wait time on exit (default: 5)</p><p>Default: 5</p><h3 id="nodeagentfluentbit-loglevel">logLevel (string, optional)</h3><p>Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if &lsquo;debug&rsquo; is set, it will include error, warning, info and debug. Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. (default: info)</p><p>Default: info</p><h3 id="nodeagentfluentbit-corostacksize">coroStackSize (int32, optional)</h3><p>Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don&rsquo;t set too small value (say 4096), or coroutine threads can overrun the stack buffer. Do not change the default value of this parameter unless you know what you are doing. (default: 24576)</p><p>Default: 24576</p><h3 id="nodeagentfluentbit-metrics">metrics (*Metrics, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-metricsservice">metricsService (*typeoverride.Service, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-security">security (*Security, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-positiondb">positiondb (volume.KubernetesVolume, optional)</h3><p><a href="https://github.com/cisco-open/operator-tools/tree/master/docs/types">volume.KubernetesVolume</a></p><p>Default: -</p><h3 id="nodeagentfluentbit-containerspath">containersPath (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-varlogspath">varLogsPath (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-extravolumemounts">extraVolumeMounts ([]*VolumeMount, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-inputtail">inputTail (InputTail, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-filteraws">filterAws (*FilterAws, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-filterkubernetes">filterKubernetes (FilterKubernetes, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-disablekubernetesfilter">disableKubernetesFilter (*bool, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-bufferstorage">bufferStorage (BufferStorage, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-bufferstoragevolume">bufferStorageVolume (volume.KubernetesVolume, optional)</h3><p><a href="https://github.com/cisco-open/operator-tools/tree/master/docs/types">volume.KubernetesVolume</a></p><p>Default: -</p><h3 id="nodeagentfluentbit-customconfigsecret">customConfigSecret (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-podpriorityclassname">podPriorityClassName (string, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-livenessdefaultcheck">livenessDefaultCheck (*bool, optional)</h3><p>Default: true</p><h3 id="nodeagentfluentbit-network">network (*FluentbitNetwork, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-forwardoptions">forwardOptions (*ForwardOptions, optional)</h3><p>Default: -</p><h3 id="nodeagentfluentbit-enableupstream">enableUpstream (*bool, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
+Last modified June 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d45a8b3aae943daf320c3382b4e2988126b29e6a">Merge pull request #151 from kube-logging/generated-docs-for-4.2 (d45a8b3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
