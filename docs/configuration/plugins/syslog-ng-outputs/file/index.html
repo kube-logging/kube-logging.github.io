@@ -32,7 +32,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-28T13:08:32+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-28T13:14:07+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the syslog-ng documentation.
@@ -41,7 +41,7 @@ Default: -
 create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2023-06-28T13:08:32+02:00">
+<meta itemprop="dateModified" content="2023-06-28T13:14:07+02:00">
 <meta itemprop="wordCount" content="218">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -53,8 +53,8 @@ create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" as="style">
-<link href="/scss/main.min.e5aa32b6386f5d541b8f9d94bc65ef214287b1987ddf01f076dba55295ad2990.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.bfa6177d6facd3a0bd510cb1b36b7b8a8ac42dae3ba4bae37847c8589cbf6be8.css" as="style">
+<link href="/scss/main.min.bfa6177d6facd3a0bd510cb1b36b7b8a8ac42dae3ba4bae37847c8589cbf6be8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
@@ -64,7 +64,7 @@ dir_group (string, optional) The group of the directories created by syslog-ng. 
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.2.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -79,7 +79,7 @@ Releases
 <div w3-include-html="/docs/configuration/plugins/syslog-ng-outputs/file//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.40d7fac87a7c4f833c699d0e20bccdca.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.71cac6d4bc97944dc5c32de314b5ba48.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -87,7 +87,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.40d7fac87a7c4f833c699d0e20bccdca.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.71cac6d4bc97944dc5c32de314b5ba48.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -332,6 +332,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputslogz-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputslogz-check">
 <label for="m-docsconfigurationpluginsoutputslogz-check"><a href="/docs/configuration/plugins/outputs/logz/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputslogz"><span>LogZ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsmattermost-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsmattermost-check">
+<label for="m-docsconfigurationpluginsoutputsmattermost-check"><a href="/docs/configuration/plugins/outputs/mattermost/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsmattermost"><span>Mattermost</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
@@ -341,6 +344,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsredis-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsredis-check">
 <label for="m-docsconfigurationpluginsoutputsredis-check"><a href="/docs/configuration/plugins/outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsrelabel-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsrelabel-check">
+<label for="m-docsconfigurationpluginsoutputsrelabel-check"><a href="/docs/configuration/plugins/outputs/relabel/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsrelabel"><span>Relabel</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputssplunk_hec-check">
 <label for="m-docsconfigurationpluginsoutputssplunk_hec-check"><a href="/docs/configuration/plugins/outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputssplunk_hec"><span>Splunk</span></a></label>
@@ -385,6 +391,12 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsloggly-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsloggly-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsloggly-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/loggly/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsloggly"><span>Loggly output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputslogscale-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputslogscale-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputslogscale-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/logscale/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputslogscale"><span>LogScale</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http"><span>Sumo Logic HTTP</span></a></label>
@@ -435,6 +447,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslogging-infrastructurefluentbit-li">
 <input type="checkbox" id="m-docslogging-infrastructurefluentbit-check">
 <label for="m-docslogging-infrastructurefluentbit-check"><a href="/docs/logging-infrastructure/fluentbit/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslogging-infrastructurefluentbit"><span>Fluent Bit log collector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslogging-infrastructurefluentbit-multiple-li">
+<input type="checkbox" id="m-docslogging-infrastructurefluentbit-multiple-check">
+<label for="m-docslogging-infrastructurefluentbit-multiple-check"><a href="/docs/logging-infrastructure/fluentbit-multiple/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslogging-infrastructurefluentbit-multiple"><span>Multiple Fluent Bit agents in the cluster</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslogging-infrastructuretls-li">
 <input type="checkbox" id="m-docslogging-infrastructuretls-check">
 <label for="m-docslogging-infrastructuretls-check"><a href="/docs/logging-infrastructure/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslogging-infrastructuretls"><span>TLS encryption</span></a></label>
@@ -524,7 +539,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/36#TOPIC-1829044">syslog-ng documentation</a>.</p><h3 id="fileoutput-path">path (string, required)</h3><p>Store file path</p><p>Default: -</p><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-owner().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the create-dirs() option). For octal numbers prefix the number with 0, for example use 0755 for rwxr-xr-x.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-template">template (string, optional)</h3><p>Default: -</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/be290e71166ec5d2a36953d1cd4b4169dcc38fec">Merge pull request #147 from kube-logging/doc-versioning-main (be290e7)</a>
+Last modified June 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d45a8b3aae943daf320c3382b4e2988126b29e6a">Merge pull request #151 from kube-logging/generated-docs-for-4.2 (d45a8b3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
