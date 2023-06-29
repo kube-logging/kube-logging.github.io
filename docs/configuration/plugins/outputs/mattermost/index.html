@@ -30,7 +30,7 @@ Default: -
 message_color (string, optional) message_color color of the message you are sending, the format is hex code.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/mattermost/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-06-29T00:21:58+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-06-29T09:38:00+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Mattermost">
 <meta itemprop="description" content="Mattermost plugin for Fluentd Overview Sends logs to Mattermost via webhooks. More info at https://github.com/levigo-systems/fluent-plugin-mattermost
 Example output configurations spec: mattermost: webhook_url: https://xxx.xx/hooks/xxxxxxxxxxxxxxx channel_id: xxxxxxxxxxxxxxx message_color: &#34;#FFA500&#34; enable_tls: false Configuration Output Config webhook_url (*secret.Secret, required) webhook_url Incoming Webhook URI (Required for Incoming Webhook mode).
@@ -38,7 +38,7 @@ Default: -
 channel_id (string, optional) channel_id the id of the channel where you want to receive the information.
 Default: -
 message_color (string, optional) message_color color of the message you are sending, the format is hex code.">
-<meta itemprop="dateModified" content="2023-06-29T00:21:58+02:00">
+<meta itemprop="dateModified" content="2023-06-29T09:38:00+00:00">
 <meta itemprop="wordCount" content="158">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mattermost">
@@ -539,7 +539,7 @@ More info at <a href="https://github.com/levigo-systems/fluent-plugin-mattermost
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">message_color</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;#FFA500&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">enable_tls</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-webhook_url">webhook_url (*secret.Secret, required)</h3><p>webhook_url Incoming Webhook URI (Required for Incoming Webhook mode).</p><p>Default: -</p><h3 id="output-config-channel_id">channel_id (string, optional)</h3><p>channel_id the id of the channel where you want to receive the information.</p><p>Default: -</p><h3 id="output-config-message_color">message_color (string, optional)</h3><p>message_color color of the message you are sending, the format is hex code.</p><p>Default: #A9A9A9</p><h3 id="output-config-message_title">message_title (string, optional)</h3><p>message_title title you want to add to the message.</p><p>Default: fluent_title_default</p><h3 id="output-config-message">message (string, optional)</h3><p>message The message you want to send, can be a static message, which you add at this point, or you can receive the fluent infos with the %s</p><p>Default: -</p><h3 id="output-config-enable_tls">enable_tls (*bool, optional)</h3><p>enable_tls you can set the communication channel if it uses tls.</p><p>Default: true</p><h3 id="output-config-ca_path">ca_path (*secret.Secret, optional)</h3><p>ca_path you can set the path of the certificates.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 29, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/44eccab2c9848281abbddfbd83c6de4ae0ce5b15">Merge pull request #157 from kube-logging/fekete-robert-patch-1 (44eccab)</a>
+Last modified June 29, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/75f5fafade20dcbdfeadd0f7935a3bc197e6fc0e">Merge d0212a19f8ea4bd5d042691c8847c5c4031e66c0 into 44eccab2c9848281abbddfbd83c6de4ae0ce5b15 (75f5faf)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
