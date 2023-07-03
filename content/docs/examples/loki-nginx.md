@@ -63,8 +63,8 @@ Install the Logging operator and a demo application to provide sample log messag
     ```bash
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
-1. 
-2. Create the `logging` resource.
+
+1. Create the `logging` resource.
 
      ```bash
      kubectl -n logging apply -f - <<"EOF"
