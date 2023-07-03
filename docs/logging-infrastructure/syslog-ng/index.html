@@ -26,13 +26,13 @@ The following example sets a volume mount that syslog-ng can use for buffering m
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging name: test spec: syslogNG: statefulSet: spec: template: spec: containers: - name: syslog-ng volumeMounts: - mountPath: /buffers name: buffer volumeClaimTemplates: - metadata: name: buffer spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi CPU and memory requirements To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see CPU and memory requirements.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-03T15:16:15+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-03T15:17:20+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure syslog-ng">
 <meta itemprop="description" content="syslog-ng is supported only in Logging operator 4.0 or newer.
 You can configure the deployment of the syslog-ng log forwarder via the syslogNG section of the The Logging custom resource. For the detailed list of available parameters, see SyslogNGSpec.
 The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if Disk buffer is configured in the output).
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging name: test spec: syslogNG: statefulSet: spec: template: spec: containers: - name: syslog-ng volumeMounts: - mountPath: /buffers name: buffer volumeClaimTemplates: - metadata: name: buffer spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi CPU and memory requirements To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see CPU and memory requirements.">
-<meta itemprop="dateModified" content="2023-07-03T15:16:15+00:00">
+<meta itemprop="dateModified" content="2023-07-03T15:17:20+00:00">
 <meta itemprop="wordCount" content="298">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure syslog-ng">
@@ -568,7 +568,7 @@ Releases
 <td>failureThreshold</td><td>int</td><td>3</td><td>Minimum consecutive failures for the probe to be considered failed after having succeeded.</td></tr><tr>
 <td>exec</td><td>array</td><td>{}</td><td>Exec specifies the action to take. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
 <p>Note: To configure readiness probes, see <a href="/docs/operation/readiness-probe/">Readiness probe</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 3, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6176028cfe35964e7496350ee7333da22329767b">Merge 6f59b88c9de3145df288dbd09c8b2a7b85b5b370 into 44eccab2c9848281abbddfbd83c6de4ae0ce5b15 (6176028)</a>
+Last modified July 3, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9b8103dfb848f93c1c027671e6b5206a2534b46d">Merge f98b4092b47cbfe8a34755638078c9ce78211da7 into 44eccab2c9848281abbddfbd83c6de4ae0ce5b15 (9b8103d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
