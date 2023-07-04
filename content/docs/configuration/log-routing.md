@@ -237,9 +237,9 @@ Exclude logs that have either the `app: nginx` or the `app.kubernetes.io/instanc
     match:
       - exclude:
           labels:
-          app: nginx
+            app: nginx
       - exclude:
           labels:
-          app.kubernetes.io/instance: nginx-demo
+            app.kubernetes.io/instance: nginx-demo
       - select: {}
   ```
