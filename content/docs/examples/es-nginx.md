@@ -2,6 +2,8 @@
 title: Store NGINX access logs in Elasticsearch with Logging operator
 linktitle: Elasticsearch with Fluentd
 weight: 300
+aliases:
+    - /docs/quickstarts/es-nginx/
 ---
 
 <p align="center"><img src="../../img/nle.png" width="340"></p>

@@ -2,6 +2,8 @@
 title: Transport all logs into Amazon S3  with Logging operator
 linktitle: Amazon S3 with Fluentd
 weight: 200
+aliases:
+    - /docs/quickstarts/example-s3/
 ---
 
 <p align="center"><img src="../../img/s3_logo.png" width="340"></p>
