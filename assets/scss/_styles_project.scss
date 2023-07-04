@@ -10,6 +10,10 @@ assets/scss/_styles_project.scss
     background: #FFFFFF;
     padding: 16px;
   }
+.td-content blockquote {
+  border-left: 6px solid $primary;
+  background: #FFFFFF;
+}
 .property-optional::after {
   content: "optional";
   background-color: $secondary;
