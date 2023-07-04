@@ -1,20 +1,19 @@
 ---
-title: Store Nginx Access Logs in Grafana Loki with Logging operator
-linktitle: Grafana Loki with Fluentd
-weight: 500
+title: Logging operator with Fluentd
+weight: 200
 aliases:
-    - /docs/one-eye/logging-operator/quickstarts/loki-nginx/
+    - /docs/examples/loki-nginx/
 ---
 
-<p align="center"><img src="../../img/nll.png" width="340"></p>
-
-This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
+This guide shows you how to collect application and container logs in Kubernetes using the Logging operator. As the Logging operator itself doesn't store any logs, you will install a [Grafana Loki](https://grafana.com/docs/loki/latest/) instance and configure the Logging operator to send your log messages to Loki for short-term storage.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
 <p align="center"><img src="../../img/nginx-loki.png" width="900"></p>
 
 ## Deploy Loki and Grafana
+
+First, deploy Loki and Grafana to your cluster. Loki will store the collected logs, and you can browse the logs using the Grafana dashboard.
 
 1. Add the chart repositories of Loki and Grafana using the following commands:
 
@@ -30,7 +29,7 @@ This guide describes how to collect application and container logs in Kubernetes
     helm upgrade --install --create-namespace --namespace logging loki loki/loki
     ```
 
-    > [Grafana Loki Documentation](https://github.com/grafana/loki/tree/master/production/helm)
+    > Note: For details on installing Loki, see the [official Grafana Loki Documentation](https://grafana.com/docs/loki/latest/installation/helm/).
 
 1. Install Grafana into the *logging* namespace:
 
@@ -43,11 +42,9 @@ This guide describes how to collect application and container logs in Kubernetes
     --set "datasources.datasources\\.yaml.datasources[0].access=proxy"
     ```
 
-## Deploy the Logging operator and a demo application
+## Deploy the Logging operator with Helm {#helm}
 
-Install the Logging operator and a demo application to provide sample log messages.
-
-### Deploy the Logging operator with Helm {#helm}
+Install the Logging operator and a log-generator application to create sample log messages.
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
@@ -64,10 +61,12 @@ Install the Logging operator and a demo application to provide sample log messag
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
-1. Create the `logging` resource.
+## Configure the Logging operator
+
+1. Create a `Logging` resource to deploy the Fluent Bit log collector agent on the nodes of the cluster, and Fluentd as the central log forwarder.
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF"
+     kubectl --namespace logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Logging
      metadata:
@@ -79,12 +78,12 @@ Install the Logging operator and a demo application to provide sample log messag
      EOF
      ```
 
-     > Note: You can use the `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`.
+     > Note: You can use `ClusterOutput` and `ClusterFlow` resources only in the `controlNamespace`. For details, see {{% xref "/docs/configuration/_index.md" %}}.
 
-1. Create a Loki `output` definition.
+1. Create an `Output` resource (called `loki-output` in the example) that configures a Loki output.
 
      ```bash
-    kubectl -n logging apply -f - <<"EOF"
+    kubectl --namespace logging apply -f - <<"EOF"
     apiVersion: logging.banzaicloud.io/v1beta1
     kind: Output
     metadata:
@@ -102,10 +101,12 @@ Install the Logging operator and a demo application to provide sample log messag
 
      > Note: In production environment, use a longer `timekey` interval to avoid generating too many objects.
 
-1. Create a `flow` resource.
+1. Create a `Flow` resource that routes the collected logs to the Loki output.
+
+    <!-- FIXME simplify the example if possible -->
 
      ```bash
-     kubectl -n logging apply -f - <<"EOF"
+     kubectl --namespace logging apply -f - <<"EOF"
      apiVersion: logging.banzaicloud.io/v1beta1
      kind: Flow
      metadata:
@@ -133,22 +134,22 @@ Install the Logging operator and a demo application to provide sample log messag
      helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
      ```
 
-1. [Validate your deployment](#validate).
+1. [Check the collected logs on the Grafana Dashboard](#grafana).
 
-## Validate the deployment {#validate}
+## Open Grafana Dashboard {#grafana}
 
-### Grafana Dashboard
+Open the Grafana Dashboard and check the collected logs.
 
 1. Use the following command to retrieve the password of the Grafana `admin` user:
 
     ```bash
-    kubectl get secret --namespace logging grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+    kubectl get secret --namespace logging grafana --output jsonpath="{.data.admin-password}" | base64 --decode ; echo
     ```
 
 1. Enable port forwarding to the Grafana Service.
 
     ```bash
-    kubectl -n logging port-forward svc/grafana 3000:80
+    kubectl --namespace logging port-forward svc/grafana 3000:80
     ```
 
 1. Open the Grafana Dashboard: [http://localhost:3000](http://localhost:3000)
@@ -160,3 +161,21 @@ Install the Logging operator and a demo application to provide sample log messag
     ![Sample log messages in Loki](../../img/loki1.png)
 
 {{< include-headless "note-troubleshooting.md" >}}
+
+<!-- FIXME add another simple usecase (filtering, or another namespace), and check the dashboard again -->
+
+## Summary
+
+If you have completed this guide, you have made the following changes to your cluster:
+
+- Installed the Fluent Bit agent on every node of the cluster that collects the logs and the labels from the node.
+- Installed Fluentd on the cluster, which receives the logs from the Fluent Bit agents, and can filter, parse, and transform them as needed. Fluentd also routes the incoming logs to an output. To learn more about routing and filtering, see {{% xref "/docs/configuration/log-routing.md" %}}.
+- Installed [Grafana Loki](https://grafana.com/docs/loki/latest/) to store your logs, and configured Fluentd to send the incoming logs to the Loki output.
+- Installed [Grafana](https://grafana.com/docs/grafana/latest/) that allows you to browse the logs stored in Loki.
+- Created the following resources that configure Logging operator and the components it manages:
+
+    - `Logging` to configure the logging infrastructure, like the details of the Fluent Bit and Fluentd deployment. To learn more about configuring the logging infrastructure, see {{% xref "/docs/logging-infrastructure/_index.md" %}}.
+    - `Output` to define a Loki output that receives the collected messages. To learn more, see {{% xref "/docs/configuration/output.md" %}}.
+    - `Flow` that processes the incoming messages and routes them to the appropriate output. To learn more, see {{% xref "/docs/configuration/flow.md" %}}.
+
+{{< include-headless "support-troubleshooting.md" >}}
