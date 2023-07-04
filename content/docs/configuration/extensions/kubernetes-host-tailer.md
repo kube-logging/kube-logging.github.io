@@ -265,7 +265,7 @@ EOF
 | Variable Name | Type | Required | Default | Description |
 |---|---|---|---|---|
 | fileTailers | []FileTailer | No | - | List of file tailers<br> |
-| c | []SystemdTailer | No | - | List of systemd tailers<br> |
+| systemdTailers | []SystemdTailer | No | - | List of systemd tailers<br> |
 | enableRecreateWorkloadOnImmutableFieldChange | bool | No | - | EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn't be managed with a simple update.<br> |
 | workloadMetaOverrides | *types.MetaBase | No | - | Override metadata of the created resources<br> |
 | workloadOverrides | *types.PodSpecBase | No | - | Override podSpec fields for the given daemonset<br> |
