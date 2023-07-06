@@ -1,0 +1,1 @@
+This guide shows you how to collect application and container logs in Kubernetes using the Logging operator. As the Logging operator itself doesn't store any logs, you will install a [Grafana Loki](https://grafana.com/docs/loki/latest/) instance and configure the Logging operator to send your log messages to Loki for short-term storage.s

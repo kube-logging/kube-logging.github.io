@@ -5,61 +5,15 @@ aliases:
     - /docs/examples/loki-nginx/
 ---
 
-This guide shows you how to collect application and container logs in Kubernetes using the Logging operator. As the Logging operator itself doesn't store any logs, you will install a [Grafana Loki](https://grafana.com/docs/loki/latest/) instance and configure the Logging operator to send your log messages to Loki for short-term storage.
+{{< include-headless "quickstart/intro.md" >}}
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/nginx-loki.png" width="900"></p>
+![Configuration architecture](../../img/nginx-loki.png)
 
-## Deploy Loki and Grafana
+{{< include-headless "quickstart/deploy-loki.md" >}}
 
-First, deploy Loki and Grafana to your cluster. Loki will store the collected logs, and you can browse the logs using the Grafana dashboard.
-
-1. Add the chart repositories of Loki and Grafana using the following commands:
-
-    ```bash
-    helm repo add grafana https://grafana.github.io/helm-charts
-    helm repo add loki https://grafana.github.io/loki/charts
-    helm repo update
-    ```
-
-1. Install Loki into the *logging* namespace:
-
-    ```bash
-    helm upgrade --install --create-namespace --namespace logging loki loki/loki
-    ```
-
-    > Note: For details on installing Loki, see the [official Grafana Loki Documentation](https://grafana.com/docs/loki/latest/installation/helm/).
-
-1. Install Grafana into the *logging* namespace:
-
-   ```bash
-    helm upgrade --install --create-namespace --namespace logging grafana grafana/grafana \
-    --set "datasources.datasources\\.yaml.apiVersion=1" \
-    --set "datasources.datasources\\.yaml.datasources[0].name=Loki" \
-    --set "datasources.datasources\\.yaml.datasources[0].type=loki" \
-    --set "datasources.datasources\\.yaml.datasources[0].url=http://loki:3100" \
-    --set "datasources.datasources\\.yaml.datasources[0].access=proxy"
-    ```
-
-## Deploy the Logging operator with Helm {#helm}
-
-Install the Logging operator and a log-generator application to create sample log messages.
-
-{{< include-headless "deploy-helm-intro.md" >}}
-
-1. Add the chart repository of the Logging operator using the following commands:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
-1. Install the Logging operator into the *logging* namespace:
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
-    ```
+{{< include-headless "quickstart/deploy-logging-operator-helm.md" >}}
 
 ## Configure the Logging operator
 
@@ -136,31 +90,7 @@ Install the Logging operator and a log-generator application to create sample lo
 
 1. [Check the collected logs on the Grafana Dashboard](#grafana).
 
-## Open Grafana Dashboard {#grafana}
-
-Open the Grafana Dashboard and check the collected logs.
-
-1. Use the following command to retrieve the password of the Grafana `admin` user:
-
-    ```bash
-    kubectl get secret --namespace logging grafana --output jsonpath="{.data.admin-password}" | base64 --decode ; echo
-    ```
-
-1. Enable port forwarding to the Grafana Service.
-
-    ```bash
-    kubectl --namespace logging port-forward svc/grafana 3000:80
-    ```
-
-1. Open the Grafana Dashboard: [http://localhost:3000](http://localhost:3000)
-
-1. Use the `admin` username and the password retrieved in Step 1 to log in.
-
-1. Select **Menu > Explore**, select **Data source > Loki**, then select **Log labels > namespace > logging**. A list of logs should appear.
-
-    ![Sample log messages in Loki](../../img/loki1.png)
-
-{{< include-headless "note-troubleshooting.md" >}}
+{{< include-headless "quickstart/open-grafana.md" >}}
 
 <!-- FIXME add another simple usecase (filtering, or another namespace), and check the dashboard again -->
 
