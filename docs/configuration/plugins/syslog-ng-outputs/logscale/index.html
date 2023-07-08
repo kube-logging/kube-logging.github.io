@@ -28,14 +28,14 @@ Default: empty
 rawstring (string, optional) The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/logscale/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-06T09:19:22+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-08T11:57:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LogScale">
 <meta itemprop="description" content="logscale Overview Configuration LogScaleOutput url (*secret.Secret, optional) Ingester URL is the URL of the Humio cluster you want to send data to.
 Default: https://cloud.humio.com
 token (*secret.Secret, optional) An Ingest Token is a unique string that identifies a repository and allows you to send data to that repository(https://library.humio.com/falcon-logscale/ingesting-data-tokens.html).
 Default: empty
 rawstring (string, optional) The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.">
-<meta itemprop="dateModified" content="2023-07-06T09:19:22+00:00">
+<meta itemprop="dateModified" content="2023-07-08T11:57:55+02:00">
 <meta itemprop="wordCount" content="283">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LogScale">
@@ -71,7 +71,7 @@ Releases
 <div w3-include-html="/docs/configuration/plugins/syslog-ng-outputs/logscale//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.71cac6d4bc97944dc5c32de314b5ba48.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -79,7 +79,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.71cac6d4bc97944dc5c32de314b5ba48.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -527,7 +527,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>LogScale</h1><header class="article-meta">
 </header><h1 id="logscale">logscale</h1><h2 id="overview">Overview</h2><h2 id="configuration">Configuration</h2><h2 id="logscaleoutput">LogScaleOutput</h2><h3 id="logscaleoutput-url">url (*secret.Secret, optional)</h3><p>Ingester URL is the URL of the Humio cluster you want to send data to.</p><p>Default: <a href="https://cloud.humio.com">https://cloud.humio.com</a></p><h3 id="logscaleoutput-token">token (*secret.Secret, optional)</h3><p>An Ingest Token is a unique string that identifies a repository and allows you to send data to that repository(<a href="https://library.humio.com/falcon-logscale/ingesting-data-tokens.html)">https://library.humio.com/falcon-logscale/ingesting-data-tokens.html)</a>.</p><p>Default: empty</p><h3 id="logscaleoutput-rawstring">rawstring (string, optional)</h3><p>The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.</p><p>Default: empty</p><h3 id="logscaleoutput-attributes">attributes (string, optional)</h3><p>A JSON object representing key-value pairs for the Event. These key-value pairs adds structure to Events, making it easier to search. Attributes can be nested JSON objects, however, we recommend limiting the amount of nesting.</p><p>Default: &ldquo;&ndash;scope rfc5424 &ndash;exclude MESSAGE &ndash;exclude DATE &ndash;leave-initial-dot&rdquo;</p><h3 id="logscaleoutput-timezone">timezone (string, optional)</h3><p>The timezone is only required if you specify the timestamp in milliseconds. The timezone specifies the local timezone for the event. Note that you must still specify the timestamp in UTC time.</p><p>Default: -</p><h3 id="logscaleoutput-extra_headers">extra_headers (string, optional)</h3><p>This field represents additional headers that can be included in the HTTP request when sending log records to Falcon&rsquo;s LogScale.</p><p>Default: empty</p><h3 id="logscaleoutput-content_type">content_type (string, optional)</h3><p>This field specifies the content type of the log records being sent to Falcon&rsquo;s LogScale.</p><p>Default: &ldquo;application/json&rdquo;</p><h3 id="logscaleoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="logscaleoutput-body">body (string, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_lines">batch_lines (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_bytes">batch_bytes (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_timeout">batch_timeout (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 6, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/477e96efd561cff5fabb852981e2ce0753e748b6">Merge 98b5d697322f7c8b03fa9a280ff9a1da1baed24d into 4076318980e9442c2ecd4c44ab84b1aebbb3cd74 (477e96e)</a>
+Last modified July 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cd93c9b5ef7e4868139319193dc79b9f18e8db32">Merge pull request #164 from calvin-puram/typo-fix (cd93c9b)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
