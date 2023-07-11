@@ -22,19 +22,19 @@ Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-08T11:57:55+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-11T13:32:01+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="You can configure the deployment of the Fluentd log forwarder via the fluentd section of the The Logging custom resource. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see FluentdSpec.
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
-<meta itemprop="dateModified" content="2023-07-08T11:57:55+02:00">
+<meta itemprop="dateModified" content="2023-07-11T13:32:01+02:00">
 <meta itemprop="wordCount" content="1321">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
 <meta name="twitter:description" content="You can configure the deployment of the Fluentd log forwarder via the fluentd section of the The Logging custom resource. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see FluentdSpec.
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" as="style">
-<link href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
+<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
@@ -716,7 +716,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
 <td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cd93c9b5ef7e4868139319193dc79b9f18e8db32">Merge pull request #164 from calvin-puram/typo-fix (cd93c9b)</a>
+Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6ffbb161b67e331de7d77e6610954bd9b4c3ed1a">Merge pull request #165 from kube-logging/dependabot/github_actions/actions/upload-pages-artifact-2.0.0 (6ffbb16)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -24,12 +24,12 @@ Create host tailer To tail logs from the node&rsquo;s host filesystem, define on
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-host-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-08T11:57:55+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-11T13:32:01+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes host logs, journals, and logfiles">
 <meta itemprop="description" content="Kubernetes host tailer allows you to tail logs like kubelet, audit logs, or the systemd journal from the nodes.
 Create host tailer To tail logs from the node&rsquo;s host filesystem, define one or more file tailers in the host-tailer configuration.
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
-<meta itemprop="dateModified" content="2023-07-08T11:57:55+02:00">
+<meta itemprop="dateModified" content="2023-07-11T13:32:01+02:00">
 <meta itemprop="wordCount" content="1094">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes host logs, journals, and logfiles">
@@ -37,8 +37,8 @@ kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 
 Create host tailer To tail logs from the node&rsquo;s host filesystem, define one or more file tailers in the host-tailer configuration.
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" as="style">
-<link href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
+<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
@@ -725,7 +725,7 @@ Releases
 <td>command</td><td><code>[]string</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>volumeMounts</td><td><code>[]corev1.VolumeMount</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>securityContext</td><td><code>*corev1.SecurityContext</code></td><td>No</td><td>-</td><td></td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cd93c9b5ef7e4868139319193dc79b9f18e8db32">Merge pull request #164 from calvin-puram/typo-fix (cd93c9b)</a>
+Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6ffbb161b67e331de7d77e6610954bd9b4c3ed1a">Merge pull request #165 from kube-logging/dependabot/github_actions/actions/upload-pages-artifact-2.0.0 (6ffbb16)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

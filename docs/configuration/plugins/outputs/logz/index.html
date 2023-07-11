@@ -28,14 +28,14 @@ Default: -
 output_include_time (bool, optional) Should the appender add a timestamp to your logs on their process time (recommended).">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/logz/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-08T11:57:55+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-11T13:32:01+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LogZ">
 <meta itemprop="description" content="LogZ output plugin for Fluentd Overview More info at https://github.com/tarokkk/fluent-plugin-logzio
 Example output configurations spec: logz: endpoint: url: https://listener.logz.io port: 8071 token: valueFrom: secretKeyRef: name: logz-token key: token output_include_tags: true output_include_time: true buffer: type: file flush_mode: interval flush_thread_count: 4 flush_interval: 5s chunk_limit_size: 16m queue_limit_length: 4096 Configuration Logzio LogZ Send your logs to LogZ.io
 endpoint (*Endpoint, required) Define LogZ endpoint URL
 Default: -
 output_include_time (bool, optional) Should the appender add a timestamp to your logs on their process time (recommended).">
-<meta itemprop="dateModified" content="2023-07-08T11:57:55+02:00">
+<meta itemprop="dateModified" content="2023-07-11T13:32:01+02:00">
 <meta itemprop="wordCount" content="293">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LogZ">
@@ -45,8 +45,8 @@ endpoint (*Endpoint, required) Define LogZ endpoint URL
 Default: -
 output_include_time (bool, optional) Should the appender add a timestamp to your logs on their process time (recommended).">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" as="style">
-<link href="/scss/main.min.12e705dcae3e8c77536f1541b72f3c8bdd06658711885a7e860abdb56318c939.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
+<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
@@ -548,7 +548,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">chunk_limit_size</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">16m</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">queue_limit_length</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">4096</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="logzio">Logzio</h2><p>LogZ Send your logs to LogZ.io</p><h3 id="logzio-endpoint">endpoint (*Endpoint, required)</h3><p>Define LogZ endpoint URL</p><p>Default: -</p><h3 id="logzio-output_include_time">output_include_time (bool, optional)</h3><p>Should the appender add a timestamp to your logs on their process time (recommended).</p><p>Default: -</p><h3 id="logzio-output_include_tags">output_include_tags (bool, optional)</h3><p>Should the appender add the fluentd tag to the document, called &ldquo;fluentd_tag&rdquo;</p><p>Default: -</p><h3 id="logzio-http_idle_timeout">http_idle_timeout (int, optional)</h3><p>Timeout in seconds that the http persistent connection will stay open without traffic.</p><p>Default: -</p><h3 id="logzio-retry_count">retry_count (int, optional)</h3><p>How many times to resend failed bulks.</p><p>Default: -</p><h3 id="logzio-retry_sleep">retry_sleep (int, optional)</h3><p>How long to sleep initially between retries, exponential step-off.</p><p>Default: -</p><h3 id="logzio-bulk_limit">bulk_limit (int, optional)</h3><p>Limit to the size of the Logz.io upload bulk. Defaults to 1000000 bytes leaving about 24kB for overhead.</p><p>Default: -</p><h3 id="logzio-bulk_limit_warning_limit">bulk_limit_warning_limit (int, optional)</h3><p>Limit to the size of the Logz.io warning message when a record exceeds bulk_limit to prevent a recursion when Fluent warnings are sent to the Logz.io output.</p><p>Default: -</p><h3 id="logzio-gzip">gzip (bool, optional)</h3><p>Should the plugin ship the logs in gzip compression. Default is false.</p><p>Default: -</p><h3 id="logzio-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="logzio-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><h2 id="endpoint">Endpoint</h2><p>Endpoint defines connection details for LogZ.io.</p><h3 id="endpoint-url">url (string, optional)</h3><p>LogZ URL.</p><p>Default: <a href="https://listener.logz.io">https://listener.logz.io</a></p><h3 id="endpoint-port">port (int, optional)</h3><p>Port over which to connect to LogZ URL.</p><p>Default: 8071</p><h3 id="endpoint-token">token (*secret.Secret, optional)</h3><p>LogZ API Token. <a href="../secret/">Secret</a></p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cd93c9b5ef7e4868139319193dc79b9f18e8db32">Merge pull request #164 from calvin-puram/typo-fix (cd93c9b)</a>
+Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6ffbb161b67e331de7d77e6610954bd9b4c3ed1a">Merge pull request #165 from kube-logging/dependabot/github_actions/actions/upload-pages-artifact-2.0.0 (6ffbb16)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
