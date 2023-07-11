@@ -24,12 +24,12 @@ Default: -
 topic (string, optional) Topic defines in which topic syslog-ng stores the log message. You can also use templates here, and use, for example, the $HOST macro in the topic name hierarchy.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/mqtt/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T13:32:01+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-11T13:33:03+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="MQTT">
 <meta itemprop="description" content="Sending messages from a local network to an MQTT broker Overview Prerequisites Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: mqtt namespace: default spec: mqtt: address: tcp://mosquitto:1883 template: | $(format-json --subkeys json~ --key-delimiter ~) topic: test/demo Configuration MQTT address (string, optional) Address of the destination host
 Default: -
 topic (string, optional) Topic defines in which topic syslog-ng stores the log message. You can also use templates here, and use, for example, the $HOST macro in the topic name hierarchy.">
-<meta itemprop="dateModified" content="2023-07-11T13:32:01+02:00">
+<meta itemprop="dateModified" content="2023-07-11T13:33:03+02:00">
 <meta itemprop="wordCount" content="169">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT">
@@ -532,7 +532,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">	  </span><span style="color:#204a87;font-weight:700">template</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">|</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">	    </span><span style="color:#000">$(format-json --subkeys json~ --key-delimiter ~)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">	  </span><span style="color:#204a87;font-weight:700">topic</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test/demo</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="mqtt">MQTT</h2><h3 id="mqtt-address">address (string, optional)</h3><p>Address of the destination host</p><p>Default: -</p><h3 id="mqtt-topic">topic (string, optional)</h3><p>Topic defines in which topic syslog-ng stores the log message. You can also use templates here, and use, for example, the $HOST macro in the topic name hierarchy.</p><p>Default: -</p><h3 id="mqtt-fallback-topic">fallback-topic (string, optional)</h3><p>fallback-topic is used when syslog-ng cannot post a message to the originally defined topic (which can include invalid characters coming from templates).</p><p>Default: -</p><h3 id="mqtt-template">template (string, optional)</h3><p>Template where you can configure the message template sent to the MQTT broker. By default, the template is: “$ISODATE $HOST $MSGHDR$MSG”</p><p>Default: -</p><h3 id="mqtt-qos">qos (int, optional)</h3><p>qos stands for quality of service and can take three values in the MQTT world. Its default value is 0, where there is no guarantee that the message is ever delivered.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6ffbb161b67e331de7d77e6610954bd9b4c3ed1a">Merge pull request #165 from kube-logging/dependabot/github_actions/actions/upload-pages-artifact-2.0.0 (6ffbb16)</a>
+Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ffc1be47901460b7f724b03e856fc26b65e2b140">Merge pull request #166 from kube-logging/dependabot/github_actions/actions/deploy-pages-2.0.3 (ffc1be4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
