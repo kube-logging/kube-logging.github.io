@@ -21,7 +21,7 @@ aliases:
 
     {{< tabpane text=true right=true >}}
     {{% tab header="**Log forwarder**:" disabled=true /%}}
-    {{% tab header="syslog-ng" lang="yaml" %}}
+    {{% tab header="syslog-ng" lang="syslog-ng" %}}
 ```yaml
   kubectl --namespace logging apply -f - <<"EOF"
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -35,7 +35,7 @@ aliases:
   EOF
 ```
     {{% /tab %}}
-    {{% tab header="Fluentd" lang="yaml" %}}
+    {{% tab header="Fluentd" lang="fluentd" %}}
 ```yaml
   kubectl --namespace logging apply -f - <<"EOF"
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -57,7 +57,7 @@ aliases:
 
     {{< tabpane text=true right=true >}}
     {{% tab header="**Log forwarder**:" disabled=true /%}}
-    {{% tab header="syslog-ng" lang="yaml" %}}
+    {{% tab header="syslog-ng" lang="syslog-ng" %}}
 ```yaml
 kubectl --namespace logging apply -f - <<"EOF"
 
@@ -66,7 +66,7 @@ FIXME
 EOF
 ```
     {{% /tab %}}
-    {{% tab header="Fluentd" lang="yaml" %}}
+    {{% tab header="Fluentd" lang="fluentd" %}}
 ```yaml
 kubectl --namespace logging apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -94,7 +94,7 @@ EOF
 
     {{< tabpane text=true right=true >}}
     {{% tab header="**Log forwarder**:" disabled=true /%}}
-    {{% tab header="syslog-ng" lang="yaml" %}}
+    {{% tab header="syslog-ng" lang="syslog-ng" %}}
 ```yaml
 kubectl --namespace logging apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -112,7 +112,7 @@ spec:
 EOF
 ```
     {{% /tab %}}
-    {{% tab header="Fluentd" lang="yaml" %}}
+    {{% tab header="Fluentd" lang="fluentd" %}}
 ```yaml
 kubectl --namespace logging apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
