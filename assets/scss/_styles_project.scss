@@ -52,3 +52,12 @@ assets/scss/_styles_project.scss
 .td-toc {
   padding-top: 1rem;
 }
+
+// Style overrides for tabbed cards and tabpanes
+.tab-content .tab-pane {
+  max-width: 100%;
+}
+
+.tab-body {
+  padding: 0rem;
+}
