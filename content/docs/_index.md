@@ -17,7 +17,7 @@ Your logs are always transferred on authenticated and encrypted channels.
 
 This operator helps you bundle logging information with your applications: you can describe the behavior of your application in its charts, the Logging operator does the rest.
 
-<p align="center"><img src="img/logging_operator_flow.png" ></p>
+<p align="center"><img src="img/logging_operator_flow.png" alt="How Logging operator works" ></p>
 
 ## Feature highlights
 
