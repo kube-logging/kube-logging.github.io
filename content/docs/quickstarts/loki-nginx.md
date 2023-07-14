@@ -1,5 +1,5 @@
 ---
-title: Logging operator with Fluentd
+title: Logging operator with Loki
 weight: 200
 aliases:
     - /docs/examples/loki-nginx/
