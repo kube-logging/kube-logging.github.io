@@ -236,8 +236,8 @@ Define Kubernetes storage.
 
 | Name      | Type | Default | Description |
 |-----------|------|---------|-------------|
-| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to `/opt/logging-operator/<name of the logging CR>/<name of the volume>` |
-| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
+| hostPath | [HostPathVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#hostpathvolumesource-v1-core) | - | Represents a host path mapped into a pod. If path is empty, it will automatically be set to `/opt/logging-operator/<name of the logging CR>/<name of the volume>` |
+| emptyDir | [EmptyDirVolumeSource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#emptydirvolumesource-v1-core) | - | Represents an empty directory for a pod. |
 
 {{< include-headless "cpu-memory-requirements.md" >}}
 
@@ -282,8 +282,8 @@ You can use the following parameters:
 | periodSeconds | int | 10 | How often (in seconds) to perform the probe. |
 | successThreshold | int | 0 | Minimum consecutive successes for the probe to be considered successful after having failed. |
 | failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
-| exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
-| httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core) |
-| tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core) |
+| exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#execaction-v1-core) |
+| httpGet | array | {} |  HTTPGet specifies the http request to perform. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#httpgetaction-v1-core) |
+| tcpSocket | array | {} |  TCPSocket specifies an action involving a TCP port. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#tcpsocketaction-v1-core) |
 
 > Note: To configure readiness probes, see {{% xref "/docs/operation/readiness-probe.md" %}}.
