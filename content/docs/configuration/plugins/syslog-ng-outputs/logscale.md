@@ -18,7 +18,7 @@ Default: `https://cloud.humio.com`
 
 ### token (*secret.Secret, optional) {#logscaleoutput-token}
 
-An Ingest Token is a unique string that identifies a repository and allows you to send data to that repository (https://library.humio.com/data-analysis/ingesting-data-tokens.html).  
+An [Ingest Token](https://library.humio.com/data-analysis/ingesting-data-tokens.html) is a unique string that identifies a repository and allows you to send data to that repository.
 
 Default:  empty
 

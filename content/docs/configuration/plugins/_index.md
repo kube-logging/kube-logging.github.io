@@ -45,7 +45,7 @@ For more information please click on the plugin name
 | **[Amazon Kinesis Firehose](outputs/kinesis_firehose/)** | outputs | Fluent plugin for Amazon Kinesis | Testing | [3.4.2](https://github.com/awslabs/aws-fluent-plugin-kinesis/releases/tag/v3.4.2) |
 | **[Amazon Kinesis Stream](outputs/kinesis_stream/)** | outputs | Fluent plugin for Amazon Kinesis | GA | [3.4.2](https://github.com/awslabs/aws-fluent-plugin-kinesis/releases/tag/v3.4.2) |
 | **[LogDNA](outputs/logdna/)** | outputs | Send your logs to LogDNA | GA | [0.4.0](https://github.com/logdna/fluent-plugin-logdna/releases/tag/v0.4.0) |
-| **[LogZ](outputs/logz/)** | outputs | Store logs in LogZ.io | GA | [0.0.21](https://github.com/logzio/fluent-plugin-logzio/releases/tag/v0.0.21) |
+| **[LogZ](outputs/logz/)** | outputs | Store logs in LogZ.io | GA | [0.0.21](https://github.com/logzio/fluent-plugin-logzio/) |
 | **[Grafana Loki](outputs/loki/)** | outputs | Transfer logs to Loki | GA | [1.2.17](https://github.com/grafana/loki/tree/master/fluentd/fluent-plugin-grafana-loki) |
 | **[NewRelic Logs](outputs/newrelic/)** | outputs | Send logs to New Relic Logs | GA | [1.2.1](https://github.com/newrelic/newrelic-fluentd-output) |
 | **[OpenSearch](outputs/opensearch/)** | outputs | Send your logs to OpenSearch | GA | [1.0.5](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.0.5) |

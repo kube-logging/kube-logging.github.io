@@ -96,4 +96,4 @@ spec:
 
 On the Prometheus web interface, this rule looks like:
 
-![Fluentd alerting rule on the Prometheus web interface](../alerting-rule-in-prometheus.png)
+![Fluentd alerting rule on the Prometheus web interface](alerting-rule-in-prometheus.png)

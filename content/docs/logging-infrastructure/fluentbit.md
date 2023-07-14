@@ -111,7 +111,7 @@ spec:
 ```
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
-[More info](https://github.com/fluent/fluent-bit-docs/blob/master/filter/kubernetes.md)
+[More info](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes)
 
 ## Tail input
 
