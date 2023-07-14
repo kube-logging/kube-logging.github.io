@@ -6,9 +6,9 @@ aliases:
     - /docs/one-eye/logging-operator/logging-operator-monitoring/
 ---
 
-<p align="center"><img src="../../img/lo-pro.png" width="340"></p>
+<p align="center"><img src="../../img/lo-pro.png" alt="Logos" width="340"></p>
 
-<p align="center"><img src="../../img/monitor.png" width="900"></p>
+<p align="center"><img src="../../img/monitor.png" alt="Architecture" width="900"></p>
 
 You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 
@@ -265,7 +265,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open the [Minio Dashboard: http://localhost:9000](http://localhost:9000)
 
-    <p align="center"><img src="../../img/servicemonitor_minio.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p>
 
 ### Prometheus
 
@@ -277,7 +277,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open the [Prometheus Dashboard: http://localhost:9090](http://localhost:9090)
 
-    <p align="center"><img src="../../img/servicemonitor_prometheus.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_prometheus.png" alt="Prometheus dashboard"></p>
 
 ### Grafana
 
@@ -297,4 +297,4 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open [Gradana Dashboard: http://localhost:3000](http://localhost:3000)
 
-    <p align="center"><img src="../../img/servicemonitor_grafana.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p>

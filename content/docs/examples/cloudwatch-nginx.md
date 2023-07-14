@@ -6,13 +6,13 @@ aliases:
     - /docs/one-eye/logging-operator/quickstarts/cloudwatch-nginx/
 ---
 
-<p align="center"><img src="../../img/nlw.png" width="340"></p>
+<p align="center"><img src="../../img/nlw.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/nginx-cloudwatch.png" width="900"></p>
+<p align="center"><img src="../../img/nginx-cloudwatch.png" alt="Architecture" width="900"></p>
 
 ## Deploy the Logging operator and a demo Application
 
@@ -144,6 +144,6 @@ Install the Logging operator and a demo application using [Helm](#helm).
 
 ## Validate the deployment {#validate}
 
-<p align="center"><img src="../../img/cw.png" width="660"></p>
+<p align="center"><img src="../../img/cw.png" alt="Cloudwatch dashboard"></p>
 
 {{< include-headless "note-troubleshooting.md" >}}

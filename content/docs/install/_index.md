@@ -14,7 +14,7 @@ aliases:
 
 ## Deploy Logging operator with Helm {#helm}
 
-<p align="center"><img src="../img/helm.svg" width="150"></p>
+<p align="center"><img src="../img/helm.svg" alt="Logos" width="150"></p>
 <p align="center">
 
 {{< include-headless "deploy-helm-intro.md" >}}
