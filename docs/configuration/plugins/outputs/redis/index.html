@@ -40,7 +40,7 @@ insert_key_prefix (string, optional) insert_key_prefix
 Default: &ldquo;${tag}&rdquo;">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/redis/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T21:06:40+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-24T10:34:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Redis">
 <meta itemprop="description" content="Redis plugin for Fluentd Overview Sends logs to Redis endpoints. More info at https://github.com/fluent-plugins-nursery/fluent-plugin-redis
 Example output configurations spec: redis: host: redis-master.prod.svc.cluster.local buffer: tags: &#34;[]&#34; flush_interval: 10s Configuration Output Config host (string, optional) Host Redis endpoint
@@ -53,7 +53,7 @@ password (*secret.Secret, optional) Redis Server password
 Default: -
 insert_key_prefix (string, optional) insert_key_prefix
 Default: &ldquo;${tag}&rdquo;">
-<meta itemprop="dateModified" content="2023-07-11T21:06:40+02:00">
+<meta itemprop="dateModified" content="2023-07-24T10:34:55+02:00">
 <meta itemprop="wordCount" content="168">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
@@ -95,7 +95,7 @@ Releases
 <div w3-include-html="/docs/configuration/plugins/outputs/redis//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -103,7 +103,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -558,7 +558,7 @@ More info at <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-re
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">tags</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;[]&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">flush_interval</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">10s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-host">host (string, optional)</h3><p>Host Redis endpoint</p><p>Default: localhost</p><h3 id="output-config-port">port (int, optional)</h3><p>Port of the Redis server</p><p>Default: 6379</p><h3 id="output-config-db_number">db_number (int, optional)</h3><p>DbNumber database number is optional.</p><p>Default: 0</p><h3 id="output-config-password">password (*secret.Secret, optional)</h3><p>Redis Server password</p><p>Default: -</p><h3 id="output-config-insert_key_prefix">insert_key_prefix (string, optional)</h3><p>insert_key_prefix</p><p>Default: &ldquo;${tag}&rdquo;</p><h3 id="output-config-strftime_format">strftime_format (string, optional)</h3><p>strftime_format Users can set strftime format.</p><p>Default: &ldquo;%s&rdquo;</p><h3 id="output-config-allow_duplicate_key">allow_duplicate_key (bool, optional)</h3><p>allow_duplicate_key Allow insert key duplicate. It will work as update values.</p><p>Default: false</p><h3 id="output-config-ttl">ttl (int, optional)</h3><p>ttl If 0 or negative value is set, ttl is not set in each key.</p><p>Default: -</p><h3 id="output-config-format">format (*Format, optional)</h3><p><a href="../format/">Format</a></p><p>Default: -</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/baea6d43bce3d0906cbaea678d199894ab9319f0">Merge pull request #163 from kube-logging/dependabot/github_actions/actions/setup-node-3.7.0 (baea6d4)</a>
+Last modified July 24, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1dda279262fb368045c0f0dbf8e6dd8df28a9910">Merge pull request #167 from kube-logging/link-fixes-230714 (1dda279)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

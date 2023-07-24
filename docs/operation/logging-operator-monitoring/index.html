@@ -24,12 +24,12 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T21:06:40+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-24T10:34:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2023-07-11T21:06:40+02:00">
+<meta itemprop="dateModified" content="2023-07-24T10:34:55+02:00">
 <meta itemprop="wordCount" content="624">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
@@ -63,7 +63,7 @@ Releases
 <div w3-include-html="/docs/operation/logging-operator-monitoring//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -71,7 +71,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -514,7 +514,7 @@ Releases
 <a href="https://kube-logging.dev/docs/operation/logging-operator-monitoring/" aria-disabled="true" class="btn-link disabled">Monitoring</a>
 </li></ol></nav><div class="td-content">
 <h1>Monitor your logging pipeline with Prometheus Operator</h1><header class="article-meta">
-</header><p align="center"><img src="../../img/lo-pro.png" width="340"></p><p align="center"><img src="../../img/monitor.png" width="900"></p><p>You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.</p><h2 id="metrics-variables">Metrics Variables</h2><p>You can configure the following metrics-related options in the <strong>spec.fluentd.metrics</strong>, <strong>spec.syslogNG.metrics</strong>, and <strong>spec.fluentbit.metrics</strong> sections of your Logging resource.</p><table>
+</header><p align="center"><img src="../../img/lo-pro.png" alt="Logos" width="340"></p><p align="center"><img src="../../img/monitor.png" alt="Architecture" width="900"></p><p>You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.</p><h2 id="metrics-variables">Metrics Variables</h2><p>You can configure the following metrics-related options in the <strong>spec.fluentd.metrics</strong>, <strong>spec.syslogNG.metrics</strong>, and <strong>spec.fluentbit.metrics</strong> sections of your Logging resource.</p><table>
 <thead>
 <tr>
 <th>Variable Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead><tbody>
@@ -699,19 +699,19 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span></code></pre></div></li><li>
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/nginx-demo-minio <span style="color:#0000cf;font-weight:700">9000</span>
 </span></span></code></pre></div></li><li>
-<p>Open the <a href="http://localhost:9000">Minio Dashboard: http://localhost:9000</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" width="660"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
+<p>Open the <a href="http://localhost:9000">Minio Dashboard: http://localhost:9000</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
 <li>
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl port-forward svc/monitor-prometheus-operato-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
 </span></span></code></pre></div></li><li>
-<p>Open the <a href="http://localhost:9090">Prometheus Dashboard: http://localhost:9090</a></p><p align="center"><img src="../../img/servicemonitor_prometheus.png" width="660"></p></li></ol><h3 id="grafana">Grafana</h3><ol>
+<p>Open the <a href="http://localhost:9090">Prometheus Dashboard: http://localhost:9090</a></p><p align="center"><img src="../../img/servicemonitor_prometheus.png" alt="Prometheus dashboard"></p></li></ol><h3 id="grafana">Grafana</h3><ol>
 <li>
 <p>Get Grafana login credentials</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get secret --namespace logging monitor-grafana -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;{.data.admin-password}&#34;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode <span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
 </span></span></code></pre></div><blockquote>
 <p>Default username: <code>admin</code></p></blockquote></li><li>
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
-<p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" width="660"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/baea6d43bce3d0906cbaea678d199894ab9319f0">Merge pull request #163 from kube-logging/dependabot/github_actions/actions/setup-node-3.7.0 (baea6d4)</a>
+<p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
+Last modified July 24, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1dda279262fb368045c0f0dbf8e6dd8df28a9910">Merge pull request #167 from kube-logging/link-fixes-230714 (1dda279)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

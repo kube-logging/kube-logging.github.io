@@ -22,11 +22,11 @@ Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T21:06:40+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-24T10:34:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="You can configure the deployment of the Fluentd log forwarder via the fluentd section of the The Logging custom resource. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see FluentdSpec.
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
-<meta itemprop="dateModified" content="2023-07-11T21:06:40+02:00">
+<meta itemprop="dateModified" content="2023-07-24T10:34:55+02:00">
 <meta itemprop="wordCount" content="1321">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
@@ -59,7 +59,7 @@ Releases
 <div w3-include-html="/docs/logging-infrastructure/fluentd//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -67,7 +67,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -666,9 +666,9 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <td>periodSeconds</td><td>int</td><td>60</td><td>How often (in seconds) to perform the probe.</td></tr><tr>
 <td>successThreshold</td><td>int</td><td>0</td><td>Minimum consecutive successes for the probe to be considered successful after having failed.</td></tr><tr>
 <td>failureThreshold</td><td>int</td><td>0</td><td>Minimum consecutive failures for the probe to be considered failed after having succeeded.</td></tr><tr>
-<td>exec</td><td>array</td><td>{}</td><td>Exec specifies the action to take. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core">More info</a></td></tr><tr>
-<td>httpGet</td><td>array</td><td>{}</td><td>HTTPGet specifies the http request to perform. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#httpgetaction-v1-core">More info</a></td></tr><tr>
-<td>tcpSocket</td><td>array</td><td>{}</td><td>TCPSocket specifies an action involving a TCP port. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#tcpsocketaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
+<td>exec</td><td>array</td><td>{}</td><td>Exec specifies the action to take. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#execaction-v1-core">More info</a></td></tr><tr>
+<td>httpGet</td><td>array</td><td>{}</td><td>HTTPGet specifies the http request to perform. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#httpgetaction-v1-core">More info</a></td></tr><tr>
+<td>tcpSocket</td><td>array</td><td>{}</td><td>TCPSocket specifies an action involving a TCP port. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#tcpsocketaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
 <p>Note: To configure readiness probes, see <a href="/docs/operation/readiness-probe/">Readiness probe</a>.</p></blockquote><h2 id="custom-fluentd-image">Custom Fluentd image</h2><p>You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.</p><table>
 <thead>
 <tr>
@@ -707,16 +707,16 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
 <tr>
-<td>hostPath</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#hostpathvolumesource-v1-core">HostPathVolumeSource</a></td><td>-</td><td>Represents a host path mapped into a pod. If path is empty, it will automatically be set to <code>/opt/logging-operator/&lt;name of the logging CR>/&lt;name of the volume></code> </td></tr><tr>
-<td>emptyDir</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#emptydirvolumesource-v1-core">EmptyDirVolumeSource</a></td><td>-</td><td>Represents an empty directory for a pod. </td></tr><tr>
+<td>hostPath</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#hostpathvolumesource-v1-core">HostPathVolumeSource</a></td><td>-</td><td>Represents a host path mapped into a pod. If path is empty, it will automatically be set to <code>/opt/logging-operator/&lt;name of the logging CR>/&lt;name of the volume></code> </td></tr><tr>
+<td>emptyDir</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#emptydirvolumesource-v1-core">EmptyDirVolumeSource</a></td><td>-</td><td>Represents an empty directory for a pod. </td></tr><tr>
 <td>pvc</td><td><a href="#persistent-volume-claim">PersistentVolumeClaim</a></td><td>-</td><td>A PersistentVolumeClaim (PVC) is a request for storage by a user. </td></tr></tbody></table><h2 id="persistent-volume-claim">Persistent Volume Claim</h2><table>
 <thead>
 <tr>
 <th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
 <tr>
-<td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
-<td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/baea6d43bce3d0906cbaea678d199894ab9319f0">Merge pull request #163 from kube-logging/dependabot/github_actions/actions/setup-node-3.7.0 (baea6d4)</a>
+<td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
+<td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
+Last modified July 24, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1dda279262fb368045c0f0dbf8e6dd8df28a9910">Merge pull request #167 from kube-logging/link-fixes-230714 (1dda279)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -44,7 +44,7 @@ container_names ([]string, optional) Default: -
 ClusterExclude namespaces ([]string, optional) Default: -">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/clusterflow_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T21:06:40+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-24T10:34:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="ClusterFlow">
 <meta itemprop="description" content="ClusterFlow ClusterFlow is the Schema for the clusterflows API
 (metav1.TypeMeta, required) Default: -
@@ -59,7 +59,7 @@ labels (map[string]string, optional) Default: -
 hosts ([]string, optional) Default: -
 container_names ([]string, optional) Default: -
 ClusterExclude namespaces ([]string, optional) Default: -">
-<meta itemprop="dateModified" content="2023-07-11T21:06:40+02:00">
+<meta itemprop="dateModified" content="2023-07-24T10:34:55+02:00">
 <meta itemprop="wordCount" content="160">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ClusterFlow">
@@ -103,7 +103,7 @@ Releases
 <div w3-include-html="/docs/configuration/crds/v1beta1/clusterflow_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -111,7 +111,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -569,7 +569,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>ClusterFlow</h1><header class="article-meta">
 </header><h2 id="clusterflow">ClusterFlow</h2><p>ClusterFlow is the Schema for the clusterflows API</p><h3 id="clusterflow-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="clusterflow-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="clusterflow-spec">spec (ClusterFlowSpec, optional)</h3><p>Name of the logging cluster to be attached</p><p>Default: -</p><h3 id="clusterflow-status">status (FlowStatus, optional)</h3><p>Default: -</p><h2 id="clustermatch">ClusterMatch</h2><h3 id="clustermatch-select">select (*ClusterSelect, optional)</h3><p>Default: -</p><h3 id="clustermatch-exclude">exclude (*ClusterExclude, optional)</h3><p>Default: -</p><h2 id="clusterselect">ClusterSelect</h2><h3 id="clusterselect-namespaces">namespaces ([]string, optional)</h3><p>Default: -</p><h3 id="clusterselect-labels">labels (map[string]string, optional)</h3><p>Default: -</p><h3 id="clusterselect-hosts">hosts ([]string, optional)</h3><p>Default: -</p><h3 id="clusterselect-container_names">container_names ([]string, optional)</h3><p>Default: -</p><h2 id="clusterexclude">ClusterExclude</h2><h3 id="clusterexclude-namespaces">namespaces ([]string, optional)</h3><p>Default: -</p><h3 id="clusterexclude-labels">labels (map[string]string, optional)</h3><p>Default: -</p><h3 id="clusterexclude-hosts">hosts ([]string, optional)</h3><p>Default: -</p><h3 id="clusterexclude-container_names">container_names ([]string, optional)</h3><p>Default: -</p><h2 id="clusterflowspec">ClusterFlowSpec</h2><p>ClusterFlowSpec is the Kubernetes spec for ClusterFlows</p><h3 id="clusterflowspec-selectors">selectors (map[string]string, optional)</h3><p>Deprecated</p><p>Default: -</p><h3 id="clusterflowspec-match">match ([]ClusterMatch, optional)</h3><p>Default: -</p><h3 id="clusterflowspec-filters">filters ([]Filter, optional)</h3><p>Default: -</p><h3 id="clusterflowspec-loggingref">loggingRef (string, optional)</h3><p>Default: -</p><h3 id="clusterflowspec-outputrefs">outputRefs ([]string, optional)</h3><p>Deprecated</p><p>Default: -</p><h3 id="clusterflowspec-globaloutputrefs">globalOutputRefs ([]string, optional)</h3><p>Default: -</p><h3 id="clusterflowspec-flowlabel">flowLabel (string, optional)</h3><p>Default: -</p><h3 id="clusterflowspec-includelabelinrouter">includeLabelInRouter (*bool, optional)</h3><p>Default: -</p><h2 id="clusterflowlist">ClusterFlowList</h2><p>ClusterFlowList contains a list of ClusterFlow</p><h3 id="clusterflowlist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="clusterflowlist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="clusterflowlist-items">items ([]ClusterFlow, required)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/baea6d43bce3d0906cbaea678d199894ab9319f0">Merge pull request #163 from kube-logging/dependabot/github_actions/actions/setup-node-3.7.0 (baea6d4)</a>
+Last modified July 24, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1dda279262fb368045c0f0dbf8e6dd8df28a9910">Merge pull request #167 from kube-logging/link-fixes-230714 (1dda279)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

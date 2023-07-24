@@ -22,11 +22,11 @@ Fluentd outputs The Output resource defines an output where your Fluentd Flows c
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/output/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-07-11T21:06:40+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-07-24T10:34:55+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Output and ClusterOutput">
 <meta itemprop="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
-<meta itemprop="dateModified" content="2023-07-11T21:06:40+02:00">
+<meta itemprop="dateModified" content="2023-07-24T10:34:55+02:00">
 <meta itemprop="wordCount" content="446">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Output and ClusterOutput">
@@ -59,7 +59,7 @@ Releases
 <div w3-include-html="/docs/configuration/output//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -67,7 +67,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.30a3a631782da056f48289db470f1ef8.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -576,7 +576,7 @@ Outputs are the final stage for a <code>logging flow</code>. You can define mult
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">transport</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tls</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><ul>
 <li>For the details of the supported output plugins, see <a href="/docs/configuration/plugins/syslog-ng-outputs/">syslog-ng outputs</a>.</li><li>For the details of <code>SyslogNGOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_output_types/">SyslogNGOutputSpec</a>.</li><li>For the details of <code>SyslogNGClusterOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/">SyslogNGClusterOutput</a>.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 11, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/baea6d43bce3d0906cbaea678d199894ab9319f0">Merge pull request #163 from kube-logging/dependabot/github_actions/actions/setup-node-3.7.0 (baea6d4)</a>
+Last modified July 24, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1dda279262fb368045c0f0dbf8e6dd8df28a9910">Merge pull request #167 from kube-logging/link-fixes-230714 (1dda279)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
