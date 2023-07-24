@@ -40,8 +40,6 @@ Install the Logging operator and a demo application to provide sample log messag
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
-1. [Validate your deployment](#validate).
-
 ## Configure the Logging operator
 
 1. Create the `logging` resource with a persistent syslog-ng installation.

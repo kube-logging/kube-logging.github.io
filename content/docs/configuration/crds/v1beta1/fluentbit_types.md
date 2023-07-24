@@ -607,9 +607,9 @@ Default: "0"
 
 ### Kube_URL (string, optional) {#filterkubernetes-kube_url}
 
-API Server end-point (default:https://kubernetes.default.svc:443) 
+API Server end-point (default: `https://kubernetes.default.svc:443`)
 
-Default: https://kubernetes.default.svc:443
+Default: `https://kubernetes.default.svc:443`
 
 ### Kube_CA_File (string, optional) {#filterkubernetes-kube_ca_file}
 

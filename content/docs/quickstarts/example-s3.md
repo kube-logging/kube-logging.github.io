@@ -4,13 +4,13 @@ linktitle: Amazon S3 with Fluentd
 weight: 200
 ---
 
-<p align="center"><img src="../../img/s3_logo.png" width="340"></p>
+<p align="center"><img src="../../img/s3_logo.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/s3_flow.png" width="900"></p>
+<p align="center"><img src="../../img/s3_flow.png" alt="Architecture" width="900"></p>
 
 ## Deploy the Logging operator
 

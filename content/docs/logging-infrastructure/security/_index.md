@@ -15,8 +15,8 @@ aliases:
 | roleBasedAccessControlCreate | bool | No | True | create RBAC resources |
 | podSecurityPolicyCreate | bool | No | False | create PSP resources |
 | serviceAccount | string | No | - | Set ServiceAccount |
-| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. |
-| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. Some |
+| securityContext | [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#securitycontext-v1-core)  | No | {} | SecurityContext holds security configuration that will be applied to a container. |
+| podSecurityContext | [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#podsecuritycontext-v1-core)  | No | {} | PodSecurityContext holds pod-level security attributes and common container settings. Some |
 
 ## Using [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) Authorization
 
@@ -274,8 +274,8 @@ spec:
 
 ## [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
 
-- [Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)
-- [POD Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podsecuritycontext-v1-core)
+- [Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#securitycontext-v1-core)
+- [POD Security Context Parameters](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#podsecuritycontext-v1-core)
 
 ### Deploy with Kubernetes Manifests
 

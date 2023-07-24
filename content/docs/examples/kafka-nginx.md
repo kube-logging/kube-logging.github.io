@@ -6,13 +6,13 @@ aliases:
     - /docs/one-eye/logging-operator/quickstarts/kafka-nginx/
 ---
 
-<p align="center"><img src="../../img/kafka_logo.png" width="340"></p>
+<p align="center"><img src="../../img/kafka_logo.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/nignx-kafka.png" width="900"></p>
+<p align="center"><img src="../../img/nignx-kafka.png" alt="Architecture" width="900"></p>
 
 ## Deploy Kafka
 

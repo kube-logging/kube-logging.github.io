@@ -47,7 +47,7 @@ Default:  30 s
 
 Custom Ingester URL, Optional  
 
-Default:  https://logs.logdna.com
+Default:  `https://logs.logdna.com`
 
 ### ingester_endpoint (string, optional) {#logdna-ingester_endpoint}
 

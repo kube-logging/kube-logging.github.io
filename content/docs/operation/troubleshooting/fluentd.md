@@ -4,7 +4,7 @@ linktitle: Fluentd
 weight: 200
 ---
 
-<p align="center"><img src="/docs/img/fluentd.png" height="100"></p>
+<p align="center"><img src="/docs/img/fluentd.png" alt="Fluentd logo" height="100"></p>
 
 The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 

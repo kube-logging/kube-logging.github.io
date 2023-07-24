@@ -4,13 +4,13 @@ linktitle: Elasticsearch with Fluentd
 weight: 300
 ---
 
-<p align="center"><img src="../../img/nle.png" width="340"></p>
+<p align="center"><img src="../../img/nle.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/nginx-elastic.png" width="900"></p>
+<p align="center"><img src="../../img/nginx-elastic.png" alt="Architecture" width="900"></p>
 
 ## Deploy Elasticsearch
 
@@ -195,6 +195,6 @@ To validate that the deployment was successful, complete the following steps.
 
 1. By default, the Logging operator sends the incoming log messages into an index called *fluentd*. Create an Index Pattern that includes this index (for example, *fluentd\**), then select **Menu > Kibana > Discover**. You should see the dashboard and some sample log messages from the demo application.
 
-<p align="center"><img src="../../img/es_kibana.png" width="660"></p>
+<p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p>
 
 {{< include-headless "note-troubleshooting.md" >}}

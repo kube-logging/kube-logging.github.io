@@ -111,7 +111,7 @@ Endpoint defines connection details for LogZ.io.
 
 LogZ URL. 
 
-Default: https://listener.logz.io
+Default: `https://listener.logz.io`
 
 ### port (int, optional) {#endpoint-port}
 
