@@ -11,7 +11,7 @@ You can define multiple `logging` resources if needed, for example, if you want 
 
 You can customize the configuration of Fluentd, syslog-ng, and Fluent Bit in the logging resource. It also declares `watchNamespaces` if applicable to narrow down the namespaces in which the logging operator should evaluate and incorporate `Flow` and `Output` resources into fluentd's configuration.
 
-You can install a `logging` resource with built-in TLS generation using the [logging Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator-logging).
+{{< include-headless "note-helm-chart-logging-resource.md" >}}
 
 You can customize the following sections of the logging resource:
 
