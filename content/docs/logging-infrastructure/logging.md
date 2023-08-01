@@ -9,7 +9,7 @@ The `logging` resource defines the logging infrastructure for your cluster that 
 
 You can define multiple `logging` resources if needed, for example, if you want to run multiple Fluentd instances with separate configurations.
 
-You can customize the configuration of Fluentd, syslog-ng, and Fluent Bit in the logging resource. It also declares `watchNamespaces` if applicable to narrow down the namespaces in which the logging operator should evaluate and incorporate `Flow` and `Output` resources into fluentd's configuration.
+You can customize the configuration of Fluentd, syslog-ng, and Fluent Bit in the logging resource. The logging resource also declares `watchNamespaces`, that specifies the namespaces to include in the `Flow` and `Output` resources of Fluentd's configuration.
 
 {{< include-headless "note-helm-chart-logging-resource.md" >}}
 
@@ -56,3 +56,19 @@ spec:
   controlNamespace: logging
   watchNamespaces: ["prod", "test"]
 ```
+
+Starting with Logging operator version 4.3, you can use the `watchNamespaceSelector` selector to select the watched namespaces based on their label, or an expression, for example:
+
+```yaml
+  watchNamespaceSelector:
+    matchLabels:
+      <label-name>: <label-value>
+```
+
+```yaml
+  watchNamespaceSelector:
+    matchExpressions:
+      FIXME-ADD-AN-EXAMPLE
+```
+
+If you set both `watchNamespaces` and `watchNamespaceSelector`, both take effect, and the matching namespaces are added to a single list.
