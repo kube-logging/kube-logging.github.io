@@ -65,9 +65,9 @@ The filters in the flow are applied in the order in the definition. You can find
 
 At the end of the Flow, you can attach one or more [outputs]({{< relref "/docs/configuration/output.md" >}}), which may also be `Output` or `ClusterOutput` resources.
 
-> `SyslogNGFlow` resources are `namespaced`, the `selector` only select `Pod` logs within namespace.
+> `SyslogNGFlow` resources are `namespaced`, the `selector` only selects `Pod` logs within the namespace.
 > `SyslogNGClusterFlow` defines a SyslogNGFlow **without** namespace restrictions. It is also only effective in the `controlNamespace`.
- `SyslogNGClusterFlow` selects logs from **ALL** namespace.
+ `SyslogNGClusterFlow` selects logs from **ALL** namespaces.
 
 The following example selects only messages sent by the log-generator application and forwards them to a syslog output.
 
