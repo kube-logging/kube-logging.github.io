@@ -74,6 +74,12 @@ Limit namespaces to watch Flow and Output custom resources.
 
 Default: -
 
+### watchNamespaceSelector (*metav1.LabelSelector, optional) {#loggingspec-watchnamespaceselector}
+
+WatchNamespaceSelector is a LabelSelector to find matching namespaces to watch as in WatchNamespaces 
+
+Default: -
+
 ### clusterDomain (*string, optional) {#loggingspec-clusterdomain}
 
 Cluster domain name to be used when templating URLs to services . 
