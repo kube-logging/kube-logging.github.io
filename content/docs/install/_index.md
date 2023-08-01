@@ -32,7 +32,7 @@ aliases:
     helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
     ```
 
-    > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator-logging).
+    {{< include-headless "note-helm-chart-logging-resource.md" >}}
 
 ## Validate the deployment {#validate}
 
