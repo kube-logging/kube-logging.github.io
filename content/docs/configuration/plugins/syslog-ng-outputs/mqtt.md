@@ -4,7 +4,9 @@ weight: 200
 generated_file: true
 ---
 
-# Sending messages from a local network to an MQTT broker
+Sends messages from a local network to an MQTT broker. For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-mqtt-intro/).
+
+
 ## Overview
 
  ## Prerequisites

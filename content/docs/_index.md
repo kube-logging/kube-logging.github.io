@@ -11,7 +11,7 @@ The Logging operator solves your logging-related problems in Kubernetes environm
 
 1. The operator deploys and configures a log collector (currently a Fluent Bit DaemonSet) on every node to collect container and application logs from the node file system.
 1. Fluent Bit queries the Kubernetes API and enriches the logs with metadata about the pods, and transfers both the logs and the metadata to a log forwarder instance.
-1. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports Fluentd and syslog-ng as log forwarders.
+1. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. The Logging operator supports [Fluentd](https://www.fluentd.org/) and syslog-ng (via the [AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/)) as log forwarders.
 
 Your logs are always transferred on authenticated and encrypted channels.
 

@@ -42,7 +42,7 @@ Default: -
 Default: -
 
 
-## [Regexp Directive](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) {#Regexp-Directive}
+## [Regexp Directive](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-template-functions/#template-function-list) {#Regexp-Directive}
 
 Specify filtering rule.
 
