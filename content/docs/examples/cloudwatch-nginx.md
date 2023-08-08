@@ -32,7 +32,7 @@ Install the Logging operator and a demo application using [Helm](#helm).
 1. Install the Logging operator.
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
     ```
 
 1. Create AWS `secret`

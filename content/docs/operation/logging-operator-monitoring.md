@@ -81,7 +81,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Logging Operator
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging-operator logging kube-logging/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
     ```
 
 ## Install Minio
