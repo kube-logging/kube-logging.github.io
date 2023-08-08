@@ -15,27 +15,27 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Which log forwarder to use | Logging operator</title><meta name="description" content="The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
+<title>Which log forwarder to use | Logging operator</title><meta name="description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
-The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that. If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.">
+The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that.">
 <meta property="og:title" content="Which log forwarder to use">
-<meta property="og:description" content="The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
+<meta property="og:description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
-The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that. If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.">
+The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/fluentd-vs-syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-01T12:49:06+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-08T15:30:36+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Which log forwarder to use">
-<meta itemprop="description" content="The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
+<meta itemprop="description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
-The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that. If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.">
-<meta itemprop="dateModified" content="2023-08-01T12:49:06+02:00">
-<meta itemprop="wordCount" content="135">
+The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that.">
+<meta itemprop="dateModified" content="2023-08-08T15:30:36+02:00">
+<meta itemprop="wordCount" content="140">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Which log forwarder to use">
-<meta name="twitter:description" content="The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
+<meta name="twitter:description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
-The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that. If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.">
+The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that.">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
 <link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
@@ -63,7 +63,7 @@ Releases
 <div w3-include-html="/docs/configuration/fluentd-vs-syslog-ng//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -71,7 +71,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -509,10 +509,10 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/fluentd-vs-syslog-ng/" aria-disabled="true" class="btn-link disabled">Fluentd or syslog-ng</a>
 </li></ol></nav><div class="td-content">
 <h1>Which log forwarder to use</h1><header class="article-meta">
-</header><p>The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.</p><p>The following points help you decide which forwarder to use.</p><ul>
+</header><p>The Logging operator supports <a href="https://www.fluentd.org/">Fluentd</a> and syslog-ng (via the <a href="https://axoflow.com/docs/axosyslog-core/">AxoSyslog syslog-ng distribution</a>) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.</p><p>The following points help you decide which forwarder to use.</p><ul>
 <li>The forwarders support different outputs. If the output you want to use is supported only by one forwarder, use that.</li><li>If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.</li><li>If you have lots of logging flows or need complex routing or log message processing, use syslog-ng.</li></ul><blockquote>
 <p>Note: Depending on which log forwarder you use, some of the CRDs you have to create and configure are different.</p></blockquote><p>syslog-ng is supported only in Logging operator 4.0 or newer.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 1, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d5b502724ecce868818eeecb0e260a5e190da3e0">Merge pull request #158 from kube-logging/dependabot/github_actions/actions/checkout-3.5.3 (d5b5027)</a>
+Last modified August 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7a87796157f25696c2a0536db04d1bddf25f6a0b">Merge pull request #169 from kube-logging/syslog-ng-link-updates (7a87796)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

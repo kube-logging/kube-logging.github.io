@@ -15,39 +15,31 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Sumo Logic Syslog | Logging operator</title><meta name="description" content="Storing messages in Sumo Logic over syslog Overview More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122
+<title>Sumo Logic Syslog | Logging operator</title><meta name="description" content="The sumologic-syslog output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
+Prerequisites You need a Sumo Logic account to use this output. For details, see the documentation of the AxoSyslog syslog-ng distribution.
 Configuration SumologicSyslogOutput port (int, optional) This option sets the port number of the Sumo Logic server to connect to.
-Default: 6514
-deployment (string, optional) This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security
-Default: empty
-tag (string, optional) This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message.">
+Default: 6514">
 <meta property="og:title" content="Sumo Logic Syslog">
-<meta property="og:description" content="Storing messages in Sumo Logic over syslog Overview More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122
+<meta property="og:description" content="The sumologic-syslog output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
+Prerequisites You need a Sumo Logic account to use this output. For details, see the documentation of the AxoSyslog syslog-ng distribution.
 Configuration SumologicSyslogOutput port (int, optional) This option sets the port number of the Sumo Logic server to connect to.
-Default: 6514
-deployment (string, optional) This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security
-Default: empty
-tag (string, optional) This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message.">
+Default: 6514">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/sumologic_syslog/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-01T12:49:06+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-08T15:30:36+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Sumo Logic Syslog">
-<meta itemprop="description" content="Storing messages in Sumo Logic over syslog Overview More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122
+<meta itemprop="description" content="The sumologic-syslog output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
+Prerequisites You need a Sumo Logic account to use this output. For details, see the documentation of the AxoSyslog syslog-ng distribution.
 Configuration SumologicSyslogOutput port (int, optional) This option sets the port number of the Sumo Logic server to connect to.
-Default: 6514
-deployment (string, optional) This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security
-Default: empty
-tag (string, optional) This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message.">
-<meta itemprop="dateModified" content="2023-08-01T12:49:06+02:00">
-<meta itemprop="wordCount" content="209">
+Default: 6514">
+<meta itemprop="dateModified" content="2023-08-08T15:30:36+02:00">
+<meta itemprop="wordCount" content="251">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sumo Logic Syslog">
-<meta name="twitter:description" content="Storing messages in Sumo Logic over syslog Overview More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122
+<meta name="twitter:description" content="The sumologic-syslog output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
+Prerequisites You need a Sumo Logic account to use this output. For details, see the documentation of the AxoSyslog syslog-ng distribution.
 Configuration SumologicSyslogOutput port (int, optional) This option sets the port number of the Sumo Logic server to connect to.
-Default: 6514
-deployment (string, optional) This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security
-Default: empty
-tag (string, optional) This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message.">
+Default: 6514">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
 <link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
@@ -75,7 +67,7 @@ Releases
 <div w3-include-html="/docs/configuration/plugins/syslog-ng-outputs/sumologic_syslog//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -83,7 +75,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -513,7 +505,7 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#sumologicsyslogoutput">SumologicSyslogOutput</a>
+<li><a href="#prerequisites">Prerequisites</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#sumologicsyslogoutput">SumologicSyslogOutput</a>
 <ul>
 <li><a href="#sumologicsyslogoutput-port">port (int, optional)</a></li><li><a href="#sumologicsyslogoutput-deployment">deployment (string, optional)</a></li><li><a href="#sumologicsyslogoutput-tag">tag (string, optional)</a></li><li><a href="#sumologicsyslogoutput-token">token (int, optional)</a></li><li><a href="#sumologicsyslogoutput-tls">tls (*TLS, optional)</a></li><li><a href="#sumologicsyslogoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</a></li><li><a href="#sumologicsyslogoutput-persist_name">persist_name (string, optional)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -530,8 +522,9 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/sumologic_syslog/" aria-disabled="true" class="btn-link disabled">Sumo Logic Syslog</a>
 </li></ol></nav><div class="td-content">
 <h1>Sumo Logic Syslog</h1><header class="article-meta">
-</header><h1 id="storing-messages-in-sumo-logic-over-syslog">Storing messages in Sumo Logic over syslog</h1><h2 id="overview">Overview</h2><p>More info at <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122">https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122</a></p><h2 id="configuration">Configuration</h2><h2 id="sumologicsyslogoutput">SumologicSyslogOutput</h2><h3 id="sumologicsyslogoutput-port">port (int, optional)</h3><p>This option sets the port number of the Sumo Logic server to connect to.</p><p>Default: 6514</p><h3 id="sumologicsyslogoutput-deployment">deployment (string, optional)</h3><p>This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security</p><p>Default: empty</p><h3 id="sumologicsyslogoutput-tag">tag (string, optional)</h3><p>This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message. If you set the tag() option, only the tags you specify will be added to the messages.</p><p>Default: tag</p><h3 id="sumologicsyslogoutput-token">token (int, optional)</h3><p>The Cloud Syslog Cloud Token that you received from the Sumo Logic service while configuring your cloud syslog source. <a href="https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source">https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source</a></p><p>Default: -</p><h3 id="sumologicsyslogoutput-tls">tls (*TLS, optional)</h3><p>This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see <a href="../tls/">TLS for syslog-ng outputs</a> and the <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193">syslog-ng documentation</a>.</p><p>Default: -</p><h3 id="sumologicsyslogoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="sumologicsyslogoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 1, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d5b502724ecce868818eeecb0e260a5e190da3e0">Merge pull request #158 from kube-logging/dependabot/github_actions/actions/checkout-3.5.3 (d5b5027)</a>
+</header><p>The <code>sumologic-syslog</code> output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-sumologic-intro/destination-sumologic-options/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="prerequisites">Prerequisites</h2><p>You need a Sumo Logic account to use this output. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-sumologic-intro/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="sumologicsyslogoutput">SumologicSyslogOutput</h2><h3 id="sumologicsyslogoutput-port">port (int, optional)</h3><p>This option sets the port number of the Sumo Logic server to connect to.</p><p>Default: 6514</p><h3 id="sumologicsyslogoutput-deployment">deployment (string, optional)</h3><p>This option specifies your Sumo Logic deployment. <a href="https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security">https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security</a></p><p>Default: empty</p><h3 id="sumologicsyslogoutput-tag">tag (string, optional)</h3><p>This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message. If you set the tag() option, only the tags you specify will be added to the messages.</p><p>Default: tag</p><h3 id="sumologicsyslogoutput-token">token (int, optional)</h3><p>The Cloud Syslog Cloud Token that you received from the Sumo Logic service while configuring your cloud syslog source. <a href="https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source">https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source</a></p><p>Default: -</p><h3 id="sumologicsyslogoutput-tls">tls (*TLS, optional)</h3><p>This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see <a href="../tls/">TLS for syslog-ng outputs</a> and the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/">documentation of the AxoSyslog syslog-ng distribution</a>.
+Default: -</p><h3 id="sumologicsyslogoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="sumologicsyslogoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
+Last modified August 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7a87796157f25696c2a0536db04d1bddf25f6a0b">Merge pull request #169 from kube-logging/syslog-ng-link-updates (7a87796)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

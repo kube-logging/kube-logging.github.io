@@ -15,28 +15,28 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Disk buffer | Logging operator</title><meta name="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. Documentation: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124
+<title>Disk buffer | Logging operator</title><meta name="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
 <meta property="og:title" content="Disk buffer">
-<meta property="og:description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. Documentation: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124
+<meta property="og:description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-01T12:49:06+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-08T15:30:36+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Disk buffer">
-<meta itemprop="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. Documentation: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124
+<meta itemprop="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
-<meta itemprop="dateModified" content="2023-08-01T12:49:06+02:00">
-<meta itemprop="wordCount" content="197">
+<meta itemprop="dateModified" content="2023-08-08T15:30:36+02:00">
+<meta itemprop="wordCount" content="211">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Disk buffer">
-<meta name="twitter:description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. Documentation: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124
+<meta name="twitter:description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
@@ -67,7 +67,7 @@ Releases
 <div w3-include-html="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -75,7 +75,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.6688d162782cdb767954e00149f24ac5.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -523,8 +523,8 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>Disk buffer</h1><header class="article-meta">
 </header><h2 id="diskbuffer">DiskBuffer</h2><p>The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side.
-Documentation: <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124">https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829124</a></p><h3 id="diskbuffer-disk_buf_size">disk_buf_size (int64, required)</h3><p>This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.</p><p>Default: -</p><h3 id="diskbuffer-reliable">reliable (bool, required)</h3><p>If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash. This solution provides a slower, but reliable disk-buffer option.</p><p>Default: -</p><h3 id="diskbuffer-compaction">compaction (*bool, optional)</h3><p>Prunes the unused space in the LogMessage representation</p><p>Default: -</p><h3 id="diskbuffer-dir">dir (string, optional)</h3><p>Description: Defines the folder where the disk-buffer files are stored.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_length">mem_buf_length (*int64, optional)</h3><p>Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_size">mem_buf_size (*int64, optional)</h3><p>Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer.</p><p>Default: -</p><h3 id="diskbuffer-q_out_size">q_out_size (*int64, optional)</h3><p>The number of messages stored in the output buffer of the destination.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 1, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d5b502724ecce868818eeecb0e260a5e190da3e0">Merge pull request #158 from kube-logging/dependabot/github_actions/actions/checkout-3.5.3 (d5b5027)</a>
+For details on how <a href="https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/concepts-diskbuffer/">syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="diskbuffer-disk_buf_size">disk_buf_size (int64, required)</h3><p>This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.</p><p>Default: -</p><h3 id="diskbuffer-reliable">reliable (bool, required)</h3><p>If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash. This solution provides a slower, but reliable disk-buffer option.</p><p>Default: -</p><h3 id="diskbuffer-compaction">compaction (*bool, optional)</h3><p>Prunes the unused space in the LogMessage representation</p><p>Default: -</p><h3 id="diskbuffer-dir">dir (string, optional)</h3><p>Description: Defines the folder where the disk-buffer files are stored.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_length">mem_buf_length (*int64, optional)</h3><p>Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_size">mem_buf_size (*int64, optional)</h3><p>Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer.</p><p>Default: -</p><h3 id="diskbuffer-q_out_size">q_out_size (*int64, optional)</h3><p>The number of messages stored in the output buffer of the destination.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
+Last modified August 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7a87796157f25696c2a0536db04d1bddf25f6a0b">Merge pull request #169 from kube-logging/syslog-ng-link-updates (7a87796)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
