@@ -20,17 +20,10 @@ Install the Logging operator.
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Add the chart repository of the Logging operator using the following commands:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
 1. Install the Logging operator into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
+    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
     ```
 
 1. [Validate your deployment](#validate).
@@ -133,7 +126,7 @@ Install the Logging operator.
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 1. [Validate your deployment](#validate).

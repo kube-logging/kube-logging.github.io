@@ -1,3 +1,3 @@
 To install the Logging operator using Helm, complete these steps.
 
-> Note: For the Helm-based installation you need Helm v3.2.1 or later.
+> Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.
