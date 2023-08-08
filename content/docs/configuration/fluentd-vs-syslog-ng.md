@@ -4,7 +4,7 @@ linktitle: Fluentd or syslog-ng
 weight: 10
 ---
 
-The Logging operator supports Fluentd and syslog-ng as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
+The Logging operator supports [Fluentd](https://www.fluentd.org/) and syslog-ng (via the [AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/)) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming the logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 
  <!-- (note that you can use both syslog-ng and Fluentd side-by-side, but in this case you have to explicitly configure your Fluent Bit instances to FIXME) -->
 

@@ -22,11 +22,11 @@ The regexp parser can use regular expressions to parse fields from a message.
         prefix: .regexp.
 {{</ highlight >}}
 
-For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/91#TOPIC-1829263).
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/).
 
 ## Syslog parser {#syslog}
 
-The syslog parser can parse syslog messages. For details, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/83#TOPIC-1829231).
+The syslog parser can parse syslog messages. For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-syslog/).
 
 {{< highlight yaml >}}
   filters:
@@ -35,50 +35,47 @@ The syslog parser can parse syslog messages. For details, see the [syslog-ng doc
 {{</ highlight >}}
 
 ## Configuration
-## [Parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/82#TOPIC-1768819)
+## [Parser](https://axoflow.com/docs/axosyslog-core/chapter-parsers/)
 
-### regexp (*RegexpParser, optional) {#[parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/82#topic-1768819)-regexp}
-
-Default: -
-
-### syslog-parser (*SyslogParser, optional) {#[parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/82#topic-1768819)-syslog-parser}
+### regexp (*RegexpParser, optional) {#parser-regexp}
 
 Default: -
 
-
-## [Regexp parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90)
-
-### patterns ([]string, required) {#[regexp parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90)-patterns}
-
-The regular expression patterns that you want to find a match. regexp-parser() supports multiple patterns, and stops the processing at the first successful match. 
+### syslog-parser (*SyslogParser, optional) {#parser-syslog-parser}
 
 Default: -
 
-### prefix (string, optional) {#[regexp parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90)-prefix}
 
-Insert a prefix before the name part of the parsed name-value pairs to help further processing. 
+## [Regexp parser](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/)
 
-Default: -
+### patterns ([]string, required) {#regexp-parser-patterns}
 
-### template (string, optional) {#[regexp parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90)-template}
-
-Specify a template of the record fields to match against. 
+The regular expression patterns that you want to find a match. regexp-parser() supports multiple patterns, and stops the processing at the first successful match. For details, see the [regexp-parser() documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/parser-regexp-options/#patterns).
 
 Default: -
 
-### flags ([]string, optional) {#[regexp parser](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.36/administration-guide/90)-flags}
+### prefix (string, optional) {#regexp-parser-prefix}
 
-Pattern flags 
+Insert a prefix before the name part of the parsed name-value pairs to help further processing. For details, see the [regexp-parser() documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/parser-regexp-options/#prefix).
 
 Default: -
 
+### template (string, optional) {#regexp-parser-template}
+
+Specify a template of the record fields to match against. For details, see the [regexp-parser() documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/parser-regexp-options/#template).
+
+Default: -
+
+### flags ([]string, optional) {#regexp-parser-flags}
+
+Flags to influence the behavior of the [regexp-parser()](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/parser-regexp-options/). For details, see the [regexp-parser() documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-regexp/parser-regexp-options/#flags).
+
+Default: -
 
 ## SyslogParser
 
 ### flags ([]string, optional) {#syslogparser-flags}
 
-Pattern flags 
+Flags to influence the behavior of the [syslog-parser()](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-syslog/parser-syslog-options/). For details, see the [syslog-parser() documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-parsers/parser-syslog/parser-syslog-options/#flags).
 
 Default: -
-
-
