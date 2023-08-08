@@ -244,7 +244,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 ## Validation

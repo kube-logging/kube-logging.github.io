@@ -165,7 +165,7 @@ Install the Logging operator and a demo application to provide sample log messag
 1. Install the demo application.
 
    ```bash
-   helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+   helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
    ```
 
 1. [Validate your deployment](#validate).
