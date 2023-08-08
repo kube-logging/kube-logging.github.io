@@ -22,13 +22,6 @@ Install the Logging operator and a demo application using [Helm](#helm).
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Add the chart repository of the Logging operator using the following commands:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
 1. Install the Logging operator.
 
     ```bash
