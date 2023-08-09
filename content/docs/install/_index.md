@@ -19,11 +19,7 @@ aliases:
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Install the Logging operator.
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
     {{< include-headless "note-helm-chart-logging-resource.md" >}}
 

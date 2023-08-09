@@ -27,11 +27,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Install the logging-operator
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 ## Configure the Logging operator
 

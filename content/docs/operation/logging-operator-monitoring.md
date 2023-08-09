@@ -72,11 +72,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 ## Install Logging Operator with Helm
 
-1. Logging Operator
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 ## Install Minio
 

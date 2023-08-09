@@ -20,17 +20,40 @@ This guide describes how to collect application and container logs in Kubernetes
 
     ```bash
     helm repo add grafana https://grafana.github.io/helm-charts
-    helm repo add loki https://grafana.github.io/loki/charts
     helm repo update
     ```
 
 1. Install Loki into the *logging* namespace:
 
     ```bash
-    helm upgrade --install --create-namespace --namespace logging loki loki/loki
+    helm upgrade --install --create-namespace --namespace logging loki grafana/loki
     ```
 
-    > [Grafana Loki Documentation](https://github.com/grafana/loki/tree/master/production/helm)
+    Expected output:
+
+    ```shell
+    Release "loki" does not exist. Installing it now.
+    NAME: loki
+    LAST DEPLOYED: Wed Aug  9 10:58:32 2023
+    NAMESPACE: logging
+    STATUS: deployed
+    REVISION: 1
+    NOTES:
+    ***********************************************************************
+    Welcome to Grafana Loki
+    Chart version: 5.10.0
+    Loki version: 2.8.3
+    ***********************************************************************
+
+    Installed components:
+    * grafana-agent-operator
+    * gateway
+    * read
+    * write
+    * backend
+    ```
+
+    > For details, see the [Grafana Loki Documentation](https://grafana.com/docs/loki/next/setup/install/helm/)
 
 1. Install Grafana into the *logging* namespace:
 
@@ -43,6 +66,22 @@ This guide describes how to collect application and container logs in Kubernetes
     --set "datasources.datasources\\.yaml.datasources[0].access=proxy"
     ```
 
+    Expected output:
+
+    ```shell
+    Release "grafana" does not exist. Installing it now.
+    NAME: grafana
+    LAST DEPLOYED: Wed Aug  9 11:00:47 2023
+    NAMESPACE: logging
+    STATUS: deployed
+    REVISION: 1
+    NOTES:
+    1. Get your 'admin' user password by running:
+
+      kubectl get secret --namespace logging grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+    ...
+    ```
+
 ## Deploy the Logging operator and a demo application
 
 Install the Logging operator and a demo application to provide sample log messages.
@@ -51,11 +90,7 @@ Install the Logging operator and a demo application to provide sample log messag
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Install the Logging operator into the *logging* namespace:
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 1. Create the `logging` resource.
 
