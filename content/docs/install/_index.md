@@ -14,6 +14,7 @@ aliases:
 
 > With the 4.3.0 release, the chart is now distributed through an OCI registry. <br>
   For instructions on how to interact with OCI registries, please take a look at [Use OCI-based registries](https://helm.sh/docs/topics/registries/).
+  For instructions on installing the previous 4.2.3 version, see [Installation for 4.2](/4.2/docs/install). 
 
 
 ## Deploy Logging operator with Helm {#helm}
