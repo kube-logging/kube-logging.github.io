@@ -9,8 +9,12 @@ aliases:
 
 ## Prerequisites
 
-- Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm-based installation](#helm) you need Helm v3.2.1 or later.
+- Logging operator requires Kubernetes v1.22.x or later.
+- For the [Helm-based installation](#helm) you need Helm v3.8.1 or later.
+
+> With the 4.3.0 release, the chart is now distributed through an OCI registry. <br>
+  For instructions on how to interact with OCI registries, please take a look at [Use OCI-based registries](https://helm.sh/docs/topics/registries/).
+
 
 ## Deploy Logging operator with Helm {#helm}
 
@@ -31,8 +35,8 @@ To verify that the installation was successful, complete the following steps.
 
     ```bash
     $ kubectl -n logging get pods
-    NAME                                        READY   STATUS    RESTARTS   AGE
-    logging-logging-operator-599c9cf846-5nw2n   1/1     Running   0          52s
+    NAME                                READY   STATUS    RESTARTS   AGE
+    logging-operator-5df66b87c9-wgsdf   1/1     Running   0          21s
     ```
 
 1. Check the CRDs. You should see the following five new CRDs.
@@ -40,9 +44,17 @@ To verify that the installation was successful, complete the following steps.
     ```bash
     $  kubectl get crd
     NAME                                    CREATED AT
-    clusterflows.logging.banzaicloud.io     2019-11-01T21:30:18Z
-    clusteroutputs.logging.banzaicloud.io   2019-11-01T21:30:18Z
-    flows.logging.banzaicloud.io            2019-11-01T21:30:18Z
-    loggings.logging.banzaicloud.io         2019-11-01T21:30:18Z
-    outputs.logging.banzaicloud.io          2019-11-01T21:30:18Z
+    clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
+    clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
+    eventtailers.logging-extensions.banzaicloud.io   2023-08-10T12:05:04Z
+    flows.logging.banzaicloud.io                     2023-08-10T12:05:04Z
+    fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
+    hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
+    loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
+    nodeagents.logging.banzaicloud.io                2023-08-10T12:05:05Z
+    outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
+    syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
+    syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
+    syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
+    syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
     ```
