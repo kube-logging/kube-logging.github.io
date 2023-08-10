@@ -22,12 +22,12 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/loki-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-08T15:30:36+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-10T14:56:18+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2023-08-08T15:30:36+02:00">
-<meta itemprop="wordCount" content="486">
+<meta itemprop="dateModified" content="2023-08-10T14:56:18+02:00">
+<meta itemprop="wordCount" content="602">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta name="twitter:description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
@@ -40,11 +40,11 @@ The following figure gives you an overview about how the system works. The Loggi
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/examples/">
-</head><body class="td-page" data-pagefind-filter="section:4.2">
+</head><body class="td-page" data-pagefind-filter="section:4.3">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.2.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.3.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -59,7 +59,7 @@ Releases
 <div w3-include-html="/docs/examples/loki-nginx//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.2e02ff6edf93308fe958e460ccd11b32.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
@@ -67,7 +67,7 @@ Releases
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
 <div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.a65605e79e0502ce9193682f88cce494.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.2e02ff6edf93308fe958e460ccd11b32.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
 </div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
@@ -515,25 +515,60 @@ Releases
 </header><p align="center"><img src="../../img/nll.png" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-loki.png" width="900"></p><h2 id="deploy-loki-and-grafana">Deploy Loki and Grafana</h2><ol>
 <li>
 <p>Add the chart repositories of Loki and Grafana using the following commands:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm repo add grafana https://grafana.github.io/helm-charts
-</span></span><span style="display:flex"><span>helm repo add loki https://grafana.github.io/loki/charts
 </span></span><span style="display:flex"><span>helm repo update
 </span></span></code></pre></div></li><li>
-<p>Install Loki into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --create-namespace --namespace logging loki loki/loki
+<p>Install Loki into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --create-namespace --namespace logging loki grafana/loki
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;loki&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>NAME: loki
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 10:58:32 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>NOTES:
+</span></span><span style="display:flex"><span>***********************************************************************
+</span></span><span style="display:flex"><span>Welcome to Grafana Loki
+</span></span><span style="display:flex"><span>Chart version: 5.10.0
+</span></span><span style="display:flex"><span>Loki version: 2.8.3
+</span></span><span style="display:flex"><span>***********************************************************************
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>Installed components:
+</span></span><span style="display:flex"><span>* grafana-agent-operator
+</span></span><span style="display:flex"><span>* gateway
+</span></span><span style="display:flex"><span>* <span style="color:#204a87">read</span>
+</span></span><span style="display:flex"><span>* write
+</span></span><span style="display:flex"><span>* backend
 </span></span></code></pre></div><blockquote>
-<p><a href="https://github.com/grafana/loki/tree/master/production/helm">Grafana Loki Documentation</a></p></blockquote></li><li>
+<p>For details, see the <a href="https://grafana.com/docs/loki/next/setup/install/helm/">Grafana Loki Documentation</a></p></blockquote></li><li>
 <p>Install Grafana into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --create-namespace --namespace logging grafana grafana/grafana <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.apiVersion=1&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].name=Loki&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].type=loki&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].url=http://loki:3100&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].access=proxy&#34;</span>
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;grafana&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>NAME: grafana
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:00:47 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>NOTES:
+</span></span><span style="display:flex"><span>1. Get your <span style="color:#4e9a06">&#39;admin&#39;</span> user password by running:
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>  kubectl get secret --namespace logging grafana -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;{.data.admin-password}&#34;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode <span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
+</span></span><span style="display:flex"><span>...
 </span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete these steps.</p><blockquote>
-<p>Note: For the Helm-based installation you need Helm v3.2.1 or later.</p></blockquote><ol>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Add the chart repository of the Logging operator using the following commands:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm repo add kube-logging https://kube-logging.dev/helm-charts
-</span></span><span style="display:flex"><span>helm repo update
-</span></span></code></pre></div></li><li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
@@ -584,7 +619,7 @@ Releases
 </span></span><span style="display:flex"><span>    - loki-output
 </span></span><span style="display:flex"><span>EOF
 </span></span></code></pre></div></li><li>
-<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
 </span></span></code></pre></div></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><h3 id="grafana-dashboard">Grafana Dashboard</h3><ol>
 <li>
@@ -596,7 +631,7 @@ Releases
 <p>Use the <code>admin</code> username and the password retrieved in Step 1 to log in.</p></li><li>
 <p>Select <strong>Menu > Explore</strong>, select <strong>Data source > Loki</strong>, then select <strong>Log labels > namespace > logging</strong>. A list of logs should appear.</p><p><img src="../../img/loki1.png" alt="Sample log messages in Loki"></p></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 8, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7a87796157f25696c2a0536db04d1bddf25f6a0b">Merge pull request #169 from kube-logging/syslog-ng-link-updates (7a87796)</a>
+Last modified August 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/484a331da58cefc8525c47678ad36bc443bcb610">Merge pull request #168 from kube-logging/4.3-preparations (484a331)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
