@@ -100,7 +100,7 @@ Default: -
 
 ### stats_freq (*int, optional) {#globaloptions-stats_freq}
 
-Deprecated. Use stats/level from 4.1+ 
+Deprecated. Use stats/freq from 4.1+ 
 
 Default: -
 

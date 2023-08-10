@@ -22,18 +22,7 @@ Install the Logging operator and a demo application using [Helm](#helm).
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Add the chart repository of the Logging operator using the following commands:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
-1. Install the Logging operator.
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 1. Create AWS `secret`
 
@@ -137,7 +126,7 @@ Install the Logging operator and a demo application using [Helm](#helm).
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 1. [Validate your deployment](#validate).

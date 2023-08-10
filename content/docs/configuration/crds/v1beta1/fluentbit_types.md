@@ -46,7 +46,7 @@ Default: -
 
 FluentbitSpec defines the desired state of FluentbitAgent
 
-### LoggingRef (string, optional) {#fluentbitspec-loggingref}
+### loggingRef (string, optional) {#fluentbitspec-loggingref}
 
 Default: -
 
@@ -711,7 +711,7 @@ Default: Off
 
 Allow Kubernetes Pods to exclude their logs from the log processor (read more about it in Kubernetes Annotations section).  
 
-Default: Off
+Default: On
 
 ### Labels (string, optional) {#filterkubernetes-labels}
 
@@ -1067,11 +1067,11 @@ Default: -
 
 Defines a FluentbitNameProvider
 
-### LoggingRef (*Logging, optional) {#fluentbitnameprovider-loggingref}
+### Logging (*Logging, optional) {#fluentbitnameprovider-logging}
 
 Default: -
 
-### fluentbit (*FluentbitAgent, optional) {#fluentbitnameprovider-fluentbit}
+### FluentbitAgent (*FluentbitAgent, optional) {#fluentbitnameprovider-fluentbitagent}
 
 Default: -
 

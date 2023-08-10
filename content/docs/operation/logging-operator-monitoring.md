@@ -72,17 +72,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 ## Install Logging Operator with Helm
 
-1. Add operator chart repository:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    ```
-
-1. Logging Operator
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging-operator logging kube-logging/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 ## Install Minio
 
@@ -244,7 +234,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 ## Validation
