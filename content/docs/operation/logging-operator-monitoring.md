@@ -6,9 +6,9 @@ aliases:
     - /docs/one-eye/logging-operator/logging-operator-monitoring/
 ---
 
-<p align="center"><img src="../../img/lo-pro.png" width="340"></p>
+<p align="center"><img src="../../img/lo-pro.png" alt="Logos" width="340"></p>
 
-<p align="center"><img src="../../img/monitor.png" width="900"></p>
+<p align="center"><img src="../../img/monitor.png" alt="Architecture" width="900"></p>
 
 You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 
@@ -72,17 +72,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 ## Install Logging Operator with Helm
 
-1. Add operator chart repository:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    ```
-
-1. Logging Operator
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging-operator logging kube-logging/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 ## Install Minio
 
@@ -244,7 +234,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 ## Validation
@@ -265,7 +255,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open the [Minio Dashboard: http://localhost:9000](http://localhost:9000)
 
-    <p align="center"><img src="../../img/servicemonitor_minio.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p>
 
 ### Prometheus
 
@@ -277,7 +267,7 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open the [Prometheus Dashboard: http://localhost:9090](http://localhost:9090)
 
-    <p align="center"><img src="../../img/servicemonitor_prometheus.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_prometheus.png" alt="Prometheus dashboard"></p>
 
 ### Grafana
 
@@ -297,4 +287,4 @@ For more details on installing the Prometheus operator and configuring and acces
 
 1. Open [Gradana Dashboard: http://localhost:3000](http://localhost:3000)
 
-    <p align="center"><img src="../../img/servicemonitor_grafana.png" width="660"></p>
+    <p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p>

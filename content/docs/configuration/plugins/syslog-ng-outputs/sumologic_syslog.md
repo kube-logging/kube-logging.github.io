@@ -4,9 +4,12 @@ weight: 200
 generated_file: true
 ---
 
-# Storing messages in Sumo Logic over syslog
-## Overview
- More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/56#TOPIC-1829122
+The `sumologic-syslog` output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-sumologic-intro/destination-sumologic-options/).
+
+## Prerequisites
+
+You need a Sumo Logic account to use this output. For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-sumologic-intro/).
+
 
 ## Configuration
 ## SumologicSyslogOutput
@@ -19,7 +22,7 @@ Default:  6514
 
 ### deployment (string, optional) {#sumologicsyslogoutput-deployment}
 
-This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security   
+This option specifies your Sumo Logic deployment. https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security   
 
 Default:  empty
 
@@ -37,8 +40,7 @@ Default: -
 
 ### tls (*TLS, optional) {#sumologicsyslogoutput-tls}
 
-This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#TOPIC-1829193). 
-
+This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/).
 Default: -
 
 ### disk_buffer (*DiskBuffer, optional) {#sumologicsyslogoutput-disk_buffer}

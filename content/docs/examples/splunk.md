@@ -8,7 +8,7 @@ aliases:
 
 
 
-<p align="center"><img src="../../img/splunk.png" width="340"></p>
+<p align="center"><img src="../../img/splunk.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Splunk.
 
@@ -137,7 +137,7 @@ To install the Logging operator using Helm, see [Deploy the Logging operator wit
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 
@@ -161,6 +161,6 @@ To validate that the deployment was successful, complete the following steps.
 
 1. Open the Splunk dashboard in your browser: [http://localhost:8000](http://localhost:8000). You should see the dashboard and some sample log messages from the demo application.
 
-<p align="center"><img src="../../img/splunk_dash.png" width="660"></p>
+<p align="center"><img src="../../img/splunk_dash.png" alt="Splunk dashboard" width="660"></p>
 
 {{< include-headless "note-troubleshooting.md" >}}

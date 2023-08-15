@@ -12,9 +12,9 @@ The first step to process your logs is to select which logs go where.
 
 The `match` field of the `SyslogNGFlow` and `SyslogNGClusterFlow` resources define the routing rules of the logs.
 
-> Note: Fluentd can use only metadata to route the logs. When using [syslog-ng filter expressions](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/65#TOPIC-1829159), you can filter both on metadata and log content as well.
+> Note: Fluentd can use only metadata to route the logs. When using [syslog-ng filter expressions](https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/filters/), you can filter both on metadata and log content as well.
 >
-> The syntax of syslog-ng match statement is slightly different from the Fluentd match statements.
+> The syntax of syslog-ng match statements is slightly different from the Fluentd match statements.
 
 Available routing metadata keys:
 
@@ -29,7 +29,7 @@ Available routing metadata keys:
 
 Match expressions select messages by applying patterns on the content or metadata of the messages. You can use simple string matching, and also complex regular expressions. You can combine matches using the `and`, `or`, and `not` boolean operators to create complex expressions to select or exclude messages as needed for your use case.
 
-Currently, only a pattern matching function is supported (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion).
+Currently, only a pattern matching function is supported (called [`match`](https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/filters/reference-filters/filter-match/) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion).
 
 The `match` field can have one of the following options:
 
@@ -63,7 +63,7 @@ The `match` field can have one of the following options:
 
 ## `regexp` patterns
 
-The `regexp` field (called [`match`](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/68#TOPIC-1829171) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion) defines the pattern that selects the matching messages. You can do two different kinds of matching:
+The `regexp` field (called [`match`](https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/filters/reference-filters/filter-match/) in syslog-ng parlance, but renamed to `regexp` in the CRD to avoid confusion) defines the pattern that selects the matching messages. You can do two different kinds of matching:
 
 - Find a pattern in the value of a field of the messages, for example, to select the messages of a specific application. To do that, set the `pattern` and `value` fields (and optionally the `type` and `flags` fields).
 - Find a pattern in a template expression created from multiple fields of the message. To do that, set the `pattern` and `template` fields (and optionally the `type` and `flags` fields).
@@ -110,7 +110,7 @@ For example:
 
 ### `template` (string) {#regexp-template class="property-optional"}
 
-Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/74#TOPIC-1829197).
+Specifies a template expression that combines fields. The `pattern` is matched against the value of these combined fields. If the `template` field is set, you cannot use the `value` field. For details on template expressions, see the [syslog-ng documentation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/configuring-macros/).
 
 ### `type` (string) {#regexp-type class="property-optional"}
 
@@ -130,7 +130,7 @@ By default, syslog-ng uses PCRE-style regular expressions. Since evaluating comp
 
 ### `pcre`
 
-Description: Use Perl Compatible Regular Expressions (PCRE). If the type() parameter is not specified, syslog-ng uses PCRE regular expressions by default.
+Description: Use Perl Compatible Regular Expressions (PCRE). If the `type()` parameter is not specified, syslog-ng uses PCRE regular expressions by default.
 
 ### `pcre` flags
 
@@ -162,6 +162,8 @@ For example:
         flag: ignore-case
 ```
 
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/regular-expressions/reference-regexp-types/regexp-flags-options/regexp-flags-options-pcre/).
+
 ### `string`
 
 Description: Match the strings literally, without regular expression support. By default, only identical strings are matched. For partial matches, use the `flags: prefix` or `flags: substring` flags. For example, if the consider the following patterns.
@@ -191,7 +193,7 @@ Description: Match the strings literally, without regular expression support. By
 
 ### `string` flags
 
-Literal string searches have the following flags() options:
+Literal string searches have the following `flags()` options:
 
 - `global`: Usable only in rewrite rules, match for every occurrence of the expression, not only the first one.
 - `ignore-case`: Disables case-sensitivity.
@@ -208,9 +210,11 @@ Literal string searches have the following flags() options:
 
 - `store-matches`: Stores the matches of the regular expression into the $0, ... $255 variables. The $0 stores the entire match, $1 is the first group of the match (parentheses), and so on. Named matches (also called named subpatterns), for example, (`?<name>...`), are stored as well. Matches from the last filter expression can be referenced in regular expressions.
 
-    > NOTE: To convert match variables into a syslog-ng list, use the $* macro, which can be further manipulated using [List manipulation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/76#TOPIC-1829203), or turned into a list in type-aware destinations.
+    > NOTE: To convert match variables into a syslog-ng list, use the `$*` macro, which can be further manipulated using [List manipulation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-template-functions/#template-function-list), or turned into a list in type-aware destinations.
 
 - `substring`: The given literal string will match when the pattern is found within the input. Unlike `flags: prefix`, the pattern does not have to be identical with the given literal string.
+
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/regular-expressions/reference-regexp-types/regexp-flags-options/regexp-flags-options-string/).
 
 ### `glob`
 

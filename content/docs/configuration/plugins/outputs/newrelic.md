@@ -38,7 +38,7 @@ Default: -
 
 New Relic ingestion endpoint [Secret](../secret/) 
 
-Default: https://log-api.newrelic.com/log/v1
+Default: `https://log-api.newrelic.com/log/v1`
 
 ### format (*Format, optional) {#output-config-format}
 

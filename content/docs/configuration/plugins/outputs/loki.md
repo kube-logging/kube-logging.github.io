@@ -29,7 +29,7 @@ More info at https://grafana.com/docs/loki/latest/clients/fluentd/
 
 The url of the Loki server to send logs to.  
 
-Default: https://logs-us-west1.grafana.net
+Default: `https://logs-us-west1.grafana.net`
 
 ### username (*secret.Secret, optional) {#output-config-username}
 

@@ -71,6 +71,6 @@ You can use the following parameters:
 | periodSeconds | int | 10 | How often (in seconds) to perform the probe. |
 | successThreshold | int | 0 | Minimum consecutive successes for the probe to be considered successful after having failed. |
 | failureThreshold | int | 3 |  Minimum consecutive failures for the probe to be considered failed after having succeeded. |
-| exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#execaction-v1-core) |
+| exec | array | {} |  Exec specifies the action to take. [More info](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#execaction-v1-core) |
 
 > Note: To configure readiness probes, see {{% xref "/docs/operation/readiness-probe.md" %}}.

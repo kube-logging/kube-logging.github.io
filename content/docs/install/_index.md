@@ -9,30 +9,24 @@ aliases:
 
 ## Prerequisites
 
-- Logging operator requires Kubernetes v1.14.x or later.
-- For the [Helm-based installation](#helm) you need Helm v3.2.1 or later.
+- Logging operator requires Kubernetes v1.22.x or later.
+- For the [Helm-based installation](#helm) you need Helm v3.8.1 or later.
+
+> With the 4.3.0 release, the chart is now distributed through an OCI registry. <br>
+  For instructions on how to interact with OCI registries, please take a look at [Use OCI-based registries](https://helm.sh/docs/topics/registries/).
+  For instructions on installing the previous 4.2.3 version, see [Installation for 4.2](/4.2/docs/install). 
+
 
 ## Deploy Logging operator with Helm {#helm}
 
-<p align="center"><img src="../img/helm.svg" width="150"></p>
+<p align="center"><img src="../img/helm.svg" alt="Logos" width="150"></p>
 <p align="center">
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Add the chart repository of the Logging operator using the following commands:
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
-1. Install the Logging operator.
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
-    ```
-
-    > You can install the `logging` resource with built-in TLS generation using the [Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator-logging).
+    {{< include-headless "note-helm-chart-logging-resource.md" >}}
 
 ## Validate the deployment {#validate}
 
@@ -42,8 +36,8 @@ To verify that the installation was successful, complete the following steps.
 
     ```bash
     $ kubectl -n logging get pods
-    NAME                                        READY   STATUS    RESTARTS   AGE
-    logging-logging-operator-599c9cf846-5nw2n   1/1     Running   0          52s
+    NAME                                READY   STATUS    RESTARTS   AGE
+    logging-operator-5df66b87c9-wgsdf   1/1     Running   0          21s
     ```
 
 1. Check the CRDs. You should see the following five new CRDs.
@@ -51,9 +45,17 @@ To verify that the installation was successful, complete the following steps.
     ```bash
     $  kubectl get crd
     NAME                                    CREATED AT
-    clusterflows.logging.banzaicloud.io     2019-11-01T21:30:18Z
-    clusteroutputs.logging.banzaicloud.io   2019-11-01T21:30:18Z
-    flows.logging.banzaicloud.io            2019-11-01T21:30:18Z
-    loggings.logging.banzaicloud.io         2019-11-01T21:30:18Z
-    outputs.logging.banzaicloud.io          2019-11-01T21:30:18Z
+    clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
+    clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
+    eventtailers.logging-extensions.banzaicloud.io   2023-08-10T12:05:04Z
+    flows.logging.banzaicloud.io                     2023-08-10T12:05:04Z
+    fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
+    hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
+    loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
+    nodeagents.logging.banzaicloud.io                2023-08-10T12:05:05Z
+    outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
+    syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
+    syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
+    syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
+    syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
     ```

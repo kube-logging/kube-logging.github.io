@@ -6,13 +6,13 @@ aliases:
     - /docs/quickstarts/example-s3/
 ---
 
-<p align="center"><img src="../../img/s3_logo.png" width="340"></p>
+<p align="center"><img src="../../img/s3_logo.png" alt="Logos" width="340"></p>
 
 This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.
 
 {{< include-headless "quickstart-figure-intro.md" >}}
 
-<p align="center"><img src="../../img/s3_flow.png" width="900"></p>
+<p align="center"><img src="../../img/s3_flow.png" alt="Architecture" width="900"></p>
 
 ## Deploy the Logging operator
 
@@ -22,18 +22,7 @@ Install the Logging operator.
 
 {{< include-headless "deploy-helm-intro.md" >}}
 
-1. Add the chart repository of the Logging operator using the following commands:
-
-    ```bash
-    helm repo add kube-logging https://kube-logging.dev/helm-charts
-    helm repo update
-    ```
-
-1. Install the Logging operator into the *logging* namespace:
-
-    ```bash
-    helm upgrade --install --wait --create-namespace --namespace logging logging-operator kube-logging/logging-operator
-    ```
+1. {{< include-headless "helm-install-logging-operator.md" >}}
 
 1. [Validate your deployment](#validate).
 
@@ -135,7 +124,7 @@ Install the Logging operator.
 1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
 
      ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging log-generator kube-logging/log-generator
+     helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
      ```
 
 1. [Validate your deployment](#validate).

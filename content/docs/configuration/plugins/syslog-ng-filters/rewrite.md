@@ -14,6 +14,8 @@ Rewrite filters can be used to modify record contents. Logging operator currentl
 
 > Note: All rewrite functions support an optional `condition` which has the same syntax as the [match filter](../match/).
 
+For details on how rewrite rules work in syslog-ng, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/).
+
 ## Group unset {#groupunset}
 
 The `group_unset` function removes from the record a group of fields matching a pattern.
@@ -24,6 +26,8 @@ The `group_unset` function removes from the record a group of fields matching a 
     - group_unset:
         pattern: "json.kubernetes.annotations.*"
 {{</ highlight >}}
+
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/).
 
 ## Rename
 
@@ -37,6 +41,8 @@ The `rename` function changes the name of an existing field name.
         newName: "json.kubernetes.labels.app.kubernetes.io/name"
 {{</ highlight >}}
 
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-rename/).
+
 ## Set
 
 The `set` function sets the value of a field.
@@ -48,6 +54,8 @@ The `set` function sets the value of a field.
         field: "json.kubernetes.cluster"
         value: "prod-us"
 {{</ highlight >}}
+
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/).
 
 ## Substitute (subst) {#subst}
 
@@ -64,6 +72,8 @@ The `subst` function replaces parts of a field with a replacement value based on
 
 The function also supports the `type` and `flags` fields for specifying pattern type and flags as described in the [match expression regexp function](../match/).
 
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-replace/).
+
 ## Unset
 
 You can unset macros or fields of the message.
@@ -76,6 +86,8 @@ You can unset macros or fields of the message.
     - unset:
         field: "json.kubernetes.cluster"
 {{</ highlight >}}
+
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/).
 
 ## Configuration
 ## RewriteConfig
@@ -103,7 +115,7 @@ Default: -
 
 ## RenameConfig
 
-https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/78#TOPIC-1829213
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-rename/).
 
 ### oldName (string, required) {#renameconfig-oldname}
 
@@ -120,7 +132,7 @@ Default: -
 
 ## SetConfig
 
-https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/77#TOPIC-1829207
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/).
 
 ### field (string, required) {#setconfig-field}
 
@@ -137,7 +149,7 @@ Default: -
 
 ## SubstituteConfig
 
-https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/77#TOPIC-1829206
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/).
 
 ### pattern (string, required) {#substituteconfig-pattern}
 
@@ -166,7 +178,7 @@ Default: -
 
 ## UnsetConfig
 
-https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/78#TOPIC-1829212
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/).
 
 ### field (string, required) {#unsetconfig-field}
 
@@ -179,7 +191,7 @@ Default: -
 
 ## GroupUnsetConfig
 
-https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/78#TOPIC-1829212
+For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/).
 
 ### pattern (string, required) {#groupunsetconfig-pattern}
 
