@@ -32,7 +32,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-14T19:52:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-15T11:34:03+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
@@ -41,7 +41,7 @@ Default: -
 create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2023-08-14T19:52:48+02:00">
+<meta itemprop="dateModified" content="2023-08-15T11:34:03+02:00">
 <meta itemprop="wordCount" content="222">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -539,7 +539,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-file/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="fileoutput-path">path (string, required)</h3><p>Store file path</p><p>Default: -</p><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-owner().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the create-dirs() option). For octal numbers prefix the number with 0, for example use 0755 for rwxr-xr-x.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-template">template (string, optional)</h3><p>Default: -</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 14, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fc56fd8fad904bb57dcfc8646ad5447f31b739c0">Merge pull request #174 from kube-logging/sidebar-scroll-fix (fc56fd8)</a>
+Last modified August 15, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9bc8730b1d12faa8155cd3de6d4a9a65730310d8">Merge pull request #171 from kube-logging/dependabot/github_actions/actions/deploy-pages-2.0.4 (9bc8730)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
