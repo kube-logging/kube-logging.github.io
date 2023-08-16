@@ -110,6 +110,18 @@ quickstart-fluentd-configcheck-ac2d4553   0/1     Completed   0          60s
     {{% /tab %}}
     {{< /tabpane >}}
 
+1. Create a namespace (for example, `quickstart`) from where you want to collect the logs.
+
+    ```bash
+    kubectl create namespace quickstart
+    ```
+
+    Expected output:
+
+    ```shell
+    namespace/quickstart created
+    ```
+
 1. Create a [flow]({{% relref "/docs/configuration/flow.md" %}}) and an [output]({{< relref "/docs/configuration/output.md" >}}) resource in the same namespace (`quickstart`). The flow resource routes logs from the namespace to a specific output. In this example, the output is called `http`. The flow resources are called `SyslogNGFlow` and `Flow`, the output resources are `SyslogNGOutput` and `Output` for syslog-ng and Fluentd, respectively.
 
     {{< tabpane text=true right=true >}}
@@ -117,7 +129,6 @@ quickstart-fluentd-configcheck-ac2d4553   0/1     Completed   0          60s
     {{% tab header="syslog-ng" lang="syslog-ng" %}}
 
 ```yaml
-kubectl create namespace quickstart --dry-run=client -o yaml | kubectl apply -f-
 kubectl --namespace quickstart apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: SyslogNGFlow
@@ -150,7 +161,6 @@ EOF
     {{% /tab %}}
     {{% tab header="Fluentd" lang="fluentd" %}}
 ```yaml
-kubectl create namespace quickstart --dry-run=client -o yaml | kubectl apply -f-
 kubectl --namespace quickstart apply -f - <<"EOF"
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
