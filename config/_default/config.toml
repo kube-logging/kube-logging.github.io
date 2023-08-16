@@ -92,7 +92,9 @@ twitter = "calisti12"
 
 
   # Enable Lunr.js offline search
-  offlineSearch = true
+  offlineSearch = false
+  # Enable pagefind for offline search
+  offlineSearchPagefind = true
 
   #####
   # Code highlighting
