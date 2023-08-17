@@ -195,6 +195,7 @@ body_attribute = 'data-pagefind-filter="section:4.3"'
     weight = -110
     #pre = "<i class='fas fa-rss pr-2'></i>"
     url = "https://github.com/kube-logging/logging-operator"
+    title = "Go to GitHub project page"
 #  [[menu.main]]
 #    name = "Blog"
 #    weight = -120
@@ -205,6 +206,7 @@ body_attribute = 'data-pagefind-filter="section:4.3"'
     weight = -100
     #pre = "<i class='fas fa-book pr-2'></i>"
     url = "/docs/"
+    title = "Read the documentation"
 
 ################################
 # Definitions for generating a 

@@ -4,10 +4,10 @@ title: Logging operator
 
 {{< blocks/cover title="Welcome to Logging operator!" image_anchor="top" avatar_image="/icons/logo-no-black.svg" width="min" color="gray" >}}
 <div class="mx-auto">
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs/" >}}">
-		Learn More <i class="fa-solid fa-circle-right ml-2"></i>
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs/" >}}" title="Read the documentation">
+		Documentation <i class="fa-solid fa-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/">
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/" title="Install Logging operator">
 		Install <i class="fa-brands fa-github ml-2 "></i>
 	</a>
 	<p class="lead mt-5">The Logging operator solves your logging-related problems in Kubernetes environments by automating the deployment and configuration of a Kubernetes logging pipeline.</p>
@@ -29,10 +29,10 @@ The Logging operator <b>manages the log collectors and log forwarders</b> of you
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" alt="Axoflow logo" width="200px" /></a>
 </div>
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.png" alt="Cisco logo" width="200px" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.webp" alt="Cisco logo" width="200px" /></a>
 </div>
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" alt="Aquia logo" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.webp" alt="Aquia logo" /></a>
 </div>
 </div>
 
@@ -44,19 +44,19 @@ The Logging operator <b>manages the log collectors and log forwarders</b> of you
   <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" alt="Rancher logo" width="300px" /></a>
 </div>
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.jpg" width="100px" alt="D2IQ logo" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.webp" width="100px" alt="D2IQ logo" /></a>
 </div>
 </div>
 
 <div class="row trustedby-row">
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.png" width="200px" alt="Logos" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.webp" width="200px" alt="Logos" /></a>
 </div>
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.png" width="150px" alt="Carrefour logo" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.webp" width="150px" alt="Carrefour logo" /></a>
 </div>
 <div class="col trustedby-col">
-  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.png" width="200px" alt="Flexera logo" /></a>
+  <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.webp" width="200px" alt="Flexera logo" /></a>
 </div>
 </div>
 {{% /blocks/lead %}}
