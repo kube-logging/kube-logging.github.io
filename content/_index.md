@@ -4,10 +4,10 @@ title: Logging operator
 
 {{< blocks/cover title="Welcome to Logging operator!" image_anchor="top" avatar_image="/icons/logo-no-black.svg" width="min" color="gray" >}}
 <div class="mx-auto">
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs/" >}}">
-		Learn More <i class="fa-solid fa-circle-right ml-2"></i>
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs/" >}}" title="Read the documentation">
+		Documentation <i class="fa-solid fa-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/">
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/" title="Install Logging operator">
 		Install <i class="fa-brands fa-github ml-2 "></i>
 	</a>
 	<p class="lead mt-5">The Logging operator solves your logging-related problems in Kubernetes environments by automating the deployment and configuration of a Kubernetes logging pipeline.</p>
