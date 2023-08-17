@@ -27,14 +27,13 @@
 <meta name="twitter:title" content="Logging operator">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
+<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev//">
-<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
-<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
 </head><body class="td-home">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark td-navbar-cover flex-column flex-md-row td-navbar">
@@ -43,9 +42,9 @@
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class="nav-link" href="https://github.com/kube-logging/logging-operator" target="_blank"><span>Project page</span></a>
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class="nav-link" href="/docs/"><span>Documentation</span></a>
+<a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -53,7 +52,9 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-</div></nav></header><div class="container-fluid td-default td-outer">
+<div class="td-search td-search--offline">
+<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.ba1157442597d5e6352a7201dfdbda9b.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
+</div></div></nav></header><div class="container-fluid td-default td-outer">
 <main role="main" class="td-main">
 <link rel="preload" as="image" href="/featured-background_hucba80a6cbfea56d76b33848585e69da7_1326172_960x540_fill_q75_catmullrom_top.jpg" media="(max-width: 1200px)">
 <link rel="preload" as="image" href="/featured-background_hucba80a6cbfea56d76b33848585e69da7_1326172_1920x1080_fill_q75_catmullrom_top.jpg" media="(min-width: 1200px)">
@@ -66,10 +67,10 @@ Releases
 <img src="/icons/logo-no-black.svg" alt="Avatar logo" width="20%">
 </div><h1 class="display-1 mt-0 mt-md-5 pb-4">Welcome to Logging operator!</h1><div class="pt-3 lead">
 <div class="mx-auto">
-<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
-Learn More <i class="fa-solid fa-circle-right ml-2"></i>
+<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/" title="Read the documentation">
+Documentation <i class="fa-solid fa-circle-right ml-2"></i>
 </a>
-<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/">
+<a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/install/" title="Install Logging operator">
 Install <i class="fa-brands fa-github ml-2"></i>
 </a>
 <p class="lead mt-5">The Logging operator solves your logging-related problems in Kubernetes environments by automating the deployment and configuration of a Kubernetes logging pipeline.</p></div></div></div></div></div></div></section><a id="td-block-1" class="td-offset-anchor"></a>
@@ -88,23 +89,23 @@ Trusted and supported by
 <div class="col trustedby-col">
 <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/axoflow-logging_unleashed-grey.svg" alt="Axoflow logo" width="200px"></a>
 </div><div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.png" alt="Cisco logo" width="200px"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/cisco-white-logo-png-img-11663428002bovvn8o8yf.webp" alt="Cisco logo" width="200px"></a>
 </div><div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.png" alt="Aquia logo"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/acquia-logo.webp" alt="Aquia logo"></a>
 </div></div><div class="row trustedby-row">
 <div class="col trustedby-col">
 <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/kubegems-logo.svg" width="200px" alt="Kubegems logo"></a>
 </div><div class="col trustedby-col">
 <a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/rancher-suse-logo-horizontal-white.svg" alt="Rancher logo" width="300px"></a>
 </div><div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.jpg" width="100px" alt="D2IQ logo"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/d2iq-logo.webp" width="100px" alt="D2IQ logo"></a>
 </div></div><div class="row trustedby-row">
 <div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.png" width="200px" alt="Logos"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/glwqbsg4dwxgi85eu7eq.webp" width="200px" alt="Logos"></a>
 </div><div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.png" width="150px" alt="Carrefour logo"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/carrefour-logo.svg.webp" width="150px" alt="Carrefour logo"></a>
 </div><div class="col trustedby-col">
-<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.png" width="200px" alt="Flexera logo"></a>
+<a href="https://github.com/kube-logging/logging-operator/blob/master/ADOPTERS.md"><img src="/adopters/flexera_no-tagline_rgb_full-color400x160.webp" width="200px" alt="Flexera logo"></a>
 </div></div></div></div></section><a id="td-block-3" class="td-offset-anchor"></a>
 <section class="row td-box td-box--dark td-box--gradient td-box--height-auto">
 <div class="col">
@@ -141,7 +142,7 @@ Trusted and supported by
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
-</div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
+</div></div></div></footer></div><script src="/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv+YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
 <script src="/js/tocbot.min.js"></script>
