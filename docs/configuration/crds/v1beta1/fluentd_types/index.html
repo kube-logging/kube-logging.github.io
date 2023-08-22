@@ -44,7 +44,7 @@ extraVolumes ([]ExtraVolume, optional) Default: -
 fluentdPvcSpec (*volume.KubernetesVolume, optional) Deprecated, use bufferStorageVolume">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/fluentd_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-18T11:23:31+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-22T10:11:11+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="FluentdSpec">
 <meta itemprop="description" content="FluentdSpec FluentdSpec defines the desired state of Fluentd
 statefulsetAnnotations (map[string]string, optional) Default: -
@@ -59,7 +59,7 @@ bufferStorageVolume (volume.KubernetesVolume, optional) BufferStorageVolume is b
 Default: -
 extraVolumes ([]ExtraVolume, optional) Default: -
 fluentdPvcSpec (*volume.KubernetesVolume, optional) Deprecated, use bufferStorageVolume">
-<meta itemprop="dateModified" content="2023-08-18T11:23:31+02:00">
+<meta itemprop="dateModified" content="2023-08-22T10:11:11+02:00">
 <meta itemprop="wordCount" content="460">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FluentdSpec">
@@ -77,13 +77,14 @@ Default: -
 extraVolumes ([]ExtraVolume, optional) Default: -
 fluentdPvcSpec (*volume.KubernetesVolume, optional) Deprecated, use bufferStorageVolume">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
-<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
+<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
-<script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/v1beta1/">
+<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
+<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
 </head><body class="td-page" data-pagefind-filter="section:4.3">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -102,17 +103,14 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/crds/v1beta1/fluentd_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-<div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.ba1157442597d5e6352a7201dfdbda9b.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
-</div></div></nav></header><div class="container-fluid td-outer">
+</div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.ba1157442597d5e6352a7201dfdbda9b.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
-</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="search">
+<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -569,7 +567,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>FluentdSpec</h1><header class="article-meta">
 </header><h2 id="fluentdspec">FluentdSpec</h2><p>FluentdSpec defines the desired state of Fluentd</p><h3 id="fluentdspec-statefulsetannotations">statefulsetAnnotations (map[string]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-annotations">annotations (map[string]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-configcheckannotations">configCheckAnnotations (map[string]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-labels">labels (map[string]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-envvars">envVars ([]corev1.EnvVar, optional)</h3><p>Default: -</p><h3 id="fluentdspec-tls">tls (FluentdTLS, optional)</h3><p>Default: -</p><h3 id="fluentdspec-image">image (ImageSpec, optional)</h3><p>Default: -</p><h3 id="fluentdspec-disablepvc">disablePvc (bool, optional)</h3><p>Default: -</p><h3 id="fluentdspec-bufferstoragevolume">bufferStorageVolume (volume.KubernetesVolume, optional)</h3><p>BufferStorageVolume is by default configured as PVC using FluentdPvcSpec <a href="https://github.com/cisco-open/operator-tools/tree/master/docs/types">volume.KubernetesVolume</a></p><p>Default: -</p><h3 id="fluentdspec-extravolumes">extraVolumes ([]ExtraVolume, optional)</h3><p>Default: -</p><h3 id="fluentdspec-fluentdpvcspec">fluentdPvcSpec (*volume.KubernetesVolume, optional)</h3><p>Deprecated, use bufferStorageVolume</p><p>Default: -</p><h3 id="fluentdspec-volumemountchmod">volumeMountChmod (bool, optional)</h3><p>Default: -</p><h3 id="fluentdspec-volumemodimage">volumeModImage (ImageSpec, optional)</h3><p>Default: -</p><h3 id="fluentdspec-configreloaderimage">configReloaderImage (ImageSpec, optional)</h3><p>Default: -</p><h3 id="fluentdspec-resources">resources (corev1.ResourceRequirements, optional)</h3><p>Default: -</p><h3 id="fluentdspec-configcheckresources">configCheckResources (corev1.ResourceRequirements, optional)</h3><p>Default: -</p><h3 id="fluentdspec-configreloaderresources">configReloaderResources (corev1.ResourceRequirements, optional)</h3><p>Default: -</p><h3 id="fluentdspec-livenessprobe">livenessProbe (*corev1.Probe, optional)</h3><p>Default: -</p><h3 id="fluentdspec-livenessdefaultcheck">livenessDefaultCheck (bool, optional)</h3><p>Default: -</p><h3 id="fluentdspec-readinessprobe">readinessProbe (*corev1.Probe, optional)</h3><p>Default: -</p><h3 id="fluentdspec-readinessdefaultcheck">readinessDefaultCheck (ReadinessDefaultCheck, optional)</h3><p>Default: -</p><h3 id="fluentdspec-port">port (int32, optional)</h3><p>Default: -</p><h3 id="fluentdspec-tolerations">tolerations ([]corev1.Toleration, optional)</h3><p>Default: -</p><h3 id="fluentdspec-nodeselector">nodeSelector (map[string]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-affinity">affinity (*corev1.Affinity, optional)</h3><p>Default: -</p><h3 id="fluentdspec-topologyspreadconstraints">topologySpreadConstraints ([]corev1.TopologySpreadConstraint, optional)</h3><p>Default: -</p><h3 id="fluentdspec-metrics">metrics (*Metrics, optional)</h3><p>Default: -</p><h3 id="fluentdspec-buffervolumemetrics">bufferVolumeMetrics (*Metrics, optional)</h3><p>Default: -</p><h3 id="fluentdspec-buffervolumeimage">bufferVolumeImage (ImageSpec, optional)</h3><p>Default: -</p><h3 id="fluentdspec-buffervolumeargs">bufferVolumeArgs ([]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-security">security (*Security, optional)</h3><p>Default: -</p><h3 id="fluentdspec-scaling">scaling (*FluentdScaling, optional)</h3><p>Default: -</p><h3 id="fluentdspec-workers">workers (int32, optional)</h3><p>Default: -</p><h3 id="fluentdspec-rootdir">rootDir (string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-loglevel">logLevel (string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-ignoresameloginterval">ignoreSameLogInterval (string, optional)</h3><p>Ignore same log lines <a href="https://docs.fluentd.org/deployment/logging#ignore_same_log_interval">more info</a></p><p>Default: -</p><h3 id="fluentdspec-ignorerepeatedloginterval">ignoreRepeatedLogInterval (string, optional)</h3><p>Ignore repeated log lines <a href="https://docs.fluentd.org/deployment/logging#ignore_repeated_log_interval">more info</a></p><p>Default: -</p><h3 id="fluentdspec-enablemsgpacktimesupport">enableMsgpackTimeSupport (bool, optional)</h3><p>Allows Time object in buffer&rsquo;s MessagePack serde <a href="https://docs.fluentd.org/deployment/system-config#enable_msgpack_time_support">more info</a></p><p>Default: -</p><h3 id="fluentdspec-podpriorityclassname">podPriorityClassName (string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-fluentlogdestination">fluentLogDestination (string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-fluentoutlogrotate">fluentOutLogrotate (*FluentOutLogrotate, optional)</h3><p>FluentOutLogrotate sends fluent&rsquo;s stdout to file and rotates it</p><p>Default: -</p><h3 id="fluentdspec-forwardinputconfig">forwardInputConfig (*input.ForwardInputConfig, optional)</h3><p>Default: -</p><h3 id="fluentdspec-serviceaccount">serviceAccount (*typeoverride.ServiceAccount, optional)</h3><p>Default: -</p><h3 id="fluentdspec-dnspolicy">dnsPolicy (corev1.DNSPolicy, optional)</h3><p>Default: -</p><h3 id="fluentdspec-dnsconfig">dnsConfig (*corev1.PodDNSConfig, optional)</h3><p>Default: -</p><h3 id="fluentdspec-extraargs">extraArgs ([]string, optional)</h3><p>Default: -</p><h3 id="fluentdspec-compressconfigfile">compressConfigFile (bool, optional)</h3><p>Default: -</p><h2 id="fluentoutlogrotate">FluentOutLogrotate</h2><h3 id="fluentoutlogrotate-enabled">enabled (bool, required)</h3><p>Default: -</p><h3 id="fluentoutlogrotate-path">path (string, optional)</h3><p>Default: -</p><h3 id="fluentoutlogrotate-age">age (string, optional)</h3><p>Default: -</p><h3 id="fluentoutlogrotate-size">size (string, optional)</h3><p>Default: -</p><h2 id="extravolume">ExtraVolume</h2><p>ExtraVolume defines the fluentd extra volumes</p><h3 id="extravolume-volumename">volumeName (string, optional)</h3><p>Default: -</p><h3 id="extravolume-path">path (string, optional)</h3><p>Default: -</p><h3 id="extravolume-containername">containerName (string, optional)</h3><p>Default: -</p><h3 id="extravolume-volume">volume (*volume.KubernetesVolume, optional)</h3><p>Default: -</p><h2 id="fluentdscaling">FluentdScaling</h2><p>FluentdScaling enables configuring the scaling behaviour of the fluentd statefulset</p><h3 id="fluentdscaling-replicas">replicas (int, optional)</h3><p>Default: -</p><h3 id="fluentdscaling-podmanagementpolicy">podManagementPolicy (string, optional)</h3><p>Default: -</p><h3 id="fluentdscaling-drain">drain (FluentdDrainConfig, optional)</h3><p>Default: -</p><h2 id="fluentdtls">FluentdTLS</h2><p>FluentdTLS defines the TLS configs</p><h3 id="fluentdtls-enabled">enabled (bool, required)</h3><p>Default: -</p><h3 id="fluentdtls-secretname">secretName (string, optional)</h3><p>Default: -</p><h3 id="fluentdtls-sharedkey">sharedKey (string, optional)</h3><p>Default: -</p><h2 id="fluentddrainconfig">FluentdDrainConfig</h2><p>FluentdDrainConfig enables configuring the drain behavior when scaling down the fluentd statefulset</p><h3 id="fluentddrainconfig-enabled">enabled (bool, optional)</h3><p>Should buffers on persistent volumes left after scaling down the statefulset be drained</p><p>Default: -</p><h3 id="fluentddrainconfig-annotations">annotations (map[string]string, optional)</h3><p>Container image to use for the drain watch sidecar</p><p>Default: -</p><h3 id="fluentddrainconfig-deletevolume">deleteVolume (bool, optional)</h3><p>Should persistent volume claims be deleted after draining is done</p><p>Default: -</p><h3 id="fluentddrainconfig-image">image (ImageSpec, optional)</h3><p>Default: -</p><h3 id="fluentddrainconfig-pauseimage">pauseImage (ImageSpec, optional)</h3><p>Container image to use for the fluentd placeholder pod</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 18, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c76131d85ba3a7b39c2d027d4421a8b94ec6198e">Merge pull request #178 from kube-logging/dependabot/github_actions/actions/setup-node-3.8.1 (c76131d)</a>
+Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -590,7 +588,7 @@ Last modified August 18, 2023: <a href="https://github.com/kube-logging/kube-log
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
-</div></div></div></footer></div><script src="/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv+YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+</div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
 <script src="/js/tocbot.min.js"></script>

@@ -40,7 +40,7 @@ containerOverrides (*types.ContainerBase, optional) Override container fields fo
 Default: -">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/extensions/eventtailer_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-18T11:23:31+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-22T10:11:11+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="EventTailer">
 <meta itemprop="description" content="EventTailerSpec EventTailerSpec defines the desired state of EventTailer
 controlNamespace (string, required) The resources of EventTailer will be placed into this namespace
@@ -53,7 +53,7 @@ workloadOverrides (*types.PodSpecBase, optional) Override podSpec fields for the
 Default: -
 containerOverrides (*types.ContainerBase, optional) Override container fields for the given statefulset
 Default: -">
-<meta itemprop="dateModified" content="2023-08-18T11:23:31+02:00">
+<meta itemprop="dateModified" content="2023-08-22T10:11:11+02:00">
 <meta itemprop="wordCount" content="128">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventTailer">
@@ -69,13 +69,14 @@ Default: -
 containerOverrides (*types.ContainerBase, optional) Override container fields for the given statefulset
 Default: -">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" as="style">
-<link href="/scss/main.min.ea124d1a5ca55adb367f0f334ac1055fd60c2385e8ffc34d5f01caac50a69f6c.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
+<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
-<script defer src="https://unpkg.com/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/extensions/">
+<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
+<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
 </head><body class="td-page" data-pagefind-filter="section:4.3">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -94,17 +95,14 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/crds/extensions/eventtailer_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-<div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.ba1157442597d5e6352a7201dfdbda9b.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
-</div></div></nav></header><div class="container-fluid td-outer">
+</div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="td-search td-search--offline">
-<div class="td-search__icon"></div><input type="search" class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete="off" data-offline-search-index-json-src="/offline-search-index.ba1157442597d5e6352a7201dfdbda9b.json" data-offline-search-base-href="/" data-offline-search-max-results="10">
-</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="search">
+<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -555,7 +553,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>EventTailer</h1><header class="article-meta">
 </header><h2 id="eventtailerspec">EventTailerSpec</h2><p>EventTailerSpec defines the desired state of EventTailer</p><h3 id="eventtailerspec-controlnamespace">controlNamespace (string, required)</h3><p>The resources of EventTailer will be placed into this namespace</p><p>Default: -</p><h3 id="eventtailerspec-positionvolume">positionVolume (volume.KubernetesVolume, optional)</h3><p>Volume definition for tracking fluentbit file positions (optional)</p><p>Default: -</p><h3 id="eventtailerspec-workloadmetaoverrides">workloadMetaOverrides (*types.MetaBase, optional)</h3><p>Override metadata of the created resources</p><p>Default: -</p><h3 id="eventtailerspec-workloadoverrides">workloadOverrides (*types.PodSpecBase, optional)</h3><p>Override podSpec fields for the given statefulset</p><p>Default: -</p><h3 id="eventtailerspec-containeroverrides">containerOverrides (*types.ContainerBase, optional)</h3><p>Override container fields for the given statefulset</p><p>Default: -</p><h2 id="eventtailerstatus">EventTailerStatus</h2><p>EventTailerStatus defines the observed state of EventTailer</p><h2 id="eventtailer">EventTailer</h2><p>EventTailer is the Schema for the eventtailers API</p><h3 id="eventtailer-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="eventtailer-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="eventtailer-spec">spec (EventTailerSpec, optional)</h3><p>Default: -</p><h3 id="eventtailer-status">status (EventTailerStatus, optional)</h3><p>Default: -</p><h2 id="eventtailerlist">EventTailerList</h2><p>EventTailerList contains a list of EventTailer</p><h3 id="eventtailerlist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="eventtailerlist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="eventtailerlist-items">items ([]EventTailer, required)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 18, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c76131d85ba3a7b39c2d027d4421a8b94ec6198e">Merge pull request #178 from kube-logging/dependabot/github_actions/actions/setup-node-3.8.1 (c76131d)</a>
+Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -576,7 +574,7 @@ Last modified August 18, 2023: <a href="https://github.com/kube-logging/kube-log
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
-</div></div></div></footer></div><script src="/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv+YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+</div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
 <script src="/js/tocbot.min.js"></script>
