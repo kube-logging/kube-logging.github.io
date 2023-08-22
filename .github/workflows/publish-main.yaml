@@ -64,6 +64,9 @@ jobs:
       - name: Build
         run: hugo --environment production --baseURL ${{ steps.pages.outputs.base_url }}/
 
+      - name: Pagefind search index
+        run: npm_config_yes=true npx pagefind --bundle-dir pagefind --source ./public
+
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
       #   with:
