@@ -306,6 +306,32 @@ fluentbitagent.logging.banzaicloud.io/quickstart   3m2s
 
     The log messages include the usual information of the access logs, and also Kubernetes-specific information like the pod name, labels, and so on.
 
+1. (Optional) If you want to retry this guide with the other log forwarder on the same cluster, run the following command to delete the forwarder-specific resources:
+
+    {{< tabpane text=true right=true >}}
+    {{% tab header="**Log forwarder**:" disabled=true /%}}
+    {{% tab header="syslog-ng" lang="syslog-ng" %}}
+
+```shell
+kubectl delete logging quickstart
+kubectl delete --namespace quickstart syslogngflow log-generator
+kubectl delete --namespace quickstart syslogngoutput http
+```
+
+    {{% /tab %}}
+    {{% tab header="Fluentd" lang="fluentd" %}}
+
+```shell
+kubectl delete logging quickstart
+kubectl delete --namespace quickstart flow log-generator
+kubectl delete --namespace quickstart output http
+```
+
+    {{% /tab %}}
+    {{< /tabpane >}}
+
+<!-- logging.logging.banzaicloud.io "quickstart" deleted -->
+
 ## Summary
 
 If you have completed this guide, you have made the following changes to your cluster:
