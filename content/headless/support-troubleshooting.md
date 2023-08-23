@@ -2,8 +2,6 @@
 
 If you encounter any problems that the documentation does not address, [file an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or [Slack](https://emergingtechcommunity.slack.com/).
 
-[Commercial support]({{< relref "/docs/_index.md#support">}}) is also available for the Logging operator.
-
 Before asking for help, prepare the following information to make troubleshooting faster:
 
 - Logging operator version

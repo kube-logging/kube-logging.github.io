@@ -2,6 +2,8 @@
 title: Sumo Logic with Logging operator and syslog-ng
 linktitle: Sumo Logic with syslog-ng
 weight: 300
+aliases:
+    - /docs/quickstarts/syslog-ng-sumologic/
 ---
 
 This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.

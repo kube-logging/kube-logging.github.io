@@ -14,6 +14,10 @@ assets/scss/_styles_project.scss
     background: #FFFFFF;
     padding: 16px;
   }
+.td-content blockquote {
+  border-left: 6px solid $primary;
+  background: #FFFFFF;
+}
 .property-optional::after {
   content: "optional";
   background-color: $secondary;
@@ -51,4 +55,13 @@ assets/scss/_styles_project.scss
 
 .td-toc {
   padding-top: 1rem;
+}
+
+// Style overrides for tabbed cards and tabpanes
+.tab-content .tab-pane {
+  max-width: 100%;
+}
+
+.tab-body {
+  padding: 0rem;
 }
