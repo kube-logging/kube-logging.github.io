@@ -26,8 +26,8 @@
 <meta name="twitter:title" content="Install">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -71,7 +71,7 @@ This is the multi-page printable view of this section.
 <p>With the 4.3.0 release, the chart is now distributed through an OCI registry. <br>
 For instructions on how to interact with OCI registries, please take a look at <a href="https://helm.sh/docs/topics/registries/">Use OCI-based registries</a>.
 For instructions on installing the previous 4.2.3 version, see <a href="/4.2/docs/install">Installation for 4.2</a>.</p></blockquote><h2 id="helm">Deploy Logging operator with Helm</h2><p align="center"><img src="../img/helm.svg" alt="Logos" width="150"></p><p align="center">
-<p>To install the Logging operator using Helm, complete these steps.</p><blockquote>
+<p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
 <p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator

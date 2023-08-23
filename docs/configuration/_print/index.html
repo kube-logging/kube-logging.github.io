@@ -26,8 +26,8 @@
 <meta name="twitter:title" content="Configure log routing">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -873,7 +873,7 @@ Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>
 <th>Variable Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead><tbody>
 <tr>
 <td>fileTailers</td><td>[]FileTailer</td><td>No</td><td>-</td><td>List of file tailers<br></td></tr><tr>
-<td>c</td><td>[]SystemdTailer</td><td>No</td><td>-</td><td>List of systemd tailers<br></td></tr><tr>
+<td>systemdTailers</td><td>[]SystemdTailer</td><td>No</td><td>-</td><td>List of systemd tailers<br></td></tr><tr>
 <td>enableRecreateWorkloadOnImmutableFieldChange</td><td>bool</td><td>No</td><td>-</td><td>EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn&rsquo;t be managed with a simple update.<br></td></tr><tr>
 <td>workloadMetaOverrides</td><td>*types.MetaBase</td><td>No</td><td>-</td><td>Override metadata of the created resources<br></td></tr><tr>
 <td>workloadOverrides</td><td>*types.PodSpecBase</td><td>No</td><td>-</td><td>Override podSpec fields for the given daemonset<br></td></tr></tbody></table><h2 id="advanced-configuration-overrides">Advanced configuration overrides</h2><h3 id="metabase">MetaBase</h3><table>

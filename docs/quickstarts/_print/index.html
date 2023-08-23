@@ -26,8 +26,8 @@
 <meta name="twitter:title" content="Quick start guides">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -64,342 +64,315 @@ This is the multi-page printable view of this section.
 </p><p>
 <a href="/docs/quickstarts/">Return to the regular view of this page</a>.
 </p></div><h1 class="title">Quick start guides</h1><ul>
-<li>1: <a href="#pg-865e01bcfff2e24f1199d4db36dd9698">Transport all logs into Amazon S3 with Logging operator</a></li><li>2: <a href="#pg-56c76849d22b613f42710b86805db107">Store NGINX access logs in Elasticsearch with Logging operator</a></li><li>3: <a href="#pg-04688fbf5b514152de232c6d6f6eaebf">Sumo Logic with Logging operator and syslog-ng</a></li></ul><div class="content">
-<p>Try out Logging Operator with these quick start guides!</p></div></div><div class="td-content">
-<h1 id="pg-865e01bcfff2e24f1199d4db36dd9698">1 - Transport all logs into Amazon S3 with Logging operator</h1><p align="center"><img src="../../img/s3_logo.png" alt="Logos" width="340"></p><p>This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/s3_flow.png" alt="Architecture" width="900"></p><h2 id="deploy-the-logging-operator">Deploy the Logging operator</h2><p>Install the Logging operator.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete these steps.</p><blockquote>
-<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
-<li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<li>1: <a href="#pg-5b079e76b2e1dabb1cc1b5ac08b733e7">Single app, one destination</a></li></ul><div class="content">
+<p>Try out Logging Operator with these quick start guides, that show you the basics of Logging operator.</p><p>For other detailed examples using different outputs, see <a href="/docs/examples/">Examples</a>.</p></div></div><div class="td-content">
+<h1 id="pg-5b079e76b2e1dabb1cc1b5ac08b733e7">1 - Single app, one destination</h1><p>This guide shows you how to collect application and container logs in Kubernetes using the Logging operator.</p><p>The Logging operator itself doesn&rsquo;t store any logs. For demonstration purposes, it can deploy a special workload will to the cluster to let you observe the logs flowing through the system.</p><p>The Logging operator collects all logs from the cluster, selects the specific logs based on pod labels, and sends the selected log messages to the output.
+For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><blockquote>
+<p>Note: This example aims to be simple enough to understand the basic capabilities of the operator. For a production ready setup, see <a href="/docs/logging-infrastructure/">Logging infrastructure setup</a> and <a href="/docs/operation/">Operation</a>.</p></blockquote><p>In this tutorial, you will:</p><ul>
+<li>Install the Logging operator on a cluster.</li><li>Configure Logging operator to collect logs from a namespace and send it to an sample output.</li><li>Install a sample application (log-generator) to collect its logs.</li><li>Check the collected logs.</li></ul><h2 id="helm">Deploy the Logging operator with Helm</h2><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><p>This command installs the latest stable Logging operator and an extra workload (service and deployment). This workload is called <code>logging-operator-test-receiver</code>. It listens on an HTTP port, receives JSON messages, and writes them to the standard output (stdout) so that it is trivial to observe.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>     --create-namespace --namespace logging <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>     --set testReceiver.enabled<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#204a87">true</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>     logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
 </span></span><span style="display:flex"><span>NAME: logging-operator
-</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Tue Aug <span style="color:#0000cf;font-weight:700">15</span> 15:58:41 <span style="color:#0000cf;font-weight:700">2023</span>
 </span></span><span style="display:flex"><span>NAMESPACE: logging
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
-<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+</span></span></code></pre></div><p>After the installation, check that the following pods and services are running:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get deploy -n logging
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span style="display:flex"><span>logging-operator                 1/1     <span style="color:#0000cf;font-weight:700">1</span>            <span style="color:#0000cf;font-weight:700">1</span>           15m
+</span></span><span style="display:flex"><span>logging-operator-test-receiver   1/1     <span style="color:#0000cf;font-weight:700">1</span>            <span style="color:#0000cf;font-weight:700">1</span>           15m
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get svc -n logging
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT<span style="color:#ce5c00;font-weight:700">(</span>S<span style="color:#ce5c00;font-weight:700">)</span>    AGE
+</span></span><span style="display:flex"><span>logging-operator                 ClusterIP   None           &lt;none&gt;        8080/TCP   15m
+</span></span><span style="display:flex"><span>logging-operator-test-receiver   ClusterIP   10.99.77.113   &lt;none&gt;        8080/TCP   15m
+</span></span></code></pre></div><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
-<p>Create AWS <code>secret</code></p><blockquote>
-<p>If you have your <code>$AWS_ACCESS_KEY_ID</code> and <code>$AWS_SECRET_ACCESS_KEY</code> set you can use the following snippet.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging create secret generic logging-s3 --from-literal <span style="color:#4e9a06">&#34;awsAccessKeyId=</span><span style="color:#000">$AWS_ACCESS_KEY_ID</span><span style="color:#4e9a06">&#34;</span> --from-literal <span style="color:#4e9a06">&#34;awsSecretAccessKey=</span><span style="color:#000">$AWS_SECRET_ACCESS_KEY</span><span style="color:#4e9a06">&#34;</span>
-</span></span></code></pre></div><p>Or set up the secret manually.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>    apiVersion: v1
-</span></span><span style="display:flex"><span>    kind: Secret
-</span></span><span style="display:flex"><span>    metadata:
-</span></span><span style="display:flex"><span>      name: logging-s3
-</span></span><span style="display:flex"><span>    type: Opaque
-</span></span><span style="display:flex"><span>    data:
-</span></span><span style="display:flex"><span>      awsAccessKeyId: &lt;base64encoded&gt;
-</span></span><span style="display:flex"><span>      awsSecretAccessKey: &lt;base64encoded&gt;
-</span></span><span style="display:flex"><span>    EOF
-</span></span></code></pre></div></li><li>
-<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Logging
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: default-logging-simple
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  controlNamespace: logging
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div><blockquote>
-<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
-<p>Create an S3 <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Output
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span> name: s3-output
-</span></span><span style="display:flex"><span> namespace: logging
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span> s3:
-</span></span><span style="display:flex"><span>   aws_key_id:
-</span></span><span style="display:flex"><span>     valueFrom:
-</span></span><span style="display:flex"><span>       secretKeyRef:
-</span></span><span style="display:flex"><span>         name: logging-s3
-</span></span><span style="display:flex"><span>         key: awsAccessKeyId
-</span></span><span style="display:flex"><span>   aws_sec_key:
-</span></span><span style="display:flex"><span>     valueFrom:
-</span></span><span style="display:flex"><span>       secretKeyRef:
-</span></span><span style="display:flex"><span>         name: logging-s3
-</span></span><span style="display:flex"><span>         key: awsSecretAccessKey
-</span></span><span style="display:flex"><span>   s3_bucket: logging-amazon-s3
-</span></span><span style="display:flex"><span>   s3_region: eu-central-1
-</span></span><span style="display:flex"><span>   path: logs/<span style="color:#4e9a06">${</span><span style="color:#000">tag</span><span style="color:#4e9a06">}</span>/%Y/%m/%d/
-</span></span><span style="display:flex"><span>   buffer:
-</span></span><span style="display:flex"><span>     timekey: 10m
-</span></span><span style="display:flex"><span>     timekey_wait: 30s
-</span></span><span style="display:flex"><span>     timekey_use_utc: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div><blockquote>
-<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
-<p>Create a <code>flow</code> resource. (Mind the label selector in the <code>match</code> that selects a set of pods that we will install in the next step)</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Flow
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: s3-flow
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  filters:
-</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  match:
-</span></span><span style="display:flex"><span>    - <span style="color:#204a87;font-weight:700">select</span>:
-</span></span><span style="display:flex"><span>        labels:
-</span></span><span style="display:flex"><span>          app.kubernetes.io/name: log-generator
-</span></span><span style="display:flex"><span>  localOutputRefs:
-</span></span><span style="display:flex"><span>    - s3-output
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div></li><li>
-<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
-</span></span></code></pre></div></li><li>
-<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>Check fluentd logs (errors with AWS credentials should be visible here):</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl <span style="color:#204a87">exec</span> -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
-</span></span></code></pre></div><p>Check the output. The logs will be available in the bucket on a <code>path</code> like:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>/logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
-</span></span></code></pre></div><blockquote>
-<p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
-<h1 id="pg-56c76849d22b613f42710b86805db107">2 - Store NGINX access logs in Elasticsearch with Logging operator</h1><p align="center"><img src="../../img/nle.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-elastic.png" alt="Architecture" width="900"></p><h2 id="deploy-elasticsearch">Deploy Elasticsearch</h2><p>First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the <a href="https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html">Elastic Cloud on Kubernetes quickstart</a>, but there are some minor configuration changes, and we install everything into the <em>logging</em> namespace.</p><ol>
-<li>
-<p>Install the Elasticsearch operator.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl apply -f https://download.elastic.co/downloads/eck/1.3.0/all-in-one.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div></li><li>
-<p>Create the <code>logging</code> Namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create ns logging
-</span></span></code></pre></div></li><li>
-<p>Install the Elasticsearch cluster into the <em>logging</em> namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">cat &lt;&lt;EOF | kubectl apply -n logging -f -</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elasticsearch.k8s.elastic.co/v1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Elasticsearch</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Create a <code>Logging</code> resource to deploy syslog-ng or Fluentd as the central log aggregator and forwarder. You can complete this quick start guide with any of them, but they have different features, so they are not equivalent. For details, see <a href="/docs/configuration/fluentd-vs-syslog-ng/">Which log forwarder to use</a>.</p><p>Run one of the following commands.</p><ul class="nav nav-tabs justify-content-end" id="tabs-3" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-03-00-tab" data-toggle="tab" href="#tabs-03-00" role="tab" aria-controls="tabs-03-00" aria-selected="false">
+<strong>Log forwarder</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-03-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-03-02-tab" data-toggle="tab" href="#tabs-03-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-03-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-3-content">
+<div class="tab-body tab-pane fade" id="tabs-03-00" role="tabpanel" aria-labelled-by="tabs-03-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl --namespace logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">version</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">7.10.0</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">nodeSets</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">count</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">config</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.master</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.data</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.ingest</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.store.allow_mmap</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">controlNamespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">syslogNG</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># `#` is the recommended key delimiter when parsing json in syslog-ng</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">jsonKeyDelim</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;#&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div></li><li>
-<p>Install Kibana into the <em>logging</em> namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">cat &lt;&lt;EOF | kubectl apply -n logging -f -</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">kibana.k8s.elastic.co/v1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Kibana</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-03-02" role="tabpanel" aria-labelled-by="tabs-03-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl --namespace logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">version</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">7.10.0</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">count</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">elasticsearchRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">controlNamespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentd</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">disablePvc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete these steps.</p><blockquote>
-<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
-<li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
-</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
-</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
-</span></span><span style="display:flex"><span>NAME: logging-operator
-</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
-</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span></span></code></pre></div></div></div><blockquote>
+<p>Note: The control namespace is where the Logging operator deploys the forwarder&rsquo;s resources, like the StatefulSet and the configuration secrets. Usually it&rsquo;s called <code>logging</code>.</p><p>By default, this namespace is used to define the cluster-wide resources: <code>SyslogNGClusterOutput</code>, <code>SyslogNGClusterFlow</code>, <code>ClusterOutput</code>, and <code>ClusterFlow</code>. For details, see <a href="/docs/configuration/">Configure log routing</a>.</p></blockquote><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>logging.logging.banzaicloud.io/quickstart created
+</span></span></code></pre></div></li><li>
+<p>Create a <code>FluentbitAgent</code> resource to collect logs from all containers. No special configuration is required for now.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl --namespace logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: FluentbitAgent
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>    name: quickstart
+</span></span><span style="display:flex"><span>spec: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>fluentbitagent.logging.banzaicloud.io/quickstart created
+</span></span></code></pre></div></li><li>
+<p>Check that the resources were created successfully so far. Run the following command:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get pod --namespace logging --selector app.kubernetes.io/managed-by<span style="color:#ce5c00;font-weight:700">=</span>quickstart
+</span></span></code></pre></div><p>You should already see a completed configcheck pod that validates the forwarder&rsquo;s configuration before the actual statefulset starts.
+There should also be a running fluentbit instance per node, that already starts to send all logs to the forwarder.</p><ul class="nav nav-tabs justify-content-end" id="tabs-5" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab" aria-controls="tabs-05-00" aria-selected="false">
+<strong>All logging resources</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-05-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-05-02-tab" data-toggle="tab" href="#tabs-05-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-05-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-5-content">
+<div class="tab-body tab-pane fade" id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                                        READY   STATUS      RESTARTS   AGE
+</span></span><span style="display:flex"><span>quickstart-fluentbit-jvdp5                  1/1     Running     <span style="color:#0000cf;font-weight:700">0</span>          3m5s
+</span></span><span style="display:flex"><span>quickstart-syslog-ng-0                      2/2     Running     <span style="color:#0000cf;font-weight:700">0</span>          3m5s
+</span></span><span style="display:flex"><span>quickstart-syslog-ng-configcheck-8197c552   0/1     Completed   <span style="color:#0000cf;font-weight:700">0</span>          3m42s
+</span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-05-02" role="tabpanel" aria-labelled-by="tabs-05-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                                      READY   STATUS      RESTARTS   AGE
+</span></span><span style="display:flex"><span>quickstart-fluentbit-nk9ms                1/1     Running     <span style="color:#0000cf;font-weight:700">0</span>          19s
+</span></span><span style="display:flex"><span>quickstart-fluentd-0                      2/2     Running     <span style="color:#0000cf;font-weight:700">0</span>          19s
+</span></span><span style="display:flex"><span>quickstart-fluentd-configcheck-ac2d4553   0/1     Completed   <span style="color:#0000cf;font-weight:700">0</span>          60s
+</span></span></code></pre></div></div></div></li><li>
+<p>Create a namespace (for example, <code>quickstart</code>) from where you want to collect the logs.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create namespace quickstart
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>namespace/quickstart created
+</span></span></code></pre></div></li><li>
+<p>Create a <a href="/docs/configuration/flow/">flow</a> and an <a href="/docs/configuration/output/">output</a> resource in the same namespace (<code>quickstart</code>). The flow resource routes logs from the namespace to a specific output. In this example, the output is called <code>http</code>. The flow resources are called <code>SyslogNGFlow</code> and <code>Flow</code>, the output resources are <code>SyslogNGOutput</code> and <code>Output</code> for syslog-ng and Fluentd, respectively.</p><ul class="nav nav-tabs justify-content-end" id="tabs-8" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-08-00-tab" data-toggle="tab" href="#tabs-08-00" role="tab" aria-controls="tabs-08-00" aria-selected="false">
+<strong>Flow and output</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-08-01-tab" data-toggle="tab" href="#tabs-08-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-08-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-08-02-tab" data-toggle="tab" href="#tabs-08-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-08-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-8-content">
+<div class="tab-body tab-pane fade" id="tabs-08-00" role="tabpanel" aria-labelled-by="tabs-08-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-08-01" role="tabpanel" aria-labelled-by="tabs-08-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl --namespace quickstart apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SyslogNGFlow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log-generator</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">match</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">regexp</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">value</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json#kubernetes#labels#app.kubernetes.io/instance&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">pattern</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log-generator</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">string</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">http</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SyslogNGOutput</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">http</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">url</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://logging-operator-test-receiver:8080</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">headers</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#4e9a06">&#34;Content-Type: application/json&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">disk_buffer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">dir</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/buffers</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">disk_buf_size</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">512000000</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># 512 MB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">reliable</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-08-02" role="tabpanel" aria-labelled-by="tabs-08-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl --namespace quickstart apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log-generator</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">match</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">select</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">labels</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">app.kubernetes.io/name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log-generator</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">http</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">http</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">endpoint</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://logging-operator-test-receiver:8080</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">content_type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">application/json</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">buffer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">memory</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">tags</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">time</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">1s</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_wait</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">0s</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></div></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote><p>Expected output:</p><ul class="nav nav-tabs justify-content-end" id="tabs-9" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-09-00-tab" data-toggle="tab" href="#tabs-09-00" role="tab" aria-controls="tabs-09-00" aria-selected="false">
+<strong>Log forwarder</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-09-01-tab" data-toggle="tab" href="#tabs-09-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-09-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-09-02-tab" data-toggle="tab" href="#tabs-09-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-09-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-9-content">
+<div class="tab-body tab-pane fade" id="tabs-09-00" role="tabpanel" aria-labelled-by="tabs-09-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-09-01" role="tabpanel" aria-labelled-by="tabs-09-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>syslogngflow.logging.banzaicloud.io/log-generator created
+</span></span><span style="display:flex"><span>syslogngoutput.logging.banzaicloud.io/http created
+</span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-09-02" role="tabpanel" aria-labelled-by="tabs-09-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>flow.logging.banzaicloud.io/log-generator created
+</span></span><span style="display:flex"><span>output.logging.banzaicloud.io/http created
+</span></span></code></pre></div></div></div></li><li>
+<p>Check that the resources were created successfully. Run the following command:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get logging-all --namespace quickstart
+</span></span></code></pre></div><p>You should see that the logging resource has been created and the flow and output are active.</p><ul class="nav nav-tabs justify-content-end" id="tabs-10" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-10-00-tab" data-toggle="tab" href="#tabs-10-00" role="tab" aria-controls="tabs-10-00" aria-selected="false">
+<strong>All logging resources</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-10-01-tab" data-toggle="tab" href="#tabs-10-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-10-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-10-02-tab" data-toggle="tab" href="#tabs-10-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-10-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-10-content">
+<div class="tab-body tab-pane fade" id="tabs-10-00" role="tabpanel" aria-labelled-by="tabs-10-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-10-01" role="tabpanel" aria-labelled-by="tabs-10-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                                               AGE
+</span></span><span style="display:flex"><span>fluentbitagent.logging.banzaicloud.io/quickstart   10m
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                        AGE
+</span></span><span style="display:flex"><span>logging.logging.banzaicloud.io/quickstart   10m
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                         ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>syslogngoutput.logging.banzaicloud.io/http   <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                                ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>syslogngflow.logging.banzaicloud.io/log-generator   <span style="color:#204a87">true</span>
+</span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-10-02" role="tabpanel" aria-labelled-by="tabs-10-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>NAME                                        ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>flow.logging.banzaicloud.io/log-generator   <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                 ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>output.logging.banzaicloud.io/http   <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                        AGE
+</span></span><span style="display:flex"><span>logging.logging.banzaicloud.io/quickstart   3m12s
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>NAME                                               AGE
+</span></span><span style="display:flex"><span>fluentbitagent.logging.banzaicloud.io/quickstart   3m2s
+</span></span></code></pre></div></div></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --namespace quickstart log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;log-generator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/log-generator:0.7.0
+</span></span><span style="display:flex"><span>Digest: sha256:0eba2c5c3adfc33deeec1d1612839cd1a0aa86f30022672ee022beab22436e04
+</span></span><span style="display:flex"><span>NAME: log-generator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Tue Aug <span style="color:#0000cf;font-weight:700">15</span> 16:21:40 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: quickstart
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
-<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+</span></span></code></pre></div><p>The log-generator application starts to create HTTP access logs. Logging operator collects these log messages and sends them to the test-receiver pod defined in the output custom resource.</p></li><li>
+<p>Check that the logs are delivered to the test-receiver pod output. First, run the following command to get the name of the test-receiver pod:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl logs --namespace logging -f svc/logging-operator-test-receiver
+</span></span></code></pre></div><p>The output should be similar to the following:</p><ul class="nav nav-tabs justify-content-end" id="tabs-11" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-11-00-tab" data-toggle="tab" href="#tabs-11-00" role="tab" aria-controls="tabs-11-00" aria-selected="false">
+<strong>Receiving logs</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-11-01-tab" data-toggle="tab" href="#tabs-11-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-11-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-11-02-tab" data-toggle="tab" href="#tabs-11-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-11-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-11-content">
+<div class="tab-body tab-pane fade" id="tabs-11-00" role="tabpanel" aria-labelled-by="tabs-11-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> http.0: <span style="color:#ce5c00;font-weight:700">[[</span>1692117678.581721054, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;ts&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;2023-08-15T16:41:18.130862Z&#34;</span>, <span style="color:#4e9a06">&#34;time&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;2023-08-15T16:41:18.13086297Z&#34;</span>, <span style="color:#4e9a06">&#34;stream&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;stdout&#34;</span>, <span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;142.251.196.69 - - [15/Aug/2023:16:41:18 +0000] &#34;</span>PUT /index.html HTTP/1.1<span style="color:#4e9a06">&#34; 302 24666 &#34;</span>-<span style="color:#4e9a06">&#34; &#34;</span>Mozilla/5.0 <span style="color:#ce5c00;font-weight:700">(</span>Windows NT 6.1<span style="color:#000;font-weight:700">;</span> WOW64<span style="color:#ce5c00;font-weight:700">)</span> AppleWebKit/537.36 <span style="color:#ce5c00;font-weight:700">(</span>KHTML, like Gecko<span style="color:#ce5c00;font-weight:700">)</span> Chrome/54.0.2840.99 Safari/537.36<span style="color:#4e9a06">&#34; &#34;</span>-<span style="color:#4e9a06">&#34;&#34;</span>, <span style="color:#4e9a06">&#34;kubernetes&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;pod_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator-56b7dfb79-6v67b&#34;</span>, <span style="color:#4e9a06">&#34;pod_id&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;b7e8a5b2-9164-46d1-ba0a-8d142bdfb4cb&#34;</span>, <span style="color:#4e9a06">&#34;namespace_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;quickstart&#34;</span>, <span style="color:#4e9a06">&#34;labels&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;pod-template-hash&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;56b7dfb79&#34;</span>, <span style="color:#4e9a06">&#34;app.kubernetes.io/name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span>, <span style="color:#4e9a06">&#34;app.kubernetes.io/instance&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>, <span style="color:#4e9a06">&#34;host&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;minikube&#34;</span>, <span style="color:#4e9a06">&#34;docker_id&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;fe60b1c0fdf97f062ed91e3a2074caf3ee3cb4f3d12844f2c6f5d8212419907d&#34;</span>, <span style="color:#4e9a06">&#34;container_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span>, <span style="color:#4e9a06">&#34;container_image&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;ghcr.io/kube-logging/log-generator:0.7.0&#34;</span>, <span style="color:#4e9a06">&#34;container_hash&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;ghcr.io/kube-logging/log-generator@sha256:e26102ef2d28201240fa6825e39efdf90dec0da9fa6b5aea6cf9113c0d3e93aa&#34;</span><span style="color:#ce5c00;font-weight:700">}}]</span>
+</span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-11-02" role="tabpanel" aria-labelled-by="tabs-11-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> http.0: <span style="color:#ce5c00;font-weight:700">[[</span>1692118483.267342676, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;51.196.131.145 - - [15/Aug/2023:16:54:36 +0000] &#34;</span>PUT / HTTP/1.1<span style="color:#4e9a06">&#34; 200 7823 &#34;</span>-<span style="color:#4e9a06">&#34; &#34;</span>Mozilla/5.0 <span style="color:#ce5c00;font-weight:700">(</span>Windows NT 6.1<span style="color:#000;font-weight:700">;</span> Win64<span style="color:#000;font-weight:700">;</span> x64<span style="color:#ce5c00;font-weight:700">)</span> AppleWebKit/537.36 <span style="color:#ce5c00;font-weight:700">(</span>KHTML, like Gecko<span style="color:#ce5c00;font-weight:700">)</span> Chrome/54.0.2840.99 Safari/537.36<span style="color:#4e9a06">&#34; &#34;</span>-<span style="color:#4e9a06">&#34;&#34;</span>, <span style="color:#4e9a06">&#34;stream&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;stdout&#34;</span>, <span style="color:#4e9a06">&#34;time&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;2023-08-15T16:54:36.019636047Z&#34;</span>, <span style="color:#4e9a06">&#34;kubernetes&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;pod_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator-56b7dfb79-rrzsz&#34;</span>, <span style="color:#4e9a06">&#34;namespace_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;quickstart&#34;</span>, <span style="color:#4e9a06">&#34;pod_id&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;902dc881-af36-4054-b377-47e2d751e6cd&#34;</span>, <span style="color:#4e9a06">&#34;labels&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;app.kubernetes.io/instance&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span>, <span style="color:#4e9a06">&#34;app.kubernetes.io/name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span>, <span style="color:#4e9a06">&#34;pod-template-hash&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;56b7dfb79&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>, <span style="color:#4e9a06">&#34;host&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;minikube&#34;</span>, <span style="color:#4e9a06">&#34;container_name&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;log-generator&#34;</span>, <span style="color:#4e9a06">&#34;docker_id&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;7615c4c72d8fdd05137dc9845204d7ef681b750b6f2a6d27bd75190b12dc5d8e&#34;</span>, <span style="color:#4e9a06">&#34;container_hash&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;ghcr.io/kube-logging/log-generator@sha256:e26102ef2d28201240fa6825e39efdf90dec0da9fa6b5aea6cf9113c0d3e93aa&#34;</span>, <span style="color:#4e9a06">&#34;container_image&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;ghcr.io/kube-logging/log-generator:0.7.0&#34;</span><span style="color:#ce5c00;font-weight:700">}}]</span>
+</span></span></code></pre></div></div></div><p>The log messages include the usual information of the access logs, and also Kubernetes-specific information like the pod name, labels, and so on.</p></li><li>
+<p>(Optional) If you want to retry this guide with the other log forwarder on the same cluster, run the following command to delete the forwarder-specific resources:</p><ul class="nav nav-tabs justify-content-end" id="tabs-12" role="tablist">
+<li class="nav-item">
+<a class="nav-link disabled" id="tabs-12-00-tab" data-toggle="tab" href="#tabs-12-00" role="tab" aria-controls="tabs-12-00" aria-selected="false">
+<strong>Log forwarder</strong>:
+</a>
+</li><li class="nav-item">
+<a class="nav-link active persistLang-syslog-ng" id="tabs-12-01-tab" data-toggle="tab" href="#tabs-12-01" role="tab" onclick='persistLang("syslog-ng")' aria-controls="tabs-12-01" aria-selected="false">
+syslog-ng
+</a>
+</li><li class="nav-item">
+<a class="nav-link persistLang-fluentd" id="tabs-12-02-tab" data-toggle="tab" href="#tabs-12-02" role="tab" onclick='persistLang("fluentd")' aria-controls="tabs-12-02" aria-selected="false">
+Fluentd
+</a>
+</li></ul><div class="tab-content" id="tabs-12-content">
+<div class="tab-body tab-pane fade" id="tabs-12-00" role="tabpanel" aria-labelled-by="tabs-12-00-tab">
+</div><div class="tab-body tab-pane fade show active" id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl delete logging quickstart
+</span></span><span style="display:flex"><span>kubectl delete --namespace quickstart syslogngflow log-generator
+</span></span><span style="display:flex"><span>kubectl delete --namespace quickstart syslogngoutput http
+</span></span></code></pre></div></div><div class="tab-body tab-pane fade" id="tabs-12-02" role="tabpanel" aria-labelled-by="tabs-12-02-tab">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl delete logging quickstart
+</span></span><span style="display:flex"><span>kubectl delete --namespace quickstart flow log-generator
+</span></span><span style="display:flex"><span>kubectl delete --namespace quickstart output http
+</span></span></code></pre></div></div></div></li></ol><h2 id="summary">Summary</h2><p>If you have completed this guide, you have made the following changes to your cluster:</p><ul>
 <li>
-<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Logging
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: default-logging-simple
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  controlNamespace: logging
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div><blockquote>
-<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
-<p>Create an Elasticsearch <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Output
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: es-output
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  elasticsearch:
-</span></span><span style="display:flex"><span>    host: quickstart-es-http.logging.svc.cluster.local
-</span></span><span style="display:flex"><span>    port: <span style="color:#0000cf;font-weight:700">9200</span>
-</span></span><span style="display:flex"><span>    scheme: https
-</span></span><span style="display:flex"><span>    ssl_verify: <span style="color:#204a87">false</span>
-</span></span><span style="display:flex"><span>    ssl_version: TLSv1_2
-</span></span><span style="display:flex"><span>    user: elastic
-</span></span><span style="display:flex"><span>    password:
-</span></span><span style="display:flex"><span>      valueFrom:
-</span></span><span style="display:flex"><span>        secretKeyRef:
-</span></span><span style="display:flex"><span>          name: quickstart-es-elastic-user
-</span></span><span style="display:flex"><span>          key: elastic
-</span></span><span style="display:flex"><span>    buffer:
-</span></span><span style="display:flex"><span>      timekey: 1m
-</span></span><span style="display:flex"><span>      timekey_wait: 30s
-</span></span><span style="display:flex"><span>      timekey_use_utc: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div><blockquote>
-<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
-<p>Create a <code>flow</code> resource. (Mind the label selector in the <code>match</code> that selects a set of pods that we will install in the next step)</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Flow
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: es-flow
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  filters:
-</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>    - parser:
-</span></span><span style="display:flex"><span>        remove_key_name_field: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>        reserve_data: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>        parse:
-</span></span><span style="display:flex"><span>          type: nginx
-</span></span><span style="display:flex"><span>  match:
-</span></span><span style="display:flex"><span>     - <span style="color:#204a87;font-weight:700">select</span>:
-</span></span><span style="display:flex"><span>         labels:
-</span></span><span style="display:flex"><span>           app.kubernetes.io/name: log-generator
-</span></span><span style="display:flex"><span>  localOutputRefs:
-</span></span><span style="display:flex"><span>    - es-output
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div></li><li>
-<p>Install the demo application.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
-</span></span></code></pre></div></li><li>
-<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>To validate that the deployment was successful, complete the following steps.</p><ol>
-<li>
-<p>Check fluentd logs:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl <span style="color:#204a87">exec</span> -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
-</span></span></code></pre></div></li><li>
-<p>Use the following command to retrieve the password of the <code>elastic</code> user:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get secret quickstart-es-elastic-user -o<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.data.elastic}&#39;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode<span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
-</span></span></code></pre></div></li><li>
-<p>Enable port forwarding to the Kibana Dashboard Service.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/quickstart-kb-http <span style="color:#0000cf;font-weight:700">5601</span>
-</span></span></code></pre></div></li><li>
-<p>Open the Kibana dashboard in your browser at <a href="https://localhost:5601">https://localhost:5601</a> and login as <strong>elastic</strong> using the retrieved password.</p></li><li>
-<p>By default, the Logging operator sends the incoming log messages into an index called <em>fluentd</em>. Create an Index Pattern that includes this index (for example, <em>fluentd*</em>), then select <strong>Menu > Kibana > Discover</strong>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p><blockquote>
-<p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
-<h1 id="pg-04688fbf5b514152de232c6d6f6eaebf">3 - Sumo Logic with Logging operator and syslog-ng</h1><p>This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.</p><h2 id="prerequisites">Prerequisites</h2><p>We assume that you already have:</p><ul>
-<li>
-<p>A Sumo Logic account.</p></li><li>
-<p>A <a href="https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/HTTP-Source">HTTP Hosted Collector</a> configured in the Sumo Logic service.</p><p>To configure a Hosted Collector, complete the steps in the <a href="https://help.sumologic.com/03Send-Data/Hosted-Collectors/Configure-a-Hosted-Collector">Configure a Hosted Collector</a> section on the official Sumo Logic website.</p></li><li>
-<p>The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.</p></li></ul><hr>
-<h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete these steps.</p><blockquote>
-<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
-<li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
-</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
-</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
-</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
-</span></span><span style="display:flex"><span>NAME: logging-operator
-</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
-</span></span><span style="display:flex"><span>NAMESPACE: logging
-</span></span><span style="display:flex"><span>STATUS: deployed
-</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
-</span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
-<li>
-<p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: Logging
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: demo
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  controlNamespace: logging
-</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
-</span></span><span style="display:flex"><span>  syslogNG:
-</span></span><span style="display:flex"><span>    statefulSet:
-</span></span><span style="display:flex"><span>      spec:
-</span></span><span style="display:flex"><span>        template:
-</span></span><span style="display:flex"><span>          spec:
-</span></span><span style="display:flex"><span>            containers:
-</span></span><span style="display:flex"><span>            - name: syslog-ng
-</span></span><span style="display:flex"><span>              volumeMounts:
-</span></span><span style="display:flex"><span>              - mountPath: /buffers
-</span></span><span style="display:flex"><span>                name: buffer
-</span></span><span style="display:flex"><span>        volumeClaimTemplates:
-</span></span><span style="display:flex"><span>        - metadata:
-</span></span><span style="display:flex"><span>            name: buffer
-</span></span><span style="display:flex"><span>          spec:
-</span></span><span style="display:flex"><span>            accessModes:
-</span></span><span style="display:flex"><span>            - ReadWriteOnce
-</span></span><span style="display:flex"><span>            resources:
-</span></span><span style="display:flex"><span>              requests:
-</span></span><span style="display:flex"><span>                storage: 10Gi
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div><blockquote>
-<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
-<p>Create a Sumo Logic output secret from the URL of your Sumo Logic collection.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create secret generic sumo-collector -n logging --from-literal <span style="color:#4e9a06">&#34;token=XYZ&#34;</span>
-</span></span></code></pre></div></li><li>
-<p>Create a <code>SyslogNGOutput</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: SyslogNGOutput
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: sumologic-syslog-ng-output
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  sumologic-http: 
-</span></span><span style="display:flex"><span>    collector:
-</span></span><span style="display:flex"><span>      valueFrom:
-</span></span><span style="display:flex"><span>        secretKeyRef:
-</span></span><span style="display:flex"><span>          key: token
-</span></span><span style="display:flex"><span>          name: sumo-collector
-</span></span><span style="display:flex"><span>    deployment: us2
-</span></span><span style="display:flex"><span>    batch-lines: <span style="color:#0000cf;font-weight:700">1000</span>
-</span></span><span style="display:flex"><span>    disk_buffer:
-</span></span><span style="display:flex"><span>      disk_buf_size: <span style="color:#0000cf;font-weight:700">512000000</span>
-</span></span><span style="display:flex"><span>      dir: /buffers
-</span></span><span style="display:flex"><span>      reliable: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>    body: <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:700">$(</span>format-json --subkeys json. --exclude json.kubernetes.annotations.* json.kubernetes.annotations<span style="color:#ce5c00;font-weight:700">=</span>literal<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#204a87;font-weight:700">$(</span>format-flat-json --subkeys json.kubernetes.annotations.<span style="color:#204a87;font-weight:700">))</span><span style="color:#4e9a06"> --exclude json.kubernetes.labels.* json.kubernetes.labels=literal(</span><span style="color:#204a87;font-weight:700">$(</span>format-flat-json --subkeys json.kubernetes.labels.<span style="color:#204a87;font-weight:700">)</span><span style="color:#4e9a06">))&#34;</span>
-</span></span><span style="display:flex"><span>    headers:
-</span></span><span style="display:flex"><span>      - <span style="color:#4e9a06">&#39;X-Sumo-Name: source-name&#39;</span>
-</span></span><span style="display:flex"><span>      - <span style="color:#4e9a06">&#39;X-Sumo-Category: source-category&#39;</span>
-</span></span><span style="display:flex"><span>    tls:
-</span></span><span style="display:flex"><span>      use-system-cert-store: <span style="color:#204a87">true</span>
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div></li><li>
-<p>Create a <code>SyslogNGFlow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
-</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
-</span></span><span style="display:flex"><span>kind: SyslogNGFlow
-</span></span><span style="display:flex"><span>metadata:
-</span></span><span style="display:flex"><span>  name: log-generator
-</span></span><span style="display:flex"><span>spec:
-</span></span><span style="display:flex"><span>  match:
-</span></span><span style="display:flex"><span>    and:
-</span></span><span style="display:flex"><span>    - regexp:
-</span></span><span style="display:flex"><span>        value: json.kubernetes.labels.app.kubernetes.io/instance
-</span></span><span style="display:flex"><span>        pattern: log-generator
-</span></span><span style="display:flex"><span>        type: string
-</span></span><span style="display:flex"><span>    - regexp:
-</span></span><span style="display:flex"><span>        value:  json.kubernetes.labels.app.kubernetes.io/name
-</span></span><span style="display:flex"><span>        pattern: log-generator
-</span></span><span style="display:flex"><span>        type: string
-</span></span><span style="display:flex"><span>  filters:
-</span></span><span style="display:flex"><span>  -  parser:
-</span></span><span style="display:flex"><span>      regexp: 
-</span></span><span style="display:flex"><span>        patterns:
-</span></span><span style="display:flex"><span>        - <span style="color:#4e9a06">&#39;^(?&lt;remote&gt;[^ ]*) (?&lt;host&gt;[^ ]*) (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] &#34;(?&lt;method&gt;\S+)(?: +(?&lt;path&gt;[^\&#34;]*?)(?: +\S*)?)?&#34; (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*)(?: &#34;(?&lt;referer&gt;[^\&#34;]*)&#34; &#34;(?&lt;agent&gt;[^\&#34;]*)&#34;(?:\s+(?&lt;http_x_forwarded_for&gt;[^ ]+))?)?$&#39;</span>
-</span></span><span style="display:flex"><span>        template: <span style="color:#4e9a06">${</span><span style="color:#000">json</span><span style="color:#000;font-weight:700">.message</span><span style="color:#4e9a06">}</span>
-</span></span><span style="display:flex"><span>        prefix: json.
-</span></span><span style="display:flex"><span>  - rewrite:
-</span></span><span style="display:flex"><span>    -  set:
-</span></span><span style="display:flex"><span>        field: json.cluster
-</span></span><span style="display:flex"><span>        value: xxxxx
-</span></span><span style="display:flex"><span>    -  unset:
-</span></span><span style="display:flex"><span>        field: json.message
-</span></span><span style="display:flex"><span>    -  set:
-</span></span><span style="display:flex"><span>        field: json.source
-</span></span><span style="display:flex"><span>        value: /var/log/log-generator
-</span></span><span style="display:flex"><span>        condition:
-</span></span><span style="display:flex"><span>          regexp:
-</span></span><span style="display:flex"><span>            value:  json.kubernetes.container_name
-</span></span><span style="display:flex"><span>            pattern: log-generator
-</span></span><span style="display:flex"><span>            type: string
-</span></span><span style="display:flex"><span>  localOutputRefs:
-</span></span><span style="display:flex"><span>    - sumologic-syslog-ng-output
-</span></span><span style="display:flex"><span>EOF
-</span></span></code></pre></div></li><li>
-<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
-</span></span></code></pre></div></li></ol><blockquote>
-<p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<p>Installed the Fluent Bit agent on every node of the cluster to collect the logs and the labels from the node.</p></li><li>
+<p>Installed syslog-ng or Fluentd on the cluster, to receive the logs from the Fluent Bit agents, and filter, parse, and transform them as needed, and to route the incoming logs to an output. To learn more about routing and filtering, see <a href="/docs/configuration/log-routing-syslog-ng/">Routing your logs with syslog-ng</a> or <a href="/docs/configuration/log-routing/">Routing your logs with Fluentd match directives</a>. - Created the following resources that configure Logging operator and the components it manages:</p><ul>
+<li><code>Logging</code> to configure the logging infrastructure, like the details of the Fluent Bit and the syslog-ng or Fluentd deployment. To learn more about configuring the logging infrastructure, see <a href="/docs/logging-infrastructure/">Logging infrastructure setup</a>.</li><li><code>SyslogNGOutput</code> or <code>Output</code> to define an http output that receives the collected messages. To learn more, see <a href="/docs/configuration/output/#syslogngoutput">syslog-ng outputs</a> or <a href="/docs/configuration/output/">Output and ClusterOutput</a>.</li><li><code>SyslogNGFlow</code> or <code>Flow</code> that processes the incoming messages and routes them to the appropriate output. To learn more, see <a href="/docs/configuration/flow/#syslogngflow">syslog-ng flows</a> or <a href="/docs/configuration/flow/">Flow and ClusterFlow</a>.</li></ul></li><li>
+<p>Installed a simple receiver to act as the destination of the logs, and configured the the log forwarder to send the logs from the <code>quickstart</code> namespace to this destination.</p></li><li>
+<p>Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.</p></li></ul><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">

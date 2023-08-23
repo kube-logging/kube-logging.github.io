@@ -26,8 +26,8 @@
 <meta name="twitter:title" content="Outputs">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -73,15 +73,9 @@ Releases
 <input type="checkbox" id="m-docsquickstarts-check">
 <label for="m-docsquickstarts-check"><a href="/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsquickstarts"><span>Quick start guides</span></a></label>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartsexample-s3-li">
-<input type="checkbox" id="m-docsquickstartsexample-s3-check">
-<label for="m-docsquickstartsexample-s3-check"><a href="/docs/quickstarts/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartsexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartses-nginx-li">
-<input type="checkbox" id="m-docsquickstartses-nginx-check">
-<label for="m-docsquickstartses-nginx-check"><a href="/docs/quickstarts/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssyslog-ng-sumologic-li">
-<input type="checkbox" id="m-docsquickstartssyslog-ng-sumologic-check">
-<label for="m-docsquickstartssyslog-ng-sumologic-check"><a href="/docs/quickstarts/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssingle-li">
+<input type="checkbox" id="m-docsquickstartssingle-check">
+<label for="m-docsquickstartssingle-check"><a href="/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssingle"><span>Single app, one destination</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfiguration-li">
 <input type="checkbox" id="m-docsconfiguration-check" checked>
 <label for="m-docsconfiguration-check"><a href="/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfiguration"><span>Routing logs</span></a></label>
@@ -390,12 +384,21 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesexample-s3-li">
+<input type="checkbox" id="m-docsexamplesexample-s3-check">
+<label for="m-docsexamplesexample-s3-check"><a href="/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleses-nginx-li">
+<input type="checkbox" id="m-docsexampleses-nginx-check">
+<label for="m-docsexampleses-nginx-check"><a href="/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
 <input type="checkbox" id="m-docsexamplessumologic-check">
 <label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
+<label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleskafka-nginx-li">
 <input type="checkbox" id="m-docsexampleskafka-nginx-check">
 <label for="m-docsexampleskafka-nginx-check"><a href="/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
@@ -594,7 +597,7 @@ Releases
 <h5>
 <a href="/docs/configuration/plugins/outputs/secret/">Secret definition</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
+Last modified August 23, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cb120687435f152c0e8647d43f2c5172ba2a7ce7">Merge pull request #161 from kube-logging/quickstart-revamp (cb12068)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

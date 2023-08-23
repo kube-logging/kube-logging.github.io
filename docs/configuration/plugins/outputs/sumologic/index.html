@@ -26,13 +26,13 @@ export URL='https://endpoint1.collection.eu.sumologic.com/receiver/v1/http/.....
 apiVersion: logging.banzaicloud.io/v1beta1 kind: ClusterOutput metadata: name: sumo-output spec: sumologic: buffer: flush_interval: 10s flush_mode: interval compress: true endpoint: valueFrom: secretKeyRef: key: endpoint name: sumo-output source_name: test1 Configuration Output Config data_type (string, optional) The type of data that will be sent to Sumo Logic, either logs or metrics">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/sumologic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-22T10:11:11+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-23T13:40:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SumoLogic">
 <meta itemprop="description" content="SumoLogic output plugin for Fluentd Overview This plugin has been designed to output logs or metrics to SumoLogic via a HTTP collector endpoint More info at https://github.com/SumoLogic/fluentd-output-sumologic
 Example secret for HTTP input URL
 export URL='https://endpoint1.collection.eu.sumologic.com/receiver/v1/http/.......' kubectl create secret generic sumo-output --from-literal &#34;endpoint=$URL&#34; Example ClusterOutput
 apiVersion: logging.banzaicloud.io/v1beta1 kind: ClusterOutput metadata: name: sumo-output spec: sumologic: buffer: flush_interval: 10s flush_mode: interval compress: true endpoint: valueFrom: secretKeyRef: key: endpoint name: sumo-output source_name: test1 Configuration Output Config data_type (string, optional) The type of data that will be sent to Sumo Logic, either logs or metrics">
-<meta itemprop="dateModified" content="2023-08-22T10:11:11+02:00">
+<meta itemprop="dateModified" content="2023-08-23T13:40:59+02:00">
 <meta itemprop="wordCount" content="406">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SumoLogic">
@@ -41,8 +41,8 @@ Example secret for HTTP input URL
 export URL='https://endpoint1.collection.eu.sumologic.com/receiver/v1/http/.......' kubectl create secret generic sumo-output --from-literal &#34;endpoint=$URL&#34; Example ClusterOutput
 apiVersion: logging.banzaicloud.io/v1beta1 kind: ClusterOutput metadata: name: sumo-output spec: sumologic: buffer: flush_interval: 10s flush_mode: interval compress: true endpoint: valueFrom: secretKeyRef: key: endpoint name: sumo-output source_name: test1 Configuration Output Config data_type (string, optional) The type of data that will be sent to Sumo Logic, either logs or metrics">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -88,15 +88,9 @@ Releases
 <input type="checkbox" id="m-docsquickstarts-check">
 <label for="m-docsquickstarts-check"><a href="/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsquickstarts"><span>Quick start guides</span></a></label>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartsexample-s3-li">
-<input type="checkbox" id="m-docsquickstartsexample-s3-check">
-<label for="m-docsquickstartsexample-s3-check"><a href="/docs/quickstarts/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartsexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartses-nginx-li">
-<input type="checkbox" id="m-docsquickstartses-nginx-check">
-<label for="m-docsquickstartses-nginx-check"><a href="/docs/quickstarts/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssyslog-ng-sumologic-li">
-<input type="checkbox" id="m-docsquickstartssyslog-ng-sumologic-check">
-<label for="m-docsquickstartssyslog-ng-sumologic-check"><a href="/docs/quickstarts/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssingle-li">
+<input type="checkbox" id="m-docsquickstartssingle-check">
+<label for="m-docsquickstartssingle-check"><a href="/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssingle"><span>Single app, one destination</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfiguration-li">
 <input type="checkbox" id="m-docsconfiguration-check" checked>
 <label for="m-docsconfiguration-check"><a href="/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfiguration"><span>Routing logs</span></a></label>
@@ -405,12 +399,21 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesexample-s3-li">
+<input type="checkbox" id="m-docsexamplesexample-s3-check">
+<label for="m-docsexamplesexample-s3-check"><a href="/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleses-nginx-li">
+<input type="checkbox" id="m-docsexampleses-nginx-check">
+<label for="m-docsexampleses-nginx-check"><a href="/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
 <input type="checkbox" id="m-docsexamplessumologic-check">
 <label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
+<label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleskafka-nginx-li">
 <input type="checkbox" id="m-docsexampleskafka-nginx-check">
 <label for="m-docsexampleskafka-nginx-check"><a href="/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
@@ -540,7 +543,7 @@ kubectl create secret generic sumo-output --from-literal &#34;endpoint=$URL&#34;
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sumo-output</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">source_name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-data_type">data_type (string, optional)</h3><p>The type of data that will be sent to Sumo Logic, either logs or metrics</p><p>Default: logs</p><h3 id="output-config-endpoint">endpoint (*secret.Secret, required)</h3><p>SumoLogic HTTP Collector URL</p><p>Default: -</p><h3 id="output-config-verify_ssl">verify_ssl (bool, optional)</h3><p>Verify ssl certificate.</p><p>Default: true</p><h3 id="output-config-metric_data_format">metric_data_format (string, optional)</h3><p>The format of metrics you will be sending, either graphite or carbon2 or prometheus</p><p>Default: graphite</p><h3 id="output-config-log_format">log_format (string, optional)</h3><p>Format to post logs into Sumo.</p><p>Default: json</p><h3 id="output-config-log_key">log_key (string, optional)</h3><p>Used to specify the key when merging json or sending logs in text format</p><p>Default: message</p><h3 id="output-config-source_category">source_category (string, optional)</h3><p>Set _sourceCategory metadata field within SumoLogic</p><p>Default: nil</p><h3 id="output-config-source_name">source_name (string, required)</h3><p>Set _sourceName metadata field within SumoLogic - overrides source_name_key (default is nil)</p><p>Default: -</p><h3 id="output-config-source_name_key">source_name_key (string, optional)</h3><p>Set as source::path_key&rsquo;s value so that the source_name can be extracted from Fluentd&rsquo;s buffer</p><p>Default: source_name</p><h3 id="output-config-source_host">source_host (string, optional)</h3><p>Set _sourceHost metadata field within SumoLogic</p><p>Default: nil</p><h3 id="output-config-open_timeout">open_timeout (int, optional)</h3><p>Set timeout seconds to wait until connection is opened.</p><p>Default: 60</p><h3 id="output-config-add_timestamp">add_timestamp (bool, optional)</h3><p>Add timestamp (or timestamp_key) field to logs before sending to sumologic</p><p>Default: true</p><h3 id="output-config-timestamp_key">timestamp_key (string, optional)</h3><p>Field name when add_timestamp is on</p><p>Default: timestamp</p><h3 id="output-config-proxy_uri">proxy_uri (string, optional)</h3><p>Add the uri of the proxy environment if present.</p><p>Default: -</p><h3 id="output-config-disable_cookies">disable_cookies (bool, optional)</h3><p>Option to disable cookies on the HTTP Client.</p><p>Default: false</p><h3 id="output-config-delimiter">delimiter (string, optional)</h3><p>Delimiter</p><p>Default: .</p><h3 id="output-config-custom_fields">custom_fields ([]string, optional)</h3><p>Comma-separated key=value list of fields to apply to every log. <a href="https://help.sumologic.com/Manage/Fields#http-source-fields">more information</a></p><p>Default: -</p><h3 id="output-config-sumo_client">sumo_client (string, optional)</h3><p>Name of sumo client which is send as X-Sumo-Client header</p><p>Default: fluentd-output</p><h3 id="output-config-compress">compress (*bool, optional)</h3><p>Compress payload</p><p>Default: false</p><h3 id="output-config-compress_encoding">compress_encoding (string, optional)</h3><p>Encoding method of compression (either gzip or deflate)</p><p>Default: gzip</p><h3 id="output-config-custom_dimensions">custom_dimensions (string, optional)</h3><p>Dimensions string (eg &ldquo;cluster=payment, service=credit_card&rdquo;) which is going to be added to every metric record.</p><p>Default: -</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
+Last modified August 23, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cb120687435f152c0e8647d43f2c5172ba2a7ce7">Merge pull request #161 from kube-logging/quickstart-revamp (cb12068)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

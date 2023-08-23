@@ -34,7 +34,7 @@ Default: -
 flowConfigOverride (string, optional) Override generated config. This is a raw configuration string for troubleshooting purposes.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/logging_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-22T10:11:11+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-23T13:40:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LoggingSpec">
 <meta itemprop="description" content="LoggingSpec LoggingSpec defines the desired state of Logging
 loggingRef (string, optional) Reference to the logging system. Each of the loggingRefs can manage a fluentbit daemonset and a fluentd statefulset.
@@ -44,7 +44,7 @@ Default: -
 skipInvalidResources (bool, optional) Whether to skip invalid Flow and ClusterFlow resources
 Default: -
 flowConfigOverride (string, optional) Override generated config. This is a raw configuration string for troubleshooting purposes.">
-<meta itemprop="dateModified" content="2023-08-22T10:11:11+02:00">
+<meta itemprop="dateModified" content="2023-08-23T13:40:59+02:00">
 <meta itemprop="wordCount" content="435">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoggingSpec">
@@ -57,8 +57,8 @@ skipInvalidResources (bool, optional) Whether to skip invalid Flow and ClusterFl
 Default: -
 flowConfigOverride (string, optional) Override generated config. This is a raw configuration string for troubleshooting purposes.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -104,15 +104,9 @@ Releases
 <input type="checkbox" id="m-docsquickstarts-check">
 <label for="m-docsquickstarts-check"><a href="/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsquickstarts"><span>Quick start guides</span></a></label>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartsexample-s3-li">
-<input type="checkbox" id="m-docsquickstartsexample-s3-check">
-<label for="m-docsquickstartsexample-s3-check"><a href="/docs/quickstarts/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartsexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartses-nginx-li">
-<input type="checkbox" id="m-docsquickstartses-nginx-check">
-<label for="m-docsquickstartses-nginx-check"><a href="/docs/quickstarts/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssyslog-ng-sumologic-li">
-<input type="checkbox" id="m-docsquickstartssyslog-ng-sumologic-check">
-<label for="m-docsquickstartssyslog-ng-sumologic-check"><a href="/docs/quickstarts/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssingle-li">
+<input type="checkbox" id="m-docsquickstartssingle-check">
+<label for="m-docsquickstartssingle-check"><a href="/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssingle"><span>Single app, one destination</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfiguration-li">
 <input type="checkbox" id="m-docsconfiguration-check" checked>
 <label for="m-docsconfiguration-check"><a href="/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfiguration"><span>Routing logs</span></a></label>
@@ -421,12 +415,21 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesexample-s3-li">
+<input type="checkbox" id="m-docsexamplesexample-s3-check">
+<label for="m-docsexamplesexample-s3-check"><a href="/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleses-nginx-li">
+<input type="checkbox" id="m-docsexampleses-nginx-check">
+<label for="m-docsexampleses-nginx-check"><a href="/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
 <input type="checkbox" id="m-docsexamplessumologic-check">
 <label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
+<label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleskafka-nginx-li">
 <input type="checkbox" id="m-docsexampleskafka-nginx-check">
 <label for="m-docsexampleskafka-nginx-check"><a href="/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
@@ -545,7 +548,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>LoggingSpec</h1><header class="article-meta">
 </header><h2 id="loggingspec">LoggingSpec</h2><p>LoggingSpec defines the desired state of Logging</p><h3 id="loggingspec-loggingref">loggingRef (string, optional)</h3><p>Reference to the logging system. Each of the <code>loggingRef</code>s can manage a fluentbit daemonset and a fluentd statefulset.</p><p>Default: -</p><h3 id="loggingspec-flowconfigcheckdisabled">flowConfigCheckDisabled (bool, optional)</h3><p>Disable configuration check before applying new fluentd configuration.</p><p>Default: -</p><h3 id="loggingspec-skipinvalidresources">skipInvalidResources (bool, optional)</h3><p>Whether to skip invalid Flow and ClusterFlow resources</p><p>Default: -</p><h3 id="loggingspec-flowconfigoverride">flowConfigOverride (string, optional)</h3><p>Override generated config. This is a <em>raw</em> configuration string for troubleshooting purposes.</p><p>Default: -</p><h3 id="loggingspec-fluentbit">fluentbit (*FluentbitSpec, optional)</h3><p>FluentbitAgent daemonset configuration. Deprecated, will be removed with next major version Migrate to the standalone NodeAgent resource</p><p>Default: -</p><h3 id="loggingspec-fluentd">fluentd (*FluentdSpec, optional)</h3><p>Fluentd statefulset configuration</p><p>Default: -</p><h3 id="loggingspec-syslogng">syslogNG (*SyslogNGSpec, optional)</h3><p>Syslog-NG statefulset configuration</p><p>Default: -</p><h3 id="loggingspec-defaultflow">defaultFlow (*DefaultFlowSpec, optional)</h3><p>Default flow for unmatched logs. This Flow configuration collects all logs that didn&rsquo;t matched any other Flow.</p><p>Default: -</p><h3 id="loggingspec-erroroutputref">errorOutputRef (string, optional)</h3><p>GlobalOutput name to flush ERROR events to</p><p>Default: -</p><h3 id="loggingspec-globalfilters">globalFilters ([]Filter, optional)</h3><p>Global filters to apply on logs before any match or filter mechanism.</p><p>Default: -</p><h3 id="loggingspec-watchnamespaces">watchNamespaces ([]string, optional)</h3><p>Limit namespaces to watch Flow and Output custom resources.</p><p>Default: -</p><h3 id="loggingspec-watchnamespaceselector">watchNamespaceSelector (*metav1.LabelSelector, optional)</h3><p>WatchNamespaceSelector is a LabelSelector to find matching namespaces to watch as in WatchNamespaces</p><p>Default: -</p><h3 id="loggingspec-clusterdomain">clusterDomain (*string, optional)</h3><p>Cluster domain name to be used when templating URLs to services .</p><p>Default: &ldquo;cluster.local&rdquo;</p><h3 id="loggingspec-controlnamespace">controlNamespace (string, required)</h3><p>Namespace for cluster wide configuration resources like ClusterFlow and ClusterOutput. This should be a protected namespace from regular users. Resources like fluentbit and fluentd will run in this namespace as well.</p><p>Default: -</p><h3 id="loggingspec-allowclusterresourcesfromallnamespaces">allowClusterResourcesFromAllNamespaces (bool, optional)</h3><p>Allow configuration of cluster resources from any namespace. Mutually exclusive with ControlNamespace restriction of Cluster resources</p><p>Default: -</p><h3 id="loggingspec-nodeagents">nodeAgents ([]*InlineNodeAgent, optional)</h3><p>InlineNodeAgent Configuration Deprecated, will be removed with next major version</p><p>Default: -</p><h3 id="loggingspec-enablerecreateworkloadonimmutablefieldchange">enableRecreateWorkloadOnImmutableFieldChange (bool, optional)</h3><p>EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future) in case there is a change in an immutable field that otherwise couldn&rsquo;t be managed with a simple update.</p><p>Default: -</p><h2 id="loggingstatus">LoggingStatus</h2><p>LoggingStatus defines the observed state of Logging</p><h3 id="loggingstatus-configcheckresults">configCheckResults (map[string]bool, optional)</h3><p>Default: -</p><h3 id="loggingstatus-problems">problems ([]string, optional)</h3><p>Default: -</p><h2 id="logging">Logging</h2><p>Logging is the Schema for the loggings API</p><h3 id="logging-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="logging-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="logging-spec">spec (LoggingSpec, optional)</h3><p>Default: -</p><h3 id="logging-status">status (LoggingStatus, optional)</h3><p>Default: -</p><h2 id="logginglist">LoggingList</h2><p>LoggingList contains a list of Logging</p><h3 id="logginglist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="logginglist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="logginglist-items">items ([]Logging, required)</h3><p>Default: -</p><h2 id="defaultflowspec">DefaultFlowSpec</h2><p>DefaultFlowSpec is a Flow for logs that did not match any other Flow</p><h3 id="defaultflowspec-filters">filters ([]Filter, optional)</h3><p>Default: -</p><h3 id="defaultflowspec-outputrefs">outputRefs ([]string, optional)</h3><p>Deprecated</p><p>Default: -</p><h3 id="defaultflowspec-globaloutputrefs">globalOutputRefs ([]string, optional)</h3><p>Default: -</p><h3 id="defaultflowspec-flowlabel">flowLabel (string, optional)</h3><p>Default: -</p><h3 id="defaultflowspec-includelabelinrouter">includeLabelInRouter (*bool, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
+Last modified August 23, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cb120687435f152c0e8647d43f2c5172ba2a7ce7">Merge pull request #161 from kube-logging/quickstart-revamp (cb12068)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

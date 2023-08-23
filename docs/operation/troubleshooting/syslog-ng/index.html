@@ -26,14 +26,14 @@ Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-22T10:11:11+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-23T13:40:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Troubleshooting syslog-ng">
 <meta itemprop="description" content="The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.
 Check syslog-ng pod status (statefulset) Verify that the syslog-ng statefulset is available using the following command: kubectl get statefulsets
 Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
-<meta itemprop="dateModified" content="2023-08-22T10:11:11+02:00">
-<meta itemprop="wordCount" content="237">
+<meta itemprop="dateModified" content="2023-08-23T13:40:59+02:00">
+<meta itemprop="wordCount" content="228">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshooting syslog-ng">
 <meta name="twitter:description" content="The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.
@@ -41,8 +41,8 @@ Check syslog-ng pod status (statefulset) Verify that the syslog-ng statefulset i
 Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" as="style">
-<link href="/scss/main.min.8fe0c90ad7309be91f08b53a0b21f58fb6fb3ec600e7e4523cb047239e3c27a3.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -88,15 +88,9 @@ Releases
 <input type="checkbox" id="m-docsquickstarts-check">
 <label for="m-docsquickstarts-check"><a href="/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsquickstarts"><span>Quick start guides</span></a></label>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartsexample-s3-li">
-<input type="checkbox" id="m-docsquickstartsexample-s3-check">
-<label for="m-docsquickstartsexample-s3-check"><a href="/docs/quickstarts/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartsexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartses-nginx-li">
-<input type="checkbox" id="m-docsquickstartses-nginx-check">
-<label for="m-docsquickstartses-nginx-check"><a href="/docs/quickstarts/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssyslog-ng-sumologic-li">
-<input type="checkbox" id="m-docsquickstartssyslog-ng-sumologic-check">
-<label for="m-docsquickstartssyslog-ng-sumologic-check"><a href="/docs/quickstarts/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquickstartssingle-li">
+<input type="checkbox" id="m-docsquickstartssingle-check">
+<label for="m-docsquickstartssingle-check"><a href="/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsquickstartssingle"><span>Single app, one destination</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfiguration-li">
 <input type="checkbox" id="m-docsconfiguration-check">
 <label for="m-docsconfiguration-check"><a href="/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfiguration"><span>Routing logs</span></a></label>
@@ -405,12 +399,21 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesexample-s3-li">
+<input type="checkbox" id="m-docsexamplesexample-s3-check">
+<label for="m-docsexamplesexample-s3-check"><a href="/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleses-nginx-li">
+<input type="checkbox" id="m-docsexampleses-nginx-check">
+<label for="m-docsexampleses-nginx-check"><a href="/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
 <input type="checkbox" id="m-docsexamplessumologic-check">
 <label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
+<label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexampleskafka-nginx-li">
 <input type="checkbox" id="m-docsexampleskafka-nginx-check">
 <label for="m-docsexampleskafka-nginx-check"><a href="/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
@@ -519,9 +522,9 @@ Releases
 </header><p>The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.</p><h2 id="check-syslog-ng-pod-status-statefulset">Check syslog-ng pod status (statefulset)</h2><p>Verify that the syslog-ng statefulset is available using the following command: <code>kubectl get statefulsets</code></p><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                   READY   AGE
 </span></span><span style="display:flex"><span>logging-demo-syslogng   1/1     1m
 </span></span></code></pre></div><h2 id="configcheck">ConfigCheck</h2><p>The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output. The result of the check is written into the <code>status</code> field of the corresponding <code>Logging</code> resource.</p><p>In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.</p><h2 id="check-syslog-ng-configuration">Check syslog-ng configuration</h2><p>Use the following command to display the configuration of syslog-ng:
-<code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p><a href="/docs/#support">Commercial support</a> is also available for the Logging operator.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 22, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7ccc5690247fa56fc3b5b18ff105f2068f3cd3d2">Merge pull request #176 from kube-logging/use-pagefind (7ccc569)</a>
+Last modified August 23, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cb120687435f152c0e8647d43f2c5172ba2a7ce7">Merge pull request #161 from kube-logging/quickstart-revamp (cb12068)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
