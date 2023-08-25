@@ -26,13 +26,13 @@ Overview of default readiness probes By default, Logging operator performs the f
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/readiness-probe/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-25T09:27:58+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-25T12:36:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Readiness probe">
 <meta itemprop="description" content="This section describes how to configure readiness probes for your Fluentd and syslog-ng pods. If you don&rsquo;t configure custom readiness probes, Logging operator uses the default probes.
 Prerequisites Configuring readiness probes requires Logging operator 3.14.0 or newer installed on the cluster. syslog-ng is supported only in Logging operator 4.0 or newer.
 Overview of default readiness probes By default, Logging operator performs the following readiness checks:
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
-<meta itemprop="dateModified" content="2023-08-25T09:27:58+00:00">
+<meta itemprop="dateModified" content="2023-08-25T12:36:59+02:00">
 <meta itemprop="wordCount" content="379">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Readiness probe">
@@ -581,7 +581,7 @@ Releases
 </span></span></span></code></pre></div><h2 id="custom-readiness-probes">Add custom readiness probes</h2><p>You can add your own custom readiness probes to the <strong>spec.ReadinessProbe</strong> section of the <strong>logging</strong> custom resource. For details on the format of readiness probes, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes">official Kubernetes documentation</a>.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p>If you set any custom readiness probes, they completely override the default probes.
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8773aac4b9a5ec3f5a7682739fd9796a69a5b750">Merge cd5c7c93beb6c6f8e638822c7bafbc1b9745f4ca into cb120687435f152c0e8647d43f2c5172ba2a7ce7 (8773aac)</a>
+Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/beea3535227b1b74c402bff04e310de8c03e860e">Merge pull request #179 from kube-logging/dependabot/github_actions/actions/checkout-3.6.0 (beea353)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

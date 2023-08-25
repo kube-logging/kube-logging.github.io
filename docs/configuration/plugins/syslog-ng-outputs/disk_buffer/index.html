@@ -26,13 +26,13 @@ Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-25T09:27:58+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-25T12:36:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Disk buffer">
 <meta itemprop="description" content="DiskBuffer The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 disk_buf_size (int64, required) This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.
 Default: -
 reliable (bool, required) If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash.">
-<meta itemprop="dateModified" content="2023-08-25T09:27:58+00:00">
+<meta itemprop="dateModified" content="2023-08-25T12:36:59+02:00">
 <meta itemprop="wordCount" content="211">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Disk buffer">
@@ -525,7 +525,7 @@ Releases
 <h1>Disk buffer</h1><header class="article-meta">
 </header><h2 id="diskbuffer">DiskBuffer</h2><p>The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side.
 For details on how <a href="https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/concepts-diskbuffer/">syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="diskbuffer-disk_buf_size">disk_buf_size (int64, required)</h3><p>This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.</p><p>Default: -</p><h3 id="diskbuffer-reliable">reliable (bool, required)</h3><p>If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash. This solution provides a slower, but reliable disk-buffer option.</p><p>Default: -</p><h3 id="diskbuffer-compaction">compaction (*bool, optional)</h3><p>Prunes the unused space in the LogMessage representation</p><p>Default: -</p><h3 id="diskbuffer-dir">dir (string, optional)</h3><p>Description: Defines the folder where the disk-buffer files are stored.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_length">mem_buf_length (*int64, optional)</h3><p>Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue.</p><p>Default: -</p><h3 id="diskbuffer-mem_buf_size">mem_buf_size (*int64, optional)</h3><p>Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer.</p><p>Default: -</p><h3 id="diskbuffer-q_out_size">q_out_size (*int64, optional)</h3><p>The number of messages stored in the output buffer of the destination.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8773aac4b9a5ec3f5a7682739fd9796a69a5b750">Merge cd5c7c93beb6c6f8e638822c7bafbc1b9745f4ca into cb120687435f152c0e8647d43f2c5172ba2a7ce7 (8773aac)</a>
+Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/beea3535227b1b74c402bff04e310de8c03e860e">Merge pull request #179 from kube-logging/dependabot/github_actions/actions/checkout-3.6.0 (beea353)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -22,11 +22,11 @@ Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-25T09:27:58+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-25T12:36:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="You can configure the deployment of the Fluentd log forwarder via the fluentd section of the The Logging custom resource. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see FluentdSpec.
 Custom pvc volume for Fluentd buffers apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: default-logging-simple spec: fluentd: bufferStorageVolume: pvc: spec: accessModes: - ReadWriteOnce resources: requests: storage: 40Gi storageClassName: fast volumeMode: Filesystem fluentbit: {} controlNamespace: logging Custom Fluentd hostPath volume for buffers apiVersion: logging.">
-<meta itemprop="dateModified" content="2023-08-25T09:27:58+00:00">
+<meta itemprop="dateModified" content="2023-08-25T12:36:59+02:00">
 <meta itemprop="wordCount" content="1321">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
@@ -717,7 +717,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
 <td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8773aac4b9a5ec3f5a7682739fd9796a69a5b750">Merge cd5c7c93beb6c6f8e638822c7bafbc1b9745f4ca into cb120687435f152c0e8647d43f2c5172ba2a7ce7 (8773aac)</a>
+Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/beea3535227b1b74c402bff04e310de8c03e860e">Merge pull request #179 from kube-logging/dependabot/github_actions/actions/checkout-3.6.0 (beea353)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

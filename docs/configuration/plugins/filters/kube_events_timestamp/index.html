@@ -30,7 +30,7 @@ Default: triggerts
 Example Kubernetes Events Timestamp filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: es-flow spec: filters: - kube_events_timestamp: timestamp_fields: - &#34;event.eventTime&#34; - &#34;event.lastTimestamp&#34; - &#34;event.firstTimestamp&#34; mapped_time_key: mytimefield selectors: {} localOutputRefs: - es-output Fluentd Config Result <filter **> @type kube_events_timestamp @id test-kube-events-timestamp timestamp_fields [&#34;event.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/kube_events_timestamp/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-25T09:27:58+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-25T12:36:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes Events Timestamp">
 <meta itemprop="description" content="Kubernetes Events Timestamp Filter Overview Fluentd Filter plugin to select particular timestamp into an additional field
 Configuration KubeEventsTimestampConfig timestamp_fields ([]string, optional) Time field names in order of relevance
@@ -38,7 +38,7 @@ Default: event.eventTime, event.lastTimestamp, event.firstTimestamp
 mapped_time_key (string, optional) Added time field name
 Default: triggerts
 Example Kubernetes Events Timestamp filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: es-flow spec: filters: - kube_events_timestamp: timestamp_fields: - &#34;event.eventTime&#34; - &#34;event.lastTimestamp&#34; - &#34;event.firstTimestamp&#34; mapped_time_key: mytimefield selectors: {} localOutputRefs: - es-output Fluentd Config Result <filter **> @type kube_events_timestamp @id test-kube-events-timestamp timestamp_fields [&#34;event.">
-<meta itemprop="dateModified" content="2023-08-25T09:27:58+00:00">
+<meta itemprop="dateModified" content="2023-08-25T12:36:59+02:00">
 <meta itemprop="wordCount" content="86">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Events Timestamp">
@@ -556,7 +556,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8773aac4b9a5ec3f5a7682739fd9796a69a5b750">Merge cd5c7c93beb6c6f8e638822c7bafbc1b9745f4ca into cb120687435f152c0e8647d43f2c5172ba2a7ce7 (8773aac)</a>
+Last modified August 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/beea3535227b1b74c402bff04e310de8c03e860e">Merge pull request #179 from kube-logging/dependabot/github_actions/actions/checkout-3.6.0 (beea353)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
