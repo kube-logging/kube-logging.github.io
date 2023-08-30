@@ -30,7 +30,7 @@ Default: _
 Example Dedot filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - dedot: de_dot_separator: &#34;-&#34; de_dot_nested: true selectors: {} localOutputRefs: - demo-output Fluentd Config Result <filter **> @type dedot @id test_dedot de_dot_nested true de_dot_separator - </filter> ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/dedot/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-28T11:30:00+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-30T15:04:49+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Dedot">
 <meta itemprop="description" content="Dedot Filter Overview Fluentd Filter plugin to de-dot field name for elasticsearch.
 Configuration DedotFilterConfig de_dot_nested (bool, optional) Will cause the plugin to recurse through nested structures (hashes and arrays), and remove dots in those key-names too.
@@ -38,7 +38,7 @@ Default: false
 de_dot_separator (string, optional) Separator
 Default: _
 Example Dedot filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - dedot: de_dot_separator: &#34;-&#34; de_dot_nested: true selectors: {} localOutputRefs: - demo-output Fluentd Config Result <filter **> @type dedot @id test_dedot de_dot_nested true de_dot_separator - </filter> ">
-<meta itemprop="dateModified" content="2023-08-28T11:30:00+00:00">
+<meta itemprop="dateModified" content="2023-08-30T15:04:49+02:00">
 <meta itemprop="wordCount" content="82">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dedot">
@@ -553,7 +553,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified August 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c1a04dc6b33285c96ce3a06bbe66ce42f98b6685">Merge 19ef5d41347417987ae2418cd422f5ae5d2dfebf into beea3535227b1b74c402bff04e310de8c03e860e (c1a04dc)</a>
+Last modified August 30, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d7ee0e31c376ae02cc0ec8198c6771979967dd9b">Merge pull request #180 from kube-logging/fix-pagefind-indexing-step (d7ee0e3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
