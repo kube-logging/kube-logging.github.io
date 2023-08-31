@@ -20,4 +20,4 @@ Logging operator uses the following image versions.
 | ghcr.io/kube-logging/fluentd | https://github.com/kube-logging/fluentd-images | v1.15-ruby3 |
 | ghcr.io/kube-logging/syslog-ng-exporter | https://github.com/kube-logging/syslog_ng_exporter | v0.0.16 |
 | ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | v1.3.1 |
-| ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/event-router | banzaicloud/eventrouter:v0.1.0 |
+| banzaicloud/eventrouter | https://github.com/kube-logging/event-router | v0.1.0 |
