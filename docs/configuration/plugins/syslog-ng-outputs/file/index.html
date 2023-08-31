@@ -32,7 +32,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-30T15:04:49+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
@@ -41,7 +41,7 @@ Default: -
 create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2023-08-30T15:04:49+02:00">
+<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
 <meta itemprop="wordCount" content="222">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -498,7 +498,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsoperationrequirements-li">
 <input type="checkbox" id="m-docsoperationrequirements-check">
 <label for="m-docsoperationrequirements-check"><a href="/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsoperationrequirements"><span>Resource requirements</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsimage-versions-li">
+<input type="checkbox" id="m-docsimage-versions-check">
+<label for="m-docsimage-versions-check"><a href="/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -540,7 +543,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-file/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="fileoutput-path">path (string, required)</h3><p>Store file path</p><p>Default: -</p><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-owner().</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the create-dirs() option). For octal numbers prefix the number with 0, for example use 0755 for rwxr-xr-x.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-template">template (string, optional)</h3><p>Default: -</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 30, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d7ee0e31c376ae02cc0ec8198c6771979967dd9b">Merge pull request #180 from kube-logging/fix-pagefind-indexing-step (d7ee0e3)</a>
+Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

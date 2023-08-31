@@ -22,11 +22,11 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/example-s3/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-30T15:04:49+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Transport all logs into Amazon S3  with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2023-08-30T15:04:49+02:00">
+<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
 <meta itemprop="wordCount" content="464">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transport all logs into Amazon S3  with Logging operator">
@@ -478,7 +478,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsoperationrequirements-li">
 <input type="checkbox" id="m-docsoperationrequirements-check">
 <label for="m-docsoperationrequirements-check"><a href="/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsoperationrequirements"><span>Resource requirements</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsimage-versions-li">
+<input type="checkbox" id="m-docsimage-versions-check">
+<label for="m-docsimage-versions-check"><a href="/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -602,7 +605,7 @@ Releases
 </span></span></code></pre></div><p>Check the output. The logs will be available in the bucket on a <code>path</code> like:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>/logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 </span></span></code></pre></div><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 30, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d7ee0e31c376ae02cc0ec8198c6771979967dd9b">Merge pull request #180 from kube-logging/fix-pagefind-indexing-step (d7ee0e3)</a>
+Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

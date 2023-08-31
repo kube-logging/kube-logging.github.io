@@ -30,7 +30,7 @@ Default: triggerts
 Example Kubernetes Events Timestamp filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: es-flow spec: filters: - kube_events_timestamp: timestamp_fields: - &#34;event.eventTime&#34; - &#34;event.lastTimestamp&#34; - &#34;event.firstTimestamp&#34; mapped_time_key: mytimefield selectors: {} localOutputRefs: - es-output Fluentd Config Result <filter **> @type kube_events_timestamp @id test-kube-events-timestamp timestamp_fields [&#34;event.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/kube_events_timestamp/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-30T15:04:49+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes Events Timestamp">
 <meta itemprop="description" content="Kubernetes Events Timestamp Filter Overview Fluentd Filter plugin to select particular timestamp into an additional field
 Configuration KubeEventsTimestampConfig timestamp_fields ([]string, optional) Time field names in order of relevance
@@ -38,7 +38,7 @@ Default: event.eventTime, event.lastTimestamp, event.firstTimestamp
 mapped_time_key (string, optional) Added time field name
 Default: triggerts
 Example Kubernetes Events Timestamp filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: es-flow spec: filters: - kube_events_timestamp: timestamp_fields: - &#34;event.eventTime&#34; - &#34;event.lastTimestamp&#34; - &#34;event.firstTimestamp&#34; mapped_time_key: mytimefield selectors: {} localOutputRefs: - es-output Fluentd Config Result <filter **> @type kube_events_timestamp @id test-kube-events-timestamp timestamp_fields [&#34;event.">
-<meta itemprop="dateModified" content="2023-08-30T15:04:49+02:00">
+<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
 <meta itemprop="wordCount" content="86">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Events Timestamp">
@@ -494,7 +494,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsoperationrequirements-li">
 <input type="checkbox" id="m-docsoperationrequirements-check">
 <label for="m-docsoperationrequirements-check"><a href="/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsoperationrequirements"><span>Resource requirements</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsimage-versions-li">
+<input type="checkbox" id="m-docsimage-versions-check">
+<label for="m-docsimage-versions-check"><a href="/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -556,7 +559,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified August 30, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d7ee0e31c376ae02cc0ec8198c6771979967dd9b">Merge pull request #180 from kube-logging/fix-pagefind-indexing-step (d7ee0e3)</a>
+Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

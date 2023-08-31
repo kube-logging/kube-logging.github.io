@@ -24,12 +24,12 @@ However, in a large-scale infrastructure, where the number of resources is large
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/optimization/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-30T15:04:49+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Optimization">
 <meta itemprop="description" content="Watch specific resources The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.
 However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
-<meta itemprop="dateModified" content="2023-08-30T15:04:49+02:00">
+<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
 <meta itemprop="wordCount" content="132">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization">
@@ -482,7 +482,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsoperationrequirements-li">
 <input type="checkbox" id="m-docsoperationrequirements-check">
 <label for="m-docsoperationrequirements-check"><a href="/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsoperationrequirements"><span>Resource requirements</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsimage-versions-li">
+<input type="checkbox" id="m-docsimage-versions-check">
+<label for="m-docsimage-versions-check"><a href="/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -515,7 +518,7 @@ Releases
 <h1>Optimization</h1><header class="article-meta">
 </header><h2 id="watch-specific-resources">Watch specific resources</h2><p>The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.</p><p>However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.</p><p>Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.</p><ul>
 <li><code>watch-namespace</code>: Watch only objects in this namespace. Note that even if the <code>watch-namespace</code> option is set, the operator must watch certain objects (like <code>Flows</code> and <code>Outputs</code>) in every namespace.</li><li><code>watch-logging-name</code>: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the <code>app.kubernetes.io/managed-by</code> label.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 30, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d7ee0e31c376ae02cc0ec8198c6771979967dd9b">Merge pull request #180 from kube-logging/fix-pagefind-indexing-step (d7ee0e3)</a>
+Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
