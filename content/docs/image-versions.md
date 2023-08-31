@@ -9,7 +9,6 @@ Logging operator uses the following image versions.
 
 | Image repository | GitHub repository | Version |
 | -------- | --- | -- |
-| ghcr.io/kube-logging/custom-runner | https://github.com/kube-logging/custom-runner | v0.7.0 |
 | ghcr.io/kube-logging/node-exporter | https://github.com/kube-logging/node-exporter-image | v0.6.1 |
 | ghcr.io/kube-logging/config-reloader | https://github.com/kube-logging/config-reloader | v0.0.5 |
 | ghcr.io/kube-logging/fluentd-drain-watch | https://github.com/kube-logging/fluentd-drain-watch | v0.2.0 |
