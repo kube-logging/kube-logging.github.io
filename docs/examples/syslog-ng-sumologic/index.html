@@ -30,7 +30,7 @@ To configure a Hosted Collector, complete the steps in the Configure a Hosted Co
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/syslog-ng-sumologic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-05T09:15:13+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Sumo Logic with Logging operator and syslog-ng">
 <meta itemprop="description" content="This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.
 Prerequisites We assume that you already have:
@@ -38,7 +38,7 @@ A Sumo Logic account.
 A HTTP Hosted Collector configured in the Sumo Logic service.
 To configure a Hosted Collector, complete the steps in the Configure a Hosted Collector section on the official Sumo Logic website.
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
-<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
+<meta itemprop="dateModified" content="2023-09-05T09:15:13+00:00">
 <meta itemprop="wordCount" content="467">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sumo Logic with Logging operator and syslog-ng">
@@ -652,7 +652,7 @@ Releases
 <p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
 </span></span></code></pre></div></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
+Last modified September 5, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/0895ea8ab0944c2228d6e842260ca4ecc744f9bf">Merge f8a4c813dd369c522c9bccb25c34fb6363e45463 into 2c7faf2090642856590cdc47d805c39f913680c1 (0895ea8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -30,7 +30,7 @@ Default: -
 key_file (*secret.Secret, optional) The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/tls/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-05T09:15:13+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="TLS config for syslog-ng outputs">
 <meta itemprop="description" content="TLS config for syslog-ng outputs Overview More info at https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/32#kanchor2338
 Configuration TLS ca_dir (*secret.Secret, optional) The name of a directory that contains a set of trusted CA certificates in PEM format. more information
@@ -38,7 +38,7 @@ Default: -
 ca_file (*secret.Secret, optional) The name of a file that contains a set of trusted CA certificates in PEM format. (Optional) more information
 Default: -
 key_file (*secret.Secret, optional) The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key.">
-<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
+<meta itemprop="dateModified" content="2023-09-05T09:15:13+00:00">
 <meta itemprop="wordCount" content="188">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TLS config for syslog-ng outputs">
@@ -535,7 +535,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>TLS config for syslog-ng outputs</h1><header class="article-meta">
 </header><h1 id="tls-config-for-syslog-ng-outputs">TLS config for syslog-ng outputs</h1><h2 id="overview">Overview</h2><p>More info at <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/32#kanchor2338">https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/32#kanchor2338</a></p><h2 id="configuration">Configuration</h2><h2 id="tls">TLS</h2><h3 id="tls-ca_dir">ca_dir (*secret.Secret, optional)</h3><p>The name of a directory that contains a set of trusted CA certificates in PEM format. <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#kanchor3142">more information</a></p><p>Default: -</p><h3 id="tls-ca_file">ca_file (*secret.Secret, optional)</h3><p>The name of a file that contains a set of trusted CA certificates in PEM format. (Optional) <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#kanchor3144">more information</a></p><p>Default: -</p><h3 id="tls-key_file">key_file (*secret.Secret, optional)</h3><p>The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key. <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#kanchor3163">more information</a></p><p>Default: -</p><h3 id="tls-cert_file">cert_file (*secret.Secret, optional)</h3><p>Name of a file, that contains an X.509 certificate (or a certificate chain) in PEM format, suitable as a TLS certificate, matching the private key set in the key-file() option. <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#kanchor3146">more information</a></p><p>Default: -</p><h3 id="tls-peer_verify">peer_verify (string, optional)</h3><p>Verification method of the peer. <a href="https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.37/administration-guide/73#tls-options-peer-verify">more information</a></p><p>Default: -</p><h3 id="tls-use-system-cert-store">use-system-cert-store (*bool, optional)</h3><p>Use the certificate store of the system for verifying HTTPS certificates. <a href="https://curl.se/docs/sslcerts.html">more information</a></p><p>Default: -</p><h3 id="tls-cipher-suite">cipher-suite (string, optional)</h3><p>Description: Specifies the cipher, hash, and key-exchange algorithms used for the encryption, for example, ECDHE-ECDSA-AES256-SHA384. The list of available algorithms depends on the version of OpenSSL used to compile syslog-ng OSE</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
+Last modified September 5, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/0895ea8ab0944c2228d6e842260ca4ecc744f9bf">Merge f8a4c813dd369c522c9bccb25c34fb6363e45463 into 2c7faf2090642856590cdc47d805c39f913680c1 (0895ea8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
