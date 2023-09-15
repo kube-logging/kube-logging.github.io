@@ -106,7 +106,13 @@ Default: -
 
 ### stats (*Stats, optional) {#globaloptions-stats}
 
-TODO switch to this by default 
+See the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-global-options/reference-options/#global-option-stats)
+
+Default: -
+
+### log_level (*string, optional) {#globaloptions-log_level}
+
+See the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-global-options/reference-options/#global-options-log-level)
 
 Default: -
 

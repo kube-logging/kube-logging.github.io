@@ -202,6 +202,10 @@ Default: -
 
 Default: -
 
+### bufferVolumeResources (corev1.ResourceRequirements, optional) {#fluentbitspec-buffervolumeresources}
+
+Default: -
+
 ### customConfigSecret (string, optional) {#fluentbitspec-customconfigsecret}
 
 Default: -
@@ -607,7 +611,7 @@ Default: "0"
 
 ### Kube_URL (string, optional) {#filterkubernetes-kube_url}
 
-API Server end-point (default: `https://kubernetes.default.svc:443`)
+API Server end-point.
 
 Default: `https://kubernetes.default.svc:443`
 
