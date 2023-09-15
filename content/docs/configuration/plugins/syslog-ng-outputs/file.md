@@ -15,6 +15,8 @@ The `file` output stores log records in a plain text file.
 
 For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-file/).
 
+## Configuration
+
 ### path (string, required) {#fileoutput-path}
 
 Store file path 
