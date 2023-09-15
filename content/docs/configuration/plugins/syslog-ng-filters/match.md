@@ -42,9 +42,9 @@ Default: -
 Default: -
 
 
-## [Regexp Directive](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-template-functions/#template-function-list) {#Regexp-Directive}
+## Regexp Directive {#Regexp-Directive}
 
-Specify filtering rule.
+Specify filtering rule. For details, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-template-functions/#template-function-list)
 
 ### pattern (string, required) {#regexp-directive-pattern}
 

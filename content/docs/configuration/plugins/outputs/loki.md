@@ -115,6 +115,12 @@ Configure Kubernetes metadata in a Prometheus like format
 
 Default:  false
 
+### include_thread_label (*bool, optional) {#output-config-include_thread_label}
+
+whether to include the fluentd_thread label when multiple threads are used for flushing.  
+
+Default:  true
+
 ### buffer (*Buffer, optional) {#output-config-buffer}
 
 [Buffer](../buffer/) 
