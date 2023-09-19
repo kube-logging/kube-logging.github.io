@@ -61,7 +61,7 @@ spec:
 
 ### Istio support
 
-By default, Logging operator now doesn't inject the istio sidecar into jobs/individual pods that run to completion. Configuration checkers and Fluentd drainer pods now have `sidecar.istio.io/inject` set to `false` by default. You can configure Fluentd drainer labels in the Logging spec.
+By default, Logging operator adds a label to avoid injecting the Istio sidecar into jobs/individual pods that run to completion. Configuration checkers and Fluentd drainer pods now have `sidecar.istio.io/inject` set to `false` by default. You can configure Fluentd drainer labels in the Logging spec.
 
 For non-istio users, these changes make no difference, as this label is only used in Istio context. For Istio users, these defaults make Logging operator work out of the box.
 
