@@ -25,7 +25,9 @@ Logging operator now supports hard multitenancy and namespace-based routing. For
 
 ### Forwarder logs
 
-Logging operator now doesn't forward the logs of the Fluentd and syslog-ng forwarders to the configured outputs to avoid infinite message loops. The logs of Fluentd and syslog-ng are now sent to the standard output of their pods, so you can access them by running `kubectl logs <name-of-forwarder-pod>`
+Fluent-bit now doesn't process the logs of the Fluentd and syslog-ng forwarders by default to avoid infinitely growing message loops. With this Fluentd and syslog-ng logs can simply be accessed by running `kubectl logs <name-of-forwarder-pod>`
+
+In a future version of the logging operator the logs of the aggregators will also be available for routing to external outputs.
 
 ### Timeout-based configuration checks
 
