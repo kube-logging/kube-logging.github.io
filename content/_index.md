@@ -61,7 +61,7 @@ The Logging operator <b>manages the log collectors and log forwarders</b> of you
 </div>
 {{% /blocks/lead %}}
 
-{{< blocks/section color="dark" type="features">}}
+{{< blocks/section color="primary" type="features">}}
 {{% blocks/feature icon="fa-lightbulb" title="Learn more about Logging operator!" url="/docs/" %}}
 Read the Logging operator documentation.
 {{% /blocks/feature %}}
@@ -74,3 +74,11 @@ We do a [Pull Request](https://github.com/kube-logging/logging-operator/pulls) c
 In case you need help, you can find on <a href="https://join.slack.com/t/emergingtechcommunity/shared_invite/zt-1rw2jl0ht-yNdyFgBFlc%7Eyzo9AnE4FbA">Slack</a> and <a href="https://discord.gg/9ACY4RDsYN">Discord</a>.
 {{% /blocks/feature %}}
 {{< /blocks/section >}}
+
+{{% blocks/lead color="dark" %}}
+<div class="lead-text">
+<p>We are a <a href="https://www.cncf.io/projects/">Cloud Native Computing Foundation sandbox project</a>.</p>
+
+<a href="https://www.cncf.io/" target="_blank"><img src="https://raw.githubusercontent.com/cncf/artwork/master/other/cncf/horizontal/white/cncf-white.svg" width="33%"></img></a>
+</div>
+{{% /blocks/lead %}}
