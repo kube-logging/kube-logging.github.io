@@ -12,6 +12,7 @@ The following are the highlights and main changes of Logging operator 4.4. For a
 When using syslog-ng as the log aggregator, you can now use the following new outputs:
 
 - [ElasticSearch]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/elasticsearch.md" >}})
+- [Grafana Loki]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/loki.md" >}})
 - [MongoDB]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/mongodb.md" >}})
 - [Redis]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/redis.md" >}})
 - [Splunk HEC]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/splunk_hec.md" >}})
@@ -25,9 +26,9 @@ Logging operator now supports hard multitenancy and namespace-based routing. For
 
 ### Forwarder logs
 
-Fluent-bit now doesn't process the logs of the Fluentd and syslog-ng forwarders by default to avoid infinitely growing message loops. With this Fluentd and syslog-ng logs can simply be accessed by running `kubectl logs <name-of-forwarder-pod>`
+Fluent-bit now doesn't process the logs of the Fluentd and syslog-ng forwarders by default to avoid infinitely growing message loops. With this change, you can access Fluentd and syslog-ng logs simply by running `kubectl logs <name-of-forwarder-pod>`
 
-In a future version of the logging operator the logs of the aggregators will also be available for routing to external outputs.
+In a future Logging operator version the logs of the aggregators will also be available for routing to external outputs.
 
 ### Timeout-based configuration checks
 
