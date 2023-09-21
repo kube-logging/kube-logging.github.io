@@ -75,3 +75,7 @@ For non-istio users, these changes make no difference, as this label is only use
 ### Image and dependency updates
 
 For the list of images used in Logging operator, see {{% xref "/docs/image-versions.md" %}}.
+
+Fluentd images with versions `v1.14` and `v1.15` are now EOL due to the fact they are based on ruby 2.7 which is EOL as well.
+
+The currently supported image is [v1.15-ruby3](https://github.com/kube-logging/fluentd-images/tree/main/v1.15-ruby3) and build configuration for [https://github.com/kube-logging/fluentd-images/tree/main/v1.15-staging](v1.15-staging) is available for staging experimental changes.
