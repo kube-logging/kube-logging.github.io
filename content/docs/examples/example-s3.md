@@ -133,8 +133,10 @@ Install the Logging operator.
 
 Check fluentd logs (errors with AWS credentials should be visible here):
 ```bash
-kubectl exec -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
+kubectl logs -f -n logging default-logging-simple-fluentd-0 -c fluentd
 ```
+
+{{< include-headless "note-fluentd-logs.md" >}}
 
 Check the output. The logs will be available in the bucket on a `path` like:
 ```bash

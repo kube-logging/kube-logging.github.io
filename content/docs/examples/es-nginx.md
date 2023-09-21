@@ -167,8 +167,10 @@ To validate that the deployment was successful, complete the following steps.
 
 1. Check fluentd logs:
    ```bash
-   kubectl exec -ti -n logging default-logging-simple-fluentd-0 -- tail -f /fluentd/log/out
+   kubectl logs -f -n logging default-logging-simple-fluentd-0 -c fluentd
    ```
+
+   {{< include-headless "note-fluentd-logs.md" >}}
 
 1. Use the following command to retrieve the password of the `elastic` user:
 

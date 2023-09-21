@@ -52,10 +52,9 @@ spec:
 
 The following snippet redirects Fluentd's stdout to a file and configures rotation settings.
 
-This is important to avoid Fluentd getting into a ripple effect when there is an error and the error message gets back to the system as a log message, which generates another error, and so on.
+This mechanism was used prior to version 4.4 to avoid Fluent-bit rereading Fluentd's logs and causing an exponentially growing amount of redundant logs. 
 
-Default settings configured by the operator:
-
+Example configuration used by the operator in version 4.3 and earlier (keep 10 files, 10M each):
 ```yaml
 spec:
   fluentd:
@@ -66,14 +65,7 @@ spec:
       size: 10485760
 ```
 
-Disabling it and write to stdout (not recommended):
-
-```yaml
-spec:
-  fluentd:
-    fluentOutLogrotate:
-      enabled: false
-```
+Fluentd logs are now excluded using the `fluentbit.io/exclude: "true"` annotation.
 
 ## Scaling
 
