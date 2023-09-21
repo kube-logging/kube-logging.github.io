@@ -111,7 +111,10 @@ spec:
 ## Get Fluentd logs
 
 The following command displays the logs of the Fluentd container.
-`kubectl logs -f logging-demo-fluentd-0 -c fluentd`
+
+```bash
+kubectl logs -f logging-demo-fluentd-0 -c fluentd
+```
 
 {{< include-headless "note-fluentd-logs.md" >}}
 
