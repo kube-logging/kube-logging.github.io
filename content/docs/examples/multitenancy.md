@@ -1,6 +1,6 @@
 ---
 title: Namespace-based multitenancy
-weight: 350
+weight: 600
 ---
 
 Namespace-based multitenancy allows you have multiple tenants (for example, different developer teams) on the same cluster who can configure their own logging resources within their assigned namespaces.
