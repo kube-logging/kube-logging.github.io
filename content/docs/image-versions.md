@@ -19,7 +19,7 @@ Logging operator uses the following image versions.
 | ghcr.io/kube-logging/fluentd | https://github.com/kube-logging/fluentd-images | v1.15-ruby3 |
 | ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.2 |
 | ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | v1.3.1 |
-| banzaicloud/eventrouter | https://github.com/kube-logging/event-router | v0.4.0 |
+| ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/eventrouter | v0.4.0 |
 
 The following images are new replaced
 
