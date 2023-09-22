@@ -22,6 +22,13 @@ Logging operator uses the following image versions.
 | ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | v1.3.1 |
 | banzaicloud/eventrouter | https://github.com/kube-logging/event-router | v0.4.0 |
 
+The following images are new replaced
+
+| Image used in 4.3 | New image in 4.4 |
+| -------- | --- | -- |
+| banzaicloud/eventrouter | ghcr.io/kube-logging/eventrouter |
+| ghcr.io/kube-logging/syslog-ng-exporter | ghcr.io/axoflow/axosyslog-metrics-exporter  |
+
 ## Logging operator version 4.3
 
 | Image repository | GitHub repository | Version |
