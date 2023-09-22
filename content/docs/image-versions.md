@@ -17,7 +17,6 @@ Logging operator uses the following image versions.
 | ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog-docker/ | 4.3.1 |
 | docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit-docker-image | 2.1.8 |
 | ghcr.io/kube-logging/fluentd | https://github.com/kube-logging/fluentd-images | v1.15-ruby3 |
-| ghcr.io/kube-logging/syslog-ng-exporter | https://github.com/kube-logging/syslog_ng_exporter | replaced with ghcr.io/axoflow/axosyslog-metrics-exporter |
 | ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.2 |
 | ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | v1.3.1 |
 | banzaicloud/eventrouter | https://github.com/kube-logging/event-router | v0.4.0 |
