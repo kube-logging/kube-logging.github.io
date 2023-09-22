@@ -8,24 +8,20 @@ Based on the [Redis destination of AxoSyslog core](https://axoflow.com/docs/axos
 
 ## Example
 
- {{< highlight yaml >}}
- apiVersion: logging.banzaicloud.io/v1beta1
- kind: SyslogNGOutput
- metadata:
-
-	name: redis
-	namespace: default
-
- spec:
-
-	redis:
-	  host: 127.0.0.1
-	  port: 6379
-	  retries: 3
-	  throttle: 0
-	  time-reopen: 60
-	  workers: 1
-
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: redis
+  namespace: default
+spec:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    retries: 3
+    throttle: 0
+    time-reopen: 60
+    workers: 1
  {{</ highlight >}}
 
 ## Configuration
