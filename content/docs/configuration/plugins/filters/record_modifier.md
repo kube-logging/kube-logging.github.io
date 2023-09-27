@@ -80,19 +80,19 @@ spec:
 
 Specify replace rule. This directive contains three parameters.
 
-### key (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-key}
+### key (string, required) {#replace-directive-replace_keys_value-key}
 
 Key to search for 
 
 Default: -
 
-### expression (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-expression}
+### expression (string, required) {#replace-directive-replace_keys_value-expression}
 
 Regular expression 
 
 Default: -
 
-### replace (string, required) {#[replace directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)-replace}
+### replace (string, required) {#replace-directive-replace_keys_value-replace}
 
 Value to replace with 
 
