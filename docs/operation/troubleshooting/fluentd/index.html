@@ -26,13 +26,13 @@ Expected output:
 NAME READY AGE logging-demo-fluentd 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated fluentd configuration before applying it to fluentd. You should be able to see the configcheck pod and its log output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Troubleshooting Fluentd">
 <meta itemprop="description" content="The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.
 Check Fluentd pod status (statefulset) Verify that the Fluentd statefulset is available using the following command: kubectl get statefulsets
 Expected output:
 NAME READY AGE logging-demo-fluentd 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated fluentd configuration before applying it to fluentd. You should be able to see the configcheck pod and its log output.">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="527">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshooting Fluentd">
@@ -247,7 +247,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -611,7 +611,7 @@ Releases
 </span></span><span style="display:flex"><span>logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a996ff2671.buffer.meta
 </span></span></code></pre></div><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

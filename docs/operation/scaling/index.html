@@ -24,12 +24,12 @@ CAUTION:
 When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/scaling/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Scaling">
 <meta itemprop="description" content="In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when fluentd cannot handle its buffer directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can scale the fluentd statefulset.
 CAUTION:
 When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="163">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scaling">
@@ -243,7 +243,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -516,7 +516,7 @@ Releases
 </header><p>In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when <code>fluentd</code> cannot handle its <a href="../../configuration/plugins/outputs/buffer/">buffer</a> directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can <a href="/docs/logging-infrastructure/fluentd/#scaling">scale the fluentd statefulset</a>.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p><p>When scaling down Fluentd, the Logging operator does not flush the buffers before terminating the pod. Unless you have a good plan to get the data out from the detached PVC, we don&rsquo;t recommend scaling Fluentd down directly from the Logging operator.</p><p>To avoid this problem, you can either write a custom readiness check to get the last pod out from the endpoints of the service, and stop the node only when its buffers are empty.</p></div><blockquote>
 <p>Note: When multiple instances send logs to the same output, the output can receive chunks of messages out of order. Some outputs tolerate this (for example, Elasticsearch), some do not, some require fine tuning (for example, Loki).</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

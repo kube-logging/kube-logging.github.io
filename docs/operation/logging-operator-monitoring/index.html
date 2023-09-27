@@ -24,12 +24,12 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="653">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
@@ -243,7 +243,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -722,7 +722,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

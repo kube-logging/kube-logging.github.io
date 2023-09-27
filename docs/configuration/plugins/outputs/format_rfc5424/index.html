@@ -36,7 +36,7 @@ Default: app_name
 proc_id_field (string, optional) Sets proc id in syslog from field in fluentd, delimited by &lsquo;.&rsquo;">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/format_rfc5424/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Format rfc5424">
 <meta itemprop="description" content="FormatRfc5424 type (string, optional) Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value
 Default: json
@@ -47,7 +47,7 @@ Default: hostname
 app_name_field (string, optional) Sets app name in syslog from field in fluentd, delimited by &lsquo;.&rsquo;
 Default: app_name
 proc_id_field (string, optional) Sets proc id in syslog from field in fluentd, delimited by &lsquo;.&rsquo;">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="124">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Format rfc5424">
@@ -267,7 +267,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -541,13 +541,13 @@ Releases
 </li><li class="breadcrumb-item">
 <a href="https://kube-logging.dev/docs/configuration/plugins/">Supported Plugins</a>
 </li><li class="breadcrumb-item">
-<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Outputs</a>
+<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Fluentd outputs</a>
 </li><li class="breadcrumb-item active" aria-current="page">
 <a href="https://kube-logging.dev/docs/configuration/plugins/outputs/format_rfc5424/" aria-disabled="true" class="btn-link disabled">Format rfc5424</a>
 </li></ol></nav><div class="td-content">
 <h1>Format rfc5424</h1><header class="article-meta">
 </header><h2 id="formatrfc5424">FormatRfc5424</h2><h3 id="formatrfc5424-type">type (string, optional)</h3><p>Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value</p><p>Default: json</p><h3 id="formatrfc5424-rfc6587_message_size">rfc6587_message_size (*bool, optional)</h3><p>Prepends message length for syslog transmission</p><p>Default: true</p><h3 id="formatrfc5424-hostname_field">hostname_field (string, optional)</h3><p>Sets host name in syslog from field in fluentd, delimited by &lsquo;.&rsquo;</p><p>Default: hostname</p><h3 id="formatrfc5424-app_name_field">app_name_field (string, optional)</h3><p>Sets app name in syslog from field in fluentd, delimited by &lsquo;.&rsquo;</p><p>Default: app_name</p><h3 id="formatrfc5424-proc_id_field">proc_id_field (string, optional)</h3><p>Sets proc id in syslog from field in fluentd, delimited by &lsquo;.&rsquo;</p><p>Default: proc_id</p><h3 id="formatrfc5424-message_id_field">message_id_field (string, optional)</h3><p>Sets msg id in syslog from field in fluentd, delimited by &lsquo;.&rsquo;</p><p>Default: message_id</p><h3 id="formatrfc5424-structured_data_field">structured_data_field (string, optional)</h3><p>Sets structured data in syslog from field in fluentd, delimited by &lsquo;.&rsquo; (default structured_data)</p><p>Default: -</p><h3 id="formatrfc5424-log_field">log_field (string, optional)</h3><p>Sets log in syslog from field in fluentd, delimited by &lsquo;.&rsquo;</p><p>Default: log</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

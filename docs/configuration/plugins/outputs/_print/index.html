@@ -16,14 +16,14 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Outputs | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
-<meta property="og:title" content="Outputs">
+<title>Fluentd outputs | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
+<meta property="og:title" content="Fluentd outputs">
 <meta property="og:description" content="Documentation for the Logging operator">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/"><meta property="og:site_name" content="Logging operator">
-<meta itemprop="name" content="Outputs">
+<meta itemprop="name" content="Fluentd outputs">
 <meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Outputs">
+<meta name="twitter:title" content="Fluentd outputs">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
@@ -63,7 +63,7 @@ This is the multi-page printable view of this section.
 <a href="#" onclick="return print(),!1">Click here to print</a>.
 </p><p>
 <a href="/docs/configuration/plugins/outputs/">Return to the regular view of this page</a>.
-</p></div><h1 class="title">Outputs</h1><ul>
+</p></div><h1 class="title">Fluentd outputs</h1><ul>
 <li>1: <a href="#pg-28f1e98e5b5c5f770fb8b2e592e1abf0">Alibaba Cloud</a></li><li>2: <a href="#pg-aeea1cd1922e8ddddba7f377f910cc60">Amazon CloudWatch</a></li><li>3: <a href="#pg-2b59c5fb4b2ccfdb47e90229617f245a">Amazon Elasticsearch</a></li><li>4: <a href="#pg-dec03311d9f65d4bec85b8a63c46e105">Amazon Kinesis</a></li><li>5: <a href="#pg-0309d186051d45cea94e4ea4a3d95907">Amazon Kinesis</a></li><li>6: <a href="#pg-f6b80b815b14c83b2fe835b820aa13d0">Amazon S3</a></li><li>7: <a href="#pg-3fa3b93039c08434aba115eb9ab22b12">Azure Storage</a></li><li>8: <a href="#pg-67bcee478125d9574288135a71954591">Buffer</a></li><li>9: <a href="#pg-cfa15a5d894da7ae0606dc5571b76531">Datadog</a></li><li>10: <a href="#pg-d4855c4f7dc79bc11e74c046473de585">Elasticsearch</a></li><li>11: <a href="#pg-11b10c2ba394f448a129e3e87a7da45d">File</a></li><li>12: <a href="#pg-ebcbedef5be28c9f30752486b0b2b01b">Format</a></li><li>13: <a href="#pg-88fc6991b80563054a472b95a994e01b">Format rfc5424</a></li><li>14: <a href="#pg-ed0a10704a55da5f7330009ec393e387">Forward</a></li><li>15: <a href="#pg-18e50786ba4697ffac3ab83b4c57e6e5">GELF</a></li><li>16: <a href="#pg-a6993ae75e6633de7954ded98992861c">Google Cloud Storage</a></li><li>17: <a href="#pg-a56bffbadd1b6a7c1ede4f727316205c">Grafana Loki</a></li><li>18: <a href="#pg-ae38f1f9de3603c1e55fe2fb4eeba9b0">Http</a></li><li>19: <a href="#pg-1b992ac5779a83a537b40f5defa1bfa5">Kafka</a></li><li>20: <a href="#pg-3736a73536ae2ea19873950bfc5c1521">LogDNA</a></li><li>21: <a href="#pg-f5b4f39075d38f596892cbc946ca5735">LogZ</a></li><li>22: <a href="#pg-683bbb879ced9c27f3943b7a4809b29e">Mattermost</a></li><li>23: <a href="#pg-434371d7a3888abd2a15c4cd22f941cc">NewRelic</a></li><li>24: <a href="#pg-bb72140946679f3fa6eaf82e404ea444">OpenSearch</a></li><li>25: <a href="#pg-ef25dbf7203fc85cd0c4a189a702360a">Redis</a></li><li>26: <a href="#pg-67b66da64354abd24b6cf4012f300c3a">Relabel</a></li><li>27: <a href="#pg-65dde214a849324898de8fc0878b8ff4">Splunk</a></li><li>28: <a href="#pg-f239285458b59ea6270063a2b99b095d">SQS</a></li><li>29: <a href="#pg-ae2cf65122129146578f128193f9e75d">SumoLogic</a></li><li>30: <a href="#pg-014aa24ff26bb6369dc8484f097d845d">Syslog</a></li><li>31: <a href="#pg-3effea023502f5f282b1bcfc984721f7">Secret definition</a></li></ul><div class="content">
 </div></div><div class="td-content">
 <h1 id="pg-28f1e98e5b5c5f770fb8b2e592e1abf0">1 - Alibaba Cloud</h1><h1 id="aliyun-oss-plugin-for-fluentd">Aliyun OSS plugin for Fluentd</h1><h2 id="overview">Overview</h2><p><strong>Fluent OSS output plugin</strong> buffers event logs in local files and uploads them to OSS periodically in background threads.</p><p>This plugin splits events by using the timestamp of event logs. For example, a log &lsquo;2019-04-09 message Hello&rsquo; is reached, and then another log &lsquo;2019-04-10 message World&rsquo; is reached in this order, the former is stored in &ldquo;20190409.gz&rdquo; file, and latter in &ldquo;20190410.gz&rdquo; file.</p><p><strong>Fluent OSS input plugin</strong> reads data from OSS periodically.</p><p>This plugin uses MNS on the same region of the OSS bucket. We must setup MNS and OSS event notification before using this plugin.</p><p><a href="https://help.aliyun.com/document_detail/52656.html">This document</a> shows how to setup MNS and OSS event notification.</p><p>This plugin will poll events from MNS queue and extract object keys from these events, and then will read those objects from OSS.

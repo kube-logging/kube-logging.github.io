@@ -34,7 +34,7 @@ Default: -
 azure_storage_sas_token (*secret.Secret, optional) Your azure storage sas token Secret">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/azurestore/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Azure Storage">
 <meta itemprop="description" content="Azure Storage output plugin for Fluentd Overview Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically. More info at https://github.com/microsoft/fluent-plugin-azure-storage-append-blob
 Configuration Output Config path (string, optional) Path prefix of the files on Azure
@@ -44,7 +44,7 @@ Default: -
 azure_storage_access_key (*secret.Secret, optional) Your azure storage access key Secret
 Default: -
 azure_storage_sas_token (*secret.Secret, optional) Your azure storage sas token Secret">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Azure Storage">
@@ -263,7 +263,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -537,14 +537,14 @@ Releases
 </li><li class="breadcrumb-item">
 <a href="https://kube-logging.dev/docs/configuration/plugins/">Supported Plugins</a>
 </li><li class="breadcrumb-item">
-<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Outputs</a>
+<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Fluentd outputs</a>
 </li><li class="breadcrumb-item active" aria-current="page">
 <a href="https://kube-logging.dev/docs/configuration/plugins/outputs/azurestore/" aria-disabled="true" class="btn-link disabled">Azure Storage</a>
 </li></ol></nav><div class="td-content">
 <h1>Azure Storage</h1><header class="article-meta">
 </header><h1 id="azure-storage-output-plugin-for-fluentd">Azure Storage output plugin for Fluentd</h1><h2 id="overview">Overview</h2><p>Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically.
 More info at <a href="https://github.com/microsoft/fluent-plugin-azure-storage-append-blob">https://github.com/microsoft/fluent-plugin-azure-storage-append-blob</a></p><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-path">path (string, optional)</h3><p>Path prefix of the files on Azure</p><p>Default: -</p><h3 id="output-config-azure_storage_account">azure_storage_account (*secret.Secret, required)</h3><p>Your azure storage account <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_storage_access_key">azure_storage_access_key (*secret.Secret, optional)</h3><p>Your azure storage access key <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_storage_sas_token">azure_storage_sas_token (*secret.Secret, optional)</h3><p>Your azure storage sas token <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-azure_container">azure_container (string, required)</h3><p>Your azure storage container</p><p>Default: -</p><h3 id="output-config-azure_imds_api_version">azure_imds_api_version (string, optional)</h3><p>Azure Instance Metadata Service API Version</p><p>Default: -</p><h3 id="output-config-azure_object_key_format">azure_object_key_format (string, optional)</h3><p>Object key format</p><p>Default: %{path}%{time_slice}_%{index}.%{file_extension}</p><h3 id="output-config-auto_create_container">auto_create_container (bool, optional)</h3><p>Automatically create container if not exists</p><p>Default: true</p><h3 id="output-config-format">format (string, optional)</h3><p>Compat format type: out_file, json, ltsv (default: out_file)</p><p>Default: json</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

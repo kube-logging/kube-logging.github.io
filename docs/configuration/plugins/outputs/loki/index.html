@@ -28,14 +28,14 @@ Default: https://logs-us-west1.grafana.net
 username (*secret.Secret, optional) Specify a username if the Loki server requires authentication.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/loki/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-25T09:52:06+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Grafana Loki">
 <meta itemprop="description" content="Loki output plugin Overview Fluentd output plugin to ship logs to a Loki server. More info at https://grafana.com/docs/loki/latest/clients/fluentd/
 Example: Store Nginx Access Logs in Grafana Loki with Logging Operator
 Example output configurations spec: loki: url: http://loki:3100 buffer: timekey: 1m timekey_wait: 30s timekey_use_utc: true Configuration Output Config url (string, optional) The url of the Loki server to send logs to.
 Default: https://logs-us-west1.grafana.net
 username (*secret.Secret, optional) Specify a username if the Loki server requires authentication.">
-<meta itemprop="dateModified" content="2023-09-25T09:52:06+00:00">
+<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
 <meta itemprop="wordCount" content="316">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grafana Loki">
@@ -251,7 +251,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
-<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
@@ -525,7 +525,7 @@ Releases
 </li><li class="breadcrumb-item">
 <a href="https://kube-logging.dev/docs/configuration/plugins/">Supported Plugins</a>
 </li><li class="breadcrumb-item">
-<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Outputs</a>
+<a href="https://kube-logging.dev/docs/configuration/plugins/outputs/">Fluentd outputs</a>
 </li><li class="breadcrumb-item active" aria-current="page">
 <a href="https://kube-logging.dev/docs/configuration/plugins/outputs/loki/" aria-disabled="true" class="btn-link disabled">Grafana Loki</a>
 </li></ol></nav><div class="td-content">
@@ -540,7 +540,7 @@ More info at <a href="https://grafana.com/docs/loki/latest/clients/fluentd/">htt
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_wait</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">30s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_use_utc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-url">url (string, optional)</h3><p>The url of the Loki server to send logs to.</p><p>Default: <code>https://logs-us-west1.grafana.net</code></p><h3 id="output-config-username">username (*secret.Secret, optional)</h3><p>Specify a username if the Loki server requires authentication. <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-password">password (*secret.Secret, optional)</h3><p>Specify password if the Loki server requires authentication. <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-cert">cert (*secret.Secret, optional)</h3><p>TLS: parameters for presenting a client certificate <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-key">key (*secret.Secret, optional)</h3><p>TLS: parameters for presenting a client certificate <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-ca_cert">ca_cert (*secret.Secret, optional)</h3><p>TLS: CA certificate file for server certificate verification <a href="../secret/">Secret</a></p><p>Default: -</p><h3 id="output-config-insecure_tls">insecure_tls (*bool, optional)</h3><p>TLS: disable server certificate verification</p><p>Default: false</p><h3 id="output-config-tenant">tenant (string, optional)</h3><p>Loki is a multi-tenant log storage platform and all requests sent must include a tenant.</p><p>Default: -</p><h3 id="output-config-labels">labels (Label, optional)</h3><p>Set of labels to include with every Loki stream.</p><p>Default: -</p><h3 id="output-config-extra_labels">extra_labels (map[string]string, optional)</h3><p>Set of extra labels to include with every Loki stream.</p><p>Default: -</p><h3 id="output-config-line_format">line_format (string, optional)</h3><p>Format to use when flattening the record to a log line: json, key_value (default: key_value)</p><p>Default: json</p><h3 id="output-config-extract_kubernetes_labels">extract_kubernetes_labels (*bool, optional)</h3><p>Extract kubernetes labels as loki labels</p><p>Default: false</p><h3 id="output-config-remove_keys">remove_keys ([]string, optional)</h3><p>Comma separated list of needless record keys to remove</p><p>Default: []</p><h3 id="output-config-drop_single_key">drop_single_key (*bool, optional)</h3><p>If a record only has 1 key, then just set the log line to the value and discard the key.</p><p>Default: false</p><h3 id="output-config-configure_kubernetes_labels">configure_kubernetes_labels (*bool, optional)</h3><p>Configure Kubernetes metadata in a Prometheus like format</p><p>Default: false</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><p>Default: -</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 25, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e95e721193f9f986d6c8d7f48fe92295fd9a40c2">Merge 777f6ec3d6288af25f8e9081f3841828754851b8 into 2c7faf2090642856590cdc47d805c39f913680c1 (e95e721)</a>
+Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
