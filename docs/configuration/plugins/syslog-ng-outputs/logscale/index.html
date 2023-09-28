@@ -28,14 +28,14 @@ Default: empty
 rawstring (string, optional) The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/logscale/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-28T18:28:00+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LogScale">
 <meta itemprop="description" content="logscale Overview Configuration LogScaleOutput url (*secret.Secret, optional) Ingester URL is the URL of the Humio cluster you want to send data to.
 Default: https://cloud.humio.com
 token (*secret.Secret, optional) An Ingest Token is a unique string that identifies a repository and allows you to send data to that repository.
 Default: empty
 rawstring (string, optional) The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.">
-<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
+<meta itemprop="dateModified" content="2023-09-28T18:28:00+02:00">
 <meta itemprop="wordCount" content="283">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LogScale">
@@ -531,7 +531,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>LogScale</h1><header class="article-meta">
 </header><h1 id="logscale">logscale</h1><h2 id="overview">Overview</h2><h2 id="configuration">Configuration</h2><h2 id="logscaleoutput">LogScaleOutput</h2><h3 id="logscaleoutput-url">url (*secret.Secret, optional)</h3><p>Ingester URL is the URL of the Humio cluster you want to send data to.</p><p>Default: <code>https://cloud.humio.com</code></p><h3 id="logscaleoutput-token">token (*secret.Secret, optional)</h3><p>An <a href="https://library.humio.com/data-analysis/ingesting-data-tokens.html">Ingest Token</a> is a unique string that identifies a repository and allows you to send data to that repository.</p><p>Default: empty</p><h3 id="logscaleoutput-rawstring">rawstring (string, optional)</h3><p>The raw string representing the Event. The default display for an Event in LogScale is the rawstring. If you do not provide the rawstring field, then the response defaults to a JSON representation of the attributes field.</p><p>Default: empty</p><h3 id="logscaleoutput-attributes">attributes (string, optional)</h3><p>A JSON object representing key-value pairs for the Event. These key-value pairs adds structure to Events, making it easier to search. Attributes can be nested JSON objects, however, we recommend limiting the amount of nesting.</p><p>Default: &ldquo;&ndash;scope rfc5424 &ndash;exclude MESSAGE &ndash;exclude DATE &ndash;leave-initial-dot&rdquo;</p><h3 id="logscaleoutput-timezone">timezone (string, optional)</h3><p>The timezone is only required if you specify the timestamp in milliseconds. The timezone specifies the local timezone for the event. Note that you must still specify the timestamp in UTC time.</p><p>Default: -</p><h3 id="logscaleoutput-extra_headers">extra_headers (string, optional)</h3><p>This field represents additional headers that can be included in the HTTP request when sending log records to Falcon&rsquo;s LogScale.</p><p>Default: empty</p><h3 id="logscaleoutput-content_type">content_type (string, optional)</h3><p>This field specifies the content type of the log records being sent to Falcon&rsquo;s LogScale.</p><p>Default: &ldquo;application/json&rdquo;</p><h3 id="logscaleoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="logscaleoutput-body">body (string, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_lines">batch_lines (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_bytes">batch_bytes (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-batch_timeout">batch_timeout (int, optional)</h3><p>Default: -</p><h3 id="logscaleoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
+Last modified September 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b3c5231c608a780397bb0187e0b63fb148de0759">Merge pull request #184 from kube-logging/cncf-sandbox-onboarding (b3c5231)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -551,7 +551,8 @@ Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-
 <i class="fab fa-discord"></i>
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>

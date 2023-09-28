@@ -22,11 +22,11 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/es-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-28T18:28:00+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store NGINX access logs in Elasticsearch with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
+<meta itemprop="dateModified" content="2023-09-28T18:28:00+02:00">
 <meta itemprop="wordCount" content="634">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store NGINX access logs in Elasticsearch with Logging operator">
@@ -635,7 +635,7 @@ Releases
 <p>Open the Kibana dashboard in your browser at <a href="https://localhost:5601">https://localhost:5601</a> and login as <strong>elastic</strong> using the retrieved password.</p></li><li>
 <p>By default, the Logging operator sends the incoming log messages into an index called <em>fluentd</em>. Create an Index Pattern that includes this index (for example, <em>fluentd*</em>), then select <strong>Menu > Kibana > Discover</strong>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
+Last modified September 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b3c5231c608a780397bb0187e0b63fb148de0759">Merge pull request #184 from kube-logging/cncf-sandbox-onboarding (b3c5231)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -655,7 +655,8 @@ Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-
 <i class="fab fa-discord"></i>
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>

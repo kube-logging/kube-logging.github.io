@@ -26,13 +26,13 @@ Available routing metadata keys:
 Name Type Description Empty namespaces []string List of matching namespaces All namespaces labels map[string]string Key - Value pairs of labels All labels hosts []string List of matching hosts All hosts container_names []string List of matching containers (not Pods) All containers Match statement To select or exclude logs you can use the match statement.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/log-routing/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-28T18:28:00+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Routing your logs with Fluentd match directives">
 <meta itemprop="description" content="Note: This page describes routing logs with Fluentd. If you are using syslog-ng to route your log messages, see Routing your logs with syslog-ng.
 The first step to process your logs is to select which logs go where. The Logging operator uses Kubernetes labels, namespaces and other metadata to separate different log flows.
 Available routing metadata keys:
 Name Type Description Empty namespaces []string List of matching namespaces All namespaces labels map[string]string Key - Value pairs of labels All labels hosts []string List of matching hosts All hosts container_names []string List of matching containers (not Pods) All containers Match statement To select or exclude logs you can use the match statement.">
-<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
+<meta itemprop="dateModified" content="2023-09-28T18:28:00+02:00">
 <meta itemprop="wordCount" content="634">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Routing your logs with Fluentd match directives">
@@ -679,7 +679,7 @@ as a selecting or excluding criteria.</p><p>If you specify more than one label i
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">app.kubernetes.io/instance</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">nginx-demo</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">select</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
+Last modified September 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b3c5231c608a780397bb0187e0b63fb148de0759">Merge pull request #184 from kube-logging/cncf-sandbox-onboarding (b3c5231)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -699,7 +699,8 @@ Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-
 <i class="fab fa-discord"></i>
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>

@@ -24,12 +24,12 @@ Prerequisites You need a Sumo Logic account to use this output. For details, see
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: test-sumo namespace: default spec: sumologic-http: batch-lines: 1000 disk_buffer: disk_buf_size: 512000000 dir: /buffers reliable: true body: &#34;$(format-json --subkeys json.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-27T23:05:30+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-09-28T18:28:00+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Sumo Logic HTTP">
 <meta itemprop="description" content="The sumologic-http output sends log records over HTTP to Sumo Logic. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
 Prerequisites You need a Sumo Logic account to use this output. For details, see the documentation of the AxoSyslog syslog-ng distribution.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: test-sumo namespace: default spec: sumologic-http: batch-lines: 1000 disk_buffer: disk_buf_size: 512000000 dir: /buffers reliable: true body: &#34;$(format-json --subkeys json.">
-<meta itemprop="dateModified" content="2023-09-27T23:05:30+02:00">
+<meta itemprop="dateModified" content="2023-09-28T18:28:00+02:00">
 <meta itemprop="wordCount" content="292">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sumo Logic HTTP">
@@ -551,7 +551,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">&#39;X-Sumo-Category</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">source-category&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">tls</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">use-system-cert-store</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="sumologichttpoutput">SumologicHTTPOutput</h2><h3 id="sumologichttpoutput-collector">collector (*secret.Secret, optional)</h3><p>The Cloud Syslog Cloud Token that you received from the Sumo Logic service while configuring your cloud syslog source.</p><p>Default: empty</p><h3 id="sumologichttpoutput-deployment">deployment (string, optional)</h3><p>This option specifies your Sumo Logic deployment.https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security</p><p>Default: empty</p><h3 id="sumologichttpoutput-headers">headers ([]string, optional)</h3><p>Custom HTTP headers to include in the request, for example, headers(&ldquo;HEADER1: header1&rdquo;, &ldquo;HEADER2: header2&rdquo;).</p><p>Default: empty</p><h3 id="sumologichttpoutput-time_reopen">time_reopen (int, optional)</h3><p>The time to wait in seconds before a dead connection is reestablished.</p><p>Default: 60</p><h3 id="sumologichttpoutput-tls">tls (*TLS, optional)</h3><p>This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see <a href="../tls/">TLS for syslog-ng outputs</a> and the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><p>Default: -</p><h3 id="sumologichttpoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="sumologichttpoutput-body">body (string, optional)</h3><p>Default: -</p><h3 id="sumologichttpoutput-url">url (*secret.Secret, optional)</h3><p>Default: -</p><h3 id="sumologichttpoutput-batch-lines">batch-lines (int, optional)</h3><p>Default: -</p><h3 id="sumologichttpoutput-batch-bytes">batch-bytes (int, optional)</h3><p>Default: -</p><h3 id="sumologichttpoutput-batch-timeout">batch-timeout (int, optional)</h3><p>Default: -</p><h3 id="sumologichttpoutput-persist_name">persist_name (string, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c65c0e5061a82c2b1a9f1a9538a7abc53d2be582">Merge pull request #186 from kube-logging/plugins-anchor-fixes (c65c0e5)</a>
+Last modified September 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b3c5231c608a780397bb0187e0b63fb148de0759">Merge pull request #184 from kube-logging/cncf-sandbox-onboarding (b3c5231)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -571,7 +571,8 @@ Last modified September 27, 2023: <a href="https://github.com/kube-logging/kube-
 <i class="fab fa-discord"></i>
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
