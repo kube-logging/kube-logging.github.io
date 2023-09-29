@@ -20,9 +20,16 @@ When using syslog-ng as the log aggregator, you can now use the following new ou
 
 You can now use the `metrics-probe()` parser of syslog-ng in syslogNGFLow and SyslogNGClusterFlow. For details, see {{% xref "/docs/configuration/plugins/syslog-ng-filters/parser.md#metricsprobe" %}}.
 
-### Multitenancy and namespace-based routing
+### Multitenancy with namespace-based routing
 
-Logging operator now supports hard multitenancy and namespace-based routing. For an example configuration, see the [sample configuration files](https://github.com/kube-logging/logging-operator/tree/master/config/samples/mulitenant-hard).
+Logging operator now supports namespace based routing for efficient aggregator-level multi-tenancy.
+
+In the project repository you can:
+- find an [overview about multitenancy](https://github.com/kube-logging/logging-operator/blob/master/docs/multi-tenancy.md).
+- find more detailed information about the new [LoggingRoute](https://github.com/kube-logging/logging-operator/blob/master/docs/logging-route.md) resource that enables this new behaviour.
+- find a [simple example](https://github.com/kube-logging/logging-operator/tree/master/config/samples/multitenant-routing) to demonstrate the new behaviour
+
+On a side note, nodegroup level isolation for hard multitenancy is also supported, see the {{% xref "docs/examples/multitenancy.md" %}} example.
 
 ### Forwarder logs
 
