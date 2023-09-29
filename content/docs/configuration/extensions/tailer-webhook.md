@@ -23,7 +23,54 @@ Cons:
 
 ## Enable webhooks in Logging operator {#enable-webhooks}
 
-> We recommend using `cert-manager` to manage your certificates. Since using `cert-manager` is not part of this article, we assume you already have valid certs.
+> We recommend using `cert-manager` to manage your certificates. Below is a really simple command that bootstraps generates the required resources for the `tailer-webhook`.
+### Issuing certificates using `cert-manager` {#issue-certificate-cert-manager}
+
+Follow the [official installation guide](https://cert-manager.io/docs/installation/).
+
+Once installed the following commands should allow you to create the required certificate for the webhook.
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: selfsigned-issuer
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: webhook-tls
+  namespace: logging
+spec:
+  isCA: true
+  commonName: my-selfsigned-ca
+  secretName: webhook-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  dnsNames:
+    - sample-webhook.banzaicloud.com
+    - logging-webhooks.logging.svc
+  usages:
+    - server auth
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: my-ca-issuer
+spec:
+  ca:
+    secretName: webhook-tls
+EOF
+```
+
 
 You will require the following things:
 
