@@ -1,13 +1,10 @@
 ---
-title: Namespace-based multitenancy
+title: Nodegroup-based multitenancy
 weight: 600
 ---
 
-Namespace-based multitenancy allows you have multiple tenants (for example, different developer teams) on the same cluster who can configure their own logging resources within their assigned namespaces.
-
-- These resources are separate from the resources of the other tenants, and
-- the configuration checks of Logging operator ensure that errors in the resources of a namespace don't affect other tenants. For example, an error cannot bring down the logging of the entire cluster.
-
+Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups.
+These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn't affect the others.
 
 ## Sample setup
 
@@ -21,18 +18,18 @@ The following procedure creates two tenants (A and B) and their respective names
 
 1. Set labels on the nodes that correspond to your tenants, for example, `tenant-a` and `tenant-b`.
 
-    ```shell
+    ```bash
     kubectl label node minikube tenant=tenant-a
     kubectl label node minikube-m02 tenant=tenant-b
     ```
 
-1. Apply the sample resources from the [project repository](https://github.com/kube-logging/logging-operator/tree/master/config/samples/mulitenant-hard/logging). These create namespaces, flows, and sample outputs for the two tenants.
-    <!-- FIXME Describe what these resources do / how they are configured -->
+1. Install the logging operator
 
     ```bash
-    kubectl apply -f https://github.com/kube-logging/logging-operator/tree/master/config/samples/mulitenant-hard/logging
+    helm install logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
     ```
-    <!-- FIXME check if applying a folder via http works, probably not -->
+
+1. Apply the sample resources from the [project repository](https://github.com/kube-logging/logging-operator/tree/master/config/samples/mulitenant-hard/logging). These create namespaces, flows, and sample outputs for the two tenants.
 
 1. (Optional) Install a sample log generator application to the respective namespaces of your tenants. For example:
 
@@ -41,16 +38,26 @@ The following procedure creates two tenants (A and B) and their respective names
     helm upgrade --install --namespace b --create-namespace --set "nodeSelector.tenant=tenant-b" log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
     ```
 
-1. Check that your pods are up and running by running `kubectl get pods`
+1. Check that your pods are up and running by running `kubectl get pods -A`
 
     If you have followed the examples, the output should look like:
 
     ```bash
-    NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE     IP             NODE           NOMINATED NODE   READINESS GATES
-    a-control     a-fluentbit-2997s                  1/1     Running   0             9m15s   10.244.0.5     minikube       <none>           <none>
-    a-control     a-fluentd-0                        2/2     Running   0             9m15s   10.244.0.6     minikube       <none>           <none>
-    a             log-generator-6cfb45c684-kbzk4     1/1     Running   0             11m     10.244.0.3     minikube       <none>           <none>
-    b-control     b-fluentbit-9bvbn                  1/1     Running   0             7m30s   10.244.1.7     minikube-m02   <none>           <none>
-    b-control     b-fluentd-0                        2/2     Running   0             7m29s   10.244.1.8     minikube-m02   <none>           <none>
-    b             log-generator-7b95b6fdc5-62bnr     1/1     Running   0             11m     10.244.1.3     minikube-m02   <none>           <none>
+    NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+    a-control     a-fluentbit-4tqzg                  1/1     Running   0             9m29s
+    a-control     a-fluentd-0                        2/2     Running   0             4m48s
+    a             log-generator-6cfb45c684-q6fl6     1/1     Running   0             3m25s
+    b-control     b-fluentbit-qmf58                  1/1     Running   0             9m20s
+    b-control     b-fluentd-0                        2/2     Running   0             9m16s
+    b             log-generator-7b95b6fdc5-cshh7     1/1     Running   0             8m49s
+    default       logging-operator-bbd66bb7d-qvsmg   1/1     Running   0             35m
+    infra         test-receiver-7c45f9cd77-whvlv     1/1     Running   0             53m
+    ```
+
+1. Check logs coming from both tenants `kubectl logs -f -n infra svc/test-receiver`
+
+    Expected output should show logs from both tenants
+    ```bash
+    [0] tenant_a: [[1695999280.157810965, {}], {"log"=>"15.238.250.48 - - [29/Sep/2023:14:54:38 +0000] "PUT /pro...
+    [0] tenant_b: [[1695999280.160868923, {}], {"log"=>"252.201.89.36 - - [29/Sep/2023:14:54:33 +0000] "POST /bl...
     ```
