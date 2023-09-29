@@ -160,7 +160,7 @@ To trigger the webhook, add the following annotation to the pod metadata:
 
 ### File tailer example
 
-The following example creates a pod that is running a shell in infinite loop that appends the `date` command's output to a file every second. The annotation `sidecar.logging-extensions.banzaicloud.io/tail` notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the `/legacy-logs/date.log` file and sends its output to the stdout.
+The following example creates a pod that is running a shell in infinite loop that appends the `date` command's output to a file every second. The annotation `sidecar.logging-extensions.banzaicloud.io/tail` notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the `/var/log/date` file and sends its output to the stdout.
 
 ```yaml
 apiVersion: v1
@@ -171,16 +171,13 @@ metadata:
 spec:
     containers:
     - image: debian
-        name: sample-container
-        command: ["/bin/sh", "-c"]
-        args:
-            - while true; do
-                date >> /var/log/date;
-                sleep 1;
-        done
-    - image: debian
-        name: sample-container2
-...
+      name: sample-container
+      command: ["/bin/sh", "-c"]
+      args:
+        - while true; do
+            date >> /var/log/date;
+            sleep 1;
+            done
 ```
 
 After you have created the pod with the required annotation, make sure that the `test-pod` contains two containers by running `kubectl get pod`
@@ -202,15 +199,15 @@ Expected output:
 
 ```bash
 [
-  "test",
-  "legacy-logs-date-log"
+  "sample-container",
+  "sample-container-var-log-date"
 ]
 ```
 
 Check the logs of the `test` container. Since it writes the logs into a file, it does not produce any logs on stdout.
 
 ```bash
-kubectl logs test-pod test; echo $?
+kubectl logs test-pod sample-container; echo $?
 ```
 
 Expected output:
