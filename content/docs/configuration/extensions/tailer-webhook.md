@@ -107,6 +107,8 @@ metadata:
   namespace: logging
   labels:
     app: sample-webhook
+  annotations:
+    cert-manager.io/inject-ca-from: logging/webhook-tls
 webhooks:
   - name: sample-webhook.banzaicloud.com
     clientConfig:
@@ -114,7 +116,6 @@ webhooks:
         name: logging-webhooks
         namespace: logging
         path: "/tailer-webhook"
-      caBundle: $(kubectl get secret webhook-tls -n logging -o json | jq -r '.data["ca.crt"]')
     rules:
       - operations: [ "CREATE" ]
         apiGroups: [""]
