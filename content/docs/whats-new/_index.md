@@ -15,6 +15,7 @@ When using syslog-ng as the log aggregator, you can now use the following new ou
 - [Grafana Loki]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/loki.md" >}})
 - [MongoDB]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/mongodb.md" >}})
 - [Redis]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/redis.md" >}})
+- [Amazon S3]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/s3.md" >}})
 - [Splunk HEC]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/splunk_hec.md" >}})
 - The [HTTP]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/http.md" >}}) output now supports the `log-fifo-size`, `response-action`, and `timeout` fields.
 
