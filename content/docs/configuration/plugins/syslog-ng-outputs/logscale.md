@@ -4,11 +4,9 @@ weight: 200
 generated_file: true
 ---
 
-# logscale
-## Overview
+Based on the [LogScale destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/crowdstrike-falcon/).
 
 ## Configuration
-## LogScaleOutput
 
 ### url (*secret.Secret, optional) {#logscaleoutput-url}
 

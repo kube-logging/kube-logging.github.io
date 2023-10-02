@@ -132,6 +132,10 @@ Default: -
 
 Default: -
 
+### bufferVolumeResources (corev1.ResourceRequirements, optional) {#fluentdspec-buffervolumeresources}
+
+Default: -
+
 ### security (*Security, optional) {#fluentdspec-security}
 
 Default: -
@@ -298,6 +302,10 @@ Default: -
 Container image to use for the drain watch sidecar 
 
 Default: -
+
+### labels (map[string]string, optional) {#fluentddrainconfig-labels}
+
+Labels to use for the drain watch sidecar on top of labels added by the operator by default. Default values can be overwritten. 
 
 ### deleteVolume (bool, optional) {#fluentddrainconfig-deletevolume}
 
