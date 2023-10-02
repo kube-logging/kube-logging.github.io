@@ -6,6 +6,24 @@ generated_file: true
 
 Sends messages to Grafana Loki over gRPC, based on the [Loki destination of AxoSyslog Core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-loki/).
 
+For example:
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: loki
+spec:
+  loki:
+    url: "loki.loki:8000"
+    labels:
+      "app": "$PROGRAM"
+      "host": "$HOST"
+    workers: 16
+    batch-timeout: 10000
+    batch-lines: 1000
+{{< /highlight >}}
+
 ## Configuration
 
 ### labels (filter.ArrowMap, optional) {#lokioutput-labels}
