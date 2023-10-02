@@ -74,6 +74,31 @@ By default, Logging operator adds a label to avoid injecting the Istio sidecar i
 
 For non-istio users, these changes make no difference, as this label is only used in Istio context. For Istio users, these defaults make Logging operator work out of the box.
 
+### Improved buffer metrics
+
+The buffer metrics sidecar configuration has been rewritten to add a new metric and improve performance by avoiding unnecessary cardinality. 
+
+The name of the metric has been changed as well, but the original metric was kept in place to avoid breaking existing clients.
+
+**Metrics currently supported by the sidecar**
+
+Old
+```
++# HELP node_buffer_size_bytes Disk space used [deprecated]
++# TYPE node_buffer_size_bytes gauge
++node_buffer_size_bytes{entity="/buffers"} 32253
+```
+
+New
+```
++# HELP logging_buffer_files File count
++# TYPE logging_buffer_files gauge
++logging_buffer_files{entity="/buffers",host="all-to-file-fluentd-0"} 2
++# HELP logging_buffer_size_bytes Disk space used
++# TYPE logging_buffer_size_bytes gauge
++logging_buffer_size_bytes{entity="/buffers",host="all-to-file-fluentd-0"} 32253
+```
+
 ## Other improvements
 
 - You can now configure the resources of the buffer metrics sidecar.
