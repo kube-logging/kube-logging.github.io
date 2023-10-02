@@ -26,13 +26,13 @@ For details on how rewrite rules work in syslog-ng, see the documentation of the
 Group unset The group_unset function removes from the record a group of fields matching a pattern.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-filters/rewrite/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-09-28T18:28:00+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-02T09:07:11+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Rewrite">
 <meta itemprop="description" content="Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
 group_unset rename set substitute unset Note: All rewrite functions support an optional condition which has the same syntax as the match filter.
 For details on how rewrite rules work in syslog-ng, see the documentation of the AxoSyslog syslog-ng distribution.
 Group unset The group_unset function removes from the record a group of fields matching a pattern.">
-<meta itemprop="dateModified" content="2023-09-28T18:28:00+02:00">
+<meta itemprop="dateModified" content="2023-10-02T09:07:11+02:00">
 <meta itemprop="wordCount" content="415">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rewrite">
@@ -53,7 +53,7 @@ Group unset The group_unset function removes from the record a group of fields m
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.3.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.4.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -81,7 +81,10 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
 <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span>Logging operator</span></a>
 <ul class="ul-1">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsinstall-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docswhats-new-li">
+<input type="checkbox" id="m-docswhats-new-check">
+<label for="m-docswhats-new-check"><a href="/docs/whats-new/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docswhats-new"><span>What's new</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsinstall-li">
 <input type="checkbox" id="m-docsinstall-check">
 <label for="m-docsinstall-check"><a href="/docs/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsinstall"><span>Install</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsquickstarts-li">
@@ -149,6 +152,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1fluentd_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1fluentd_types-check">
 <label for="m-docsconfigurationcrdsv1beta1fluentd_types-check"><a href="/docs/configuration/crds/v1beta1/fluentd_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1fluentd_types"><span>FluentdSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1loggingroute_types-li">
+<input type="checkbox" id="m-docsconfigurationcrdsv1beta1loggingroute_types-check">
+<label for="m-docsconfigurationcrdsv1beta1loggingroute_types-check"><a href="/docs/configuration/crds/v1beta1/loggingroute_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1loggingroute_types"><span>LoggingRouteSpec</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1logging_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1logging_types-check">
 <label for="m-docsconfigurationcrdsv1beta1logging_types-check"><a href="/docs/configuration/crds/v1beta1/logging_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1logging_types"><span>LoggingSpec</span></a></label>
@@ -362,6 +368,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch"><span>Elasticsearch</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsfile-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsfile-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsfile-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsfile"><span>File</span></a></label>
@@ -374,9 +383,24 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputslogscale-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputslogscale-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputslogscale-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/logscale/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputslogscale"><span>LogScale</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsloki-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsloki-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsloki-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/loki/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsloki"><span>Loki</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsmongodb-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsmongodb-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsmongodb-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/mongodb/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsmongodb"><span>MongoDB</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsredis-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsredis-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssumologic_http-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssumologic_http"><span>Sumo Logic HTTP</span></a></label>
@@ -420,6 +444,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesloki-nginx-li">
 <input type="checkbox" id="m-docsexamplesloki-nginx-check">
 <label for="m-docsexamplesloki-nginx-check"><a href="/docs/examples/loki-nginx/" title="Store Nginx Access Logs in Grafana Loki with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesloki-nginx"><span>Grafana Loki with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesmultitenancy-li">
+<input type="checkbox" id="m-docsexamplesmultitenancy-check">
+<label for="m-docsexamplesmultitenancy-check"><a href="/docs/examples/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesmultitenancy"><span>Nodegroup-based multitenancy</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docslogging-infrastructure-li">
 <input type="checkbox" id="m-docslogging-infrastructure-check">
 <label for="m-docslogging-infrastructure-check"><a href="/docs/logging-infrastructure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docslogging-infrastructure"><span>Logging infrastructure setup</span></a></label>
@@ -559,7 +586,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">unset</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">field</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.cluster&#34;</span></span></span></code></pre></div><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="rewriteconfig">RewriteConfig</h2><h3 id="rewriteconfig-group_unset">group_unset (*GroupUnsetConfig, optional)</h3><p>Default: -</p><h3 id="rewriteconfig-rename">rename (*RenameConfig, optional)</h3><p>Default: -</p><h3 id="rewriteconfig-set">set (*SetConfig, optional)</h3><p>Default: -</p><h3 id="rewriteconfig-subst">subst (*SubstituteConfig, optional)</h3><p>Default: -</p><h3 id="rewriteconfig-unset">unset (*UnsetConfig, optional)</h3><p>Default: -</p><h2 id="renameconfig">RenameConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-rename/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="renameconfig-oldname">oldName (string, required)</h3><p>Default: -</p><h3 id="renameconfig-newname">newName (string, required)</h3><p>Default: -</p><h3 id="renameconfig-condition">condition (*MatchExpr, optional)</h3><p>Default: -</p><h2 id="setconfig">SetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="setconfig-field">field (string, required)</h3><p>Default: -</p><h3 id="setconfig-value">value (string, required)</h3><p>Default: -</p><h3 id="setconfig-condition">condition (*MatchExpr, optional)</h3><p>Default: -</p><h2 id="substituteconfig">SubstituteConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="substituteconfig-pattern">pattern (string, required)</h3><p>Default: -</p><h3 id="substituteconfig-replace">replace (string, required)</h3><p>Default: -</p><h3 id="substituteconfig-field">field (string, required)</h3><p>Default: -</p><h3 id="substituteconfig-flags">flags ([]string, optional)</h3><p>Default: -</p><h3 id="substituteconfig-type">type (string, optional)</h3><p>Default: -</p><h3 id="substituteconfig-condition">condition (*MatchExpr, optional)</h3><p>Default: -</p><h2 id="unsetconfig">UnsetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="unsetconfig-field">field (string, required)</h3><p>Default: -</p><h3 id="unsetconfig-condition">condition (*MatchExpr, optional)</h3><p>Default: -</p><h2 id="groupunsetconfig">GroupUnsetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="groupunsetconfig-pattern">pattern (string, required)</h3><p>Default: -</p><h3 id="groupunsetconfig-condition">condition (*MatchExpr, optional)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 28, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b3c5231c608a780397bb0187e0b63fb148de0759">Merge pull request #184 from kube-logging/cncf-sandbox-onboarding (b3c5231)</a>
+Last modified October 2, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4a2c999ccadcaad8d0943c70b64f65721566eb30">Merge pull request #183 from kube-logging/updates-for-4.4 (4a2c999)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
