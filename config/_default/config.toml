@@ -48,7 +48,7 @@ twitter = "calisti12"
 
   # email = ""
 
-  copyright = "kube-logging authors"
+  copyright = "kube-logging authors | "
 
   relativeURLs = true
 

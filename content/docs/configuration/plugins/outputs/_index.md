@@ -1,4 +1,4 @@
 ---
-title: Fluentd Outputs
+title: Fluentd outputs
 ---
 

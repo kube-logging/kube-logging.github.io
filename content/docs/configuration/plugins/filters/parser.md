@@ -239,121 +239,121 @@ Default: -
 
 ## Parse Section (single)
 
-### type (string, optional) {#parse section-(single)-type}
+### type (string, optional) {#parse-section-type}
 
 Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok 
 
 Default: -
 
-### expression (string, optional) {#parse section-(single)-expression}
+### expression (string, optional) {#parse-section-expression}
 
 Regexp expression to evaluate 
 
 Default: -
 
-### time_key (string, optional) {#parse section-(single)-time_key}
+### time_key (string, optional) {#parse-section-time_key}
 
 Specify time field for event time. If the event doesn't have this field, current time is used. 
 
 Default: -
 
-### null_value_pattern (string, optional) {#parse section-(single)-null_value_pattern}
+### null_value_pattern (string, optional) {#parse-section-null_value_pattern}
 
 Specify null value pattern. 
 
 Default: -
 
-### null_empty_string (bool, optional) {#parse section-(single)-null_empty_string}
+### null_empty_string (bool, optional) {#parse-section-null_empty_string}
 
 If true, empty string field is replaced with nil 
 
 Default: -
 
-### estimate_current_event (bool, optional) {#parse section-(single)-estimate_current_event}
+### estimate_current_event (bool, optional) {#parse-section-estimate_current_event}
 
 If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified. 
 
 Default: -
 
-### keep_time_key (bool, optional) {#parse section-(single)-keep_time_key}
+### keep_time_key (bool, optional) {#parse-section-keep_time_key}
 
 If true, keep time field in the record. 
 
 Default: -
 
-### types (string, optional) {#parse section-(single)-types}
+### types (string, optional) {#parse-section-types}
 
 Types casting the fields to proper types example: field1:type, field2:type 
 
 Default: -
 
-### time_format (string, optional) {#parse section-(single)-time_format}
+### time_format (string, optional) {#parse-section-time_format}
 
 Process value using specified format. This is available only when time_type is string 
 
 Default: -
 
-### time_type (string, optional) {#parse section-(single)-time_type}
+### time_type (string, optional) {#parse-section-time_type}
 
 Parse/format value according to this type available values: float, unixtime, string  
 
 Default:  string
 
-### local_time (bool, optional) {#parse section-(single)-local_time}
+### local_time (bool, optional) {#parse-section-local_time}
 
 Ff true, use local time. Otherwise, UTC is used. This is exclusive with utc.  
 
 Default:  true
 
-### utc (bool, optional) {#parse section-(single)-utc}
+### utc (bool, optional) {#parse-section-utc}
 
 If true, use UTC. Otherwise, local time is used. This is exclusive with localtime  
 
 Default:  false
 
-### timezone (string, optional) {#parse section-(single)-timezone}
+### timezone (string, optional) {#parse-section-timezone}
 
 Use specified timezone. one can parse/format the time value in the specified timezone.  
 
 Default:  nil
 
-### format (string, optional) {#parse section-(single)-format}
+### format (string, optional) {#parse-section-format}
 
 Only available when using type: multi_format 
 
 Default: -
 
-### grok_pattern (string, optional) {#parse section-(single)-grok_pattern}
+### grok_pattern (string, optional) {#parse-section-grok_pattern}
 
 Only available when using format: grok, multiline_grok. The pattern of grok. You cannot specify multiple grok pattern with this. 
 
 Default: -
 
-### custom_pattern_path (*secret.Secret, optional) {#parse section-(single)-custom_pattern_path}
+### custom_pattern_path (*secret.Secret, optional) {#parse-section-custom_pattern_path}
 
 Only available when using format: grok, multiline_grok. File that includes custom grok patterns. 
 
 Default: -
 
-### grok_failure_key (string, optional) {#parse section-(single)-grok_failure_key}
+### grok_failure_key (string, optional) {#parse-section-grok_failure_key}
 
 Only available when using format: grok, multiline_grok. The key has grok failure reason. 
 
 Default: -
 
-### grok_name_key (string, optional) {#parse section-(single)-grok_name_key}
+### grok_name_key (string, optional) {#parse-section-grok_name_key}
 
 Only available when using format: grok, multiline_grok. The key name to store grok section's name. 
 
 Default: -
 
-### multiline_start_regexp (string, optional) {#parse section-(single)-multiline_start_regexp}
+### multiline_start_regexp (string, optional) {#parse-section-multiline_start_regexp}
 
 Only available when using format: multiline_grok The regexp to match beginning of multiline. 
 
 Default: -
 
-### grok_patterns ([]GrokSection, optional) {#parse section-(single)-grok_patterns}
+### grok_patterns ([]GrokSection, optional) {#parse-section-grok_patterns}
 
 Only available when using format: grok, multiline_grok. [Grok Section](#grok-section) Specify grok pattern series set. 
 
