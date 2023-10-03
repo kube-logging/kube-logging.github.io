@@ -1,0 +1,603 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/4.3/docs/configuration/plugins/filters/record_transformer/releases.releases">
+<meta name="robots" content="index, follow">
+<link rel="shortcut icon" href="/4.3/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/4.3/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/4.3/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/4.3/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/4.3/favicons/android-192x192.png" sizes="192x192">
+<title>Record Transformer | Logging operator</title><meta name="description" content="Record Transformer Overview Mutates/transforms incoming event streams.
+Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
+Default: -
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+Default: -
+renew_record (bool, optional) Create new Hash to transform incoming data
+Default: false
+renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
+Default: -
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&amp;hellip;} expression.">
+<meta property="og:title" content="Record Transformer">
+<meta property="og:description" content="Record Transformer Overview Mutates/transforms incoming event streams.
+Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
+Default: -
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+Default: -
+renew_record (bool, optional) Create new Hash to transform incoming data
+Default: false
+renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
+Default: -
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kube-logging.dev/4.3/docs/configuration/plugins/filters/record_transformer/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2023-08-31T15:33:39+02:00"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Record Transformer">
+<meta itemprop="description" content="Record Transformer Overview Mutates/transforms incoming event streams.
+Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
+Default: -
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+Default: -
+renew_record (bool, optional) Create new Hash to transform incoming data
+Default: false
+renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
+Default: -
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
+<meta itemprop="dateModified" content="2023-08-31T15:33:39+02:00">
+<meta itemprop="wordCount" content="152">
+<meta itemprop="keywords" content><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Record Transformer">
+<meta name="twitter:description" content="Record Transformer Overview Mutates/transforms incoming event streams.
+Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
+Default: -
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+Default: -
+renew_record (bool, optional) Create new Hash to transform incoming data
+Default: false
+renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
+Default: -
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
+<meta name="twitter:site" content="@calisti12">
+<link rel="preload" href="/4.3/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/4.3/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/4.3/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/filters/">
+<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
+<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+</head><body class="td-page" data-pagefind-filter="section:4.3">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/4.3/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">4.3.0</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/4.3/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/docs/configuration/plugins/filters/record_transformer//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+</div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+<form class="td-sidebar__search d-flex align-items-center">
+<div class="search">
+<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+</button>
+</form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-43docs-li">
+<a href="/4.3/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-43docs"><span>Logging operator</span></a>
+<ul class="ul-1">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsinstall-li">
+<input type="checkbox" id="m-43docsinstall-check">
+<label for="m-43docsinstall-check"><a href="/4.3/docs/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsinstall"><span>Install</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsquickstarts-li">
+<input type="checkbox" id="m-43docsquickstarts-check">
+<label for="m-43docsquickstarts-check"><a href="/4.3/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsquickstarts"><span>Quick start guides</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsquickstartssingle-li">
+<input type="checkbox" id="m-43docsquickstartssingle-check">
+<label for="m-43docsquickstartssingle-check"><a href="/4.3/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsquickstartssingle"><span>Single app, one destination</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-43docsconfiguration-li">
+<input type="checkbox" id="m-43docsconfiguration-check" checked>
+<label for="m-43docsconfiguration-check"><a href="/4.3/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfiguration"><span>Routing logs</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationfluentd-vs-syslog-ng-li">
+<input type="checkbox" id="m-43docsconfigurationfluentd-vs-syslog-ng-check">
+<label for="m-43docsconfigurationfluentd-vs-syslog-ng-check"><a href="/4.3/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationoutput-li">
+<input type="checkbox" id="m-43docsconfigurationoutput-check">
+<label for="m-43docsconfigurationoutput-check"><a href="/4.3/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationflow-li">
+<input type="checkbox" id="m-43docsconfigurationflow-check">
+<label for="m-43docsconfigurationflow-check"><a href="/4.3/docs/configuration/flow/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationflow"><span>Flow and ClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationlog-routing-li">
+<input type="checkbox" id="m-43docsconfigurationlog-routing-check">
+<label for="m-43docsconfigurationlog-routing-check"><a href="/4.3/docs/configuration/log-routing/" title="Routing your logs with Fluentd match directives" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationlog-routing"><span>Log routing with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationlog-routing-syslog-ng-li">
+<input type="checkbox" id="m-43docsconfigurationlog-routing-syslog-ng-check">
+<label for="m-43docsconfigurationlog-routing-syslog-ng-check"><a href="/4.3/docs/configuration/log-routing-syslog-ng/" title="Routing your logs with syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationlog-routing-syslog-ng"><span>Log routing with syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationextensions-li">
+<input type="checkbox" id="m-43docsconfigurationextensions-check">
+<label for="m-43docsconfigurationextensions-check"><a href="/4.3/docs/configuration/extensions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationextensions"><span>Kubernetes events, node logs, and logfiles</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationextensionskubernetes-event-tailer-li">
+<input type="checkbox" id="m-43docsconfigurationextensionskubernetes-event-tailer-check">
+<label for="m-43docsconfigurationextensionskubernetes-event-tailer-check"><a href="/4.3/docs/configuration/extensions/kubernetes-event-tailer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationextensionskubernetes-event-tailer"><span>Kubernetes Event Tailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationextensionskubernetes-host-tailer-li">
+<input type="checkbox" id="m-43docsconfigurationextensionskubernetes-host-tailer-check">
+<label for="m-43docsconfigurationextensionskubernetes-host-tailer-check"><a href="/4.3/docs/configuration/extensions/kubernetes-host-tailer/" title="Kubernetes host logs, journals, and logfiles" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationextensionskubernetes-host-tailer"><span>Kubernetes Host Tailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationextensionstailer-webhook-li">
+<input type="checkbox" id="m-43docsconfigurationextensionstailer-webhook-check">
+<label for="m-43docsconfigurationextensionstailer-webhook-check"><a href="/4.3/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationcrds-li">
+<input type="checkbox" id="m-43docsconfigurationcrds-check">
+<label for="m-43docsconfigurationcrds-check"><a href="/4.3/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationcrds"><span>CRDs</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationcrdsv1beta1-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1-check">
+<label for="m-43docsconfigurationcrdsv1beta1-check"><a href="/4.3/docs/configuration/crds/v1beta1/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationcrdsv1beta1"><span>Available CRDs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1clusterflow_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1clusterflow_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1clusterflow_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/clusterflow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1clusterflow_types"><span>ClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1clusteroutput_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1clusteroutput_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1clusteroutput_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/clusteroutput_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1clusteroutput_types"><span>ClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1common_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1common_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1common_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/common_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1common_types"><span>Common</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1flow_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1flow_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1flow_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/flow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1flow_types"><span>FlowSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1fluentbit_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1fluentbit_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1fluentbit_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/fluentbit_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1fluentbit_types"><span>FluentbitSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1fluentd_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1fluentd_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1fluentd_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/fluentd_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1fluentd_types"><span>FluentdSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1logging_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1logging_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1logging_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/logging_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1logging_types"><span>LoggingSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1node_agent_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1node_agent_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1node_agent_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/node_agent_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1node_agent_types"><span>NodeAgent</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1output_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1output_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1output_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/output_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1output_types"><span>OutputSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1syslogng_clusterflow_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1syslogng_clusterflow_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1syslogng_clusterflow_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/syslogng_clusterflow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1syslogng_clusterflow_types"><span>SyslogNGClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1syslogng_clusteroutput_types"><span>SyslogNGClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1syslogng_flow_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1syslogng_flow_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1syslogng_flow_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/syslogng_flow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1syslogng_flow_types"><span>SyslogNGFlowSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1syslogng_output_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1syslogng_output_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1syslogng_output_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/syslogng_output_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1syslogng_output_types"><span>SyslogNGOutputSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsv1beta1syslogng_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsv1beta1syslogng_types-check">
+<label for="m-43docsconfigurationcrdsv1beta1syslogng_types-check"><a href="/4.3/docs/configuration/crds/v1beta1/syslogng_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsv1beta1syslogng_types"><span>SyslogNGSpec</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationcrdsextensions-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsextensions-check">
+<label for="m-43docsconfigurationcrdsextensions-check"><a href="/4.3/docs/configuration/crds/extensions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationcrdsextensions"><span>Logging extensions CRDs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsextensionseventtailer_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsextensionseventtailer_types-check">
+<label for="m-43docsconfigurationcrdsextensionseventtailer_types-check"><a href="/4.3/docs/configuration/crds/extensions/eventtailer_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsextensionseventtailer_types"><span>EventTailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationcrdsextensionshosttailer_types-li">
+<input type="checkbox" id="m-43docsconfigurationcrdsextensionshosttailer_types-check">
+<label for="m-43docsconfigurationcrdsextensionshosttailer_types-check"><a href="/4.3/docs/configuration/crds/extensions/hosttailer_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationcrdsextensionshosttailer_types"><span>HostTailer</span></a></label>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-43docsconfigurationplugins-li">
+<input type="checkbox" id="m-43docsconfigurationplugins-check" checked>
+<label for="m-43docsconfigurationplugins-check"><a href="/4.3/docs/configuration/plugins/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationplugins"><span>Supported Plugins</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginscommonsecurity-li">
+<input type="checkbox" id="m-43docsconfigurationpluginscommonsecurity-check">
+<label for="m-43docsconfigurationpluginscommonsecurity-check"><a href="/4.3/docs/configuration/plugins/common/security/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginscommonsecurity"><span>Security</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginscommontransport-li">
+<input type="checkbox" id="m-43docsconfigurationpluginscommontransport-check">
+<label for="m-43docsconfigurationpluginscommontransport-check"><a href="/4.3/docs/configuration/plugins/common/transport/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginscommontransport"><span>Transport</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-43docsconfigurationpluginsfilters-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfilters-check" checked>
+<label for="m-43docsconfigurationpluginsfilters-check"><a href="/4.3/docs/configuration/plugins/filters/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationpluginsfilters"><span>Fluentd filters</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersconcat-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersconcat-check">
+<label for="m-43docsconfigurationpluginsfiltersconcat-check"><a href="/4.3/docs/configuration/plugins/filters/concat/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersconcat"><span>Concat</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersdedot-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersdedot-check">
+<label for="m-43docsconfigurationpluginsfiltersdedot-check"><a href="/4.3/docs/configuration/plugins/filters/dedot/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersdedot"><span>Dedot</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfilterselasticsearch_genid-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfilterselasticsearch_genid-check">
+<label for="m-43docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/4.3/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticsearchGenId</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersenhance_k8s-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersenhance_k8s-check">
+<label for="m-43docsconfigurationpluginsfiltersenhance_k8s-check"><a href="/4.3/docs/configuration/plugins/filters/enhance_k8s/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersenhance_k8s"><span>Enhance K8s Metadata</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersdetect_exceptions-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersdetect_exceptions-check">
+<label for="m-43docsconfigurationpluginsfiltersdetect_exceptions-check"><a href="/4.3/docs/configuration/plugins/filters/detect_exceptions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersdetect_exceptions"><span>Exception Detector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersgeoip-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersgeoip-check">
+<label for="m-43docsconfigurationpluginsfiltersgeoip-check"><a href="/4.3/docs/configuration/plugins/filters/geoip/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersgeoip"><span>Geo IP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersgrep-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersgrep-check">
+<label for="m-43docsconfigurationpluginsfiltersgrep-check"><a href="/4.3/docs/configuration/plugins/filters/grep/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersgrep"><span>Grep</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfilterskube_events_timestamp-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfilterskube_events_timestamp-check">
+<label for="m-43docsconfigurationpluginsfilterskube_events_timestamp-check"><a href="/4.3/docs/configuration/plugins/filters/kube_events_timestamp/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfilterskube_events_timestamp"><span>Kubernetes Events Timestamp</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersparser-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersparser-check">
+<label for="m-43docsconfigurationpluginsfiltersparser-check"><a href="/4.3/docs/configuration/plugins/filters/parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersparser"><span>Parser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersprometheus-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersprometheus-check">
+<label for="m-43docsconfigurationpluginsfiltersprometheus-check"><a href="/4.3/docs/configuration/plugins/filters/prometheus/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersprometheus"><span>Prometheus</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersrecord_modifier-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersrecord_modifier-check">
+<label for="m-43docsconfigurationpluginsfiltersrecord_modifier-check"><a href="/4.3/docs/configuration/plugins/filters/record_modifier/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersrecord_modifier"><span>Record Modifier</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-43docsconfigurationpluginsfiltersrecord_transformer-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersrecord_transformer-check" checked>
+<label for="m-43docsconfigurationpluginsfiltersrecord_transformer-check"><a href="/4.3/docs/configuration/plugins/filters/record_transformer/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersrecord_transformer"><span class="td-sidebar-nav-active-item">Record Transformer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersstdout-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersstdout-check">
+<label for="m-43docsconfigurationpluginsfiltersstdout-check"><a href="/4.3/docs/configuration/plugins/filters/stdout/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersstdout"><span>StdOut</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfilterssumologic-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfilterssumologic-check">
+<label for="m-43docsconfigurationpluginsfilterssumologic-check"><a href="/4.3/docs/configuration/plugins/filters/sumologic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfilterssumologic"><span>SumoLogic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfilterstagnormaliser-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfilterstagnormaliser-check">
+<label for="m-43docsconfigurationpluginsfilterstagnormaliser-check"><a href="/4.3/docs/configuration/plugins/filters/tagnormaliser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfilterstagnormaliser"><span>Tag Normaliser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsfiltersthrottle-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsfiltersthrottle-check">
+<label for="m-43docsconfigurationpluginsfiltersthrottle-check"><a href="/4.3/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationpluginsoutputs-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputs-check">
+<label for="m-43docsconfigurationpluginsoutputs-check"><a href="/4.3/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationpluginsoutputs"><span>Outputs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsoss-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsoss-check">
+<label for="m-43docsconfigurationpluginsoutputsoss-check"><a href="/4.3/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputscloudwatch-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputscloudwatch-check">
+<label for="m-43docsconfigurationpluginsoutputscloudwatch-check"><a href="/4.3/docs/configuration/plugins/outputs/cloudwatch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputscloudwatch"><span>Amazon CloudWatch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsaws_elasticsearch-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsaws_elasticsearch-check">
+<label for="m-43docsconfigurationpluginsoutputsaws_elasticsearch-check"><a href="/4.3/docs/configuration/plugins/outputs/aws_elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsaws_elasticsearch"><span>Amazon Elasticsearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputskinesis_firehose-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputskinesis_firehose-check">
+<label for="m-43docsconfigurationpluginsoutputskinesis_firehose-check"><a href="/4.3/docs/configuration/plugins/outputs/kinesis_firehose/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputskinesis_firehose"><span>Amazon Kinesis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputskinesis_stream-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputskinesis_stream-check">
+<label for="m-43docsconfigurationpluginsoutputskinesis_stream-check"><a href="/4.3/docs/configuration/plugins/outputs/kinesis_stream/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputskinesis_stream"><span>Amazon Kinesis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputss3-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputss3-check">
+<label for="m-43docsconfigurationpluginsoutputss3-check"><a href="/4.3/docs/configuration/plugins/outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputss3"><span>Amazon S3</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsazurestore-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsazurestore-check">
+<label for="m-43docsconfigurationpluginsoutputsazurestore-check"><a href="/4.3/docs/configuration/plugins/outputs/azurestore/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsazurestore"><span>Azure Storage</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsbuffer-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsbuffer-check">
+<label for="m-43docsconfigurationpluginsoutputsbuffer-check"><a href="/4.3/docs/configuration/plugins/outputs/buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsbuffer"><span>Buffer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsdatadog-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsdatadog-check">
+<label for="m-43docsconfigurationpluginsoutputsdatadog-check"><a href="/4.3/docs/configuration/plugins/outputs/datadog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsdatadog"><span>Datadog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputselasticsearch-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputselasticsearch-check">
+<label for="m-43docsconfigurationpluginsoutputselasticsearch-check"><a href="/4.3/docs/configuration/plugins/outputs/elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputselasticsearch"><span>Elasticsearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsfile-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsfile-check">
+<label for="m-43docsconfigurationpluginsoutputsfile-check"><a href="/4.3/docs/configuration/plugins/outputs/file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsfile"><span>File</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsformat-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsformat-check">
+<label for="m-43docsconfigurationpluginsoutputsformat-check"><a href="/4.3/docs/configuration/plugins/outputs/format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsformat"><span>Format</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsformat_rfc5424-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsformat_rfc5424-check">
+<label for="m-43docsconfigurationpluginsoutputsformat_rfc5424-check"><a href="/4.3/docs/configuration/plugins/outputs/format_rfc5424/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsformat_rfc5424"><span>Format rfc5424</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsforward-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsforward-check">
+<label for="m-43docsconfigurationpluginsoutputsforward-check"><a href="/4.3/docs/configuration/plugins/outputs/forward/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsforward"><span>Forward</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsgelf-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsgelf-check">
+<label for="m-43docsconfigurationpluginsoutputsgelf-check"><a href="/4.3/docs/configuration/plugins/outputs/gelf/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsgelf"><span>GELF</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsgcs-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsgcs-check">
+<label for="m-43docsconfigurationpluginsoutputsgcs-check"><a href="/4.3/docs/configuration/plugins/outputs/gcs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsgcs"><span>Google Cloud Storage</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsloki-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsloki-check">
+<label for="m-43docsconfigurationpluginsoutputsloki-check"><a href="/4.3/docs/configuration/plugins/outputs/loki/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsloki"><span>Grafana Loki</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputshttp-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputshttp-check">
+<label for="m-43docsconfigurationpluginsoutputshttp-check"><a href="/4.3/docs/configuration/plugins/outputs/http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputshttp"><span>Http</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputskafka-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputskafka-check">
+<label for="m-43docsconfigurationpluginsoutputskafka-check"><a href="/4.3/docs/configuration/plugins/outputs/kafka/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputskafka"><span>Kafka</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputslogdna-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputslogdna-check">
+<label for="m-43docsconfigurationpluginsoutputslogdna-check"><a href="/4.3/docs/configuration/plugins/outputs/logdna/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputslogdna"><span>LogDNA</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputslogz-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputslogz-check">
+<label for="m-43docsconfigurationpluginsoutputslogz-check"><a href="/4.3/docs/configuration/plugins/outputs/logz/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputslogz"><span>LogZ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsmattermost-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsmattermost-check">
+<label for="m-43docsconfigurationpluginsoutputsmattermost-check"><a href="/4.3/docs/configuration/plugins/outputs/mattermost/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsmattermost"><span>Mattermost</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsnewrelic-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsnewrelic-check">
+<label for="m-43docsconfigurationpluginsoutputsnewrelic-check"><a href="/4.3/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsopensearch-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsopensearch-check">
+<label for="m-43docsconfigurationpluginsoutputsopensearch-check"><a href="/4.3/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsredis-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsredis-check">
+<label for="m-43docsconfigurationpluginsoutputsredis-check"><a href="/4.3/docs/configuration/plugins/outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputsrelabel-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputsrelabel-check">
+<label for="m-43docsconfigurationpluginsoutputsrelabel-check"><a href="/4.3/docs/configuration/plugins/outputs/relabel/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputsrelabel"><span>Relabel</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputssplunk_hec-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputssplunk_hec-check">
+<label for="m-43docsconfigurationpluginsoutputssplunk_hec-check"><a href="/4.3/docs/configuration/plugins/outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputssplunk_hec"><span>Splunk</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputssqs-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputssqs-check">
+<label for="m-43docsconfigurationpluginsoutputssqs-check"><a href="/4.3/docs/configuration/plugins/outputs/sqs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputssqs"><span>SQS</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputssumologic-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputssumologic-check">
+<label for="m-43docsconfigurationpluginsoutputssumologic-check"><a href="/4.3/docs/configuration/plugins/outputs/sumologic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputssumologic"><span>SumoLogic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputssyslog-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputssyslog-check">
+<label for="m-43docsconfigurationpluginsoutputssyslog-check"><a href="/4.3/docs/configuration/plugins/outputs/syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputssyslog"><span>Syslog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginsoutputssecret-li">
+<input type="checkbox" id="m-43docsconfigurationpluginsoutputssecret-check">
+<label for="m-43docsconfigurationpluginsoutputssecret-check"><a href="/4.3/docs/configuration/plugins/outputs/secret/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginsoutputssecret"><span>Secret definition</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationpluginssyslog-ng-filters-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-filters-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-filters-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-filters/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationpluginssyslog-ng-filters"><span>syslog-ng filters</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-filtersmatch-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-filtersmatch-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-filtersmatch-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-filters/match/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-filtersmatch"><span>Match</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-filtersparser-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-filtersparser-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-filtersparser-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-filters/parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-filtersparser"><span>Parser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-filtersrewrite-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-filtersrewrite-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-filtersrewrite-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-filters/rewrite/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-filtersrewrite"><span>Rewrite</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsconfigurationpluginssyslog-ng-outputs-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputs-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputs-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputsfile-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputsfile-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputsfile-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputsfile"><span>File</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputshttp-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputshttp-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputshttp-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputshttp"><span>HTTP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputsloggly-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputsloggly-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputsloggly-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/loggly/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputsloggly"><span>Loggly output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputslogscale-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputslogscale-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputslogscale-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/logscale/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputslogscale"><span>LogScale</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputsmqtt-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputsmqtt-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_http-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_http-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputssumologic_http-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_http"><span>Sumo Logic HTTP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_syslog-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_syslog-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputssumologic_syslog-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/sumologic_syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputssumologic_syslog"><span>Sumo Logic Syslog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputssyslog-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputssyslog-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputssyslog-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputssyslog"><span>Syslog (RFC5424) output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsconfigurationpluginssyslog-ng-outputstls-li">
+<input type="checkbox" id="m-43docsconfigurationpluginssyslog-ng-outputstls-check">
+<label for="m-43docsconfigurationpluginssyslog-ng-outputstls-check"><a href="/4.3/docs/configuration/plugins/syslog-ng-outputs/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsconfigurationpluginssyslog-ng-outputstls"><span>TLS config for syslog-ng outputs</span></a></label>
+</li></ul></li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsexamples-li">
+<input type="checkbox" id="m-43docsexamples-check">
+<label for="m-43docsexamples-check"><a href="/4.3/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsexamples"><span>Examples</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplesfilters-in-flows-li">
+<input type="checkbox" id="m-43docsexamplesfilters-in-flows-check">
+<label for="m-43docsexamplesfilters-in-flows-check"><a href="/4.3/docs/examples/filters-in-flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplesfilters-in-flows"><span>Filter examples in Flows</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplescloudwatch-nginx-li">
+<input type="checkbox" id="m-43docsexamplescloudwatch-nginx-check">
+<label for="m-43docsexamplescloudwatch-nginx-check"><a href="/4.3/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplesexample-s3-li">
+<input type="checkbox" id="m-43docsexamplesexample-s3-check">
+<label for="m-43docsexamplesexample-s3-check"><a href="/4.3/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexampleses-nginx-li">
+<input type="checkbox" id="m-43docsexampleses-nginx-check">
+<label for="m-43docsexampleses-nginx-check"><a href="/4.3/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplessplunk-li">
+<input type="checkbox" id="m-43docsexamplessplunk-check">
+<label for="m-43docsexamplessplunk-check"><a href="/4.3/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplessumologic-li">
+<input type="checkbox" id="m-43docsexamplessumologic-check">
+<label for="m-43docsexamplessumologic-check"><a href="/4.3/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-43docsexamplessyslog-ng-sumologic-check">
+<label for="m-43docsexamplessyslog-ng-sumologic-check"><a href="/4.3/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexampleskafka-nginx-li">
+<input type="checkbox" id="m-43docsexampleskafka-nginx-check">
+<label for="m-43docsexampleskafka-nginx-check"><a href="/4.3/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsexamplesloki-nginx-li">
+<input type="checkbox" id="m-43docsexamplesloki-nginx-check">
+<label for="m-43docsexamplesloki-nginx-check"><a href="/4.3/docs/examples/loki-nginx/" title="Store Nginx Access Logs in Grafana Loki with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsexamplesloki-nginx"><span>Grafana Loki with Fluentd</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docslogging-infrastructure-li">
+<input type="checkbox" id="m-43docslogging-infrastructure-check">
+<label for="m-43docslogging-infrastructure-check"><a href="/4.3/docs/logging-infrastructure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docslogging-infrastructure"><span>Logging infrastructure setup</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructurelogging-li">
+<input type="checkbox" id="m-43docslogging-infrastructurelogging-check">
+<label for="m-43docslogging-infrastructurelogging-check"><a href="/4.3/docs/logging-infrastructure/logging/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructurelogging"><span>The Logging custom resource</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructurefluentd-li">
+<input type="checkbox" id="m-43docslogging-infrastructurefluentd-check">
+<label for="m-43docslogging-infrastructurefluentd-check"><a href="/4.3/docs/logging-infrastructure/fluentd/" title="Configure Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructurefluentd"><span>Fluentd log forwarder</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructuresyslog-ng-li">
+<input type="checkbox" id="m-43docslogging-infrastructuresyslog-ng-check">
+<label for="m-43docslogging-infrastructuresyslog-ng-check"><a href="/4.3/docs/logging-infrastructure/syslog-ng/" title="Configure syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructuresyslog-ng"><span>syslog-ng log forwarder</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructurefluentbit-li">
+<input type="checkbox" id="m-43docslogging-infrastructurefluentbit-check">
+<label for="m-43docslogging-infrastructurefluentbit-check"><a href="/4.3/docs/logging-infrastructure/fluentbit/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructurefluentbit"><span>Fluent Bit log collector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructurefluentbit-multiple-li">
+<input type="checkbox" id="m-43docslogging-infrastructurefluentbit-multiple-check">
+<label for="m-43docslogging-infrastructurefluentbit-multiple-check"><a href="/4.3/docs/logging-infrastructure/fluentbit-multiple/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructurefluentbit-multiple"><span>Multiple Fluent Bit agents in the cluster</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructuretls-li">
+<input type="checkbox" id="m-43docslogging-infrastructuretls-check">
+<label for="m-43docslogging-infrastructuretls-check"><a href="/4.3/docs/logging-infrastructure/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslogging-infrastructuretls"><span>TLS encryption</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslogging-infrastructuresecurity-li">
+<input type="checkbox" id="m-43docslogging-infrastructuresecurity-check">
+<label for="m-43docslogging-infrastructuresecurity-check"><a href="/4.3/docs/logging-infrastructure/security/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docslogging-infrastructuresecurity"><span>Security</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsoperation-li">
+<input type="checkbox" id="m-43docsoperation-check">
+<label for="m-43docsoperation-check"><a href="/4.3/docs/operation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsoperation"><span>Operation</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-43docsoperationtroubleshooting-li">
+<input type="checkbox" id="m-43docsoperationtroubleshooting-check">
+<label for="m-43docsoperationtroubleshooting-check"><a href="/4.3/docs/operation/troubleshooting/" title="Logging operator troubleshooting" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-43docsoperationtroubleshooting"><span>Troubleshooting</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationtroubleshootingfluentbit-li">
+<input type="checkbox" id="m-43docsoperationtroubleshootingfluentbit-check">
+<label for="m-43docsoperationtroubleshootingfluentbit-check"><a href="/4.3/docs/operation/troubleshooting/fluentbit/" title="Troubleshooting Fluent Bit" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationtroubleshootingfluentbit"><span>Fluent Bit</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationtroubleshootingfluentd-li">
+<input type="checkbox" id="m-43docsoperationtroubleshootingfluentd-check">
+<label for="m-43docsoperationtroubleshootingfluentd-check"><a href="/4.3/docs/operation/troubleshooting/fluentd/" title="Troubleshooting Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationtroubleshootingfluentd"><span>Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationtroubleshootingsyslog-ng-li">
+<input type="checkbox" id="m-43docsoperationtroubleshootingsyslog-ng-check">
+<label for="m-43docsoperationtroubleshootingsyslog-ng-check"><a href="/4.3/docs/operation/troubleshooting/syslog-ng/" title="Troubleshooting syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationtroubleshootingsyslog-ng"><span>syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationtroubleshootingkind-li">
+<input type="checkbox" id="m-43docsoperationtroubleshootingkind-check">
+<label for="m-43docsoperationtroubleshootingkind-check"><a href="/4.3/docs/operation/troubleshooting/kind/" title="Running on KinD" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationtroubleshootingkind"><span>KinD</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationlogging-operator-monitoring-li">
+<input type="checkbox" id="m-43docsoperationlogging-operator-monitoring-check">
+<label for="m-43docsoperationlogging-operator-monitoring-check"><a href="/4.3/docs/operation/logging-operator-monitoring/" title="Monitor your logging pipeline with Prometheus Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationlogging-operator-monitoring"><span>Monitoring</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationalerting-li">
+<input type="checkbox" id="m-43docsoperationalerting-check">
+<label for="m-43docsoperationalerting-check"><a href="/4.3/docs/operation/alerting/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationalerting"><span>Alerting</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationreadiness-probe-li">
+<input type="checkbox" id="m-43docsoperationreadiness-probe-check">
+<label for="m-43docsoperationreadiness-probe-check"><a href="/4.3/docs/operation/readiness-probe/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationreadiness-probe"><span>Readiness probe</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationerror-output-li">
+<input type="checkbox" id="m-43docsoperationerror-output-check">
+<label for="m-43docsoperationerror-output-check"><a href="/4.3/docs/operation/error-output/" title="Collect Fluentd errors" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationerror-output"><span>Fluentd errors</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationoptimization-li">
+<input type="checkbox" id="m-43docsoperationoptimization-check">
+<label for="m-43docsoperationoptimization-check"><a href="/4.3/docs/operation/optimization/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationoptimization"><span>Optimization</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationscaling-li">
+<input type="checkbox" id="m-43docsoperationscaling-check">
+<label for="m-43docsoperationscaling-check"><a href="/4.3/docs/operation/scaling/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationscaling"><span>Scaling</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsoperationrequirements-li">
+<input type="checkbox" id="m-43docsoperationrequirements-check">
+<label for="m-43docsoperationrequirements-check"><a href="/4.3/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsoperationrequirements"><span>Resource requirements</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsimage-versions-li">
+<input type="checkbox" id="m-43docsimage-versions-check">
+<label for="m-43docsimage-versions-check"><a href="/4.3/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsdevelopers-li">
+<input type="checkbox" id="m-43docsdevelopers-check">
+<label for="m-43docsdevelopers-check"><a href="/4.3/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docsfaq-li">
+<input type="checkbox" id="m-43docsfaq-check">
+<label for="m-43docsfaq-check"><a href="/4.3/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docsfaq"><span>FAQ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-43docslicense-li">
+<input type="checkbox" id="m-43docslicense-check">
+<label for="m-43docslicense-check"><a href="/4.3/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-43docslicense"><span>License</span></a></label>
+</li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/plugins/filters/record_transformer.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/edit/master/content/docs/configuration/plugins/filters/record_transformer.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/new/master/content/docs/configuration/plugins/filters/record_transformer.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/issues/new?title=Record%20Transformer" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/kube-logging/logging-operator/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+<a id="print" href="https://kube-logging.dev/4.3/docs/configuration/plugins/filters/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+</div><div class="td-toc">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#recordtransformer">RecordTransformer</a>
+<ul>
+<li><a href="#recordtransformer-remove_keys">remove_keys (string, optional)</a></li><li><a href="#recordtransformer-keep_keys">keep_keys (string, optional)</a></li><li><a href="#recordtransformer-renew_record">renew_record (bool, optional)</a></li><li><a href="#recordtransformer-renew_time_key">renew_time_key (string, optional)</a></li><li><a href="#recordtransformer-enable_ruby">enable_ruby (bool, optional)</a></li><li><a href="#recordtransformer-auto_typecast">auto_typecast (bool, optional)</a></li><li><a href="#recordtransformer-records">records ([]Record, optional)</a></li></ul></li><li><a href="#example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</a>
+<ul>
+<li></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<nav aria-label="breadcrumb" class="td-breadcrumbs">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="https://kube-logging.dev/4.3/docs/">Logging operator</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/4.3/docs/configuration/">Routing logs</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/4.3/docs/configuration/plugins/">Supported Plugins</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/4.3/docs/configuration/plugins/filters/">Fluentd filters</a>
+</li><li class="breadcrumb-item active" aria-current="page">
+<a href="https://kube-logging.dev/4.3/docs/configuration/plugins/filters/record_transformer/" aria-disabled="true" class="btn-link disabled">Record Transformer</a>
+</li></ol></nav><div class="td-content">
+<h1>Record Transformer</h1><header class="article-meta">
+</header><h1 id="record-transformerhttpsdocsfluentdorgfilterrecord_transformer"><a href="https://docs.fluentd.org/filter/record_transformer">Record Transformer</a></h1><h2 id="overview">Overview</h2><p>Mutates/transforms incoming event streams.</p><h2 id="configuration">Configuration</h2><h2 id="recordtransformer">RecordTransformer</h2><h3 id="recordtransformer-remove_keys">remove_keys (string, optional)</h3><p>A comma-delimited list of keys to delete</p><p>Default: -</p><h3 id="recordtransformer-keep_keys">keep_keys (string, optional)</h3><p>A comma-delimited list of keys to keep.</p><p>Default: -</p><h3 id="recordtransformer-renew_record">renew_record (bool, optional)</h3><p>Create new Hash to transform incoming data</p><p>Default: false</p><h3 id="recordtransformer-renew_time_key">renew_time_key (string, optional)</h3><p>Specify field name of the record to overwrite the time of events. Its value must be unix time.</p><p>Default: -</p><h3 id="recordtransformer-enable_ruby">enable_ruby (bool, optional)</h3><p>When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.</p><p>Default: false</p><h3 id="recordtransformer-auto_typecast">auto_typecast (bool, optional)</h3><p>Use original value type.</p><p>Default: true</p><h3 id="recordtransformer-records">records ([]Record, optional)</h3><p>Add records docs at: <a href="https://docs.fluentd.org/filter/record_transformer">https://docs.fluentd.org/filter/record_transformer</a> Records are represented as maps: <code>key: value</code></p><p>Default: -</p><h2 id="example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#204a87;font-weight:700">record_transformer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#204a87;font-weight:700">records</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">       </span>- <span style="color:#204a87;font-weight:700">foo</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;bar&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">selectors</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#000">demo-output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h4 id="fluentd-config-result">Fluentd Config Result</h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">&lt;filter **&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span>@<span style="color:#000">type record_transformer</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span>@<span style="color:#000">id test_record_transformer</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;record&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">foo bar</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;/record&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><hr>
+<div class="text-muted mt-5 pt-3 border-top">
+Last modified August 31, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2c7faf2090642856590cdc47d805c39f913680c1">Merge pull request #181 from kube-logging/lo-4.3-image-versions (2c7faf2)</a>
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white">&copy; 2023 kube-logging authors All Rights Reserved</small>
+</div></div></div></footer></div><script src="/4.3/js/main.min.ed022adc74e7ef1a0841acce97bf79aa1ddb1c111349975ee10f8083de41f58a.js" integrity="sha256-7QIq3HTn7xoIQazOl795qh3bHBETSZde4Q+Ag95B9Yo=" crossorigin="anonymous"></script>
+<script src='/4.3/js/prism.js'></script>
+<script src='/4.3/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>
