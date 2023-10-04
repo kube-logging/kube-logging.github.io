@@ -23,7 +23,54 @@ Cons:
 
 ## Enable webhooks in Logging operator {#enable-webhooks}
 
-> We recommend using `cert-manager` to manage your certificates. Since using `cert-manager` is not part of this article, we assume you already have valid certs.
+> We recommend using `cert-manager` to manage your certificates. Below is a really simple command that bootstraps generates the required resources for the `tailer-webhook`.
+### Issuing certificates using `cert-manager` {#issue-certificate-cert-manager}
+
+Follow the [official installation guide](https://cert-manager.io/docs/installation/).
+
+Once installed the following commands should allow you to create the required certificate for the webhook.
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: selfsigned-issuer
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: webhook-tls
+  namespace: logging
+spec:
+  isCA: true
+  commonName: my-selfsigned-ca
+  secretName: webhook-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  dnsNames:
+    - sample-webhook.banzaicloud.com
+    - logging-webhooks.logging.svc
+  usages:
+    - server auth
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: my-ca-issuer
+spec:
+  ca:
+    secretName: webhook-tls
+EOF
+```
+
 
 You will require the following things:
 
@@ -107,6 +154,8 @@ metadata:
   namespace: logging
   labels:
     app: sample-webhook
+  annotations:
+    cert-manager.io/inject-ca-from: logging/webhook-tls
 webhooks:
   - name: sample-webhook.banzaicloud.com
     clientConfig:
@@ -114,7 +163,6 @@ webhooks:
         name: logging-webhooks
         namespace: logging
         path: "/tailer-webhook"
-      caBundle: $(kubectl get secret webhook-tls -n logging -o json | jq -r '.data["ca.crt"]')
     rules:
       - operations: [ "CREATE" ]
         apiGroups: [""]
@@ -159,7 +207,7 @@ To trigger the webhook, add the following annotation to the pod metadata:
 
 ### File tailer example
 
-The following example creates a pod that is running a shell in infinite loop that appends the `date` command's output to a file every second. The annotation `sidecar.logging-extensions.banzaicloud.io/tail` notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the `/legacy-logs/date.log` file and sends its output to the stdout.
+The following example creates a pod that is running a shell in infinite loop that appends the `date` command's output to a file every second. The annotation `sidecar.logging-extensions.banzaicloud.io/tail` notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the `/var/log/date` file and sends its output to the stdout.
 
 ```yaml
 apiVersion: v1
@@ -170,16 +218,13 @@ metadata:
 spec:
     containers:
     - image: debian
-        name: sample-container
-        command: ["/bin/sh", "-c"]
-        args:
-            - while true; do
-                date >> /var/log/date;
-                sleep 1;
-        done
-    - image: debian
-        name: sample-container2
-...
+      name: sample-container
+      command: ["/bin/sh", "-c"]
+      args:
+        - while true; do
+            date >> /var/log/date;
+            sleep 1;
+            done
 ```
 
 After you have created the pod with the required annotation, make sure that the `test-pod` contains two containers by running `kubectl get pod`
@@ -201,15 +246,15 @@ Expected output:
 
 ```bash
 [
-  "test",
-  "legacy-logs-date-log"
+  "sample-container",
+  "sample-container-var-log-date"
 ]
 ```
 
 Check the logs of the `test` container. Since it writes the logs into a file, it does not produce any logs on stdout.
 
 ```bash
-kubectl logs test-pod test; echo $?
+kubectl logs test-pod sample-container; echo $?
 ```
 
 Expected output:
