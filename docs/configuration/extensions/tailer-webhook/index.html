@@ -20,11 +20,11 @@
 <meta property="og:description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/tailer-webhook/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-04T10:18:55+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-04T11:27:35+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Tail logfiles with a webhook">
 <meta itemprop="description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
-<meta itemprop="dateModified" content="2023-10-04T10:18:55+02:00">
-<meta itemprop="wordCount" content="1228">
+<meta itemprop="dateModified" content="2023-10-04T11:27:35+02:00">
+<meta itemprop="wordCount" content="1302">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tail logfiles with a webhook">
 <meta name="twitter:description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
@@ -524,7 +524,9 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#enable-webhooks">Enable webhooks in Logging operator</a></li><li><a href="#triggering-the-webhook">Triggering the webhook</a>
+<li><a href="#enable-webhooks">Enable webhooks in Logging operator</a>
+<ul>
+<li><a href="#issue-certificate-cert-manager">Issuing certificates using <code>cert-manager</code></a></li></ul></li><li><a href="#triggering-the-webhook">Triggering the webhook</a>
 <ul>
 <li><a href="#file-tailer-example">File tailer example</a></li></ul></li><li><a href="#multi-container-pods">Multi-container pods</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -543,7 +545,45 @@ Releases
 While the containers of the <code>host file tailers</code> run in a separated pod, <code>file tailer webhook</code> uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.</p><p><img src="../logging-extensions-tailer-webhook.png" alt="Tailer-webhook"></p><p>The <code>tailer-webhook</code> behaves differently compared to the <code>host-tailer</code>:</p><p>Pros:</p><ul>
 <li>A simple annotation on the pod initiates the file tailing.</li><li>There is no need to use <code>mounted volumes</code>, Logging operator will manage the volumes and mounts between your containers.</li></ul><p>Cons:</p><ul>
 <li>Required to start the Logging operator with webhooks service enabled. This requires additional configuration, especially on certificates since webhook services are allowed over TLS only.</li><li>Possibly uses more resources, since every tailed file attaches a new sidecar container to the pod.</li></ul><h2 id="enable-webhooks">Enable webhooks in Logging operator</h2><blockquote>
-<p>We recommend using <code>cert-manager</code> to manage your certificates. Since using <code>cert-manager</code> is not part of this article, we assume you already have valid certs.</p></blockquote><p>You will require the following things:</p><ul>
+<p>We recommend using <code>cert-manager</code> to manage your certificates. Below is a really simple command that bootstraps generates the required resources for the <code>tailer-webhook</code>.</p></blockquote><h3 id="issue-certificate-cert-manager">Issuing certificates using <code>cert-manager</code></h3><p>Follow the <a href="https://cert-manager.io/docs/installation/">official installation guide</a>.</p><p>Once installed the following commands should allow you to create the required certificate for the webhook.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - <span style="color:#4e9a06">&lt;&lt;EOF
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">kind: ClusterIssuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">metadata:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  name: selfsigned-issuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">spec:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  selfSigned: {}
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">---
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">kind: Certificate
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">metadata:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  name: webhook-tls
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  namespace: logging
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">spec:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  isCA: true
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  commonName: my-selfsigned-ca
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  secretName: webhook-tls
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  privateKey:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    algorithm: ECDSA
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    size: 256
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  dnsNames:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    - sample-webhook.banzaicloud.com
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    - logging-webhooks.logging.svc
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  usages:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    - server auth
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  issuerRef:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    name: selfsigned-issuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    kind: ClusterIssuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    group: cert-manager.io
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">---
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">kind: ClusterIssuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">metadata:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  name: my-ca-issuer
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">spec:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  ca:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    secretName: webhook-tls
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">EOF</span>
+</span></span></code></pre></div><p>You will require the following things:</p><ul>
 <li>a valid client certificate,</li><li>a CA certificate, and</li><li>a custom value.yaml file for your helm chart.</li></ul><p>The following example refers to a Kubernetes secret named <code>webhook-tls</code> which is a self-signed certificate generated by <code>cert-manager</code>.</p><p>Add the following lines to your custom <code>values.yaml</code> or create a new file if needed:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">env</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENABLE_WEBHOOKS</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">value</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -584,6 +624,8 @@ There are more sophisticated ways to load the CA into this field, but this solut
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  namespace: logging
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  labels:
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    app: sample-webhook
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  annotations:
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    cert-manager.io/inject-ca-from: logging/webhook-tls
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">webhooks:
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">  - name: sample-webhook.banzaicloud.com
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    clientConfig:
@@ -591,7 +633,6 @@ There are more sophisticated ways to load the CA into this field, but this solut
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">        name: logging-webhooks
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">        namespace: logging
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">        path: &#34;/tailer-webhook&#34;
-</span></span></span><span style="display:flex"><span><span style="color:#4e9a06">      caBundle: $(kubectl get secret webhook-tls -n logging -o json | jq -r &#39;.data[&#34;ca.crt&#34;]&#39;)
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">    rules:
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">      - operations: [ &#34;CREATE&#34; ]
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">        apiGroups: [&#34;&#34;]
@@ -617,7 +658,7 @@ There are more sophisticated ways to load the CA into this field, but this solut
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div></li><li>
 <p>If the pod contains multiple containers, see <a href="#multi-container-pods">Multi-container pods</a>.</p></li></ul><blockquote>
-<p>Note: If the pod with the sidecar annotation is in the <code>default</code> namespace, Logging operator handles <code>tailer-webhook</code> annotations clusterwide. To restrict the webhook callbacks to the current namespace, change the <code>scope</code> of the <code>mutatingwebhookconfiguration</code> to <code>namespaced</code>.</p></blockquote><h3 id="file-tailer-example">File tailer example</h3><p>The following example creates a pod that is running a shell in infinite loop that appends the <code>date</code> command&rsquo;s output to a file every second. The annotation <code>sidecar.logging-extensions.banzaicloud.io/tail</code> notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the <code>/legacy-logs/date.log</code> file and sends its output to the stdout.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Note: If the pod with the sidecar annotation is in the <code>default</code> namespace, Logging operator handles <code>tailer-webhook</code> annotations clusterwide. To restrict the webhook callbacks to the current namespace, change the <code>scope</code> of the <code>mutatingwebhookconfiguration</code> to <code>namespaced</code>.</p></blockquote><h3 id="file-tailer-example">File tailer example</h3><p>The following example creates a pod that is running a shell in infinite loop that appends the <code>date</code> command&rsquo;s output to a file every second. The annotation <code>sidecar.logging-extensions.banzaicloud.io/tail</code> notifies Logging operator to attach a sidecar container to the pod. The sidecar tails the <code>/var/log/date</code> file and sends its output to the stdout.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Pod</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test-pod</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -625,24 +666,21 @@ There are more sophisticated ways to load the CA into this field, but this solut
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">containers</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">image</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">debian</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sample-container</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">command</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:700">[</span><span style="color:#4e9a06">&#34;/bin/sh&#34;</span><span style="color:#000;font-weight:700">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;-c&#34;</span><span style="color:#000;font-weight:700">]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">args</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">while true; do</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#000">date &gt;&gt; /var/log/date;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#000">sleep 1;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000">done</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">image</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">debian</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sample-container2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sample-container</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">command</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:700">[</span><span style="color:#4e9a06">&#34;/bin/sh&#34;</span><span style="color:#000;font-weight:700">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;-c&#34;</span><span style="color:#000;font-weight:700">]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">args</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">while true; do</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#000">date &gt;&gt; /var/log/date;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#000">sleep 1;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#000">done</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>After you have created the pod with the required annotation, make sure that the <code>test-pod</code> contains two containers by running <code>kubectl get pod</code></p><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME       READY   STATUS    RESTARTS   AGE
 </span></span><span style="display:flex"><span>test-pod   2/2     Running   <span style="color:#0000cf;font-weight:700">0</span>          29m
 </span></span></code></pre></div><p>Check the container names in the pod to see that the Logging operator has created the sidecar container called <code>legacy-logs-date-log</code>. The sidecar containers&rsquo; name is always built from the path and name of the tailed file. Run the following command:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get pod test-pod -o json <span style="color:#000;font-weight:700">|</span> jq <span style="color:#4e9a06">&#39;.spec.containers | map(.name)&#39;</span>
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>
-</span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;test&#34;</span>,
-</span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;legacy-logs-date-log&#34;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;sample-container&#34;</span>,
+</span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;sample-container-var-log-date&#34;</span>
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">]</span>
-</span></span></code></pre></div><p>Check the logs of the <code>test</code> container. Since it writes the logs into a file, it does not produce any logs on stdout.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs test-pod test<span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span> <span style="color:#000">$?</span>
+</span></span></code></pre></div><p>Check the logs of the <code>test</code> container. Since it writes the logs into a file, it does not produce any logs on stdout.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs test-pod sample-container<span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span> <span style="color:#000">$?</span>
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#0000cf;font-weight:700">0</span>
 </span></span></code></pre></div><p>Check the logs of the <code>legacy-logs-date-log</code> container. This container exposes the logs of the <code>test</code> container on its stdout.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs test-pod legacy-logs-date-log
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>Fluent Bit v1.9.5
@@ -676,7 +714,7 @@ There are more sophisticated ways to load the CA into this field, but this solut
 <td>sample-container2:/var/log/anotherfile</td><td>tails file /var/log/anotherfile in sample-container2</td></tr><tr>
 <td>/var/log/mycustomfile</td><td>tails file /var/log/mycustomfile in default container (sample-container)</td></tr><tr>
 <td>foobarbaz:/foo/bar/baz</td><td>will be discarded due to non-existing container name</td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 4, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/34f0f3854e3b92d05d453ad56da39cb6ca17edb4">Merge pull request #190 from kube-logging/whatsnew-buffer-metrics (34f0f38)</a>
+Last modified October 4, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c97e7f5ea44b142b08aca59872411ee4ec5b24a3">Merge pull request #188 from kube-logging/tailer-webhook (c97e7f5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

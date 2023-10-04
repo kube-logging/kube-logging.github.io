@@ -22,11 +22,11 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/es-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-04T10:18:55+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-04T11:27:35+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store NGINX access logs in Elasticsearch with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2023-10-04T10:18:55+02:00">
+<meta itemprop="dateModified" content="2023-10-04T11:27:35+02:00">
 <meta itemprop="wordCount" content="668">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store NGINX access logs in Elasticsearch with Logging operator">
@@ -664,7 +664,7 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 <p>Open the Kibana dashboard in your browser at <a href="https://localhost:5601">https://localhost:5601</a> and login as <strong>elastic</strong> using the retrieved password.</p></li><li>
 <p>By default, the Logging operator sends the incoming log messages into an index called <em>fluentd</em>. Create an Index Pattern that includes this index (for example, <em>fluentd*</em>), then select <strong>Menu > Kibana > Discover</strong>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 4, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/34f0f3854e3b92d05d453ad56da39cb6ca17edb4">Merge pull request #190 from kube-logging/whatsnew-buffer-metrics (34f0f38)</a>
+Last modified October 4, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c97e7f5ea44b142b08aca59872411ee4ec5b24a3">Merge pull request #188 from kube-logging/tailer-webhook (c97e7f5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
