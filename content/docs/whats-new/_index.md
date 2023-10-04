@@ -74,7 +74,9 @@ For jobs/individual pods that run to completion, Istio sidecar injection needs t
 
 ### Improved buffer metrics
 
-The buffer metrics sidecar configuration has been rewritten to add a new metric and improve performance by avoiding unnecessary cardinality. 
+The buffer metrics are now available for both the Fluentd and the SyslogNG based aggregators.
+
+The sidecar configuration has been rewritten to add a new metric and improve performance by avoiding unnecessary cardinality.
 
 The name of the metric has been changed as well, but the original metric was kept in place to avoid breaking existing clients.
 
