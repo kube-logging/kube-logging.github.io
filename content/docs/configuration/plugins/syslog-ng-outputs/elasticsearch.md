@@ -8,6 +8,23 @@ generated_file: true
 
 Based on the [ElasticSearch destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-elasticsearch-http/).
 
+## Example
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: es
+spec:
+  elasticsearch:
+    url: "https://elastic-search-endpoint:9200/_bulk"
+    index: "$ELASTIC_INDEX"
+    type: ""
+    user: "$ELASTIC_USERNAME"
+    password:
+      value: "$ELASTIC_PASSWORD"
+{{</ highlight >}}
+
 ## Configuration
 
 ###  (HTTPOutput, required) {#elasticsearchoutput-}
