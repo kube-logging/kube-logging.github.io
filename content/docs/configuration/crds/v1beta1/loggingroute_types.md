@@ -6,7 +6,7 @@ generated_file: true
 
 ## LoggingRouteSpec
 
-LoggingRouteSpec defines the desired state of LoggingRoute
+LoggingRouteSpec defines the desired state of LoggingRoute. For a detailed overview, see {{% xref "/docs/configuration/loggingroute.md" %}}.
 
 ### source (string, required) {#loggingroutespec-source}
 
