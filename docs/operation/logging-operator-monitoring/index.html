@@ -24,12 +24,12 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-04T11:27:35+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-10T12:36:50+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2023-10-04T11:27:35+02:00">
+<meta itemprop="dateModified" content="2023-10-10T12:36:50+02:00">
 <meta itemprop="wordCount" content="653">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
@@ -749,7 +749,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 4, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c97e7f5ea44b142b08aca59872411ee4ec5b24a3">Merge pull request #188 from kube-logging/tailer-webhook (c97e7f5)</a>
+Last modified October 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/01621fd177b21a37f50de519f3d1197d5f50ba4c">Merge pull request #193 from kube-logging/timeout-based-configcheck (01621fd)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
