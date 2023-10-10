@@ -40,9 +40,9 @@ In a future Logging operator version the logs of the aggregators will also be av
 
 ### Timeout-based configuration checks
 
-Timeout based configuration checks are different from the normal method in that it starts a fluentd or syslog-ng instance
-without the dry-run or syntax-check flags, so that output plugins or destination drivers will actually try to establish
-connections and will fail if there are any issues with the credentials for example.
+Timeout-based configuration checks are different from the normal method: they start a Fluentd or syslog-ng instance
+without the dry-run or syntax-check flags, so output plugins or destination drivers actually try to establish
+connections and will fail if there are any issues , for example, with the credentials.
 
 Add the following to you `Logging` resource spec:
 ```yaml
