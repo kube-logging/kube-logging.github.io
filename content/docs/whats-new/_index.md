@@ -40,32 +40,16 @@ In a future Logging operator version the logs of the aggregators will also be av
 
 ### Timeout-based configuration checks
 
-You can now use timeout-based configuration strategies for both syslog-ng and Fluentd. For example:
+Timeout-based configuration checks are different from the normal method: they start a Fluentd or syslog-ng instance
+without the dry-run or syntax-check flags, so output plugins or destination drivers actually try to establish
+connections and will fail if there are any issues , for example, with the credentials.
 
+Add the following to you `Logging` resource spec:
 ```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: all-to-file
 spec:
   configCheck:
     strategy: StartWithTimeout
     timeoutSeconds: 5
-  syslogNG: {}
-  controlNamespace: default
-```
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: all-to-file
-spec:
-  configCheck:
-    strategy: StartWithTimeout
-    timeoutSeconds: 5
-  fluentd: {}
-  controlNamespace: default
 ```
 
 ### Istio support
