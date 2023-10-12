@@ -93,7 +93,11 @@ Cons:
 
 Using the `LoggingRoute` resource, you can now route logs from different namespaces to different aggregators.
 
-The `LoggingRoute` resource connects a collector (FluentBit) of a logging resource with the aggregators of other logging resources. The collector uses the `watchNamespaces` configuration in the target logging resources to send only the logs relevant to them. This way, target logging resources can effectively work in isolation on their own logs and nothing more.
+For example, an administrator can define a routing rule that allows for sending logs from one centrally managed Fluent Bit agent to multiple different Fluentd or syslog-ng aggregators owned by individual tenants. That way each tenant receives only the logs relevant to them. In addition to that, operations teams still have the ability to receive all logs from the system, for example, to archive them on a cold storage. The following diagram demonstrates this use case given two user-level and one administrator-level tenants:
+
+![Multi-tenancy with namespace-based routing](logging-operator-multi-tenancy.png)
+
+The `LoggingRoute` resource connects a collector (Fluent Bit) of a logging resource with the aggregators of other logging resources. The collector uses the `watchNamespaces` configuration in the target logging resources to send only the logs relevant to them. This way, target logging resources can effectively work in isolation on their own logs and nothing more.
 
 > Note: This method can be combined with a `loggingRef` as well, similarly to the [Soft multi-tenancy with logging ref](#soft-multi-tenancy-with-logging-ref) scenario.
 
@@ -105,3 +109,5 @@ of its logging domain.
 Cons:
 
 - One collector agent handles multiple output queues and failure scenarios, which FluentBit does not handle well by default.
+
+For details on the `LoggingRoute` resource, see {{% xref "/docs/configuration/crds/v1beta1/loggingroute_types.md" %}}.
