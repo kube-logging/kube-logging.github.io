@@ -64,6 +64,12 @@ Default: -
 
 Default: -
 
+### s3 (*output.S3Output, optional) {#syslogngoutputspec-s3}
+
+Available in Logging operator version 4.4 and later.
+
+Default: -
+
 
 ## SyslogNGOutput
 
