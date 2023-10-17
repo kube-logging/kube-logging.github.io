@@ -6,6 +6,23 @@ generated_file: true
 
 Based on the [Splunk destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-splunk/).
 
+## Example
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: splunkhec
+spec:
+  splunk_hec_event:
+    url: "https://splunk-endpoint"
+    token:
+      valueFrom:
+          secretKeyRef:
+            name: splunk-hec
+            key: token
+{{</ highlight >}}
+
 ## Configuration
 
 ###  (HTTPOutput, required) {#splunkhecoutput-}

@@ -42,7 +42,6 @@ TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/7291
 Default:  {}
 
 
-
  ## Example `GELF` output configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1

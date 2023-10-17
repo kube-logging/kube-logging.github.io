@@ -9,8 +9,9 @@ generated_file: true
 This plugin has been designed to output logs or metrics to SumoLogic via a HTTP collector endpoint
 More info at https://github.com/SumoLogic/fluentd-output-sumologic
 
- Example secret for HTTP input URL
- ```
+Example secret for HTTP input URL
+
+```
 export URL='https://endpoint1.collection.eu.sumologic.com/receiver/v1/http/.......'
 kubectl create secret generic sumo-output --from-literal "endpoint=$URL"
 ```

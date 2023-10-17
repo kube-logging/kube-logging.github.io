@@ -4,29 +4,33 @@ weight: 200
 generated_file: true
 ---
 
-The `syslog` output sends log records over a socket using the Syslog protocol (RFC 5424).
+The `syslog` output sends log records over a socket using the Syslog protocol (RFC 5424). Based on https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-syslog/
 
 {{< highlight yaml >}}
-  spec:
-    syslog:
-      host: 10.12.34.56
-      transport: tls
-      tls:
-        ca_file:
-          mountFrom:
-            secretKeyRef:
-              name: tls-secret
-              key: ca.crt
-        cert_file:
-          mountFrom:
-            secretKeyRef:
-              name: tls-secret
-              key: tls.crt
-        key_file:
-          mountFrom:
-            secretKeyRef:
-              name: tls-secret
-              key: tls.key
+kind: SyslogNGOutput
+metadata:
+  name: test
+  namespace: default
+spec:
+  syslog:
+    host: 10.12.34.56
+    transport: tls
+    tls:
+      ca_file:
+        mountFrom:
+          secretKeyRef:
+            name: tls-secret
+            key: ca.crt
+      cert_file:
+        mountFrom:
+          secretKeyRef:
+            name: tls-secret
+            key: tls.crt
+      key_file:
+        mountFrom:
+          secretKeyRef:
+            name: tls-secret
+            key: tls.key
 {{</ highlight >}}
 
 The following example also configures disk-based buffering for the output. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
@@ -69,6 +73,8 @@ spec:
 {{</ highlight >}}
 
 For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-syslog/).
+
+## Configuration
 
 ### host (string, required) {#syslogoutput-host}
 

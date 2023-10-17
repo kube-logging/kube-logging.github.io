@@ -4,9 +4,58 @@ weight: 200
 generated_file: true
 ---
 
-## Overview
+Sends messages over HTTP. For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-http-nonjava/).
 
-For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-http-nonjava/).
+## Example
+
+A simple example sending logs over HTTP to a fluentbit HTTP endpoint:
+
+{{< highlight yaml >}}
+kind: SyslogNGOutput
+apiVersion: logging.banzaicloud.io/v1beta1
+metadata:
+  name: http
+spec:
+  http:
+    #URL of the ingest endpoint
+    url: http://fluentbit-endpoint:8080/tag
+    method: POST
+    headers:
+      - "Content-type: application/json"
+{{</ highlight >}}
+
+A more complex example to demonstrate sending logs to OpenObserve
+{{< highlight yaml >}}
+kind: SyslogNGOutput
+apiVersion: logging.banzaicloud.io/v1beta1
+metadata:
+  name: openobserve
+spec:
+  http:
+    #URL of the ingest endpoint
+    url: https://openobserve-endpoint/api/default/log-generator/_json
+    user: "username"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: openobserve
+          key: password
+    method: POST
+    # Parameters for sending logs in batches
+    batch-lines: 5000
+    batch-bytes: 4096
+    batch-timeout: 300
+    headers:
+      - "Connection: keep-alive"
+    # Disable TLS peer verification for demo
+    tls:
+      peer_verify: "no"
+    body-prefix: "["
+    body-suffix: "]"
+    delimiter: ","
+    body: "${MESSAGE}"
+{{</ highlight >}}
+
 
 ## Configuration
 
