@@ -16,42 +16,34 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 <title>Elasticsearch | Logging operator</title><meta name="description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &amp;#34;https://elastic-search-endpoint:9200/_bulk&amp;#34; index: &amp;#34;indexname&amp;#34; type: &amp;#34;&amp;#34; user: &amp;#34;username&amp;#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) Default: -
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.
 Default: -
-type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc
-custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
-Default: -">
+type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc">
 <meta property="og:title" content="Elasticsearch">
 <meta property="og:description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) Default: -
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.
 Default: -
-type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc
-custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
-Default: -">
+type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T20:44:46+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Elasticsearch">
 <meta itemprop="description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) Default: -
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.
 Default: -
-type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc
-custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
-Default: -">
-<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
-<meta itemprop="wordCount" content="117">
+type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc">
+<meta itemprop="dateModified" content="2023-10-17T20:44:46+02:00">
+<meta itemprop="wordCount" content="144">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch">
 <meta name="twitter:description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) Default: -
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.
 Default: -
-type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc
-custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
-Default: -">
+type (*string, optional) The document type associated with the operation. Elasticsearch indices now support a single document type: _doc">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
 <link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
@@ -377,7 +369,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputs-check" checked>
 <label for="m-docsconfigurationpluginssyslog-ng-outputs-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
@@ -409,7 +404,7 @@ Releases
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
-<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
@@ -548,7 +543,7 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a>
+<li><a href="#overview">Overview</a></li><li><a href="#example">Example</a></li><li><a href="#configuration">Configuration</a>
 <ul>
 <li><a href="#elasticsearchoutput-">(HTTPOutput, required)</a></li><li><a href="#elasticsearchoutput-index">index (string, optional)</a></li><li><a href="#elasticsearchoutput-type">type (*string, optional)</a></li><li><a href="#elasticsearchoutput-custom_id">custom_id (string, optional)</a></li><li><a href="#elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</a></li><li><a href="#elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</a></li><li><a href="#elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -565,8 +560,22 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/" aria-disabled="true" class="btn-link disabled">Elasticsearch</a>
 </li></ol></nav><div class="td-content">
 <h1>Elasticsearch</h1><header class="article-meta">
-</header><h2 id="overview">Overview</h2><p>Based on the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-elasticsearch-http/">ElasticSearch destination of AxoSyslog core</a>.</p><h2 id="configuration">Configuration</h2><h3 id="elasticsearchoutput-">(HTTPOutput, required)</h3><p>Default: -</p><h3 id="elasticsearchoutput-index">index (string, optional)</h3><p>Name of the data stream, index, or index alias to perform the action on.</p><p>Default: -</p><h3 id="elasticsearchoutput-type">type (*string, optional)</h3><p>The document type associated with the operation. Elasticsearch indices now support a single document type: <code>_doc</code></p><h3 id="elasticsearchoutput-custom_id">custom_id (string, optional)</h3><p>The document ID. If no ID is specified, a document ID is automatically generated.</p><p>Default: -</p><h3 id="elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</h3><p>Set the prefix for logs in logstash format. If set, then Index field will be ignored.</p><p>Default: -</p><h3 id="elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</h3><p>Set the separator between LogstashPrefix and LogStashDateformat.</p><p>Default: <code>-</code></p><h3 id="elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</h3><p>Set the suffix for logs in logstash format.</p><p>Default: <code>${YEAR}.${MONTH}.${DAY}</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
+</header><h2 id="overview">Overview</h2><p>Based on the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-elasticsearch-http/">ElasticSearch destination of AxoSyslog core</a>.</p><h2 id="example">Example</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SyslogNGOutput</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elasticsearch</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">elasticsearch</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">url</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;https://elastic-search-endpoint:9200/_bulk&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">index</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;indexname&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">user</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;username&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">password</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">valueFrom</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elastic</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchoutput-">(HTTPOutput, required)</h3><p>Default: -</p><h3 id="elasticsearchoutput-index">index (string, optional)</h3><p>Name of the data stream, index, or index alias to perform the action on.</p><p>Default: -</p><h3 id="elasticsearchoutput-type">type (*string, optional)</h3><p>The document type associated with the operation. Elasticsearch indices now support a single document type: <code>_doc</code></p><p>Default: -</p><h3 id="elasticsearchoutput-custom_id">custom_id (string, optional)</h3><p>The document ID. If no ID is specified, a document ID is automatically generated.</p><p>Default: -</p><h3 id="elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</h3><p>Set the prefix for logs in logstash format. If set, then Index field will be ignored.</p><p>Default: -</p><h3 id="elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</h3><p>Set the separator between LogstashPrefix and LogStashDateformat.</p><p>Default: <code>-</code></p><h3 id="elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</h3><p>Set the suffix for logs in logstash format.</p><p>Default: <code>${YEAR}.${MONTH}.${DAY}</code></p><div class="text-muted mt-5 pt-3 border-top">
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/22fa7eef1c8fc042152bffa960bab86fe24f545f">Merge pull request #195 from kube-logging/output-gendoc-updates (22fa7ee)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

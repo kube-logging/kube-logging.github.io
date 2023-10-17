@@ -16,50 +16,34 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 <title>SplunkHEC | Logging operator</title><meta name="description" content="Based on the Splunk destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: splunkhec spec: splunk_hec_event: url: &amp;#34;https://splunk-endpoint&amp;#34; token: valueFrom: secretKeyRef: name: splunk-hec key: token Configuration (HTTPOutput, required) Default: -
 token (secret.Secret, optional) The token that syslog-ng OSE uses to authenticate on the event collector.
 Default: -
-event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}
-Default: -
-index (string, optional) Splunk index where the messages will be stored.
-Default: -
-source (string, optional) Sets the source field.">
+event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}">
 <meta property="og:title" content="SplunkHEC">
 <meta property="og:description" content="Based on the Splunk destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: splunkhec spec: splunk_hec_event: url: &#34;https://splunk-endpoint&#34; token: valueFrom: secretKeyRef: name: splunk-hec key: token Configuration (HTTPOutput, required) Default: -
 token (secret.Secret, optional) The token that syslog-ng OSE uses to authenticate on the event collector.
 Default: -
-event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}
-Default: -
-index (string, optional) Splunk index where the messages will be stored.
-Default: -
-source (string, optional) Sets the source field.">
+event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T20:44:46+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SplunkHEC">
 <meta itemprop="description" content="Based on the Splunk destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: splunkhec spec: splunk_hec_event: url: &#34;https://splunk-endpoint&#34; token: valueFrom: secretKeyRef: name: splunk-hec key: token Configuration (HTTPOutput, required) Default: -
 token (secret.Secret, optional) The token that syslog-ng OSE uses to authenticate on the event collector.
 Default: -
-event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}
-Default: -
-index (string, optional) Splunk index where the messages will be stored.
-Default: -
-source (string, optional) Sets the source field.">
-<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
-<meta itemprop="wordCount" content="174">
+event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}">
+<meta itemprop="dateModified" content="2023-10-17T20:44:46+02:00">
+<meta itemprop="wordCount" content="193">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SplunkHEC">
 <meta name="twitter:description" content="Based on the Splunk destination of AxoSyslog core.
-Configuration (HTTPOutput, required) Default: -
+Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: splunkhec spec: splunk_hec_event: url: &#34;https://splunk-endpoint&#34; token: valueFrom: secretKeyRef: name: splunk-hec key: token Configuration (HTTPOutput, required) Default: -
 token (secret.Secret, optional) The token that syslog-ng OSE uses to authenticate on the event collector.
 Default: -
-event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}
-Default: -
-index (string, optional) Splunk index where the messages will be stored.
-Default: -
-source (string, optional) Sets the source field.">
+event (string, optional) event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
 <link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
@@ -385,7 +369,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputs-check" checked>
 <label for="m-docsconfigurationpluginssyslog-ng-outputs-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
@@ -417,7 +404,7 @@ Releases
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
-<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check" checked>
 <label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span class="td-sidebar-nav-active-item">SplunkHEC</span></a></label>
@@ -556,7 +543,7 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#configuration">Configuration</a>
+<li><a href="#example">Example</a></li><li><a href="#configuration">Configuration</a>
 <ul>
 <li><a href="#splunkhecoutput-">(HTTPOutput, required)</a></li><li><a href="#splunkhecoutput-token">token (secret.Secret, optional)</a></li><li><a href="#splunkhecoutput-event">event (string, optional)</a></li><li><a href="#splunkhecoutput-index">index (string, optional)</a></li><li><a href="#splunkhecoutput-source">source (string, optional)</a></li><li><a href="#splunkhecoutput-sourcetype">sourcetype (string, optional)</a></li><li><a href="#splunkhecoutput-host">host (string, optional)</a></li><li><a href="#splunkhecoutput-time">time (string, optional)</a></li><li><a href="#splunkhecoutput-default_index">default_index (string, optional)</a></li><li><a href="#splunkhecoutput-default_source">default_source (string, optional)</a></li><li><a href="#splunkhecoutput-default_sourcetype">default_sourcetype (string, optional)</a></li><li><a href="#splunkhecoutput-fields">fields (string, optional)</a></li><li><a href="#splunkhecoutput-extra_headers">extra_headers ([]string, optional)</a></li><li><a href="#splunkhecoutput-extra_queries">extra_queries ([]string, optional)</a></li><li><a href="#splunkhecoutput-content_type">content_type (string, optional)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -573,8 +560,19 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" aria-disabled="true" class="btn-link disabled">SplunkHEC</a>
 </li></ol></nav><div class="td-content">
 <h1>SplunkHEC</h1><header class="article-meta">
-</header><p>Based on the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-splunk/">Splunk destination of AxoSyslog core</a>.</p><h2 id="configuration">Configuration</h2><h3 id="splunkhecoutput-">(HTTPOutput, required)</h3><p>Default: -</p><h3 id="splunkhecoutput-token">token (secret.Secret, optional)</h3><p>The token that syslog-ng OSE uses to authenticate on the event collector.</p><p>Default: -</p><h3 id="splunkhecoutput-event">event (string, optional)</h3><p>event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}</p><p>Default: -</p><h3 id="splunkhecoutput-index">index (string, optional)</h3><p>Splunk index where the messages will be stored.</p><p>Default: -</p><h3 id="splunkhecoutput-source">source (string, optional)</h3><p>Sets the source field.</p><p>Default: -</p><h3 id="splunkhecoutput-sourcetype">sourcetype (string, optional)</h3><p>Sets the sourcetype field.</p><p>Default: -</p><h3 id="splunkhecoutput-host">host (string, optional)</h3><p>Sets the host field.</p><p>Default: -</p><h3 id="splunkhecoutput-time">time (string, optional)</h3><p>Sets the time field.</p><p>Default: -</p><h3 id="splunkhecoutput-default_index">default_index (string, optional)</h3><p>Fallback option for index field. See <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-splunk/">syslog-ng docs</a></p><p>Default: -</p><h3 id="splunkhecoutput-default_source">default_source (string, optional)</h3><p>Fallback option for source field.</p><p>Default: -</p><h3 id="splunkhecoutput-default_sourcetype">default_sourcetype (string, optional)</h3><p>Fallback option for sourcetype field.</p><p>Default: -</p><h3 id="splunkhecoutput-fields">fields (string, optional)</h3><p>Additional indexing metadata for Splunk.</p><p>Default: -</p><h3 id="splunkhecoutput-extra_headers">extra_headers ([]string, optional)</h3><p>Additional HTTP request headers.</p><p>Default: -</p><h3 id="splunkhecoutput-extra_queries">extra_queries ([]string, optional)</h3><p>Additional HTTP request query options.</p><p>Default: -</p><h3 id="splunkhecoutput-content_type">content_type (string, optional)</h3><p>Additional HTTP request content-type option.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
+</header><p>Based on the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-splunk/">Splunk destination of AxoSyslog core</a>.</p><h2 id="example">Example</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SyslogNGOutput</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">splunkhec</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">splunk_hec_event</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">url</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;https://splunk-endpoint&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">token</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">valueFrom</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">splunk-hec</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">token</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="splunkhecoutput-">(HTTPOutput, required)</h3><p>Default: -</p><h3 id="splunkhecoutput-token">token (secret.Secret, optional)</h3><p>The token that syslog-ng OSE uses to authenticate on the event collector.</p><p>Default: -</p><h3 id="splunkhecoutput-event">event (string, optional)</h3><p>event() accepts a template, which declares the content of the log message sent to Splunk. Default value: ${MSG}</p><p>Default: -</p><h3 id="splunkhecoutput-index">index (string, optional)</h3><p>Splunk index where the messages will be stored.</p><p>Default: -</p><h3 id="splunkhecoutput-source">source (string, optional)</h3><p>Sets the source field.</p><p>Default: -</p><h3 id="splunkhecoutput-sourcetype">sourcetype (string, optional)</h3><p>Sets the sourcetype field.</p><p>Default: -</p><h3 id="splunkhecoutput-host">host (string, optional)</h3><p>Sets the host field.</p><p>Default: -</p><h3 id="splunkhecoutput-time">time (string, optional)</h3><p>Sets the time field.</p><p>Default: -</p><h3 id="splunkhecoutput-default_index">default_index (string, optional)</h3><p>Fallback option for index field. See <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/syslog-ng-with-splunk/">syslog-ng docs</a></p><p>Default: -</p><h3 id="splunkhecoutput-default_source">default_source (string, optional)</h3><p>Fallback option for source field.</p><p>Default: -</p><h3 id="splunkhecoutput-default_sourcetype">default_sourcetype (string, optional)</h3><p>Fallback option for sourcetype field.</p><p>Default: -</p><h3 id="splunkhecoutput-fields">fields (string, optional)</h3><p>Additional indexing metadata for Splunk.</p><p>Default: -</p><h3 id="splunkhecoutput-extra_headers">extra_headers ([]string, optional)</h3><p>Additional HTTP request headers.</p><p>Default: -</p><h3 id="splunkhecoutput-extra_queries">extra_queries ([]string, optional)</h3><p>Additional HTTP request query options.</p><p>Default: -</p><h3 id="splunkhecoutput-content_type">content_type (string, optional)</h3><p>Additional HTTP request content-type option.</p><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/22fa7eef1c8fc042152bffa960bab86fe24f545f">Merge pull request #195 from kube-logging/output-gendoc-updates (22fa7ee)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

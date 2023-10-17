@@ -24,12 +24,12 @@ However, in a large-scale infrastructure, where the number of resources is large
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/optimization/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T20:44:46+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Optimization">
 <meta itemprop="description" content="Watch specific resources The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.
 However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
-<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
+<meta itemprop="dateModified" content="2023-10-17T20:44:46+02:00">
 <meta itemprop="wordCount" content="132">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization">
@@ -361,7 +361,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputs-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputs-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
@@ -393,7 +396,7 @@ Releases
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
-<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
@@ -545,7 +548,7 @@ Releases
 <h1>Optimization</h1><header class="article-meta">
 </header><h2 id="watch-specific-resources">Watch specific resources</h2><p>The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.</p><p>However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.</p><p>Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.</p><ul>
 <li><code>watch-namespace</code>: Watch only objects in this namespace. Note that even if the <code>watch-namespace</code> option is set, the operator must watch certain objects (like <code>Flows</code> and <code>Outputs</code>) in every namespace.</li><li><code>watch-logging-name</code>: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the <code>app.kubernetes.io/managed-by</code> label.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/22fa7eef1c8fc042152bffa960bab86fe24f545f">Merge pull request #195 from kube-logging/output-gendoc-updates (22fa7ee)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -24,10 +24,8 @@ or ([]OrSection, optional) Or Directive
 Default: -
 and ([]AndSection, optional) And Directive
 Default: -
-Regexp Directive Specify filtering rule. This directive contains two parameters.
-key (string, required) Specify field name in the record to parse.
-Default: -
-pattern (string, required) Pattern expression to evaluate">
+Regexp Directive Specify filtering rule (as described in the Fluentd documentation). This directive contains two parameters.
+key (string, required) Specify field name in the record to parse.">
 <meta property="og:title" content="Grep">
 <meta property="og:description" content="Grep Filter Overview The grep filter plugin &ldquo;greps&rdquo; events by the values of specified fields.
 Configuration GrepConfig regexp ([]RegexpSection, optional) Regexp Directive
@@ -38,13 +36,11 @@ or ([]OrSection, optional) Or Directive
 Default: -
 and ([]AndSection, optional) And Directive
 Default: -
-Regexp Directive Specify filtering rule. This directive contains two parameters.
-key (string, required) Specify field name in the record to parse.
-Default: -
-pattern (string, required) Pattern expression to evaluate">
+Regexp Directive Specify filtering rule (as described in the Fluentd documentation). This directive contains two parameters.
+key (string, required) Specify field name in the record to parse.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/grep/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T20:44:46+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Grep">
 <meta itemprop="description" content="Grep Filter Overview The grep filter plugin &ldquo;greps&rdquo; events by the values of specified fields.
 Configuration GrepConfig regexp ([]RegexpSection, optional) Regexp Directive
@@ -55,12 +51,10 @@ or ([]OrSection, optional) Or Directive
 Default: -
 and ([]AndSection, optional) And Directive
 Default: -
-Regexp Directive Specify filtering rule. This directive contains two parameters.
-key (string, required) Specify field name in the record to parse.
-Default: -
-pattern (string, required) Pattern expression to evaluate">
-<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
-<meta itemprop="wordCount" content="350">
+Regexp Directive Specify filtering rule (as described in the Fluentd documentation). This directive contains two parameters.
+key (string, required) Specify field name in the record to parse.">
+<meta itemprop="dateModified" content="2023-10-17T20:44:46+02:00">
+<meta itemprop="wordCount" content="374">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grep">
 <meta name="twitter:description" content="Grep Filter Overview The grep filter plugin &ldquo;greps&rdquo; events by the values of specified fields.
@@ -72,10 +66,8 @@ or ([]OrSection, optional) Or Directive
 Default: -
 and ([]AndSection, optional) And Directive
 Default: -
-Regexp Directive Specify filtering rule. This directive contains two parameters.
-key (string, required) Specify field name in the record to parse.
-Default: -
-pattern (string, required) Pattern expression to evaluate">
+Regexp Directive Specify filtering rule (as described in the Fluentd documentation). This directive contains two parameters.
+key (string, required) Specify field name in the record to parse.">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
 <link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
@@ -401,7 +393,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputs-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputs-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
@@ -433,7 +428,7 @@ Releases
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
-<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
@@ -574,11 +569,11 @@ Releases
 <ul>
 <li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#grepconfig">GrepConfig</a>
 <ul>
-<li><a href="#grepconfig-regexp">regexp ([]RegexpSection, optional)</a></li><li><a href="#grepconfig-exclude">exclude ([]ExcludeSection, optional)</a></li><li><a href="#grepconfig-or">or ([]OrSection, optional)</a></li><li><a href="#grepconfig-and">and ([]AndSection, optional)</a></li></ul></li><li><a href="#Regexp-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive">Regexp Directive</a></a>
+<li><a href="#grepconfig-regexp">regexp ([]RegexpSection, optional)</a></li><li><a href="#grepconfig-exclude">exclude ([]ExcludeSection, optional)</a></li><li><a href="#grepconfig-or">or ([]OrSection, optional)</a></li><li><a href="#grepconfig-and">and ([]AndSection, optional)</a></li></ul></li><li><a href="#Regexp-Directive">Regexp Directive</a>
 <ul>
 <li><a href="#regexp-directive-key">key (string, required)</a></li><li><a href="#regexp-directive-pattern">pattern (string, required)</a></li></ul></li><li><a href="#example-regexp-filter-configurations">Example <code>Regexp</code> filter configurations</a>
 <ul>
-<li></li></ul></li><li><a href="#Exclude-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive">Exclude Directive</a></a>
+<li></li></ul></li><li><a href="#exclude-directive">Exclude Directive</a>
 <ul>
 <li><a href="#exclude-directive-key">key (string, required)</a></li><li><a href="#exclude-directive-pattern">pattern (string, required)</a></li></ul></li><li><a href="#example-exclude-filter-configurations">Example <code>Exclude</code> filter configurations</a>
 <ul>
@@ -605,7 +600,7 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/filters/grep/" aria-disabled="true" class="btn-link disabled">Grep</a>
 </li></ol></nav><div class="td-content">
 <h1>Grep</h1><header class="article-meta">
-</header><h1 id="grep-filterhttpsdocsfluentdorgfiltergrep"><a href="https://docs.fluentd.org/filter/grep">Grep Filter</a></h1><h2 id="overview">Overview</h2><p>The grep filter plugin &ldquo;greps&rdquo; events by the values of specified fields.</p><h2 id="configuration">Configuration</h2><h2 id="grepconfig">GrepConfig</h2><h3 id="grepconfig-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="#grepconfig-regexp">Regexp Directive</a></p><p>Default: -</p><h3 id="grepconfig-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="#grepconfig-exclude">Exclude Directive</a></p><p>Default: -</p><h3 id="grepconfig-or">or ([]OrSection, optional)</h3><p><a href="#grepconfig-or">Or Directive</a></p><p>Default: -</p><h3 id="grepconfig-and">and ([]AndSection, optional)</h3><p><a href="#grepconfig-and">And Directive</a></p><p>Default: -</p><h2 id="Regexp-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive">Regexp Directive</a></h2><p>Specify filtering rule. This directive contains two parameters.</p><h3 id="regexp-directive-key">key (string, required)</h3><p>Specify field name in the record to parse.</p><p>Default: -</p><h3 id="regexp-directive-pattern">pattern (string, required)</h3><p>Pattern expression to evaluate</p><p>Default: -</p><h2 id="example-regexp-filter-configurations">Example <code>Regexp</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</header><h1 id="grep-filterhttpsdocsfluentdorgfiltergrep"><a href="https://docs.fluentd.org/filter/grep">Grep Filter</a></h1><h2 id="overview">Overview</h2><p>The grep filter plugin &ldquo;greps&rdquo; events by the values of specified fields.</p><h2 id="configuration">Configuration</h2><h2 id="grepconfig">GrepConfig</h2><h3 id="grepconfig-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="#grepconfig-regexp">Regexp Directive</a></p><p>Default: -</p><h3 id="grepconfig-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="#grepconfig-exclude">Exclude Directive</a></p><p>Default: -</p><h3 id="grepconfig-or">or ([]OrSection, optional)</h3><p><a href="#grepconfig-or">Or Directive</a></p><p>Default: -</p><h3 id="grepconfig-and">and ([]AndSection, optional)</h3><p><a href="#grepconfig-and">And Directive</a></p><p>Default: -</p><h2 id="Regexp-Directive">Regexp Directive</h2><p>Specify filtering rule (as described in the <a href="https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive">Fluentd documentation</a>). This directive contains two parameters.</p><h3 id="regexp-directive-key">key (string, required)</h3><p>Specify field name in the record to parse.</p><p>Default: -</p><h3 id="regexp-directive-pattern">pattern (string, required)</h3><p>Pattern expression to evaluate</p><p>Default: -</p><h2 id="example-regexp-filter-configurations">Example <code>Regexp</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -627,7 +622,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">&lt;/regexp&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
-<h2 id="Exclude-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive">Exclude Directive</a></h2><p>Specify filtering rule to reject events. This directive contains two parameters.</p><h3 id="exclude-directive-key">key (string, required)</h3><p>Specify field name in the record to parse.</p><p>Default: -</p><h3 id="exclude-directive-pattern">pattern (string, required)</h3><p>Pattern expression to evaluate</p><p>Default: -</p><h2 id="example-exclude-filter-configurations">Example <code>Exclude</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+<h2 id="exclude-directive">Exclude Directive</h2><p>Specify filtering rule to reject events (as described in the <a href="https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive">Fluentd documentation</a>). This directive contains two parameters.</p><h3 id="exclude-directive-key">key (string, required)</h3><p>Specify field name in the record to parse.</p><p>Default: -</p><h3 id="exclude-directive-pattern">pattern (string, required)</h3><p>Pattern expression to evaluate</p><p>Default: -</p><h2 id="example-exclude-filter-configurations">Example <code>Exclude</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -649,7 +644,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">&lt;/exclude&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
-<h2 id="Or-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Or Directive</a></h2><p>Specify filtering rule. This directive contains either <code>regexp</code> or <code>exclude</code> directive.</p><h3 id="or-directive-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Regexp Directive</a></p><p>Default: -</p><h3 id="or-directive-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Exclude Directive</a></p><p>Default: -</p><h2 id="example-or-filter-configurations">Example <code>Or</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+<h2 id="Or-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Or Directive</a></h2><p>Specify filtering rule (as described in the <a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Fluentd documentation</a>. This directive contains either <code>regexp</code> or <code>exclude</code> directive.</p><h3 id="or-directive-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Regexp Directive</a></p><p>Default: -</p><h3 id="or-directive-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive">Exclude Directive</a></p><p>Default: -</p><h2 id="example-or-filter-configurations">Example <code>Or</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -677,7 +672,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#000">&lt;/exclude&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">&lt;/or&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
-<h2 id="And-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">And Directive</a></h2><p>Specify filtering rule. This directive contains either <code>regexp</code> or <code>exclude</code> directive.</p><h3 id="and-directive-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">Regexp Directive</a></p><p>Default: -</p><h3 id="and-directive-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">Exclude Directive</a></p><p>Default: -</p><h2 id="example-and-filter-configurations">Example <code>And</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+<h2 id="And-Directive"><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">And Directive</a></h2><p>Specify filtering rule (as described in the <a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">Fluentd documentation</a>. This directive contains either <code>regexp</code> or <code>exclude</code> directive.</p><h3 id="and-directive-regexp">regexp ([]RegexpSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">Regexp Directive</a></p><p>Default: -</p><h3 id="and-directive-exclude">exclude ([]ExcludeSection, optional)</h3><p><a href="https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive">Exclude Directive</a></p><p>Default: -</p><h2 id="example-and-filter-configurations">Example <code>And</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -706,7 +701,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">&lt;/and&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/22fa7eef1c8fc042152bffa960bab86fe24f545f">Merge pull request #195 from kube-logging/output-gendoc-updates (22fa7ee)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

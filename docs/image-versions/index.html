@@ -22,11 +22,11 @@ Logging operator version 4.4 Image repository GitHub repository Version ghcr.io/
 Logging operator version 4.4 Image repository GitHub repository Version ghcr.io/kube-logging/node-exporter https://github.com/kube-logging/node-exporter-image v0.7.1 ghcr.io/kube-logging/config-reloader https://github.com/kube-logging/config-reloader v0.0.5 ghcr.io/kube-logging/fluentd-drain-watch https://github.com/kube-logging/fluentd-drain-watch v0.2.1 k8s.gcr.io/pause 3.2 docker.io/busybox https://github.com/docker-library/busybox latest ghcr.io/axoflow/axosyslog https://github.com/axoflow/axosyslog-docker/ 4.4.0 docker.io/fluent/fluent-bit https://github.com/fluent/fluent-bit-docker-image 2.1.8 ghcr.io/kube-logging/fluentd https://github.com/kube-logging/fluentd-images v1.15-ruby3 ghcr.io/axoflow/axosyslog-metrics-exporter https://github.com/axoflow/axosyslog-metrics-exporter 0.0.2 ghcr.io/kube-logging/syslogng-reload https://github.com/kube-logging/syslogng-reload-image v1.3.1 ghcr.io/kube-logging/eventrouter https://github.com/kube-logging/eventrouter v0.4.0 The following images are now replaced Image used in 4.3 New image in 4.4 banzaicloud/eventrouter ghcr.io/kube-logging/eventrouter ghcr.io/kube-logging/syslog-ng-exporter ghcr.io/axoflow/axosyslog-metrics-exporter Logging operator version 4.3 Image repository GitHub repository Version ghcr.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/image-versions/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T20:44:46+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Images used by Logging operator">
 <meta itemprop="description" content="Logging operator uses the following image versions.
 Logging operator version 4.4 Image repository GitHub repository Version ghcr.io/kube-logging/node-exporter https://github.com/kube-logging/node-exporter-image v0.7.1 ghcr.io/kube-logging/config-reloader https://github.com/kube-logging/config-reloader v0.0.5 ghcr.io/kube-logging/fluentd-drain-watch https://github.com/kube-logging/fluentd-drain-watch v0.2.1 k8s.gcr.io/pause 3.2 docker.io/busybox https://github.com/docker-library/busybox latest ghcr.io/axoflow/axosyslog https://github.com/axoflow/axosyslog-docker/ 4.4.0 docker.io/fluent/fluent-bit https://github.com/fluent/fluent-bit-docker-image 2.1.8 ghcr.io/kube-logging/fluentd https://github.com/kube-logging/fluentd-images v1.15-ruby3 ghcr.io/axoflow/axosyslog-metrics-exporter https://github.com/axoflow/axosyslog-metrics-exporter 0.0.2 ghcr.io/kube-logging/syslogng-reload https://github.com/kube-logging/syslogng-reload-image v1.3.1 ghcr.io/kube-logging/eventrouter https://github.com/kube-logging/eventrouter v0.4.0 The following images are now replaced Image used in 4.3 New image in 4.4 banzaicloud/eventrouter ghcr.io/kube-logging/eventrouter ghcr.io/kube-logging/syslog-ng-exporter ghcr.io/axoflow/axosyslog-metrics-exporter Logging operator version 4.3 Image repository GitHub repository Version ghcr.">
-<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
+<meta itemprop="dateModified" content="2023-10-17T20:44:46+02:00">
 <meta itemprop="wordCount" content="107">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Images used by Logging operator">
@@ -357,7 +357,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputs-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputs-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
@@ -389,7 +392,7 @@ Releases
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputss3-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputss3-check">
-<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" title="Sending messages from a local network to a S3 (compatible) server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+<label for="m-docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
@@ -576,7 +579,7 @@ Releases
 <td>ghcr.io/kube-logging/syslog-ng-exporter</td><td><a href="https://github.com/kube-logging/syslog_ng_exporter">https://github.com/kube-logging/syslog_ng_exporter</a></td><td>v0.0.16</td></tr><tr>
 <td>ghcr.io/kube-logging/syslogng-reload</td><td><a href="https://github.com/kube-logging/syslogng-reload-image">https://github.com/kube-logging/syslogng-reload-image</a></td><td>v1.3.1</td></tr><tr>
 <td>banzaicloud/eventrouter</td><td><a href="https://github.com/kube-logging/event-router">https://github.com/kube-logging/event-router</a></td><td>v0.1.0</td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/22fa7eef1c8fc042152bffa960bab86fe24f545f">Merge pull request #195 from kube-logging/output-gendoc-updates (22fa7ee)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
