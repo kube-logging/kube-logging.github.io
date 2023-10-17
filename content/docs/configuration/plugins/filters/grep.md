@@ -36,9 +36,9 @@ Default: -
 Default: -
 
 
-## [Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive) {#Regexp-Directive}
+## Regexp Directive {#Regexp-Directive}
 
-Specify filtering rule. This directive contains two parameters.
+Specify filtering rule (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-regexp-greater-than-directive)). This directive contains two parameters.
 
 ### key (string, required) {#regexp-directive-key}
 
@@ -83,9 +83,9 @@ spec:
  ```
 
 ---
-## [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive) {#Exclude-Directive}
+## Exclude Directive
 
-Specify filtering rule to reject events. This directive contains two parameters.
+Specify filtering rule to reject events (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-exclude-greater-than-directive)). This directive contains two parameters.
 
 ### key (string, required) {#exclude-directive-key}
 
@@ -132,7 +132,7 @@ spec:
 ---
 ## [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
 
-Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+Specify filtering rule (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive). This directive contains either `regexp` or `exclude` directive.
 
 ### regexp ([]RegexpSection, optional) {#or-directive-regexp}
 
@@ -185,7 +185,7 @@ spec:
 ---
 ## [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
 
-Specify filtering rule. This directive contains either `regexp` or `exclude` directive.
+Specify filtering rule (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive). This directive contains either `regexp` or `exclude` directive.
 
 ### regexp ([]RegexpSection, optional) {#and-directive-regexp}
 

@@ -17,7 +17,7 @@ Specify field name in the record to parse. If you leave empty the Container Runt
 
 Default: -
 
-### separator (string, optional) {#concat-separator}
+### separator (*string, optional) {#concat-separator}
 
 The separator of lines.  
 

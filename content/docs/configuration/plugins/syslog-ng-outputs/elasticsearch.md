@@ -8,6 +8,26 @@ generated_file: true
 
 Based on the [ElasticSearch destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-elasticsearch-http/).
 
+## Example
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: elasticsearch
+spec:
+  elasticsearch:
+    url: "https://elastic-search-endpoint:9200/_bulk"
+    index: "indexname"
+    type: ""
+    user: "username"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: elastic
+          key: password
+{{</ highlight >}}
+
 ## Configuration
 
 ###  (HTTPOutput, required) {#elasticsearchoutput-}
@@ -22,7 +42,9 @@ Default: -
 
 ### type (*string, optional) {#elasticsearchoutput-type}
 
-The document type associated with the operation. Elasticsearch indices now support a single document type: `_doc` 
+The document type associated with the operation. Elasticsearch indices now support a single document type: `_doc`
+
+Default: -
 
 ### custom_id (string, optional) {#elasticsearchoutput-custom_id}
 

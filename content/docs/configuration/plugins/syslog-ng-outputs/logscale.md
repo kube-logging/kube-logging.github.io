@@ -4,9 +4,32 @@ weight: 200
 generated_file: true
 ---
 
-Based on the [LogScale destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/crowdstrike-falcon/).
+Based on the [LogScale destination of AxoSyslog core](https://axoflow.com/docs/axosyslog-core/chapter-destinations/crowdstrike-falcon/). Sends log records over HTTP to Falcon's LogScale.
 
-## Configuration
+## Example
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGOutput
+metadata:
+  name: test-logscale
+  namespace: logging
+spec:
+  logscale:
+    token:
+      valueFrom:
+        secretKeyRef:
+          key: token
+          name: logscale-token
+    timezone: "UTC"
+    batch_lines: 1000
+    disk_buffer:
+      disk_buf_size: 512000000
+      dir: /buffers
+      reliable: true
+{{</ highlight >}}
+
+## LogScaleOutput
 
 ### url (*secret.Secret, optional) {#logscaleoutput-url}
 

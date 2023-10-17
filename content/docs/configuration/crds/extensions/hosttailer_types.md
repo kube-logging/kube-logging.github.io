@@ -38,6 +38,10 @@ Override podSpec fields for the given daemonset
 
 Default: -
 
+### image (tailer.ImageSpec, optional) {#hosttailerspec-image}
+
+Default: -
+
 
 ## HostTailerStatus
 

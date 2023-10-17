@@ -4,9 +4,7 @@ weight: 200
 generated_file: true
 ---
 
-# Fluentd Plugin to re-tag based on log metadata
-## Overview
- More info at https://github.com/kube-logging/fluent-plugin-tag-normaliser
+Fluentd Plugin to re-tag based on log metadata. More info at https://github.com/kube-logging/fluent-plugin-tag-normaliser
 
 Available kubernetes metadata
 

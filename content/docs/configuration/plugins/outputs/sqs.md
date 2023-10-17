@@ -84,7 +84,6 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 Default: -
 
 
-
  ## Example `SQS` output configurations
  ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
