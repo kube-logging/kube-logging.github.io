@@ -22,12 +22,12 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/loki-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-10T12:36:50+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2023-10-10T12:36:50+02:00">
-<meta itemprop="wordCount" content="602">
+<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
+<meta itemprop="wordCount" content="639">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta name="twitter:description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
@@ -590,7 +590,7 @@ Releases
 </span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -600,7 +600,9 @@ Releases
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
 </span></span><span style="display:flex"><span>kind: Logging
@@ -662,7 +664,7 @@ Releases
 <p>Use the <code>admin</code> username and the password retrieved in Step 1 to log in.</p></li><li>
 <p>Select <strong>Menu > Explore</strong>, select <strong>Data source > Loki</strong>, then select <strong>Log labels > namespace > logging</strong>. A list of logs should appear.</p><p><img src="../../img/loki1.png" alt="Sample log messages in Loki"></p></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/01621fd177b21a37f50de519f3d1197d5f50ba4c">Merge pull request #193 from kube-logging/timeout-based-configcheck (01621fd)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

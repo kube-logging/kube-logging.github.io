@@ -72,7 +72,7 @@ This is the multi-page printable view of this section.
 <h1 id="pg-40c8034365add30f05453065286935a7">2 - Store Nginx Access Logs in Amazon CloudWatch with Logging Operator</h1><p align="center"><img src="../../img/nlw.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-cloudwatch.png" alt="Architecture" width="900"></p><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application using <a href="#helm">Helm</a>.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -82,7 +82,9 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p>Create AWS <code>secret</code></p><blockquote>
 <p>If you have your <code>$AWS_ACCESS_KEY_ID</code> and <code>$AWS_SECRET_ACCESS_KEY</code> set you can use the following snippet.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging create secret generic logging-cloudwatch --from-literal <span style="color:#4e9a06">&#34;awsAccessKeyId=</span><span style="color:#000">$AWS_ACCESS_KEY_ID</span><span style="color:#4e9a06">&#34;</span> --from-literal <span style="color:#4e9a06">&#34;awsSecretAccessKey=</span><span style="color:#000">$AWS_SECRET_ACCESS_KEY</span><span style="color:#4e9a06">&#34;</span>
 </span></span></code></pre></div><p>Or set up the secret manually.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
@@ -165,7 +167,7 @@ This is the multi-page printable view of this section.
 <h1 id="pg-8ccd39da9b80871a1d5d3a16b317985a">3 - Transport all logs into Amazon S3 with Logging operator</h1><p align="center"><img src="../../img/s3_logo.png" alt="Logos" width="340"></p><p>This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/s3_flow.png" alt="Architecture" width="900"></p><h2 id="deploy-the-logging-operator">Deploy the Logging operator</h2><p>Install the Logging operator.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -175,7 +177,9 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create AWS <code>secret</code></p><blockquote>
@@ -292,7 +296,7 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 </span></span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -302,7 +306,9 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
@@ -540,7 +546,7 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 <h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -550,7 +556,9 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
@@ -657,7 +665,7 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 <h1 id="pg-abd97e700fb7a973b1dcfb4cb9aae1b4">8 - Transport Nginx Access Logs into Kafka with Logging operator</h1><p align="center"><img src="../../img/kafka_logo.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nignx-kafka.png" alt="Architecture" width="900"></p><h2 id="deploy-kafka">Deploy Kafka</h2><p>This demo uses <a href="https://github.com/banzaicloud/koperator/">Koperator</a> to create an Apache Kafka cluster in Kubernetes. For details on installing it, see the <a href="https://banzaicloud.com/docs/supertubes/kafka-operator/install-kafka-operator/">Koperator installation guide</a>.</p><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -667,7 +675,9 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl -n logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -775,7 +785,7 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 </span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -785,7 +795,9 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li><li>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
 </span></span><span style="display:flex"><span>kind: Logging

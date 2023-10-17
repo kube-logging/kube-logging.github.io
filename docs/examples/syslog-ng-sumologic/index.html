@@ -30,7 +30,7 @@ To configure a Hosted Collector, complete the steps in the Configure a Hosted Co
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/syslog-ng-sumologic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-10T12:36:50+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Sumo Logic with Logging operator and syslog-ng">
 <meta itemprop="description" content="This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.
 Prerequisites We assume that you already have:
@@ -38,8 +38,8 @@ A Sumo Logic account.
 A HTTP Hosted Collector configured in the Sumo Logic service.
 To configure a Hosted Collector, complete the steps in the Configure a Hosted Collector section on the official Sumo Logic website.
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
-<meta itemprop="dateModified" content="2023-10-10T12:36:50+02:00">
-<meta itemprop="wordCount" content="467">
+<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
+<meta itemprop="wordCount" content="504">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sumo Logic with Logging operator and syslog-ng">
 <meta name="twitter:description" content="This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.
@@ -565,7 +565,7 @@ Releases
 <h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -575,7 +575,9 @@ Releases
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
@@ -679,7 +681,7 @@ Releases
 <p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
 </span></span></code></pre></div></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/01621fd177b21a37f50de519f3d1197d5f50ba4c">Merge pull request #193 from kube-logging/timeout-based-configcheck (01621fd)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

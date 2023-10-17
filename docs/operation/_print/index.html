@@ -295,7 +295,7 @@ The prometheus-operator install may take a few more minutes. <em><strong>Please 
 The logging-operator metrics function depends on the prometheus-operator&rsquo;s resources.
 If those do not exist in the cluster it may cause the logging-operator&rsquo;s malfunction.</p></blockquote></li></ol><h2 id="install-logging-operator-with-helm">Install Logging Operator with Helm</h2><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -305,7 +305,9 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li></ol><h2 id="install-minio">Install Minio</h2><ol>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="install-minio">Install Minio</h2><ol>
 <li>
 <p>Create Minio Credential Secret</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging create secret generic logging-s3 --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">accesskey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;AKIAIOSFODNN7EXAMPLE&#39;</span> --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">secretkey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&#39;</span>
 </span></span></code></pre></div></li><li>

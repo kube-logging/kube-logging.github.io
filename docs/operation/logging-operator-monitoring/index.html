@@ -24,13 +24,13 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-10T12:36:50+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-17T11:19:07+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2023-10-10T12:36:50+02:00">
-<meta itemprop="wordCount" content="653">
+<meta itemprop="dateModified" content="2023-10-17T11:19:07+02:00">
+<meta itemprop="wordCount" content="690">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
 <meta name="twitter:description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
@@ -585,7 +585,7 @@ The prometheus-operator install may take a few more minutes. <em><strong>Please 
 The logging-operator metrics function depends on the prometheus-operator&rsquo;s resources.
 If those do not exist in the cluster it may cause the logging-operator&rsquo;s malfunction.</p></blockquote></li></ol><h2 id="install-logging-operator-with-helm">Install Logging Operator with Helm</h2><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -595,7 +595,9 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>STATUS: deployed
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
-</span></span></code></pre></div></li></ol><h2 id="install-minio">Install Minio</h2><ol>
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="install-minio">Install Minio</h2><ol>
 <li>
 <p>Create Minio Credential Secret</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging create secret generic logging-s3 --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">accesskey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;AKIAIOSFODNN7EXAMPLE&#39;</span> --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">secretkey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&#39;</span>
 </span></span></code></pre></div></li><li>
@@ -749,7 +751,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/01621fd177b21a37f50de519f3d1197d5f50ba4c">Merge pull request #193 from kube-logging/timeout-based-configcheck (01621fd)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

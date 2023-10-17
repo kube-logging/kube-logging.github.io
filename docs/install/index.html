@@ -539,7 +539,7 @@ For instructions on installing the previous 4.2.3 version, see <a href="/4.2/doc
 <p>To install the Logging operator using Helm, complete the following</p><blockquote>
 <p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
 <li>
-<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
 </span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
 </span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
@@ -550,7 +550,9 @@ For instructions on installing the previous 4.2.3 version, see <a href="/4.2/doc
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: By default, the Logging operator Helm chart doesn&rsquo;t install the <code>logging</code> resource. If you want to install it with Helm, set the the <code>logging.enabled</code> value to true.</p><p>For details on customizing the installation, see the <a href="https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator">Helm chart values</a>.</p></blockquote></li></ol><h2 id="validate">Validate the deployment</h2><p>To verify that the installation was successful, complete the following steps.</p><ol>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote><blockquote>
+<p>Note: By default, the Logging operator Helm chart doesn&rsquo;t install the <code>logging</code> resource. If you want to install it with Helm, set the <code>logging.enabled</code> value to true.</p><p>For details on customizing the installation, see the <a href="https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator">Helm chart values</a>.</p></blockquote></li></ol><h2 id="validate">Validate the deployment</h2><p>To verify that the installation was successful, complete the following steps.</p><ol>
 <li>
 <p>Check the status of the pods. You should see a new logging-operator pod.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>$ kubectl -n logging get pods
 </span></span><span style="display:flex"><span>NAME                                READY   STATUS    RESTARTS   AGE
@@ -573,7 +575,7 @@ For instructions on installing the previous 4.2.3 version, see <a href="/4.2/doc
 </span></span><span style="display:flex"><span>syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
 </span></span></code></pre></div></li></ol><div class="section-index">
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 10, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/01621fd177b21a37f50de519f3d1197d5f50ba4c">Merge pull request #193 from kube-logging/timeout-based-configcheck (01621fd)</a>
+Last modified October 17, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c7011efbafc1bcb78d0ebf2db755994630e987f">Merge pull request #194 from kube-logging/helm-login (1c7011e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
