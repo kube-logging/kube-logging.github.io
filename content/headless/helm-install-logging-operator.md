@@ -1,6 +1,6 @@
 Install the Logging operator into the *logging* namespace:
 
-```bash
+```shell
 helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 ```
 
@@ -17,3 +17,6 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 ```
+
+> Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+> Upgrade to 3.13.1 or higher to avoid having to log in, see: https://github.com/kube-logging/logging-operator/issues/1522
