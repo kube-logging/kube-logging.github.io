@@ -26,13 +26,13 @@ Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-10-18T09:44:07+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-10-18T13:14:43+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Troubleshooting syslog-ng">
 <meta itemprop="description" content="The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.
 Check syslog-ng pod status (statefulset) Verify that the syslog-ng statefulset is available using the following command: kubectl get statefulsets
 Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
-<meta itemprop="dateModified" content="2023-10-18T09:44:07+00:00">
+<meta itemprop="dateModified" content="2023-10-18T13:14:43+02:00">
 <meta itemprop="wordCount" content="228">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshooting syslog-ng">
@@ -557,7 +557,7 @@ Releases
 </span></span></code></pre></div><h2 id="configcheck">ConfigCheck</h2><p>The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output. The result of the check is written into the <code>status</code> field of the corresponding <code>Logging</code> resource.</p><p>In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.</p><h2 id="check-syslog-ng-configuration">Check syslog-ng configuration</h2><p>Use the following command to display the configuration of syslog-ng:
 <code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 18, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7513e65574666ca4bae5d584bab1a654ac5ff29f">Merge 20cd1cccd75a7a13d71d28d3eee978c89e3cdb89 into 22fa7eef1c8fc042152bffa960bab86fe24f545f (7513e65)</a>
+Last modified October 18, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fd2b9fbdc2cbb922a60ae80a2e9e38cf1b2d2072">Merge pull request #196 from kube-logging/dependabot/github_actions/actions/checkout-4.1.1 (fd2b9fb)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
