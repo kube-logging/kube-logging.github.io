@@ -91,10 +91,11 @@ twitter = "calisti12"
   github_branch= "master"
 
 
+  # Use Pagefind search on the production site (locally it's easier to use lunr)
   # Enable Lunr.js offline search
-  offlineSearch = false
+  offlineSearch = true
   # Enable pagefind for offline search
-  offlineSearchPagefind = true
+  offlineSearchPagefind = false
 
   #####
   # Code highlighting

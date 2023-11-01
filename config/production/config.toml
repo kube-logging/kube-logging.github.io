@@ -10,3 +10,10 @@ buildDrafts = false
 [params]
 
 url_latest_version = "https://kube-logging.dev/"
+
+
+# Use Pagefind search on the production site (locally it's easier to use lunr)
+  # Enable Lunr.js offline search
+  offlineSearch = false
+  # Enable pagefind for offline search
+  offlineSearchPagefind = true
