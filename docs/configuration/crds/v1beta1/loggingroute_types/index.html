@@ -30,7 +30,7 @@ Default: -
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/loggingroute_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-12-07T09:15:09+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-12-07T09:15:55+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LoggingRouteSpec">
 <meta itemprop="description" content="LoggingRouteSpec LoggingRouteSpec defines the desired state of LoggingRoute
 source (string, required) Source identifies the logging that this policy applies to
@@ -38,7 +38,7 @@ Default: -
 targets (metav1.LabelSelector, required) Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource
 Default: -
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute">
-<meta itemprop="dateModified" content="2023-12-07T09:15:09+01:00">
+<meta itemprop="dateModified" content="2023-12-07T09:15:55+01:00">
 <meta itemprop="wordCount" content="212">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoggingRouteSpec">
@@ -574,7 +574,7 @@ Releases
 <h1>LoggingRouteSpec</h1><header class="article-meta">
 </header><h2 id="loggingroutespec">LoggingRouteSpec</h2><p>LoggingRouteSpec defines the desired state of LoggingRoute</p><h3 id="loggingroutespec-source">source (string, required)</h3><p>Source identifies the logging that this policy applies to</p><p>Default: -</p><h3 id="loggingroutespec-targets">targets (metav1.LabelSelector, required)</h3><p>Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource</p><p>Default: -</p><h2 id="loggingroutestatus">LoggingRouteStatus</h2><p>LoggingRouteStatus defines the actual state of the LoggingRoute</p><h3 id="loggingroutestatus-tenants">tenants ([]Tenant, optional)</h3><p>Enumerate all loggings with all the destination namespaces expanded</p><p>Default: -</p><h3 id="loggingroutestatus-problems">problems ([]string, optional)</h3><p>Enumerate problems that prohibits this route to take effect and populate the tenants field</p><p>Default: -</p><h3 id="loggingroutestatus-problemscount">problemsCount (int, optional)</h3><p>Summarize the number of problems for the CLI output</p><p>Default: -</p><h3 id="loggingroutestatus-notices">notices ([]string, optional)</h3><p>Enumerate non-blocker issues the user should pay attention to</p><p>Default: -</p><h3 id="loggingroutestatus-noticescount">noticesCount (int, optional)</h3><p>Summarize the number of notices for the CLI output</p><p>Default: -</p><h2 id="tenant">Tenant</h2><h3 id="tenant-name">name (string, required)</h3><p>Default: -</p><h3 id="tenant-namespaces">namespaces ([]string, optional)</h3><p>Default: -</p><h2 id="loggingroute">LoggingRoute</h2><p>LoggingRoute (experimental)
 Connects a log collector with log aggregators from other logging domains and routes relevant logs based on watch namespaces</p><h3 id="loggingroute-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="loggingroute-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="loggingroute-spec">spec (LoggingRouteSpec, optional)</h3><p>Default: -</p><h3 id="loggingroute-status">status (LoggingRouteStatus, optional)</h3><p>Default: -</p><h2 id="loggingroutelist">LoggingRouteList</h2><h3 id="loggingroutelist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="loggingroutelist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="loggingroutelist-items">items ([]LoggingRoute, required)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 7, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/763aedf10b94b128433dfe2097f99cfb2702dd40">Merge pull request #201 from kube-logging/dependabot/github_actions/actions/deploy-pages-3.0.0 (763aedf)</a>
+Last modified December 7, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/eae220eb68b17271b43eb4a7ec111083ee5ddf81">Merge pull request #200 from kube-logging/dependabot/github_actions/actions/configure-pages-4.0.0 (eae220e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
