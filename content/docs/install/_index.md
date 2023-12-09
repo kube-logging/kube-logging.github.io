@@ -48,10 +48,10 @@ Espected output:
 1. Check the CRDs. You should see the following five new CRDs.
 
     ```bash
-    $  kubectl get crd
+    kubectl get crd
     ```
 
-Espected output:
+    Expected output:
 
     ```
     NAME                                    CREATED AT
