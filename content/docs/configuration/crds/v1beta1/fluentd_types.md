@@ -144,7 +144,11 @@ Fluentd port inside the container (24240 by default). The headless service port 
 
 ### serviceAccount (*typeoverride.ServiceAccount, optional) {#fluentdspec-serviceaccount}
 
+
+### sidecarContainers ([]corev1.Container, optional) {#fluentdspec-sidecarcontainers}
+
 Available in Logging operator version 4.5 and later.
+
 
 ### statefulsetAnnotations (map[string]string, optional) {#fluentdspec-statefulsetannotations}
 

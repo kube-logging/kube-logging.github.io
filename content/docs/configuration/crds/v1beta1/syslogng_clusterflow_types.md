@@ -10,40 +10,37 @@ SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API
 
 ###  (metav1.TypeMeta, required) {#syslogngclusterflow-}
 
-Default: -
 
 ### metadata (metav1.ObjectMeta, optional) {#syslogngclusterflow-metadata}
 
-Default: -
 
 ### spec (SyslogNGClusterFlowSpec, optional) {#syslogngclusterflow-spec}
 
-Default: -
 
 ### status (SyslogNGFlowStatus, optional) {#syslogngclusterflow-status}
 
-Default: -
 
 
 ## SyslogNGClusterFlowSpec
 
 SyslogNGClusterFlowSpec is the Kubernetes spec for Flows
 
-### match (*SyslogNGMatch, optional) {#syslogngclusterflowspec-match}
-
-Default: -
-
 ### filters ([]SyslogNGFilter, optional) {#syslogngclusterflowspec-filters}
 
-Default: -
-
-### loggingRef (string, optional) {#syslogngclusterflowspec-loggingref}
-
-Default: -
 
 ### globalOutputRefs ([]string, optional) {#syslogngclusterflowspec-globaloutputrefs}
 
-Default: -
+
+### loggingRef (string, optional) {#syslogngclusterflowspec-loggingref}
+
+
+### match (*SyslogNGMatch, optional) {#syslogngclusterflowspec-match}
+
+
+### outputMetrics ([]filter.MetricsProbe, optional) {#syslogngclusterflowspec-outputmetrics}
+
+Output metrics are applied before the log reaches the destination and contain output metadata like: `name,` `namespace` and `scope`. Scope shows whether the output is a local or global one. Available in Logging operator version 4.5 and later.
+
 
 
 ## SyslogNGClusterFlowList
@@ -52,14 +49,11 @@ SyslogNGClusterFlowList contains a list of SyslogNGClusterFlow
 
 ###  (metav1.TypeMeta, required) {#syslogngclusterflowlist-}
 
-Default: -
 
 ### metadata (metav1.ListMeta, optional) {#syslogngclusterflowlist-metadata}
 
-Default: -
 
 ### items ([]SyslogNGClusterFlow, required) {#syslogngclusterflowlist-items}
 
-Default: -
 
 
