@@ -77,8 +77,8 @@ Tag used in match directive.
 Default:  kubernetes.**
 
 
- ## Example `Exception Detector` filter configurations
- ```yaml
+## Example `Exception Detector` filter configurations
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -93,10 +93,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
 <match kubernetes.**>
   @type detect_exceptions
   @id test_detect_exceptions
@@ -104,6 +105,6 @@ spec:
   multiline_flush_interval 0.1
   remove_tag_prefix kubernetes
 </match>
- ```
+```
 
 ---

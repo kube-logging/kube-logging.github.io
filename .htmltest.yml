@@ -1,0 +1,8 @@
+DirectoryPath: public/docs/install
+CheckDoctype: false # Sadly, this is false only because of `static/google*.html`
+IgnoreAltMissing: true # FIXME
+IgnoreDirectoryMissingTrailingSlash: true # FIXME
+IgnoreDirs: [_print] # FIXME
+IgnoreEmptyHref: true # FIXME
+IgnoreInternalEmptyHash: true # FIXME
+IgnoreURLs: [http://localhost, https://https://github.com/kube-logging/kube-logging.github.io/new/*, _print/]

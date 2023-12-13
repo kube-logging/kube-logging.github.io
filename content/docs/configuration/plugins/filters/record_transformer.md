@@ -54,8 +54,9 @@ Add records docs at: https://docs.fluentd.org/filter/record_transformer Records 
 Default: -
 
 
- ## Example `Record Transformer` filter configurations
- ```yaml
+## Example `Record Transformer` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -68,10 +69,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```xml
 <filter **>
   @type record_transformer
   @id test_record_transformer
@@ -79,6 +81,6 @@ spec:
     foo bar
   </record>
 </filter>
- ```
+```
 
 ---

@@ -399,8 +399,9 @@ Use specified timezone. one can parse/format the time value in the specified tim
 Default: -
 
 
- ## Example `Parser` filter configurations
- ```yaml
+## Example `Parser` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -420,10 +421,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
 <filter **>
   @type parser
   @id test_parser
@@ -444,6 +446,6 @@ spec:
     </pattern>
   </parse>
 </filter>
- ```
+```
 
 ---

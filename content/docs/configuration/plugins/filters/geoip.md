@@ -49,8 +49,9 @@ Records are represented as maps: `key: value`
 Default: -
 
 
- ## Example `GeoIP` filter configurations
- ```yaml
+## Example `GeoIP` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -68,10 +69,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
 <filter **>
   @type geoip
   @id test_geoip
@@ -85,6 +87,6 @@ spec:
     postal_code ${postal.code["remote_addr"]}
   </record>
 </filter>
- ```
+```
 
 ---

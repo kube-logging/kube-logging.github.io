@@ -53,8 +53,9 @@ Pattern expression to evaluate
 Default: -
 
 
- ## Example `Regexp` filter configurations
- ```yaml
+## Example `Regexp` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -70,8 +71,9 @@ spec:
     - demo-output
  ```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
   <filter **>
     @type grep
     @id demo-flow_1_grep
@@ -80,7 +82,7 @@ spec:
       pattern /^5\d\d$/
     </regexp>
   </filter>
- ```
+```
 
 ---
 ## Exclude Directive
@@ -100,8 +102,9 @@ Pattern expression to evaluate
 Default: -
 
 
- ## Example `Exclude` filter configurations
- ```yaml
+## Example `Exclude` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -117,8 +120,9 @@ spec:
     - demo-output
  ```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
   <filter **>
     @type grep
     @id demo-flow_0_grep
@@ -127,7 +131,7 @@ spec:
       pattern /^5\d\d$/
     </exclude>
   </filter>
- ```
+```
 
 ---
 ## [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
@@ -147,8 +151,9 @@ Default: -
 Default: -
 
 
- ## Example `Or` filter configurations
- ```yaml
+## Example `Or` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -168,8 +173,9 @@ spec:
     - demo-output
 ```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
     <or>
       <exclude>
         key first
@@ -180,7 +186,7 @@ spec:
         pattern /\.css$/
       </exclude>
     </or>
- ```
+```
 
 ---
 ## [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
@@ -200,8 +206,9 @@ Default: -
 Default: -
 
 
- ## Example `And` filter configurations
- ```yaml
+## Example `And` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -221,8 +228,9 @@ spec:
     - demo-output
 ```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```yaml
     <and>
       <regexp>
         key first
@@ -233,6 +241,6 @@ spec:
         pattern /\.css$/
       </regexp>
     </and>
- ```
+```
 
 ---

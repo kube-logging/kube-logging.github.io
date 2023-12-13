@@ -48,8 +48,8 @@ Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier
 Default: -
 
 
- ## Example `Record Modifier` filter configurations
- ```yaml
+## Example `Record Modifier` filter configurations
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -62,10 +62,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```xml
 <filter **>
   @type record_modifier
   @id test_record_modifier
@@ -73,7 +74,7 @@ spec:
     foo bar
   </record>
 </filter>
- ```
+```
 
 ---
 ## [Replace Directive](https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value)

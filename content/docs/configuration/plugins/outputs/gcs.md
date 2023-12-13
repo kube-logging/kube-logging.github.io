@@ -4,7 +4,6 @@ weight: 200
 generated_file: true
 ---
 
-# Google Cloud Storage
 ## Overview
  Store logs in Google Cloud Storage. For details, see [https://github.com/kube-logging/fluent-plugin-gcs](https://github.com/kube-logging/fluent-plugin-gcs).
 

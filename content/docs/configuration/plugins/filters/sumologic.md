@@ -168,8 +168,9 @@ Collector Value
 Default:  "undefined"
 
 
- ## Example `Parser` filter configurations
- ```yaml
+## Example `Parser` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -181,15 +182,16 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+```
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+```xml
 <filter **>
   @type kubernetes_sumologic
   @id test_sumologic
   source_name elso
 </filter>
- ```
+```
 
 ---
