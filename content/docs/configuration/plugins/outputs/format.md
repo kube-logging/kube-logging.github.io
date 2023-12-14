@@ -6,9 +6,11 @@ generated_file: true
 
 # Format output records
 ## Overview
+
  Specify how to format output records. For details, see [https://docs.fluentd.org/configuration/format-section](https://docs.fluentd.org/configuration/format-section).
 
 ## Example
+
 ```yaml
  spec:
   format:
@@ -19,14 +21,9 @@ generated_file: true
       message_key: msg
 ```
 
+
 ## Configuration
 ## Format
-
-### type (string, optional) {#format-type}
-
-Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value  
-
-Default:  json
 
 ### add_newline (*bool, optional) {#format-add_newline}
 
@@ -38,6 +35,11 @@ Default:  true
 
 When type is single_value specify the key holding information 
 
-Default: -
+
+### type (string, optional) {#format-type}
+
+Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value  
+
+Default:  json
 
 
