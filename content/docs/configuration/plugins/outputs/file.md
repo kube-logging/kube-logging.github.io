@@ -103,7 +103,7 @@ Fluentd config result:
 	  timekey_wait 30s
 	</buffer>
   </match>
-{{< highlight xml >}}
+{{</ highlight >}}
 
 
 ---
