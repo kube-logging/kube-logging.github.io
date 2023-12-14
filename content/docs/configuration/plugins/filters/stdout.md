@@ -15,12 +15,12 @@ generated_file: true
 
 This is the option of stdout format. 
 
-Default: -
+
 
 
 ## Example `StdOut` filter configurations
 
-```yaml
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -32,16 +32,17 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
-```
+{{</ highlight >}}
 
 Fluentd config result:
 
-```xml
+{{< highlight yaml >}}
 <filter **>
   @type stdout
   @id test_stdout
   output_type json
 </filter>
-```
+{{</ highlight >}}
+
 
 ---
