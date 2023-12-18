@@ -28,44 +28,40 @@ spec:
           key: password
 {{</ highlight >}}
 
+
 ## Configuration
+
 
 ###  (HTTPOutput, required) {#elasticsearchoutput-}
 
-Default: -
-
-### index (string, optional) {#elasticsearchoutput-index}
-
-Name of the data stream, index, or index alias to perform the action on. 
-
-Default: -
-
-### type (*string, optional) {#elasticsearchoutput-type}
-
-The document type associated with the operation. Elasticsearch indices now support a single document type: `_doc`
-
-Default: -
 
 ### custom_id (string, optional) {#elasticsearchoutput-custom_id}
 
 The document ID. If no ID is specified, a document ID is automatically generated. 
 
-Default: -
+
+### index (string, optional) {#elasticsearchoutput-index}
+
+Name of the data stream, index, or index alias to perform the action on. 
+
 
 ### logstash_prefix (string, optional) {#elasticsearchoutput-logstash_prefix}
 
 Set the prefix for logs in logstash format. If set, then Index field will be ignored. 
 
-Default: -
 
 ### logstash_prefix_separator (string, optional) {#elasticsearchoutput-logstash_prefix_separator}
 
-Set the separator between LogstashPrefix and LogStashDateformat.
+Set the separator between LogstashPrefix and LogStashDateformat. Default: "-" 
 
-Default: `-`
 
 ### logstash_suffix (string, optional) {#elasticsearchoutput-logstash_suffix}
 
 Set the suffix for logs in logstash format.
 
-Default: `${YEAR}.${MONTH}.${DAY}`
+Default: `${YEAR}.${MONTH}.${DAY}`### type (*string, optional) {#elasticsearchoutput-type}
+
+The document type associated with the operation. Elasticsearch indices now support a single document type: `_doc`
+
+
+

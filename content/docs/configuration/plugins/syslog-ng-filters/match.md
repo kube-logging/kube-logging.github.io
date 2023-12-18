@@ -4,7 +4,7 @@ weight: 200
 generated_file: true
 ---
 
-Match filters can be used to select the log records to process. These filters have the same options and syntax as the [syslog-ng flow match expressions]({{< relref "/docs/configuration/plugins/syslog-ng-filters/match.md" >}}).
+Match filters can be used to select the log records to process. These filters have the same options and syntax as [syslog-ng flow match expressions]({{< relref "/docs/configuration/plugins/syslog-ng-filters/match.md" >}}).
 
 {{< highlight yaml >}}
   filters:
@@ -20,65 +20,61 @@ Match filters can be used to select the log records to process. These filters ha
           type: string
 {{</ highlight >}}
 
+
 ## Configuration
 ## MatchExpr
 
 ### and ([]MatchExpr, optional) {#matchexpr-and}
 
-Default: -
 
 ### not (*MatchExpr, optional) {#matchexpr-not}
 
-Default: -
+
+### or ([]MatchExpr, optional) {#matchexpr-or}
+
 
 ### regexp (*RegexpMatchExpr, optional) {#matchexpr-regexp}
 
 [Regexp Directive](#Regexp-Directive) 
 
-Default: -
-
-### or ([]MatchExpr, optional) {#matchexpr-or}
-
-Default: -
 
 
 ## Regexp Directive {#Regexp-Directive}
 
+
 Specify filtering rule. For details, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-template-functions/#template-function-list)
+
+
+### flags ([]string, optional) {#regexp-directive-flags}
+
+Pattern flags. For details, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/regular-expressions/reference-regexp-types/regexp-flags-options/) 
+
 
 ### pattern (string, required) {#regexp-directive-pattern}
 
 Pattern expression to evaluate 
 
-Default: -
 
 ### template (string, optional) {#regexp-directive-template}
 
 Specify a template of the record fields to match against. 
 
-Default: -
+
+### type (string, optional) {#regexp-directive-type}
+
+Pattern type. For details, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/regular-expressions/reference-regexp-types/regexp-type-options/) 
+
 
 ### value (string, optional) {#regexp-directive-value}
 
 Specify a field name of the record to match against the value of. 
 
-Default: -
-
-### flags ([]string, optional) {#regexp-directive-flags}
-
-Pattern flags 
-
-Default: -
-
-### type (string, optional) {#regexp-directive-type}
-
-Pattern type 
-
-Default: -
 
 
- #### Example `Regexp` filter configurations
- ```yaml
+
+## Example `Regexp` filter configurations
+
+```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -86,22 +82,24 @@ metadata:
 spec:
   filters:
     - match:
-        regexp:
+      regexp:
         - value: first
           pattern: ^5\d\d$
   match: {}
   localOutputRefs:
     - demo-output
- ```
+```
+syslog-ng config result:
 
- #### Syslog-NG Config Result
- ```
- log {
+```shell
+log {
     source(main_input);
     filter {
-        match("^5\d\d$" value("first"));
+      match("^5\d\d$" value("first"));
     };
     destination(output_default_demo-output);
- };
- ```
+};
+```
 
+
+---
