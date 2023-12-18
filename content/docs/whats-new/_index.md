@@ -15,7 +15,8 @@ When using syslog-ng as the log aggregator, you can now:
 - Use a [custom date-parser]({{< relref "/docs/examples/date-parser.md" >}})
 - Create [custom log metrics for sources and outputs]({{< relref "/docs/examples/custom-syslog-ng-metrics.md" >}})
 - Set the permitted [SSL versions in HTTP based outputs]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/tls.md#tls-ssl_version" >}})
-- Configure the [maxConnections parameter of the sources]({{< relref "path/to/file.md" >}})
+- Configure the [maxConnections parameter of the sources]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md#syslogngspec-maxconnections" >}})
+
 
 
 ### Image and dependency updates
