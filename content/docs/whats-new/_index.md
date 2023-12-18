@@ -3,6 +3,25 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.5
+
+The following are the highlights and main changes of Logging operator 4.5. For a complete list of changes and bugfixes, see the [Logging operator 4.5 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.5.0).
+
+### New syslog-ng features
+
+When using syslog-ng as the log aggregator, you can now:
+
+- Send data to [OpenObserve]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/openobserve.md" >}})
+- Use a [custom date-parser]({{< relref "/docs/examples/date-parser.md" >}})
+- Create [custom log metrics for sources and outputs]({{< relref "/docs/examples/custom-syslog-ng-metrics.md" >}})
+- Set the permitted [SSL versions in HTTP based outputs]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/tls.md#tls-ssl_version" >}})
+- Configure the [maxConnections parameter of the sources]({{< relref "path/to/file.md" >}})
+
+
+### Image and dependency updates
+
+For the list of images used in Logging operator, see {{% xref "/docs/image-versions.md" %}}.
+
 ## Version 4.4
 
 The following are the highlights and main changes of Logging operator 4.4. For a complete list of changes and bugfixes, see the [Logging operator 4.4 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.4.0).
