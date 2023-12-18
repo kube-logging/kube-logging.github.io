@@ -188,7 +188,7 @@ twitter = "calisti12"
 # Cascade version number to every doc page (needed to create sections for pagefind search)
 # Update this parameter when creating a new version
 [[cascade]]
-body_attribute = 'data-pagefind-filter="section:4.3"'
+body_attribute = 'data-pagefind-filter="section:4.4"'
 [cascade._target]
   path = '/docs/**'
 
