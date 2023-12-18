@@ -17,7 +17,19 @@ When using syslog-ng as the log aggregator, you can now:
 - Set the permitted [SSL versions in HTTP based outputs]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/tls.md#tls-ssl_version" >}})
 - Configure the [maxConnections parameter of the sources]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md#syslogngspec-maxconnections" >}})
 
+### New Fluentd features
 
+When using Fluentd as the log aggregator, you can now:
+
+- Use the [useragent Fluent filter]({{< relref "/docs/configuration/plugins/filters/useragent.md" >}})
+- Configure [sidecar container in Fluentd pods]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-sidecarcontainers" >}})
+- Configure the [security-context of every container]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-sidecarcontainers#fluentddrainconfig-securitycontext" >}})
+- Set which [Azure Cloud to use]({{< relref "/docs/configuration/plugins/outputs/azurestore.md#output-config-azure_cloud" >}}) (for example, AzurePublicCloud), when using the Azure Storage output
+- Customize the `image` to use in [event and host tailers]({{< relref "/docs/configuration/crds/extensions/_index.md" >}})
+
+## Other changes
+
+- LoggingStatus now includes the number (problemsCount) and the related watchNamespaces to help troubleshooting
 
 ### Image and dependency updates
 
