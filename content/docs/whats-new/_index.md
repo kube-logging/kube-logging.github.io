@@ -7,6 +7,14 @@ weight: 50
 
 The following are the highlights and main changes of Logging operator 4.5. For a complete list of changes and bugfixes, see the [Logging operator 4.5 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.5.0).
 
+## Standalone FluentdConfig and SyslogNGConfig CRDs
+
+Starting with Logging operator version 4.5, you can either configure Fluentd in the `Logging` CR, or you can use a standalone `FluentdConfig` CR. Similarly, you can use a standalone `SyslogNGConfig` CRD to configure syslog-ng.
+
+These standalone CRDs are a namespaced resources that allow you to configure the Fluentd/syslog-ng aggregator in the control namespace, separately from the Logging resource. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.
+
+For details, see {{% xref "/docs/logging-infrastructure/fluentd.md" %}} and {{% xref "/docs/logging-infrastructure/syslog-ng.md" %}}.
+
 ### New syslog-ng features
 
 When using syslog-ng as the log aggregator, you can now:
