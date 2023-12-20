@@ -52,9 +52,10 @@ spec:
 
 The following snippet redirects Fluentd's stdout to a file and configures rotation settings.
 
-This mechanism was used prior to version 4.4 to avoid Fluent-bit rereading Fluentd's logs and causing an exponentially growing amount of redundant logs. 
+This mechanism was used prior to version 4.4 to avoid Fluent-bit rereading Fluentd's logs and causing an exponentially growing amount of redundant logs.
 
 Example configuration used by the operator in version 4.3 and earlier (keep 10 files, 10M each):
+
 ```yaml
 spec:
   fluentd:

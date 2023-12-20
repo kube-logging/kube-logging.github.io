@@ -20,6 +20,8 @@ There are three ways to configure the Fluent Bit daemonset:
 1. Using the standalone FluentbitAgent CRD. This method is only available in Logging operator version 4.2 and newer, and the specification of the CRD is compatible with the **spec.fluentbit** configuration method.
 1. Using the **spec.nodeagents** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}. This method is deprecated and will be removed from the Logging operator. (Note that this configuration isn't compatible with the FluentbitAgent CRD.)
 
+For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+
 ### Migrating from **spec.fluentbit** to FluentbitAgent {#migrating}
 
 The standalone FluentbitAgent CRD is only available in Logging operator version 4.2 and newer. Its specification and logic is identical with the **spec.fluentbit** configuration method. Using the FluentbitAgent CRD allows you to remove the **spec.fluentbit** section from the Logging CRD, which has the following benefits.

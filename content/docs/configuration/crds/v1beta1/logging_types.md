@@ -61,8 +61,7 @@ FluentbitAgent daemonset configuration. Deprecated, will be removed with next ma
 
 ### fluentd (*FluentdSpec, optional) {#loggingspec-fluentd}
 
-Fluentd statefulset configuration 
-
+Fluentd statefulset configuration. For details, see the [Fluentd configuration reference]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md" >}}).
 
 ### globalFilters ([]Filter, optional) {#loggingspec-globalfilters}
 
@@ -86,7 +85,7 @@ Whether to skip invalid Flow and ClusterFlow resources
 
 ### syslogNG (*SyslogNGSpec, optional) {#loggingspec-syslogng}
 
-Syslog-NG statefulset configuration 
+Syslog-NG statefulset configuration. For details, see the [syslogNG configuration reference]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md" >}}).
 
 
 ### watchNamespaceSelector (*metav1.LabelSelector, optional) {#loggingspec-watchnamespaceselector}
