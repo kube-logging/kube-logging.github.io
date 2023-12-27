@@ -16,54 +16,46 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 <title>Record Transformer | Logging operator</title><meta name="description" content="Record Transformer Overview Mutates/transforms incoming event streams.
-Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
-Default: -
-keep_keys (string, optional) A comma-delimited list of keys to keep.
-Default: -
-renew_record (bool, optional) Create new Hash to transform incoming data
+Configuration RecordTransformer auto_typecast (bool, optional) Use original value type.
+Default: true
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${...} expression.
 Default: false
-renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
-Default: -
-enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&amp;hellip;} expression.">
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+records ([]Record, optional) Add records docs at: https://docs.fluentd.org/filter/record_transformer Records are represented as maps: key: value
+remove_keys (string, optional) A comma-delimited list of keys to delete">
 <meta property="og:title" content="Record Transformer">
 <meta property="og:description" content="Record Transformer Overview Mutates/transforms incoming event streams.
-Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
-Default: -
-keep_keys (string, optional) A comma-delimited list of keys to keep.
-Default: -
-renew_record (bool, optional) Create new Hash to transform incoming data
+Configuration RecordTransformer auto_typecast (bool, optional) Use original value type.
+Default: true
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${...} expression.
 Default: false
-renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
-Default: -
-enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+records ([]Record, optional) Add records docs at: https://docs.fluentd.org/filter/record_transformer Records are represented as maps: key: value
+remove_keys (string, optional) A comma-delimited list of keys to delete">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/record_transformer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-12-19T09:23:05+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-12-27T16:59:11+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Record Transformer">
 <meta itemprop="description" content="Record Transformer Overview Mutates/transforms incoming event streams.
-Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
-Default: -
-keep_keys (string, optional) A comma-delimited list of keys to keep.
-Default: -
-renew_record (bool, optional) Create new Hash to transform incoming data
+Configuration RecordTransformer auto_typecast (bool, optional) Use original value type.
+Default: true
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${...} expression.
 Default: false
-renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
-Default: -
-enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
-<meta itemprop="dateModified" content="2023-12-19T09:23:05+00:00">
-<meta itemprop="wordCount" content="152">
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+records ([]Record, optional) Add records docs at: https://docs.fluentd.org/filter/record_transformer Records are represented as maps: key: value
+remove_keys (string, optional) A comma-delimited list of keys to delete">
+<meta itemprop="dateModified" content="2023-12-27T16:59:11+01:00">
+<meta itemprop="wordCount" content="144">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Record Transformer">
 <meta name="twitter:description" content="Record Transformer Overview Mutates/transforms incoming event streams.
-Configuration RecordTransformer remove_keys (string, optional) A comma-delimited list of keys to delete
-Default: -
-keep_keys (string, optional) A comma-delimited list of keys to keep.
-Default: -
-renew_record (bool, optional) Create new Hash to transform incoming data
+Configuration RecordTransformer auto_typecast (bool, optional) Use original value type.
+Default: true
+enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${...} expression.
 Default: false
-renew_time_key (string, optional) Specify field name of the record to overwrite the time of events. Its value must be unix time.
-Default: -
-enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.">
+keep_keys (string, optional) A comma-delimited list of keys to keep.
+records ([]Record, optional) Add records docs at: https://docs.fluentd.org/filter/record_transformer Records are represented as maps: key: value
+remove_keys (string, optional) A comma-delimited list of keys to delete">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
 <link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
@@ -73,11 +65,11 @@ enable_ruby (bool, optional) When set to true, the full Ruby syntax is enabled i
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/filters/">
 <script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
 <script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
-</head><body class="td-page" data-pagefind-filter="section:4.4">
+</head><body class="td-page" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.4.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.5.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -235,7 +227,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersdedot-check"><a href="/docs/configuration/plugins/filters/dedot/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersdedot"><span>Dedot</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfilterselasticsearch_genid-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfilterselasticsearch_genid-check">
-<label for="m-docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticsearchGenId</span></a></label>
+<label for="m-docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticSearch GenId</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersenhance_k8s-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfiltersenhance_k8s-check">
 <label for="m-docsconfigurationpluginsfiltersenhance_k8s-check"><a href="/docs/configuration/plugins/filters/enhance_k8s/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersenhance_k8s"><span>Enhance K8s Metadata</span></a></label>
@@ -275,6 +267,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersthrottle-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfiltersthrottle-check">
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersuseragent-li">
+<input type="checkbox" id="m-docsconfigurationpluginsfiltersuseragent-check">
+<label for="m-docsconfigurationpluginsfiltersuseragent-check"><a href="/docs/configuration/plugins/filters/useragent/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersuseragent"><span>User Agent</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
@@ -419,6 +414,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/openobserve/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve"><span>Openobserve</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsredis-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsredis-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
@@ -447,6 +445,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesfilters-in-flows-li">
 <input type="checkbox" id="m-docsexamplesfilters-in-flows-check">
 <label for="m-docsexamplesfilters-in-flows-check"><a href="/docs/examples/filters-in-flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesfilters-in-flows"><span>Filter examples in Flows</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
+<input type="checkbox" id="m-docsexamplesdate-parser-check">
+<label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -474,6 +475,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesmultitenancy-li">
 <input type="checkbox" id="m-docsexamplesmultitenancy-check">
 <label for="m-docsexamplesmultitenancy-check"><a href="/docs/examples/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesmultitenancy"><span>Nodegroup-based multitenancy</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescustom-syslog-ng-metrics-li">
+<input type="checkbox" id="m-docsexamplescustom-syslog-ng-metrics-check">
+<label for="m-docsexamplescustom-syslog-ng-metrics-check"><a href="/docs/examples/custom-syslog-ng-metrics/" title="Custom source and output metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescustom-syslog-ng-metrics"><span>Custom syslog-ng metrics</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docslogging-infrastructure-li">
 <input type="checkbox" id="m-docslogging-infrastructure-check">
 <label for="m-docslogging-infrastructure-check"><a href="/docs/logging-infrastructure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docslogging-infrastructure"><span>Logging infrastructure setup</span></a></label>
@@ -565,9 +569,7 @@ Releases
 <ul>
 <li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#recordtransformer">RecordTransformer</a>
 <ul>
-<li><a href="#recordtransformer-remove_keys">remove_keys (string, optional)</a></li><li><a href="#recordtransformer-keep_keys">keep_keys (string, optional)</a></li><li><a href="#recordtransformer-renew_record">renew_record (bool, optional)</a></li><li><a href="#recordtransformer-renew_time_key">renew_time_key (string, optional)</a></li><li><a href="#recordtransformer-enable_ruby">enable_ruby (bool, optional)</a></li><li><a href="#recordtransformer-auto_typecast">auto_typecast (bool, optional)</a></li><li><a href="#recordtransformer-records">records ([]Record, optional)</a></li></ul></li><li><a href="#example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</a>
-<ul>
-<li></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<li><a href="#recordtransformer-auto_typecast">auto_typecast (bool, optional)</a></li><li><a href="#recordtransformer-enable_ruby">enable_ruby (bool, optional)</a></li><li><a href="#recordtransformer-keep_keys">keep_keys (string, optional)</a></li><li><a href="#recordtransformer-records">records ([]Record, optional)</a></li><li><a href="#recordtransformer-remove_keys">remove_keys (string, optional)</a></li><li><a href="#recordtransformer-renew_record">renew_record (bool, optional)</a></li><li><a href="#recordtransformer-renew_time_key">renew_time_key (string, optional)</a></li></ul></li><li><a href="#example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
 <ol class="breadcrumb">
 <li class="breadcrumb-item">
@@ -582,28 +584,26 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/filters/record_transformer/" aria-disabled="true" class="btn-link disabled">Record Transformer</a>
 </li></ol></nav><div class="td-content">
 <h1>Record Transformer</h1><header class="article-meta">
-</header><h1 id="record-transformerhttpsdocsfluentdorgfilterrecord_transformer"><a href="https://docs.fluentd.org/filter/record_transformer">Record Transformer</a></h1><h2 id="overview">Overview</h2><p>Mutates/transforms incoming event streams.</p><h2 id="configuration">Configuration</h2><h2 id="recordtransformer">RecordTransformer</h2><h3 id="recordtransformer-remove_keys">remove_keys (string, optional)</h3><p>A comma-delimited list of keys to delete</p><p>Default: -</p><h3 id="recordtransformer-keep_keys">keep_keys (string, optional)</h3><p>A comma-delimited list of keys to keep.</p><p>Default: -</p><h3 id="recordtransformer-renew_record">renew_record (bool, optional)</h3><p>Create new Hash to transform incoming data</p><p>Default: false</p><h3 id="recordtransformer-renew_time_key">renew_time_key (string, optional)</h3><p>Specify field name of the record to overwrite the time of events. Its value must be unix time.</p><p>Default: -</p><h3 id="recordtransformer-enable_ruby">enable_ruby (bool, optional)</h3><p>When set to true, the full Ruby syntax is enabled in the ${&mldr;} expression.</p><p>Default: false</p><h3 id="recordtransformer-auto_typecast">auto_typecast (bool, optional)</h3><p>Use original value type.</p><p>Default: true</p><h3 id="recordtransformer-records">records ([]Record, optional)</h3><p>Add records docs at: <a href="https://docs.fluentd.org/filter/record_transformer">https://docs.fluentd.org/filter/record_transformer</a> Records are represented as maps: <code>key: value</code></p><p>Default: -</p><h2 id="example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</header><h1 id="record-transformerhttpsdocsfluentdorgfilterrecord_transformer"><a href="https://docs.fluentd.org/filter/record_transformer">Record Transformer</a></h1><h2 id="overview">Overview</h2><p>Mutates/transforms incoming event streams.</p><h2 id="configuration">Configuration</h2><h2 id="recordtransformer">RecordTransformer</h2><h3 id="recordtransformer-auto_typecast">auto_typecast (bool, optional)</h3><p>Use original value type.</p><p>Default: true</p><h3 id="recordtransformer-enable_ruby">enable_ruby (bool, optional)</h3><p>When set to true, the full Ruby syntax is enabled in the <code>${...}</code> expression.</p><p>Default: false</p><h3 id="recordtransformer-keep_keys">keep_keys (string, optional)</h3><p>A comma-delimited list of keys to keep.</p><h3 id="recordtransformer-records">records ([]Record, optional)</h3><p>Add records docs at: <a href="https://docs.fluentd.org/filter/record_transformer">https://docs.fluentd.org/filter/record_transformer</a> Records are represented as maps: <code>key: value</code></p><h3 id="recordtransformer-remove_keys">remove_keys (string, optional)</h3><p>A comma-delimited list of keys to delete</p><h3 id="recordtransformer-renew_record">renew_record (bool, optional)</h3><p>Create new Hash to transform incoming data</p><p>Default: false</p><h3 id="recordtransformer-renew_time_key">renew_time_key (string, optional)</h3><p>Specify field name of the record to overwrite the time of events. Its value must be unix time.</p><h2 id="example-record-transformer-filter-configurations">Example <code>Record Transformer</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#204a87;font-weight:700">record_transformer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#204a87;font-weight:700">records</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">       </span>- <span style="color:#204a87;font-weight:700">foo</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;bar&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">selectors</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#000">demo-output</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><h4 id="fluentd-config-result">Fluentd Config Result</h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">&lt;filter **&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span>@<span style="color:#000">type record_transformer</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span>@<span style="color:#000">id test_record_transformer</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;record&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#000">foo bar</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;/record&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><hr>
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">record_transformer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">records</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:700">foo</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;bar&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">selectors</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">demo-output</span></span></span></code></pre></div><p>Fluentd config result:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;filter</span> <span style="color:#a40000">**</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>  @type record_transformer
+</span></span><span style="display:flex"><span>  @id test_record_transformer
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;record&gt;</span>
+</span></span><span style="display:flex"><span>    foo bar
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/record&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified December 19, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2276e082e22bdc099ebcef8682a034b81888ef79">Merge c66b871bff4a031edf21e76f3df503ae9f707284 into 70fc772542203c7e971803ceec404621362d38f4 (2276e08)</a>
+Last modified December 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4435f2183d86539fc9cacced91ff631c5ad94dfb">Merge pull request #204 from kube-logging/updates-for-4.5 (4435f21)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

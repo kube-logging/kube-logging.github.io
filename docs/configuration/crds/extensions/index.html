@@ -34,11 +34,11 @@
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/extensions/">
 <script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
 <script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
-</head><body class="td-section" data-pagefind-filter="section:4.4">
+</head><body class="td-section" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.4.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.5.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -196,7 +196,7 @@ Releases
 <label for="m-docsconfigurationpluginsfiltersdedot-check"><a href="/docs/configuration/plugins/filters/dedot/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersdedot"><span>Dedot</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfilterselasticsearch_genid-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfilterselasticsearch_genid-check">
-<label for="m-docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticsearchGenId</span></a></label>
+<label for="m-docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticSearch GenId</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersenhance_k8s-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfiltersenhance_k8s-check">
 <label for="m-docsconfigurationpluginsfiltersenhance_k8s-check"><a href="/docs/configuration/plugins/filters/enhance_k8s/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersenhance_k8s"><span>Enhance K8s Metadata</span></a></label>
@@ -236,6 +236,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersthrottle-li">
 <input type="checkbox" id="m-docsconfigurationpluginsfiltersthrottle-check">
 <label for="m-docsconfigurationpluginsfiltersthrottle-check"><a href="/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsfiltersuseragent-li">
+<input type="checkbox" id="m-docsconfigurationpluginsfiltersuseragent-check">
+<label for="m-docsconfigurationpluginsfiltersuseragent-check"><a href="/docs/configuration/plugins/filters/useragent/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsfiltersuseragent"><span>User Agent</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationpluginsoutputs-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
@@ -380,6 +383,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-li">
+<input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-check">
+<label for="m-docsconfigurationpluginssyslog-ng-outputsopenobserve-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/openobserve/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsopenobserve"><span>Openobserve</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginssyslog-ng-outputsredis-li">
 <input type="checkbox" id="m-docsconfigurationpluginssyslog-ng-outputsredis-check">
 <label for="m-docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
@@ -408,6 +414,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesfilters-in-flows-li">
 <input type="checkbox" id="m-docsexamplesfilters-in-flows-check">
 <label for="m-docsexamplesfilters-in-flows-check"><a href="/docs/examples/filters-in-flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesfilters-in-flows"><span>Filter examples in Flows</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
+<input type="checkbox" id="m-docsexamplesdate-parser-check">
+<label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -435,6 +444,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesmultitenancy-li">
 <input type="checkbox" id="m-docsexamplesmultitenancy-check">
 <label for="m-docsexamplesmultitenancy-check"><a href="/docs/examples/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesmultitenancy"><span>Nodegroup-based multitenancy</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescustom-syslog-ng-metrics-li">
+<input type="checkbox" id="m-docsexamplescustom-syslog-ng-metrics-check">
+<label for="m-docsexamplescustom-syslog-ng-metrics-check"><a href="/docs/examples/custom-syslog-ng-metrics/" title="Custom source and output metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescustom-syslog-ng-metrics"><span>Custom syslog-ng metrics</span></a></label>
 </li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docslogging-infrastructure-li">
 <input type="checkbox" id="m-docslogging-infrastructure-check">
 <label for="m-docslogging-infrastructure-check"><a href="/docs/logging-infrastructure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docslogging-infrastructure"><span>Logging infrastructure setup</span></a></label>
@@ -549,7 +561,7 @@ Releases
 <h5>
 <a href="/docs/configuration/crds/extensions/hosttailer_types/">HostTailer</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 19, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2276e082e22bdc099ebcef8682a034b81888ef79">Merge c66b871bff4a031edf21e76f3df503ae9f707284 into 70fc772542203c7e971803ceec404621362d38f4 (2276e08)</a>
+Last modified December 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4435f2183d86539fc9cacced91ff631c5ad94dfb">Merge pull request #204 from kube-logging/updates-for-4.5 (4435f21)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
