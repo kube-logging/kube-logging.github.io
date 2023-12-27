@@ -44,7 +44,7 @@ SyslogNGClusterFlowList SyslogNGClusterFlowList contains a list of SyslogNGClust
 metadata (metav1.ListMeta, optional) Default: -">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/4.4/docs/configuration/crds/v1beta1/syslogng_clusterflow_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-12-18T12:10:38+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2023-12-27T18:59:08+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGClusterFlow">
 <meta itemprop="description" content="SyslogNGClusterFlow SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API
 (metav1.TypeMeta, required) Default: -
@@ -59,7 +59,7 @@ globalOutputRefs ([]string, optional) Default: -
 SyslogNGClusterFlowList SyslogNGClusterFlowList contains a list of SyslogNGClusterFlow
 (metav1.TypeMeta, required) Default: -
 metadata (metav1.ListMeta, optional) Default: -">
-<meta itemprop="dateModified" content="2023-12-18T12:10:38+01:00">
+<meta itemprop="dateModified" content="2023-12-27T18:59:08+01:00">
 <meta itemprop="wordCount" content="78">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGClusterFlow">
@@ -85,7 +85,7 @@ metadata (metav1.ListMeta, optional) Default: -">
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/v1beta1/">
 <script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
 <script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
-</head><body class="td-page" data-pagefind-filter="section:4.3">
+</head><body class="td-page" data-pagefind-filter="section:4.4">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/4.4/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
@@ -597,7 +597,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>SyslogNGClusterFlow</h1><header class="article-meta">
 </header><h2 id="syslogngclusterflow">SyslogNGClusterFlow</h2><p>SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API</p><h3 id="syslogngclusterflow-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="syslogngclusterflow-metadata">metadata (metav1.ObjectMeta, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflow-spec">spec (SyslogNGClusterFlowSpec, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflow-status">status (SyslogNGFlowStatus, optional)</h3><p>Default: -</p><h2 id="syslogngclusterflowspec">SyslogNGClusterFlowSpec</h2><p>SyslogNGClusterFlowSpec is the Kubernetes spec for Flows</p><h3 id="syslogngclusterflowspec-match">match (*SyslogNGMatch, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflowspec-filters">filters ([]SyslogNGFilter, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflowspec-loggingref">loggingRef (string, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflowspec-globaloutputrefs">globalOutputRefs ([]string, optional)</h3><p>Default: -</p><h2 id="syslogngclusterflowlist">SyslogNGClusterFlowList</h2><p>SyslogNGClusterFlowList contains a list of SyslogNGClusterFlow</p><h3 id="syslogngclusterflowlist-">(metav1.TypeMeta, required)</h3><p>Default: -</p><h3 id="syslogngclusterflowlist-metadata">metadata (metav1.ListMeta, optional)</h3><p>Default: -</p><h3 id="syslogngclusterflowlist-items">items ([]SyslogNGClusterFlow, required)</h3><p>Default: -</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 18, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/288a32d45c5eb600516b3b1a55f142a807a919d6">Adds publish workflow for the 4.4 branch (288a32d)</a>
+Last modified December 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c0a5e5bb1e30b0f315eecbcc633a93a68c6661ef">Update search filter (c0a5e5b)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
