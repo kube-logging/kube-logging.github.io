@@ -1,0 +1,282 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="canonical" type="text/html" href="https://kube-logging.dev/4.4/docs/operation/troubleshooting/">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/4.4/docs/operation/troubleshooting/releases.releases">
+<meta name="robots" content="noindex, nofollow">
+<link rel="shortcut icon" href="/4.4/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/4.4/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/4.4/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/4.4/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/4.4/favicons/android-192x192.png" sizes="192x192">
+<title>Logging operator troubleshooting | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
+<meta property="og:title" content="Logging operator troubleshooting">
+<meta property="og:description" content="Documentation for the Logging operator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kube-logging.dev/4.4/docs/operation/troubleshooting/"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Logging operator troubleshooting">
+<meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Logging operator troubleshooting">
+<meta name="twitter:description" content="Documentation for the Logging operator">
+<meta name="twitter:site" content="@calisti12">
+<link rel="preload" href="/4.4/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
+<link href="/4.4/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/4.4/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/operation/troubleshooting/">
+<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
+<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+</head><body class="td-section">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/4.4/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">4.4.0</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/4.4/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/docs/operation/troubleshooting//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+</div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="return print(),!1">Click here to print</a>.
+</p><p>
+<a href="/4.4/docs/operation/troubleshooting/">Return to the regular view of this page</a>.
+</p></div><h1 class="title">Logging operator troubleshooting</h1><ul>
+<li>1: <a href="#pg-741171b799e509ff0eabf397d862c757">Troubleshooting Fluent Bit</a></li><li>2: <a href="#pg-08d978e8b4bd5dff112fd9e079aaba48">Troubleshooting Fluentd</a></li><li>3: <a href="#pg-3f9ff6b76f6626e8e1fb3f91c1ad7b0f">Troubleshooting syslog-ng</a></li><li>4: <a href="#pg-ff4769d67e22b03ee37bf3b31cd60c80">Running on KinD</a></li></ul><div class="content">
+<p align="center"><img src="/docs/img/troubleshooting.svg" alt="Logo" width="260"></p><p align="center">
+<p>The following tips and commands can help you to troubleshoot your Logging operator installation.</p><h2 id="first-things-to-do">First things to do</h2><ol>
+<li>
+<p>Check that the necessary CRDs are installed. Issue the following command: <code>kubectl get crd</code>
+The output should include the following CRDs:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>clusterflows.logging.banzaicloud.io     2019-12-05T15:11:48Z
+</span></span><span style="display:flex"><span>clusteroutputs.logging.banzaicloud.io   2019-12-05T15:11:48Z
+</span></span><span style="display:flex"><span>flows.logging.banzaicloud.io            2019-12-05T15:11:48Z
+</span></span><span style="display:flex"><span>loggings.logging.banzaicloud.io         2019-12-05T15:11:48Z
+</span></span><span style="display:flex"><span>outputs.logging.banzaicloud.io          2019-12-05T15:11:48Z
+</span></span></code></pre></div></li><li>
+<p>Verify that the Logging operator pod is running. Issue the following command: <code>kubectl get pods |grep logging-operator</code>
+The output should include the a running pod, for example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                                          READY   STATUS      RESTARTS   AGE
+</span></span><span style="display:flex"><span>logging-demo-log-generator-6448d45cd9-z7zk8   1/1     Running     <span style="color:#0000cf;font-weight:700">0</span>          24m
+</span></span></code></pre></div></li><li>
+<p>Check the status of your resources. Beginning with Logging Operator 3.8, all custom resources have a <code>Status</code> and a <code>Problems</code> field. In a healthy system, the Problems field of the resources is empty, for example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get clusteroutput -A
+</span></span></code></pre></div><p>Sample output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAMESPACE   NAME      ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>default     nullout   <span style="color:#204a87">true</span>
+</span></span></code></pre></div><p>The <code>ACTIVE</code> column indicates that the <code>ClusterOutput</code> has successfully passed the <code>configcheck</code> and presented it in the current fluentd configuration. When no errors are reported the <code>PROBLEMS</code> column is empty.</p><p>Take a look at another example, in which we have an incorrect <code>ClusterFlow</code>.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get clusterflow -o wide
+</span></span></code></pre></div><p>Sample output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME      ACTIVE   PROBLEMS
+</span></span><span style="display:flex"><span>all-log   <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>nullout   <span style="color:#204a87">false</span>    <span style="color:#0000cf;font-weight:700">1</span>
+</span></span></code></pre></div><p>You can see that the <strong>nullout</strong> <code>Clusterflow</code> is inactive and there is <em>1</em> problem with the configuration. To display the problem, check the <code>status</code> field of the object, for example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get clusterflow nullout -o<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.status}&#39;</span> <span style="color:#000;font-weight:700">|</span> jq
+</span></span></code></pre></div><p>Sample output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span><span style="color:#4e9a06">&#34;active&#34;</span>: false,
+</span></span><span style="display:flex"><span><span style="color:#4e9a06">&#34;problems&#34;</span>: <span style="color:#ce5c00;font-weight:700">[</span>
+</span></span><span style="display:flex"><span>    <span style="color:#4e9a06">&#34;dangling global output reference: nullout2&#34;</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">]</span>,
+</span></span><span style="display:flex"><span><span style="color:#4e9a06">&#34;problemsCount&#34;</span>: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span>
+</span></span></code></pre></div></li></ol><p>After that, check the following sections for further tips.</p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-741171b799e509ff0eabf397d862c757">1 - Troubleshooting Fluent Bit</h1><p align="center"><img src="/docs/img/fluentbit.png" alt="Fluent Bit logo" height="100"></p><p>The following sections help you troubleshoot the Fluent Bit component of the Logging operator.</p><h2 id="check-the-fluent-bit-daemonset">Check the Fluent Bit daemonset</h2><p>Verify that the Fluent Bit daemonset is available. Issue the following command: <code>kubectl get daemonsets</code>
+The output should include a Fluent Bit daemonset, for example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                     DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+</span></span><span style="display:flex"><span>logging-demo-fluentbit   <span style="color:#0000cf;font-weight:700">1</span>         <span style="color:#0000cf;font-weight:700">1</span>         <span style="color:#0000cf;font-weight:700">1</span>       <span style="color:#0000cf;font-weight:700">1</span>            <span style="color:#0000cf;font-weight:700">1</span>           &lt;none&gt;          110s
+</span></span></code></pre></div><h2 id="check-the-fluent-bit-configuration">Check the Fluent Bit configuration</h2><p>You can display the current configuration of the Fluent Bit daemonset using the following command:
+<code>kubectl get secret logging-demo-fluentbit -o jsonpath="{.data['fluent-bit\.conf']}" | base64 --decode</code></p><p>The output looks like the following:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000;font-weight:700">[</span><span style="color:#000">SERVICE]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Flush        1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Daemon       Off</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Log_Level    info</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Parsers_File parsers.conf</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">storage.path  /buffers</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000;font-weight:700">[</span><span style="color:#000">INPUT]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Name         tail</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">DB  /tail-db/tail-containers-state.db</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Mem_Buf_Limit  5MB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Parser  docker</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Path  /var/log/containers/*.log</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Refresh_Interval  5</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Skip_Long_Lines  On</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Tag  kubernetes.*</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000;font-weight:700">[</span><span style="color:#000">FILTER]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Name        kubernetes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Kube_CA_File  /var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Kube_Tag_Prefix  kubernetes.var.log.containers</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Kube_Token_File  /var/run/secrets/kubernetes.io/serviceaccount/token</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Kube_URL  https://kubernetes.default.svc:443</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Match  kubernetes.*</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Merge_Log  On</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000;font-weight:700">[</span><span style="color:#000">OUTPUT]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Name          forward</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Match         *</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Host          logging-demo-fluentd.logging.svc</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Port          24240</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tls           On</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tls.verify    Off</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tls.ca_file   /fluent-bit/tls/ca.crt</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tls.crt_file  /fluent-bit/tls/tls.crt</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tls.key_file  /fluent-bit/tls/tls.key</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Shared_Key    Kamk2_SukuWenk</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">Retry_Limit   False</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="debug-version-of-the-fluentbit-container">Debug version of the fluentbit container</h2><p>All Fluent Bit image tags have a debug version marked with the <code>-debug</code> suffix. You can install this debug version using the following command:
+<code>kubectl edit loggings.logging.banzaicloud.io logging-demo</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">fluentbit</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">image</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">pullPolicy</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Always</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">repository</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">fluent/fluent-bit</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">tag</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1.3.2</span>-<span style="color:#000">debug</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>After deploying the debug version, you can kubectl exec into the pod using <code>sh</code> and look around. For example: <code>kubectl exec -it logging-demo-fluentbit-778zg sh</code></p><h2 id="check-the-queued-log-messages">Check the queued log messages</h2><p>You can check the buffer directory if Fluent Bit is configured to buffer queued log messages to disk instead of in memory. (You can configure it through the InputTail fluentbit config, by setting the <code>storage.type</code> field to <code>filesystem</code>.)</p><p><code>kubectl exec -it logging-demo-fluentbit-9dpzg ls /buffers</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-08d978e8b4bd5dff112fd9e079aaba48">2 - Troubleshooting Fluentd</h1><p align="center"><img src="/docs/img/fluentd.png" alt="Fluentd logo" height="100"></p><p>The following sections help you troubleshoot the Fluentd statefulset component of the Logging operator.</p><h2 id="check-fluentd-pod-status-statefulset">Check Fluentd pod status (statefulset)</h2><p>Verify that the Fluentd statefulset is available using the following command: <code>kubectl get statefulsets</code></p><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                   READY   AGE
+</span></span><span style="display:flex"><span>logging-demo-fluentd   1/1     1m
+</span></span></code></pre></div><h2 id="configcheck">ConfigCheck</h2><p>The Logging operator has a builtin mechanism that validates the generated fluentd configuration before applying it to fluentd. You should be able to see the configcheck pod and its log output. The result of the check is written into the <code>status</code> field of the corresponding <code>Logging</code> resource.</p><p>In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.</p><h2 id="check-fluentd-configuration">Check Fluentd configuration</h2><p>Use the following command to display the configuration of Fluentd:
+<code>kubectl get secret logging-demo-fluentd-app -o jsonpath="{.data['fluentd\.conf']}" | base64 --decode</code></p><p>The output should be similar to the following:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;source&gt;</span>
+</span></span><span style="display:flex"><span>  @type forward
+</span></span><span style="display:flex"><span>  @id main_forward
+</span></span><span style="display:flex"><span>  bind 0.0.0.0
+</span></span><span style="display:flex"><span>  port 24240
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;transport</span> <span style="color:#a40000">tls</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>    ca_path /fluentd/tls/ca.crt
+</span></span><span style="display:flex"><span>    cert_path /fluentd/tls/tls.crt
+</span></span><span style="display:flex"><span>    client_cert_auth true
+</span></span><span style="display:flex"><span>    private_key_path /fluentd/tls/tls.key
+</span></span><span style="display:flex"><span>    version TLSv1_2
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/transport&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;security&gt;</span>
+</span></span><span style="display:flex"><span>    self_hostname fluentd
+</span></span><span style="display:flex"><span>    shared_key Kamk2_SukuWenk
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/security&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/source&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;match</span> <span style="color:#a40000">**</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>  @type label_router
+</span></span><span style="display:flex"><span>  @id main_label_router
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;route&gt;</span>
+</span></span><span style="display:flex"><span>    @label @427b3e18f3a3bc3f37643c54e9fc960b
+</span></span><span style="display:flex"><span>    labels app.kubernetes.io/instance:logging-demo,app.kubernetes.io/name:log-generator
+</span></span><span style="display:flex"><span>    namespace logging
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/route&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/match&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;label</span> <span style="color:#a40000">@427b3e18f3a3bc3f37643c54e9fc960b</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;match</span> <span style="color:#a40000">kubernetes.**</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>    @type tag_normaliser
+</span></span><span style="display:flex"><span>    @id logging-demo-flow_0_tag_normaliser
+</span></span><span style="display:flex"><span>    format ${namespace_name}.${pod_name}.${container_name}
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/match&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;filter</span> <span style="color:#a40000">**</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>    @type parser
+</span></span><span style="display:flex"><span>    @id logging-demo-flow_1_parser
+</span></span><span style="display:flex"><span>    key_name log
+</span></span><span style="display:flex"><span>    remove_key_name_field true
+</span></span><span style="display:flex"><span>    reserve_data true
+</span></span><span style="display:flex"><span>    <span style="color:#204a87;font-weight:700">&lt;parse&gt;</span>
+</span></span><span style="display:flex"><span>      @type nginx
+</span></span><span style="display:flex"><span>    <span style="color:#204a87;font-weight:700">&lt;/parse&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;match</span> <span style="color:#a40000">**</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>    @type s3
+</span></span><span style="display:flex"><span>    @id logging_logging-demo-flow_logging-demo-output-minio_s3
+</span></span><span style="display:flex"><span>    aws_key_id WVKblQelkDTSKTn4aaef
+</span></span><span style="display:flex"><span>    aws_sec_key LAmjIah4MTKTM3XGrDxuD2dTLLmysVHvZrtxpzK6
+</span></span><span style="display:flex"><span>    force_path_style true
+</span></span><span style="display:flex"><span>    path logs/${tag}/%Y/%m/%d/
+</span></span><span style="display:flex"><span>    s3_bucket demo
+</span></span><span style="display:flex"><span>    s3_endpoint http://logging-demo-minio.logging.svc.cluster.local:9000
+</span></span><span style="display:flex"><span>    s3_region test_region
+</span></span><span style="display:flex"><span>    <span style="color:#204a87;font-weight:700">&lt;buffer</span> <span style="color:#a40000">tag,time</span><span style="color:#204a87;font-weight:700">&gt;</span>
+</span></span><span style="display:flex"><span>      @type file
+</span></span><span style="display:flex"><span>      path /buffers/logging_logging-demo-flow_logging-demo-output-minio_s3.*.buffer
+</span></span><span style="display:flex"><span>      retry_forever true
+</span></span><span style="display:flex"><span>      timekey 10s
+</span></span><span style="display:flex"><span>      timekey_use_utc true
+</span></span><span style="display:flex"><span>      timekey_wait 0s
+</span></span><span style="display:flex"><span>    <span style="color:#204a87;font-weight:700">&lt;/buffer&gt;</span>
+</span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/match&gt;</span>
+</span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/label&gt;</span>
+</span></span></code></pre></div><h2 id="set-fluentd-log-level">Set Fluentd log Level</h2><p>Use the following command to change the log level of Fluentd.
+<code>kubectl edit loggings.logging.banzaicloud.io logging-demo</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentd</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">logLevel</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">debug</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="get-fluentd-logs">Get Fluentd logs</h2><p>The following command displays the logs of the Fluentd container.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs -f logging-demo-fluentd-0 -c fluentd
+</span></span></code></pre></div><blockquote>
+<p>Fluentd logs were written to the container filesystem up until Logging operator version 4.3, which has been changed to stdout with 4.4.
+See <a href="/4.4/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOutLogrotate</a> why this was changed and how you can re-enable it if needed.</p></blockquote><blockquote>
+<p>Tip: If the logs include the <code>error="can't create buffer file ...</code> error message, Fluentd can’t create the buffer file at the specified location. This can mean for example that the disk is full, the filesystem is read-only, or some other permission error. Check the buffer-related settings of your <a href="/4.4/docs/configuration/crds/v1beta1/fluentd_types/">Fluentd configuration</a>.</p></blockquote><h2 id="set-stdout-as-an-output">Set stdout as an output</h2><p>You can use an stdout filter at any point in the flow to dump the log messages to the stdout of the Fluentd container. For example:
+<code>kubectl edit loggings.logging.banzaicloud.io logging-demo</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">exchange</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">namespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">stdout</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">exchange</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">selectors</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">application</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">exchange</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="check-the-buffer-path-in-the-fluentd-container">Check the buffer path in the fluentd container</h2><p><code>kubectl exec -it logging-demo-fluentd-0 ls /buffers</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>Defaulting container name to fluentd.
+</span></span><span style="display:flex"><span>Use <span style="color:#4e9a06">&#39;kubectl describe pod/logging-demo-fluentd-0 -n logging&#39;</span> to see all of the containers in this pod.
+</span></span><span style="display:flex"><span>logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a996ff2671.buffer
+</span></span><span style="display:flex"><span>logging_logging-demo-flow_logging-demo-output-minio_s3.b598f7eb0b2b34076b6da13a996ff2671.buffer.meta
+</span></span></code></pre></div><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-3f9ff6b76f6626e8e1fb3f91c1ad7b0f">3 - Troubleshooting syslog-ng</h1><p>The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.</p><h2 id="check-syslog-ng-pod-status-statefulset">Check syslog-ng pod status (statefulset)</h2><p>Verify that the syslog-ng statefulset is available using the following command: <code>kubectl get statefulsets</code></p><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                   READY   AGE
+</span></span><span style="display:flex"><span>logging-demo-syslogng   1/1     1m
+</span></span></code></pre></div><h2 id="configcheck">ConfigCheck</h2><p>The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output. The result of the check is written into the <code>status</code> field of the corresponding <code>Logging</code> resource.</p><p>In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.</p><h2 id="check-syslog-ng-configuration">Check syslog-ng configuration</h2><p>Use the following command to display the configuration of syslog-ng:
+<code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-ff4769d67e22b03ee37bf3b31cd60c80">4 - Running on KinD</h1><p>Persistent Volumes do not respect the <code>fsGroup</code> value on Kind so disable using a PVC for fluentd:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">example-on-kind</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentd</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">disablePvc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/4.4/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
+</div></div></div></footer></div><script src="/4.4/js/main.min.3882bb574c3ae4bbe9f68fd4b84cea1602cd1b2fc4c001fbaf9e0cddcf9c8d0d.js" integrity="sha256-OIK7V0w65Lvp9o/UuEzqFgLNGy/EwAH7r54M3c+cjQ0=" crossorigin="anonymous"></script>
+<script src='/4.4/js/prism.js'></script>
+<script src='/4.4/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>
