@@ -4,36 +4,34 @@ weight: 200
 generated_file: true
 ---
 
-# [Grep Filter](https://docs.fluentd.org/filter/grep)
 ## Overview
- The grep filter plugin "greps" events by the values of specified fields.
+
+[Grep Filter](https://docs.fluentd.org/filter/grep)
+
+The grep filter plugin "greps" events by the values of specified fields.
 
 ## Configuration
 ## GrepConfig
-
-### regexp ([]RegexpSection, optional) {#grepconfig-regexp}
-
-[Regexp Directive](#grepconfig-regexp) 
-
-Default: -
-
-### exclude ([]ExcludeSection, optional) {#grepconfig-exclude}
-
-[Exclude Directive](#grepconfig-exclude) 
-
-Default: -
-
-### or ([]OrSection, optional) {#grepconfig-or}
-
-[Or Directive](#grepconfig-or) 
-
-Default: -
 
 ### and ([]AndSection, optional) {#grepconfig-and}
 
 [And Directive](#grepconfig-and) 
 
-Default: -
+
+### exclude ([]ExcludeSection, optional) {#grepconfig-exclude}
+
+[Exclude Directive](#grepconfig-exclude) 
+
+
+### or ([]OrSection, optional) {#grepconfig-or}
+
+[Or Directive](#grepconfig-or) 
+
+
+### regexp ([]RegexpSection, optional) {#grepconfig-regexp}
+
+[Regexp Directive](#grepconfig-regexp) 
+
 
 
 ## Regexp Directive {#Regexp-Directive}
@@ -44,17 +42,17 @@ Specify filtering rule (as described in the [Fluentd documentation](https://docs
 
 Specify field name in the record to parse. 
 
-Default: -
 
 ### pattern (string, required) {#regexp-directive-pattern}
 
 Pattern expression to evaluate 
 
-Default: -
 
 
- ## Example `Regexp` filter configurations
- ```yaml
+
+## Example `Regexp` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -68,10 +66,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
   <filter **>
     @type grep
     @id demo-flow_1_grep
@@ -80,7 +79,8 @@ spec:
       pattern /^5\d\d$/
     </regexp>
   </filter>
- ```
+{{</ highlight >}}
+
 
 ---
 ## Exclude Directive
@@ -91,17 +91,17 @@ Specify filtering rule to reject events (as described in the [Fluentd documentat
 
 Specify field name in the record to parse. 
 
-Default: -
 
 ### pattern (string, required) {#exclude-directive-pattern}
 
 Pattern expression to evaluate 
 
-Default: -
 
 
- ## Example `Exclude` filter configurations
- ```yaml
+
+## Example `Exclude` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -115,10 +115,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
   <filter **>
     @type grep
     @id demo-flow_0_grep
@@ -127,28 +128,29 @@ spec:
       pattern /^5\d\d$/
     </exclude>
   </filter>
- ```
+{{</ highlight >}}
+
 
 ---
 ## [Or Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) {#Or-Directive}
 
 Specify filtering rule (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive). This directive contains either `regexp` or `exclude` directive.
 
-### regexp ([]RegexpSection, optional) {#or-directive-regexp}
-
-[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) 
-
-Default: -
-
 ### exclude ([]ExcludeSection, optional) {#or-directive-exclude}
 
 [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) 
 
-Default: -
+
+### regexp ([]RegexpSection, optional) {#or-directive-regexp}
+
+[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-or-greater-than-directive) 
 
 
- ## Example `Or` filter configurations
- ```yaml
+
+
+## Example `Or` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -166,10 +168,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
-```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
     <or>
       <exclude>
         key first
@@ -180,28 +183,29 @@ spec:
         pattern /\.css$/
       </exclude>
     </or>
- ```
+{{</ highlight >}}
+
 
 ---
 ## [And Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) {#And-Directive}
 
 Specify filtering rule (as described in the [Fluentd documentation](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive). This directive contains either `regexp` or `exclude` directive.
 
-### regexp ([]RegexpSection, optional) {#and-directive-regexp}
-
-[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) 
-
-Default: -
-
 ### exclude ([]ExcludeSection, optional) {#and-directive-exclude}
 
 [Exclude Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) 
 
-Default: -
+
+### regexp ([]RegexpSection, optional) {#and-directive-regexp}
+
+[Regexp Directive](https://docs.fluentd.org/filter/grep#less-than-and-greater-than-directive) 
 
 
- ## Example `And` filter configurations
- ```yaml
+
+
+## Example `And` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -219,10 +223,11 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
-```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
     <and>
       <regexp>
         key first
@@ -233,6 +238,7 @@ spec:
         pattern /\.css$/
       </regexp>
     </and>
- ```
+{{</ highlight >}}
+
 
 ---

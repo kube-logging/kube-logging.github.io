@@ -13,7 +13,7 @@ generated_file: true
 
 ### de_dot_nested (bool, optional) {#dedotfilterconfig-de_dot_nested}
 
-Will cause the plugin to recurse through nested structures (hashes and arrays), and remove dots in those key-names too. 
+Will cause the plugin to recourse through nested structures (hashes and arrays), and remove dots in those key-names too.
 
 Default:  false
 
@@ -24,8 +24,10 @@ Separator
 Default: _
 
 
- ## Example `Dedot` filter configurations
- ```yaml
+
+## Example `Dedot` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -38,16 +40,18 @@ spec:
   selectors: {}
   localOutputRefs:
     - demo-output
- ```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
 <filter **>
   @type dedot
   @id test_dedot
   de_dot_nested true
   de_dot_separator -
 </filter>
- ```
+{{</ highlight >}}
+
 
 ---

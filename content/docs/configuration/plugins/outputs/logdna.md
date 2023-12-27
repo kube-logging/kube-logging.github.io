@@ -6,7 +6,7 @@ generated_file: true
 
 # [LogDNA Output](https://github.com/logdna/fluent-plugin-logdna)
 ## Overview
- This plugin has been designed to output logs to LogDNA. Example Deployment: [Transport Nginx Access Logs into LogDNA with Logging Operator](https://raw.githubusercontent.com/banzaicloud/logging-operator/master/docs/examples/logging_output_logdna.yaml)
+ This plugin has been designed to output logs to LogDNA.
 
 ## Configuration
 ## LogDNA
@@ -17,31 +17,21 @@ Send your logs to LogDNA
 
 LogDNA Api key 
 
-Default: -
-
-### hostname (string, required) {#logdna-hostname}
-
-Hostname 
-
-Default: -
 
 ### app (string, optional) {#logdna-app}
 
 Application name 
 
-Default: -
 
-### tags (string, optional) {#logdna-tags}
+### buffer (*Buffer, optional) {#logdna-buffer}
 
-Comma-Separated List of Tags, Optional 
+[Buffer](../buffer/) 
 
-Default: -
 
-### request_timeout (string, optional) {#logdna-request_timeout}
+### hostname (string, required) {#logdna-hostname}
 
-HTTPS POST Request Timeout, Optional. Supports s and ms Suffices  
+Hostname 
 
-Default:  30 s
 
 ### ingester_domain (string, optional) {#logdna-ingester_domain}
 
@@ -55,44 +45,53 @@ Custom Ingester Endpoint, Optional
 
 Default:  /logs/ingest
 
-### buffer (*Buffer, optional) {#logdna-buffer}
+### request_timeout (string, optional) {#logdna-request_timeout}
 
-[Buffer](../buffer/) 
+HTTPS POST Request Timeout, Optional. Supports s and ms Suffices  
 
-Default: -
+Default:  30 s
 
 ### slow_flush_log_threshold (string, optional) {#logdna-slow_flush_log_threshold}
 
-The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count. 
-
-Default: -
+The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, Fluentd logs a warning message and increases the `fluentd_output_status_slow_flush_count` metric. 
 
 
- ## Example `LogDNA` filter configurations
- ```yaml
- apiVersion: logging.banzaicloud.io/v1beta1
- kind: Output
- metadata:
-   name: logdna-output-sample
- spec:
-   logdna:
-     api_key: xxxxxxxxxxxxxxxxxxxxxxxxxxx
-     hostname: logging-operator
-     app: my-app
-     tags: web,dev
-     ingester_domain https://logs.logdna.com
-     ingester_endpoint /logs/ingest
- ```
+### tags (string, optional) {#logdna-tags}
 
- #### Fluentd Config Result
- ```
+Comma-Separated List of Tags, Optional 
+
+
+
+## Example `LogDNA` filter configurations
+
+{{< highlight yaml >}}
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Output
+metadata:
+  name: logdna-output-sample
+spec:
+  logdna:
+    api_key: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    hostname: logging-operator
+    app: my-app
+    tags: web,dev
+    ingester_domain https://logs.logdna.com
+    ingester_endpoint /logs/ingest
+{{</ highlight >}}
+
+Fluentd config result:
+
+{{< highlight yaml >}}
 <match **>
+
 	@type logdna
 	@id test_logdna
 	api_key xxxxxxxxxxxxxxxxxxxxxxxxxxy
 	app my-app
 	hostname logging-operator
+
 </match>
- ```
+{{</ highlight >}}
+
 
 ---

@@ -15,13 +15,11 @@ generated_file: true
 
 Destination host 
 
-Default: -
 
 ### port (int, required) {#output-config-port}
 
 Destination host port 
 
-Default: -
 
 ### protocol (string, optional) {#output-config-protocol}
 
@@ -37,13 +35,12 @@ Default:  false
 
 ### tls_options (map[string]string, optional) {#output-config-tls_options}
 
-TLS Options  - for options see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12 
-
-Default:  {}
+TLS options (default: {}). For details, see [https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12](https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12).
 
 
- ## Example `GELF` output configurations
- ```yaml
+## Example `GELF` output configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Output
 metadata:
@@ -52,16 +49,18 @@ spec:
   gelf:
     host: gelf-host
     port: 12201
- ```
+{{</ highlight >}}
 
- ## Fluentd Config Result
- ```
+Fluentd config result:
+
+{{< highlight xml >}}
   <match **>
 	@type gelf
 	@id test_gelf
 	host gelf-host
 	port 12201
   </match>
- ```
+{{</ highlight >}}
+
 
 ---

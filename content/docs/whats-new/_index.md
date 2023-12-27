@@ -3,6 +3,46 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.5
+
+The following are the highlights and main changes of Logging operator 4.5. For a complete list of changes and bugfixes, see the [Logging operator 4.5 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.5.0).
+
+## Standalone FluentdConfig and SyslogNGConfig CRDs
+
+Starting with Logging operator version 4.5, you can either configure Fluentd in the `Logging` CR, or you can use a standalone `FluentdConfig` CR. Similarly, you can use a standalone `SyslogNGConfig` CRD to configure syslog-ng.
+
+These standalone CRDs are a namespaced resources that allow you to configure the Fluentd/syslog-ng aggregator in the control namespace, separately from the Logging resource. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.
+
+For details, see {{% xref "/docs/logging-infrastructure/fluentd.md" %}} and {{% xref "/docs/logging-infrastructure/syslog-ng.md" %}}.
+
+### New syslog-ng features
+
+When using syslog-ng as the log aggregator, you can now:
+
+- Send data to [OpenObserve]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/openobserve.md" >}})
+- Use a [custom date-parser]({{< relref "/docs/examples/date-parser.md" >}})
+- Create [custom log metrics for sources and outputs]({{< relref "/docs/examples/custom-syslog-ng-metrics.md" >}})
+- Set the permitted [SSL versions in HTTP based outputs]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/tls.md#tls-ssl_version" >}})
+- Configure the [maxConnections parameter of the sources]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md#syslogngspec-maxconnections" >}})
+
+### New Fluentd features
+
+When using Fluentd as the log aggregator, you can now:
+
+- Use the [useragent Fluent filter]({{< relref "/docs/configuration/plugins/filters/useragent.md" >}})
+- Configure [sidecar container in Fluentd pods]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-sidecarcontainers" >}})
+- Configure the [security-context of every container]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-sidecarcontainers#fluentddrainconfig-securitycontext" >}})
+- Set which [Azure Cloud to use]({{< relref "/docs/configuration/plugins/outputs/azurestore.md#output-config-azure_cloud" >}}) (for example, AzurePublicCloud), when using the Azure Storage output
+- Customize the `image` to use in [event and host tailers]({{< relref "/docs/configuration/crds/extensions/_index.md" >}})
+
+## Other changes
+
+- LoggingStatus now includes the number (problemsCount) and the related watchNamespaces to help troubleshooting
+
+### Image and dependency updates
+
+For the list of images used in Logging operator, see {{% xref "/docs/image-versions.md" %}}.
+
 ## Version 4.4
 
 The following are the highlights and main changes of Logging operator 4.4. For a complete list of changes and bugfixes, see the [Logging operator 4.4 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.4.0).

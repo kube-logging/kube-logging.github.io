@@ -11,21 +11,23 @@ generated_file: true
 ## Configuration
 ## KubeEventsTimestampConfig
 
-### timestamp_fields ([]string, optional) {#kubeeventstimestampconfig-timestamp_fields}
-
-Time field names in order of relevance  
-
-Default:  event.eventTime, event.lastTimestamp, event.firstTimestamp
-
 ### mapped_time_key (string, optional) {#kubeeventstimestampconfig-mapped_time_key}
 
 Added time field name  
 
 Default:  triggerts
 
+### timestamp_fields ([]string, optional) {#kubeeventstimestampconfig-timestamp_fields}
 
- ## Example `Kubernetes Events Timestamp` filter configurations
- ```yaml
+Time field names in order of relevance  
+
+Default:  event.eventTime, event.lastTimestamp, event.firstTimestamp
+
+
+
+## Example `Kubernetes Events Timestamp` filter configurations
+
+{{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: Flow
 metadata:
@@ -41,16 +43,18 @@ spec:
   selectors: {}
   localOutputRefs:
     - es-output
- ```
+{{</ highlight >}}
 
- #### Fluentd Config Result
- ```yaml
+Fluentd config result:
+
+{{< highlight xml >}}
  <filter **>
  @type kube_events_timestamp
  @id test-kube-events-timestamp
  timestamp_fields ["event.eventTime","event.lastTimestamp","event.firstTimestamp"]
  mapped_time_key mytimefield
  </filter>
- ```
+{{</ highlight >}}
+
 
 ---

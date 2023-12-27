@@ -6,7 +6,124 @@ aliases:
     - /docs/one-eye/logging-operator/configuration/fluentd/
 ---
 
-You can configure the deployment of the Fluentd log forwarder via the **fluentd** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. This page shows some examples on configuring Fluentd. For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentd_types.md" %}}.
+This page shows some examples on configuring Fluentd.
+
+## Ways to configure Fluentd
+
+There are two ways to configure the Fluentd statefulset:
+
+1. Using the **spec.fluentd** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}.
+1. Using the standalone FluentdConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the **spec.fluentd** configuration method. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.
+
+    The standalone FluentdConfig is a namespaced resource that allows the configuration of the Fluentd aggregator in the control namespace, separately from the Logging resource. This allows you to use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team. For more information about the multi-tenancy model where the collector is capable of routing logs based on namespaces to individual aggregators and where aggregators are fully isolated, see this blog post about [Multi-tenancy using Logging operator](https://axoflow.com/multi-tenancy-using-logging-operator/).
+
+For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentd_types.md" %}}.
+
+### Migrating from **spec.fluentd** to FluentdConfig {#migrating}
+
+The standalone FluentdConfig CRD is only available in Logging operator version 4.5 and newer. Its specification and logic is identical with the **spec.fluentd** configuration method. Using the FluentdConfig CRD allows you to remove the **spec.fluentd** section from the Logging CRD, which has the following benefits.
+
+- RBAC control over the FluentdConfig CRD, so you can have separate roles that can manage the Logging resource and the FluentdConfig resource (that is, the Fluentd deployment).
+- It reduces the size of the Logging resource, which can grow big enough to reach the annotation size limit in certain scenarios (e.g. when using `kubectl apply`).
+- You can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.
+
+To migrate your **spec.fluentd** configuration from the Logging resource to a separate FluentdConfig CRD, complete the following steps.
+
+1. Open your Logging resource and find the **spec.fluentd** section. For example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: Logging
+    metadata:
+      name: example-logging-resource
+    spec:
+      controlNamespace: logging
+      fluentd:
+        scaling:
+          replicas: 2
+    ```
+
+1. Create a new FluentdConfig CRD. For the value of **metadata.name**, use the name of the Logging resource, for example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: FluentdConfig
+    metadata:
+      # Use the name of the logging resource
+      name: example-logging-resource
+      # Use the control namespace of the logging resource
+      namespace: logging
+    ```
+
+1. Copy the the **spec.fluentd** section from the Logging resource into the **spec** section of the FluentdConfig CRD, then fix the indentation. For example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: FluentdConfig
+    metadata:
+      # Use the name of the logging resource
+      name: example-logging-resource
+      # Use the control namespace of the logging resource
+      namespace: logging
+    spec:
+      scaling:
+        replicas: 2
+    ```
+
+1. Delete the **spec.fluentd** section from the Logging resource, then apply the Logging and the FluentdConfig CRDs.
+
+## Using the standalone FluentdConfig resource
+
+The standalone FluentdConfig is a namespaced resource that allows the configuration of the Fluentd aggregator in the control namespace, separately from the Logging resource. This allows you to use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team. For more information about the multi-tenancy model where the collector is capable of routing logs based on namespaces to individual aggregators and where aggregators are fully isolated, see this blog post about [Multi-tenancy using Logging operator](https://axoflow.com/multi-tenancy-using-logging-operator/).
+
+A `Logging` resource can have only one `FluentdConfig` at a time. The controller registers the active `FluentdConfig` resource into the `Logging` resource's status under `fluentdConfigName`, and also registers the `Logging` resource name under `logging` in the `FluentdConfig` resource's status, for example:
+
+```shell
+kubectl get logging example -o jsonpath='{.status}' | jq .
+{
+  "configCheckResults": {
+    "ac2d4553": true
+  },
+  "fluentdConfigName": "example"
+}
+```
+
+```shell
+kubectl get fluentdconfig example -o jsonpath='{.status}' | jq .
+{
+  "active": true,
+  "logging": "example"
+}
+```
+
+If there is a conflict, the controller adds a problem to both resources so that both the operations team and the tenant users can notice the problem. For example, if a `FluentdConfig` is already registered to a `Logging` resource and you create another `FluentdConfig` resource in the same namespace, then the first `FluentdConfig` is left intact, while the second one should have the following status:
+
+```shell
+kubectl get fluentdconfig example2 -o jsonpath='{.status}' | jq .
+{
+  "active": false,
+  "problems": [
+    "logging already has a detached fluentd configuration, remove excess configuration objects"
+  ],
+  "problemsCount": 1
+}
+```
+
+The `Logging` resource will also show the issue:
+
+```shell
+kubectl get logging example -o jsonpath='{.status}' | jq .
+{
+  "configCheckResults": {
+    "ac2d4553": true
+  },
+  "fluentdConfigName": "example",
+  "problems": [
+    "multiple fluentd configurations found, couldn't associate it with logging"
+  ],
+  "problemsCount": 1
+}
+```
 
 ## Custom pvc volume for Fluentd buffers
 
@@ -52,9 +169,10 @@ spec:
 
 The following snippet redirects Fluentd's stdout to a file and configures rotation settings.
 
-This mechanism was used prior to version 4.4 to avoid Fluent-bit rereading Fluentd's logs and causing an exponentially growing amount of redundant logs. 
+This mechanism was used prior to version 4.4 to avoid Fluent-bit rereading Fluentd's logs and causing an exponentially growing amount of redundant logs.
 
 Example configuration used by the operator in version 4.3 and earlier (keep 10 files, 10M each):
+
 ```yaml
 spec:
   fluentd:
