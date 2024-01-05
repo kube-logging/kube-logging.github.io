@@ -22,11 +22,11 @@ Sample setup The following procedure creates two tenants (A and B) and their res
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/multitenancy/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2023-12-27T16:00:22+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-05T17:58:45+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Nodegroup-based multitenancy">
 <meta itemprop="description" content="Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups. These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn&rsquo;t affect the others.
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
-<meta itemprop="dateModified" content="2023-12-27T16:00:22+00:00">
+<meta itemprop="dateModified" content="2024-01-05T17:58:45+01:00">
 <meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodegroup-based multitenancy">
@@ -581,7 +581,7 @@ These resources are isolated from the resources of the other tenants so the conf
 <p>Check logs coming from both tenants <code>kubectl logs -f -n infra svc/test-receiver</code></p><p>Expected output should show logs from both tenants</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_a: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.157810965, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;15.238.250.48 - - [29/Sep/2023:14:54:38 +0000] &#34;</span>PUT /pro...
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_b: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.160868923, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;252.201.89.36 - - [29/Sep/2023:14:54:33 +0000] &#34;</span>POST /bl...
 </span></span></code></pre></div></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 27, 2023: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/66b10dad83878cc9f39a5dff1457d3b37c7a55e7">Merge c6b83f9e829b88ef1f1f1331bd93f87c9a06a213 into 93cf918f74f8421587622b32cecdd81e585de744 (66b10da)</a>
+Last modified January 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/27b6ac8d07a42c5fe57a48bfa022beb373cf951a">Merge pull request #211 from kube-logging/fekete-robert-patch-1 (27b6ac8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -602,7 +602,7 @@ Last modified December 27, 2023: <a href="https://github.com/kube-logging/kube-l
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
-<small class="text-white">&copy; 2023 kube-logging authors | All Rights Reserved</small>
+<small class="text-white">&copy; 2024 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
