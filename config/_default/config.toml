@@ -69,7 +69,7 @@ twitter = "calisti12"
   # Used in the "version-banner" partial to display a version number for the 
   # current doc set.
 
-  version = "4.5.0"
+  version = "4.5.1"
   version_menu = "Releases"
   version_menu_canonicallinks = true
   version_menu_pagelinks = true
@@ -169,7 +169,7 @@ twitter = "calisti12"
 #######################
 # Add your release versions here
 [[params.versions]]
-  version = "latest (4.5.0)"
+  version = "latest (4.5.1)"
   githubbranch = "master"
   url = ""
 [[params.versions]]
