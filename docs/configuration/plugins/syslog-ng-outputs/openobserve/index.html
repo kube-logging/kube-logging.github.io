@@ -24,12 +24,12 @@ Available in Logging operator version 4.5 and later.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: openobserve spec: openobserve: url: &#34;https://some-openobserve-endpoint&#34; port: 5040 organization: &#34;default&#34; stream: &#34;default&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: openobserve key: password For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/openobserve/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-05T17:58:45+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-08T18:27:35+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Openobserve">
 <meta itemprop="description" content="Sending messages over Openobserve Overview Send messages to OpenObserve using its Logs Ingestion - JSON API. This API accepts multiple records in batch in JSON format.
 Available in Logging operator version 4.5 and later.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: openobserve spec: openobserve: url: &#34;https://some-openobserve-endpoint&#34; port: 5040 organization: &#34;default&#34; stream: &#34;default&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: openobserve key: password For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.">
-<meta itemprop="dateModified" content="2024-01-05T17:58:45+01:00">
+<meta itemprop="dateModified" content="2024-01-08T18:27:35+01:00">
 <meta itemprop="wordCount" content="117">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openobserve">
@@ -580,7 +580,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">openobserve</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/openobserve/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="openobserveoutput">OpenobserveOutput</h2><h3 id="openobserveoutput-">(HTTPOutput, required)</h3><h3 id="openobserveoutput-organization">organization (string, optional)</h3><p>Name of the organization in Openobserve.</p><h3 id="openobserveoutput-record">record (string, optional)</h3><p>Arguments to the <code>$format-json()</code> template function. Default: <code>"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"</code></p><h3 id="openobserveoutput-stream">stream (string, optional)</h3><p>Name of the stream in Openobserve.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/27b6ac8d07a42c5fe57a48bfa022beb373cf951a">Merge pull request #211 from kube-logging/fekete-robert-patch-1 (27b6ac8)</a>
+Last modified January 8, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/0aac57a55b6c6291f36db39890cab5931fbef04f">Merge pull request #214 from PlayMTL/patch-1 (0aac57a)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
