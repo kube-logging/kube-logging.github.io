@@ -44,4 +44,6 @@ See our [Quickstart guides]({{< relref "/docs/quickstarts/_index.md" >}}).
 
 ## Support
 
-If you encounter problems while using the Logging operator the documentation does not address, [open an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or on the [CNCF Slack]({{< relref "/docs/community.md" >}}).
+{{< include-headless "support-intro.md" >}}
+
+For the list of companies that offer commercial support, see {{% xref "/docs/commercial-support.md" %}}.
