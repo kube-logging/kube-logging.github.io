@@ -20,10 +20,10 @@
 <meta property="og:description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/logging/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-11T16:56:46+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-11T20:54:40+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="The Logging custom resource">
 <meta itemprop="description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
-<meta itemprop="dateModified" content="2024-01-11T16:56:46+01:00">
+<meta itemprop="dateModified" content="2024-01-11T20:54:40+01:00">
 <meta itemprop="wordCount" content="391">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Logging custom resource">
@@ -522,6 +522,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommercial-support-li">
+<input type="checkbox" id="m-docscommercial-support-check">
+<label for="m-docscommercial-support-check"><a href="/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommercial-support"><span>Commercial support</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
 <input type="checkbox" id="m-docsfaq-check">
 <label for="m-docsfaq-check"><a href="/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsfaq"><span>FAQ</span></a></label>
@@ -582,7 +585,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">values</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#4e9a06">&#34;&lt;label-value&gt;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>If both <code>watchNamespaces</code> and <code>watchNamespaceSelector</code> are set, the union of them will take effect.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b4e6a6099f8446891c01947ba08a1f89d722391e">Merge pull request #213 from kube-logging/grpctls-docs (b4e6a60)</a>
+Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/862427517c31877244c223233d485b26b9a4b921">Merge pull request #216 from kube-logging/commercial-support-page (8624275)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

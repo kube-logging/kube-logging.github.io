@@ -24,12 +24,12 @@ Create host tailer To tail logs from the node&rsquo;s host filesystem, define on
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-host-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-11T16:56:46+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-11T20:54:40+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes host logs, journals, and logfiles">
 <meta itemprop="description" content="Kubernetes host tailer allows you to tail logs like kubelet, audit logs, or the systemd journal from the nodes.
 Create host tailer To tail logs from the node&rsquo;s host filesystem, define one or more file tailers in the host-tailer configuration.
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
-<meta itemprop="dateModified" content="2024-01-11T16:56:46+01:00">
+<meta itemprop="dateModified" content="2024-01-11T20:54:40+01:00">
 <meta itemprop="wordCount" content="1094">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes host logs, journals, and logfiles">
@@ -530,6 +530,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommercial-support-li">
+<input type="checkbox" id="m-docscommercial-support-check">
+<label for="m-docscommercial-support-check"><a href="/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommercial-support"><span>Commercial support</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
 <input type="checkbox" id="m-docsfaq-check">
 <label for="m-docsfaq-check"><a href="/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsfaq"><span>FAQ</span></a></label>
@@ -771,7 +774,7 @@ Releases
 <td>command</td><td><code>[]string</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>volumeMounts</td><td><code>[]corev1.VolumeMount</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>securityContext</td><td><code>*corev1.SecurityContext</code></td><td>No</td><td>-</td><td></td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b4e6a6099f8446891c01947ba08a1f89d722391e">Merge pull request #213 from kube-logging/grpctls-docs (b4e6a60)</a>
+Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/862427517c31877244c223233d485b26b9a4b921">Merge pull request #216 from kube-logging/commercial-support-page (8624275)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

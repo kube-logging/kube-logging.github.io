@@ -26,13 +26,13 @@ dir (string, optional) Description: Defines the folder where the disk-buffer fil
 disk_buf_size (int64, required) This is a required option.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-11T16:56:46+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-11T20:54:40+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Disk buffer">
 <meta itemprop="description" content="The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side. For details on how syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution.
 compaction (*bool, optional) Prunes the unused space in the LogMessage representation
 dir (string, optional) Description: Defines the folder where the disk-buffer files are stored.
 disk_buf_size (int64, required) This is a required option.">
-<meta itemprop="dateModified" content="2024-01-11T16:56:46+01:00">
+<meta itemprop="dateModified" content="2024-01-11T20:54:40+01:00">
 <meta itemprop="wordCount" content="196">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Disk buffer">
@@ -534,6 +534,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommercial-support-li">
+<input type="checkbox" id="m-docscommercial-support-check">
+<label for="m-docscommercial-support-check"><a href="/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommercial-support"><span>Commercial support</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
 <input type="checkbox" id="m-docsfaq-check">
 <label for="m-docsfaq-check"><a href="/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsfaq"><span>FAQ</span></a></label>
@@ -570,7 +573,7 @@ Releases
 <h1>Disk buffer</h1><header class="article-meta">
 </header><p>The parameters of the syslog-ng disk buffer. Using a disk buffer on the output helps avoid message loss in case of a system failure on the destination side.
 For details on how <a href="https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/concepts-diskbuffer/">syslog-ng disk buffers work, see the documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="diskbuffer-compaction">compaction (*bool, optional)</h3><p>Prunes the unused space in the LogMessage representation</p><h3 id="diskbuffer-dir">dir (string, optional)</h3><p>Description: Defines the folder where the disk-buffer files are stored.</p><h3 id="diskbuffer-disk_buf_size">disk_buf_size (int64, required)</h3><p>This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes.</p><h3 id="diskbuffer-mem_buf_length">mem_buf_length (*int64, optional)</h3><p>Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue.</p><h3 id="diskbuffer-mem_buf_size">mem_buf_size (*int64, optional)</h3><p>Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer.</p><h3 id="diskbuffer-q_out_size">q_out_size (*int64, optional)</h3><p>The number of messages stored in the output buffer of the destination.</p><h3 id="diskbuffer-reliable">reliable (bool, required)</h3><p>If set to yes, syslog-ng OSE cannot lose logs in case of reload/restart, unreachable destination or syslog-ng OSE crash. This solution provides a slower, but reliable disk-buffer option.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b4e6a6099f8446891c01947ba08a1f89d722391e">Merge pull request #213 from kube-logging/grpctls-docs (b4e6a60)</a>
+Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/862427517c31877244c223233d485b26b9a4b921">Merge pull request #216 from kube-logging/commercial-support-page (8624275)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

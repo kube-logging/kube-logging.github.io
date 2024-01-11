@@ -24,12 +24,12 @@ However, in a large-scale infrastructure, where the number of resources is large
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/optimization/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-11T16:56:46+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-11T20:54:40+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Optimization">
 <meta itemprop="description" content="Watch specific resources The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.
 However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
-<meta itemprop="dateModified" content="2024-01-11T16:56:46+01:00">
+<meta itemprop="dateModified" content="2024-01-11T20:54:40+01:00">
 <meta itemprop="wordCount" content="132">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization">
@@ -530,6 +530,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommercial-support-li">
+<input type="checkbox" id="m-docscommercial-support-check">
+<label for="m-docscommercial-support-check"><a href="/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommercial-support"><span>Commercial support</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
 <input type="checkbox" id="m-docsfaq-check">
 <label for="m-docsfaq-check"><a href="/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsfaq"><span>FAQ</span></a></label>
@@ -560,7 +563,7 @@ Releases
 <h1>Optimization</h1><header class="article-meta">
 </header><h2 id="watch-specific-resources">Watch specific resources</h2><p>The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.</p><p>However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.</p><p>Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.</p><ul>
 <li><code>watch-namespace</code>: Watch only objects in this namespace. Note that even if the <code>watch-namespace</code> option is set, the operator must watch certain objects (like <code>Flows</code> and <code>Outputs</code>) in every namespace.</li><li><code>watch-logging-name</code>: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the <code>app.kubernetes.io/managed-by</code> label.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b4e6a6099f8446891c01947ba08a1f89d722391e">Merge pull request #213 from kube-logging/grpctls-docs (b4e6a60)</a>
+Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/862427517c31877244c223233d485b26b9a4b921">Merge pull request #216 from kube-logging/commercial-support-page (8624275)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

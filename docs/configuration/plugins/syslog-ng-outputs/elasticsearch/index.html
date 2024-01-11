@@ -24,12 +24,12 @@ Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-11T16:56:46+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-11T20:54:40+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Elasticsearch">
 <meta itemprop="description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
-<meta itemprop="dateModified" content="2024-01-11T16:56:46+01:00">
+<meta itemprop="dateModified" content="2024-01-11T20:54:40+01:00">
 <meta itemprop="wordCount" content="135">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch">
@@ -530,6 +530,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevelopers-li">
 <input type="checkbox" id="m-docsdevelopers-check">
 <label for="m-docsdevelopers-check"><a href="/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommercial-support-li">
+<input type="checkbox" id="m-docscommercial-support-check">
+<label for="m-docscommercial-support-check"><a href="/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommercial-support"><span>Commercial support</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
 <input type="checkbox" id="m-docsfaq-check">
 <label for="m-docsfaq-check"><a href="/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsfaq"><span>FAQ</span></a></label>
@@ -579,7 +582,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elastic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchoutput-">(HTTPOutput, required)</h3><h3 id="elasticsearchoutput-custom_id">custom_id (string, optional)</h3><p>The document ID. If no ID is specified, a document ID is automatically generated.</p><h3 id="elasticsearchoutput-index">index (string, optional)</h3><p>Name of the data stream, index, or index alias to perform the action on.</p><h3 id="elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</h3><p>Set the prefix for logs in logstash format. If set, then Index field will be ignored.</p><h3 id="elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</h3><p>Set the separator between LogstashPrefix and LogStashDateformat. Default: &ldquo;-&rdquo;</p><h3 id="elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</h3><p>Set the suffix for logs in logstash format.</p><p>Default: <code>${YEAR}.${MONTH}.${DAY}</code>### type (*string, optional) {#elasticsearchoutput-type}</p><p>The document type associated with the operation. Elasticsearch indices now support a single document type: <code>_doc</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b4e6a6099f8446891c01947ba08a1f89d722391e">Merge pull request #213 from kube-logging/grpctls-docs (b4e6a60)</a>
+Last modified January 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/862427517c31877244c223233d485b26b9a4b921">Merge pull request #216 from kube-logging/commercial-support-page (8624275)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
