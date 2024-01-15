@@ -27,23 +27,19 @@ First, deploy Splunk Standalone in your Kubernetes cluster. The following proced
 1. Install the Splunk operator.
 
     ```yaml
-    kubectl apply -n logging -f https://tiny.cc/splunk-operator-install
+    kubectl apply -n logging -f https://github.com/splunk/splunk-operator/releases/download/2.4.0/splunk-operator-cluster.yaml
     ```
 
-1. Install the Splunk cluster.
+1. Install the Splunk cluster
 
     ```yaml
     kubectl apply -n logging -f - <<"EOF"
-    apiVersion: enterprise.splunk.com/v1alpha2
+    apiVersion: enterprise.splunk.com/v4
     kind: Standalone
     metadata:
       name: single
-    spec:
-      config:
-        splunkPassword: helloworld456
-        splunkStartArgs: --accept-license
-      topology:
-        standalones: 1
+      finalizers:
+      - enterprise.splunk.com/delete-pvc
     EOF
     ```
 
@@ -75,7 +71,7 @@ To install the Logging operator using Helm, see [Deploy the Logging operator wit
 1. Get a Splunk HEC Token.
 
      ```bash
-     HEC_TOKEN=$(kubectl get secret -n logging  splunk-single-standalone-secrets -o jsonpath='{.data.hec_token}' | base64 --decode)
+     HEC_TOKEN=$(kubectl get secret -n logging  splunk-logging-secret -o jsonpath='{.data.hec_token}' | base64 --decode)
      ```
 
 1. Create a Splunk output secret from the token.
