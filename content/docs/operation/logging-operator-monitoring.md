@@ -285,6 +285,6 @@ For more details on installing the Prometheus operator and configuring and acces
     kubectl -n logging port-forward svc/monitor-grafana 3000:80
     ```
 
-1. Open [Gradana Dashboard: http://localhost:3000](http://localhost:3000)
+1. Open [Grafana Dashboard: http://localhost:3000](http://localhost:3000)
 
     <p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p>
