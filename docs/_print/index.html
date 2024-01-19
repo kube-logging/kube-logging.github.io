@@ -5032,7 +5032,7 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 <p>Default username: <code>admin</code></p></blockquote></li><li>
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
-<p>Open <a href="http://localhost:3000">Gradana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol></div><div class="td-content" style="page-break-before:always">
+<p>Open <a href="http://localhost:3000">Grafana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol></div><div class="td-content" style="page-break-before:always">
 <h1 id="pg-362f849752620b4cf0d070e2fc884699">7.3 - Alerting</h1><p>This section describes how to set alerts for your logging infrastructure. Alternatively, you can enable the default alerting rules that are provided by the Logging operator.</p><blockquote>
 <p>Note: Alerting based on the contents of the collected log messages is not covered here.</p></blockquote><h2 id="prerequisites">Prerequisites</h2><p>Using alerting rules requires the following:</p><ul>
 <li>Logging operator 3.14.0 or newer installed on the cluster.</li><li>Prometheus operator installed on the cluster. For details, see <a href="/docs/operation/logging-operator-monitoring/">Monitor your logging pipeline with Prometheus Operator</a>.</li><li>
