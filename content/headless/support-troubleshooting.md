@@ -1,6 +1,6 @@
 ## Getting Support
 
-If you encounter any problems that the documentation does not address, [file an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or [Slack](https://emergingtechcommunity.slack.com/).
+If you encounter any problems that the documentation does not address, [file an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or on the [CNCF Slack]({{< relref "/docs/community.md" >}}).
 
 Before asking for help, prepare the following information to make troubleshooting faster:
 
