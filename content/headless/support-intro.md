@@ -1,1 +1,1 @@
-If you encounter problems while using the Logging operator the documentation does not address, [open an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or [Slack](https://emergingtechcommunity.slack.com/).
+If you encounter problems while using the Logging operator the documentation does not address, [open an issue](https://github.com/kube-logging/logging-operator/issues) or talk to us on [Discord](https://discord.gg/9ACY4RDsYN) or on the [CNCF Slack]({{< relref "/docs/community.md" >}}).

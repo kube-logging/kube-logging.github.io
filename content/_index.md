@@ -71,7 +71,7 @@ We do a [Pull Request](https://github.com/kube-logging/logging-operator/pulls) c
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-brands fa-slack" title="Come chat with us!" url="https://discord.gg/eAcqmAVU2u" url_text="Join Discord" %}}
-In case you need help, you can find us on <a href="https://join.slack.com/t/emergingtechcommunity/shared_invite/zt-1rw2jl0ht-yNdyFgBFlc%7Eyzo9AnE4FbA">Slack</a> and <a href="https://discord.gg/9ACY4RDsYN">Discord</a>.
+In case you need help, you can find us on <a href="{{< relref "/docs/community.md" >}}">Slack</a> and <a href="https://discord.gg/9ACY4RDsYN">Discord</a>.
 {{% /blocks/feature %}}
 {{< /blocks/section >}}
 

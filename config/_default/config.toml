@@ -155,7 +155,7 @@ twitter = "calisti12"
     desc = "Get involved with Logging operator development"
   [[params.links.developer]]
     name = "Slack"
-    url = "https://banzaicloud.com/invite-slack/"
+    url = "/docs/community/"
     icon = "fab fa-slack"
     desc = "Chat with the project developers"
   [[params.links.developer]]
@@ -217,6 +217,12 @@ body_attribute = 'data-pagefind-filter="section:4.5"'
     #pre = "<i class='fas fa-book pr-2'></i>"
     url = "/docs/"
     title = "Read the documentation"
+  [[menu.main]]
+    name = "Community"
+    weight = 100
+    #pre = "<i class='fas fa-book pr-2'></i>"
+    url = "/docs/community/"
+    title = "Come chat with us!"
 
 ################################
 # Definitions for generating a 
