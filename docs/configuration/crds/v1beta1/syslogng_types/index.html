@@ -24,12 +24,12 @@ bufferVolumeMetrics (*BufferMetrics, optional) bufferVolumeMetricsService (*type
 metrics (*Metrics, optional) metricsService (*typeoverride.Service, optional) readinessDefaultCheck (ReadinessDefaultCheck, optional) serviceAccount (*typeoverride.ServiceAccount, optional) service (*typeoverride.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/syslogng_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-29T21:50:55+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-30T09:49:09+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGSpec">
 <meta itemprop="description" content="SyslogNGSpec SyslogNGSpec defines the desired state of SyslogNG
 bufferVolumeMetrics (*BufferMetrics, optional) bufferVolumeMetricsService (*typeoverride.Service, optional) configCheckPod (*typeoverride.PodSpec, optional) globalOptions (*GlobalOptions, optional) jsonKeyDelim (string, optional) jsonKeyPrefix (string, optional) logIWSize (int, optional) maxConnections (int, optional) Available in Logging operator version 4.5 and later. Set the maximum number of connections for the source. For details, see documentation of the AxoSyslog syslog-ng distribution.
 metrics (*Metrics, optional) metricsService (*typeoverride.Service, optional) readinessDefaultCheck (ReadinessDefaultCheck, optional) serviceAccount (*typeoverride.ServiceAccount, optional) service (*typeoverride.">
-<meta itemprop="dateModified" content="2024-01-29T21:50:55+01:00">
+<meta itemprop="dateModified" content="2024-01-30T09:49:09+01:00">
 <meta itemprop="wordCount" content="254">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGSpec">
@@ -56,6 +56,8 @@ metrics (*Metrics, optional) metricsService (*typeoverride.Service, optional) re
 <a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -539,6 +541,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslicense-li">
 <input type="checkbox" id="m-docslicense-check">
 <label for="m-docslicense-check"><a href="/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslicense"><span>License</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommunity-li">
+<input type="checkbox" id="m-docscommunity-check">
+<label for="m-docscommunity-check"><a href="/docs/community/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommunity"><span>Community</span></a></label>
 </li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/crds/v1beta1/syslogng_types.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
@@ -578,7 +583,7 @@ Releases
 </header><h2 id="syslogngspec">SyslogNGSpec</h2><p>SyslogNGSpec defines the desired state of SyslogNG</p><h3 id="syslogngspec-buffervolumemetrics">bufferVolumeMetrics (*BufferMetrics, optional)</h3><h3 id="syslogngspec-buffervolumemetricsservice">bufferVolumeMetricsService (*typeoverride.Service, optional)</h3><h3 id="syslogngspec-configcheckpod">configCheckPod (*typeoverride.PodSpec, optional)</h3><h3 id="syslogngspec-globaloptions">globalOptions (*GlobalOptions, optional)</h3><h3 id="syslogngspec-jsonkeydelim">jsonKeyDelim (string, optional)</h3><h3 id="syslogngspec-jsonkeyprefix">jsonKeyPrefix (string, optional)</h3><h3 id="syslogngspec-logiwsize">logIWSize (int, optional)</h3><h3 id="syslogngspec-maxconnections">maxConnections (int, optional)</h3><p>Available in Logging operator version 4.5 and later. Set the maximum number of connections for the source. For details, see <a href="https://axoflow.com/docs/axosyslog-core/chapter-routing-filters/concepts-flow-control/configuring-flow-control/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="syslogngspec-metrics">metrics (*Metrics, optional)</h3><h3 id="syslogngspec-metricsservice">metricsService (*typeoverride.Service, optional)</h3><h3 id="syslogngspec-readinessdefaultcheck">readinessDefaultCheck (ReadinessDefaultCheck, optional)</h3><h3 id="syslogngspec-serviceaccount">serviceAccount (*typeoverride.ServiceAccount, optional)</h3><h3 id="syslogngspec-service">service (*typeoverride.Service, optional)</h3><h3 id="syslogngspec-skiprbaccreate">skipRBACCreate (bool, optional)</h3><h3 id="syslogngspec-sourcedateparser">sourceDateParser (*SourceDateParser, optional)</h3><p>Available in Logging operator version 4.5 and later. Parses date automatically from the timestamp registered by the container runtime. Note: <code>jsonKeyPrefix</code> and <code>jsonKeyDelim</code> are respected.</p><h3 id="syslogngspec-sourcemetrics">sourceMetrics ([]filter.MetricsProbe, optional)</h3><p>Available in Logging operator version 4.5 and later. Create <a href="/docs/examples/custom-syslog-ng-metrics/">custom log metrics for sources and outputs</a>.</p><h3 id="syslogngspec-statefulset">statefulSet (*typeoverride.StatefulSet, optional)</h3><h3 id="syslogngspec-tls">tls (SyslogNGTLS, optional)</h3><h2 id="sourcedateparser">SourceDateParser</h2><p>Available in Logging operator version 4.5 and later.</p><p>Parses date automatically from the timestamp registered by the container runtime.
 Note: <code>jsonKeyPrefix</code> and <code>jsonKeyDelim</code> are respected.
 It is disabled by default, but if enabled, then the default settings parse the timestamp written by the container runtime and parsed by Fluent Bit using the <code>cri</code> or the <code>docker</code> parser.</p><h3 id="sourcedateparser-format">format (*string, optional)</h3><p>Default: &ldquo;%FT%T.%f%z&rdquo;</p><h3 id="sourcedateparser-template">template (*string, optional)</h3><p>Default(depending on JSONKeyPrefix): &ldquo;${json.time}&rdquo;</p><h2 id="syslogngtls">SyslogNGTLS</h2><p>SyslogNGTLS defines the TLS configs</p><h3 id="syslogngtls-enabled">enabled (bool, required)</h3><h3 id="syslogngtls-secretname">secretName (string, optional)</h3><h3 id="syslogngtls-sharedkey">sharedKey (string, optional)</h3><h2 id="globaloptions">GlobalOptions</h2><h3 id="globaloptions-log_level">log_level (*string, optional)</h3><p>See the <a href="https://axoflow.com/docs/axosyslog-core/chapter-global-options/reference-options/#global-options-log-level">AxoSyslog Core documentation</a>.</p><h3 id="globaloptions-stats">stats (*Stats, optional)</h3><p>See the <a href="https://axoflow.com/docs/axosyslog-core/chapter-global-options/reference-options/#global-option-stats">AxoSyslog Core documentation</a>.</p><h3 id="globaloptions-stats_freq">stats_freq (*int, optional)</h3><p>Deprecated. Use stats/freq from 4.1+</p><h3 id="globaloptions-stats_level">stats_level (*int, optional)</h3><p>Deprecated. Use stats/level from 4.1+</p><h2 id="stats">Stats</h2><h3 id="stats-freq">freq (*int, optional)</h3><h3 id="stats-level">level (*int, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/73cd9eb731dd75b0839101dfc3aeb200eddd7383">Merge pull request #220 from Kjir/patch-1 (73cd9eb)</a>
+Last modified January 30, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bbd25b4e2896d932ab9241577674b579b03b1760">Merge pull request #221 from kube-logging/community-page-cncf-slack-links (bbd25b4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -590,7 +595,7 @@ Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-lo
 <i class="fab fa-github"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
-<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
 <i class="fab fa-slack"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">

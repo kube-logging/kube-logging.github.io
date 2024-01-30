@@ -28,14 +28,14 @@ LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRou
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/loggingroute_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-29T21:50:55+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-30T09:49:09+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LoggingRouteSpec">
 <meta itemprop="description" content="LoggingRouteSpec LoggingRouteSpec defines the desired state of LoggingRoute
 source (string, required) Source identifies the logging that this policy applies to
 targets (metav1.LabelSelector, required) Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
-<meta itemprop="dateModified" content="2024-01-29T21:50:55+01:00">
+<meta itemprop="dateModified" content="2024-01-30T09:49:09+01:00">
 <meta itemprop="wordCount" content="180">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoggingRouteSpec">
@@ -64,6 +64,8 @@ notices ([]string, optional) Enumerate non-blocker issues the user should pay at
 <a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -547,6 +549,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslicense-li">
 <input type="checkbox" id="m-docslicense-check">
 <label for="m-docslicense-check"><a href="/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslicense"><span>License</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommunity-li">
+<input type="checkbox" id="m-docscommunity-check">
+<label for="m-docscommunity-check"><a href="/docs/community/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommunity"><span>Community</span></a></label>
 </li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/crds/v1beta1/loggingroute_types.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
@@ -585,7 +590,7 @@ Releases
 <h1>LoggingRouteSpec</h1><header class="article-meta">
 </header><h2 id="loggingroutespec">LoggingRouteSpec</h2><p>LoggingRouteSpec defines the desired state of LoggingRoute</p><h3 id="loggingroutespec-source">source (string, required)</h3><p>Source identifies the logging that this policy applies to</p><h3 id="loggingroutespec-targets">targets (metav1.LabelSelector, required)</h3><p>Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.</p><h2 id="loggingroutestatus">LoggingRouteStatus</h2><p>LoggingRouteStatus defines the actual state of the LoggingRoute</p><h3 id="loggingroutestatus-notices">notices ([]string, optional)</h3><p>Enumerate non-blocker issues the user should pay attention to</p><h3 id="loggingroutestatus-noticescount">noticesCount (int, optional)</h3><p>Summarize the number of notices for the CLI output</p><h3 id="loggingroutestatus-problems">problems ([]string, optional)</h3><p>Enumerate problems that prohibits this route to take effect and populate the tenants field</p><h3 id="loggingroutestatus-problemscount">problemsCount (int, optional)</h3><p>Summarize the number of problems for the CLI output</p><h3 id="loggingroutestatus-tenants">tenants ([]Tenant, optional)</h3><p>Enumerate all loggings with all the destination namespaces expanded</p><h2 id="tenant">Tenant</h2><h3 id="tenant-name">name (string, required)</h3><h3 id="tenant-namespaces">namespaces ([]string, optional)</h3><h2 id="loggingroute">LoggingRoute</h2><p>LoggingRoute (experimental)
 Connects a log collector with log aggregators from other logging domains and routes relevant logs based on watch namespaces</p><h3 id="loggingroute-">(metav1.TypeMeta, required)</h3><h3 id="loggingroute-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="loggingroute-spec">spec (LoggingRouteSpec, optional)</h3><h3 id="loggingroute-status">status (LoggingRouteStatus, optional)</h3><h2 id="loggingroutelist">LoggingRouteList</h2><h3 id="loggingroutelist-">(metav1.TypeMeta, required)</h3><h3 id="loggingroutelist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="loggingroutelist-items">items ([]LoggingRoute, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/73cd9eb731dd75b0839101dfc3aeb200eddd7383">Merge pull request #220 from Kjir/patch-1 (73cd9eb)</a>
+Last modified January 30, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bbd25b4e2896d932ab9241577674b579b03b1760">Merge pull request #221 from kube-logging/community-page-cncf-slack-links (bbd25b4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -597,7 +602,7 @@ Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-lo
 <i class="fab fa-github"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
-<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
 <i class="fab fa-slack"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">

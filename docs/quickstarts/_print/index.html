@@ -45,6 +45,8 @@
 <a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -371,7 +373,7 @@ Fluentd
 <p>Installed syslog-ng or Fluentd on the cluster, to receive the logs from the Fluent Bit agents, and filter, parse, and transform them as needed, and to route the incoming logs to an output. To learn more about routing and filtering, see <a href="/docs/configuration/log-routing-syslog-ng/">Routing your logs with syslog-ng</a> or <a href="/docs/configuration/log-routing/">Routing your logs with Fluentd match directives</a>. - Created the following resources that configure Logging operator and the components it manages:</p><ul>
 <li><code>Logging</code> to configure the logging infrastructure, like the details of the Fluent Bit and the syslog-ng or Fluentd deployment. To learn more about configuring the logging infrastructure, see <a href="/docs/logging-infrastructure/">Logging infrastructure setup</a>.</li><li><code>SyslogNGOutput</code> or <code>Output</code> to define an http output that receives the collected messages. To learn more, see <a href="/docs/configuration/output/#syslogngoutput">syslog-ng outputs</a> or <a href="/docs/configuration/output/">Output and ClusterOutput</a>.</li><li><code>SyslogNGFlow</code> or <code>Flow</code> that processes the incoming messages and routes them to the appropriate output. To learn more, see <a href="/docs/configuration/flow/#syslogngflow">syslog-ng flows</a> or <a href="/docs/configuration/flow/">Flow and ClusterFlow</a>.</li></ul></li><li>
 <p>Installed a simple receiver to act as the destination of the logs, and configured the the log forwarder to send the logs from the <code>quickstart</code> namespace to this destination.</p></li><li>
-<p>Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.</p></li></ul><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<p>Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.</p></li></ul><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -383,7 +385,7 @@ Fluentd
 <i class="fab fa-github"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
-<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
 <i class="fab fa-slack"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">

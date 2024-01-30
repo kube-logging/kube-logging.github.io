@@ -28,14 +28,14 @@ Configuration (SyslogOutput, required) syslog output configuration
 host (string, optional) Address of the destination host.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/loggly/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-29T21:50:55+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-30T09:49:09+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Loggly output">
 <meta itemprop="description" content="Overview The loggly() destination sends log messages to the Loggly Logging-as-a-Service provider. You can send log messages over TCP, or encrypted with TLS for syslog-ng outputs.
 For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
 Prerequisites You need a Loggly account and your user token to use this output.
 Configuration (SyslogOutput, required) syslog output configuration
 host (string, optional) Address of the destination host.">
-<meta itemprop="dateModified" content="2024-01-29T21:50:55+01:00">
+<meta itemprop="dateModified" content="2024-01-30T09:49:09+01:00">
 <meta itemprop="wordCount" content="103">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loggly output">
@@ -64,6 +64,8 @@ host (string, optional) Address of the destination host.">
 <a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -547,6 +549,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslicense-li">
 <input type="checkbox" id="m-docslicense-check">
 <label for="m-docslicense-check"><a href="/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslicense"><span>License</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommunity-li">
+<input type="checkbox" id="m-docscommunity-check">
+<label for="m-docscommunity-check"><a href="/docs/community/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommunity"><span>Community</span></a></label>
 </li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/plugins/syslog-ng-outputs/loggly.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
@@ -577,7 +582,7 @@ Releases
 <h1>Loggly output</h1><header class="article-meta">
 </header><h2 id="overview">Overview</h2><p>The <code>loggly()</code> destination sends log messages to the <a href="https://www.loggly.com/">Loggly</a> Logging-as-a-Service provider.
 You can send log messages over TCP, or encrypted with <a href="/docs/configuration/plugins/syslog-ng-outputs/tls/">TLS for syslog-ng outputs</a>.</p><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-loggly/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="prerequisites">Prerequisites</h2><p>You need a Loggly account and your user token to use this output.</p><h2 id="configuration">Configuration</h2><h3 id="loggly-">(SyslogOutput, required)</h3><p>syslog output configuration</p><h3 id="loggly-host">host (string, optional)</h3><p>Address of the destination host.</p><h3 id="loggly-tag">tag (string, optional)</h3><p>Event tag. For details, see the <a href="https://documentation.solarwinds.com/en/success_center/loggly/content/admin/tags.htm">Loggy documentation</a></p><h3 id="loggly-token">token (*secret.Secret, required)</h3><p>Your Customer Token that you received from Loggly. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-loggly/">documentation of the AxoSyslog syslog-ng distribution</a></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/73cd9eb731dd75b0839101dfc3aeb200eddd7383">Merge pull request #220 from Kjir/patch-1 (73cd9eb)</a>
+Last modified January 30, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bbd25b4e2896d932ab9241577674b579b03b1760">Merge pull request #221 from kube-logging/community-page-cncf-slack-links (bbd25b4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -589,7 +594,7 @@ Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-lo
 <i class="fab fa-github"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
-<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
 <i class="fab fa-slack"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">

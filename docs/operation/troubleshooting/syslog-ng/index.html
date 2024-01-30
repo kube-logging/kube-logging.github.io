@@ -26,14 +26,14 @@ Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-01-29T21:50:55+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-01-30T09:49:09+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Troubleshooting syslog-ng">
 <meta itemprop="description" content="The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.
 Check syslog-ng pod status (statefulset) Verify that the syslog-ng statefulset is available using the following command: kubectl get statefulsets
 Expected output:
 NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output.">
-<meta itemprop="dateModified" content="2024-01-29T21:50:55+01:00">
-<meta itemprop="wordCount" content="228">
+<meta itemprop="dateModified" content="2024-01-30T09:49:09+01:00">
+<meta itemprop="wordCount" content="231">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshooting syslog-ng">
 <meta name="twitter:description" content="The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.
@@ -60,6 +60,8 @@ NAME READY AGE logging-demo-syslogng 1/1 1m ConfigCheck The Logging operator has
 <a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
 </li><li class="nav-item dropdown mr-4 d-none d-lg-block">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Releases
@@ -543,6 +545,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslicense-li">
 <input type="checkbox" id="m-docslicense-check">
 <label for="m-docslicense-check"><a href="/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docslicense"><span>License</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommunity-li">
+<input type="checkbox" id="m-docscommunity-check">
+<label for="m-docscommunity-check"><a href="/docs/community/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docscommunity"><span>Community</span></a></label>
 </li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/operation/troubleshooting/syslog-ng.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
@@ -570,9 +575,9 @@ Releases
 </header><p>The following sections help you troubleshoot the syslog-ng statefulset component of the Logging operator.</p><h2 id="check-syslog-ng-pod-status-statefulset">Check syslog-ng pod status (statefulset)</h2><p>Verify that the syslog-ng statefulset is available using the following command: <code>kubectl get statefulsets</code></p><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAME                   READY   AGE
 </span></span><span style="display:flex"><span>logging-demo-syslogng   1/1     1m
 </span></span></code></pre></div><h2 id="configcheck">ConfigCheck</h2><p>The Logging operator has a builtin mechanism that validates the generated syslog-ng configuration before applying it to syslog-ng. You should be able to see the configcheck pod and its log output. The result of the check is written into the <code>status</code> field of the corresponding <code>Logging</code> resource.</p><p>In case the operator is stuck in an error state caused by a failed configcheck, restore the previous configuration by modifying or removing the invalid resources to the point where the configcheck pod is finally able to complete successfully.</p><h2 id="check-syslog-ng-configuration">Check syslog-ng configuration</h2><p>Use the following command to display the configuration of syslog-ng:
-<code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or <a href="https://emergingtechcommunity.slack.com/">Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
+<code>kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode</code></p><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/73cd9eb731dd75b0839101dfc3aeb200eddd7383">Merge pull request #220 from Kjir/patch-1 (73cd9eb)</a>
+Last modified January 30, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bbd25b4e2896d932ab9241577674b579b03b1760">Merge pull request #221 from kube-logging/community-page-cncf-slack-links (bbd25b4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -584,7 +589,7 @@ Last modified January 29, 2024: <a href="https://github.com/kube-logging/kube-lo
 <i class="fab fa-github"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
-<a class="text-white" target="_blank" rel="noopener" href="https://banzaicloud.com/invite-slack/" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
 <i class="fab fa-slack"></i>
 </a>
 </li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
