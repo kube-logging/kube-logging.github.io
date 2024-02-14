@@ -24,12 +24,12 @@ Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-02-07T09:55:17+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-02-14T14:17:03+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Elasticsearch">
 <meta itemprop="description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
-<meta itemprop="dateModified" content="2024-02-07T09:55:17+00:00">
+<meta itemprop="dateModified" content="2024-02-14T14:17:03+01:00">
 <meta itemprop="wordCount" content="135">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch">
@@ -587,7 +587,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elastic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchoutput-">(HTTPOutput, required)</h3><h3 id="elasticsearchoutput-custom_id">custom_id (string, optional)</h3><p>The document ID. If no ID is specified, a document ID is automatically generated.</p><h3 id="elasticsearchoutput-index">index (string, optional)</h3><p>Name of the data stream, index, or index alias to perform the action on.</p><h3 id="elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</h3><p>Set the prefix for logs in logstash format. If set, then Index field will be ignored.</p><h3 id="elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</h3><p>Set the separator between LogstashPrefix and LogStashDateformat. Default: &ldquo;-&rdquo;</p><h3 id="elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</h3><p>Set the suffix for logs in logstash format.</p><p>Default: <code>${YEAR}.${MONTH}.${DAY}</code>### type (*string, optional) {#elasticsearchoutput-type}</p><p>The document type associated with the operation. Elasticsearch indices now support a single document type: <code>_doc</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1bd1c11c456f6e252a484e1a2ef29c6b3c13691">Merge 2dd0b1b185a8687b1e40a76d6d8cd74664cc26a9 into bbd25b4e2896d932ab9241577674b579b03b1760 (b1bd1c1)</a>
+Last modified February 14, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d0c45e61d35ca835a09f6715a2ec0d7f0b47e4ca">Merge 84369e187ab39a267d685df2992c5a76056ccb13 into bbd25b4e2896d932ab9241577674b579b03b1760 (d0c45e6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

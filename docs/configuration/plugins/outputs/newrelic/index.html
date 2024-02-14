@@ -32,7 +32,7 @@ format (*Format, optional) Format
 license_key (*secret.Secret, optional) New Relic License Key (recommended) [Secret](../secret/&#34; LicenseKey *secret.Secret json:&#34;license_key)">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/newrelic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-02-07T09:55:17+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-02-14T14:17:03+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="NewRelic">
 <meta itemprop="description" content="New Relic Logs plugin for Fluentd Overview Output plugin send log data to New Relic Logs
 Example output configurations spec: newrelic: license_key: valueFrom: secretKeyRef: name: logging-newrelic key: licenseKey Configuration Output Config api_key (*secret.Secret, optional) New Relic API Insert key Secret
@@ -41,7 +41,7 @@ Default: https://log-api.newrelic.com/log/v1
 buffer (*Buffer, optional) Buffer
 format (*Format, optional) Format
 license_key (*secret.Secret, optional) New Relic License Key (recommended) [Secret](../secret/&#34; LicenseKey *secret.Secret json:&#34;license_key)">
-<meta itemprop="dateModified" content="2024-02-07T09:55:17+00:00">
+<meta itemprop="dateModified" content="2024-02-14T14:17:03+01:00">
 <meta itemprop="wordCount" content="70">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NewRelic">
@@ -596,7 +596,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging-newrelic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">licenseKey</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-api_key">api_key (*secret.Secret, optional)</h3><p>New Relic API Insert key <a href="../secret/">Secret</a></p><h3 id="output-config-base_uri">base_uri (string, optional)</h3><p>New Relic ingestion endpoint <a href="../secret/">Secret</a></p><p>Default: <code>https://log-api.newrelic.com/log/v1</code></p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><h3 id="output-config-format">format (*Format, optional)</h3><p><a href="../format/">Format</a></p><h3 id="output-config-license_key">license_key (*secret.Secret, optional)</h3><p>New Relic License Key (recommended) [Secret](../secret/" LicenseKey *secret.Secret <code>json:"license_key)</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1bd1c11c456f6e252a484e1a2ef29c6b3c13691">Merge 2dd0b1b185a8687b1e40a76d6d8cd74664cc26a9 into bbd25b4e2896d932ab9241577674b579b03b1760 (b1bd1c1)</a>
+Last modified February 14, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d0c45e61d35ca835a09f6715a2ec0d7f0b47e4ca">Merge 84369e187ab39a267d685df2992c5a76056ccb13 into bbd25b4e2896d932ab9241577674b579b03b1760 (d0c45e6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
