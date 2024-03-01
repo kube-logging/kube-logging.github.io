@@ -37,7 +37,7 @@ This documentation helps to set-up a developer environment and writing plugins f
 
 To add a `plugin` to the logging operator you need to define the plugin struct.
 
-> Note: Place your plugin in the corresponding directory `pkg/sdk/model/filter` or `pkg/sdk/model/output`
+> Note: Place your plugin in the corresponding directory `pkg/sdk/logging/model/filter` or `pkg/sdk/logging/model/output`
 
 ```go
 type MyExampleOutput struct {
@@ -113,6 +113,13 @@ The required tag ensures that the attribute **cannot** be empty
 RetryForever bool `json:"retry_forever" plugin:"required"`
 ```
 
+### Add plugin to the Logging operator API
+
+Enable your plugin for users when using the `output/flow` CRDs by adding it to the proper Logging operator API type.
+
+- Output Plugin - [OutputSpec](https://github.com/kube-logging/logging-operator/blob/64495126b215bc852a702b47aab73df8d0515bd7/pkg/sdk/logging/api/v1beta1/output_types.go#L32)
+- Filter Plugin - [Filter](https://github.com/kube-logging/logging-operator/blob/64495126b215bc852a702b47aab73df8d0515bd7/pkg/sdk/logging/api/v1beta1/flow_types.go#L64)
+
 ## Generate documentation for Plugin
 
 The operator parse the `docstrings` for the documentation.
@@ -170,8 +177,10 @@ Example linking embedded sections
 Buffer *Buffer `json:"buffer,omitempty"`
 ```
 
-### Generate docs for your Plugin
+### Generate resources for your Plugin
+
+Run the following command to generate updated docs and CRDs for your new plugin.
 
 ```bash
-make docs
+make generate
 ```
