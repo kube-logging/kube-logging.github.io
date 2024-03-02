@@ -35,7 +35,12 @@ To verify that the installation was successful, complete the following steps.
 1. Check the status of the pods. You should see a new logging-operator pod.
 
     ```bash
-    $ kubectl -n logging get pods
+    kubectl -n logging get pods
+    ```
+
+    Expected output:
+
+    ```
     NAME                                READY   STATUS    RESTARTS   AGE
     logging-operator-5df66b87c9-wgsdf   1/1     Running   0          21s
     ```
@@ -43,7 +48,12 @@ To verify that the installation was successful, complete the following steps.
 1. Check the CRDs. You should see the following five new CRDs.
 
     ```bash
-    $  kubectl get crd
+    kubectl get crd
+    ```
+
+    Expected output:
+
+    ```
     NAME                                    CREATED AT
     clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
     clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
