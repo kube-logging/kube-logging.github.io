@@ -35,10 +35,10 @@ To verify that the installation was successful, complete the following steps.
 1. Check the status of the pods. You should see a new logging-operator pod.
 
     ```bash
-    $ kubectl -n logging get pods
+    kubectl -n logging get pods
     ```
 
-Espected output:
+    Expected output:
 
     ```
     NAME                                READY   STATUS    RESTARTS   AGE
