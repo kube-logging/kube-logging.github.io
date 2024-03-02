@@ -91,26 +91,26 @@ For instructions on installing the previous 4.2.3 version, see <a href="/4.2/doc
 Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote><blockquote>
 <p>Note: By default, the Logging operator Helm chart doesn&rsquo;t install the <code>logging</code> resource. If you want to install it with Helm, set the <code>logging.enabled</code> value to true.</p><p>For details on customizing the installation, see the <a href="https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator">Helm chart values</a>.</p></blockquote></li></ol><h2 id="validate">Validate the deployment</h2><p>To verify that the installation was successful, complete the following steps.</p><ol>
 <li>
-<p>Check the status of the pods. You should see a new logging-operator pod.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>$ kubectl -n logging get pods
-</span></span><span style="display:flex"><span>NAME                                READY   STATUS    RESTARTS   AGE
-</span></span><span style="display:flex"><span>logging-operator-5df66b87c9-wgsdf   1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>          21s
-</span></span></code></pre></div></li><li>
-<p>Check the CRDs. You should see the following five new CRDs.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>$  kubectl get crd
-</span></span><span style="display:flex"><span>NAME                                    CREATED AT
-</span></span><span style="display:flex"><span>clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>eventtailers.logging-extensions.banzaicloud.io   2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>flows.logging.banzaicloud.io                     2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
-</span></span><span style="display:flex"><span>loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>nodeagents.logging.banzaicloud.io                2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
-</span></span><span style="display:flex"><span>syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
-</span></span></code></pre></div></li></ol></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<p>Check the status of the pods. You should see a new logging-operator pod.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get pods
+</span></span></code></pre></div><p>Expected output:</p><pre tabindex="0"><code>NAME                                READY   STATUS    RESTARTS   AGE
+logging-operator-5df66b87c9-wgsdf   1/1     Running   0          21s
+</code></pre></li><li>
+<p>Check the CRDs. You should see the following five new CRDs.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get crd
+</span></span></code></pre></div><p>Expected output:</p><pre tabindex="0"><code>NAME                                    CREATED AT
+clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
+clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
+eventtailers.logging-extensions.banzaicloud.io   2023-08-10T12:05:04Z
+flows.logging.banzaicloud.io                     2023-08-10T12:05:04Z
+fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
+hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
+loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
+nodeagents.logging.banzaicloud.io                2023-08-10T12:05:05Z
+outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
+syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
+syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
+syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
+syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
+</code></pre></li></ol></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">
