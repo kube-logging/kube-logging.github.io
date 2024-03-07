@@ -36,12 +36,12 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
 
     ```yaml
     apiVersion: logging.banzaicloud.io/v1beta1
-    kind: Logging
+    kind: FluentbitAgent
     metadata:
-      name: example-logging-resource
+      name: example
     spec:
-      fluentd: {}
-      fluentbit:
+        inputTail:
+          storage.type: filesystem
         positiondb:
           hostPath:
             path: ""
@@ -72,6 +72,8 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
       # Use the name of the logging resource
       name: example-logging-resource
     spec:
+      inputTail:
+        storage.type: filesystem
       positiondb:
         hostPath:
           path: ""
@@ -100,16 +102,12 @@ Fluent Bit Kubernetes Filter allows you to enrich your log files with Kubernetes
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
-  name: default-logging-simple
+  name: default
 spec:
-  fluentd: {}
-  fluentbit:
-    filterKubernetes:
-       Kube_URL: "https://kubernetes.default.svc:443"
-       Match: "kube.*"
-  controlNamespace: logging
+  filterKubernetes:
+    Kube_URL: "https://kubernetes.default.svc:443"
 ```
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
@@ -121,16 +119,14 @@ The tail input plugin allows to monitor one or several text files. It has a simi
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentd: {}
-  fluentbit:
-    inputTail:
-       Refresh_Interval: "60"
-       Rotate_Wait: "5"
-  controlNamespace: logging
+  inputTail:
+    storage.type: filesystem
+    Refresh_Interval: "60"
+    Rotate_Wait: "5"
 ```
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#inputtail" %}}.
@@ -142,15 +138,14 @@ Buffering in Fluent Bit places the processed data into a temporal location until
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentd: {}
-  fluentbit:
-    bufferStorage:
-       storage.path: /buffers
-  controlNamespace: logging
+  inputTail:
+    storage.type: filesystem
+  bufferStorage:
+    storage.path: /buffers
 ```
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
@@ -160,40 +155,34 @@ For the detailed list of available parameters for this plugin, see {{% xref "/do
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentd: {}
-  fluentbit:
-    bufferStorageVolume:
-      hostPath:
-        path: "" # leave it empty to automatically generate
-    positiondb:
-      hostPath:
-        path: "" # leave it empty to automatically generate
-  controlNamespace: logging
+  inputTail:
+    storage.type: filesystem
+  bufferStorageVolume:
+    hostPath:
+      path: "" # leave it empty to automatically generate
+  positiondb:
+    hostPath:
+      path: "" # leave it empty to automatically generate
 ```
 
 ## Custom Fluent Bit image
 
-You can deploy custom images by overriding the default images using the following parameters in the fluentd or fluentbit sections of the logging resource.
-
-The following example deploys a custom fluentd image:
+You can deploy custom images by overriding the default images using the following parameters.
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentd:
-    image:
-      repository: banzaicloud/fluentd
-      tag: v1.10.4-alpine-1
-      pullPolicy: IfNotPresent
-  fluentbit: {}
-  controlNamespace: logging
+  image:
+    repository: fluent/fluent-bit
+    tag: 2.1.8-debug
+    pullPolicy: IfNotPresent
 ```
 
 ## Volume Mount
@@ -202,17 +191,14 @@ Defines a pod volume mount. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
-  name: default-logging-tls
+  name: default-logging
 spec:
-  fluentd: {}
-  fluentbit:
-    extraVolumeMounts:
-    - source: /opt/docker
-      destination: /opt/docker
-      readOnly: true
-  controlNamespace: logging
+  extraVolumeMounts:
+  - destination: /data/docker/containers
+    readOnly: true
+    source: /data/docker/containers
 ```
 
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#volumemount" %}}.
@@ -221,15 +207,12 @@ For the detailed list of available parameters for this plugin, see {{% xref "/do
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentd: {}
-  fluentbit:
-    annotations:
-      my-annotations/enable: true
-  controlNamespace: logging
+  annotations:
+    my-annotations/enable: true
 ```
 
 ## KubernetesStorage
@@ -249,30 +232,26 @@ A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#cont
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
+kind: FluentbitAgent
 metadata:
   name: default-logging-simple
 spec:
-  fluentbit:
-    livenessProbe:
-      periodSeconds: 60
-      initialDelaySeconds: 600
-      exec:
-        command:
-        - "/bin/sh"
-        - "-c"
-        - >
-          LIVENESS_THRESHOLD_SECONDS=${LIVENESS_THRESHOLD_SECONDS:-300};
-          if [ ! -e /buffers ];
-          then
-            exit 1;
-          fi;
-          touch -d "${LIVENESS_THRESHOLD_SECONDS} seconds ago" /tmp/marker-liveness;
-          if [ -z "$(find /buffers -type d -newer /tmp/marker-liveness -print -quit)" ];
-          then
-            exit 1;
-          fi;
-  controlNamespace: logging
+  livenessProbe:
+    periodSeconds: 60
+    initialDelaySeconds: 600
+    exec:
+      command:
+      - "/bin/sh"
+      - "-c"
+      - >
+        LIVENESS_THRESHOLD_SECONDS=${LIVENESS_THRESHOLD_SECONDS:-300};
+        if [ ! -e /buffers ]; then
+          exit 1;
+        fi;
+        touch -d "${LIVENESS_THRESHOLD_SECONDS} seconds ago" /tmp/marker-liveness;
+        if [ -z "$(find /buffers -type d -newer /tmp/marker-liveness -print -quit)" ]; then
+          exit 1;
+        fi;
 ```
 
 You can use the following parameters:
