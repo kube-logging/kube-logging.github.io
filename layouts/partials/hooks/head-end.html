@@ -10,15 +10,6 @@
 {{ end }}
 
 {{ if .Site.Params.offlineSearchPagefind -}}
-{{/* Use customized js for Docsy from /statis/js */}}
 <script
-  src="/pagefind/pagefind-ui.js"
     type="application/x-javascript"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search",
-                         resetStyles: false
-                        });
-    });
-</script>
 {{ end -}}
