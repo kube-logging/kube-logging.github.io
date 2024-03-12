@@ -10,15 +10,12 @@
 {{ end }}
 
 {{ if .Site.Params.offlineSearchPagefind -}}
-{{/* Use customized js for Docsy from /statis/js */}}
+<!-- Needed to highlight search keyword on the result page -->
 <script
-  src="/pagefind/pagefind-ui.js"
+  src="/pagefind/pagefind-highlight.js"
     type="application/x-javascript"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search",
-                         resetStyles: false
-                        });
-    });
-</script>
+    <script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
 {{ end -}}
