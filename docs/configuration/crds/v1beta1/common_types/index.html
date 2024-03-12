@@ -28,14 +28,14 @@ interval (string, optional) path (string, optional) port (int32, optional) prome
 additionalLabels (map[string]string, optional) honorLabels (bool, optional) metricRelabelings ([]*v1.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/common_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-07T17:04:18+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-03-12T20:03:54+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Common">
 <meta itemprop="description" content="ImageSpec ImageSpec struct hold information about image specification
 imagePullSecrets ([]corev1.LocalObjectReference, optional) pullPolicy (string, optional) repository (string, optional) tag (string, optional) Metrics Metrics defines the service monitor endpoints
 interval (string, optional) path (string, optional) port (int32, optional) prometheusAnnotations (bool, optional) prometheusRules (bool, optional) serviceMonitor (bool, optional) serviceMonitorConfig (ServiceMonitorConfig, optional) timeout (string, optional) BufferMetrics BufferMetrics defines the service monitor endpoints
 (Metrics, required) mount_name (string, optional) ServiceMonitorConfig ServiceMonitorConfig defines the ServiceMonitor properties
 additionalLabels (map[string]string, optional) honorLabels (bool, optional) metricRelabelings ([]*v1.">
-<meta itemprop="dateModified" content="2024-03-07T17:04:18+01:00">
+<meta itemprop="dateModified" content="2024-03-12T20:03:54+01:00">
 <meta itemprop="wordCount" content="160">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Common">
@@ -45,14 +45,17 @@ interval (string, optional) path (string, optional) port (int32, optional) prome
 (Metrics, required) mount_name (string, optional) ServiceMonitorConfig ServiceMonitorConfig defines the ServiceMonitor properties
 additionalLabels (map[string]string, optional) honorLabels (bool, optional) metricRelabelings ([]*v1.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
-<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
+<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/v1beta1/">
-<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
-<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
 </head><body class="td-page" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -73,14 +76,21 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/crds/v1beta1/common_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-</div></nav></header><div class="container-fluid td-outer">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="search">
-<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -591,7 +601,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>Common</h1><header class="article-meta">
 </header><h2 id="imagespec">ImageSpec</h2><p>ImageSpec struct hold information about image specification</p><h3 id="imagespec-imagepullsecrets">imagePullSecrets ([]corev1.LocalObjectReference, optional)</h3><h3 id="imagespec-pullpolicy">pullPolicy (string, optional)</h3><h3 id="imagespec-repository">repository (string, optional)</h3><h3 id="imagespec-tag">tag (string, optional)</h3><h2 id="metrics">Metrics</h2><p>Metrics defines the service monitor endpoints</p><h3 id="metrics-interval">interval (string, optional)</h3><h3 id="metrics-path">path (string, optional)</h3><h3 id="metrics-port">port (int32, optional)</h3><h3 id="metrics-prometheusannotations">prometheusAnnotations (bool, optional)</h3><h3 id="metrics-prometheusrules">prometheusRules (bool, optional)</h3><h3 id="metrics-servicemonitor">serviceMonitor (bool, optional)</h3><h3 id="metrics-servicemonitorconfig">serviceMonitorConfig (ServiceMonitorConfig, optional)</h3><h3 id="metrics-timeout">timeout (string, optional)</h3><h2 id="buffermetrics">BufferMetrics</h2><p>BufferMetrics defines the service monitor endpoints</p><h3 id="buffermetrics-">(Metrics, required)</h3><h3 id="buffermetrics-mount_name">mount_name (string, optional)</h3><h2 id="servicemonitorconfig">ServiceMonitorConfig</h2><p>ServiceMonitorConfig defines the ServiceMonitor properties</p><h3 id="servicemonitorconfig-additionallabels">additionalLabels (map[string]string, optional)</h3><h3 id="servicemonitorconfig-honorlabels">honorLabels (bool, optional)</h3><h3 id="servicemonitorconfig-metricrelabelings">metricRelabelings ([]*v1.RelabelConfig, optional)</h3><h3 id="servicemonitorconfig-relabelings">relabelings ([]*v1.RelabelConfig, optional)</h3><h3 id="servicemonitorconfig-scheme">scheme (string, optional)</h3><h3 id="servicemonitorconfig-tlsconfig">tlsConfig (*v1.TLSConfig, optional)</h3><h2 id="security">Security</h2><p>Security defines Fluentd, FluentbitAgent deployment security properties</p><h3 id="security-podsecuritycontext">podSecurityContext (*corev1.PodSecurityContext, optional)</h3><h3 id="security-podsecuritypolicycreate">podSecurityPolicyCreate (bool, optional)</h3><h3 id="security-rolebasedaccesscontrolcreate">roleBasedAccessControlCreate (*bool, optional)</h3><h3 id="security-securitycontext">securityContext (*corev1.SecurityContext, optional)</h3><h3 id="security-serviceaccount">serviceAccount (string, optional)</h3><h2 id="readinessdefaultcheck">ReadinessDefaultCheck</h2><p>ReadinessDefaultCheck Enable default readiness checks</p><h3 id="readinessdefaultcheck-bufferfilenumber">bufferFileNumber (bool, optional)</h3><h3 id="readinessdefaultcheck-bufferfilenumbermax">bufferFileNumberMax (int32, optional)</h3><h3 id="readinessdefaultcheck-bufferfreespace">bufferFreeSpace (bool, optional)</h3><p>Enable default Readiness check it&rsquo;ll fail if the buffer volume free space exceeds the <code>readinessDefaultThreshold</code> percentage (90%).</p><h3 id="readinessdefaultcheck-bufferfreespacethreshold">bufferFreeSpaceThreshold (int32, optional)</h3><h3 id="readinessdefaultcheck-failurethreshold">failureThreshold (int32, optional)</h3><h3 id="readinessdefaultcheck-initialdelayseconds">initialDelaySeconds (int32, optional)</h3><h3 id="readinessdefaultcheck-periodseconds">periodSeconds (int32, optional)</h3><h3 id="readinessdefaultcheck-successthreshold">successThreshold (int32, optional)</h3><h3 id="readinessdefaultcheck-timeoutseconds">timeoutSeconds (int32, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4131c759cc2c9dc428d35a27fd8f4fc68db2fb70">Merge pull request #228 from kube-logging/pepov-fluentbitagent (4131c75)</a>
+Last modified March 12, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c4cf8dada6ce52e03f9905f1dae0b7bb9817a5f9">Merge pull request #229 from kube-logging/pagefind-restructure (c4cf8da)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

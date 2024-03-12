@@ -22,25 +22,28 @@ awsElasticsearch (*output.AwsElasticsearchOutputConfig, optional) azurestorage (
 awsElasticsearch (*output.AwsElasticsearchOutputConfig, optional) azurestorage (*output.AzureStorage, optional) cloudwatch (*output.CloudWatchOutput, optional) datadog (*output.DatadogOutput, optional) elasticsearch (*output.ElasticsearchOutput, optional) file (*output.FileOutputConfig, optional) forward (*output.ForwardOutput, optional) gcs (*output.GCSOutput, optional) gelf (*output.GELFOutputConfig, optional) http (*output.HTTPOutputConfig, optional) kafka (*output.KafkaOutputConfig, optional) kinesisFirehose (*output.KinesisFirehoseOutputConfig, optional) kinesisStream (*output.KinesisStreamOutputConfig, optional) logdna (*output.LogDNAOutput, optional) logz (*output.LogZOutput, optional) loggingRef (string, optional) loki (*output.LokiOutput, optional) mattermost (*output.MattermostOutputConfig, optional) newrelic (*output.NewRelicOutputConfig, optional) nullout (*output.NullOutputConfig, optional) oss (*output.OSSOutput, optional) opensearch (*output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/output_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-07T17:04:18+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-03-12T20:03:54+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="OutputSpec">
 <meta itemprop="description" content="OutputSpec OutputSpec defines the desired state of Output
 awsElasticsearch (*output.AwsElasticsearchOutputConfig, optional) azurestorage (*output.AzureStorage, optional) cloudwatch (*output.CloudWatchOutput, optional) datadog (*output.DatadogOutput, optional) elasticsearch (*output.ElasticsearchOutput, optional) file (*output.FileOutputConfig, optional) forward (*output.ForwardOutput, optional) gcs (*output.GCSOutput, optional) gelf (*output.GELFOutputConfig, optional) http (*output.HTTPOutputConfig, optional) kafka (*output.KafkaOutputConfig, optional) kinesisFirehose (*output.KinesisFirehoseOutputConfig, optional) kinesisStream (*output.KinesisStreamOutputConfig, optional) logdna (*output.LogDNAOutput, optional) logz (*output.LogZOutput, optional) loggingRef (string, optional) loki (*output.LokiOutput, optional) mattermost (*output.MattermostOutputConfig, optional) newrelic (*output.NewRelicOutputConfig, optional) nullout (*output.NullOutputConfig, optional) oss (*output.OSSOutput, optional) opensearch (*output.">
-<meta itemprop="dateModified" content="2024-03-07T17:04:18+01:00">
+<meta itemprop="dateModified" content="2024-03-12T20:03:54+01:00">
 <meta itemprop="wordCount" content="147">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OutputSpec">
 <meta name="twitter:description" content="OutputSpec OutputSpec defines the desired state of Output
 awsElasticsearch (*output.AwsElasticsearchOutputConfig, optional) azurestorage (*output.AzureStorage, optional) cloudwatch (*output.CloudWatchOutput, optional) datadog (*output.DatadogOutput, optional) elasticsearch (*output.ElasticsearchOutput, optional) file (*output.FileOutputConfig, optional) forward (*output.ForwardOutput, optional) gcs (*output.GCSOutput, optional) gelf (*output.GELFOutputConfig, optional) http (*output.HTTPOutputConfig, optional) kafka (*output.KafkaOutputConfig, optional) kinesisFirehose (*output.KinesisFirehoseOutputConfig, optional) kinesisStream (*output.KinesisStreamOutputConfig, optional) logdna (*output.LogDNAOutput, optional) logz (*output.LogZOutput, optional) loggingRef (string, optional) loki (*output.LokiOutput, optional) mattermost (*output.MattermostOutputConfig, optional) newrelic (*output.NewRelicOutputConfig, optional) nullout (*output.NullOutputConfig, optional) oss (*output.OSSOutput, optional) opensearch (*output.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
-<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
+<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/crds/v1beta1/">
-<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
-<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
 </head><body class="td-page" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -61,14 +64,21 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/crds/v1beta1/output_types//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-</div></nav></header><div class="container-fluid td-outer">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="search">
-<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -575,7 +585,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>OutputSpec</h1><header class="article-meta">
 </header><h2 id="outputspec">OutputSpec</h2><p>OutputSpec defines the desired state of Output</p><h3 id="outputspec-awselasticsearch">awsElasticsearch (*output.AwsElasticsearchOutputConfig, optional)</h3><h3 id="outputspec-azurestorage">azurestorage (*output.AzureStorage, optional)</h3><h3 id="outputspec-cloudwatch">cloudwatch (*output.CloudWatchOutput, optional)</h3><h3 id="outputspec-datadog">datadog (*output.DatadogOutput, optional)</h3><h3 id="outputspec-elasticsearch">elasticsearch (*output.ElasticsearchOutput, optional)</h3><h3 id="outputspec-file">file (*output.FileOutputConfig, optional)</h3><h3 id="outputspec-forward">forward (*output.ForwardOutput, optional)</h3><h3 id="outputspec-gcs">gcs (*output.GCSOutput, optional)</h3><h3 id="outputspec-gelf">gelf (*output.GELFOutputConfig, optional)</h3><h3 id="outputspec-http">http (*output.HTTPOutputConfig, optional)</h3><h3 id="outputspec-kafka">kafka (*output.KafkaOutputConfig, optional)</h3><h3 id="outputspec-kinesisfirehose">kinesisFirehose (*output.KinesisFirehoseOutputConfig, optional)</h3><h3 id="outputspec-kinesisstream">kinesisStream (*output.KinesisStreamOutputConfig, optional)</h3><h3 id="outputspec-logdna">logdna (*output.LogDNAOutput, optional)</h3><h3 id="outputspec-logz">logz (*output.LogZOutput, optional)</h3><h3 id="outputspec-loggingref">loggingRef (string, optional)</h3><h3 id="outputspec-loki">loki (*output.LokiOutput, optional)</h3><h3 id="outputspec-mattermost">mattermost (*output.MattermostOutputConfig, optional)</h3><h3 id="outputspec-newrelic">newrelic (*output.NewRelicOutputConfig, optional)</h3><h3 id="outputspec-nullout">nullout (*output.NullOutputConfig, optional)</h3><h3 id="outputspec-oss">oss (*output.OSSOutput, optional)</h3><h3 id="outputspec-opensearch">opensearch (*output.OpenSearchOutput, optional)</h3><h3 id="outputspec-redis">redis (*output.RedisOutputConfig, optional)</h3><h3 id="outputspec-relabel">relabel (*output.RelabelOutputConfig, optional)</h3><h3 id="outputspec-s3">s3 (*output.S3OutputConfig, optional)</h3><h3 id="outputspec-sqs">sqs (*output.SQSOutputConfig, optional)</h3><h3 id="outputspec-splunkhec">splunkHec (*output.SplunkHecOutput, optional)</h3><h3 id="outputspec-sumologic">sumologic (*output.SumologicOutput, optional)</h3><h3 id="outputspec-syslog">syslog (*output.SyslogOutputConfig, optional)</h3><h2 id="outputstatus">OutputStatus</h2><p>OutputStatus defines the observed state of Output</p><h3 id="outputstatus-active">active (*bool, optional)</h3><h3 id="outputstatus-problems">problems ([]string, optional)</h3><h3 id="outputstatus-problemscount">problemsCount (int, optional)</h3><h2 id="output">Output</h2><p>Output is the Schema for the outputs API</p><h3 id="output-">(metav1.TypeMeta, required)</h3><h3 id="output-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="output-spec">spec (OutputSpec, optional)</h3><h3 id="output-status">status (OutputStatus, optional)</h3><h2 id="outputlist">OutputList</h2><p>OutputList contains a list of Output</p><h3 id="outputlist-">(metav1.TypeMeta, required)</h3><h3 id="outputlist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="outputlist-items">items ([]Output, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4131c759cc2c9dc428d35a27fd8f4fc68db2fb70">Merge pull request #228 from kube-logging/pepov-fluentbitagent (4131c75)</a>
+Last modified March 12, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c4cf8dada6ce52e03f9905f1dae0b7bb9817a5f9">Merge pull request #229 from kube-logging/pagefind-restructure (c4cf8da)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

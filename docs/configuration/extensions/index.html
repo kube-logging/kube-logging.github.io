@@ -26,14 +26,17 @@
 <meta name="twitter:title" content="Kubernetes events, node logs, and logfiles">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
-<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
+<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/extensions/">
-<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
-<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
 </head><body class="td-section" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -54,14 +57,21 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/extensions//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-</div></nav></header><div class="container-fluid td-outer">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="search">
-<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -575,7 +585,7 @@ Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>
 <h5>
 <a href="/docs/configuration/extensions/tailer-webhook/">Tail logfiles with a webhook</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4131c759cc2c9dc428d35a27fd8f4fc68db2fb70">Merge pull request #228 from kube-logging/pepov-fluentbitagent (4131c75)</a>
+Last modified March 12, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c4cf8dada6ce52e03f9905f1dae0b7bb9817a5f9">Merge pull request #229 from kube-logging/pagefind-restructure (c4cf8da)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

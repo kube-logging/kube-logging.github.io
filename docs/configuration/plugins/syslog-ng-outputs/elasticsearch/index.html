@@ -24,12 +24,12 @@ Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-07T17:04:18+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-03-12T20:03:54+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Elasticsearch">
 <meta itemprop="description" content="Overview Based on the ElasticSearch destination of AxoSyslog core.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
-<meta itemprop="dateModified" content="2024-03-07T17:04:18+01:00">
+<meta itemprop="dateModified" content="2024-03-12T20:03:54+01:00">
 <meta itemprop="wordCount" content="135">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch">
@@ -37,14 +37,17 @@ index (string, optional) Name of the data stream, index, or index alias to perfo
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch spec: elasticsearch: url: &#34;https://elastic-search-endpoint:9200/_bulk&#34; index: &#34;indexname&#34; type: &#34;&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration (HTTPOutput, required) custom_id (string, optional) The document ID. If no ID is specified, a document ID is automatically generated.
 index (string, optional) Name of the data stream, index, or index alias to perform the action on.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" as="style">
-<link href="/scss/main.min.6c5d17c7f0700adc6fa5f76476818cf431ac68231d5ae3163162d15c0b233c9b.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
+<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
 <link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/">
-<script src="/pagefind/pagefind-ui.js" type="application/x-javascript"></script>
-<script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",resetStyles:!1})})</script>
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
 </head><body class="td-page" data-pagefind-filter="section:4.5">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -65,14 +68,21 @@ Releases
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 <div w3-include-html="/docs/configuration/plugins/syslog-ng-outputs/elasticsearch//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
 </div></li></ul></div><div class="navbar-nav d-none d-lg-block">
-</div></nav></header><div class="container-fluid td-outer">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id="td-sidebar-menu" class="td-sidebar__inner">
 <form class="td-sidebar__search d-flex align-items-center">
-<div class="search">
-<div id="search"></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
@@ -587,7 +597,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elastic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchoutput-">(HTTPOutput, required)</h3><h3 id="elasticsearchoutput-custom_id">custom_id (string, optional)</h3><p>The document ID. If no ID is specified, a document ID is automatically generated.</p><h3 id="elasticsearchoutput-index">index (string, optional)</h3><p>Name of the data stream, index, or index alias to perform the action on.</p><h3 id="elasticsearchoutput-logstash_prefix">logstash_prefix (string, optional)</h3><p>Set the prefix for logs in logstash format. If set, then Index field will be ignored.</p><h3 id="elasticsearchoutput-logstash_prefix_separator">logstash_prefix_separator (string, optional)</h3><p>Set the separator between LogstashPrefix and LogStashDateformat. Default: &ldquo;-&rdquo;</p><h3 id="elasticsearchoutput-logstash_suffix">logstash_suffix (string, optional)</h3><p>Set the suffix for logs in logstash format.</p><p>Default: <code>${YEAR}.${MONTH}.${DAY}</code>### type (*string, optional) {#elasticsearchoutput-type}</p><p>The document type associated with the operation. Elasticsearch indices now support a single document type: <code>_doc</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4131c759cc2c9dc428d35a27fd8f4fc68db2fb70">Merge pull request #228 from kube-logging/pepov-fluentbitagent (4131c75)</a>
+Last modified March 12, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c4cf8dada6ce52e03f9905f1dae0b7bb9817a5f9">Merge pull request #229 from kube-logging/pagefind-restructure (c4cf8da)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
