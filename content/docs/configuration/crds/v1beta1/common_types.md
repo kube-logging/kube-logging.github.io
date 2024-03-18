@@ -93,6 +93,7 @@ Security defines Fluentd, FluentbitAgent deployment security properties
 
 ### podSecurityPolicyCreate (bool, optional) {#security-podsecuritypolicycreate}
 
+Warning: this is not supported anymore and does nothing 
 
 ### roleBasedAccessControlCreate (*bool, optional) {#security-rolebasedaccesscontrolcreate}
 
