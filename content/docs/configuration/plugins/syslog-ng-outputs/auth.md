@@ -10,7 +10,7 @@ GRPC-based outputs use this configuration instead of the simple `tls` field foun
 ## Configuration
 ## Auth
 
-Authentication settings. Only one authentication method can be set. Default: insecure
+Authentication settings. Only one authentication method can be set. Default: Insecure
 
 ### adc (*ADC, optional) {#auth-adc}
 

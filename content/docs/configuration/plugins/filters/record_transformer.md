@@ -13,15 +13,15 @@ generated_file: true
 
 ### auto_typecast (bool, optional) {#recordtransformer-auto_typecast}
 
-Use original value type.  
+Use original value type.
 
-Default:  true
+Default: true
 
 ### enable_ruby (bool, optional) {#recordtransformer-enable_ruby}
 
 When set to true, the full Ruby syntax is enabled in the `${...}` expression.
 
-Default:  false
+Default: false
 
 ### keep_keys (string, optional) {#recordtransformer-keep_keys}
 
@@ -40,13 +40,14 @@ A comma-delimited list of keys to delete
 
 ### renew_record (bool, optional) {#recordtransformer-renew_record}
 
-Create new Hash to transform incoming data  
+Create new Hash to transform incoming data
 
-Default:  false
+Default: false
 
 ### renew_time_key (string, optional) {#recordtransformer-renew_time_key}
 
 Specify field name of the record to overwrite the time of events. Its value must be unix time. 
+
 
 
 
@@ -67,8 +68,6 @@ spec:
   localOutputRefs:
     - demo-output
 {{</ highlight >}}
-
-
 
 Fluentd config result:
 

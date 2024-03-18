@@ -39,7 +39,7 @@ The ID of the channel where you want to receive the information.
 
 You can set the communication channel if it uses TLS.
 
-Default:  true
+Default: true
 
 ### message (string, optional) {#output-config-message}
 
@@ -50,13 +50,13 @@ The message you want to send. It can be a static message, which you add at this 
 
 Color of the message you are sending, in hexadecimal format.
 
-Default:  #A9A9A9
+Default: #A9A9A9
 
 ### message_title (string, optional) {#output-config-message_title}
 
 The title you want to add to the message.
 
-Default:  fluent_title_default
+Default: fluent_title_default
 
 ### webhook_url (*secret.Secret, required) {#output-config-webhook_url}
 

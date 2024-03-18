@@ -53,15 +53,15 @@ The private key for this client.' [Secret](../secret/)
 
 ### coerce_to_utf8 (*bool, optional) {#splunkhecoutput-coerce_to_utf8}
 
-Indicates whether to allow non-UTF-8 characters in user logs. If set to true, any non-UTF-8 character is replaced by the string specified in non_utf8_replacement_string. If set to false, the Ingest API errors out any non-UTF-8 characters. . 
+Indicates whether to allow non-UTF-8 characters in user logs. If set to true, any non-UTF-8 character is replaced by the string specified in non_utf8_replacement_string. If set to false, the Ingest API errors out any non-UTF-8 characters. .
 
-Default:  true
+Default: true
 
 ### data_type (string, optional) {#splunkhecoutput-data_type}
 
-The type of data that will be sent to Sumo Logic, either event or metric  
+The type of data that will be sent to Sumo Logic, either event or metric
 
-Default:  event
+Default: event
 
 ### fields (Fields, optional) {#splunkhecoutput-fields}
 
@@ -80,9 +80,9 @@ You can specify SplunkHec host by this parameter.
 
 ### hec_port (int, optional) {#splunkhecoutput-hec_port}
 
-The port number for the Hec token or the Hec load balancer.  
+The port number for the Hec token or the Hec load balancer.
 
-Default:  8088
+Default: 8088
 
 ### hec_token (*secret.Secret, required) {#splunkhecoutput-hec_token}
 
@@ -116,7 +116,7 @@ The field name that contains the Splunk index name. Cannot set both index and in
 
 ### insecure_ssl (*bool, optional) {#splunkhecoutput-insecure_ssl}
 
-Indicates if insecure SSL connection is allowed  
+Indicates if insecure SSL connection is allowed
 
 Default: false
 
@@ -129,7 +129,7 @@ By default, all the fields used by the *_key parameters are removed from the ori
 
 Field name that contains the metric name. This parameter only works in conjunction with the metrics_from_event parameter. When this prameter is set, the `metrics_from_event` parameter is automatically set to false.
 
-Default:  true
+Default: true
 
 ### metric_value_key (string, optional) {#splunkhecoutput-metric_value_key}
 
@@ -143,9 +143,9 @@ When data_type is set to "metric", the ingest API will treat every key-value pai
 
 ### non_utf8_replacement_string (string, optional) {#splunkhecoutput-non_utf8_replacement_string}
 
-If coerce_to_utf8 is set to true, any non-UTF-8 character is replaced by the string you specify in this parameter. . 
+If coerce_to_utf8 is set to true, any non-UTF-8 character is replaced by the string you specify in this parameter. .
 
-Default:  ' '
+Default: ' '
 
 ### open_timeout (int, optional) {#splunkhecoutput-open_timeout}
 
@@ -154,13 +154,18 @@ The amount of time to wait for a connection to be opened.
 
 ### protocol (string, optional) {#splunkhecoutput-protocol}
 
-This is the protocol to use for calling the Hec API. Available values are: http, https.  
+This is the protocol to use for calling the Hec API. Available values are: http, https.
 
-Default:  https
+Default: https
 
 ### read_timeout (int, optional) {#splunkhecoutput-read_timeout}
 
 The amount of time allowed between reading two chunks from the socket. 
+
+
+### ssl_ciphers (string, optional) {#splunkhecoutput-ssl_ciphers}
+
+List of SSL ciphers allowed. 
 
 
 ### slow_flush_log_threshold (string, optional) {#splunkhecoutput-slow_flush_log_threshold}
@@ -186,10 +191,6 @@ The sourcetype field for events. When not set, the sourcetype is decided by HEC.
 ### sourcetype_key (string, optional) {#splunkhecoutput-sourcetype_key}
 
 Field name that contains the sourcetype. Cannot set both source and source_key parameters at the same time. 
-
-### ssl_ciphers (string, optional) {#splunkhecoutput-ssl_ciphers}
-
-List of SSL ciphers allowed. 
 
 
 

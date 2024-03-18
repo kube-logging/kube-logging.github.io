@@ -61,28 +61,6 @@ For details, see the [documentation of the AxoSyslog syslog-ng distribution](htt
 
 ## Configuration
 
-### headers ([]string, optional) {#httpoutput-headers}
-
-Custom HTTP headers to include in the request, for example, headers("HEADER1: header1", "HEADER2: header2").   
-
-Default:  empty
-
-### time_reopen (int, optional) {#httpoutput-time_reopen}
-
-The time to wait in seconds before a dead connection is reestablished.  
-
-Default:  60
-
-### tls (*TLS, optional) {#httpoutput-tls}
-
-This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see [TLS for syslog-ng outputs](../tls/) and the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/).
-
-
-### disk_buffer (*DiskBuffer, optional) {#httpoutput-disk_buffer}
-
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
-
-Default:  false
 
 ###  (Batch, required) {#httpoutput-}
 
@@ -108,6 +86,18 @@ The string syslog-ng OSE puts to the end of the body of the HTTP request, after 
 
 By default, syslog-ng OSE separates the log messages of the batch with a newline character. 
 
+
+### disk_buffer (*DiskBuffer, optional) {#httpoutput-disk_buffer}
+
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
+
+Default: false
+
+### headers ([]string, optional) {#httpoutput-headers}
+
+Custom HTTP headers to include in the request, for example, `headers("HEADER1: header1", "HEADER2: header2")`.
+
+Default: empty
 
 ### log-fifo-size (int, optional) {#httpoutput-log-fifo-size}
 
@@ -139,6 +129,8 @@ Specifies what syslog-ng does with the log message, based on the response code r
 The number of times syslog-ng OSE attempts to send a message to this destination. If syslog-ng OSE could not send a message, it will try again until the number of attempts reaches `retries`, then drops the message. 
 
 
+
+
 ### time_reopen (int, optional) {#httpoutput-time_reopen}
 
 The time to wait in seconds before a dead connection is reestablished.
@@ -157,7 +149,7 @@ This option sets various options related to TLS encryption, for example, key/cer
 
 ### url (string, optional) {#httpoutput-url}
 
-Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (:) after the address to specify the port number of the server. For example: `http://127.0.0.1:8000`
+Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (:) after the address to specify the port number of the server. For example: `http://127.0.0.1:8000` 
 
 
 ### user (string, optional) {#httpoutput-user}

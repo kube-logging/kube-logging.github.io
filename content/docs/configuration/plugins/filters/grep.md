@@ -50,6 +50,7 @@ Pattern expression to evaluate
 
 
 
+
 ## Example `Regexp` filter configurations
 
 {{< highlight yaml >}}
@@ -95,6 +96,7 @@ Specify field name in the record to parse.
 ### pattern (string, required) {#exclude-directive-pattern}
 
 Pattern expression to evaluate 
+
 
 
 
@@ -173,16 +175,16 @@ spec:
 Fluentd config result:
 
 {{< highlight xml >}}
-    <or>
-      <exclude>
-        key first
-        pattern /^5\d\d$/
-      </exclude>
-      <exclude>
-        key second
-        pattern /\.css$/
-      </exclude>
-    </or>
+<or>
+	<exclude>
+	key first
+	pattern /^5\d\d$/
+	</exclude>
+	<exclude>
+	key second
+	pattern /\.css$/
+	</exclude>
+</or>
 {{</ highlight >}}
 
 
@@ -228,16 +230,16 @@ spec:
 Fluentd config result:
 
 {{< highlight xml >}}
-    <and>
-      <regexp>
-        key first
-        pattern /^5\d\d$/
-      </regexp>
-      <regexp>
-        key second
-        pattern /\.css$/
-      </regexp>
-    </and>
+	<and>
+	  <regexp>
+	    key first
+	    pattern /^5\d\d$/
+	  </regexp>
+	  <regexp>
+	    key second
+	    pattern /\.css$/
+	  </regexp>
+	</and>
 {{</ highlight >}}
 
 

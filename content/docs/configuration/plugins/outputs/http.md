@@ -46,14 +46,20 @@ Endpoint for HTTP request.
 
 ### error_response_as_unrecoverable (*bool, optional) {#output-config-error_response_as_unrecoverable}
 
-Raise UnrecoverableError when the response code is non success, 1xx/3xx/4xx/5xx. If false, the plugin logs error message instead of raising UnrecoverableError.  
+Raise UnrecoverableError when the response code is non success, 1xx/3xx/4xx/5xx. If false, the plugin logs error message instead of raising UnrecoverableError.
 
-Default:  true
+Default: true
 
 ### format (*Format, optional) {#output-config-format}
 
 [Format](../format/) 
 
+
+### http_method (string, optional) {#output config-http_method}
+
+Method for HTTP request. [post, put]
+
+Default: post
 
 ### headers (map[string]string, optional) {#output-config-headers}
 
@@ -62,9 +68,9 @@ Additional headers for HTTP request.
 
 ### json_array (bool, optional) {#output-config-json_array}
 
-Using array format of JSON. This parameter is used and valid only for json format. When json_array as true, Content-Profile should be application/json and be able to use JSON data for the HTTP request body.   
+Using array format of JSON. This parameter is used and valid only for json format. When json_array as true, Content-Profile should be application/json and be able to use JSON data for the HTTP request body.
 
-Default:  false
+Default: false
 
 ### open_timeout (int, optional) {#output-config-open_timeout}
 
@@ -83,9 +89,9 @@ Read timeout in seconds.
 
 ### retryable_response_codes ([]int, optional) {#output-config-retryable_response_codes}
 
-List of retryable response codes. If the response code is included in this list, the plugin retries the buffer flush. Since Fluentd v2 the Status code 503 is going to be removed from default.  
+List of retryable response codes. If the response code is included in this list, the plugin retries the buffer flush. Since Fluentd v2 the Status code 503 is going to be removed from default.
 
-Default:  [503]
+Default: [503]
 
 ### ssl_timeout (int, optional) {#output-config-ssl_timeout}
 
@@ -103,9 +109,9 @@ The CA certificate path for TLS.
 
 ### tls_ciphers (string, optional) {#output-config-tls_ciphers}
 
-The cipher configuration of TLS transport.  
+The cipher configuration of TLS transport.
 
-Default:  ALL:!aNULL:!eNULL:!SSLv2
+Default: ALL:!aNULL:!eNULL:!SSLv2
 
 ### tls_client_cert_path (*secret.Secret, optional) {#output-config-tls_client_cert_path}
 
@@ -123,15 +129,15 @@ The client private key path for TLS.
 
 ### tls_verify_mode (string, optional) {#output-config-tls_verify_mode}
 
-The verify mode of TLS. [peer, none]  
+The verify mode of TLS. [peer, none]
 
-Default:  peer
+Default: peer
 
 ### tls_version (string, optional) {#output-config-tls_version}
 
-The default version of TLS transport. [TLSv1_1, TLSv1_2]  
+The default version of TLS transport. [TLSv1_1, TLSv1_2]
 
-Default:  TLSv1_2
+Default: TLSv1_2
 
 
 ## HTTP auth config

@@ -31,9 +31,10 @@ Default: ${namespace_name}.${pod_name}.${container_name}
 
 ### match_tag (string, optional) {#tag-normaliser-parameters-match_tag}
 
-Tag used in match directive.  
+Tag used in match directive.
 
 Default: `kubernetes.**`
+
 
 
 

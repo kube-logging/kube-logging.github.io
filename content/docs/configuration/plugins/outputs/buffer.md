@@ -80,9 +80,9 @@ How output plugin behaves when its buffer queue is full throw_exception: raise e
 
 ### path (string, optional) {#buffer-path}
 
-The path where buffer chunks are stored. The '*' is replaced with random characters. It's highly recommended to leave this default.  
+The path where buffer chunks are stored. The '*' is replaced with random characters. It's highly recommended to leave this default.
 
-Default:  operator generated
+Default: operator generated
 
 ### queue_limit_length (int, optional) {#buffer-queue_limit_length}
 
@@ -142,9 +142,9 @@ Seconds to wait before next retry to flush, or constant factor of exponential ba
 
 ### tags (*string, optional) {#buffer-tags}
 
-When tag is specified as buffer chunk key, output plugin writes events into chunks separately per tags.  
+When tag is specified as buffer chunk key, output plugin writes events into chunks separately per tags.
 
-Default:  tag,time
+Default: tag,time
 
 ### timekey (string, required) {#buffer-timekey}
 

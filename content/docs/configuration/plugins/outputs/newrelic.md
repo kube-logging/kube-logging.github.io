@@ -48,7 +48,7 @@ Default: `https://log-api.newrelic.com/log/v1`
 
 ### license_key (*secret.Secret, optional) {#output-config-license_key}
 
-New Relic License Key (recommended) [Secret](../secret/" LicenseKey *secret.Secret `json:"license_key)` 
+New Relic License Key (recommended) [Secret](../secret/).
 
 
 

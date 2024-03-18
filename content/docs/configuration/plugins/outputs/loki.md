@@ -44,15 +44,15 @@ TLS: parameters for presenting a client certificate [Secret](../secret/)
 
 ### configure_kubernetes_labels (*bool, optional) {#output-config-configure_kubernetes_labels}
 
-Configure Kubernetes metadata in a Prometheus like format  
+Configure Kubernetes metadata in a Prometheus like format
 
-Default:  false
+Default: false
 
 ### drop_single_key (*bool, optional) {#output-config-drop_single_key}
 
-If a record only has 1 key, then just set the log line to the value and discard the key.  
+If a record only has 1 key, then just set the log line to the value and discard the key.
 
-Default:  false
+Default: false
 
 ### extra_labels (map[string]string, optional) {#output-config-extra_labels}
 
@@ -60,21 +60,21 @@ Set of extra labels to include with every Loki stream.
 
 ### extract_kubernetes_labels (*bool, optional) {#output-config-extract_kubernetes_labels}
 
-Extract kubernetes labels as loki labels  
+Extract kubernetes labels as loki labels
 
-Default:  false
+Default: false
 
 ### include_thread_label (*bool, optional) {#output-config-include_thread_label}
 
-whether to include the fluentd_thread label when multiple threads are used for flushing.  
+whether to include the fluentd_thread label when multiple threads are used for flushing.
 
-Default:  true
+Default: true
 
 ### insecure_tls (*bool, optional) {#output-config-insecure_tls}
 
-TLS: disable server certificate verification  
+TLS: disable server certificate verification
 
-Default:  false
+Default: false
 
 ### key (*secret.Secret, optional) {#output-config-key}
 
@@ -99,9 +99,9 @@ Specify password if the Loki server requires authentication. [Secret](../secret/
 
 ### remove_keys ([]string, optional) {#output-config-remove_keys}
 
-Comma separated list of needless record keys to remove  
+Comma separated list of needless record keys to remove
 
-Default:  []
+Default: []
 
 ### slow_flush_log_threshold (string, optional) {#output-config-slow_flush_log_threshold}
 
@@ -114,7 +114,7 @@ Loki is a multi-tenant log storage platform and all requests sent must include a
 
 ### url (string, optional) {#output-config-url}
 
-The url of the Loki server to send logs to.  
+The url of the Loki server to send logs to.
 
 Default: `https://logs-us-west1.grafana.net`
 

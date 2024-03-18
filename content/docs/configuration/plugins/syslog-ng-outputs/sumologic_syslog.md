@@ -16,30 +16,30 @@ You need a Sumo Logic account to use this output. For details, see the [document
 
 ### deployment (string, optional) {#sumologicsyslogoutput-deployment}
 
-This option specifies your Sumo Logic deployment. https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security   
+This option specifies your [Sumo Logic deployment](https://help.sumologic.com/APIs/General-API-Information/Sumo-Logic-Endpoints-by-Deployment-and-Firewall-Security).
 
-Default:  empty
+Default: empty
 
 ### disk_buffer (*DiskBuffer, optional) {#sumologicsyslogoutput-disk_buffer}
 
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
 
-Default:  false
+Default: false
 
 ### persist_name (string, optional) {#sumologicsyslogoutput-persist_name}
 
 
 ### port (int, optional) {#sumologicsyslogoutput-port}
 
-This option sets the port number of the Sumo Logic server to connect to.  
+This option sets the port number of the Sumo Logic server to connect to.
 
-Default:  6514
+Default: 6514
 
 ### tag (string, optional) {#sumologicsyslogoutput-tag}
 
 This option specifies the list of tags to add as the tags fields of Sumo Logic messages. If not specified, syslog-ng OSE automatically adds the tags already assigned to the message. If you set the tag() option, only the tags you specify will be added to the messages.  
 
-Default:  tag
+Default: tag
 
 ### token (int, optional) {#sumologicsyslogoutput-token}
 

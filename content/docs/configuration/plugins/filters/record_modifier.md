@@ -8,6 +8,14 @@ generated_file: true
 ## Overview
  Modify each event record.
 
+<!--
+Set the cluster_name field to the specified value. It creates the field automatically if it doesn't exist
+
+    filters:
+    - record_modifier:
+        records:
+        - cluster_name: "MyCluster" -->
+
 ## Configuration
 ## RecordModifier
 
@@ -23,7 +31,7 @@ Prepare values for filtering in configure phase. Prepared values can be used in 
 
 ### records ([]Record, optional) {#recordmodifier-records}
 
-Add records docs at: https://github.com/repeatedly/fluent-plugin-record-modifier Records are represented as maps: `key: value` 
+Add records. Records are represented as maps: `key: value`. For details, see [https://github.com/repeatedly/fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier).
 
 
 ### remove_keys (string, optional) {#recordmodifier-remove_keys}
@@ -39,6 +47,7 @@ Replace specific value for keys
 ### whitelist_keys (string, optional) {#recordmodifier-whitelist_keys}
 
 This is exclusive with remove_keys 
+
 
 
 
