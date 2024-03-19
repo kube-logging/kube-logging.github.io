@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Enhance K8s Metadata | Logging operator</title><meta name="description" content="Enhance K8s Metadata Overview Fluentd Filter plugin to fetch several metadata for a Pod
+<title>Enhance K8s Metadata | Logging operator</title><meta name="description" content="Enhance K8s Metadata Fluentd Filter plugin to fetch several metadata for a Pod
 Configuration EnhanceK8s api_groups ([]string, optional) Kubernetes resources api groups
 Default: [&amp;quot;apps/v1&amp;quot;, &amp;quot;extensions/v1beta1&amp;quot;]
 bearer_token_file (string, optional) Bearer token path
@@ -28,9 +28,10 @@ cache_refresh_variation (int, optional) Cache refresh variation
 Default: 60*15
 cache_size (int, optional) Cache size
 Default: 1000
-cache_ttl (int, optional) Cache TTL">
+cache_ttl (int, optional) Cache TTL
+Default: 60602">
 <meta property="og:title" content="Enhance K8s Metadata">
-<meta property="og:description" content="Enhance K8s Metadata Overview Fluentd Filter plugin to fetch several metadata for a Pod
+<meta property="og:description" content="Enhance K8s Metadata Fluentd Filter plugin to fetch several metadata for a Pod
 Configuration EnhanceK8s api_groups ([]string, optional) Kubernetes resources api groups
 Default: [&#34;apps/v1&#34;, &#34;extensions/v1beta1&#34;]
 bearer_token_file (string, optional) Bearer token path
@@ -43,12 +44,13 @@ cache_refresh_variation (int, optional) Cache refresh variation
 Default: 60*15
 cache_size (int, optional) Cache size
 Default: 1000
-cache_ttl (int, optional) Cache TTL">
+cache_ttl (int, optional) Cache TTL
+Default: 60602">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/enhance_k8s/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-13T09:23:23+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-03-19T15:47:02+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Enhance K8s Metadata">
-<meta itemprop="description" content="Enhance K8s Metadata Overview Fluentd Filter plugin to fetch several metadata for a Pod
+<meta itemprop="description" content="Enhance K8s Metadata Fluentd Filter plugin to fetch several metadata for a Pod
 Configuration EnhanceK8s api_groups ([]string, optional) Kubernetes resources api groups
 Default: [&#34;apps/v1&#34;, &#34;extensions/v1beta1&#34;]
 bearer_token_file (string, optional) Bearer token path
@@ -61,12 +63,13 @@ cache_refresh_variation (int, optional) Cache refresh variation
 Default: 60*15
 cache_size (int, optional) Cache size
 Default: 1000
-cache_ttl (int, optional) Cache TTL">
-<meta itemprop="dateModified" content="2024-03-13T09:23:23+00:00">
-<meta itemprop="wordCount" content="223">
+cache_ttl (int, optional) Cache TTL
+Default: 60602">
+<meta itemprop="dateModified" content="2024-03-19T15:47:02+01:00">
+<meta itemprop="wordCount" content="222">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Enhance K8s Metadata">
-<meta name="twitter:description" content="Enhance K8s Metadata Overview Fluentd Filter plugin to fetch several metadata for a Pod
+<meta name="twitter:description" content="Enhance K8s Metadata Fluentd Filter plugin to fetch several metadata for a Pod
 Configuration EnhanceK8s api_groups ([]string, optional) Kubernetes resources api groups
 Default: [&#34;apps/v1&#34;, &#34;extensions/v1beta1&#34;]
 bearer_token_file (string, optional) Bearer token path
@@ -79,7 +82,8 @@ cache_refresh_variation (int, optional) Cache refresh variation
 Default: 60*15
 cache_size (int, optional) Cache size
 Default: 1000
-cache_ttl (int, optional) Cache TTL">
+cache_ttl (int, optional) Cache TTL
+Default: 60602">
 <meta name="twitter:site" content="@calisti12">
 <link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
 <link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
@@ -92,11 +96,11 @@ cache_ttl (int, optional) Cache TTL">
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
-</head><body class="td-page" data-pagefind-filter="section:4.5">
+</head><body class="td-page" data-pagefind-filter="section:4.6">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.5.1</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.6.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -201,6 +205,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1fluentbit_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1fluentbit_types-check">
 <label for="m-docsconfigurationcrdsv1beta1fluentbit_types-check"><a href="/docs/configuration/crds/v1beta1/fluentbit_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1fluentbit_types"><span>FluentbitSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1fluentd_config_types-li">
+<input type="checkbox" id="m-docsconfigurationcrdsv1beta1fluentd_config_types-check">
+<label for="m-docsconfigurationcrdsv1beta1fluentd_config_types-check"><a href="/docs/configuration/crds/v1beta1/fluentd_config_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1fluentd_config_types"><span>FluentdConfig</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1fluentd_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1fluentd_types-check">
 <label for="m-docsconfigurationcrdsv1beta1fluentd_types-check"><a href="/docs/configuration/crds/v1beta1/fluentd_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1fluentd_types"><span>FluentdSpec</span></a></label>
@@ -222,6 +229,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check">
 <label for="m-docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check"><a href="/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1syslogng_clusteroutput_types"><span>SyslogNGClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1syslogng_config_types-li">
+<input type="checkbox" id="m-docsconfigurationcrdsv1beta1syslogng_config_types-check">
+<label for="m-docsconfigurationcrdsv1beta1syslogng_config_types-check"><a href="/docs/configuration/crds/v1beta1/syslogng_config_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1syslogng_config_types"><span>SyslogNGConfig</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1syslogng_flow_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1syslogng_flow_types-check">
 <label for="m-docsconfigurationcrdsv1beta1syslogng_flow_types-check"><a href="/docs/configuration/crds/v1beta1/syslogng_flow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1syslogng_flow_types"><span>SyslogNGFlowSpec</span></a></label>
@@ -400,6 +410,12 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputssyslog-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputssyslog-check">
 <label for="m-docsconfigurationpluginsoutputssyslog-check"><a href="/docs/configuration/plugins/outputs/syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputssyslog"><span>Syslog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsvmware_log_intelligence-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsvmware_log_intelligence-check">
+<label for="m-docsconfigurationpluginsoutputsvmware_log_intelligence-check"><a href="/docs/configuration/plugins/outputs/vmware_log_intelligence/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsvmware_log_intelligence"><span>VMware Log Intelligence</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsvmware_loginsight-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsvmware_loginsight-check">
+<label for="m-docsconfigurationpluginsoutputsvmware_loginsight-check"><a href="/docs/configuration/plugins/outputs/vmware_loginsight/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsvmware_loginsight"><span>VMware LogInsight</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputssecret-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputssecret-check">
 <label for="m-docsconfigurationpluginsoutputssecret-check"><a href="/docs/configuration/plugins/outputs/secret/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputssecret"><span>Secret definition</span></a></label>
@@ -609,7 +625,7 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#enhancek8s">EnhanceK8s</a>
+<li><a href="#enhance-k8s-metadatahttpsgithubcomsumologicsumologic-kubernetes-fluentdtreemainfluent-plugin-enhance-k8s-metadata"><a href="https://github.com/SumoLogic/sumologic-kubernetes-fluentd/tree/main/fluent-plugin-enhance-k8s-metadata">Enhance K8s Metadata</a></a></li><li><a href="#configuration">Configuration</a></li><li><a href="#enhancek8s">EnhanceK8s</a>
 <ul>
 <li><a href="#enhancek8s-api_groups">api_groups ([]string, optional)</a></li><li><a href="#enhancek8s-bearer_token_file">bearer_token_file (string, optional)</a></li><li><a href="#enhancek8s-ca_file">ca_file (secret.Secret, optional)</a></li><li><a href="#enhancek8s-cache_refresh">cache_refresh (int, optional)</a></li><li><a href="#enhancek8s-cache_refresh_variation">cache_refresh_variation (int, optional)</a></li><li><a href="#enhancek8s-cache_size">cache_size (int, optional)</a></li><li><a href="#enhancek8s-cache_ttl">cache_ttl (int, optional)</a></li><li><a href="#enhancek8s-client_cert">client_cert (secret.Secret, optional)</a></li><li><a href="#enhancek8s-client_key">client_key (secret.Secret, optional)</a></li><li><a href="#enhancek8s-core_api_versions">core_api_versions ([]string, optional)</a></li><li><a href="#enhancek8s-data_type">data_type (string, optional)</a></li><li><a href="#enhancek8s-in_namespace_path">in_namespace_path ([]string, optional)</a></li><li><a href="#enhancek8s-in_pod_path">in_pod_path ([]string, optional)</a></li><li><a href="#enhancek8s-kubernetes_url">kubernetes_url (string, optional)</a></li><li><a href="#enhancek8s-ssl_partial_chain">ssl_partial_chain (*bool, optional)</a></li><li><a href="#enhancek8s-secret_dir">secret_dir (string, optional)</a></li><li><a href="#enhancek8s-verify_ssl">verify_ssl (*bool, optional)</a></li></ul></li><li><a href="#example-enhancek8s-filter-configurations">Example <code>EnhanceK8s</code> filter configurations</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
@@ -626,7 +642,7 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/filters/enhance_k8s/" aria-disabled="true" class="btn-link disabled">Enhance K8s Metadata</a>
 </li></ol></nav><div class="td-content">
 <h1>Enhance K8s Metadata</h1><header class="article-meta">
-</header><h1 id="enhance-k8s-metadatahttpsgithubcomsumologicsumologic-kubernetes-collectiontreemainfluent-plugin-enhance-k8s-metadata"><a href="https://github.com/SumoLogic/sumologic-kubernetes-collection/tree/main/fluent-plugin-enhance-k8s-metadata">Enhance K8s Metadata</a></h1><h2 id="overview">Overview</h2><p>Fluentd Filter plugin to fetch several metadata for a Pod</p><h2 id="configuration">Configuration</h2><h2 id="enhancek8s">EnhanceK8s</h2><h3 id="enhancek8s-api_groups">api_groups ([]string, optional)</h3><p>Kubernetes resources api groups</p><p>Default: <code>["apps/v1", "extensions/v1beta1"]</code></p><h3 id="enhancek8s-bearer_token_file">bearer_token_file (string, optional)</h3><p>Bearer token path</p><p>Default: nil</p><h3 id="enhancek8s-ca_file">ca_file (secret.Secret, optional)</h3><p>Kubernetes API CA file</p><p>Default: nil</p><h3 id="enhancek8s-cache_refresh">cache_refresh (int, optional)</h3><p>Cache refresh</p><p>Default: 60*60</p><h3 id="enhancek8s-cache_refresh_variation">cache_refresh_variation (int, optional)</h3><p>Cache refresh variation</p><p>Default: 60*15</p><h3 id="enhancek8s-cache_size">cache_size (int, optional)</h3><p>Cache size</p><p>Default: 1000</p><h3 id="enhancek8s-cache_ttl">cache_ttl (int, optional)</h3><p>Cache TTL</p><p>Default: 60<em>60</em>2</p><h3 id="enhancek8s-client_cert">client_cert (secret.Secret, optional)</h3><p>Kubernetes API Client certificate</p><p>Default: nil</p><h3 id="enhancek8s-client_key">client_key (secret.Secret, optional)</h3><p>// Kubernetes API Client certificate key</p><p>Default: nil</p><h3 id="enhancek8s-core_api_versions">core_api_versions ([]string, optional)</h3><p>Kubernetes core API version (for different Kubernetes versions)</p><p>Default: [&lsquo;v1&rsquo;]</p><h3 id="enhancek8s-data_type">data_type (string, optional)</h3><p>Sumologic data type</p><p>Default: metrics</p><h3 id="enhancek8s-in_namespace_path">in_namespace_path ([]string, optional)</h3><p>parameters for read/write record</p><p>Default: <code>['$.namespace']</code></p><h3 id="enhancek8s-in_pod_path">in_pod_path ([]string, optional)</h3><p>Default: <code>['$.pod','$.pod_name']</code></p><h3 id="enhancek8s-kubernetes_url">kubernetes_url (string, optional)</h3><p>Kubernetes API URL</p><p>Default: nil</p><h3 id="enhancek8s-ssl_partial_chain">ssl_partial_chain (*bool, optional)</h3><p>If <code>ca_file</code> is for an intermediate CA, or otherwise we do not have the root CA and want to trust the intermediate CA certs we do have, set this to <code>true</code> - this corresponds to the openssl s_client -partial_chain flag and X509_V_FLAG_PARTIAL_CHAIN</p><p>Default: false</p><h3 id="enhancek8s-secret_dir">secret_dir (string, optional)</h3><p>Service account directory</p><p>Default: /var/run/secrets/kubernetes.io/serviceaccount</p><h3 id="enhancek8s-verify_ssl">verify_ssl (*bool, optional)</h3><p>Verify SSL</p><p>Default: true</p><h2 id="example-enhancek8s-filter-configurations">Example <code>EnhanceK8s</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</header><h2 id="enhance-k8s-metadatahttpsgithubcomsumologicsumologic-kubernetes-fluentdtreemainfluent-plugin-enhance-k8s-metadata"><a href="https://github.com/SumoLogic/sumologic-kubernetes-fluentd/tree/main/fluent-plugin-enhance-k8s-metadata">Enhance K8s Metadata</a></h2><p>Fluentd Filter plugin to fetch several metadata for a Pod</p><h2 id="configuration">Configuration</h2><h2 id="enhancek8s">EnhanceK8s</h2><h3 id="enhancek8s-api_groups">api_groups ([]string, optional)</h3><p>Kubernetes resources api groups</p><p>Default: <code>["apps/v1", "extensions/v1beta1"]</code></p><h3 id="enhancek8s-bearer_token_file">bearer_token_file (string, optional)</h3><p>Bearer token path</p><p>Default: nil</p><h3 id="enhancek8s-ca_file">ca_file (secret.Secret, optional)</h3><p>Kubernetes API CA file</p><p>Default: nil</p><h3 id="enhancek8s-cache_refresh">cache_refresh (int, optional)</h3><p>Cache refresh</p><p>Default: 60*60</p><h3 id="enhancek8s-cache_refresh_variation">cache_refresh_variation (int, optional)</h3><p>Cache refresh variation</p><p>Default: 60*15</p><h3 id="enhancek8s-cache_size">cache_size (int, optional)</h3><p>Cache size</p><p>Default: 1000</p><h3 id="enhancek8s-cache_ttl">cache_ttl (int, optional)</h3><p>Cache TTL</p><p>Default: 60<em>60</em>2</p><h3 id="enhancek8s-client_cert">client_cert (secret.Secret, optional)</h3><p>Kubernetes API Client certificate</p><p>Default: nil</p><h3 id="enhancek8s-client_key">client_key (secret.Secret, optional)</h3><p>Kubernetes API Client certificate key</p><p>Default: nil</p><h3 id="enhancek8s-core_api_versions">core_api_versions ([]string, optional)</h3><p>Kubernetes core API version (for different Kubernetes versions)</p><p>Default: [&lsquo;v1&rsquo;]</p><h3 id="enhancek8s-data_type">data_type (string, optional)</h3><p>Sumo Logic data type</p><p>Default: metrics</p><h3 id="enhancek8s-in_namespace_path">in_namespace_path ([]string, optional)</h3><p>parameters for read/write record</p><p>Default: <code>['$.namespace']</code></p><h3 id="enhancek8s-in_pod_path">in_pod_path ([]string, optional)</h3><p>Default: <code>['$.pod','$.pod_name']</code></p><h3 id="enhancek8s-kubernetes_url">kubernetes_url (string, optional)</h3><p>Kubernetes API URL</p><p>Default: nil</p><h3 id="enhancek8s-ssl_partial_chain">ssl_partial_chain (*bool, optional)</h3><p>If <code>ca_file</code> is for an intermediate CA, or otherwise we do not have the root CA and want to trust the intermediate CA certs we do have, set this to <code>true</code> - this corresponds to the openssl s_client -partial_chain flag and X509_V_FLAG_PARTIAL_CHAIN</p><p>Default: false</p><h3 id="enhancek8s-secret_dir">secret_dir (string, optional)</h3><p>Service account directory</p><p>Default: /var/run/secrets/kubernetes.io/serviceaccount</p><h3 id="enhancek8s-verify_ssl">verify_ssl (*bool, optional)</h3><p>Verify SSL</p><p>Default: true</p><h2 id="example-enhancek8s-filter-configurations">Example <code>EnhanceK8s</code> filter configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">demo-flow</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -637,7 +653,7 @@ Releases
 </span></span><span style="display:flex"><span>  @id test_enhanceK8s
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified March 13, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2745a209a508b75958fd7dc7366db2e5520aa215">Merge 8aa2a78d1b59ac7220c228793d84e6ff962eed9d into c4cf8dada6ce52e03f9905f1dae0b7bb9817a5f9 (2745a20)</a>
+Last modified March 19, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/94b0323d1d444a854eb76467c643c08fc74176eb">Merge pull request #231 from kube-logging/4.6-docs (94b0323)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
