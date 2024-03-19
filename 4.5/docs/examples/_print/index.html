@@ -1,0 +1,1016 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="canonical" type="text/html" href="https://kube-logging.dev/4.5/docs/examples/">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/4.5/docs/examples/releases.releases">
+<meta name="robots" content="noindex, nofollow">
+<link rel="shortcut icon" href="/4.5/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/4.5/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/4.5/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/4.5/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/4.5/favicons/android-192x192.png" sizes="192x192">
+<title>Examples | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
+<meta property="og:title" content="Examples">
+<meta property="og:description" content="Documentation for the Logging operator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kube-logging.dev/4.5/docs/examples/"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Examples">
+<meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Examples">
+<meta name="twitter:description" content="Documentation for the Logging operator">
+<meta name="twitter:site" content="@calisti12">
+<link rel="preload" href="/4.5/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
+<link href="/4.5/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/4.5/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/examples/">
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+</head><body class="td-section">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/4.5/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">4.5.1</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/4.5/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/4.5/docs/community/" title="Come chat with us!"><span>Community</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/docs/examples//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="return print(),!1">Click here to print</a>.
+</p><p>
+<a href="/4.5/docs/examples/">Return to the regular view of this page</a>.
+</p></div><h1 class="title">Examples</h1><ul>
+<li>1: <a href="#pg-05eacbf7a0c1b481b78d7fadf3072b45">Filter examples in Flows</a></li><li>2: <a href="#pg-a32e96d02144ee3cb1936db017f63e08">Parsing custom date formats</a></li><li>3: <a href="#pg-40c8034365add30f05453065286935a7">Store Nginx Access Logs in Amazon CloudWatch with Logging Operator</a></li><li>4: <a href="#pg-8ccd39da9b80871a1d5d3a16b317985a">Transport all logs into Amazon S3 with Logging operator</a></li><li>5: <a href="#pg-4db6cfeb56675824920db186601c2746">Store NGINX access logs in Elasticsearch with Logging operator</a></li><li>6: <a href="#pg-151681c15ceae7e696e0c20fe51220fa">Splunk operator with Logging operator</a></li><li>7: <a href="#pg-256fcfd7514994ffef95721e2aab59da">Sumo Logic with Logging operator and Fluentd</a></li><li>8: <a href="#pg-9e8c31099cc068e1c927a9cdd5531187">Sumo Logic with Logging operator and syslog-ng</a></li><li>9: <a href="#pg-abd97e700fb7a973b1dcfb4cb9aae1b4">Transport Nginx Access Logs into Kafka with Logging operator</a></li><li>10: <a href="#pg-01af43cb645f47605cedaae3bc91678b">Store Nginx Access Logs in Grafana Loki with Logging operator</a></li><li>11: <a href="#pg-aeee3c18c3b933f861743e7b21d3529d">Nodegroup-based multitenancy</a></li><li>12: <a href="#pg-3c57b775dac77ff05294c6fa7e03a10b">Custom source and output metrics</a></li></ul><div class="content">
+<h2 id="flow-examples">Flow examples</h2><p>The following examples show some simple flows. For more examples that use filters, see <a href="/4.5/docs/examples/filters-in-flows/">Filter examples in Flows</a>.</p><h3 id="flow-with-a-single-output">Flow with a single output</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the output called <code>forward-output-sample</code>.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_single_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="flow-with-multiple-outputs">Flow with multiple outputs</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the <code>gcs-output-sample</code> and <code>s3-output-example</code> outputs.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_multiple_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="logging-examples">Logging examples</h2><p>Simple <a href="/4.5/docs/logging-infrastructure/logging/">Logging</a> definition with default values.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_logging_simple.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="logging-with-tls">Logging with TLS</h3><p>Simple <a href="/4.5/docs/logging-infrastructure/logging/">Logging</a> definition with <a href="/4.5/docs/logging-infrastructure/tls/">TLS encryption enabled</a>.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_logging_tls.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="output-examples">Output examples</h2><h3 id="simple-file-output">Simple file output</h3><p>Defines a <a href="/4.5/docs/configuration/plugins/outputs/file/">file output</a> with timestamped log files.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_output_file.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="drop-messages-into-devnull-output">Drop messages into dev/null output</h3><p>Creates a dev/null output that can be the destination of messages you want to drop explicitly.</p><div class="warning-block">
+<p><strong>CAUTION:</strong></p>Messages sent to this output are irrevocably lost forever.
+</div><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_output_null.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="s3-output">S3 output</h3><p>Defines an <a href="/4.5/docs/configuration/plugins/outputs/s3/">Amazon S3 output</a> to store your logs in a bucket.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_output_s3.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="gcs-output">GCS output</h3><p>Defines a <a href="/4.5/docs/configuration/plugins/outputs/gcs/">Google Cloud Storage output</a> to store your logs.</p><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_output_s3.yaml' data-download-link data-download-link-label="Download this file" $opts></pre></div></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-05eacbf7a0c1b481b78d7fadf3072b45">1 - Filter examples in Flows</h1><p>YAML files for simple logging flows with filter examples.</p><h2 id="geoip-filter">GeoIP filter</h2><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_geoip.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="parser-and-tag-normalizer">Parser and tag normalizer</h2><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_with_filters.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="dedot-filter">Dedot filter</h2><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_with_dedot.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="multiple-format">Multiple format</h2><pre data-src='https://kube-logging.dev/4.5/docs/examples/logging_flow_with_multi_format.yaml' data-download-link data-download-link-label="Download this file" $opts></pre></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-a32e96d02144ee3cb1936db017f63e08">2 - Parsing custom date formats</h1><p>By default, the syslog-ng aggregator uses the time when a message has been received on its input source as the timestamp. If you want to use the timestamp written in the message metadata, you can use a <a href="https://axoflow.com/docs/axosyslog-core/chapter-parsers/date-parser/date-parser-options/">date-parser</a>.</p><p>Available in Logging operator version 4.5 and later.</p><p>To use the timestamps written by the container runtime (<em>cri</em> or <em>docker</em>) and parsed by Fluent Bit, define the <code>sourceDateParser</code> in the <em>syslog-ng</em> spec.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">syslogNG</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">sourceDateParser</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>You can also define your own parser format and template. The following example shows the default values.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">syslogNG</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">sourceDateParser</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">format</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;%FT%T.%f%z&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">template</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${json.time}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-40c8034365add30f05453065286935a7">3 - Store Nginx Access Logs in Amazon CloudWatch with Logging Operator</h1><p align="center"><img src="../../img/nlw.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to CloudWatch.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-cloudwatch.png" alt="Architecture" width="900"></p><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application using <a href="#helm">Helm</a>.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Create AWS <code>secret</code></p><blockquote>
+<p>If you have your <code>$AWS_ACCESS_KEY_ID</code> and <code>$AWS_SECRET_ACCESS_KEY</code> set you can use the following snippet.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging create secret generic logging-cloudwatch --from-literal <span style="color:#4e9a06">&#34;awsAccessKeyId=</span><span style="color:#000">$AWS_ACCESS_KEY_ID</span><span style="color:#4e9a06">&#34;</span> --from-literal <span style="color:#4e9a06">&#34;awsSecretAccessKey=</span><span style="color:#000">$AWS_SECRET_ACCESS_KEY</span><span style="color:#4e9a06">&#34;</span>
+</span></span></code></pre></div><p>Or set up the secret manually.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>    apiVersion: v1
+</span></span><span style="display:flex"><span>    kind: Secret
+</span></span><span style="display:flex"><span>    metadata:
+</span></span><span style="display:flex"><span>      name: logging-cloudwatch
+</span></span><span style="display:flex"><span>    type: Opaque
+</span></span><span style="display:flex"><span>    data:
+</span></span><span style="display:flex"><span>      awsAccessKeyId: &lt;base64encoded&gt;
+</span></span><span style="display:flex"><span>      awsSecretAccessKey: &lt;base64encoded&gt;
+</span></span><span style="display:flex"><span>    EOF
+</span></span></code></pre></div></li><li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: default-logging-simple
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create an CloudWatch <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Output
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span> name: cloudwatch-output
+</span></span><span style="display:flex"><span> namespace: logging
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span> cloudwatch:
+</span></span><span style="display:flex"><span>   aws_key_id:
+</span></span><span style="display:flex"><span>     valueFrom:
+</span></span><span style="display:flex"><span>       secretKeyRef:
+</span></span><span style="display:flex"><span>         name: logging-cloudwatch
+</span></span><span style="display:flex"><span>         key: awsAccessKeyId
+</span></span><span style="display:flex"><span>   aws_sec_key:
+</span></span><span style="display:flex"><span>     valueFrom:
+</span></span><span style="display:flex"><span>       secretKeyRef:
+</span></span><span style="display:flex"><span>         name: logging-cloudwatch
+</span></span><span style="display:flex"><span>         key: awsSecretAccessKey
+</span></span><span style="display:flex"><span>   log_group_name: operator-log-group
+</span></span><span style="display:flex"><span>   log_stream_name: operator-log-stream
+</span></span><span style="display:flex"><span>   region: us-east-1
+</span></span><span style="display:flex"><span>   auto_create_stream: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>   buffer:
+</span></span><span style="display:flex"><span>     timekey: 30s
+</span></span><span style="display:flex"><span>     timekey_wait: 30s
+</span></span><span style="display:flex"><span>     timekey_use_utc: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
+<p>Create a <code>flow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Flow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: cloudwatch-flow
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>    - parser:
+</span></span><span style="display:flex"><span>        remove_key_name_field: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        reserve_data: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        parse:
+</span></span><span style="display:flex"><span>          type: nginx
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>    - <span style="color:#204a87;font-weight:700">select</span>:
+</span></span><span style="display:flex"><span>        labels:
+</span></span><span style="display:flex"><span>          app.kubernetes.io/name: log-generator
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - cloudwatch-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p align="center"><img src="../../img/cw.png" alt="Cloudwatch dashboard"></p><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-8ccd39da9b80871a1d5d3a16b317985a">4 - Transport all logs into Amazon S3 with Logging operator</h1><p align="center"><img src="../../img/s3_logo.png" alt="Logos" width="340"></p><p>This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/s3_flow.png" alt="Architecture" width="900"></p><h2 id="deploy-the-logging-operator">Deploy the Logging operator</h2><p>Install the Logging operator.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+<li>
+<p>Create AWS <code>secret</code></p><blockquote>
+<p>If you have your <code>$AWS_ACCESS_KEY_ID</code> and <code>$AWS_SECRET_ACCESS_KEY</code> set you can use the following snippet.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging create secret generic logging-s3 --from-literal <span style="color:#4e9a06">&#34;awsAccessKeyId=</span><span style="color:#000">$AWS_ACCESS_KEY_ID</span><span style="color:#4e9a06">&#34;</span> --from-literal <span style="color:#4e9a06">&#34;awsSecretAccessKey=</span><span style="color:#000">$AWS_SECRET_ACCESS_KEY</span><span style="color:#4e9a06">&#34;</span>
+</span></span></code></pre></div><p>Or set up the secret manually.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>    apiVersion: v1
+</span></span><span style="display:flex"><span>    kind: Secret
+</span></span><span style="display:flex"><span>    metadata:
+</span></span><span style="display:flex"><span>      name: logging-s3
+</span></span><span style="display:flex"><span>    type: Opaque
+</span></span><span style="display:flex"><span>    data:
+</span></span><span style="display:flex"><span>      awsAccessKeyId: &lt;base64encoded&gt;
+</span></span><span style="display:flex"><span>      awsSecretAccessKey: &lt;base64encoded&gt;
+</span></span><span style="display:flex"><span>    EOF
+</span></span></code></pre></div></li><li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: default-logging-simple
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create an S3 <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Output
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span> name: s3-output
+</span></span><span style="display:flex"><span> namespace: logging
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span> s3:
+</span></span><span style="display:flex"><span>   aws_key_id:
+</span></span><span style="display:flex"><span>     valueFrom:
+</span></span><span style="display:flex"><span>       secretKeyRef:
+</span></span><span style="display:flex"><span>         name: logging-s3
+</span></span><span style="display:flex"><span>         key: awsAccessKeyId
+</span></span><span style="display:flex"><span>   aws_sec_key:
+</span></span><span style="display:flex"><span>     valueFrom:
+</span></span><span style="display:flex"><span>       secretKeyRef:
+</span></span><span style="display:flex"><span>         name: logging-s3
+</span></span><span style="display:flex"><span>         key: awsSecretAccessKey
+</span></span><span style="display:flex"><span>   s3_bucket: logging-amazon-s3
+</span></span><span style="display:flex"><span>   s3_region: eu-central-1
+</span></span><span style="display:flex"><span>   path: logs/<span style="color:#4e9a06">${</span><span style="color:#000">tag</span><span style="color:#4e9a06">}</span>/%Y/%m/%d/
+</span></span><span style="display:flex"><span>   buffer:
+</span></span><span style="display:flex"><span>     timekey: 10m
+</span></span><span style="display:flex"><span>     timekey_wait: 30s
+</span></span><span style="display:flex"><span>     timekey_use_utc: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
+<p>Create a <code>flow</code> resource. (Mind the label selector in the <code>match</code> that selects a set of pods that we will install in the next step)</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Flow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: s3-flow
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>    - <span style="color:#204a87;font-weight:700">select</span>:
+</span></span><span style="display:flex"><span>        labels:
+</span></span><span style="display:flex"><span>          app.kubernetes.io/name: log-generator
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - s3-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>Check fluentd logs (errors with AWS credentials should be visible here):</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs -f -n logging default-logging-simple-fluentd-0 -c fluentd
+</span></span></code></pre></div><blockquote>
+<p>Fluentd logs were written to the container filesystem up until Logging operator version 4.3, which has been changed to stdout with 4.4.
+See <a href="/4.5/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOutLogrotate</a> why this was changed and how you can re-enable it if needed.</p></blockquote><p>Check the output. The logs will be available in the bucket on a <code>path</code> like:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>/logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
+</span></span></code></pre></div><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-4db6cfeb56675824920db186601c2746">5 - Store NGINX access logs in Elasticsearch with Logging operator</h1><p align="center"><img src="../../img/nle.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-elastic.png" alt="Architecture" width="900"></p><h2 id="deploy-elasticsearch">Deploy Elasticsearch</h2><p>First, deploy Elasticsearch in your Kubernetes cluster. The following procedure is based on the <a href="https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html">Elastic Cloud on Kubernetes quickstart</a>, but there are some minor configuration changes, and we install everything into the <em>logging</em> namespace.</p><ol>
+<li>
+<p>Install the Elasticsearch operator.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl apply -f https://download.elastic.co/downloads/eck/1.3.0/all-in-one.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li><li>
+<p>Create the <code>logging</code> Namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create ns logging
+</span></span></code></pre></div></li><li>
+<p>Install the Elasticsearch cluster into the <em>logging</em> namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">cat &lt;&lt;EOF | kubectl apply -n logging -f -</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elasticsearch.k8s.elastic.co/v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Elasticsearch</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">version</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">7.10.0</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">nodeSets</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">count</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">config</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.master</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.data</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.ingest</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">node.store.allow_mmap</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li><li>
+<p>Install Kibana into the <em>logging</em> namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">cat &lt;&lt;EOF | kubectl apply -n logging -f -</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">kibana.k8s.elastic.co/v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Kibana</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">version</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">7.10.0</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">count</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">elasticsearchRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">quickstart</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+<li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: default-logging-simple
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create an Elasticsearch <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Output
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: es-output
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  elasticsearch:
+</span></span><span style="display:flex"><span>    host: quickstart-es-http.logging.svc.cluster.local
+</span></span><span style="display:flex"><span>    port: <span style="color:#0000cf;font-weight:700">9200</span>
+</span></span><span style="display:flex"><span>    scheme: https
+</span></span><span style="display:flex"><span>    ssl_verify: <span style="color:#204a87">false</span>
+</span></span><span style="display:flex"><span>    ssl_version: TLSv1_2
+</span></span><span style="display:flex"><span>    user: elastic
+</span></span><span style="display:flex"><span>    password:
+</span></span><span style="display:flex"><span>      valueFrom:
+</span></span><span style="display:flex"><span>        secretKeyRef:
+</span></span><span style="display:flex"><span>          name: quickstart-es-elastic-user
+</span></span><span style="display:flex"><span>          key: elastic
+</span></span><span style="display:flex"><span>    buffer:
+</span></span><span style="display:flex"><span>      timekey: 1m
+</span></span><span style="display:flex"><span>      timekey_wait: 30s
+</span></span><span style="display:flex"><span>      timekey_use_utc: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
+<p>Create a <code>flow</code> resource. (Mind the label selector in the <code>match</code> that selects a set of pods that we will install in the next step)</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Flow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: es-flow
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>    - parser:
+</span></span><span style="display:flex"><span>        remove_key_name_field: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        reserve_data: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        parse:
+</span></span><span style="display:flex"><span>          type: nginx
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>     - <span style="color:#204a87;font-weight:700">select</span>:
+</span></span><span style="display:flex"><span>         labels:
+</span></span><span style="display:flex"><span>           app.kubernetes.io/name: log-generator
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - es-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install the demo application.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>To validate that the deployment was successful, complete the following steps.</p><ol>
+<li>
+<p>Check fluentd logs:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl logs -f -n logging default-logging-simple-fluentd-0 -c fluentd
+</span></span></code></pre></div><blockquote>
+<p>Fluentd logs were written to the container filesystem up until Logging operator version 4.3, which has been changed to stdout with 4.4.
+See <a href="/4.5/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOutLogrotate</a> why this was changed and how you can re-enable it if needed.</p></blockquote></li><li>
+<p>Use the following command to retrieve the password of the <code>elastic</code> user:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get secret quickstart-es-elastic-user -o<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.data.elastic}&#39;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode<span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
+</span></span></code></pre></div></li><li>
+<p>Enable port forwarding to the Kibana Dashboard Service.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/quickstart-kb-http <span style="color:#0000cf;font-weight:700">5601</span>
+</span></span></code></pre></div></li><li>
+<p>Open the Kibana dashboard in your browser at <a href="https://localhost:5601">https://localhost:5601</a> and login as <strong>elastic</strong> using the retrieved password.</p></li><li>
+<p>By default, the Logging operator sends the incoming log messages into an index called <em>fluentd</em>. Create an Index Pattern that includes this index (for example, <em>fluentd*</em>), then select <strong>Menu > Kibana > Discover</strong>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-151681c15ceae7e696e0c20fe51220fa">6 - Splunk operator with Logging operator</h1><p align="center"><img src="../../img/splunk.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Splunk.</p><p>Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output (in this case, to Splunk). For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><h2 id="deploy-splunk">Deploy Splunk</h2><p>First, deploy Splunk Standalone in your Kubernetes cluster. The following procedure is based on the <a href="https://www.splunk.com/en_us/blog/it/an-insider-s-guide-to-splunk-on-containers-and-kubernetes.html">Splunk on Kubernetes quickstart</a>.</p><ol>
+<li>
+<p>Create the <code>logging</code> Namespace.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create ns logging
+</span></span></code></pre></div></li><li>
+<p>Install the Splunk operator.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl apply -n logging -f https://github.com/splunk/splunk-operator/releases/download/2.4.0/splunk-operator-cluster.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li><li>
+<p>Install the Splunk cluster</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl apply -n logging -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">enterprise.splunk.com/v4</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Standalone</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">single</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">finalizers</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#000">enterprise.splunk.com/delete-pvc</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, see <a href="/4.5/docs/install/#helm">Deploy the Logging operator with Helm</a>.</p><ol>
+<li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: default-logging-simple
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Get a Splunk HEC Token.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#000">HEC_TOKEN</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#204a87;font-weight:700">$(</span>kubectl get secret -n logging  splunk-logging-secret -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.data.hec_token}&#39;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode<span style="color:#204a87;font-weight:700">)</span>
+</span></span></code></pre></div></li><li>
+<p>Create a Splunk output secret from the token.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl  create secret generic splunk-token -n logging --from-literal <span style="color:#4e9a06">&#34;SplunkHecToken=</span><span style="color:#4e9a06">${</span><span style="color:#000">HEC_TOKEN</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span>
+</span></span></code></pre></div></li><li>
+<p>Define a Splunk <code>output</code>.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Output
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span> name: splunk-output
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span> splunkHec:
+</span></span><span style="display:flex"><span>    hec_host: splunk-single-standalone-headless
+</span></span><span style="display:flex"><span>    insecure_ssl: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>    hec_port: <span style="color:#0000cf;font-weight:700">8088</span>
+</span></span><span style="display:flex"><span>    hec_token:
+</span></span><span style="display:flex"><span>        valueFrom:
+</span></span><span style="display:flex"><span>           secretKeyRef:
+</span></span><span style="display:flex"><span>              name:  splunk-token
+</span></span><span style="display:flex"><span>              key: SplunkHecToken
+</span></span><span style="display:flex"><span>    index: main
+</span></span><span style="display:flex"><span>    format:
+</span></span><span style="display:flex"><span>      type: json
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Create a <code>flow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Flow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: splunk-flow
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>    - parser:
+</span></span><span style="display:flex"><span>        remove_key_name_field: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        reserve_data: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        parse:
+</span></span><span style="display:flex"><span>          type: nginx
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>    - <span style="color:#204a87;font-weight:700">select</span>:
+</span></span><span style="display:flex"><span>        labels:
+</span></span><span style="display:flex"><span>          app.kubernetes.io/name: log-generator
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - splunk-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>To validate that the deployment was successful, complete the following steps.</p><ol>
+<li>
+<p>Use the following command to retrieve the password of the <code>admin</code> user:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get secret splunk-single-standalone-secrets -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.data.password}&#39;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode
+</span></span></code></pre></div></li><li>
+<p>Enable port forwarding to the Splunk Dashboard Service.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/splunk-single-standalone-headless <span style="color:#0000cf;font-weight:700">8000</span>
+</span></span></code></pre></div></li><li>
+<p>Open the Splunk dashboard in your browser: <a href="http://localhost:8000">http://localhost:8000</a>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/splunk_dash.png" alt="Splunk dashboard" width="660"></p><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-256fcfd7514994ffef95721e2aab59da">7 - Sumo Logic with Logging operator and Fluentd</h1><p>This guide walks you through a simple Sumo Logic setup using the Logging Operator.
+Sumo Logic has Prometheus and logging capabilities as well. Now we only focus on the logging part.</p><h2 id="configuration">Configuration</h2><p>There are 3 crucial plugins needed for a proper Sumo Logic setup.</p><ol>
+<li>Kubernetes metadata enhancer</li><li>Sumo Logic filter</li><li>Sumo Logic output</li></ol><p>Let&rsquo;s setup the logging first.</p><h3 id="globalfilters">GlobalFilters</h3><p>The first thing we need to ensure is that the <code>EnhanceK8s</code> filter is present in the <code>globalFilters</code> section of the Logging spec.
+This adds additional data to the log lines (like deployment and service names).</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: sumologic
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>  enableRecreateWorkloadOnImmutableFieldChange: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>  globalFilters:
+</span></span><span style="display:flex"><span>  - enhanceK8s: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit:
+</span></span><span style="display:flex"><span>    bufferStorage:
+</span></span><span style="display:flex"><span>      storage.backlog.mem_limit: 256KB
+</span></span><span style="display:flex"><span>    inputTail:
+</span></span><span style="display:flex"><span>      Mem_Buf_Limit: 256KB
+</span></span><span style="display:flex"><span>      storage.type: filesystem
+</span></span><span style="display:flex"><span>    metrics:
+</span></span><span style="display:flex"><span>      serviceMonitor: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>      serviceMonitorConfig: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentd:
+</span></span><span style="display:flex"><span>    disablePvc: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>    metrics:
+</span></span><span style="display:flex"><span>      serviceMonitor: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>      serviceMonitorConfig: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><h3 id="clusterflow">ClusterFlow</h3><p>Now we can create a ClusterFlow. Add the Sumo Logic filter to the <code>filters</code> section of the ClusterFlow spec.
+It will use the Kubernetes metadata and moves them to a special field called <code>_sumo_metadata</code>.
+All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</p><blockquote>
+<p>Note: As we are using Fluent Bit to enrich Kubernetes metadata, we need to specify the field names where this data is stored.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: ClusterFlow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: sumologic
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - sumologic:
+</span></span><span style="display:flex"><span>        source_name: kubernetes
+</span></span><span style="display:flex"><span>        log_format: fields
+</span></span><span style="display:flex"><span>        tracing_namespace: namespace_name
+</span></span><span style="display:flex"><span>        tracing_pod: pod_name
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>  - <span style="color:#204a87;font-weight:700">select</span>: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  globalOutputRefs:
+</span></span><span style="display:flex"><span>    - sumo
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><h3 id="clusteroutput">ClusterOutput</h3><p>Create a Sumo Logic output secret from the URL.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create secret generic logging-sumo -n logging --from-literal <span style="color:#4e9a06">&#34;sumoURL=https://endpoint1.collection.eu.sumologic.com/......&#34;</span>
+</span></span></code></pre></div><p>Finally create the Sumo Logic output.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: ClusterOutput
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: sumo
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  sumologic:
+</span></span><span style="display:flex"><span>    buffer:
+</span></span><span style="display:flex"><span>      flush_interval: 10s
+</span></span><span style="display:flex"><span>      flush_mode: interval
+</span></span><span style="display:flex"><span>    endpoint:
+</span></span><span style="display:flex"><span>      valueFrom:
+</span></span><span style="display:flex"><span>        secretKeyRef:
+</span></span><span style="display:flex"><span>          name:  logging-sumo
+</span></span><span style="display:flex"><span>          key: sumoURL
+</span></span><span style="display:flex"><span>    source_name: kubernetes
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-9e8c31099cc068e1c927a9cdd5531187">8 - Sumo Logic with Logging operator and syslog-ng</h1><p>This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.</p><h2 id="prerequisites">Prerequisites</h2><p>We assume that you already have:</p><ul>
+<li>
+<p>A Sumo Logic account.</p></li><li>
+<p>A <a href="https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/HTTP-Source">HTTP Hosted Collector</a> configured in the Sumo Logic service.</p><p>To configure a Hosted Collector, complete the steps in the <a href="https://help.sumologic.com/03Send-Data/Hosted-Collectors/Configure-a-Hosted-Collector">Configure a Hosted Collector</a> section on the official Sumo Logic website.</p></li><li>
+<p>The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.</p></li></ul><hr>
+<h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+<li>
+<p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: demo
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  syslogNG:
+</span></span><span style="display:flex"><span>    statefulSet:
+</span></span><span style="display:flex"><span>      spec:
+</span></span><span style="display:flex"><span>        template:
+</span></span><span style="display:flex"><span>          spec:
+</span></span><span style="display:flex"><span>            containers:
+</span></span><span style="display:flex"><span>            - name: syslog-ng
+</span></span><span style="display:flex"><span>              volumeMounts:
+</span></span><span style="display:flex"><span>              - mountPath: /buffers
+</span></span><span style="display:flex"><span>                name: buffer
+</span></span><span style="display:flex"><span>        volumeClaimTemplates:
+</span></span><span style="display:flex"><span>        - metadata:
+</span></span><span style="display:flex"><span>            name: buffer
+</span></span><span style="display:flex"><span>          spec:
+</span></span><span style="display:flex"><span>            accessModes:
+</span></span><span style="display:flex"><span>            - ReadWriteOnce
+</span></span><span style="display:flex"><span>            resources:
+</span></span><span style="display:flex"><span>              requests:
+</span></span><span style="display:flex"><span>                storage: 10Gi
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create a Sumo Logic output secret from the URL of your Sumo Logic collection.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create secret generic sumo-collector -n logging --from-literal <span style="color:#4e9a06">&#34;token=XYZ&#34;</span>
+</span></span></code></pre></div></li><li>
+<p>Create a <code>SyslogNGOutput</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: SyslogNGOutput
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: sumologic-syslog-ng-output
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  sumologic-http: 
+</span></span><span style="display:flex"><span>    collector:
+</span></span><span style="display:flex"><span>      valueFrom:
+</span></span><span style="display:flex"><span>        secretKeyRef:
+</span></span><span style="display:flex"><span>          key: token
+</span></span><span style="display:flex"><span>          name: sumo-collector
+</span></span><span style="display:flex"><span>    deployment: us2
+</span></span><span style="display:flex"><span>    batch-lines: <span style="color:#0000cf;font-weight:700">1000</span>
+</span></span><span style="display:flex"><span>    disk_buffer:
+</span></span><span style="display:flex"><span>      disk_buf_size: <span style="color:#0000cf;font-weight:700">512000000</span>
+</span></span><span style="display:flex"><span>      dir: /buffers
+</span></span><span style="display:flex"><span>      reliable: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>    body: <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:700">$(</span>format-json --subkeys json. --exclude json.kubernetes.annotations.* json.kubernetes.annotations<span style="color:#ce5c00;font-weight:700">=</span>literal<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#204a87;font-weight:700">$(</span>format-flat-json --subkeys json.kubernetes.annotations.<span style="color:#204a87;font-weight:700">))</span><span style="color:#4e9a06"> --exclude json.kubernetes.labels.* json.kubernetes.labels=literal(</span><span style="color:#204a87;font-weight:700">$(</span>format-flat-json --subkeys json.kubernetes.labels.<span style="color:#204a87;font-weight:700">)</span><span style="color:#4e9a06">))&#34;</span>
+</span></span><span style="display:flex"><span>    headers:
+</span></span><span style="display:flex"><span>      - <span style="color:#4e9a06">&#39;X-Sumo-Name: source-name&#39;</span>
+</span></span><span style="display:flex"><span>      - <span style="color:#4e9a06">&#39;X-Sumo-Category: source-category&#39;</span>
+</span></span><span style="display:flex"><span>    tls:
+</span></span><span style="display:flex"><span>      use-system-cert-store: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Create a <code>SyslogNGFlow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: SyslogNGFlow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: log-generator
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>    and:
+</span></span><span style="display:flex"><span>    - regexp:
+</span></span><span style="display:flex"><span>        value: json.kubernetes.labels.app.kubernetes.io/instance
+</span></span><span style="display:flex"><span>        pattern: log-generator
+</span></span><span style="display:flex"><span>        type: string
+</span></span><span style="display:flex"><span>    - regexp:
+</span></span><span style="display:flex"><span>        value:  json.kubernetes.labels.app.kubernetes.io/name
+</span></span><span style="display:flex"><span>        pattern: log-generator
+</span></span><span style="display:flex"><span>        type: string
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>  -  parser:
+</span></span><span style="display:flex"><span>      regexp: 
+</span></span><span style="display:flex"><span>        patterns:
+</span></span><span style="display:flex"><span>        - <span style="color:#4e9a06">&#39;^(?&lt;remote&gt;[^ ]*) (?&lt;host&gt;[^ ]*) (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] &#34;(?&lt;method&gt;\S+)(?: +(?&lt;path&gt;[^\&#34;]*?)(?: +\S*)?)?&#34; (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*)(?: &#34;(?&lt;referer&gt;[^\&#34;]*)&#34; &#34;(?&lt;agent&gt;[^\&#34;]*)&#34;(?:\s+(?&lt;http_x_forwarded_for&gt;[^ ]+))?)?$&#39;</span>
+</span></span><span style="display:flex"><span>        template: <span style="color:#4e9a06">${</span><span style="color:#000">json</span><span style="color:#000;font-weight:700">.message</span><span style="color:#4e9a06">}</span>
+</span></span><span style="display:flex"><span>        prefix: json.
+</span></span><span style="display:flex"><span>  - rewrite:
+</span></span><span style="display:flex"><span>    -  set:
+</span></span><span style="display:flex"><span>        field: json.cluster
+</span></span><span style="display:flex"><span>        value: xxxxx
+</span></span><span style="display:flex"><span>    -  unset:
+</span></span><span style="display:flex"><span>        field: json.message
+</span></span><span style="display:flex"><span>    -  set:
+</span></span><span style="display:flex"><span>        field: json.source
+</span></span><span style="display:flex"><span>        value: /var/log/log-generator
+</span></span><span style="display:flex"><span>        condition:
+</span></span><span style="display:flex"><span>          regexp:
+</span></span><span style="display:flex"><span>            value:  json.kubernetes.container_name
+</span></span><span style="display:flex"><span>            pattern: log-generator
+</span></span><span style="display:flex"><span>            type: string
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - sumologic-syslog-ng-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li></ol><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-abd97e700fb7a973b1dcfb4cb9aae1b4">9 - Transport Nginx Access Logs into Kafka with Logging operator</h1><p align="center"><img src="../../img/kafka_logo.png" alt="Logos" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Kafka.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nignx-kafka.png" alt="Architecture" width="900"></p><h2 id="deploy-kafka">Deploy Kafka</h2><p>This demo uses <a href="https://github.com/banzaicloud/koperator/">Koperator</a> to create an Apache Kafka cluster in Kubernetes. For details on installing it, see the <a href="https://banzaicloud.com/docs/supertubes/kafka-operator/install-kafka-operator/">Koperator installation guide</a>.</p><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo Application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li><li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl -n logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default-logging-simple</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentd</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentbit</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">controlNamespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create a Kafka <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl -n logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">kafka-output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">kafka</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:700">brokers</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">kafka-headless.kafka.svc.cluster.local:29092</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:700">default_topic</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">topic</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:700">format</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">json</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:700">buffer</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">tags</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">topic</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">timekey</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">1m</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">timekey_wait</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">30s</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:700">timekey_use_utc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
+<p>Create a <code>flow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl -n logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">kafka-flow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">tag_normaliser</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">parser</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">remove_key_name_field</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">reserve_data</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">parse</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">type</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">nginx</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">match</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">select</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">labels</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">app.kubernetes.io/name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log-generator</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">kafka-output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">EOF</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><p>Run the following command to consume some log messages from Kafka:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n kafka run kafka-consumer -it --image<span style="color:#ce5c00;font-weight:700">=</span>banzaicloud/kafka:2.13-2.4.0 --rm<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#204a87">true</span> --restart<span style="color:#ce5c00;font-weight:700">=</span>Never -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka-headless:29092 --topic topic --from-beginning
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;stream&#34;</span>:<span style="color:#4e9a06">&#34;stdout&#34;</span>,<span style="color:#4e9a06">&#34;logtag&#34;</span>:<span style="color:#4e9a06">&#34;F&#34;</span>,<span style="color:#4e9a06">&#34;kubernetes&#34;</span>:<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;pod_name&#34;</span>:<span style="color:#4e9a06">&#34;logging-demo-log-generator-5f9f9cdb9f-z76wr&#34;</span>,<span style="color:#4e9a06">&#34;namespace_name&#34;</span>:<span style="color:#4e9a06">&#34;logging&#34;</span>,<span style="color:#4e9a06">&#34;pod_id&#34;</span>:<span style="color:#4e9a06">&#34;a7174256-31bf-4ace-897b-77899873d9ad&#34;</span>,<span style="color:#4e9a06">&#34;labels&#34;</span>:<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;app.kubernetes.io/instance&#34;</span>:<span style="color:#4e9a06">&#34;logging-demo&#34;</span>,<span style="color:#4e9a06">&#34;app.kubernetes.io/name&#34;</span>:<span style="color:#4e9a06">&#34;log-generator&#34;</span>,<span style="color:#4e9a06">&#34;pod-template-hash&#34;</span>:<span style="color:#4e9a06">&#34;5f9f9cdb9f&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>,<span style="color:#4e9a06">&#34;host&#34;</span>:<span style="color:#4e9a06">&#34;ip-192-168-3-189.eu-west-2.compute.internal&#34;</span>,<span style="color:#4e9a06">&#34;container_name&#34;</span>:<span style="color:#4e9a06">&#34;log-generator&#34;</span>,<span style="color:#4e9a06">&#34;docker_id&#34;</span>:<span style="color:#4e9a06">&#34;7349e6bb2926b8c93cb054a60f171a3f2dd1f6751c07dd389da7f28daf4d70c5&#34;</span>,<span style="color:#4e9a06">&#34;container_hash&#34;</span>:<span style="color:#4e9a06">&#34;ghcr.io/banzaicloud/log-generator@sha256:814a69be8ab8a67aa6b009d83f6fa6c4776beefbe629a869ff16690fde8ac362&#34;</span>,<span style="color:#4e9a06">&#34;container_image&#34;</span>:<span style="color:#4e9a06">&#34;ghcr.io/banzaicloud/log-generator:0.3.3&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>,<span style="color:#4e9a06">&#34;remote&#34;</span>:<span style="color:#4e9a06">&#34;79.104.42.168&#34;</span>,<span style="color:#4e9a06">&#34;host&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;user&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;method&#34;</span>:<span style="color:#4e9a06">&#34;PUT&#34;</span>,<span style="color:#4e9a06">&#34;path&#34;</span>:<span style="color:#4e9a06">&#34;/products&#34;</span>,<span style="color:#4e9a06">&#34;code&#34;</span>:<span style="color:#4e9a06">&#34;302&#34;</span>,<span style="color:#4e9a06">&#34;size&#34;</span>:<span style="color:#4e9a06">&#34;18136&#34;</span>,<span style="color:#4e9a06">&#34;referer&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;agent&#34;</span>:<span style="color:#4e9a06">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Safari/537.36 OPR/20.0.1396.73172&#34;</span>,<span style="color:#4e9a06">&#34;http_x_forwarded_for&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;stream&#34;</span>:<span style="color:#4e9a06">&#34;stdout&#34;</span>,<span style="color:#4e9a06">&#34;logtag&#34;</span>:<span style="color:#4e9a06">&#34;F&#34;</span>,<span style="color:#4e9a06">&#34;kubernetes&#34;</span>:<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;pod_name&#34;</span>:<span style="color:#4e9a06">&#34;logging-demo-log-generator-5f9f9cdb9f-mpp98&#34;</span>,<span style="color:#4e9a06">&#34;namespace_name&#34;</span>:<span style="color:#4e9a06">&#34;logging&#34;</span>,<span style="color:#4e9a06">&#34;pod_id&#34;</span>:<span style="color:#4e9a06">&#34;e2822c26-961c-4be8-99a2-b17517494ca1&#34;</span>,<span style="color:#4e9a06">&#34;labels&#34;</span>:<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;app.kubernetes.io/instance&#34;</span>:<span style="color:#4e9a06">&#34;logging-demo&#34;</span>,<span style="color:#4e9a06">&#34;app.kubernetes.io/name&#34;</span>:<span style="color:#4e9a06">&#34;log-generator&#34;</span>,<span style="color:#4e9a06">&#34;pod-template-hash&#34;</span>:<span style="color:#4e9a06">&#34;5f9f9cdb9f&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>,<span style="color:#4e9a06">&#34;host&#34;</span>:<span style="color:#4e9a06">&#34;ip-192-168-2-102.eu-west-2.compute.internal&#34;</span>,<span style="color:#4e9a06">&#34;container_name&#34;</span>:<span style="color:#4e9a06">&#34;log-generator&#34;</span>,<span style="color:#4e9a06">&#34;docker_id&#34;</span>:<span style="color:#4e9a06">&#34;26ffbec769e52e468216fe43a331f4ce5374075f9b2717d9b9ae0a7f0747b3e2&#34;</span>,<span style="color:#4e9a06">&#34;container_hash&#34;</span>:<span style="color:#4e9a06">&#34;ghcr.io/banzaicloud/log-generator@sha256:814a69be8ab8a67aa6b009d83f6fa6c4776beefbe629a869ff16690fde8ac362&#34;</span>,<span style="color:#4e9a06">&#34;container_image&#34;</span>:<span style="color:#4e9a06">&#34;ghcr.io/banzaicloud/log-generator:0.3.3&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>,<span style="color:#4e9a06">&#34;remote&#34;</span>:<span style="color:#4e9a06">&#34;26.220.126.5&#34;</span>,<span style="color:#4e9a06">&#34;host&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;user&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;method&#34;</span>:<span style="color:#4e9a06">&#34;POST&#34;</span>,<span style="color:#4e9a06">&#34;path&#34;</span>:<span style="color:#4e9a06">&#34;/&#34;</span>,<span style="color:#4e9a06">&#34;code&#34;</span>:<span style="color:#4e9a06">&#34;200&#34;</span>,<span style="color:#4e9a06">&#34;size&#34;</span>:<span style="color:#4e9a06">&#34;14370&#34;</span>,<span style="color:#4e9a06">&#34;referer&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span>,<span style="color:#4e9a06">&#34;agent&#34;</span>:<span style="color:#4e9a06">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0&#34;</span>,<span style="color:#4e9a06">&#34;http_x_forwarded_for&#34;</span>:<span style="color:#4e9a06">&#34;-&#34;</span><span style="color:#ce5c00;font-weight:700">}</span>
+</span></span></code></pre></div><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-01af43cb645f47605cedaae3bc91678b">10 - Store Nginx Access Logs in Grafana Loki with Logging operator</h1><p align="center"><img src="../../img/nll.png" width="340"></p><p>This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.</p><p>The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the <a href="/4.5/docs/">Logging operator overview</a>.</p><p align="center"><img src="../../img/nginx-loki.png" width="900"></p><h2 id="deploy-loki-and-grafana">Deploy Loki and Grafana</h2><ol>
+<li>
+<p>Add the chart repositories of Loki and Grafana using the following commands:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm repo add grafana https://grafana.github.io/helm-charts
+</span></span><span style="display:flex"><span>helm repo update
+</span></span></code></pre></div></li><li>
+<p>Install Loki into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --create-namespace --namespace logging loki grafana/loki
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;loki&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>NAME: loki
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 10:58:32 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>NOTES:
+</span></span><span style="display:flex"><span>***********************************************************************
+</span></span><span style="display:flex"><span>Welcome to Grafana Loki
+</span></span><span style="display:flex"><span>Chart version: 5.10.0
+</span></span><span style="display:flex"><span>Loki version: 2.8.3
+</span></span><span style="display:flex"><span>***********************************************************************
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>Installed components:
+</span></span><span style="display:flex"><span>* grafana-agent-operator
+</span></span><span style="display:flex"><span>* gateway
+</span></span><span style="display:flex"><span>* <span style="color:#204a87">read</span>
+</span></span><span style="display:flex"><span>* write
+</span></span><span style="display:flex"><span>* backend
+</span></span></code></pre></div><blockquote>
+<p>For details, see the <a href="https://grafana.com/docs/loki/next/setup/install/helm/">Grafana Loki Documentation</a></p></blockquote></li><li>
+<p>Install Grafana into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --create-namespace --namespace logging grafana grafana/grafana <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.apiVersion=1&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].name=Loki&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].type=loki&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].url=http://loki:3100&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span> --set <span style="color:#4e9a06">&#34;datasources.datasources\\.yaml.datasources[0].access=proxy&#34;</span>
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;grafana&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>NAME: grafana
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:00:47 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>NOTES:
+</span></span><span style="display:flex"><span>1. Get your <span style="color:#4e9a06">&#39;admin&#39;</span> user password by running:
+</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>  kubectl get secret --namespace logging grafana -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;{.data.admin-password}&#34;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode <span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
+</span></span><span style="display:flex"><span>...
+</span></span></code></pre></div></li></ol><h2 id="deploy-the-logging-operator-and-a-demo-application">Deploy the Logging operator and a demo application</h2><p>Install the Logging operator and a demo application to provide sample log messages.</p><h3 id="helm">Deploy the Logging operator with Helm</h3><p>To install the Logging operator using Helm, complete the following</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Logging
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: default-logging-simple
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  fluentd: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  fluentbit: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>  controlNamespace: logging
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: You can use the <code>ClusterOutput</code> and <code>ClusterFlow</code> resources only in the <code>controlNamespace</code>.</p></blockquote></li><li>
+<p>Create a Loki <code>output</code> definition.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Output
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span> name: loki-output
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span> loki:
+</span></span><span style="display:flex"><span>   url: http://loki:3100
+</span></span><span style="display:flex"><span>   configure_kubernetes_labels: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>   buffer:
+</span></span><span style="display:flex"><span>     timekey: 1m
+</span></span><span style="display:flex"><span>     timekey_wait: 30s
+</span></span><span style="display:flex"><span>     timekey_use_utc: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div><blockquote>
+<p>Note: In production environment, use a longer <code>timekey</code> interval to avoid generating too many objects.</p></blockquote></li><li>
+<p>Create a <code>flow</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
+</span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
+</span></span><span style="display:flex"><span>kind: Flow
+</span></span><span style="display:flex"><span>metadata:
+</span></span><span style="display:flex"><span>  name: loki-flow
+</span></span><span style="display:flex"><span>spec:
+</span></span><span style="display:flex"><span>  filters:
+</span></span><span style="display:flex"><span>    - tag_normaliser: <span style="color:#ce5c00;font-weight:700">{}</span>
+</span></span><span style="display:flex"><span>    - parser:
+</span></span><span style="display:flex"><span>        remove_key_name_field: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        reserve_data: <span style="color:#204a87">true</span>
+</span></span><span style="display:flex"><span>        parse:
+</span></span><span style="display:flex"><span>          type: nginx
+</span></span><span style="display:flex"><span>  match:
+</span></span><span style="display:flex"><span>    - <span style="color:#204a87;font-weight:700">select</span>:
+</span></span><span style="display:flex"><span>        labels:
+</span></span><span style="display:flex"><span>          app.kubernetes.io/name: log-generator
+</span></span><span style="display:flex"><span>  localOutputRefs:
+</span></span><span style="display:flex"><span>    - loki-output
+</span></span><span style="display:flex"><span>EOF
+</span></span></code></pre></div></li><li>
+<p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="validate">Validate the deployment</h2><h3 id="grafana-dashboard">Grafana Dashboard</h3><ol>
+<li>
+<p>Use the following command to retrieve the password of the Grafana <code>admin</code> user:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get secret --namespace logging grafana -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;{.data.admin-password}&#34;</span> <span style="color:#000;font-weight:700">|</span> base64 --decode <span style="color:#000;font-weight:700">;</span> <span style="color:#204a87">echo</span>
+</span></span></code></pre></div></li><li>
+<p>Enable port forwarding to the Grafana Service.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/grafana 3000:80
+</span></span></code></pre></div></li><li>
+<p>Open the Grafana Dashboard: <a href="http://localhost:3000">http://localhost:3000</a></p></li><li>
+<p>Use the <code>admin</code> username and the password retrieved in Step 1 to log in.</p></li><li>
+<p>Select <strong>Menu > Explore</strong>, select <strong>Data source > Loki</strong>, then select <strong>Log labels > namespace > logging</strong>. A list of logs should appear.</p><p><img src="../../img/loki1.png" alt="Sample log messages in Loki"></p></li></ol><blockquote>
+<p>If you don&rsquo;t get the expected result you can find help in the <a href="/4.5/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-aeee3c18c3b933f861743e7b21d3529d">11 - Nodegroup-based multitenancy</h1><p>Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups.
+These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn&rsquo;t affect the others.</p><h2 id="sample-setup">Sample setup</h2><p>The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.</p><ol>
+<li>
+<p>If you don&rsquo;t already have a cluster, create one with your provider. For a quick test, you can use a local cluster, for example, using minikube:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>minikube start --nodes<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#0000cf;font-weight:700">2</span>
+</span></span></code></pre></div></li><li>
+<p>Set labels on the nodes that correspond to your tenants, for example, <code>tenant-a</code> and <code>tenant-b</code>.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl label node minikube <span style="color:#000">tenant</span><span style="color:#ce5c00;font-weight:700">=</span>tenant-a
+</span></span><span style="display:flex"><span>kubectl label node minikube-m02 <span style="color:#000">tenant</span><span style="color:#ce5c00;font-weight:700">=</span>tenant-b
+</span></span></code></pre></div></li><li>
+<p>Install the logging operator</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm install logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div></li><li>
+<p>Apply the sample resources from the <a href="https://github.com/kube-logging/logging-operator/tree/master/config/samples/mulitenant-hard/logging">project repository</a>. These create namespaces, flows, and sample outputs for the two tenants.</p></li><li>
+<p>(Optional) Install a sample log generator application to the respective namespaces of your tenants. For example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --namespace a --create-namespace --set <span style="color:#4e9a06">&#34;nodeSelector.tenant=tenant-a&#34;</span> log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span><span style="display:flex"><span>helm upgrade --install --namespace b --create-namespace --set <span style="color:#4e9a06">&#34;nodeSelector.tenant=tenant-b&#34;</span> log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
+</span></span></code></pre></div></li><li>
+<p>Check that your pods are up and running by running <code>kubectl get pods -A</code></p><p>If you have followed the examples, the output should look like:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+</span></span><span style="display:flex"><span>a-control     a-fluentbit-4tqzg                  1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             9m29s
+</span></span><span style="display:flex"><span>a-control     a-fluentd-0                        2/2     Running   <span style="color:#0000cf;font-weight:700">0</span>             4m48s
+</span></span><span style="display:flex"><span>a             log-generator-6cfb45c684-q6fl6     1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             3m25s
+</span></span><span style="display:flex"><span>b-control     b-fluentbit-qmf58                  1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             9m20s
+</span></span><span style="display:flex"><span>b-control     b-fluentd-0                        2/2     Running   <span style="color:#0000cf;font-weight:700">0</span>             9m16s
+</span></span><span style="display:flex"><span>b             log-generator-7b95b6fdc5-cshh7     1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             8m49s
+</span></span><span style="display:flex"><span>default       logging-operator-bbd66bb7d-qvsmg   1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             35m
+</span></span><span style="display:flex"><span>infra         test-receiver-7c45f9cd77-whvlv     1/1     Running   <span style="color:#0000cf;font-weight:700">0</span>             53m
+</span></span></code></pre></div></li><li>
+<p>Check logs coming from both tenants <code>kubectl logs -f -n infra svc/test-receiver</code></p><p>Expected output should show logs from both tenants</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_a: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.157810965, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;15.238.250.48 - - [29/Sep/2023:14:54:38 +0000] &#34;</span>PUT /pro...
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_b: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.160868923, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;252.201.89.36 - - [29/Sep/2023:14:54:33 +0000] &#34;</span>POST /bl...
+</span></span></code></pre></div></li></ol></div><div class="td-content" style="page-break-before:always">
+<h1 id="pg-3c57b775dac77ff05294c6fa7e03a10b">12 - Custom source and output metrics</h1><p>When using syslog-ng as the log aggregator, you can create custom log metrics for sources and outputs, based on the <a href="https://axoflow.com/docs/axosyslog-core/chapter-parsers/metrics-probe/">metrics-probe() parser</a>.</p><p>Available in Logging operator version 4.5 and later.</p><h2 id="source-metrics">Source metrics</h2><p>Custom source metrics are added to the messages after the JSON parsing is completed. The following example adds the key called <code>custom_input</code>:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">controlNamespace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">fluentbit</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">syslogNG</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">metrics</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">sourceMetrics</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom_input</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">labels</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">test</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-label-value</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>This corresponds to the following syslog-ng configuration:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span><span style="color:#204a87">source</span> <span style="color:#4e9a06">&#34;main_input&#34;</span> <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>    channel <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>        <span style="color:#204a87">source</span> <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>            network<span style="color:#ce5c00;font-weight:700">(</span>flags<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;no-parse&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> port<span style="color:#ce5c00;font-weight:700">(</span>601<span style="color:#ce5c00;font-weight:700">)</span> transport<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> max-connections<span style="color:#ce5c00;font-weight:700">(</span>100<span style="color:#ce5c00;font-weight:700">)</span> log-iw-size<span style="color:#ce5c00;font-weight:700">(</span>10000<span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        parser <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>            json-parser<span style="color:#ce5c00;font-weight:700">(</span>prefix<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;json.&#34;</span><span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>            metrics-probe<span style="color:#ce5c00;font-weight:700">(</span>key<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;custom_input&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> labels<span style="color:#ce5c00;font-weight:700">(</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;logging&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;logging&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;test&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;my-label-value&#34;</span>
+</span></span><span style="display:flex"><span>            <span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span></code></pre></div><p>And results in the following metrics:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>curl logging-syslog-ng-0:9577/metrics  <span style="color:#000;font-weight:700">|</span> grep custom_
+</span></span><span style="display:flex"><span><span style="color:#8f5902;font-style:italic"># TYPE syslogng_custom_input gauge</span>
+</span></span><span style="display:flex"><span>syslogng_custom_input<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">154</span>
+</span></span></code></pre></div><h2 id="output-metrics">Output metrics</h2><p>Output metrics are added before the log reaches the destination, and is decorated with the output metadata like: <code>name</code>, <code>namespace</code>, and <code>scope</code>. <code>scope</code> stores whether the output is a local or global one. For example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SyslogNGFlow</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">all1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">match</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">outputMetrics</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom_output</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">labels</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">flow</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">all1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">localOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">http</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">globalOutputRefs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">http2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>This corresponds to the following syslog-ng configuration:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>filter <span style="color:#4e9a06">&#34;flow_default_all1_ns_filter&#34;</span> <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>    match<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;default&#34;</span> value<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;json.kubernetes.namespace_name&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> type<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;string&#34;</span><span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>log <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>    source<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;main_input&#34;</span><span style="color:#ce5c00;font-weight:700">)</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    filter<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;flow_default_all1_ns_filter&#34;</span><span style="color:#ce5c00;font-weight:700">)</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    log <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>        parser <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>            metrics-probe<span style="color:#ce5c00;font-weight:700">(</span>key<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;custom_output&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> labels<span style="color:#ce5c00;font-weight:700">(</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;flow&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;all1&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;logging&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;logging&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_name&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;http2&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_namespace&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;default&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_scope&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;global&#34;</span>
+</span></span><span style="display:flex"><span>            <span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        destination<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;clusteroutput_default_http2&#34;</span><span style="color:#ce5c00;font-weight:700">)</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    log <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>        parser <span style="color:#ce5c00;font-weight:700">{</span>
+</span></span><span style="display:flex"><span>            metrics-probe<span style="color:#ce5c00;font-weight:700">(</span>key<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;custom_output&#34;</span><span style="color:#ce5c00;font-weight:700">)</span> labels<span style="color:#ce5c00;font-weight:700">(</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;flow&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;all1&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;logging&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;logging&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_name&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;http&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_namespace&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;default&#34;</span>
+</span></span><span style="display:flex"><span>                <span style="color:#4e9a06">&#34;output_scope&#34;</span> <span style="color:#ce5c00;font-weight:700">=</span>&gt; <span style="color:#4e9a06">&#34;local&#34;</span>
+</span></span><span style="display:flex"><span>            <span style="color:#ce5c00;font-weight:700">))</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>        destination<span style="color:#ce5c00;font-weight:700">(</span><span style="color:#4e9a06">&#34;output_default_http&#34;</span><span style="color:#ce5c00;font-weight:700">)</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span>    <span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span><span style="color:#000;font-weight:700">;</span>
+</span></span></code></pre></div><p>And results in the following metrics:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>curl logging-syslog-ng-0:9577/metrics  <span style="color:#000;font-weight:700">|</span> grep custom_
+</span></span><span style="display:flex"><span><span style="color:#8f5902;font-style:italic"># TYPE syslogng_custom_output gauge</span>
+</span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all1&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http2&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;global&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">42</span>
+</span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all1&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;local&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">42</span>
+</span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all2&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http2&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;global&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">154</span>
+</span></span></code></pre></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2024 kube-logging authors | All Rights Reserved</small>
+</div></div></div></footer></div><script src="/4.5/js/main.min.e92b3fb8e89f4169bac5c4b385d0ae639f17b6777e7a9fafce6283caf0539ed3.js" integrity="sha256-6Ss/uOifQWm6xcSzhdCuY58Xtnd+ep+vzmKDyvBTntM=" crossorigin="anonymous"></script>
+<script src='/4.5/js/prism.js'></script>
+<script src='/4.5/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>
