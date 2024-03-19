@@ -3,6 +3,132 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.6
+
+The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
+
+## Fluent Bit hot reload
+
+As a Fluent Bit restart can take a long time when there are many files to index, Logging operator now supports [hot reload for Fluent Bit](https://docs.fluentbit.io/manual/administration/hot-reload) to reload its configuration on the fly.
+
+You can enable hot reloads under the Logging's `spec.fluentbit.configHotReload` (legacy method) option, or the new FluentbitAgent's `spec.configHotReload` option:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: reload-example
+spec:
+  configHotReload: {}
+```
+
+You can configure the `resources` and `image` options:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: reload-example
+spec:
+  configHotReload:
+    resources: ...
+    image:
+      repository: ghcr.io/kube-logging/config-reloader
+      tag: v0.0.5
+```
+
+Many thanks to @aslafy-z for contributing this feature!
+
+## VMware Aria Operations output for Fluentd
+
+When using the Fluentd aggregator with the Logging operator, you can now send your logs to [VMware Aria Operations for Logs](https://www.vmware.com/products/aria-operations-for-logs.html). This output uses the [vmwareLogInsight plugin](https://github.com/vmware/fluent-plugin-vmware-loginsight).
+
+Here is a sample output snippet:
+
+```yaml
+spec:
+  vmwareLogInsight:
+    scheme: https
+    ssl_verify: true
+    host: MY_LOGINSIGHT_HOST
+    port: 9543
+    agent_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+    log_text_keys:
+	- log
+	- msg
+	- message
+    http_conn_debug: false
+```
+
+Many thanks to @logikone for contributing this feature!
+
+## VMware Log Intelligence output for Fluentd
+
+When using the Fluentd aggregator with the Logging operator, you can now send your logs to [VMware Log Intelligence](https://aria.vmware.com/t/vmware-log-intelligence/). This output uses the [vmware_log_intelligence plugin](https://github.com/vmware/fluent-plugin-vmware-log-intelligence).
+
+Here is a sample output snippet:
+
+```yaml
+spec:
+  vmwarelogintelligence:
+    endpoint_url: https://data.upgrade.symphony-dev.com/le-mans/v1/streams/ingestion-pipeline-stream
+    verify_ssl: true
+    http_compress: false
+    headers:
+      content_type: "application/json"
+      authorization:
+        valueFrom:
+          secretKeyRef:
+            name: vmware-log-intelligence-token
+            key: authorization
+      structure: simple
+    buffer:
+      chunk_limit_records: 300
+      flush_interval: 3s
+      retry_max_times: 3
+```
+
+Many thanks to @zrobisho for contributing this feature!
+
+## Kubernetes namespace labels and annotations
+
+Logging operator 4.6 supports the new Fluent Bit Kubernetes filter options that will be released in Fluent Bit 3.0. That way you'll be able to enrich your logs with Kubernetes namespace labels and annotations right at the source of the log messages.
+
+Fluent Bit 3.0 hasn't been released yet (at the time of this writing), but you can use a developer image to test the feature, using a `FluentbitAgent` resource like this:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: namespace-label-test
+spec:
+  filterKubernetes:
+    namespace_annotations: "On"
+    namespace_labels: "On"
+  image:
+    repository: ghcr.io/fluent/fluent-bit/unstable
+    tag: latest
+```
+
+## Other changes
+
+- Enabling ServiceMonitor checks if Prometheus is already available.
+- You can now use a custom PVC without a template for the statefulset.
+- You can now configure PodDisruptionBudget for Fluentd.
+- Event tailer metrics are now automatically exposed.
+- You can configure [timeout-based configuration checks](https://kube-logging.dev/docs/whats-new/#timeout-based-configuration-checks) using the `logging.configCheck` object of the `logging-operator` chart.
+- You can now specify the event tailer image to use in the `logging-operator` chart.
+- Fluent Bit can now automatically delete irrecoverable chunks.
+- The Fluentd statefulset and its components created by the Logging operator now include the whole securityContext object.
+- The Elasticsearch output of the syslog-ng aggregator now supports the template option.
+- To avoid problems that might occur when a tenant has a faulty output and backpressure kicks in, Logging operator now creates a dedicated tail input for each tenant.
+
+## Removed feature
+
+We have removed support for [Pod Security Policies (PSPs)](https://kubernetes.io/docs/concepts/security/pod-security-policy/), which were deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25.
+
+Note that the API was left intact, it just doesn't do anything.
+
 ## Version 4.5
 
 The following are the highlights and main changes of Logging operator 4.5. For a complete list of changes and bugfixes, see the [Logging operator 4.5 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.5.0).

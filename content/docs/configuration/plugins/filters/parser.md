@@ -71,9 +71,9 @@ Only available when using type: grok, multiline_grok. File that includes custom 
 
 ### delimiter (string, optional) {#parse-section-delimiter}
 
-Only available when using type: ltsv  
+Only available when using type: ltsv
 
-Default:  "\t"
+Default: "\t"
 
 ### delimiter_pattern (string, optional) {#parse-section-delimiter_pattern}
 
@@ -132,15 +132,15 @@ Names for fields on each line. (seperated by coma)
 
 ### label_delimiter (string, optional) {#parse-section-label_delimiter}
 
-Only available when using type: ltsv  
+Only available when using type: ltsv
 
-Default:  ":"
+Default: ":"
 
 ### local_time (bool, optional) {#parse-section-local_time}
 
-If true, use local time. Otherwise, UTC is used. This is exclusive with utc.  
+If true, use local time. Otherwise, UTC is used. This is exclusive with utc.
 
-Default:  true
+Default: true
 
 ### multiline ([]string, optional) {#parse-section-multiline}
 
@@ -179,15 +179,15 @@ Specify time field for event time. If the event doesn't have this field, current
 
 ### time_type (string, optional) {#parse-section-time_type}
 
-Parse/format value according to this type available values: float, unixtime, string  
+Parse/format value according to this type available values: float, unixtime, string
 
-Default:  string
+Default: string
 
 ### timezone (string, optional) {#parse-section-timezone}
 
-Use specified timezone. one can parse/format the time value in the specified timezone.  
+Use specified timezone. one can parse/format the time value in the specified timezone.
 
-Default:  nil
+Default: nil
 
 ### type (string, optional) {#parse-section-type}
 
@@ -201,9 +201,9 @@ Types casting the fields to proper types example: field1:type, field2:type
 
 ### utc (bool, optional) {#parse-section-utc}
 
-If true, use UTC. Otherwise, local time is used. This is exclusive with localtime  
+If true, use UTC. Otherwise, local time is used. This is exclusive with localtime
 
-Default:  false
+Default: false
 
 
 ## Parse Section (single)
@@ -284,15 +284,15 @@ Specify time field for event time. If the event doesn't have this field, current
 
 ### time_type (string, optional) {#parse-section-time_type}
 
-Parse/format value according to this type available values: float, unixtime, string  
+Parse/format value according to this type available values: float, unixtime, string
 
-Default:  string
+Default: string
 
 ### timezone (string, optional) {#parse-section-timezone}
 
-Use specified timezone. one can parse/format the time value in the specified timezone.  
+Use specified timezone. one can parse/format the time value in the specified timezone.
 
-Default:  nil
+Default: nil
 
 ### type (string, optional) {#parse-section-type}
 
@@ -306,9 +306,9 @@ Types casting the fields to proper types example: field1:type, field2:type
 
 ### utc (bool, optional) {#parse-section-utc}
 
-If true, use UTC. Otherwise, local time is used. This is exclusive with localtime  
+If true, use UTC. Otherwise, local time is used. This is exclusive with localtime
 
-Default:  false
+Default: false
 
 
 ## Grok Section
@@ -342,6 +342,7 @@ Default: time
 ### timezone (string, optional) {#grok-section-timezone}
 
 Use specified timezone. one can parse/format the time value in the specified timezone. 
+
 
 
 

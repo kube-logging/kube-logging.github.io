@@ -29,7 +29,7 @@ spec:
     template: "$ISODATE $HOST $MSGHDR$MSG"
     auth:
       insecure: {}
-{{< /highlight >}}
+{{</ highlight >}}
 
 For details on the available options of the output, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-loki/). For available macros like `$PROGRAM` and `$HOST` see https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-macros/
 
@@ -53,9 +53,9 @@ Description: Specifies the time syslog-ng OSE waits for lines to accumulate in t
 
 ### disk_buffer (*DiskBuffer, optional) {#lokioutput-disk_buffer}
 
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
 
-Default:  false
+Default: false
 
 ### labels (filter.ArrowMap, optional) {#lokioutput-labels}
 
@@ -84,9 +84,9 @@ Template for customizing the log message format.
 
 ### time_reopen (int, optional) {#lokioutput-time_reopen}
 
-The time to wait in seconds before a dead connection is reestablished.  
+The time to wait in seconds before a dead connection is reestablished.
 
-Default:  60
+Default: 60
 
 ### timestamp (string, optional) {#lokioutput-timestamp}
 

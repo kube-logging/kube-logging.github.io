@@ -13,9 +13,9 @@ generated_file: true
 
 ### allow_self_signed_cert (*bool, optional) {#syslogoutputconfig-allow_self_signed_cert}
 
-allow_self_signed_cert for mutual tls  
+allow_self_signed_cert for mutual tls
 
-Default:  false
+Default: false
 
 ### buffer (*Buffer, optional) {#syslogoutputconfig-buffer}
 
@@ -39,9 +39,9 @@ cert_store to set ca_certificate for ssl context
 
 ### fqdn (string, optional) {#syslogoutputconfig-fqdn}
 
-Fqdn  
+Fqdn
 
-Default:  "nil"
+Default: "nil"
 
 ### host (string, required) {#syslogoutputconfig-host}
 
@@ -50,21 +50,21 @@ Destination host address
 
 ### insecure (*bool, optional) {#syslogoutputconfig-insecure}
 
-skip ssl validation  
+skip ssl validation
 
-Default:  false
+Default: false
 
 ### port (int, optional) {#syslogoutputconfig-port}
 
-Destination host port  
+Destination host port
 
-Default:  "514"
+Default: "514"
 
 ### private_key_passphrase (*secret.Secret, optional) {#syslogoutputconfig-private_key_passphrase}
 
-PrivateKeyPassphrase for private key   
+PrivateKeyPassphrase for private key
 
-Default:  "nil"
+Default: "nil"
 
 ### private_key_path (*secret.Secret, optional) {#syslogoutputconfig-private_key_path}
 
@@ -78,9 +78,9 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 
 ### transport (string, optional) {#syslogoutputconfig-transport}
 
-Transport Protocol  
+Transport Protocol
 
-Default:  "tls"
+Default: "tls"
 
 ### trusted_ca_path (*secret.Secret, optional) {#syslogoutputconfig-trusted_ca_path}
 
@@ -89,19 +89,20 @@ file path to ca to trust
 
 ### verify_fqdn (*bool, optional) {#syslogoutputconfig-verify_fqdn}
 
-verify_fqdn  
+verify_fqdn
 
-Default:  nil
+Default: nil
 
 ### version (string, optional) {#syslogoutputconfig-version}
 
-TLS Version   
+TLS Version
 
-Default:  "TLSv1_2"
+Default: "TLSv1_2"
+
+
 
 
 ## Example `File` output configurations
-
 
 {{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -124,16 +125,16 @@ spec:
 Fluentd config result:
 
 {{< highlight xml >}}
-  <match **>
+<match **>
 	@type syslog_rfc5424
 	@id test_syslog
 	host SYSLOG-HOST
 	port 123
-  <format>
-    @type syslog_rfc5424
-    app_name_field example.custom_field_1
-    proc_id_field example.custom_field_2
-  </format>
+ <format>
+   @type syslog_rfc5424
+   app_name_field example.custom_field_1
+   proc_id_field example.custom_field_2
+ </format>
 	<buffer tag,time>
 	  @type file
 	  path /buffers/test_file.*.buffer
@@ -142,7 +143,7 @@ Fluentd config result:
 	  timekey_use_utc true
 	  timekey_wait 30s
 	</buffer>
-  </match>
+</match>
 {{</ highlight >}}
 
 

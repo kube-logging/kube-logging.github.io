@@ -10,16 +10,16 @@ generated_file: true
 
 For details, see [https://github.com/awslabs/aws-fluent-plugin-kinesis#configuration-kinesis_firehose](https://github.com/awslabs/aws-fluent-plugin-kinesis#configuration-kinesis_firehose).
 
- ## Example output configurations
+## Example output configurations
 
- ```yaml
- spec:
-   kinesisFirehose:
-     delivery_stream_name: example-stream-name
-     region: us-east-1
-     format:
-       type: json
- ```
+```yaml
+spec:
+  kinesisFirehose:
+    delivery_stream_name: example-stream-name
+    region: us-east-1
+    format:
+      type: json
+```
 
 
 ## Configuration

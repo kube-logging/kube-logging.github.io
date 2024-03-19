@@ -11,7 +11,7 @@ Store logs in Google Cloud Storage. For details, see [https://github.com/kube-lo
 ## Example
 
 ```yaml
- spec:
+spec:
   gcs:
     project: logging-example
     bucket: banzai-log-test
@@ -29,9 +29,9 @@ Permission for the object in GCS: `auth_read` `owner_full` `owner_read` `private
 
 ### auto_create_bucket (bool, optional) {#gcsoutput-auto_create_bucket}
 
-Create GCS bucket if it does not exists  
+Create GCS bucket if it does not exists
 
-Default:  true
+Default: true
 
 ### bucket (string, required) {#gcsoutput-bucket}
 
@@ -70,9 +70,9 @@ Customer-supplied, AES-256 encryption key
 
 ### hex_random_length (int, optional) {#gcsoutput-hex_random_length}
 
-Max length of `%{hex_random}` placeholder(4-16)  
+Max length of `%{hex_random}` placeholder(4-16)
 
-Default:  4
+Default: 4
 
 ### keyfile (string, optional) {#gcsoutput-keyfile}
 
@@ -81,7 +81,7 @@ Path of GCS service account credentials JSON file
 
 ### object_key_format (string, optional) {#gcsoutput-object_key_format}
 
-Format of GCS object keys  
+Format of GCS object keys
 
 Default: `%{path}%{time_slice}_%{index}.%{file_extension}`
 
@@ -92,9 +92,9 @@ User provided web-safe keys and arbitrary string values that will returned with 
 
 ### overwrite (bool, optional) {#gcsoutput-overwrite}
 
-Overwrite already existing path  
+Overwrite already existing path
 
-Default:  false
+Default: false
 
 ### path (string, optional) {#gcsoutput-path}
 
@@ -118,9 +118,9 @@ Storage class of the file: `dra` `nearline` `coldline` `multi_regional` `regiona
 
 ### store_as (string, optional) {#gcsoutput-store_as}
 
-Archive format on GCS: gzip json text  
+Archive format on GCS: gzip json text
 
-Default:  gzip
+Default: gzip
 
 ### transcoding (bool, optional) {#gcsoutput-transcoding}
 

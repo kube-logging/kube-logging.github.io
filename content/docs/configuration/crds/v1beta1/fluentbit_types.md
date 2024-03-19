@@ -65,6 +65,9 @@ FluentbitSpec defines the desired state of FluentbitAgent
 ### bufferVolumeResources (corev1.ResourceRequirements, optional) {#fluentbitspec-buffervolumeresources}
 
 
+### configHotReload (*HotReload, optional) {#fluentbitspec-confighotreload}
+
+
 ### coroStackSize (int32, optional) {#fluentbitspec-corostacksize}
 
 Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don't set too small value (say 4096), or coroutine threads can overrun the stack buffer. Do not change the default value of this parameter unless you know what you are doing. (default: 24576) 
@@ -179,7 +182,7 @@ Available in Logging operator version 4.4 and later.
 
 ### logLevel (string, optional) {#fluentbitspec-loglevel}
 
-Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. (default: info) 
+Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. 
 
 Default: info
 
@@ -290,57 +293,57 @@ FluentbitNetwork defines network configuration for fluentbit
 
 ### connectTimeout (*uint32, optional) {#fluentbitnetwork-connecttimeout}
 
-Sets the timeout for connecting to an upstream  
+Sets the timeout for connecting to an upstream
 
-Default:  10
+Default: 10
 
 ### connectTimeoutLogError (*bool, optional) {#fluentbitnetwork-connecttimeoutlogerror}
 
-On connection timeout, specify if it should log an error. When disabled, the timeout is logged as a debug message  
+On connection timeout, specify if it should log an error. When disabled, the timeout is logged as a debug message
 
-Default:  true
+Default: true
 
 ### dnsMode (string, optional) {#fluentbitnetwork-dnsmode}
 
-Sets the primary transport layer protocol used by the asynchronous DNS resolver for connections established  
+Sets the primary transport layer protocol used by the asynchronous DNS resolver for connections established
 
-Default:  UDP, UDP or TCP
+Default: UDP, UDP or TCP
 
 ### dnsPreferIpv4 (*bool, optional) {#fluentbitnetwork-dnspreferipv4}
 
-Prioritize IPv4 DNS results when trying to establish a connection  
+Prioritize IPv4 DNS results when trying to establish a connection
 
-Default:  false
+Default: false
 
 ### dnsResolver (string, optional) {#fluentbitnetwork-dnsresolver}
 
-Select the primary DNS resolver type  
+Select the primary DNS resolver type
 
-Default:  ASYNC, LEGACY or ASYNC
+Default: ASYNC, LEGACY or ASYNC
 
 ### keepalive (*bool, optional) {#fluentbitnetwork-keepalive}
 
-Whether or not TCP keepalive is used for the upstream connection  
+Whether or not TCP keepalive is used for the upstream connection
 
-Default:  true
+Default: true
 
 ### keepaliveIdleTimeout (*uint32, optional) {#fluentbitnetwork-keepaliveidletimeout}
 
-How long in seconds a TCP keepalive connection can be idle before being recycled  
+How long in seconds a TCP keepalive connection can be idle before being recycled
 
-Default:  30
+Default: 30
 
 ### keepaliveMaxRecycle (*uint32, optional) {#fluentbitnetwork-keepalivemaxrecycle}
 
-How many times a TCP keepalive connection can be used before being recycled  
+How many times a TCP keepalive connection can be used before being recycled
 
-Default:  0, disabled
+Default: 0, disabled
 
 ### sourceAddress (string, optional) {#fluentbitnetwork-sourceaddress}
 
-Specify network address (interface) to use for connection and data traffic.  
+Specify network address (interface) to use for connection and data traffic.
 
-Default:  disabled
+Default: disabled
 
 
 ## BufferStorage
@@ -349,13 +352,19 @@ BufferStorage is the Service Section Configuration of fluent-bit
 
 ### storage.backlog.mem_limit (string, optional) {#bufferstorage-storage.backlog.mem_limit}
 
-If storage.path is set, Fluent Bit will look for data chunks that were not delivered and are still in the storage layer, these are called backlog data. This option configure a hint of maximum value of memory to use when processing these records.  
+If storage.path is set, Fluent Bit will look for data chunks that were not delivered and are still in the storage layer, these are called backlog data. This option configure a hint of maximum value of memory to use when processing these records.
 
 Default: 5M
 
 ### storage.checksum (string, optional) {#bufferstorage-storage.checksum}
 
-Enable the data integrity check when writing and reading data from the filesystem. The storage layer uses the CRC32 algorithm.  
+Enable the data integrity check when writing and reading data from the filesystem. The storage layer uses the CRC32 algorithm.
+
+Default: Off
+
+### storage.delete_irrecoverable_chunks (string, optional) {#bufferstorage-storage.delete_irrecoverable_chunks}
+
+When enabled, irrecoverable chunks will be deleted during runtime, and any other irrecoverable chunk located in the configured storage path directory will be deleted when Fluent Bit starts.
 
 Default: Off
 
@@ -372,7 +381,7 @@ Set an optional location in the file system to store streams and chunks of data.
 
 ### storage.sync (string, optional) {#bufferstorage-storage.sync}
 
-Configure the synchronization mode used to store the data into the file system. It can take the values normal or full.  
+Configure the synchronization mode used to store the data into the file system. It can take the values normal or full.
 
 Default: normal
 
@@ -400,19 +409,30 @@ The retry failure count to meet the unhealthy requirement, this is a sum for all
 Default: 5
 
 
+## HotReload
+
+HotReload configuration
+
+### image (ImageSpec, optional) {#hotreload-image}
+
+
+### resources (corev1.ResourceRequirements, optional) {#hotreload-resources}
+
+
+
 ## InputTail
 
 InputTail defines FluentbitAgent tail input configuration The tail input plugin allows to monitor one or several text files. It has a similar behavior like tail -f shell command.
 
 ### Buffer_Chunk_Size (string, optional) {#inputtail-buffer_chunk_size}
 
-Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification.  
+Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification.
 
 Default: 32k
 
 ### Buffer_Max_Size (string, optional) {#inputtail-buffer_max_size}
 
-Set the limit of the buffer size per monitored file. When a buffer needs to be increased (e.g: very long lines), this value is used to restrict how much the memory buffer can grow. If reading a file exceed this limit, the file is removed from the monitored file list. The value must be according to the Unit Size specification.  
+Set the limit of the buffer size per monitored file. When a buffer needs to be increased (e.g: very long lines), this value is used to restrict how much the memory buffer can grow. If reading a file exceed this limit, the file is removed from the monitored file list. The value must be according to the Unit Size specification.
 
 Default: Buffer_Chunk_Size
 
@@ -423,31 +443,31 @@ Specify the database file to keep track of monitored files and offsets.
 
 ### DB.journal_mode (string, optional) {#inputtail-db.journal_mode}
 
-sets the journal mode for databases (WAL). Enabling WAL provides higher performance. Note that WAL is not compatible with shared network file systems.  
+sets the journal mode for databases (WAL). Enabling WAL provides higher performance. Note that WAL is not compatible with shared network file systems.
 
-Default:  WAL
+Default: WAL
 
 ### DB.locking (*bool, optional) {#inputtail-db.locking}
 
-Specify that the database will be accessed only by Fluent Bit. Enabling this feature helps to increase performance when accessing the database but it restrict any external tool to query the content.  
+Specify that the database will be accessed only by Fluent Bit. Enabling this feature helps to increase performance when accessing the database but it restrict any external tool to query the content.
 
-Default:  true
+Default: true
 
 ### DB_Sync (string, optional) {#inputtail-db_sync}
 
-Set a default synchronization (I/O) method. Values: Extra, Full, Normal, Off. This flag affects how the internal SQLite engine do synchronization to disk, for more details about each option please refer to this section.  
+Set a default synchronization (I/O) method. Values: Extra, Full, Normal, Off. This flag affects how the internal SQLite engine do synchronization to disk, for more details about each option please refer to this section.
 
 Default: Full
 
 ### Docker_Mode (string, optional) {#inputtail-docker_mode}
 
-If enabled, the plugin will recombine split Docker log lines before passing them to any parser as configured above. This mode cannot be used at the same time as Multiline.  
+If enabled, the plugin will recombine split Docker log lines before passing them to any parser as configured above. This mode cannot be used at the same time as Multiline.
 
 Default: Off
 
 ### Docker_Mode_Flush (string, optional) {#inputtail-docker_mode_flush}
 
-Wait period time in seconds to flush queued unfinished split lines.  
+Wait period time in seconds to flush queued unfinished split lines.
 
 Default: 4
 
@@ -468,7 +488,7 @@ Ignores files that have been last modified before this time in seconds. Supports
 
 ### Key (string, optional) {#inputtail-key}
 
-When a message is unstructured (no parser applied), it's appended as a string under the key name log. This option allows to define an alternative name for that key.  
+When a message is unstructured (no parser applied), it's appended as a string under the key name log. This option allows to define an alternative name for that key.
 
 Default: log
 
@@ -479,21 +499,21 @@ Set a limit of memory that Tail plugin can use when appending data to the Engine
 
 ### Multiline (string, optional) {#inputtail-multiline}
 
-If enabled, the plugin will try to discover multiline messages and use the proper parsers to compose the outgoing messages. Note that when this option is enabled the Parser option is not used.  
+If enabled, the plugin will try to discover multiline messages and use the proper parsers to compose the outgoing messages. Note that when this option is enabled the Parser option is not used.
 
 Default: Off
 
 ### Multiline_Flush (string, optional) {#inputtail-multiline_flush}
 
-Wait period time in seconds to process queued multiline messages  
+Wait period time in seconds to process queued multiline messages
 
 Default: 4
 
 ### multiline.parser ([]string, optional) {#inputtail-multiline.parser}
 
-Specify one or multiple parser definitions to apply to the content. Part of the new Multiline Core support in 1.8  
+Specify one or multiple parser definitions to apply to the content. Part of the new Multiline Core support in 1.8
 
-Default:  ""
+Default: ""
 
 ### Parser (string, optional) {#inputtail-parser}
 
@@ -527,19 +547,19 @@ For new discovered files on start (without a database offset/position), read the
 
 ### Refresh_Interval (string, optional) {#inputtail-refresh_interval}
 
-The interval of refreshing the list of watched files in seconds.  
+The interval of refreshing the list of watched files in seconds.
 
 Default: 60
 
 ### Rotate_Wait (string, optional) {#inputtail-rotate_wait}
 
-Specify the number of extra time in seconds to monitor a file once is rotated in case some pending data is flushed.  
+Specify the number of extra time in seconds to monitor a file once is rotated in case some pending data is flushed.
 
 Default: 5
 
 ### Skip_Long_Lines (string, optional) {#inputtail-skip_long_lines}
 
-When a monitored file reach it buffer capacity due to a very long line (Buffer_Max_Size), the default behavior is to stop monitoring that file. Skip_Long_Lines alter that behavior and instruct Fluent Bit to skip long lines and continue processing other lines that fits into the buffer size.  
+When a monitored file reach it buffer capacity due to a very long line (Buffer_Max_Size), the default behavior is to stop monitoring that file. Skip_Long_Lines alter that behavior and instruct Fluent Bit to skip long lines and continue processing other lines that fits into the buffer size.
 
 Default: Off
 
@@ -566,55 +586,55 @@ FilterKubernetes Fluent Bit Kubernetes Filter allows to enrich your log files wi
 
 ### Annotations (string, optional) {#filterkubernetes-annotations}
 
-Include Kubernetes resource annotations in the extra metadata.  
+Include Kubernetes resource annotations in the extra metadata.
 
 Default: On
 
 ### Buffer_Size (string, optional) {#filterkubernetes-buffer_size}
 
-Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. A value of 0 results in no limit, and the buffer will expand as-needed. Note that if pod specifications exceed the buffer limit, the API response will be discarded when retrieving metadata, and some kubernetes metadata will fail to be injected to the logs. If this value is empty we will set it "0".  
+Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. A value of 0 results in no limit, and the buffer will expand as-needed. Note that if pod specifications exceed the buffer limit, the API response will be discarded when retrieving metadata, and some kubernetes metadata will fail to be injected to the logs. If this value is empty we will set it "0".
 
 Default: "0"
 
 ### Cache_Use_Docker_Id (string, optional) {#filterkubernetes-cache_use_docker_id}
 
-When enabled, metadata will be fetched from K8s when docker_id is changed.  
+When enabled, metadata will be fetched from K8s when docker_id is changed.
 
 Default: Off
 
 ### DNS_Retries (string, optional) {#filterkubernetes-dns_retries}
 
-DNS lookup retries N times until the network start working  
+DNS lookup retries N times until the network start working
 
 Default: 6
 
 ### DNS_Wait_Time (string, optional) {#filterkubernetes-dns_wait_time}
 
-DNS lookup interval between network status checks  
+DNS lookup interval between network status checks
 
 Default: 30
 
 ### Dummy_Meta (string, optional) {#filterkubernetes-dummy_meta}
 
-If set, use dummy-meta data (for test/dev purposes)  
+If set, use dummy-meta data (for test/dev purposes)
 
 Default: Off
 
 ### K8S-Logging.Exclude (string, optional) {#filterkubernetes-k8s-logging.exclude}
 
-Allow Kubernetes Pods to exclude their logs from the log processor (read more about it in Kubernetes Annotations section).  
+Allow Kubernetes Pods to exclude their logs from the log processor (read more about it in Kubernetes Annotations section).
 
 Default: On
 
 ### K8S-Logging.Parser (string, optional) {#filterkubernetes-k8s-logging.parser}
 
-Allow Kubernetes Pods to suggest a pre-defined Parser (read more about it in Kubernetes Annotations section)  
+Allow Kubernetes Pods to suggest a pre-defined Parser (read more about it in Kubernetes Annotations section)
 
 Default: Off
 
 ### Keep_Log (string, optional) {#filterkubernetes-keep_log}
 
-When Keep_Log is disabled, the log field is removed from the incoming message once it has been successfully merged (Merge_Log must be enabled as well).  
+When Keep_Log is disabled, the log field is removed from the incoming message once it has been successfully merged (Merge_Log must be enabled as well).
 
 Default: On
 
@@ -631,7 +651,7 @@ Absolute path to scan for certificate files
 
 ### Kube_Meta_Cache_TTL (string, optional) {#filterkubernetes-kube_meta_cache_ttl}
 
-Configurable TTL for K8s cached metadata. By default, it is set to 0 which means TTL for cache entries is disabled and cache entries are evicted at random when capacity is reached. In order to enable this option, you should set the number to a time interval. For example, set this value to 60 or 60s and cache entries which have been created more than 60s will be evicted.  
+Configurable TTL for K8s cached metadata. By default, it is set to 0 which means TTL for cache entries is disabled and cache entries are evicted at random when capacity is reached. In order to enable this option, you should set the number to a time interval. For example, set this value to 60 or 60s and cache entries which have been created more than 60s will be evicted.
 
 Default: 0
 
@@ -660,19 +680,19 @@ Default: 600
 
 ### Kube_URL (string, optional) {#filterkubernetes-kube_url}
 
-API Server end-point.
+API Server end-point. 
 
 Default: `https://kubernetes.default.svc:443`
 
 ### Kubelet_Port (string, optional) {#filterkubernetes-kubelet_port}
 
-kubelet port using for HTTP request, this only works when Use_Kubelet  set to On  
+kubelet port using for HTTP request, this only works when Use_Kubelet  set to On
 
 Default: 10250
 
 ### Labels (string, optional) {#filterkubernetes-labels}
 
-Include Kubernetes resource labels in the extra metadata.  
+Include Kubernetes resource labels in the extra metadata.
 
 Default: On
 
@@ -695,7 +715,7 @@ When Merge_Log is enabled, the filter tries to assume the log field from the inc
 
 ### Merge_Log_Trim (string, optional) {#filterkubernetes-merge_log_trim}
 
-When Merge_Log is enabled, trim (remove possible \n or \r) field values.   
+When Merge_Log is enabled, trim (remove possible \n or \r) field values.
 
 Default: On
 
@@ -711,25 +731,25 @@ Set an alternative Parser to process record Tag and extract pod_name, namespace_
 
 ### tls.debug (string, optional) {#filterkubernetes-tls.debug}
 
-Debug level between 0 (nothing) and 4 (every detail).  
+Debug level between 0 (nothing) and 4 (every detail).
 
 Default: -1
 
 ### tls.verify (string, optional) {#filterkubernetes-tls.verify}
 
-When enabled, turns on certificate validation when connecting to the Kubernetes API server.  
+When enabled, turns on certificate validation when connecting to the Kubernetes API server.
 
 Default: On
 
 ### Use_Journal (string, optional) {#filterkubernetes-use_journal}
 
-When enabled, the filter reads logs coming in Journald format.  
+When enabled, the filter reads logs coming in Journald format.
 
 Default: Off
 
 ### Use_Kubelet (string, optional) {#filterkubernetes-use_kubelet}
 
-This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log.  
+This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log.
 
 Default: Off
 

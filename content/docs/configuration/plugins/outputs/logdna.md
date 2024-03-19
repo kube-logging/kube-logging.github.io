@@ -35,21 +35,21 @@ Hostname
 
 ### ingester_domain (string, optional) {#logdna-ingester_domain}
 
-Custom Ingester URL, Optional  
+Custom Ingester URL, Optional
 
-Default:  `https://logs.logdna.com`
+Default: `https://logs.logdna.com`
 
 ### ingester_endpoint (string, optional) {#logdna-ingester_endpoint}
 
-Custom Ingester Endpoint, Optional  
+Custom Ingester Endpoint, Optional
 
-Default:  /logs/ingest
+Default: /logs/ingest
 
 ### request_timeout (string, optional) {#logdna-request_timeout}
 
-HTTPS POST Request Timeout, Optional. Supports s and ms Suffices  
+HTTPS POST Request Timeout, Optional. Supports s and ms Suffices
 
-Default:  30 s
+Default: 30 s
 
 ### slow_flush_log_threshold (string, optional) {#logdna-slow_flush_log_threshold}
 
@@ -59,6 +59,8 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 ### tags (string, optional) {#logdna-tags}
 
 Comma-Separated List of Tags, Optional 
+
+
 
 
 

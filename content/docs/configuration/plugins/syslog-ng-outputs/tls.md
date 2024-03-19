@@ -4,7 +4,8 @@ weight: 200
 generated_file: true
 ---
 
-For details on how TLS configuration works in syslog-ng, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/).
+
+ For details on how TLS configuration works in syslog-ng, see the [AxoSyslog Core documentation](https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/).
 
 ## Configuration
 

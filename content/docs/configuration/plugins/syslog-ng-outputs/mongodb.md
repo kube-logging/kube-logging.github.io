@@ -21,7 +21,7 @@ spec:
     collection: syslog
     uri: "mongodb://mongodb-endpoint/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000"
     value_pairs: scope("selected-macros" "nv-pairs")
- {{</ highlight >}}
+{{</ highlight >}}
 
 For more information, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-mongodb/).
 
@@ -50,9 +50,9 @@ Defines the folder where the disk-buffer files are stored.
 
 ### disk_buffer (*DiskBuffer, optional) {#mongodb-disk_buffer}
 
-This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).  
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
 
-Default:  false
+Default: false
 
 ### log-fifo-size (int, optional) {#mongodb-log-fifo-size}
 
@@ -71,9 +71,9 @@ The number of times syslog-ng OSE attempts to send a message to this destination
 
 ### time_reopen (int, optional) {#mongodb-time_reopen}
 
-The time to wait in seconds before a dead connection is reestablished.  
+The time to wait in seconds before a dead connection is reestablished.
 
-Default:  60
+Default: 60
 
 ### uri (*secret.Secret, optional) {#mongodb-uri}
 
@@ -83,7 +83,7 @@ Default:  `mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=600
 
 ### value_pairs (ValuePairs, optional) {#mongodb-value_pairs}
 
-Creates structured name-value pairs from the data and metadata of the log message.  
+Creates structured name-value pairs from the data and metadata of the log message.
 
 Default: `"scope("selected-macros" "nv-pairs")"`
 
@@ -99,21 +99,21 @@ Bulk operation related options. For details, see the [documentation of the AxoSy
 
 ### bulk (*bool, optional) {#bulk-bulk}
 
-Enables bulk insert mode. If disabled, each messages is inserted individually.  
+Enables bulk insert mode. If disabled, each messages is inserted individually.
 
-Default:  yes
+Default: yes
 
 ### bulk_bypass_validation (*bool, optional) {#bulk-bulk_bypass_validation}
 
-If set to yes, it disables MongoDB bulk operations validation mode.  
+If set to yes, it disables MongoDB bulk operations validation mode.
 
-Default:  no
+Default: no
 
 ### bulk_unordered (*bool, optional) {#bulk-bulk_unordered}
 
-Description: Enables unordered bulk operations mode.  
+Description: Enables unordered bulk operations mode.
 
-Default:  no
+Default: no
 
 
 ## ValuePairs

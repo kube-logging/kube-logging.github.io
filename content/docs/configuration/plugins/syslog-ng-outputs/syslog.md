@@ -127,7 +127,7 @@ Specifies the number of seconds syslog-ng waits for identical messages. For deta
 
 Specifies a template defining the logformat to be used in the destination. For details, see the [documentation of the AxoSyslog syslog-ng distribution](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-syslog/reference-destination-syslog-chapter/#template).
 
-Default:  0
+Default: 0
 
 ### template_escape (*bool, optional) {#syslogoutput-template_escape}
 

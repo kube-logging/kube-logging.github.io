@@ -29,9 +29,9 @@ Specify optional geoip database (using bundled GeoLiteCity databse by default)
 
 ### geoip_lookup_keys (string, optional) {#geoip-geoip_lookup_keys}
 
-Specify one or more geoip lookup field which has ip address  
+Specify one or more geoip lookup field which has ip address
 
-Default:  host
+Default: host
 
 ### records ([]Record, optional) {#geoip-records}
 
@@ -43,6 +43,7 @@ Records are represented as maps: `key: value`
 To avoid get stacktrace error with `[null, null]` array for elasticsearch. 
 
 Default: true
+
 
 
 

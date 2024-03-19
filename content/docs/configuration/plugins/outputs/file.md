@@ -44,15 +44,15 @@ The Path of the file. The actual path is path + time + ".log" by default.
 
 ### path_suffix (string, optional) {#fileoutputconfig-path_suffix}
 
-The suffix of output result. 
+The suffix of output result.
 
-Default:  ".log"
+Default: ".log"
 
 ### recompress (bool, optional) {#fileoutputconfig-recompress}
 
-Performs compression again even if the buffer chunk is already compressed.  
+Performs compression again even if the buffer chunk is already compressed.
 
-Default:  false
+Default: false
 
 ### slow_flush_log_threshold (string, optional) {#fileoutputconfig-slow_flush_log_threshold}
 
@@ -61,13 +61,14 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 
 ### symlink_path (bool, optional) {#fileoutputconfig-symlink_path}
 
-Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs. 
+Create symlink to temporary buffered file when buffer_type is file. This is useful for tailing file content to check logs.
 
-Default:  false
+Default: false
+
+
 
 
 ## Example `File` output configurations
-
 
 {{< highlight yaml >}}
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -88,7 +89,7 @@ spec:
 Fluentd config result:
 
 {{< highlight xml >}}
-  <match **>
+<match **>
 	@type file
 	@id test_file
 	add_path_suffix true
@@ -102,7 +103,7 @@ Fluentd config result:
 	  timekey_use_utc true
 	  timekey_wait 30s
 	</buffer>
-  </match>
+</match>
 {{</ highlight >}}
 
 

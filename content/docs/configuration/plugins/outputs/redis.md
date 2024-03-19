@@ -28,7 +28,7 @@ spec:
 
 Allow inserting key duplicate. It will work as update values.
 
-Default:  false
+Default: false
 
 ### buffer (*Buffer, optional) {#output-config-buffer}
 
@@ -37,9 +37,9 @@ Default:  false
 
 ### db_number (int, optional) {#output-config-db_number}
 
-DbNumber database number is optional.  
+DbNumber database number is optional.
 
-Default:  0
+Default: 0
 
 ### format (*Format, optional) {#output-config-format}
 
@@ -48,15 +48,15 @@ Default:  0
 
 ### host (string, optional) {#output-config-host}
 
-Host Redis endpoint  
+Host Redis endpoint
 
-Default:  localhost
+Default: localhost
 
 ### insert_key_prefix (string, optional) {#output-config-insert_key_prefix}
 
-insert_key_prefix  
+insert_key_prefix
 
-Default:  "${tag}"
+Default: "${tag}"
 
 ### password (*secret.Secret, optional) {#output-config-password}
 
@@ -65,9 +65,9 @@ Redis Server password
 
 ### port (int, optional) {#output-config-port}
 
-Port of the Redis server  
+Port of the Redis server
 
-Default:  6379
+Default: 6379
 
 ### slow_flush_log_threshold (string, optional) {#output-config-slow_flush_log_threshold}
 
@@ -78,7 +78,7 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 
 Users can set strftime format.
 
-Default:  "%s"
+Default: "%s"
 
 ### ttl (int, optional) {#output-config-ttl}
 

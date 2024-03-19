@@ -23,7 +23,7 @@ The number of seconds after which the last received event log is flushed. If set
 
 ### keep_partial_key (bool, optional) {#concat-keep_partial_key}
 
-If true, keep partial_key in concatenated records  
+If true, keep partial_key in concatenated records
 
 Default: False
 
@@ -95,9 +95,9 @@ The label name to handle events caused by timeout.
 
 ### use_first_timestamp (bool, optional) {#concat-use_first_timestamp}
 
-Use timestamp of first record when buffer is flushed.  
+Use timestamp of first record when buffer is flushed.
 
-Default:  False
+Default: False
 
 ### use_partial_cri_logtag (bool, optional) {#concat-use_partial_cri_logtag}
 
@@ -107,6 +107,7 @@ Use cri log tag to concatenate multiple records
 ### use_partial_metadata (string, optional) {#concat-use_partial_metadata}
 
 Use partial metadata to concatenate multiple records 
+
 
 
 

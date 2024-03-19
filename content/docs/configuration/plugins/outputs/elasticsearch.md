@@ -10,21 +10,21 @@ generated_file: true
 
 Example Deployment: [Save all logs to Elasticsearch](../../../../quickstarts/es-nginx/)
 
- ## Example output configurations
+## Example output configurations
 
- ```yaml
- spec:
-   elasticsearch:
-     host: elasticsearch-elasticsearch-cluster.default.svc.cluster.local
-     port: 9200
-     scheme: https
-     ssl_verify: false
-     ssl_version: TLSv1_2
-     buffer:
-       timekey: 1m
-       timekey_wait: 30s
-       timekey_use_utc: true
- ```
+```yaml
+spec:
+  elasticsearch:
+    host: elasticsearch-elasticsearch-cluster.default.svc.cluster.local
+    port: 9200
+    scheme: https
+    ssl_verify: false
+    ssl_version: TLSv1_2
+    buffer:
+      timekey: 1m
+      timekey_wait: 30s
+      timekey_use_utc: true
+```
 
 
 ## Configuration
@@ -39,9 +39,9 @@ api_key parameter adds authentication header.
 
 ### application_name (*string, optional) {#elasticsearch-application_name}
 
-Specify the application name for the rollover index to be created. 
+Specify the application name for the rollover index to be created.
 
-Default:  default
+Default: default
 
 ### buffer (*Buffer, optional) {#elasticsearch-buffer}
 
@@ -50,37 +50,21 @@ Default:  default
 
 ### bulk_message_request_threshold (string, optional) {#elasticsearch-bulk_message_request_threshold}
 
-Configure bulk_message request splitting threshold size. Default value is 20MB. (20 * 1024 * 1024) If you specify this size as negative number, bulk_message request splitting feature will be disabled.  
+Configure bulk_message request splitting threshold size. Default value is 20MB. (20 * 1024 * 1024) If you specify this size as negative number, bulk_message request splitting feature will be disabled.
 
-Default:  20MB
-
-### ca_file (*secret.Secret, optional) {#elasticsearch-ca_file}
-
-CA certificate 
-
-### client_cert (*secret.Secret, optional) {#elasticsearch-client_cert}
-
-Client certificate 
-
-### client_key (*secret.Secret, optional) {#elasticsearch-client_key}
-
-Client certificate key 
-
-### client_key_pass (*secret.Secret, optional) {#elasticsearch-client_key_pass}
-
-Client key password 
+Default: 20MB
 
 ### content_type (string, optional) {#elasticsearch-content_type}
 
-With content_type application/x-ndjson, elasticsearch plugin adds application/x-ndjson as Content-Profile in payload.  
+With content_type application/x-ndjson, elasticsearch plugin adds application/x-ndjson as Content-Profile in payload.
 
-Default:  application/json
+Default: application/json
 
 ### custom_headers (string, optional) {#elasticsearch-custom_headers}
 
-This parameter adds additional headers to request. Example: {"token":"secret"}  
+This parameter adds additional headers to request. Example: {"token":"secret"}
 
-Default:  {}
+Default: {}
 
 ### customize_template (string, optional) {#elasticsearch-customize_template}
 
@@ -94,9 +78,9 @@ Use @type elasticsearch_data_stream
 
 ### data_stream_ilm_name (string, optional) {#elasticsearch-data_stream_ilm_name}
 
-Specify an existing ILM policy to be applied to the data stream. If not present, either the specified template's or a new ILM default policy is applied.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
+Specify an existing ILM policy to be applied to the data stream. If not present, either the specified template's or a new ILM default policy is applied.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream
 
-Default:  data_stream_name
+Default: data_stream_name
 
 ### data_stream_ilm_policy (string, optional) {#elasticsearch-data_stream_ilm_policy}
 
@@ -115,15 +99,15 @@ You can specify Elasticsearch data stream name by this parameter. This parameter
 
 ### data_stream_template_name (string, optional) {#elasticsearch-data_stream_template_name}
 
-Specify an existing index template for the data stream. If not present, a new template is created and named after the data stream.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream 
+Specify an existing index template for the data stream. If not present, a new template is created and named after the data stream.  Further details here https://github.com/uken/fluent-plugin-elasticsearch#configuration---elasticsearch-output-data-stream
 
-Default:  data_stream_name
+Default: data_stream_name
 
 ### default_elasticsearch_version (string, optional) {#elasticsearch-default_elasticsearch_version}
 
-This parameter changes that ES plugin assumes default Elasticsearch version. 
+This parameter changes that ES plugin assumes default Elasticsearch version.
 
-Default:  5
+Default: 5
 
 ### deflector_alias (string, optional) {#elasticsearch-deflector_alias}
 
@@ -176,9 +160,9 @@ You can specify multiple Elasticsearch hosts with separator ",". If you specify 
 
 ### http_backend (string, optional) {#elasticsearch-http_backend}
 
-With http_backend typhoeus, elasticsearch plugin uses typhoeus faraday http backend. Typhoeus can handle HTTP keepalive.  
+With http_backend typhoeus, elasticsearch plugin uses typhoeus faraday http backend. Typhoeus can handle HTTP keepalive.
 
-Default:  excon
+Default: excon
 
 ### id_key (string, optional) {#elasticsearch-id_key}
 
@@ -212,75 +196,75 @@ With this option set to true, Fluentd manifests the index name in the request UR
 
 ### include_tag_key (bool, optional) {#elasticsearch-include_tag_key}
 
-This will add the Fluentd tag in the JSON record. 
+This will add the Fluentd tag in the JSON record.
 
-Default:  false
+Default: false
 
 ### include_timestamp (bool, optional) {#elasticsearch-include_timestamp}
 
-Adds a @timestamp field to the log, following all settings logstash_format does, except without the restrictions on index_name. This allows one to log to an alias in Elasticsearch and utilize the rollover API. 
+Adds a @timestamp field to the log, following all settings logstash_format does, except without the restrictions on index_name. This allows one to log to an alias in Elasticsearch and utilize the rollover API.
 
-Default:  false
+Default: false
 
 ### index_date_pattern (*string, optional) {#elasticsearch-index_date_pattern}
 
-Specify this to override the index date pattern for creating a rollover index. 
+Specify this to override the index date pattern for creating a rollover index.
 
-Default:  now/d
+Default: now/d
 
 ### index_name (string, optional) {#elasticsearch-index_name}
 
-The index name to write events to  
+The index name to write events to
 
 Default: fluentd
 
 ### index_prefix (string, optional) {#elasticsearch-index_prefix}
 
-Specify the index prefix for the rollover index to be created. 
+Specify the index prefix for the rollover index to be created.
 
-Default:  logstash
+Default: logstash
 
 ### log_es_400_reason (bool, optional) {#elasticsearch-log_es_400_reason}
 
-By default, the error logger won't record the reason for a 400 error from the Elasticsearch API unless you set log_level to debug. However, this results in a lot of log spam, which isn't desirable if all you want is the 400 error reasons. You can set this true to capture the 400 error reasons without all the other debug logs.  
+By default, the error logger won't record the reason for a 400 error from the Elasticsearch API unless you set log_level to debug. However, this results in a lot of log spam, which isn't desirable if all you want is the 400 error reasons. You can set this true to capture the 400 error reasons without all the other debug logs.
 
-Default:  false
+Default: false
 
 ### logstash_dateformat (string, optional) {#elasticsearch-logstash_dateformat}
 
-Set the Logstash date format. 
+Set the Logstash date format.
 
-Default:  %Y.%m.%d
+Default: %Y.%m.%d
 
 ### logstash_format (bool, optional) {#elasticsearch-logstash_format}
 
-Enable Logstash log format. 
+Enable Logstash log format.
 
-Default:  false
+Default: false
 
 ### logstash_prefix (string, optional) {#elasticsearch-logstash_prefix}
 
-Set the Logstash prefix. 
+Set the Logstash prefix.
 
-Default:  logstash
+Default: logstash
 
 ### logstash_prefix_separator (string, optional) {#elasticsearch-logstash_prefix_separator}
 
-Set the Logstash prefix separator. 
+Set the Logstash prefix separator.
 
-Default:  -
+Default: -
 
 ### max_retry_get_es_version (string, optional) {#elasticsearch-max_retry_get_es_version}
 
-You can specify the number of times to retry fetching the Elasticsearch version.(default: 15)
+You can specify the number of times to retry fetching the Elasticsearch version.
 
-Default:  15
+Default: 15
 
 ### max_retry_putting_template (string, optional) {#elasticsearch-max_retry_putting_template}
 
-You can specify times of retry putting template. 
+You can specify times of retry putting template.
 
-Default:  10
+Default: 10
 
 ### password (*secret.Secret, optional) {#elasticsearch-password}
 
@@ -301,19 +285,19 @@ This param is to set a pipeline id of your elasticsearch to be added into the re
 
 You can specify the Elasticsearch port using this parameter.
 
-Default:  9200
+Default: 9200
 
 ### prefer_oj_serializer (bool, optional) {#elasticsearch-prefer_oj_serializer}
 
-With default behavior, Elasticsearch client uses Yajl as JSON encoder/decoder. Oj is the alternative high performance JSON encoder/decoder. When this parameter sets as true, Elasticsearch client uses Oj as JSON encoder/decoder.  
+With default behavior, Elasticsearch client uses Yajl as JSON encoder/decoder. Oj is the alternative high performance JSON encoder/decoder. When this parameter sets as true, Elasticsearch client uses Oj as JSON encoder/decoder.
 
-Default:  false
+Default: false
 
 ### reconnect_on_error (bool, optional) {#elasticsearch-reconnect_on_error}
 
-Indicates that the plugin should reset connection on any error (reconnect on next send). By default it will reconnect only on "host unreachable exceptions". We recommended to set this true in the presence of elasticsearch shield. 
+Indicates that the plugin should reset connection on any error (reconnect on next send). By default it will reconnect only on "host unreachable exceptions". We recommended to set this true in the presence of elasticsearch shield.
 
-Default:  false
+Default: false
 
 ### reload_after (string, optional) {#elasticsearch-reload_after}
 
@@ -330,7 +314,7 @@ Default: true
 
 Indicates that the elasticsearch-transport will try to reload the nodes addresses if there is a failure while making the request. This can be useful to quickly remove a dead node from the list of addresses.
 
-Default:  false
+Default: false
 
 ### remove_keys (string, optional) {#elasticsearch-remove_keys}
 
@@ -349,15 +333,15 @@ This setting allows remove_keys_on_update to be configured with a key in each re
 
 ### request_timeout (string, optional) {#elasticsearch-request_timeout}
 
-You can specify HTTP request timeout. 
+You can specify HTTP request timeout.
 
-Default:  5s
+Default: 5s
 
 ### resurrect_after (string, optional) {#elasticsearch-resurrect_after}
 
-You can set in the elasticsearch-transport how often dead connections from the elasticsearch-transport's pool will be resurrected. 
+You can set in the elasticsearch-transport how often dead connections from the elasticsearch-transport's pool will be resurrected.
 
-Default:  60s
+Default: 60s
 
 ### retry_tag (string, optional) {#elasticsearch-retry_tag}
 
@@ -366,20 +350,40 @@ This setting allows custom routing of messages in response to bulk request failu
 
 ### rollover_index (bool, optional) {#elasticsearch-rollover_index}
 
-Specify this as true when an index with rollover capability needs to be created. https://github.com/uken/fluent-plugin-elasticsearch#rollover_index 
+Specify this as true when an index with rollover capability needs to be created. https://github.com/uken/fluent-plugin-elasticsearch#rollover_index
 
-Default:  false
+Default: false
 
 ### routing_key (string, optional) {#elasticsearch-routing_key}
 
 Similar to parent_key config, will add _routing into elasticsearch command if routing_key is set and the field does exist in input event. 
 
 
+### ca_file (*secret.Secret, optional) {#elasticsearch-ca_file}
+
+CA certificate 
+
+
+### client_cert (*secret.Secret, optional) {#elasticsearch-client_cert}
+
+Client certificate 
+
+
+### client_key (*secret.Secret, optional) {#elasticsearch-client_key}
+
+Client certificate key 
+
+
+### client_key_pass (*secret.Secret, optional) {#elasticsearch-client_key_pass}
+
+Client key password 
+
+
 ### scheme (string, optional) {#elasticsearch-scheme}
 
-Connection scheme  
+Connection scheme
 
-Default:  http
+Default: http
 
 ### slow_flush_log_threshold (string, optional) {#elasticsearch-slow_flush_log_threshold}
 
@@ -412,9 +416,9 @@ If you want to configure SSL/TLS version, you can specify ssl_version parameter.
 
 ### suppress_doc_wrap (bool, optional) {#elasticsearch-suppress_doc_wrap}
 
-By default, record body is wrapped by 'doc'. This behavior can not handle update script requests. You can set this to suppress doc wrapping and allow record body to be untouched.  
+By default, record body is wrapped by 'doc'. This behavior can not handle update script requests. You can set this to suppress doc wrapping and allow record body to be untouched.
 
-Default:  false
+Default: false
 
 ### suppress_type_name (*bool, optional) {#elasticsearch-suppress_type_name}
 
@@ -423,9 +427,9 @@ Suppress type name to avoid warnings in Elasticsearch 7.x
 
 ### tag_key (string, optional) {#elasticsearch-tag_key}
 
-This will add the Fluentd tag in the JSON record. 
+This will add the Fluentd tag in the JSON record.
 
-Default:  tag
+Default: tag
 
 ### target_index_key (string, optional) {#elasticsearch-target_index_key}
 
@@ -434,9 +438,9 @@ Tell this plugin to find the index name to write to in the record under this key
 
 ### target_type_key (string, optional) {#elasticsearch-target_type_key}
 
-Similar to target_index_key config, find the type name to write to in the record under this key (or nested record). If key not found in record - fallback to type_name. 
+Similar to target_index_key config, find the type name to write to in the record under this key (or nested record). If key not found in record - fallback to type_name.
 
-Default:  fluentd
+Default: fluentd
 
 ### template_file (*secret.Secret, optional) {#elasticsearch-template_file}
 
@@ -450,9 +454,9 @@ The name of the template to define. If a template by the name given is already p
 
 ### template_overwrite (bool, optional) {#elasticsearch-template_overwrite}
 
-Always update the template, even if it already exists. 
+Always update the template, even if it already exists.
 
-Default:  false
+Default: false
 
 ### templates (string, optional) {#elasticsearch-templates}
 
@@ -481,9 +485,9 @@ Should the record not include a time_key, define the degree of sub-second time p
 
 ### type_name (string, optional) {#elasticsearch-type_name}
 
-Set the index type for elasticsearch. This is the fallback if `target_type_key` is missing.  
+Set the index type for elasticsearch. This is the fallback if `target_type_key` is missing.
 
-Default:  fluentd
+Default: fluentd
 
 ### unrecoverable_error_types (string, optional) {#elasticsearch-unrecoverable_error_types}
 
@@ -492,7 +496,9 @@ Default unrecoverable_error_types parameter is set up strictly. Because es_rejec
 
 ### use_legacy_template (*bool, optional) {#elasticsearch-use_legacy_template}
 
-If set to true, the output uses the [legacy index template format](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/indices-templates-v1.html). Otherwise, it uses the [composable index template](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/index-templates.html) format. (default: true)
+If set to true, the output uses the [legacy index template format](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/indices-templates-v1.html). Otherwise, it uses the [composable index template](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/index-templates.html) format.
+
+Default: true
 
 ### user (string, optional) {#elasticsearch-user}
 
@@ -507,9 +513,9 @@ Default: true
 
 ### validate_client_version (bool, optional) {#elasticsearch-validate_client_version}
 
-When you use mismatched Elasticsearch server and client libraries, fluent-plugin-elasticsearch cannot send data into Elasticsearch.  
+When you use mismatched Elasticsearch server and client libraries, fluent-plugin-elasticsearch cannot send data into Elasticsearch.
 
-Default:  false
+Default: false
 
 ### verify_es_version_at_startup (*bool, optional) {#elasticsearch-verify_es_version_at_startup}
 
@@ -519,14 +525,14 @@ Default: true
 
 ### with_transporter_log (bool, optional) {#elasticsearch-with_transporter_log}
 
-This is debugging purpose option to enable to obtain transporter layer log.  
+This is debugging purpose option to enable to obtain transporter layer log.
 
-Default:  false
+Default: false
 
 ### write_operation (string, optional) {#elasticsearch-write_operation}
 
-The write_operation can be any of: (index,create,update,upsert) 
+The write_operation can be any of: (index,create,update,upsert)
 
-Default:  index
+Default: index
 
 

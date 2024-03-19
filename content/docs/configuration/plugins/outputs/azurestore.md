@@ -14,13 +14,13 @@ More info at https://github.com/microsoft/fluent-plugin-azure-storage-append-blo
 
 ### auto_create_container (bool, optional) {#output-config-auto_create_container}
 
-Automatically create container if not exists 
+Automatically create container if not exists
 
-Default:  true
+Default: true
 
 ### azure_cloud (string, optional) {#output-config-azure_cloud}
 
-Available in Logging operator version 4.5 and later. Azure Cloud to use, for example, AzurePublicCloud, AzureChinaCloud, AzureGermanCloud, AzureUSGovernmentCloud, AZURESTACKCLOUD (in uppercase) This field is supported only if the fluentd plugin honors it, for example, https://github.com/elsesiy/fluent-plugin-azure-storage-append-blob-lts 
+Available in Logging operator version 4.5 and later. Azure Cloud to use, for example, AzurePublicCloud, AzureChinaCloud, AzureGermanCloud, AzureUSGovernmentCloud, AZURESTACKCLOUD (in uppercase). This field is supported only if the fluentd plugin honors it, for example, https://github.com/elsesiy/fluent-plugin-azure-storage-append-blob-lts 
 
 
 ### azure_container (string, required) {#output-config-azure_container}
@@ -35,9 +35,9 @@ Azure Instance Metadata Service API Version
 
 ### azure_object_key_format (string, optional) {#output-config-azure_object_key_format}
 
-Object key format  
+Object key format
 
-Default:  %{path}%{time_slice}_%{index}.%{file_extension}
+Default: %{path}%{time_slice}_%{index}.%{file_extension}
 
 ### azure_storage_access_key (*secret.Secret, optional) {#output-config-azure_storage_access_key}
 

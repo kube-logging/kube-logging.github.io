@@ -15,9 +15,9 @@ Allow configuration of cluster resources from any namespace. Mutually exclusive 
 
 ### clusterDomain (*string, optional) {#loggingspec-clusterdomain}
 
-Cluster domain name to be used when templating URLs to services . 
+Cluster domain name to be used when templating URLs to services .
 
-Default:  "cluster.local."
+Default: "cluster.local."
 
 ### configCheck (ConfigCheck, optional) {#loggingspec-configcheck}
 
