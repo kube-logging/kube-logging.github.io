@@ -106,8 +106,8 @@ spec:
     namespace_annotations: "On"
     namespace_labels: "On"
   image:
-    repository: ghcr.io/fluent/fluent-bit/unstable
-    tag: latest
+    repository: ghcr.io/fluent/fluent-bit
+    tag: 3.0.0
 ```
 
 ## Other changes
