@@ -7,7 +7,7 @@ weight: 50
 
 The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
 
-## Fluent Bit hot reload
+### Fluent Bit hot reload
 
 As a Fluent Bit restart can take a long time when there are many files to index, Logging operator now supports [hot reload for Fluent Bit](https://docs.fluentbit.io/manual/administration/hot-reload) to reload its configuration on the fly.
 
@@ -39,7 +39,7 @@ spec:
 
 Many thanks to @aslafy-z for contributing this feature!
 
-## VMware Aria Operations output for Fluentd
+### VMware Aria Operations output for Fluentd
 
 When using the Fluentd aggregator with the Logging operator, you can now send your logs to [VMware Aria Operations for Logs](https://www.vmware.com/products/aria-operations-for-logs.html). This output uses the [vmwareLogInsight plugin](https://github.com/vmware/fluent-plugin-vmware-loginsight).
 
@@ -62,7 +62,7 @@ spec:
 
 Many thanks to @logikone for contributing this feature!
 
-## VMware Log Intelligence output for Fluentd
+### VMware Log Intelligence output for Fluentd
 
 When using the Fluentd aggregator with the Logging operator, you can now send your logs to [VMware Log Intelligence](https://aria.vmware.com/t/vmware-log-intelligence/). This output uses the [vmware_log_intelligence plugin](https://github.com/vmware/fluent-plugin-vmware-log-intelligence).
 
@@ -90,7 +90,7 @@ spec:
 
 Many thanks to @zrobisho for contributing this feature!
 
-## Kubernetes namespace labels and annotations
+### Kubernetes namespace labels and annotations
 
 Logging operator 4.6 supports the new Fluent Bit Kubernetes filter options that will be released in Fluent Bit 3.0. That way you'll be able to enrich your logs with Kubernetes namespace labels and annotations right at the source of the log messages.
 
@@ -110,7 +110,7 @@ spec:
     tag: 3.0.0
 ```
 
-## Other changes
+### Other changes
 
 - Enabling ServiceMonitor checks if Prometheus is already available.
 - You can now use a custom PVC without a template for the statefulset.
@@ -123,7 +123,7 @@ spec:
 - The Elasticsearch output of the syslog-ng aggregator now supports the template option.
 - To avoid problems that might occur when a tenant has a faulty output and backpressure kicks in, Logging operator now creates a dedicated tail input for each tenant.
 
-## Removed feature
+### Removed feature
 
 We have removed support for [Pod Security Policies (PSPs)](https://kubernetes.io/docs/concepts/security/pod-security-policy/), which were deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25.
 
@@ -133,7 +133,7 @@ Note that the API was left intact, it just doesn't do anything.
 
 The following are the highlights and main changes of Logging operator 4.5. For a complete list of changes and bugfixes, see the [Logging operator 4.5 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.5.0).
 
-## Standalone FluentdConfig and SyslogNGConfig CRDs
+### Standalone FluentdConfig and SyslogNGConfig CRDs
 
 Starting with Logging operator version 4.5, you can either configure Fluentd in the `Logging` CR, or you can use a standalone `FluentdConfig` CR. Similarly, you can use a standalone `SyslogNGConfig` CRD to configure syslog-ng.
 
@@ -161,7 +161,7 @@ When using Fluentd as the log aggregator, you can now:
 - Set which [Azure Cloud to use]({{< relref "/docs/configuration/plugins/outputs/azurestore.md#output-config-azure_cloud" >}}) (for example, AzurePublicCloud), when using the Azure Storage output
 - Customize the `image` to use in [event and host tailers]({{< relref "/docs/configuration/crds/extensions/_index.md" >}})
 
-## Other changes
+### Other changes
 
 - LoggingStatus now includes the number (problemsCount) and the related watchNamespaces to help troubleshooting
 
@@ -211,6 +211,7 @@ without the dry-run or syntax-check flags, so output plugins or destination driv
 connections and will fail if there are any issues , for example, with the credentials.
 
 Add the following to you `Logging` resource spec:
+
 ```yaml
 spec:
   configCheck:
@@ -249,7 +250,7 @@ New
 +logging_buffer_size_bytes{entity="/buffers",host="all-to-file-fluentd-0"} 32253
 ```
 
-## Other improvements
+### Other improvements
 
 - You can now configure the resources of the buffer metrics sidecar.
 - You can now rerun failed configuration checks if there is no configcheck pod.
