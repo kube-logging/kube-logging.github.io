@@ -28,14 +28,14 @@ format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/vmware_log_intelligence/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-04-02T09:22:54+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-03-28T09:39:48+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="VMware Log Intelligence">
 <meta itemprop="description" content="Overview VMware Log Intelligence output plugin for Fluentd. For details, see https://github.com/vmware/fluent-plugin-vmware-log-intelligence.
 Example output configurations spec: vmwarelogintelligence: endpoint_url: https://data.upgrade.symphony-dev.com/le-mans/v1/streams/ingestion-pipeline-stream verify_ssl: true http_compress: false headers: content_type: &#34;application/json&#34; authorization: valueFrom: secretKeyRef: name: vmware-log-intelligence-token key: authorization structure: simple buffer: chunk_limit_records: 300 flush_interval: 3s retry_max_times: 3 Configuration VMwareLogIntelligence buffer (*Buffer, optional) Buffer
 endpoint_url (string, required) Log Intelligence endpoint to send logs to https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-endpoint_url
 format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
-<meta itemprop="dateModified" content="2024-04-02T09:22:54+00:00">
+<meta itemprop="dateModified" content="2024-03-28T09:39:48+01:00">
 <meta itemprop="wordCount" content="231">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMware Log Intelligence">
@@ -628,7 +628,7 @@ Releases
 output that uses the correct key names for the VMware Log Intelligence plugin. This allows the
 Ouput to accept the config is snake_case (as other output plugins do) but output the fluentd
 <headers> config with the proper key names (ie. content_type -> Content-Type)</p><h3 id="logintelligenceheadersout-authorization">Authorization (*secret.Secret, required)</h3><p>Authorization Bearer token for http request to VMware Log Intelligence</p><h3 id="logintelligenceheadersout-content-type">Content-Type (string, required)</h3><p>Content Type for http request to VMware Log Intelligence</p><p>Default: application/json</p><h3 id="logintelligenceheadersout-structure">structure (string, required)</h3><p>Structure for http request to VMware Log Intelligence</p><p>Default: simple</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 2, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8c0d5872a59d6b3c473661f2d9c7002214a0ffd1">Merge fa556314dd8a6775f98400be248f5887039c89dd into ca716bf75b436948f27fbc451f56caa4c83a6b2c (8c0d587)</a>
+Last modified March 28, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ca716bf75b436948f27fbc451f56caa4c83a6b2c">Merge pull request #233 from kube-logging/pepov-patch-1 (ca716bf)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
