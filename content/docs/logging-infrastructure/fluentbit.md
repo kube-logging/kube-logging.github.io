@@ -36,19 +36,21 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
 
     ```yaml
     apiVersion: logging.banzaicloud.io/v1beta1
-    kind: FluentbitAgent
+    kind: Logging
     metadata:
-      name: example
+      name: example-logging-resource
     spec:
-        inputTail:
-          storage.type: filesystem
-        positiondb:
-          hostPath:
-            path: ""
-        bufferStorageVolume:
-          hostPath:
-            path: ""
-      controlNamespace: default
+        controlNamespace: default
+        fluentbit:
+            inputTail:
+              storage.type: filesystem
+            positiondb:
+              hostPath:
+                path: ""
+            bufferStorageVolume:
+              hostPath:
+                path: ""
+          
     ```
 
 1. Create a new FluentbitAgent CRD. For the value of **metadata.name**, use the name of the Logging resource, for example:
