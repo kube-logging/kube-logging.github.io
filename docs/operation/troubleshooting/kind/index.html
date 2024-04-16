@@ -26,13 +26,13 @@ Before asking for help, prepare the following information to make troubleshootin
 Logging operator version kubernetes version helm/chart version (if you installed the Logging operator with helm) Logging operator logs fluentd configuration fluentd logs fluentbit configuration fluentbit logs Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/kind/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-28T09:39:48+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-04-16T09:50:25+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Running on KinD">
 <meta itemprop="description" content="Persistent Volumes do not respect the fsGroup value on Kind so disable using a PVC for fluentd:
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: example-on-kind spec: fluentd: disablePvc: true Getting Support If you encounter any problems that the documentation does not address, file an issue or talk to us on Discord or on the CNCF Slack.
 Before asking for help, prepare the following information to make troubleshooting faster:
 Logging operator version kubernetes version helm/chart version (if you installed the Logging operator with helm) Logging operator logs fluentd configuration fluentd logs fluentbit configuration fluentbit logs Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.">
-<meta itemprop="dateModified" content="2024-03-28T09:39:48+01:00">
+<meta itemprop="dateModified" content="2024-04-16T09:50:25+02:00">
 <meta itemprop="wordCount" content="109">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Running on KinD">
@@ -600,7 +600,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">disablePvc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 28, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ca716bf75b436948f27fbc451f56caa4c83a6b2c">Merge pull request #233 from kube-logging/pepov-patch-1 (ca716bf)</a>
+Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

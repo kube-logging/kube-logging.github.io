@@ -30,7 +30,7 @@ type (string, optional) Output line formatting: out_file,json,ltsv,csv,msgpack,h
 Default: json">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/format/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-03-28T09:39:48+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-04-16T09:50:25+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Format">
 <meta itemprop="description" content="Format output records Overview Specify how to format output records. For details, see https://docs.fluentd.org/configuration/format-section.
 Example spec: format: path: /tmp/logs/${tag}/%Y/%m/%d.%H.%M format: type: single_value add_newline: true message_key: msg Configuration Format add_newline (*bool, optional) When type is single_value add &lsquo;\n&rsquo; to the end of the message
@@ -38,7 +38,7 @@ Default: true
 message_key (string, optional) When type is single_value specify the key holding information
 type (string, optional) Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value
 Default: json">
-<meta itemprop="dateModified" content="2024-03-28T09:39:48+01:00">
+<meta itemprop="dateModified" content="2024-04-16T09:50:25+02:00">
 <meta itemprop="wordCount" content="66">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Format">
@@ -614,7 +614,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">add_newline</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">message_key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">msg</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="format">Format</h2><h3 id="format-add_newline">add_newline (*bool, optional)</h3><p>When type is single_value add &lsquo;\n&rsquo; to the end of the message</p><p>Default: true</p><h3 id="format-message_key">message_key (string, optional)</h3><p>When type is single_value specify the key holding information</p><h3 id="format-type">type (string, optional)</h3><p>Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value</p><p>Default: json</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 28, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ca716bf75b436948f27fbc451f56caa4c83a6b2c">Merge pull request #233 from kube-logging/pepov-patch-1 (ca716bf)</a>
+Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
