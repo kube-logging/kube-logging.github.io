@@ -26,8 +26,8 @@
 <meta name="twitter:title" content="What's new">
 <meta name="twitter:description" content="Documentation for the Logging operator">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
-<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
+<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -663,7 +663,7 @@ connections and will fail if there are any issues , for example, with the creden
 </code></pre><h2 id="other-improvements">Other improvements</h2><ul>
 <li>You can now configure the resources of the buffer metrics sidecar.</li><li>You can now rerun failed configuration checks if there is no configcheck pod.</li><li>The <a href="/docs/configuration/plugins/outputs/elasticsearch/">Fluentd ElasticSearch output</a> now supports the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.13/index-templates.html">composable index template</a> format. To use it, set the <code>use_legacy_template</code> option to <code>false</code>.</li><li>The metrics for the syslog-ng forwarder are now exported using <a href="https://github.com/axoflow/axosyslog-metrics-exporter">axosyslog-metrics-exporter</a>.</li></ul><h3 id="image-and-dependency-updates-1">Image and dependency updates</h3><p>For the list of images used in Logging operator, see <a href="/docs/image-versions/">Images used by Logging operator</a>.</p><p>Fluentd images with versions <code>v1.14</code> and <code>v1.15</code> are now EOL due to the fact they are based on ruby 2.7 which is EOL as well.</p><p>The currently supported image is <a href="https://github.com/kube-logging/fluentd-images/tree/main/v1.15-ruby3">v1.15-ruby3</a> and build configuration for <a href="https://github.com/kube-logging/fluentd-images/tree/main/v1.15-staging">v1.15-staging</a> is available for staging experimental changes.</p><div class="section-index">
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
+Last modified April 22, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/167d4f37de0f33f6466ae64b1b276d0c598bdd49">Merge ae69d68ce764141314e9abae3642b5441b94a5f7 into 091fab505592039a23941d8b134eab1367862eb8 (167d4f3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -28,14 +28,14 @@ LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRou
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/loggingroute_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-04-16T09:50:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-04-22T09:31:53+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LoggingRouteSpec">
 <meta itemprop="description" content="LoggingRouteSpec LoggingRouteSpec defines the desired state of LoggingRoute
 source (string, required) Source identifies the logging that this policy applies to
 targets (metav1.LabelSelector, required) Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
-<meta itemprop="dateModified" content="2024-04-16T09:50:25+02:00">
+<meta itemprop="dateModified" content="2024-04-22T09:31:53+00:00">
 <meta itemprop="wordCount" content="180">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoggingRouteSpec">
@@ -45,8 +45,8 @@ targets (metav1.LabelSelector, required) Targets refers to the list of logging r
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
-<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
+<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -612,7 +612,7 @@ Releases
 <h1>LoggingRouteSpec</h1><header class="article-meta">
 </header><h2 id="loggingroutespec">LoggingRouteSpec</h2><p>LoggingRouteSpec defines the desired state of LoggingRoute</p><h3 id="loggingroutespec-source">source (string, required)</h3><p>Source identifies the logging that this policy applies to</p><h3 id="loggingroutespec-targets">targets (metav1.LabelSelector, required)</h3><p>Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.</p><h2 id="loggingroutestatus">LoggingRouteStatus</h2><p>LoggingRouteStatus defines the actual state of the LoggingRoute</p><h3 id="loggingroutestatus-notices">notices ([]string, optional)</h3><p>Enumerate non-blocker issues the user should pay attention to</p><h3 id="loggingroutestatus-noticescount">noticesCount (int, optional)</h3><p>Summarize the number of notices for the CLI output</p><h3 id="loggingroutestatus-problems">problems ([]string, optional)</h3><p>Enumerate problems that prohibits this route to take effect and populate the tenants field</p><h3 id="loggingroutestatus-problemscount">problemsCount (int, optional)</h3><p>Summarize the number of problems for the CLI output</p><h3 id="loggingroutestatus-tenants">tenants ([]Tenant, optional)</h3><p>Enumerate all loggings with all the destination namespaces expanded</p><h2 id="tenant">Tenant</h2><h3 id="tenant-name">name (string, required)</h3><h3 id="tenant-namespaces">namespaces ([]string, optional)</h3><h2 id="loggingroute">LoggingRoute</h2><p>LoggingRoute (experimental)
 Connects a log collector with log aggregators from other logging domains and routes relevant logs based on watch namespaces</p><h3 id="loggingroute-">(metav1.TypeMeta, required)</h3><h3 id="loggingroute-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="loggingroute-spec">spec (LoggingRouteSpec, optional)</h3><h3 id="loggingroute-status">status (LoggingRouteStatus, optional)</h3><h2 id="loggingroutelist">LoggingRouteList</h2><h3 id="loggingroutelist-">(metav1.TypeMeta, required)</h3><h3 id="loggingroutelist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="loggingroutelist-items">items ([]LoggingRoute, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
+Last modified April 22, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/167d4f37de0f33f6466ae64b1b276d0c598bdd49">Merge ae69d68ce764141314e9abae3642b5441b94a5f7 into 091fab505592039a23941d8b134eab1367862eb8 (167d4f3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

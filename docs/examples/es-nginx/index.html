@@ -22,19 +22,19 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/es-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-04-16T09:50:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-04-22T09:31:53+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store NGINX access logs in Elasticsearch with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2024-04-16T09:50:25+02:00">
+<meta itemprop="dateModified" content="2024-04-22T09:31:53+00:00">
 <meta itemprop="wordCount" content="705">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store NGINX access logs in Elasticsearch with Logging operator">
 <meta name="twitter:description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Elasticsearch.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
-<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
+<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -711,7 +711,7 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 <p>Open the Kibana dashboard in your browser at <a href="https://localhost:5601">https://localhost:5601</a> and login as <strong>elastic</strong> using the retrieved password.</p></li><li>
 <p>By default, the Logging operator sends the incoming log messages into an index called <em>fluentd</em>. Create an Index Pattern that includes this index (for example, <em>fluentd*</em>), then select <strong>Menu > Kibana > Discover</strong>. You should see the dashboard and some sample log messages from the demo application.</p></li></ol><p align="center"><img src="../../img/es_kibana.png" alt="Kibana dashboard"></p><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
+Last modified April 22, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/167d4f37de0f33f6466ae64b1b276d0c598bdd49">Merge ae69d68ce764141314e9abae3642b5441b94a5f7 into 091fab505592039a23941d8b134eab1367862eb8 (167d4f3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

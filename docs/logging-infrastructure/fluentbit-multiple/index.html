@@ -24,12 +24,12 @@ One specific example is when there is a need for a configuration change in a rol
 The other use case is when there are different node groups in a cluster for multitenancy reasons for example.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentbit-multiple/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-04-16T09:50:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-04-22T09:31:53+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Multiple Fluent Bit agents in the cluster">
 <meta itemprop="description" content="There can be at least two different use cases where one might need multiple sets of node agents running with different configuration while still forwarding logs to the same aggregator.
 One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous configuration.
 The other use case is when there are different node groups in a cluster for multitenancy reasons for example.">
-<meta itemprop="dateModified" content="2024-04-16T09:50:25+02:00">
+<meta itemprop="dateModified" content="2024-04-22T09:31:53+00:00">
 <meta itemprop="wordCount" content="541">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multiple Fluent Bit agents in the cluster">
@@ -37,8 +37,8 @@ The other use case is when there are different node groups in a cluster for mult
 One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous configuration.
 The other use case is when there are different node groups in a cluster for multitenancy reasons for example.">
 <meta name="twitter:site" content="@calisti12">
-<link rel="preload" href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" as="style">
-<link href="/scss/main.min.d20db6d79e80313ee4aa9c44648bc3348ea0b541c8d2ecc5ca8b144682beb4f8.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
+<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -633,7 +633,7 @@ Releases
 </span></span></span></code></pre></div><blockquote>
 <p>Note: If your Logging resource has its <strong>spec.loggingRef</strong> parameter set, set the same value in the <strong>spec.loggingRef</strong> parameter of the Flow resource.</p></blockquote><p>Set other <a href="/docs/configuration/crds/v1beta1/flow_types/">Flow parameters</a> as needed for your environment.</p></li><li>
 <p>Create the outputs (called <code>"output-for-nodegroup-A"</code> and <code>"output-for-nodegroup-B"</code>) for the Flows.</p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 16, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/091fab505592039a23941d8b134eab1367862eb8">Merge pull request #237 from ankitgyawali/patch-1 (091fab5)</a>
+Last modified April 22, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/167d4f37de0f33f6466ae64b1b276d0c598bdd49">Merge ae69d68ce764141314e9abae3642b5441b94a5f7 into 091fab505592039a23941d8b134eab1367862eb8 (167d4f3)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
