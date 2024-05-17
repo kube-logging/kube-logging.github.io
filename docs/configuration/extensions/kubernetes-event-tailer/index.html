@@ -24,12 +24,12 @@ The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-event-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-05-07T09:23:24+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-05-17T09:40:36+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes Event Tailer">
 <meta itemprop="description" content="Kubernetes events are objects that provide insight into what is happening inside a cluster, such as what decisions were made by the scheduler or why some pods were evicted from the node. Event tailer listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.
 The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
-<meta itemprop="dateModified" content="2024-05-07T09:23:24+00:00">
+<meta itemprop="dateModified" content="2024-05-17T09:40:36+00:00">
 <meta itemprop="wordCount" content="577">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Event Tailer">
@@ -691,7 +691,7 @@ Releases
 </span></span><span style="display:flex"><span>NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                               STORAGECLASS   REASON   AGE
 </span></span><span style="display:flex"><span>pvc-6af02cb2-3a62-4d24-8201-dc749034651e   1Gi        RWO            Delete           Bound    default/sample-event-tailer-sample-event-tailer-0   standard                42s
 </span></span></code></pre></div><h2 id="configuration-options">Configuration options</h2><p>For the detailed list of configuration options, see the <a href="/docs/configuration/crds/extensions/eventtailer_types/">EventTailer CRD reference</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 7, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/36b88ae7e66f4c96ec94324ed3d24ad3fe5445ee">Merge 1376a3693c3639ae924d02acc8fb02176de8cd4d into e4b885367b6b148bf7a5f15a88e43ab3b4060e30 (36b88ae)</a>
+Last modified May 17, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bdfa0456b9a7e5339e8c1c4e3e39262050b88eac">Merge 01aff4deb8faf23ee9ac6a21bb53c43f4d9355e6 into e4b885367b6b148bf7a5f15a88e43ab3b4060e30 (bdfa045)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
