@@ -3,6 +3,43 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.7
+
+The following are the highlights and main changes of Logging operator 4.7. For a complete list of changes and bugfixes, see the [Logging operator 4.7 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.7.0) and the [Logging operator 4.7 release blog post](https://axoflow.com/logging-operator-4.7-release-announcement).
+
+### Breaking change for Fluentd
+
+When using the Fluentd aggregator, Logging operator has overridden the default `chunk_limit_size` for the Fluentd disk buffers. Since Fluentd updated the default value to a much saner default, Logging operator won't override that to avoid creating too many small buffer chunks. (Having too many small chunks can lead to `too many open files` errors.)
+
+This isn't an intrusive breaking change, it only affects your deployments if you intentionally or accidentally depended on this value.
+
+### JSON output format for Fluentd
+
+In addition to the default text format, Fluentd can now format the output as JSON:
+
+```yaml
+spec:
+  fluentd:
+    logFormat: json
+```
+<!-- FIXME why is this good / when is it needed? -->
+
+### Disk buffer support for more outputs
+
+Enabling disk buffers wasn't available for some of the outputs, this has been fixed for: [Gelf]({{< relref "/docs/configuration/plugins/outputs/gelf.md" >}}), [Elasticsearch]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/elasticsearch.md" >}}), [OpenObserve]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/openobserve.md" >}}), [S3]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/s3.md" >}}), [Splunk HEC]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/splunk_hec.md" >}}).
+
+### Compression support for Elasticsearch
+
+The [Elasticsearch output of the Fluentd aggregator]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-compression_level" >}}) now supports compressing the output data using gzip. You can use the `compression_level` option use `default_compression`, `best_compression`, or `best_speed`. By default, compression is disabled.
+
+### Protected ClusterOutputs for Fluentd
+
+By default, ClusterOutputs can be referenced in any Flow. In certain scenarios, this means that users can send logs from Flows to the ClusterOutput possibly spamming the output with user logs. From now on, you can set the `protected` flag for ClusterOutputs and prevent Flows from sending logs to the protected ClusterOutput.
+
+### ConfigCheck settings for aggregators
+
+You can now specify `configCheck` settings globally in the Loggings CRD, and override them if needed on the aggregator level in the [Fluentd]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md" >}}) or [SyslogNG]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md" >}}) CRD.
+
 ## Version 4.6
 
 The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](https://axoflow.com/fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
