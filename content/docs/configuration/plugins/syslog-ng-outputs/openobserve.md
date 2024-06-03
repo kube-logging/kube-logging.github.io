@@ -4,7 +4,6 @@ weight: 200
 generated_file: true
 ---
 
-# Sending messages over Openobserve
 ## Overview
 
 Send messages to [OpenObserve](https://openobserve.ai/docs/api/ingestion/logs/json/) using its [Logs Ingestion - JSON API](https://openobserve.ai/docs/api/ingestion/logs/json/). This API accepts multiple records in batch in JSON format.
@@ -40,6 +39,12 @@ For details on the available options of the output, see the [documentation of th
 
 ###  (HTTPOutput, required) {#openobserveoutput-}
 
+
+### disk_buffer (*DiskBuffer, optional) {#openobserveoutput-disk_buffer}
+
+This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the [Syslog-ng DiskBuffer options](../disk_buffer/).
+
+Default: false
 
 ### organization (string, optional) {#openobserveoutput-organization}
 

@@ -8,9 +8,9 @@ generated_file: true
 
 ### ack_response_timeout (int, optional) {#forwardoutput-ack_response_timeout}
 
-This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.  
+This option is used when require_ack_response is true. This default value is based on popular tcp_syn_retries.
 
-Default:  190
+Default: 190
 
 ### buffer (*Buffer, optional) {#forwardoutput-buffer}
 
@@ -29,21 +29,21 @@ Enable client-side DNS round robin. Uniform randomly pick an IP address to send 
 
 ### expire_dns_cache (int, optional) {#forwardoutput-expire_dns_cache}
 
-Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.  
+Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
-Default:  0
+Default: 0
 
 ### hard_timeout (int, optional) {#forwardoutput-hard_timeout}
 
-The hard timeout used to detect server failure. The default value is equal to the send_timeout parameter.  
+The hard timeout used to detect server failure. The default value is equal to the send_timeout parameter.
 
-Default:  60
+Default: 60
 
 ### heartbeat_interval (int, optional) {#forwardoutput-heartbeat_interval}
 
-The interval of the heartbeat packer.  
+The interval of the heartbeat packer.
 
-Default:  1
+Default: 1
 
 ### heartbeat_type (string, optional) {#forwardoutput-heartbeat_type}
 
@@ -57,33 +57,33 @@ Ignore DNS resolution and errors at startup time.
 
 ### keepalive (bool, optional) {#forwardoutput-keepalive}
 
-Enable keepalive connection.  
+Enable keepalive connection.
 
-Default:  false
+Default: false
 
 ### keepalive_timeout (int, optional) {#forwardoutput-keepalive_timeout}
 
-Expired time of keepalive. Default value is nil, which means to keep connection as long as possible.  
+Expired time of keepalive. Default value is nil, which means to keep connection as long as possible.
 
-Default:  0
+Default: 0
 
 ### phi_failure_detector (bool, optional) {#forwardoutput-phi_failure_detector}
 
 Use the "Phi accrual failure detector" to detect server failure.  
 
-Default:  true
+Default: true
 
 ### phi_threshold (int, optional) {#forwardoutput-phi_threshold}
 
-The threshold parameter used to detect server faults.  `phi_threshold` is deeply related to `heartbeat_interval`. If you are using longer `heartbeat_interval`, please use the larger `phi_threshold`. Otherwise you will see frequent detachments of destination servers. The default value 16 is tuned for `heartbeat_interval` 1s. 
+The threshold parameter used to detect server faults.  `phi_threshold` is deeply related to `heartbeat_interval`. If you are using longer `heartbeat_interval`, please use the larger `phi_threshold`. Otherwise you will see frequent detachments of destination servers. The default value 16 is tuned for `heartbeat_interval` 1s.
 
-Default:  16
+Default: 16
 
 ### recover_wait (int, optional) {#forwardoutput-recover_wait}
 
-The wait time before accepting a server fault recovery.  
+The wait time before accepting a server fault recovery.
 
-Default:  10
+Default: 10
 
 ### require_ack_response (bool, optional) {#forwardoutput-require_ack_response}
 
@@ -97,9 +97,9 @@ Change the protocol to at-least-once. The plugin waits the ack from destination'
 
 ### send_timeout (int, optional) {#forwardoutput-send_timeout}
 
-The timeout time when sending event logs.  
+The timeout time when sending event logs.
 
-Default:  60
+Default: 60
 
 
 ### servers ([]FluentdServer, required) {#forwardoutput-servers}
@@ -113,9 +113,9 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 
 ### tls_allow_self_signed_cert (bool, optional) {#forwardoutput-tls_allow_self_signed_cert}
 
-Allow self signed certificates or not.  
+Allow self signed certificates or not.
 
-Default:  false
+Default: false
 
 ### tls_cert_logical_store_name (string, optional) {#forwardoutput-tls_cert_logical_store_name}
 
@@ -139,9 +139,9 @@ Enable to use certificate enterprise store on Windows system certstore. This par
 
 ### tls_ciphers (string, optional) {#forwardoutput-tls_ciphers}
 
-The cipher configuration of TLS transport.  
+The cipher configuration of TLS transport.
 
-Default:  ALL:!aNULL:!eNULL:!SSLv2
+Default: ALL:!aNULL:!eNULL:!SSLv2
 
 ### tls_client_cert_path (*secret.Secret, optional) {#forwardoutput-tls_client_cert_path}
 
@@ -160,21 +160,21 @@ The client private key path for TLS.
 
 ### tls_insecure_mode (bool, optional) {#forwardoutput-tls_insecure_mode}
 
-Skip all verification of certificates or not.  
+Skip all verification of certificates or not.
 
-Default:  false
+Default: false
 
 ### tls_verify_hostname (bool, optional) {#forwardoutput-tls_verify_hostname}
 
-Verify hostname of servers and certificates or not in TLS transport.  
+Verify hostname of servers and certificates or not in TLS transport.
 
-Default:  true
+Default: true
 
 ### tls_version (string, optional) {#forwardoutput-tls_version}
 
-The default version of TLS transport. [TLSv1_1, TLSv1_2]  
+The default version of TLS transport. [TLSv1_1, TLSv1_2]
 
-Default:  TLSv1_2
+Default: TLSv1_2
 
 ### transport (string, optional) {#forwardoutput-transport}
 
@@ -183,9 +183,9 @@ The transport protocol to use [ tcp, tls ]
 
 ### verify_connection_at_startup (bool, optional) {#forwardoutput-verify_connection_at_startup}
 
-Verify that a connection can be made with one of out_forward nodes at the time of startup.  
+Verify that a connection can be made with one of out_forward nodes at the time of startup.
 
-Default:  false
+Default: false
 
 
 ## Fluentd Server
@@ -209,9 +209,9 @@ The password for authentication.
 
 ### port (int, optional) {#fluentd-server-port}
 
-The port number of the host. Note that both TCP packets (event stream) and UDP packets (heartbeat message) are sent to this port.  
+The port number of the host. Note that both TCP packets (event stream) and UDP packets (heartbeat message) are sent to this port.
 
-Default:  24224
+Default: 24224
 
 ### shared_key (*secret.Secret, optional) {#fluentd-server-shared_key}
 
@@ -230,8 +230,8 @@ The username for authentication.
 
 ### weight (int, optional) {#fluentd-server-weight}
 
-The load balancing weight. If the weight of one server is 20 and the weight of the other server is 30, events are sent in a 2:3 ratio. . 
+The load balancing weight. If the weight of one server is 20 and the weight of the other server is 30, events are sent in a 2:3 ratio.
 
-Default:  60
+Default: 60
 
 
