@@ -5,7 +5,7 @@ weight: 50
 
 ## Version 4.6
 
-The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
+The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](https://axoflow.com/fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
 
 ### Fluent Bit hot reload
 
