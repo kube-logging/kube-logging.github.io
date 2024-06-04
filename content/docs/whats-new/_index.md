@@ -40,6 +40,19 @@ By default, ClusterOutputs can be referenced in any Flow. In certain scenarios, 
 
 You can now specify `configCheck` settings globally in the Loggings CRD, and override them if needed on the aggregator level in the [Fluentd]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md" >}}) or [SyslogNG]({{< relref "/docs/configuration/crds/v1beta1/syslogng_types.md" >}}) CRD.
 
+### Limit connections for Fluent Bit
+
+You can now limit the number of TCP connections that each Fluent Bit worker can open towards the aggregator endpoints. The `max_worker_connections` is set to unlimited by default, and should be used together with the `Workers` option (which defaults to 2 according to the [Fluent Bit documentation](https://docs.fluentbit.io/manual/pipeline/outputs/tcp-and-tls#:~:text=double-,Workers,-Enables%20dedicated%20thread)). The following example uses a single worker with a single connection:
+
+```yaml
+kind: FluentbitAgent
+spec:
+  network:
+    maxWorkerConnections: 1
+  syslogng_output:
+    Workers: 1
+```
+
 ## Version 4.6
 
 The following are the highlights and main changes of Logging operator 4.6. For a complete list of changes and bugfixes, see the [Logging operator 4.6 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.6.0) and the [Logging operator 4.6 release blog post](https://axoflow.com/fluent-bit-hot-reload-kubernetes-namespace-labels-vmware-outputs-logging-operator-4-6).
