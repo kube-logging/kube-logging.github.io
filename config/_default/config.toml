@@ -276,3 +276,7 @@ anchor = "smart"
 [privacy]
   [privacy.googleAnalytics]
     respectDoNotTrack = true
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-LM8C8QXCN7'
