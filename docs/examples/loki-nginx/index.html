@@ -22,11 +22,11 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/loki-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T16:22:53+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2024-06-05T16:22:53+02:00">
+<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
 <meta itemprop="wordCount" content="640">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
@@ -44,6 +44,8 @@ The following figure gives you an overview about how the system works. The Loggi
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -709,7 +711,7 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 <p>Use the <code>admin</code> username and the password retrieved in Step 1 to log in.</p></li><li>
 <p>Select <strong>Menu > Explore</strong>, select <strong>Data source > Loki</strong>, then select <strong>Log labels > namespace > logging</strong>. A list of logs should appear.</p><p><img src="../../img/loki1.png" alt="Sample log messages in Loki"></p></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e3ad51f5b16d23fb60bf1dcf50750dccab0caa3a">Merge pull request #243 from kube-logging/4.7-doc-preparations (e3ad51f)</a>
+Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

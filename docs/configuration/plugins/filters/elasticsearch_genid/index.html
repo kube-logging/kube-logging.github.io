@@ -26,13 +26,13 @@ hash_type (string, optional) You can specify hash algorithm. Support algorithms 
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/elasticsearch_genid/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T16:22:53+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="ElasticSearch GenId">
 <meta itemprop="description" content="ElasticsearchGenId Example Elasticsearch Genid filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - elasticsearch_genid: hash_id_key: gen_id selectors: {} localOutputRefs: - demo-output Fluentd Config Result
 <filter **> @type elasticsearch_genid @id test_elasticsearch_genid hash_id_key gen_id </filter> Configuration hash_id_key (string, optional) You can specify generated hash storing key.
 hash_type (string, optional) You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
-<meta itemprop="dateModified" content="2024-06-05T16:22:53+02:00">
+<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticSearch GenId">
@@ -52,6 +52,8 @@ include_tag_in_seed (bool, optional) You can specify to use tag for hash generat
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -613,7 +615,7 @@ Releases
 </span></span><span style="display:flex"><span> @id test_elasticsearch_genid
 </span></span><span style="display:flex"><span> hash_id_key gen_id
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchgenid-hash_id_key">hash_id_key (string, optional)</h3><p>You can specify generated hash storing key.</p><h3 id="elasticsearchgenid-hash_type">hash_type (string, optional)</h3><p>You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1</p><h3 id="elasticsearchgenid-include_tag_in_seed">include_tag_in_seed (bool, optional)</h3><p>You can specify to use tag for hash generation seed.</p><h3 id="elasticsearchgenid-include_time_in_seed">include_time_in_seed (bool, optional)</h3><p>You can specify to use time for hash generation seed.</p><h3 id="elasticsearchgenid-record_keys">record_keys (string, optional)</h3><p>You can specify keys which are record in events for hash generation seed. This parameter should be used with use_record_as_seed parameter in practice.</p><h3 id="elasticsearchgenid-separator">separator (string, optional)</h3><p>You can specify separator charactor to creating seed for hash generation.</p><h3 id="elasticsearchgenid-use_entire_record">use_entire_record (bool, optional)</h3><p>You can specify to use entire record in events for hash generation seed.</p><h3 id="elasticsearchgenid-use_record_as_seed">use_record_as_seed (bool, optional)</h3><p>You can specify to use record in events for hash generation seed. This parameter should be used with record_keys parameter in practice.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e3ad51f5b16d23fb60bf1dcf50750dccab0caa3a">Merge pull request #243 from kube-logging/4.7-doc-preparations (e3ad51f)</a>
+Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

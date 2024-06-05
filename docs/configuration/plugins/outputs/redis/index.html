@@ -36,7 +36,7 @@ host (string, optional) Host Redis endpoint
 Default: localhost">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/redis/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T16:22:53+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Redis">
 <meta itemprop="description" content="Redis plugin for Fluentd Overview Sends logs to Redis endpoints. For details, see https://github.com/fluent-plugins-nursery/fluent-plugin-redis.
 Example output configurations spec: redis: host: redis-master.prod.svc.cluster.local buffer: tags: &#34;[]&#34; flush_interval: 10s Configuration Output Config allow_duplicate_key (bool, optional) Allow inserting key duplicate. It will work as update values.
@@ -47,7 +47,7 @@ Default: 0
 format (*Format, optional) Format
 host (string, optional) Host Redis endpoint
 Default: localhost">
-<meta itemprop="dateModified" content="2024-06-05T16:22:53+02:00">
+<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
 <meta itemprop="wordCount" content="157">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
@@ -72,6 +72,8 @@ Default: localhost">
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -625,7 +627,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">tags</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;[]&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">flush_interval</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">10s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-allow_duplicate_key">allow_duplicate_key (bool, optional)</h3><p>Allow inserting key duplicate. It will work as update values.</p><p>Default: false</p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><h3 id="output-config-db_number">db_number (int, optional)</h3><p>DbNumber database number is optional.</p><p>Default: 0</p><h3 id="output-config-format">format (*Format, optional)</h3><p><a href="../format/">Format</a></p><h3 id="output-config-host">host (string, optional)</h3><p>Host Redis endpoint</p><p>Default: localhost</p><h3 id="output-config-insert_key_prefix">insert_key_prefix (string, optional)</h3><p>insert_key_prefix</p><p>Default: &ldquo;${tag}&rdquo;</p><h3 id="output-config-password">password (*secret.Secret, optional)</h3><p>Redis Server password</p><h3 id="output-config-port">port (int, optional)</h3><p>Port of the Redis server</p><p>Default: 6379</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, Fluentd logs a warning message and increases the <code>fluentd_output_status_slow_flush_count</code> metric.</p><h3 id="output-config-strftime_format">strftime_format (string, optional)</h3><p>Users can set strftime format.</p><p>Default: &ldquo;%s&rdquo;</p><h3 id="output-config-ttl">ttl (int, optional)</h3><p>If 0 or negative value is set, ttl is not set in each key.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e3ad51f5b16d23fb60bf1dcf50750dccab0caa3a">Merge pull request #243 from kube-logging/4.7-doc-preparations (e3ad51f)</a>
+Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
