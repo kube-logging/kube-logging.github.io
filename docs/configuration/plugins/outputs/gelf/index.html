@@ -16,7 +16,8 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 <title>GELF | Logging operator</title><meta name="description" content="GELF Output Overview Fluentd output plugin for GELF.
-Configuration Output Config host (string, required) Destination host
+Configuration Output Config buffer (*Buffer, optional) {#output config-buffer} Available since ghcr.io/kube-logging/fluentd:v1.16-full-build.139 Buffer
+host (string, required) {#output config-host} Destination host
 port (int, required) Destination host port
 protocol (string, optional) Transport Protocol
 Default: &amp;ldquo;udp&amp;rdquo;
@@ -24,11 +25,11 @@ tls (*bool, optional) Enable TlS
 Default: false
 tls_options (map[string]string, optional) TLS options. For details, see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12.
 Default: {}
-Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:
-&amp;lt;match **&amp;gt; @type gelf @id test_gelf host gelf-host port 12201 &amp;lt;/match&amp;gt; ">
+Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:">
 <meta property="og:title" content="GELF">
 <meta property="og:description" content="GELF Output Overview Fluentd output plugin for GELF.
-Configuration Output Config host (string, required) Destination host
+Configuration Output Config buffer (*Buffer, optional) {#output config-buffer} Available since ghcr.io/kube-logging/fluentd:v1.16-full-build.139 Buffer
+host (string, required) {#output config-host} Destination host
 port (int, required) Destination host port
 protocol (string, optional) Transport Protocol
 Default: &ldquo;udp&rdquo;
@@ -36,14 +37,14 @@ tls (*bool, optional) Enable TlS
 Default: false
 tls_options (map[string]string, optional) TLS options. For details, see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12.
 Default: {}
-Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:
-<match **> @type gelf @id test_gelf host gelf-host port 12201 </match> ">
+Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/gelf/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-05-17T09:40:36+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-06-05T16:22:53+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="GELF">
 <meta itemprop="description" content="GELF Output Overview Fluentd output plugin for GELF.
-Configuration Output Config host (string, required) Destination host
+Configuration Output Config buffer (*Buffer, optional) {#output config-buffer} Available since ghcr.io/kube-logging/fluentd:v1.16-full-build.139 Buffer
+host (string, required) {#output config-host} Destination host
 port (int, required) Destination host port
 protocol (string, optional) Transport Protocol
 Default: &ldquo;udp&rdquo;
@@ -51,14 +52,14 @@ tls (*bool, optional) Enable TlS
 Default: false
 tls_options (map[string]string, optional) TLS options. For details, see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12.
 Default: {}
-Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:
-<match **> @type gelf @id test_gelf host gelf-host port 12201 </match> ">
-<meta itemprop="dateModified" content="2024-05-17T09:40:36+00:00">
-<meta itemprop="wordCount" content="78">
+Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:">
+<meta itemprop="dateModified" content="2024-06-05T16:22:53+02:00">
+<meta itemprop="wordCount" content="89">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GELF">
 <meta name="twitter:description" content="GELF Output Overview Fluentd output plugin for GELF.
-Configuration Output Config host (string, required) Destination host
+Configuration Output Config buffer (*Buffer, optional) {#output config-buffer} Available since ghcr.io/kube-logging/fluentd:v1.16-full-build.139 Buffer
+host (string, required) {#output config-host} Destination host
 port (int, required) Destination host port
 protocol (string, optional) Transport Protocol
 Default: &ldquo;udp&rdquo;
@@ -66,9 +67,8 @@ tls (*bool, optional) Enable TlS
 Default: false
 tls_options (map[string]string, optional) TLS options. For details, see https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12.
 Default: {}
-Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:
-<match **> @type gelf @id test_gelf host gelf-host port 12201 </match> ">
-<meta name="twitter:site" content="@calisti12">
+Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Output metadata: name: gelf-output-sample spec: gelf: host: gelf-host port: 12201 Fluentd config result:">
+<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -80,11 +80,11 @@ Example GELF output configurations apiVersion: logging.banzaicloud.io/v1beta1 ki
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
-</head><body class="td-page" data-pagefind-filter="section:4.6">
+</head><body class="td-page" data-pagefind-filter="section:4.7">
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
-<span class="font-weight-bold navbar-logo navbar-version">4.6.0</span></a>
+<span class="font-weight-bold navbar-logo navbar-version">4.7.0</span></a>
 <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -611,7 +611,7 @@ Releases
 <ul>
 <li><a href="#overview">Overview</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#output-config">Output Config</a>
 <ul>
-<li><a href="#output-config-host">host (string, required)</a></li><li><a href="#output-config-port">port (int, required)</a></li><li><a href="#output-config-protocol">protocol (string, optional)</a></li><li><a href="#output-config-tls">tls (*bool, optional)</a></li><li><a href="#output-config-tls_options">tls_options (map[string]string, optional)</a></li></ul></li><li><a href="#example-gelf-output-configurations">Example <code>GELF</code> output configurations</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<li><a href="#buffer-buffer-optional-output-config-buffer">buffer (*Buffer, optional) {#output config-buffer}</a></li><li><a href="#host-string-required-output-config-host">host (string, required) {#output config-host}</a></li><li><a href="#output-config-port">port (int, required)</a></li><li><a href="#output-config-protocol">protocol (string, optional)</a></li><li><a href="#output-config-tls">tls (*bool, optional)</a></li><li><a href="#output-config-tls_options">tls_options (map[string]string, optional)</a></li></ul></li><li><a href="#example-gelf-output-configurations">Example <code>GELF</code> output configurations</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
 <ol class="breadcrumb">
 <li class="breadcrumb-item">
@@ -626,7 +626,7 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/plugins/outputs/gelf/" aria-disabled="true" class="btn-link disabled">GELF</a>
 </li></ol></nav><div class="td-content">
 <h1>GELF</h1><header class="article-meta">
-</header><h1 id="gelf-outputhttpsgithubcomhotschedulesfluent-plugin-gelf-hs"><a href="https://github.com/hotschedules/fluent-plugin-gelf-hs">GELF Output</a></h1><h2 id="overview">Overview</h2><p>Fluentd output plugin for GELF.</p><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-host">host (string, required)</h3><p>Destination host</p><h3 id="output-config-port">port (int, required)</h3><p>Destination host port</p><h3 id="output-config-protocol">protocol (string, optional)</h3><p>Transport Protocol</p><p>Default: &ldquo;udp&rdquo;</p><h3 id="output-config-tls">tls (*bool, optional)</h3><p>Enable TlS</p><p>Default: false</p><h3 id="output-config-tls_options">tls_options (map[string]string, optional)</h3><p>TLS options. For details, see <a href="https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12">https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12</a>.</p><p>Default: {}</p><h2 id="example-gelf-output-configurations">Example <code>GELF</code> output configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</header><h1 id="gelf-outputhttpsgithubcomhotschedulesfluent-plugin-gelf-hs"><a href="https://github.com/hotschedules/fluent-plugin-gelf-hs">GELF Output</a></h1><h2 id="overview">Overview</h2><p>Fluentd output plugin for GELF.</p><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="buffer-buffer-optional-output-config-buffer">buffer (*Buffer, optional) {#output config-buffer}</h3><p>Available since ghcr.io/kube-logging/fluentd:v1.16-full-build.139 <a href="../buffer/">Buffer</a></p><h3 id="host-string-required-output-config-host">host (string, required) {#output config-host}</h3><p>Destination host</p><h3 id="output-config-port">port (int, required)</h3><p>Destination host port</p><h3 id="output-config-protocol">protocol (string, optional)</h3><p>Transport Protocol</p><p>Default: &ldquo;udp&rdquo;</p><h3 id="output-config-tls">tls (*bool, optional)</h3><p>Enable TlS</p><p>Default: false</p><h3 id="output-config-tls_options">tls_options (map[string]string, optional)</h3><p>TLS options. For details, see <a href="https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12">https://github.com/graylog-labs/gelf-rb/blob/72916932b789f7a6768c3cdd6ab69a3c942dbcef/lib/gelf/transport/tcp_tls.rb#L7-L12</a>.</p><p>Default: {}</p><h2 id="example-gelf-output-configurations">Example <code>GELF</code> output configurations</h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Output</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gelf-output-sample</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -640,7 +640,7 @@ Releases
 </span></span><span style="display:flex"><span>	port 12201
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/match&gt;</span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified May 17, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bdfa0456b9a7e5339e8c1c4e3e39262050b88eac">Merge 01aff4deb8faf23ee9ac6a21bb53c43f4d9355e6 into e4b885367b6b148bf7a5f15a88e43ab3b4060e30 (bdfa045)</a>
+Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e3ad51f5b16d23fb60bf1dcf50750dccab0caa3a">Merge pull request #243 from kube-logging/4.7-doc-preparations (e3ad51f)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
