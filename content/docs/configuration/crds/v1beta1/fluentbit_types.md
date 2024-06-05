@@ -339,6 +339,12 @@ How many times a TCP keepalive connection can be used before being recycled
 
 Default: 0, disabled
 
+### maxWorkerConnections (int, optional) {#fluentbitnetwork-maxworkerconnections}
+
+Set maximum number of TCP connections that can be established per worker.
+
+Default: 0, unlimited
+
 ### sourceAddress (string, optional) {#fluentbitnetwork-sourceaddress}
 
 Specify network address (interface) to use for connection and data traffic.
@@ -722,6 +728,21 @@ Default: On
 ### Merge_Parser (string, optional) {#filterkubernetes-merge_parser}
 
 Optional parser name to specify how to parse the data contained in the log key. Recommended use is for developers or testing only. 
+
+
+### namespace_annotations (string, optional) {#filterkubernetes-namespace_annotations}
+
+Include Kubernetes namespace annotations on every record 
+
+
+### kube_meta_namespace_cache_ttl (string, optional) {#filterkubernetes-kube_meta_namespace_cache_ttl}
+
+Configurable TTL for K8s cached namespace metadata. (15m) 
+
+
+### namespace_labels (string, optional) {#filterkubernetes-namespace_labels}
+
+Include Kubernetes namespace labels on every record 
 
 
 ### Regex_Parser (string, optional) {#filterkubernetes-regex_parser}

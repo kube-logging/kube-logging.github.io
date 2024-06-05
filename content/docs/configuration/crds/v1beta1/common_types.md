@@ -71,10 +71,10 @@ ServiceMonitorConfig defines the ServiceMonitor properties
 ### honorLabels (bool, optional) {#servicemonitorconfig-honorlabels}
 
 
-### metricRelabelings ([]*v1.RelabelConfig, optional) {#servicemonitorconfig-metricrelabelings}
+### metricRelabelings ([]v1.RelabelConfig, optional) {#servicemonitorconfig-metricrelabelings}
 
 
-### relabelings ([]*v1.RelabelConfig, optional) {#servicemonitorconfig-relabelings}
+### relabelings ([]v1.RelabelConfig, optional) {#servicemonitorconfig-relabelings}
 
 
 ### scheme (string, optional) {#servicemonitorconfig-scheme}
@@ -94,6 +94,7 @@ Security defines Fluentd, FluentbitAgent deployment security properties
 ### podSecurityPolicyCreate (bool, optional) {#security-podsecuritypolicycreate}
 
 Warning: this is not supported anymore and does nothing 
+
 
 ### roleBasedAccessControlCreate (*bool, optional) {#security-rolebasedaccesscontrolcreate}
 
