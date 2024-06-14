@@ -1,7 +1,7 @@
 ---
 title: Custom Resource Definitions
 linktitle: CRDs
-weight: 300
+weight: 500
 aliases:
     - /docs/one-eye/logging-operator/crds/
 ---
