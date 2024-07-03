@@ -19,7 +19,7 @@ If you have [enabled namespace labeling in Fluent Bit](https://kube-logging.dev/
 apiVersion: logging.banzaicloud.io/v1beta1
 kind: ClusterFlow
 metadata:
-  name: sample
+  name: dev-logs
 spec:
   match:
     - select:
