@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/operation/troubleshooting/fluentbit/">latest (4.7.0)</a>
+	<a class="dropdown-item" href="/docs/operation/troubleshooting/fluentbit/">latest (4.8.0)</a>
+	<a class="dropdown-item" href="/4.7//docs/operation/troubleshooting/fluentbit/">4.7</a>
 	<a class="dropdown-item" href="/4.6//docs/operation/troubleshooting/fluentbit/">4.6</a>
 	<a class="dropdown-item" href="/4.5//docs/operation/troubleshooting/fluentbit/">4.5</a>
 	<a class="dropdown-item" href="/4.4//docs/operation/troubleshooting/fluentbit/">4.4</a>
