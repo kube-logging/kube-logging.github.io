@@ -72,7 +72,7 @@ spec:
         Retry_Limit: "no_limits"
     ```
 
-- In the Loggging operator helm chart uou can include extra manifests in to deploy together with the chart.
+- In the Loggging operator helm chart you can include extra manifests to deploy together with the chart using the `extraManifests` field similar to other popular charts.
 
 ## Version 4.7
 
