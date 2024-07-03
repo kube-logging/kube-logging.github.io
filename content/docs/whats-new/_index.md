@@ -3,6 +3,77 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.8
+
+The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0)<!-- and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release-announcement)-->.
+
+### Routing based on namespace labels
+
+In your Fluentd ClusterFlows you can now route your messages based on namespace labels.
+
+> Note: This feature requires a new fluentd image: `ghcr.io/kube-logging/fluentd:v1.16-4.8-full`. If you're using a custom Fluentd image, make sure to update it!
+
+If you have [enabled namespace labeling in Fluent Bit](https://kube-logging.dev/docs/whats-new/#kubernetes-namespace-labels-and-annotations), you can use namespace labels in your selectors, for example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterFlow
+metadata:
+  name: dev-logs
+spec:
+  match:
+    - select:
+        namespace_labels:
+          tenant: dev
+  globalOutputRefs:
+    - example
+```
+
+### Breaking change
+
+If you're using `hostTailer` or `eventTailer` and configured it through the helm chart's `logging.hostTailer` or `logging.eventTailer` option, note that now both components have an `enabled` flag. Set this flag to true if you used any of these components from the chart. For details, see the [pull request](https://github.com/kube-logging/logging-operator/pull/1576).
+
+### Go templates in metrics-probe label values
+
+You can now use go templates that resolve to destination information (`name`, `namespace`, `scope:local/global` and the `logging` name) in metrics-probe label values. For example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: SyslogNGClusterFlow
+metadata:
+  name: all
+spec:
+  match: {}
+  outputMetrics:
+    - key: custom_output
+      labels:
+        flow: all
+        # define your own label for output name
+        my-key-for-the-output: "{{ .Destination.Name }}"
+        # do not add the output_name label to the metric
+        output_name: ""
+  globalOutputRefs:
+    - http
+```
+
+### Other changes
+
+- You can set the maximal number of TCP connections Fluent Bit can open towards the aggregator to avoid overloading it.
+
+    ```yaml
+    spec:
+      controlNamespace: default
+      fluentbit:
+    # The below network configurations allow fluentbit to retry indefinitely on a limited number of connections to avoid overloading the aggregator (syslog-ng in this case)
+      network:
+        maxWorkerConnections: 2
+      syslogng_output:
+        Workers: 2
+        Retry_Limit: "no_limits"
+    ```
+
+- In the Loggging operator helm chart you can include extra manifests to deploy together with the chart using the `extraManifests` field similar to other popular charts.
+
 ## Version 4.7
 
 The following are the highlights and main changes of Logging operator 4.7. For a complete list of changes and bugfixes, see the [Logging operator 4.7 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.7.0) and the [Logging operator 4.7 release blog post](https://axoflow.com/logging-operator-4.7-release-announcement).
