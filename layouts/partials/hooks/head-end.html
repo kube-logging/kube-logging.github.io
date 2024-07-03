@@ -19,3 +19,15 @@
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
 {{ end -}}
+
+<!-- Script for cookie-consent banner (https://www.sprucejoy.com/resources/cookie-consent-gdpr/) -->
+<script>
+  window.__SJ_MESSAGE__ =
+    'We collect cookies to analyze our website traffic and performance. We never collect any personal data.'
+  window.__SJ_ACCEPT_BTN_TEXT__ = 'Accept'
+  window.__SJ_REJECT_BTN_TEXT__ = 'Reject'
+</script>
+<script
+  src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js"
+  crossorigin="anonymous"
+></script>
