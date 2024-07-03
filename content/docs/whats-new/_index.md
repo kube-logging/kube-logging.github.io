@@ -31,7 +31,7 @@ spec:
 
 ### Breaking change
 
-If you're using `hostTailer` or `eventTailer` and configured it through the helm chart's `logging.hostTailer` or `logging.eventTailer` option, note that now both components have an `enabled` flag. Set this flag to true.
+If you're using `hostTailer` or `eventTailer` and configured it through the helm chart's `logging.hostTailer` or `logging.eventTailer` option, note that now both components have an `enabled` flag. Set this flag to true if you used any of these components from the chart. For details, see the [pull request](https://github.com/kube-logging/logging-operator/pull/1576).
 
 ### Go templates in metrics-probe label values
 
