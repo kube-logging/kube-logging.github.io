@@ -75,10 +75,10 @@ To install the Logging operator using Helm, see [Deploy the Logging operator wit
      ```
 
 1. Create a Splunk output secret from the token.
+
      ```bash
      kubectl  create secret generic splunk-token -n logging --from-literal "SplunkHecToken=${HEC_TOKEN}"
      ```
-
 
 1. Define a Splunk `output`.
 

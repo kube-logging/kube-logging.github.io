@@ -30,11 +30,11 @@ Enabling disk buffers wasn't available for some of the outputs, this has been fi
 
 ### Compression support for Elasticsearch
 
-The [Elasticsearch output of the Fluentd aggregator]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-compression_level" >}}) now supports compressing the output data using gzip. You can use the `compression_level` option use `default_compression`, `best_compression`, or `best_speed`. By default, compression is disabled.
+The [Elasticsearch output of the Fluentd aggregator]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-compression_level" >}}) now supports compressing the output data using gzip. You can use the `compression_level` option to set `default_compression`, `best_compression`, or `best_speed`. By default, compression is disabled.
 
 ### Protected ClusterOutputs for Fluentd
 
-By default, ClusterOutputs can be referenced in any Flow. In certain scenarios, this means that users can send logs from Flows to the ClusterOutput possibly spamming the output with user logs. From now on, you can set the `protected` flag for ClusterOutputs and prevent Flows from sending logs to the protected ClusterOutput.
+By default, ClusterOutputs can be referenced in any Flow. In certain scenarios, this means that users can send logs from Flows to the ClusterOutput, possibly spamming the output with user logs. From now on, you can set the `protected` flag for ClusterOutputs and prevent Flows from sending logs to the protected ClusterOutput.
 
 ### ConfigCheck settings for aggregators
 
@@ -42,7 +42,7 @@ You can now specify `configCheck` settings globally in the Loggings CRD, and ove
 
 ### Limit connections for Fluent Bit
 
-You can now limit the number of TCP connections that each Fluent Bit worker can open towards the aggregator endpoints. The `max_worker_connections` is set to unlimited by default, and should be used together with the `Workers` option (which defaults to 2 according to the [Fluent Bit documentation](https://docs.fluentbit.io/manual/pipeline/outputs/tcp-and-tls#:~:text=double-,Workers,-Enables%20dedicated%20thread)). The following example uses a single worker with a single connection:
+You can now limit the number of TCP connections that each Fluent Bit worker can open toward the aggregator endpoints. The `max_worker_connections` is set to unlimited by default, and should be used together with the `Workers` option (which defaults to 2 according to the [Fluent Bit documentation](https://docs.fluentbit.io/manual/pipeline/outputs/tcp-and-tls#:~:text=double-,Workers,-Enables%20dedicated%20thread)). The following example uses a single worker with a single connection:
 
 ```yaml
 kind: FluentbitAgent

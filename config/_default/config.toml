@@ -30,10 +30,6 @@ weight = 1
     section = [ "HTML", "print", "releases" ]
     page = ['HTML', "releases" ]
 
-[social]
-# Used as twitter:site in page metadata
-twitter = "AxoflowIO"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -163,6 +159,10 @@ twitter = "AxoflowIO"
     url = "https://discord.gg/9ACY4RDsYN"
     icon = "fab fa-discord"
     desc = "Chat with the project developers"
+
+[params.social]
+# Used as twitter:site in page metadata
+twitter = "AxoflowIO"
 
 ########################
 # Release versions
