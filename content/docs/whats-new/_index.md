@@ -24,7 +24,7 @@ spec:
   match:
     - select:
         namespace_labels:
-          tenant: devs
+          tenant: dev
   globalOutputRefs:
     - example
 ```
