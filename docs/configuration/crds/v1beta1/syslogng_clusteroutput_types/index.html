@@ -26,13 +26,13 @@
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGClusterOutput">
 <meta itemprop="description" content="SyslogNGClusterOutput SyslogNGClusterOutput is the Schema for the syslog-ng clusteroutputs API
 (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGClusterOutputSpec, required) status (SyslogNGOutputStatus, optional) SyslogNGClusterOutputSpec SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput
 (SyslogNGOutputSpec, required) enabledNamespaces ([]string, optional) SyslogNGClusterOutputList SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="48">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGClusterOutput">
@@ -40,7 +40,6 @@
 (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGClusterOutputSpec, required) status (SyslogNGOutputStatus, optional) SyslogNGClusterOutputSpec SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput
 (SyslogNGOutputSpec, required) enabledNamespaces ([]string, optional) SyslogNGClusterOutputList SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -52,6 +51,8 @@
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -605,7 +606,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>SyslogNGClusterOutput</h1><header class="article-meta">
 </header><h2 id="syslogngclusteroutput">SyslogNGClusterOutput</h2><p>SyslogNGClusterOutput is the Schema for the syslog-ng clusteroutputs API</p><h3 id="syslogngclusteroutput-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusteroutput-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="syslogngclusteroutput-spec">spec (SyslogNGClusterOutputSpec, required)</h3><h3 id="syslogngclusteroutput-status">status (SyslogNGOutputStatus, optional)</h3><h2 id="syslogngclusteroutputspec">SyslogNGClusterOutputSpec</h2><p>SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput</p><h3 id="syslogngclusteroutputspec-">(SyslogNGOutputSpec, required)</h3><h3 id="syslogngclusteroutputspec-enablednamespaces">enabledNamespaces ([]string, optional)</h3><h2 id="syslogngclusteroutputlist">SyslogNGClusterOutputList</h2><p>SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput</p><h3 id="syslogngclusteroutputlist-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusteroutputlist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="syslogngclusteroutputlist-items">items ([]SyslogNGClusterOutput, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

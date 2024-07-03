@@ -24,19 +24,18 @@ The relabel output uses the relabel output plugin of Fluentd to route events bac
 This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/relabel/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Relabel">
 <meta itemprop="description" content="Available in Logging Operator version 4.2 and later.
 The relabel output uses the relabel output plugin of Fluentd to route events back to a specific Flow, where they can be processed again.
 This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="245">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Relabel">
 <meta name="twitter:description" content="Available in Logging Operator version 4.2 and later.
 The relabel output uses the relabel output plugin of Fluentd to route events back to a specific Flow, where they can be processed again.
 This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -48,6 +47,8 @@ This is useful, for example, if you need to preprocess a subset of logs differen
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -641,7 +642,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">includeLabelInRouter</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:700">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>Using the relabel output also makes it possible to pass the messages emitted by the <a href="/docs/configuration/plugins/filters/concat/">Concat</a> plugin in case of a timeout. Set the <code>timeout_label</code> of the concat plugin to the flowLabel of the flow where you want to send the timeout messages.</p><h2 id="output-config">Output Config</h2><h3 id="label-string-required-output-config-label">label (string, required) {#output config-label}</h3><p>Specifies new label for events</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

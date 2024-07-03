@@ -26,13 +26,13 @@ Overview of default readiness probes By default, Logging operator performs the f
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/readiness-probe/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Readiness probe">
 <meta itemprop="description" content="This section describes how to configure readiness probes for your Fluentd and syslog-ng pods. If you don&rsquo;t configure custom readiness probes, Logging operator uses the default probes.
 Prerequisites Configuring readiness probes requires Logging operator 3.14.0 or newer installed on the cluster. syslog-ng is supported only in Logging operator 4.0 or newer.
 Overview of default readiness probes By default, Logging operator performs the following readiness checks:
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="379">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Readiness probe">
@@ -40,7 +40,6 @@ Number of buffer files is too high (higher than 5000) Fluentd buffers are over 9
 Prerequisites Configuring readiness probes requires Logging operator 3.14.0 or newer installed on the cluster. syslog-ng is supported only in Logging operator 4.0 or newer.
 Overview of default readiness probes By default, Logging operator performs the following readiness checks:
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -52,6 +51,8 @@ Number of buffer files is too high (higher than 5000) Fluentd buffers are over 9
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -658,7 +659,7 @@ Releases
 </span></span></span></code></pre></div><h2 id="custom-readiness-probes">Add custom readiness probes</h2><p>You can add your own custom readiness probes to the <strong>spec.ReadinessProbe</strong> section of the <strong>logging</strong> custom resource. For details on the format of readiness probes, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes">official Kubernetes documentation</a>.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p>If you set any custom readiness probes, they completely override the default probes.
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

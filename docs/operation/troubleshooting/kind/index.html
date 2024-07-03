@@ -26,13 +26,13 @@ Before asking for help, prepare the following information to make troubleshootin
 Logging operator version kubernetes version helm/chart version (if you installed the Logging operator with helm) Logging operator logs fluentd configuration fluentd logs fluentbit configuration fluentbit logs Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/troubleshooting/kind/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Running on KinD">
 <meta itemprop="description" content="Persistent Volumes do not respect the fsGroup value on Kind so disable using a PVC for fluentd:
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: example-on-kind spec: fluentd: disablePvc: true Getting Support If you encounter any problems that the documentation does not address, file an issue or talk to us on Discord or on the CNCF Slack.
 Before asking for help, prepare the following information to make troubleshooting faster:
 Logging operator version kubernetes version helm/chart version (if you installed the Logging operator with helm) Logging operator logs fluentd configuration fluentd logs fluentbit configuration fluentbit logs Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="109">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Running on KinD">
@@ -40,7 +40,6 @@ Logging operator version kubernetes version helm/chart version (if you installed
 apiVersion: logging.banzaicloud.io/v1beta1 kind: Logging metadata: name: example-on-kind spec: fluentd: disablePvc: true Getting Support If you encounter any problems that the documentation does not address, file an issue or talk to us on Discord or on the CNCF Slack.
 Before asking for help, prepare the following information to make troubleshooting faster:
 Logging operator version kubernetes version helm/chart version (if you installed the Logging operator with helm) Logging operator logs fluentd configuration fluentd logs fluentbit configuration fluentbit logs Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -52,6 +51,8 @@ Logging operator version kubernetes version helm/chart version (if you installed
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -602,7 +603,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">disablePvc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

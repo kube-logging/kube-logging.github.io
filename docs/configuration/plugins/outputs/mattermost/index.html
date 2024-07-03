@@ -28,14 +28,14 @@ enable_tls (*bool, optional) You can set the communication channel if it uses TL
 Default: true">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/mattermost/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Mattermost">
 <meta itemprop="description" content="Mattermost plugin for Fluentd Overview Sends logs to Mattermost via webhooks. For details, see https://github.com/levigo-systems/fluent-plugin-mattermost.
 Example output configurations spec: mattermost: webhook_url: https://xxx.xx/hooks/xxxxxxxxxxxxxxx channel_id: xxxxxxxxxxxxxxx message_color: &#34;#FFA500&#34; enable_tls: false Configuration Output Config ca_path (*secret.Secret, optional) The path of the CA certificates.
 channel_id (string, optional) The ID of the channel where you want to receive the information.
 enable_tls (*bool, optional) You can set the communication channel if it uses TLS.
 Default: true">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="141">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mattermost">
@@ -44,7 +44,6 @@ Example output configurations spec: mattermost: webhook_url: https://xxx.xx/hook
 channel_id (string, optional) The ID of the channel where you want to receive the information.
 enable_tls (*bool, optional) You can set the communication channel if it uses TLS.
 Default: true">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -56,6 +55,8 @@ Default: true">
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -612,7 +613,7 @@ For details, see <a href="https://github.com/levigo-systems/fluent-plugin-matter
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">message_color</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;#FFA500&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">enable_tls</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-ca_path">ca_path (*secret.Secret, optional)</h3><p>The path of the CA certificates.</p><h3 id="output-config-channel_id">channel_id (string, optional)</h3><p>The ID of the channel where you want to receive the information.</p><h3 id="output-config-enable_tls">enable_tls (*bool, optional)</h3><p>You can set the communication channel if it uses TLS.</p><p>Default: true</p><h3 id="output-config-message">message (string, optional)</h3><p>The message you want to send. It can be a static message, which you add at this point, or you can receive the Fluentd infos with the %s</p><h3 id="output-config-message_color">message_color (string, optional)</h3><p>Color of the message you are sending, in hexadecimal format.</p><p>Default: #A9A9A9</p><h3 id="output-config-message_title">message_title (string, optional)</h3><p>The title you want to add to the message.</p><p>Default: fluent_title_default</p><h3 id="output-config-webhook_url">webhook_url (*secret.Secret, required)</h3><p>Incoming Webhook URI (Required for Incoming Webhook mode).</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

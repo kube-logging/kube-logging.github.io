@@ -22,17 +22,16 @@ Sample setup The following procedure creates two tenants (A and B) and their res
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/multitenancy/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Nodegroup-based multitenancy">
 <meta itemprop="description" content="Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups. These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn&rsquo;t affect the others.
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodegroup-based multitenancy">
 <meta name="twitter:description" content="Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups. These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn&rsquo;t affect the others.
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -44,6 +43,8 @@ Sample setup The following procedure creates two tenants (A and B) and their res
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -613,7 +614,7 @@ These resources are isolated from the resources of the other tenants so the conf
 <p>Check logs coming from both tenants <code>kubectl logs -f -n infra svc/test-receiver</code></p><p>Expected output should show logs from both tenants</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_a: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.157810965, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;15.238.250.48 - - [29/Sep/2023:14:54:38 +0000] &#34;</span>PUT /pro...
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_b: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.160868923, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;252.201.89.36 - - [29/Sep/2023:14:54:33 +0000] &#34;</span>POST /bl...
 </span></span></code></pre></div></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

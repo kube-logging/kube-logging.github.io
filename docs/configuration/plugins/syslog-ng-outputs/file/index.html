@@ -30,7 +30,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-06-05T21:07:28+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-07-03T14:24:12+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
@@ -38,7 +38,7 @@ For available macros like ${YEAR}/${MONTH}/${DAY} see the documentation of the A
 Configuration FileOutput create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2024-06-05T21:07:28+02:00">
+<meta itemprop="dateModified" content="2024-07-03T14:24:12+02:00">
 <meta itemprop="wordCount" content="234">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -48,7 +48,6 @@ For available macros like ${YEAR}/${MONTH}/${DAY} see the documentation of the A
 Configuration FileOutput create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta name="twitter:site" content="@AxoflowIO">
 <link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
 <link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
@@ -60,6 +59,8 @@ dir_group (string, optional) The group of the directories created by syslog-ng. 
         await import('/pagefind/pagefind-highlight.js');
         new PagefindHighlight({ highlightParam: "highlight" });
     </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
 <script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
 </head><body class="td-page" data-pagefind-filter="section:4.7">
@@ -612,7 +613,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">file</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-file/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><p>For available macros like <code>${YEAR}/${MONTH}/${DAY}</code> see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-macros/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="fileoutput">FileOutput</h2><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: <code>dir-group()</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: <code>dir-owner()</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the <code>create-dirs()</code> option). For octal numbers prefix the number with 0, for example, use <code>0755</code> for <code>rwxr-xr-x</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-path">path (string, required)</h3><p>Path where the file is stored.</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><h3 id="fileoutput-template">template (string, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e0229c15cf897131f49ccb32f405379d945aa4b4">Merge pull request #244 from chalin/patch-1 (e0229c1)</a>
+Last modified July 3, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/45872402ba03f4e6a1221551e7c01623ded28148">Merge pull request #245 from kube-logging/cookie-consent-banner (4587240)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
