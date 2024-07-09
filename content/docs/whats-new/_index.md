@@ -5,7 +5,7 @@ weight: 50
 
 ## Version 4.8
 
-The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0)<!-- and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release-announcement)-->.
+The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0) and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release).
 
 ### Routing based on namespace labels
 
