@@ -14,7 +14,7 @@ Expected output:
 
 ```bash
 NAME                   READY   AGE
-logging-demo-syslogng   1/1     1m
+logging-demo-syslog-ng   1/1     1m
 ```
 
 ## ConfigCheck
@@ -26,7 +26,7 @@ In case the operator is stuck in an error state caused by a failed configcheck, 
 ## Check syslog-ng configuration
 
 Use the following command to display the configuration of syslog-ng:
-`kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslogng\.conf']}" | base64 --decode`
+`kubectl get secret logging-demo-syslogng-app -o jsonpath="{.data['syslog-ng\.conf']}" | base64 --decode`
 <!-- 
 FIXME
 The output should be similar to the following:
