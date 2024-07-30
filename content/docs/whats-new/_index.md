@@ -5,13 +5,13 @@ weight: 50
 
 ## Version 4.8
 
-The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0)<!-- and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release-announcement)-->.
+The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0) and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release).
 
 ### Routing based on namespace labels
 
 In your Fluentd ClusterFlows you can now route your messages based on namespace labels.
 
-> Note: This feature requires a new fluentd image: `ghcr.io/kube-logging/fluentd:v1.16-4.8-full`. If you're using a custom Fluentd image, make sure to update it!
+> Note: This feature requires a new Fluentd image: `ghcr.io/kube-logging/fluentd:v1.16-4.8-full`. If you're using a custom Fluentd image, make sure to update it!
 
 If you have [enabled namespace labeling in Fluent Bit](https://kube-logging.dev/docs/whats-new/#kubernetes-namespace-labels-and-annotations), you can use namespace labels in your selectors, for example:
 
@@ -72,11 +72,11 @@ spec:
         Retry_Limit: "no_limits"
     ```
 
-- In the Loggging operator helm chart you can include extra manifests to deploy together with the chart using the `extraManifests` field similar to other popular charts.
+- In the Logging operator helm chart you can include extra manifests to deploy together with the chart using the `extraManifests` field, similarly to other popular charts.
 
 ## Version 4.7
 
-The following are the highlights and main changes of Logging operator 4.7. For a complete list of changes and bugfixes, see the [Logging operator 4.7 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.7.0) and the [Logging operator 4.7 release blog post](https://axoflow.com/logging-operator-4.7-release-announcement).
+The following are the highlights and main changes of Logging operator 4.7. For a complete list of changes and bugfixes, see the [Logging operator 4.7 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.7.0) and the [Logging operator 4.7 release blog post](https://axoflow.com/logging-operator-4.7-release).
 
 ### Breaking change for Fluentd
 
