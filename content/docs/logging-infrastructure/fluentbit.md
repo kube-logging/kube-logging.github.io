@@ -96,6 +96,35 @@ The following sections show you some examples on configuring Fluent Bit. For the
 
 > Note: These examples use the traditional method that configures the Fluent Bit deployment using **spec.fluentbit** section of {{% xref "/docs/logging-infrastructure/logging.md" %}}.
 
+## Containerd log fields
+
+The following example defines a [Fluentd parser]({{< relref "/docs/configuration/plugins/filters/parser.md" >}}) that places the parsed containerd log messages into the `log` field instead of the `message` field.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: containerd
+spec:
+  inputTail:
+    Parser: cri-log-key
+  # Parser that populates `log` instead of `message` to enable the Kubernetes filter's Merge_Log feature to work
+  # Mind the indentation, otherwise Fluent Bit will parse the whole message into the `log` key
+  customParsers: |
+                  [PARSER]
+                      Name cri-log-key
+                      Format regex
+                      Regex ^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>[^ ]*) (?<log>.*)$
+                      Time_Key    time
+                      Time_Format %Y-%m-%dT%H:%M:%S.%L%z
+  # Required key remap if one wants to rely on the existing auto-detected log key in the fluentd parser and concat filter otherwise should be omitted
+  filterModify:
+    - rules:
+      - Rename:
+          key: log
+          value: message
+```
+
 ## Filters
 
 ### Kubernetes (filterKubernetes)
