@@ -98,7 +98,7 @@ The following sections show you some examples on configuring Fluent Bit. For the
 
 ## Containerd log fields
 
-The following example defines a [Fluentd parser]({{< relref "/docs/configuration/plugins/filters/parser.md" >}}) that places the parsed containerd log messages into the `log` field instead of the `message` field.
+The following example defines a custom Fluent Bit parser that places the parsed containerd log messages into the `log` field instead of the `message` field to be backwards compatible with docker container runtimes.
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
