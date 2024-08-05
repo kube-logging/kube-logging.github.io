@@ -24,12 +24,12 @@ The relabel output uses the relabel output plugin of Fluentd to route events bac
 This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/relabel/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-07-31T12:09:02+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-08-05T11:13:51+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Relabel">
 <meta itemprop="description" content="Available in Logging Operator version 4.2 and later.
 The relabel output uses the relabel output plugin of Fluentd to route events back to a specific Flow, where they can be processed again.
 This is useful, for example, if you need to preprocess a subset of logs differently, but then do the same processing on all messages at the end. In this case, you can create multiple flows for preprocessing based on specific log matchers and then aggregate everything into a single final flow for postprocessing.">
-<meta itemprop="dateModified" content="2024-07-31T12:09:02+02:00">
+<meta itemprop="dateModified" content="2024-08-05T11:13:51+02:00">
 <meta itemprop="wordCount" content="245">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Relabel">
@@ -642,7 +642,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">includeLabelInRouter</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:700">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>Using the relabel output also makes it possible to pass the messages emitted by the <a href="/docs/configuration/plugins/filters/concat/">Concat</a> plugin in case of a timeout. Set the <code>timeout_label</code> of the concat plugin to the flowLabel of the flow where you want to send the timeout messages.</p><h2 id="output-config">Output Config</h2><h3 id="label-string-required-output-config-label">label (string, required) {#output config-label}</h3><p>Specifies new label for events</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 31, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b8ba9e481983e8f7723d43e67b069605d065d8ce">Merge pull request #249 from crazyelectron-io/patch-1 (b8ba9e4)</a>
+Last modified August 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/95602333e2977bb83c20e25e0ac4bee82b851059">Merge pull request #250 from kube-logging/containerd-fix-to-fluentbit-examples (9560233)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
