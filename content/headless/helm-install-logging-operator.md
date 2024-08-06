@@ -18,5 +18,9 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-> Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-> Upgrade to 3.13.1 or higher to avoid having to log in, see: https://github.com/kube-logging/logging-operator/issues/1522
+> Note:
+> 
+> - Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
+> 
+>     Upgrade to 3.13.1 or higher to avoid having to log in, see: https://github.com/kube-logging/logging-operator/issues/1522
+> - If you're installing the Helm chart from Terraform, reference the repository as `repository = "oci://ghcr.io/kube-logging/helm-charts/"` (without the `logging-operator` suffix). Otherwise, you'll get a [403 Forbidden error](https://github.com/hashicorp/terraform-provider-helm/issues/1291).
