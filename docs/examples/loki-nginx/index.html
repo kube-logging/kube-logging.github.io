@@ -22,12 +22,12 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/loki-nginx/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-08-05T11:13:51+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-08-08T15:49:41+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2024-08-05T11:13:51+02:00">
-<meta itemprop="wordCount" content="640">
+<meta itemprop="dateModified" content="2024-08-08T15:49:41+02:00">
+<meta itemprop="wordCount" content="666">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Store Nginx Access Logs in Grafana Loki with Logging operator">
 <meta name="twitter:description" content="This guide describes how to collect application and container logs in Kubernetes using the Logging operator, and how to send them to Grafana Loki.
@@ -649,8 +649,10 @@ Releases
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
 </span></span><span style="display:flex"><span>kind: Logging
@@ -712,7 +714,7 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 <p>Use the <code>admin</code> username and the password retrieved in Step 1 to log in.</p></li><li>
 <p>Select <strong>Menu > Explore</strong>, select <strong>Data source > Loki</strong>, then select <strong>Log labels > namespace > logging</strong>. A list of logs should appear.</p><p><img src="../../img/loki1.png" alt="Sample log messages in Loki"></p></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/95602333e2977bb83c20e25e0ac4bee82b851059">Merge pull request #250 from kube-logging/containerd-fix-to-fluentbit-examples (9560233)</a>
+Last modified August 8, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/81e55094bd1e66d937aad3d63fd9f0f9f02b449a">Merge pull request #251 from kube-logging/terraform-403-helm (81e5509)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

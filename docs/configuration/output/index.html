@@ -22,11 +22,11 @@ Fluentd outputs The Output resource defines an output where your Fluentd Flows c
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/output/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-08-05T11:13:51+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-08-08T15:49:41+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Output and ClusterOutput">
 <meta itemprop="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
-<meta itemprop="dateModified" content="2024-08-05T11:13:51+02:00">
+<meta itemprop="dateModified" content="2024-08-08T15:49:41+02:00">
 <meta itemprop="wordCount" content="447">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Output and ClusterOutput">
@@ -655,7 +655,7 @@ Outputs are the final stage for a <code>logging flow</code>. You can define mult
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">transport</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tls</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><ul>
 <li>For the details of the supported output plugins, see <a href="/docs/configuration/plugins/syslog-ng-outputs/">syslog-ng outputs</a>.</li><li>For the details of <code>SyslogNGOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_output_types/">SyslogNGOutputSpec</a>.</li><li>For the details of <code>SyslogNGClusterOutput</code> custom resource, see <a href="/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/">SyslogNGClusterOutput</a>.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/95602333e2977bb83c20e25e0ac4bee82b851059">Merge pull request #250 from kube-logging/containerd-fix-to-fluentbit-examples (9560233)</a>
+Last modified August 8, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/81e55094bd1e66d937aad3d63fd9f0f9f02b449a">Merge pull request #251 from kube-logging/terraform-403-helm (81e5509)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

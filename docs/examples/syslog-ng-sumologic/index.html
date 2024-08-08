@@ -30,7 +30,7 @@ To configure a Hosted Collector, complete the steps in the Configure a Hosted Co
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/syslog-ng-sumologic/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-08-05T11:13:51+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-08-08T15:49:41+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Sumo Logic with Logging operator and syslog-ng">
 <meta itemprop="description" content="This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.
 Prerequisites We assume that you already have:
@@ -38,8 +38,8 @@ A Sumo Logic account.
 A HTTP Hosted Collector configured in the Sumo Logic service.
 To configure a Hosted Collector, complete the steps in the Configure a Hosted Collector section on the official Sumo Logic website.
 The unique HTTP collector code you receive while configuring your Host Collector for HTTP requests.">
-<meta itemprop="dateModified" content="2024-08-05T11:13:51+02:00">
-<meta itemprop="wordCount" content="505">
+<meta itemprop="dateModified" content="2024-08-08T15:49:41+02:00">
+<meta itemprop="wordCount" content="531">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sumo Logic with Logging operator and syslog-ng">
 <meta name="twitter:description" content="This guide helps you install and configure the Logging operator and syslog-ng to forward logs to your Sumo Logic account.
@@ -624,8 +624,10 @@ Releases
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
@@ -729,7 +731,7 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 <p>Install log-generator to produce logs with the label <code>app.kubernetes.io/name: log-generator</code></p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
 </span></span></code></pre></div></li></ol><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/95602333e2977bb83c20e25e0ac4bee82b851059">Merge pull request #250 from kube-logging/containerd-fix-to-fluentbit-examples (9560233)</a>
+Last modified August 8, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/81e55094bd1e66d937aad3d63fd9f0f9f02b449a">Merge pull request #251 from kube-logging/terraform-403-helm (81e5509)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

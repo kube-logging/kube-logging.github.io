@@ -24,13 +24,13 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-08-05T11:13:51+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-08-08T15:49:41+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2024-08-05T11:13:51+02:00">
-<meta itemprop="wordCount" content="690">
+<meta itemprop="dateModified" content="2024-08-08T15:49:41+02:00">
+<meta itemprop="wordCount" content="716">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
 <meta name="twitter:description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
@@ -644,8 +644,10 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="install-minio">Install Minio</h2><ol>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li></ol><h2 id="install-minio">Install Minio</h2><ol>
 <li>
 <p>Create Minio Credential Secret</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging create secret generic logging-s3 --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">accesskey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;AKIAIOSFODNN7EXAMPLE&#39;</span> --from-literal<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#000">secretkey</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&#39;</span>
 </span></span></code></pre></div></li><li>
@@ -799,7 +801,7 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Grafana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/95602333e2977bb83c20e25e0ac4bee82b851059">Merge pull request #250 from kube-logging/containerd-fix-to-fluentbit-examples (9560233)</a>
+Last modified August 8, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/81e55094bd1e66d937aad3d63fd9f0f9f02b449a">Merge pull request #251 from kube-logging/terraform-403-helm (81e5509)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

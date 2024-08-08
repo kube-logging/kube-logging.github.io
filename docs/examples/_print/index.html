@@ -110,8 +110,10 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p>Create AWS <code>secret</code></p><blockquote>
 <p>If you have your <code>$AWS_ACCESS_KEY_ID</code> and <code>$AWS_SECRET_ACCESS_KEY</code> set you can use the following snippet.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging create secret generic logging-cloudwatch --from-literal <span style="color:#4e9a06">&#34;awsAccessKeyId=</span><span style="color:#000">$AWS_ACCESS_KEY_ID</span><span style="color:#4e9a06">&#34;</span> --from-literal <span style="color:#4e9a06">&#34;awsSecretAccessKey=</span><span style="color:#000">$AWS_SECRET_ACCESS_KEY</span><span style="color:#4e9a06">&#34;</span>
 </span></span></code></pre></div><p>Or set up the secret manually.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>    kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
@@ -205,8 +207,10 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create AWS <code>secret</code></p><blockquote>
@@ -334,8 +338,10 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
@@ -580,8 +586,10 @@ All those moved fields will be sent as HTTP Header to the Sumo Logic endpoint.</
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li></ol><h2 id="configure-the-logging-operator">Configure the Logging operator</h2><ol>
 <li>
 <p>Create the <code>logging</code> resource with a persistent syslog-ng installation.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
@@ -699,8 +707,10 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p><a href="#validate">Validate your deployment</a>.</p></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#000">kubectl -n logging apply -f - &lt;&lt;&#34;EOF&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -819,8 +829,10 @@ Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://git
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote></li><li>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote></li><li>
 <p>Create the <code>logging</code> resource.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
 </span></span><span style="display:flex"><span>apiVersion: logging.banzaicloud.io/v1beta1
 </span></span><span style="display:flex"><span>kind: Logging

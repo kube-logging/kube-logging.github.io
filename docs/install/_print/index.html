@@ -97,8 +97,10 @@ For instructions on installing the previous 4.2.3 version, see <a href="/4.2/doc
 </span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span>TEST SUITE: None
 </span></span></code></pre></div><blockquote>
-<p>Note: Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.
-Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></blockquote><blockquote>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote><blockquote>
 <p>Note: By default, the Logging operator Helm chart doesn&rsquo;t install the <code>logging</code> resource. If you want to install it with Helm, set the <code>logging.enabled</code> value to true.</p><p>For details on customizing the installation, see the <a href="https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator">Helm chart values</a>.</p></blockquote></li></ol><h2 id="validate">Validate the deployment</h2><p>To verify that the installation was successful, complete the following steps.</p><ol>
 <li>
 <p>Check the status of the pods. You should see a new logging-operator pod.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get pods
