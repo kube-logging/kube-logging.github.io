@@ -169,9 +169,13 @@ twitter = "AxoflowIO"
 #######################
 # Add your release versions here
 [[params.versions]]
-  version = "latest (4.8.0)"
+  version = "latest (4.9.0)"
   githubbranch = "master"
   url = ""
+[[params.versions]]
+  version = "4.8"
+  githubbranch = "release-4.8"
+  url = "/4.8/"
 [[params.versions]]
   version = "4.7"
   githubbranch = "release-4.7"
@@ -204,7 +208,7 @@ twitter = "AxoflowIO"
 # Cascade version number to every doc page (needed to create sections for pagefind search)
 # Update this parameter when creating a new version
 [[cascade]]
-body_attribute = 'data-pagefind-filter="section:4.8"'
+body_attribute = 'data-pagefind-filter="section:4.9"'
 [cascade._target]
   path = '/docs/**'
 
