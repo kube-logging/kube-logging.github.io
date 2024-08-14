@@ -3,6 +3,112 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.9
+
+The following are the highlights and main changes of Logging operator 4.9. For a complete list of changes and bugfixes, see the [Logging operator 4.9 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.9.0)<!-- and the [Logging operator 4.9 release blog post](https://axoflow.com/logging-operator-4.9-release)-->.
+
+### OpenTelemetry output
+
+When using the [syslog-ng aggretor]({{< relref "/docs/configuration/output/_index.md#syslogngoutput" >}}), you can now send data directly to an OpenTelemetry endpoint. All metadata and the original log record are available. Resource attributes will be available in a future release, when we switch to an OpenTelemetry input and receive standard OTLP logs. For details, see {{% xref "/docs/configuration/plugins/syslog-ng-outputs/opentelemetry.md" %}}.
+
+```yaml
+2024-07-05T09:00:23.407Z	info	LogsExporter	{"kind": "exporter", "data_type": "logs", "name": "debug", "resource logs": 1, "log records": 1}
+2024-07-05T09:00:23.407Z	info	ResourceLog #0
+Resource SchemaURL:
+ScopeLogs #0
+ScopeLogs SchemaURL:
+InstrumentationScope
+LogRecord #0
+ObservedTimestamp: 2024-07-05 09:00:23.405798 +0000 UTC
+Timestamp: 2024-07-05 09:00:23.406049 +0000 UTC
+SeverityText:
+SeverityNumber: Info2(10)
+Body: Str({"ts":"2024-07-05T09:00:22.424670Z","log":"107.147.239.123 - - [05/Jul/2024:09:00:22 +0000] \"POST /index.html HTTP/1.1\" 200 14184 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3191.0 Safari/537.36\" \"-\"\n","stream":"stdout","time":"2024-07-05T09:00:22.424670292Z","kubernetes":{"pod_name":"log-generator-55867b6d4c-66fdv","namespace_name":"log-generator","pod_id":"682c9ed9-9421-406f-9c7b-cf2b2e62f406","labels":{"app.kubernetes.io/instance":"log-generator","app.kubernetes.io/name":"log-generator","pod-template-hash":"55867b6d4c"},"host":"logging","container_name":"log-generator","docker_id":"dba14a358990c4b6ab82acdf75069952f3b180b3f16dd9527adc7eb11f6d2167","container_hash":"ghcr.io/kube-logging/log-generator@sha256:e26102ef2d28201240fa6825e39efdf90dec0da9fa6b5aea6cf9113c0d3e93aa","container_image":"ghcr.io/kube-logging/log-generator:0.7.0"}})
+Trace ID:
+Span ID:
+Flags: 0
+	{"kind": "exporter", "data_type": "logs", "name": "debug"}
+```
+
+### Elasticsearch data streams
+
+You can now send messages and metrics to [Elasticsearch data streams](https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html) to store your log and metrics data as time series data. You have to use the [syslog-ng aggretor]({{< relref "/docs/configuration/output/_index.md#syslogngoutput" >}}) to use this output. For details, see {{% xref "/docs/configuration/plugins/syslog-ng-outputs/elasticsearch_datastream.md" %}}.
+
+### Improved Kafka performance
+
+The {{% xref "/docs/configuration/plugins/outputs/kafka.md" %}} Fluentd output now supports using the rdkafka2 client, which offers higher performance than ruby-kafka. Set `use_rdkafka` to `true` to use the rdkafka2 client. (If you're using a custom Fluentd image, note that rdkafka2 requires v1.16-4.9-full or higher.)
+
+### Containerd compatibility
+
+As many users prefer Containerd instead of Docker as their container runtime, the slight differences between these CRIs are causing some problems. Now you can enable a compatibility layer with the `enableDockerParserCompatibilityForCRI` option of the `logging` CRD, for example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: containerd
+spec:
+  enableDockerParserCompatibilityForCRI: true
+```
+
+This option enables a log parser that is compatible with the docker parser. This has the following benefits:
+
+- automatically parses JSON logs using the Merge_Log feature
+- downstream parsers can use the `log` field instead of the `message` field, just like with the docker runtime
+- the `concat` and `parser` filters are automatically set back to use the `log` field.
+
+Here is a sample log message with the option enabled:
+
+```json
+{
+  "log": "2024-08-12T14:19:29.672991171Z stderr F [2024/08/12 14:19:29] [ info] [input:tail:tail.0] inotify_fs_add(): inode=2939617 watch_fd=17 name=/var/log/containers/containerd-fluentd-0_default_fluentd-e46f1fcb1b63e7458fc43c079b7455f8e1305e551939ca128361a9574a194ed7.log",
+  "kubernetes": {
+    "pod_name": "containerd-fluentbit-mchwz",
+    "namespace_name": "default",
+    "pod_id": "22f86078-26f1-4202-bbc7-1dd5ddce20ec",
+    "labels": {
+      "app.kubernetes.io/instance": "containerd",
+      "app.kubernetes.io/managed-by": "containerd",
+      "app.kubernetes.io/name": "fluentbit",
+      "controller-revision-hash": "6bb6f7f5f4",
+      "pod-template-generation": "2"
+    },
+    "annotations": {
+      "checksum/cri-log-parser.conf": "d902a0ee964e9398e637b581be851cdf50ab2846e82003d2f5e2feef82bef95d",
+      "checksum/fluent-bit.conf": "dc9727d915c447b414dc05df2d9a6f23246cdca345309eb3107cc16ae8369b53"
+    },
+    "host": "logging",
+    "container_name": "fluent-bit",
+    "docker_id": "5cf032406344fdf41d76ce4489ee6f3ca092e9207ec49ab6209cc2bcf950e593",
+    "container_image": "fluent/fluent-bit:3.0.4"
+  }
+}
+```
+
+### Set the severity of PrometheusRules
+
+You can now configure `PrometheusRulesOverride` in your [`logging` CRDs]({{< relref "/docs/configuration/crds/v1beta1/common_types.md#PrometheusRulesOverride" >}}). The content of `PrometheusRulesOverride` is identical to the v1.Rule Prometheus rule type. The controller will match overrides by their names with the original rules. All of the override attributes are optional and whenever an attribute is set, it will replace the original attribute.
+
+For example, you can change the severity of a rule like this:
+
+```yaml
+fluentd:
+  metrics:
+    prometheusRules: true
+    prometheusRulesOverride:
+    - alert: FluentdPredictedBufferGrowth
+      labels:
+         rulegroup: fluentd
+         service:   fluentd
+         severity:  none
+```
+
+### Other changes
+
+- [Fluent Bit hot reload](#fluent-bit-hot-reload) now reloads imagePullSecrets as well.
+- From now on, the entire `spec.Security.SecurityContext` is passed to Fluent Bit.
+- Kubernetes namespace labels are added to the metadata by default. (The default of the `namespace_labels` option in the FluentBitAgent CRD is `on`.)
+
 ## Version 4.8
 
 The following are the highlights and main changes of Logging operator 4.8. For a complete list of changes and bugfixes, see the [Logging operator 4.8 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.8.0) and the [Logging operator 4.8 release blog post](https://axoflow.com/logging-operator-4.8-release).
