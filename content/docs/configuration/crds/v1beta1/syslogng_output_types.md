@@ -11,6 +11,10 @@ SyslogNGOutputSpec defines the desired state of SyslogNGOutput
 ### elasticsearch (*output.ElasticsearchOutput, optional) {#syslogngoutputspec-elasticsearch}
 
 
+### elasticsearch-datastream (*output.ElasticsearchDatastreamOutput, optional) {#syslogngoutputspec-elasticsearch-datastream}
+
+Available in Logging operator version 4.9 and later.
+
 ### file (*output.FileOutput, optional) {#syslogngoutputspec-file}
 
 
@@ -35,6 +39,11 @@ Available in Logging operator version 4.4 and later.
 
 
 ### mongodb (*output.MongoDB, optional) {#syslogngoutputspec-mongodb}
+
+
+### opentelemetry (*output.OpenTelemetryOutput, optional) {#syslogngoutputspec-opentelemetry}
+
+Available in Logging operator version 4.9 and later.
 
 
 ### openobserve (*output.OpenobserveOutput, optional) {#syslogngoutputspec-openobserve}

@@ -33,7 +33,7 @@ spec:
 ## Configuration
 ## Kafka
 
-Send your logs to Kafka
+Send your logs to Kafka. Set `use_rdkafka` to `true` to use the rdkafka2 client, which offers higher performance than ruby-kafka.
 
 ### ack_timeout (int, optional) {#kafka-ack_timeout}
 
@@ -239,6 +239,11 @@ Default: "topic"
 Use default for unknown topics
 
 Default: false
+
+### use_rdkafka (bool, optional) {#kafka-use_rdkafka}
+
+Use rdkafka2 instead of the legacy kafka2 output plugin. This plugin requires fluentd image version v1.16-4.9-full or higher. 
+
 
 ### username (*secret.Secret, optional) {#kafka-username}
 
