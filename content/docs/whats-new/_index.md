@@ -9,7 +9,7 @@ The following are the highlights and main changes of Logging operator 4.9. For a
 
 ### OpenTelemetry output
 
-When using the [syslog-ng aggretor]({{< relref "/docs/configuration/output/_index.md#syslogngoutput" >}}), you can now send data directly to an OpenTelemetry endpoint. All metadata and the original log record are available. Resource attributes will be available in a future release, when we switch to an OpenTelemetry input and receive standard OTLP logs. For details, see {{% xref "/docs/configuration/plugins/syslog-ng-outputs/opentelemetry.md" %}}.
+When using the [syslog-ng aggretor]({{< relref "/docs/configuration/output/_index.md#syslogngoutput" >}}), you can now send data directly to an OpenTelemetry endpoint. All metadata and the original log record are available in the body of the log record. Resource attributes will be available in a future release, when we switch to an OpenTelemetry input and receive standard OTLP logs. For details, see {{% xref "/docs/configuration/plugins/syslog-ng-outputs/opentelemetry.md" %}}.
 
 ```yaml
 2024-07-05T09:00:23.407Z	info	LogsExporter	{"kind": "exporter", "data_type": "logs", "name": "debug", "resource logs": 1, "log records": 1}
