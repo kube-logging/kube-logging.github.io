@@ -26,7 +26,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-After the installation, check that the following pods and services are running:
+After the installation is completed, check that the following pods and services are running:
 
 ```shell
 kubectl get deploy -n logging
