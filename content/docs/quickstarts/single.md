@@ -8,7 +8,7 @@ weight: 100
 In this tutorial, you will:
 
 - Install the Logging operator on a cluster.
-- Configure Logging operator to collect logs from a namespace and send it to an sample output.
+- Configure Logging operator to collect logs from a namespace and send it to a sample output.
 - Install a sample application (log-generator) to collect its logs.
 - Check the collected logs.
 
@@ -53,7 +53,7 @@ EOF
     {{% /tab %}}
     {{< /tabpane >}}
 
-    > Note: The control namespace is where the Logging operator deploys the forwarder's resources, like the StatefulSet and the configuration secrets. Usually it's called `logging`.
+    > Note: The control namespace is where the Logging operator deploys the forwarder's resources, such as the StatefulSet and the configuration secrets. Usually it's called `logging`.
     >
     > By default, this namespace is used to define the cluster-wide resources: `SyslogNGClusterOutput`, `SyslogNGClusterFlow`, `ClusterOutput`, and `ClusterFlow`. For details, see {{% xref "/docs/configuration/_index.md" %}}.
 
@@ -110,7 +110,7 @@ quickstart-fluentd-configcheck-ac2d4553   0/1     Completed   0          60s
     {{% /tab %}}
     {{< /tabpane >}}
 
-1. Create a namespace (for example, `quickstart`) from where you want to collect the logs.
+1. Create a namespace (for example: `quickstart`) from which you want to collect the logs from.
 
     ```bash
     kubectl create namespace quickstart
@@ -258,7 +258,7 @@ fluentbitagent.logging.banzaicloud.io/quickstart   3m2s
     {{% /tab %}}
     {{< /tabpane >}}
 
-1. Install log-generator to produce logs with the label `app.kubernetes.io/name: log-generator`
+1. Install the log-generator to produce logs labelled with: `app.kubernetes.io/name: log-generator`
 
      ```bash
      helm upgrade --install --wait --namespace quickstart log-generator oci://ghcr.io/kube-logging/helm-charts/log-generator
@@ -340,10 +340,10 @@ If you have completed this guide, you have made the following changes to your cl
 - Installed syslog-ng or Fluentd on the cluster, to receive the logs from the Fluent Bit agents, and filter, parse, and transform them as needed, and to route the incoming logs to an output. To learn more about routing and filtering, see {{% xref "/docs/configuration/log-routing-syslog-ng.md" %}} or {{% xref "/docs/configuration/log-routing.md" %}}. - Created the following resources that configure Logging operator and the components it manages:
 
     - `Logging` to configure the logging infrastructure, like the details of the Fluent Bit and the syslog-ng or Fluentd deployment. To learn more about configuring the logging infrastructure, see {{% xref "/docs/logging-infrastructure/_index.md" %}}.
-    - `SyslogNGOutput` or `Output` to define an http output that receives the collected messages. To learn more, see {{% xref "/docs/configuration/output.md#syslogngoutput" %}} or {{% xref "/docs/configuration/output.md" %}}.
+    - `SyslogNGOutput` or `Output` to define an HTTP output that receives the collected messages. To learn more, see {{% xref "/docs/configuration/output.md#syslogngoutput" %}} or {{% xref "/docs/configuration/output.md" %}}.
     - `SyslogNGFlow` or `Flow` that processes the incoming messages and routes them to the appropriate output. To learn more, see {{% xref "/docs/configuration/flow.md#syslogngflow" %}} or {{% xref "/docs/configuration/flow.md" %}}.
 
-- Installed a simple receiver to act as the destination of the logs, and configured the the log forwarder to send the logs from the `quickstart` namespace to this destination.
+- Installed a simple receiver to act as the destination of the logs, and configured the log forwarder to send the logs from the `quickstart` namespace to this destination.
 - Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.
 
 <!-- FIXME next steps/links to examples -->
