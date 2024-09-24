@@ -1,6 +1,8 @@
 ---
 title: Logging operator
 weight: 400
+cascade:
+  show_banner: true
 ---
 
 Welcome to the Logging operator documentation!
