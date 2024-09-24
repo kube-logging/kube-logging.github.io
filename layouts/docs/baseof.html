@@ -6,7 +6,6 @@
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}" {{ with .Page.Params.body_attribute }} {{ . | safeHTMLAttr }}{{ end }}>
     <header>
       {{ partial "navbar.html" . }}
-      {{- partial "banner.html" . }} <!-- Adds announcements banner under the menu -->
     </header>
     <div class="container-fluid td-outer">
       <div class="td-main">
