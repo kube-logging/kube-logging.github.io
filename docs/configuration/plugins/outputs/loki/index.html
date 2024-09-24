@@ -28,14 +28,14 @@ ca_cert (*secret.Secret, optional) TLS: CA certificate file for server certifica
 cert (*secret.Secret, optional) TLS: parameters for presenting a client certificate Secret">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/loki/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-09-05T19:37:45+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-09-24T10:43:49+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Grafana Loki">
 <meta itemprop="description" content="Loki output plugin Overview Fluentd output plugin to ship logs to a Loki server. For details, see https://grafana.com/docs/loki/latest/clients/fluentd/.
 For a detailed example, see Store Nginx Access Logs in Grafana Loki with Logging Operator.
 Example output configurations spec: loki: url: http://loki:3100 buffer: timekey: 1m timekey_wait: 30s timekey_use_utc: true Configuration Output Config buffer (*Buffer, optional) Buffer
 ca_cert (*secret.Secret, optional) TLS: CA certificate file for server certificate verification Secret
 cert (*secret.Secret, optional) TLS: parameters for presenting a client certificate Secret">
-<meta itemprop="dateModified" content="2024-09-05T19:37:45+02:00">
+<meta itemprop="dateModified" content="2024-09-24T10:43:49+02:00">
 <meta itemprop="wordCount" content="320">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grafana Loki">
@@ -44,8 +44,8 @@ For a detailed example, see Store Nginx Access Logs in Grafana Loki with Logging
 Example output configurations spec: loki: url: http://loki:3100 buffer: timekey: 1m timekey_wait: 30s timekey_use_utc: true Configuration Output Config buffer (*Buffer, optional) Buffer
 ca_cert (*secret.Secret, optional) TLS: CA certificate file for server certificate verification Secret
 cert (*secret.Secret, optional) TLS: parameters for presenting a client certificate Secret">
-<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
-<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" as="style">
+<link href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -83,7 +83,8 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div></nav></header><div class="container-fluid td-outer">
+</div></div><div class="menu-banner">
+<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -619,7 +620,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_wait</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">30s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_use_utc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><h3 id="output-config-ca_cert">ca_cert (*secret.Secret, optional)</h3><p>TLS: CA certificate file for server certificate verification <a href="../secret/">Secret</a></p><h3 id="output-config-cert">cert (*secret.Secret, optional)</h3><p>TLS: parameters for presenting a client certificate <a href="../secret/">Secret</a></p><h3 id="output-config-configure_kubernetes_labels">configure_kubernetes_labels (*bool, optional)</h3><p>Configure Kubernetes metadata in a Prometheus like format</p><p>Default: false</p><h3 id="output-config-drop_single_key">drop_single_key (*bool, optional)</h3><p>If a record only has 1 key, then just set the log line to the value and discard the key.</p><p>Default: false</p><h3 id="output-config-extra_labels">extra_labels (map[string]string, optional)</h3><p>Set of extra labels to include with every Loki stream.</p><h3 id="output-config-extract_kubernetes_labels">extract_kubernetes_labels (*bool, optional)</h3><p>Extract kubernetes labels as loki labels</p><p>Default: false</p><h3 id="output-config-include_thread_label">include_thread_label (*bool, optional)</h3><p>whether to include the fluentd_thread label when multiple threads are used for flushing.</p><p>Default: true</p><h3 id="output-config-insecure_tls">insecure_tls (*bool, optional)</h3><p>TLS: disable server certificate verification</p><p>Default: false</p><h3 id="output-config-key">key (*secret.Secret, optional)</h3><p>TLS: parameters for presenting a client certificate <a href="../secret/">Secret</a></p><h3 id="output-config-labels">labels (Label, optional)</h3><p>Set of labels to include with every Loki stream.</p><h3 id="output-config-line_format">line_format (string, optional)</h3><p>Format to use when flattening the record to a log line: json, key_value (default: key_value)</p><p>Default: json</p><h3 id="output-config-password">password (*secret.Secret, optional)</h3><p>Specify password if the Loki server requires authentication. <a href="../secret/">Secret</a></p><h3 id="output-config-remove_keys">remove_keys ([]string, optional)</h3><p>Comma separated list of needless record keys to remove</p><p>Default: []</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, Fluentd logs a warning message and increases the <code>fluentd_output_status_slow_flush_count</code> metric.</p><h3 id="output-config-tenant">tenant (string, optional)</h3><p>Loki is a multi-tenant log storage platform and all requests sent must include a tenant.</p><h3 id="output-config-url">url (string, optional)</h3><p>The url of the Loki server to send logs to.</p><p>Default: <code>https://logs-us-west1.grafana.net</code></p><h3 id="output-config-username">username (*secret.Secret, optional)</h3><p>Specify a username if the Loki server requires authentication. <a href="../secret/">Secret</a></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/448aa639d8f0d697eb3d4e93f2f39385c288693a">Merge pull request #255 from csatib02/docs/fix-typos (448aa63)</a>
+Last modified September 24, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ddb58731ced0c4a15b7e5475001f422f10fb7a0e">Merge pull request #256 from kube-logging/kubecon-banner (ddb5873)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

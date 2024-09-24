@@ -30,7 +30,7 @@ make install Run the Operator
 go run main.go Writing a plugin To add a plugin to the logging operator you need to define the plugin struct.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/developers/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-09-05T19:37:45+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-09-24T10:43:49+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="For developers">
 <meta itemprop="description" content="This documentation helps to set-up a developer environment and writing plugins for the Logging operator.
 Setting up Kind Install Kind on your computer
@@ -38,7 +38,7 @@ go get sigs.k8s.io/kind@v0.5.1 Create cluster
 kind create cluster --name logging Install prerequisites (this is a Kubebuilder makefile that will generate and install crds)
 make install Run the Operator
 go run main.go Writing a plugin To add a plugin to the logging operator you need to define the plugin struct.">
-<meta itemprop="dateModified" content="2024-09-05T19:37:45+02:00">
+<meta itemprop="dateModified" content="2024-09-24T10:43:49+02:00">
 <meta itemprop="wordCount" content="601">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="For developers">
@@ -48,8 +48,8 @@ go get sigs.k8s.io/kind@v0.5.1 Create cluster
 kind create cluster --name logging Install prerequisites (this is a Kubebuilder makefile that will generate and install crds)
 make install Run the Operator
 go run main.go Writing a plugin To add a plugin to the logging operator you need to define the plugin struct.">
-<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
-<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" as="style">
+<link href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -87,7 +87,8 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div></nav></header><div class="container-fluid td-outer">
+</div></div><div class="menu-banner">
+<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -672,7 +673,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Buffer</span> <span style="color:#ce5c00;font-weight:700">*</span><span style="color:#000">Buffer</span> <span style="color:#4e9a06">`json:&#34;buffer,omitempty&#34;`</span>
 </span></span></code></pre></div><h3 id="generate-resources-for-your-plugin">Generate resources for your Plugin</h3><p>Run the following command to generate updated docs and CRDs for your new plugin.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>make generate
 </span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/448aa639d8f0d697eb3d4e93f2f39385c288693a">Merge pull request #255 from csatib02/docs/fix-typos (448aa63)</a>
+Last modified September 24, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ddb58731ced0c4a15b7e5475001f422f10fb7a0e">Merge pull request #256 from kube-logging/kubecon-banner (ddb5873)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

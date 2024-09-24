@@ -26,13 +26,13 @@
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-09-05T19:37:45+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-09-24T10:43:49+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGClusterOutput">
 <meta itemprop="description" content="SyslogNGClusterOutput SyslogNGClusterOutput is the Schema for the syslog-ng clusteroutputs API
 (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGClusterOutputSpec, required) status (SyslogNGOutputStatus, optional) SyslogNGClusterOutputSpec SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput
 (SyslogNGOutputSpec, required) enabledNamespaces ([]string, optional) SyslogNGClusterOutputList SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
-<meta itemprop="dateModified" content="2024-09-05T19:37:45+02:00">
+<meta itemprop="dateModified" content="2024-09-24T10:43:49+02:00">
 <meta itemprop="wordCount" content="48">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGClusterOutput">
@@ -40,8 +40,8 @@
 (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGClusterOutputSpec, required) status (SyslogNGOutputStatus, optional) SyslogNGClusterOutputSpec SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput
 (SyslogNGOutputSpec, required) enabledNamespaces ([]string, optional) SyslogNGClusterOutputList SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput
 (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGClusterOutput, required) ">
-<link rel="preload" href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" as="style">
-<link href="/scss/main.min.0ac1972f1be3dceb59c9889080c88edf91cadcbb9f766d7fc1b69112b37f2bf7.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" as="style">
+<link href="/scss/main.min.1cca47f15b20051ff509c7164760a373a0b043316d429bb65914ae7eb7a23488.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -79,7 +79,8 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div></nav></header><div class="container-fluid td-outer">
+</div></div><div class="menu-banner">
+<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -612,7 +613,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>SyslogNGClusterOutput</h1><header class="article-meta">
 </header><h2 id="syslogngclusteroutput">SyslogNGClusterOutput</h2><p>SyslogNGClusterOutput is the Schema for the syslog-ng clusteroutputs API</p><h3 id="syslogngclusteroutput-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusteroutput-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="syslogngclusteroutput-spec">spec (SyslogNGClusterOutputSpec, required)</h3><h3 id="syslogngclusteroutput-status">status (SyslogNGOutputStatus, optional)</h3><h2 id="syslogngclusteroutputspec">SyslogNGClusterOutputSpec</h2><p>SyslogNGClusterOutputSpec contains Kubernetes spec for SyslogNGClusterOutput</p><h3 id="syslogngclusteroutputspec-">(SyslogNGOutputSpec, required)</h3><h3 id="syslogngclusteroutputspec-enablednamespaces">enabledNamespaces ([]string, optional)</h3><h2 id="syslogngclusteroutputlist">SyslogNGClusterOutputList</h2><p>SyslogNGClusterOutputList contains a list of SyslogNGClusterOutput</p><h3 id="syslogngclusteroutputlist-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusteroutputlist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="syslogngclusteroutputlist-items">items ([]SyslogNGClusterOutput, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 5, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/448aa639d8f0d697eb3d4e93f2f39385c288693a">Merge pull request #255 from csatib02/docs/fix-typos (448aa63)</a>
+Last modified September 24, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/ddb58731ced0c4a15b7e5475001f422f10fb7a0e">Merge pull request #256 from kube-logging/kubecon-banner (ddb5873)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
