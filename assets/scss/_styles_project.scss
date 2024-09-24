@@ -63,3 +63,37 @@ assets/scss/_styles_project.scss
 .tab-body {
   padding: 0rem;
 }
+
+// Styling for announcement banner
+.menu-banner {
+  @include media-breakpoint-up(md) {
+    width: 100%;
+    position: fixed;
+    margin-left: -15px;
+    z-index: 31;
+    top: 4rem;
+  }
+
+  //--td-pre-bg: #{adjust-color($gray-900, $lightness: -2.5%)};
+  --td-pre-bg: black;
+
+  background: var(--td-pre-bg);
+  color: var(--bs-body-color);
+  text-align: center;
+  height: 24px;
+
+  & p {
+    // padding: 0.5rem;
+    // margin-bottom: initial;
+    color: white;
+  }
+}
+
+// Adds a padding because the announcements banner is too close to the breadcrumb
+header {
+  padding-bottom: 8px;
+}
+.td-page-meta {
+  // Adds a margin because the announcements banner is too close
+  margin-top: 16px;
+}
