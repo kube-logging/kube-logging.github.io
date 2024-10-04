@@ -33,7 +33,8 @@ spec:
 ## Configuration
 ## Kafka
 
-Send your logs to Kafka. Set `use_rdkafka` to `true` to use the rdkafka2 client, which offers higher performance than ruby-kafka.
+Send your logs to Kafka. Set `use_rdkafka` to `true` to use the rdkafka2 client, which offers higher performance than ruby-kafka. (Note: requires fluentd image version v1.16-4.9-full or higher)
+-[more info](https://github.com/fluent/fluent-plugin-kafka#output-plugin)
 
 ### ack_timeout (int, optional) {#kafka-ack_timeout}
 
@@ -143,6 +144,12 @@ Default: nil
 ### keytab (*secret.Secret, optional) {#kafka-keytab}
 
 
+### max_send_limit_bytes (int, optional) {#kafka-max_send_limit_bytes}
+
+Max byte size to send message to avoid MessageSizeTooLarge. Messages over the limit will be dropped
+
+Default: no limit
+
 ### max_send_retries (int, optional) {#kafka-max_send_retries}
 
 Number of times to retry sending of messages to a leader
@@ -212,7 +219,7 @@ Client certificate key
 Verify certificate hostname 
 
 
-### sasl_over_ssl (bool, required) {#kafka-sasl_over_ssl}
+### sasl_over_ssl (*bool, optional) {#kafka-sasl_over_ssl}
 
 SASL over SSL
 
