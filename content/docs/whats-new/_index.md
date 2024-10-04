@@ -3,6 +3,35 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.10
+
+The following are the highlights and main changes of Logging operator 4.10. For a complete list of changes and bugfixes, see the [Logging operator 4.10 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.10.0)<!-- and the [Logging operator 4.9 release blog post](https://axoflow.com/logging-operator-4.9-release)-->.
+
+- You can now control the memory usage of Fluent Bit in persistent buffering mode using the [`storage.max_chunks_up`]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage-storage.max_chunks_up" >}}) option.
+
+- When using [`systemdFilters`]({{< relref "/docs/configuration/crds/extensions/hosttailer_types.md#systemdtailer-systemdfilter" >}}) in `HostTailers`, you can now specify the journal field to use.
+
+- The documentation of the [Gelf Fluentd output]({{< relref "/docs/configuration/plugins/outputs/gelf.md" >}}) has been improved, and now includes the `max_bytes` option that can limit the size of the messages.
+
+- You can now configure image repository overrides in the syslog-ng spec (both in the `Logging` resource and in the `SyslogNGConfig` resource):
+
+    ```yaml
+    syslogNGImage:
+      repository: ...
+      tag: ...
+    configReloadImage:
+      repository: ...
+      tag: ...
+    metricsExporterImage:
+      repository: ...
+      tag: ...
+    bufferVolumeMetricsImage:
+      repository: ...
+      tag: ...
+    ```
+
+- When using the [Kafka Fluentd output]({{< relref "/docs/configuration/plugins/outputs/kafka.md#kafka-max_send_limit_bytes" >}}), you can now set the maximal size of the messages using the `max_send_limit_bytes` option.
+
 ## Version 4.9
 
 The following are the highlights and main changes of Logging operator 4.9. For a complete list of changes and bugfixes, see the [Logging operator 4.9 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.9.0)<!-- and the [Logging operator 4.9 release blog post](https://axoflow.com/logging-operator-4.9-release)-->.
