@@ -53,7 +53,11 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Install Prometheus Operator
 
     ```bash
-     helm upgrade --install --wait --create-namespace --namespace logging monitor stable/prometheus-operator \
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    ```
+
+    ```bash
+     helm upgrade --install --wait --create-namespace --namespace logging monitor prometheus-community/kube-prometheus-stack \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.apiVersion=1" \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].orgId=1" \
         --set "grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].type=file" \
@@ -262,7 +266,7 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Forward Service
 
     ```bash
-    kubectl port-forward svc/monitor-prometheus-operato-prometheus 9090
+    kubectl -n logging port-forward svc/monitor-kube-prometheus-st-prometheus 9090
     ```
 
 1. Open the [Prometheus Dashboard: http://localhost:9090](http://localhost:9090)
