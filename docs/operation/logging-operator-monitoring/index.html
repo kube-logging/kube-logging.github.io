@@ -24,13 +24,13 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-09-27T15:51:20+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-10-10T11:19:16+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2024-09-27T15:51:20+02:00">
-<meta itemprop="wordCount" content="716">
+<meta itemprop="dateModified" content="2024-10-10T11:19:16+02:00">
+<meta itemprop="wordCount" content="723">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
 <meta name="twitter:description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
@@ -624,7 +624,8 @@ Releases
 <li>
 <p>Create <code>logging</code> namespace</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create namespace logging
 </span></span></code></pre></div></li><li>
-<p>Install Prometheus Operator</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --wait --create-namespace --namespace logging monitor stable/prometheus-operator <span style="color:#4e9a06">\
+<p>Install Prometheus Operator</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --wait --create-namespace --namespace logging monitor prometheus-community/kube-prometheus-stack <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.apiVersion=1&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].orgId=1&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].type=file&#34;</span> <span style="color:#4e9a06">\
@@ -798,7 +799,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span></code></pre></div></li><li>
 <p>Open the <a href="http://localhost:9000">Minio Dashboard: http://localhost:9000</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
 <li>
-<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl port-forward svc/monitor-prometheus-operato-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
+<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-kube-prometheus-st-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
 </span></span></code></pre></div></li><li>
 <p>Open the <a href="http://localhost:9090">Prometheus Dashboard: http://localhost:9090</a></p><p align="center"><img src="../../img/servicemonitor_prometheus.png" alt="Prometheus dashboard"></p></li></ol><h3 id="grafana">Grafana</h3><ol>
 <li>
@@ -808,7 +809,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Grafana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 27, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e72a531b49cf7eebf534d2be2f311f57af5fc886">Merge pull request #257 from kube-logging/kubecon-banner-whitespace-fix (e72a531)</a>
+Last modified October 10, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/94b8559243c5e08b5cc979e1d84ac1f9df53cfe4">Merge pull request #259 from kube-logging/fix/deprecated-prometheus-helm-chart (94b8559)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

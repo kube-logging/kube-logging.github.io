@@ -292,7 +292,8 @@ See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOut
 <li>
 <p>Create <code>logging</code> namespace</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl create namespace logging
 </span></span></code></pre></div></li><li>
-<p>Install Prometheus Operator</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --wait --create-namespace --namespace logging monitor stable/prometheus-operator <span style="color:#4e9a06">\
+<p>Install Prometheus Operator</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span> helm upgrade --install --wait --create-namespace --namespace logging monitor prometheus-community/kube-prometheus-stack <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.apiVersion=1&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].orgId=1&#34;</span> <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --set <span style="color:#4e9a06">&#34;grafana.dashboardProviders.dashboardproviders\\.yaml.providers[0].type=file&#34;</span> <span style="color:#4e9a06">\
@@ -466,7 +467,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span></code></pre></div></li><li>
 <p>Open the <a href="http://localhost:9000">Minio Dashboard: http://localhost:9000</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
 <li>
-<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl port-forward svc/monitor-prometheus-operato-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
+<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-kube-prometheus-st-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
 </span></span></code></pre></div></li><li>
 <p>Open the <a href="http://localhost:9090">Prometheus Dashboard: http://localhost:9090</a></p><p align="center"><img src="../../img/servicemonitor_prometheus.png" alt="Prometheus dashboard"></p></li></ol><h3 id="grafana">Grafana</h3><ol>
 <li>
