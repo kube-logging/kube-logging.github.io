@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/examples/custom-syslog-ng-metrics/">latest (4.9.0)</a>
+	<a class="dropdown-item" href="/docs/examples/custom-syslog-ng-metrics/">latest (4.10.0)</a>
+	<a class="dropdown-item" href="/4.9//docs/examples/custom-syslog-ng-metrics/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/examples/custom-syslog-ng-metrics/">4.8</a>
 	<a class="dropdown-item" href="/4.7//docs/examples/custom-syslog-ng-metrics/">4.7</a>
 	<a class="dropdown-item" href="/4.6//docs/examples/custom-syslog-ng-metrics/">4.6</a>

@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/examples/multitenancy/">latest (4.9.0)</a>
+	<a class="dropdown-item" href="/docs/examples/multitenancy/">latest (4.10.0)</a>
+	<a class="dropdown-item" href="/4.9//docs/examples/multitenancy/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/examples/multitenancy/">4.8</a>
 	<a class="dropdown-item" href="/4.7//docs/examples/multitenancy/">4.7</a>
 	<a class="dropdown-item" href="/4.6//docs/examples/multitenancy/">4.6</a>
