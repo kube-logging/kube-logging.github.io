@@ -159,7 +159,50 @@ Override systemd log path
 
 ### systemdFilter (string, optional) {#systemdtailer-systemdfilter}
 
-Filter to select systemd unit example: kubelet.service 
+Filter to select the systemd unit, for example: `kubelet.service`
+If the `systemdFilter` is not specified, `_SYSTEMD_UNIT` is used.
 
+For example, the following HostTailer creates a systemd tailer for the `kubelet.service` and for kernel logs, and logs the kernel logs under the `SYSLOG_IDENTIFIER` journal field.
 
+{{< highlight yaml >}}
+apiVersion: logging-extensions.banzaicloud.io/v1alpha1
+kind: HostTailer
+metadata:
+  labels:
+    app.kubernetes.io/name: systemd-hosttailer
+  name: systemd
+  namespace: logging
+spec:
+  systemdTailers:
+  - maxEntries: 100
+    name: kubelet
+    systemdFilter: kubelet.service
+  - maxEntries: 100
+    name: kernel
+    systemdFilter: SYSLOG_IDENTIFIER=kernel
+{{</ highlight >}}
 
+The generated container will have the following arguments:
+
+{{< highlight yaml >}}
+      - command:
+        - /fluent-bit/bin/fluent-bit
+        - -i
+        - systemd
+        - -p
+        - path=/var/log/journal
+        - -p
+        - db=/var/pos/systemd-host-tailer-kernel.db
+        - -p
+        - max_entries=100
+        - -p
+        - systemd_filter=SYSLOG_IDENTIFIER=kernel
+        - -o
+        - file
+        - -p
+        - format=plain
+        - -p
+        - path=/dev/
+        - -p
+        - file=stdout
+{{</ highlight >}}

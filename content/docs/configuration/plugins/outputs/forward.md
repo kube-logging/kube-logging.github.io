@@ -69,7 +69,7 @@ Default: 0
 
 ### phi_failure_detector (bool, optional) {#forwardoutput-phi_failure_detector}
 
-Use the "Phi accrual failure detector" to detect server failure.  
+Use the "Phi accrual failure detector" to detect server failure.
 
 Default: true
 
@@ -114,6 +114,7 @@ The threshold for chunk flush performance check. Parameter type is float, not ti
 ### time_as_integer (bool, optional) {#forwardoutput-time_as_integer}
 
 Format forwarded events time as an epoch Integer with second resolution. Useful when forwarding to old ( <= 0.12 ) Fluentd servers. 
+
 
 ### tls_allow_self_signed_cert (bool, optional) {#forwardoutput-tls_allow_self_signed_cert}
 
