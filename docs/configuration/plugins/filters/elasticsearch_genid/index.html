@@ -26,13 +26,13 @@ hash_type (string, optional) You can specify hash algorithm. Support algorithms 
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/elasticsearch_genid/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-10-11T12:59:39+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-10-14T11:29:31+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="ElasticSearch GenId">
 <meta itemprop="description" content="ElasticsearchGenId Example Elasticsearch Genid filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - elasticsearch_genid: hash_id_key: gen_id selectors: {} localOutputRefs: - demo-output Fluentd Config Result
 <filter **> @type elasticsearch_genid @id test_elasticsearch_genid hash_id_key gen_id </filter> Configuration hash_id_key (string, optional) You can specify generated hash storing key.
 hash_type (string, optional) You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
-<meta itemprop="dateModified" content="2024-10-11T12:59:39+02:00">
+<meta itemprop="dateModified" content="2024-10-14T11:29:31+02:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticSearch GenId">
@@ -623,7 +623,7 @@ Releases
 </span></span><span style="display:flex"><span> @id test_elasticsearch_genid
 </span></span><span style="display:flex"><span> hash_id_key gen_id
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchgenid-hash_id_key">hash_id_key (string, optional)</h3><p>You can specify generated hash storing key.</p><h3 id="elasticsearchgenid-hash_type">hash_type (string, optional)</h3><p>You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1</p><h3 id="elasticsearchgenid-include_tag_in_seed">include_tag_in_seed (bool, optional)</h3><p>You can specify to use tag for hash generation seed.</p><h3 id="elasticsearchgenid-include_time_in_seed">include_time_in_seed (bool, optional)</h3><p>You can specify to use time for hash generation seed.</p><h3 id="elasticsearchgenid-record_keys">record_keys (string, optional)</h3><p>You can specify keys which are record in events for hash generation seed. This parameter should be used with use_record_as_seed parameter in practice.</p><h3 id="elasticsearchgenid-separator">separator (string, optional)</h3><p>You can specify separator charactor to creating seed for hash generation.</p><h3 id="elasticsearchgenid-use_entire_record">use_entire_record (bool, optional)</h3><p>You can specify to use entire record in events for hash generation seed.</p><h3 id="elasticsearchgenid-use_record_as_seed">use_record_as_seed (bool, optional)</h3><p>You can specify to use record in events for hash generation seed. This parameter should be used with record_keys parameter in practice.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 11, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9a0ab8b953a9fcf46e930ef3e23791e0c5e6176e">Merge pull request #258 from kube-logging/4.10-doc-update (9a0ab8b)</a>
+Last modified October 14, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9314239c094e09ca1a9ffcc1650747282e67e2d3">Merge pull request #260 from kube-logging/fix/minio-docs (9314239)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

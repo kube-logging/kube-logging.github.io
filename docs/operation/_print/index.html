@@ -349,7 +349,8 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>        image: minio/minio
 </span></span><span style="display:flex"><span>        args:
 </span></span><span style="display:flex"><span>        - server
-</span></span><span style="display:flex"><span>        - /storage
+</span></span><span style="display:flex"><span>        - /data
+</span></span><span style="display:flex"><span>        - <span style="color:#4e9a06">&#34;--console-address=:9001&#34;</span>
 </span></span><span style="display:flex"><span>        readinessProbe:
 </span></span><span style="display:flex"><span>          httpGet:
 </span></span><span style="display:flex"><span>            path: /minio/health/ready
@@ -359,18 +360,21 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>        env:
 </span></span><span style="display:flex"><span>        - name: MINIO_REGION
 </span></span><span style="display:flex"><span>          value: <span style="color:#4e9a06">&#39;test_region&#39;</span>
-</span></span><span style="display:flex"><span>        - name: MINIO_ACCESS_KEY
+</span></span><span style="display:flex"><span>        - name: MINIO_ROOT_USER
 </span></span><span style="display:flex"><span>          valueFrom:
 </span></span><span style="display:flex"><span>            secretKeyRef:
 </span></span><span style="display:flex"><span>              name: logging-s3
 </span></span><span style="display:flex"><span>              key: accesskey
-</span></span><span style="display:flex"><span>        - name: MINIO_SECRET_KEY
+</span></span><span style="display:flex"><span>        - name: MINIO_ROOT_PASSWORD
 </span></span><span style="display:flex"><span>          valueFrom:
 </span></span><span style="display:flex"><span>            secretKeyRef:
 </span></span><span style="display:flex"><span>              name: logging-s3
 </span></span><span style="display:flex"><span>              key: secretkey
+</span></span><span style="display:flex"><span>        - name: MINIO_BROWSER_LOGIN_ANIMATION
+</span></span><span style="display:flex"><span>          value: <span style="color:#4e9a06">&#34;off&#34;</span>
 </span></span><span style="display:flex"><span>        ports:
 </span></span><span style="display:flex"><span>        - containerPort: <span style="color:#0000cf;font-weight:700">9000</span>
+</span></span><span style="display:flex"><span>        - containerPort: <span style="color:#0000cf;font-weight:700">9001</span>
 </span></span><span style="display:flex"><span>      volumes:
 </span></span><span style="display:flex"><span>        - name: logging-s3
 </span></span><span style="display:flex"><span>          secret:
@@ -385,10 +389,14 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 </span></span><span style="display:flex"><span>  selector:
 </span></span><span style="display:flex"><span>    app: minio
 </span></span><span style="display:flex"><span>  ports:
-</span></span><span style="display:flex"><span>  - protocol: TCP
+</span></span><span style="display:flex"><span>  - name: http
+</span></span><span style="display:flex"><span>    protocol: TCP
 </span></span><span style="display:flex"><span>    port: <span style="color:#0000cf;font-weight:700">9000</span>
 </span></span><span style="display:flex"><span>    targetPort: <span style="color:#0000cf;font-weight:700">9000</span>
-</span></span><span style="display:flex"><span>
+</span></span><span style="display:flex"><span>  - name: console
+</span></span><span style="display:flex"><span>    protocol: TCP
+</span></span><span style="display:flex"><span>    port: <span style="color:#0000cf;font-weight:700">9001</span>
+</span></span><span style="display:flex"><span>    targetPort: <span style="color:#0000cf;font-weight:700">9001</span>
 </span></span><span style="display:flex"><span>EOF
 </span></span></code></pre></div></li><li>
 <p>Create <code>logging</code> resource</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - &lt;&lt;<span style="color:#4e9a06">&#34;EOF&#34;</span>
@@ -463,9 +471,9 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <li>
 <p>Get Minio login credentials</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get secrets logging-s3 -o json <span style="color:#000;font-weight:700">|</span> jq <span style="color:#4e9a06">&#39;.data | map_values(@base64d)&#39;</span>
 </span></span></code></pre></div></li><li>
-<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/nginx-demo-minio <span style="color:#0000cf;font-weight:700">9000</span>
+<p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/nginx-demo-minio 9001:9001
 </span></span></code></pre></div></li><li>
-<p>Open the <a href="http://localhost:9000">Minio Dashboard: http://localhost:9000</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
+<p>Open the <a href="http://localhost:9001">Minio Dashboard: http://localhost:9001</a></p><p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p></li></ol><h3 id="prometheus">Prometheus</h3><ol>
 <li>
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-kube-prometheus-st-prometheus <span style="color:#0000cf;font-weight:700">9090</span>
 </span></span></code></pre></div></li><li>
