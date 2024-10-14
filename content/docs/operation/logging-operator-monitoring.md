@@ -111,7 +111,8 @@ For more details on installing the Prometheus operator and configuring and acces
             image: minio/minio
             args:
             - server
-            - /storage
+            - /data
+            - "--console-address=:9001"
             readinessProbe:
               httpGet:
                 path: /minio/health/ready
@@ -121,18 +122,21 @@ For more details on installing the Prometheus operator and configuring and acces
             env:
             - name: MINIO_REGION
               value: 'test_region'
-            - name: MINIO_ACCESS_KEY
+            - name: MINIO_ROOT_USER
               valueFrom:
                 secretKeyRef:
                   name: logging-s3
                   key: accesskey
-            - name: MINIO_SECRET_KEY
+            - name: MINIO_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: logging-s3
                   key: secretkey
+            - name: MINIO_BROWSER_LOGIN_ANIMATION
+              value: "off"
             ports:
             - containerPort: 9000
+            - containerPort: 9001
           volumes:
             - name: logging-s3
               secret:
@@ -147,10 +151,14 @@ For more details on installing the Prometheus operator and configuring and acces
       selector:
         app: minio
       ports:
-      - protocol: TCP
+      - name: http
+        protocol: TCP
         port: 9000
         targetPort: 9000
-
+      - name: console
+        protocol: TCP
+        port: 9001
+        targetPort: 9001
     EOF
     ```
 
@@ -254,10 +262,10 @@ For more details on installing the Prometheus operator and configuring and acces
 1. Forward Service
 
     ```bash
-    kubectl -n logging port-forward svc/nginx-demo-minio 9000
+    kubectl -n logging port-forward svc/nginx-demo-minio 9001:9001
     ```
 
-1. Open the [Minio Dashboard: http://localhost:9000](http://localhost:9000)
+1. Open the [Minio Dashboard: http://localhost:9001](http://localhost:9001)
 
     <p align="center"><img src="../../img/servicemonitor_minio.png" alt="Minio dashboard"></p>
 
