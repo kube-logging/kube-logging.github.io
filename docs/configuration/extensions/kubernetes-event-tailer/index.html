@@ -24,12 +24,12 @@ The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-event-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-10-24T16:43:21+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-11-04T11:00:16+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes Event Tailer">
 <meta itemprop="description" content="Kubernetes events are objects that provide insight into what is happening inside a cluster, such as what decisions were made by the scheduler or why some pods were evicted from the node. Event tailer listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.
 The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
-<meta itemprop="dateModified" content="2024-10-24T16:43:21+02:00">
+<meta itemprop="dateModified" content="2024-11-04T11:00:16+01:00">
 <meta itemprop="wordCount" content="577">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Event Tailer">
@@ -276,7 +276,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -701,7 +704,7 @@ Releases
 </span></span><span style="display:flex"><span>NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                               STORAGECLASS   REASON   AGE
 </span></span><span style="display:flex"><span>pvc-6af02cb2-3a62-4d24-8201-dc749034651e   1Gi        RWO            Delete           Bound    default/sample-event-tailer-sample-event-tailer-0   standard                42s
 </span></span></code></pre></div><h2 id="configuration-options">Configuration options</h2><p>For the detailed list of configuration options, see the <a href="/docs/configuration/crds/extensions/eventtailer_types/">EventTailer CRD reference</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 24, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9b5fb970cda7e6604cc7cd9c4de02ed96f2212c9">Merge pull request #262 from Malv93/patch-1 (9b5fb97)</a>
+Last modified November 4, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dcb0c3073b8ba91b827a4d9ebb2135e1db0404da">Merge pull request #263 from kube-logging/chore/add-nullout-to-docs (dcb0c30)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

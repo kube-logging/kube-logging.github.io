@@ -24,12 +24,12 @@ filters ([]SyslogNGFilter, optional) globalOutputRefs ([]string, optional) loggi
 filters ([]SyslogNGFilter, optional) globalOutputRefs ([]string, optional) loggingRef (string, optional) match (*SyslogNGMatch, optional) outputMetrics ([]filter.MetricsProbe, optional) Output metrics are applied before the log reaches the destination and contain output metadata like: name, namespace and scope. Scope shows whether the output is a local or global one.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/syslogng_clusterflow_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-10-24T16:43:21+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-11-04T11:00:16+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGClusterFlow">
 <meta itemprop="description" content="SyslogNGClusterFlow SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API
 (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGClusterFlowSpec, optional) status (SyslogNGFlowStatus, optional) SyslogNGClusterFlowSpec SyslogNGClusterFlowSpec is the Kubernetes spec for Flows
 filters ([]SyslogNGFilter, optional) globalOutputRefs ([]string, optional) loggingRef (string, optional) match (*SyslogNGMatch, optional) outputMetrics ([]filter.MetricsProbe, optional) Output metrics are applied before the log reaches the destination and contain output metadata like: name, namespace and scope. Scope shows whether the output is a local or global one.">
-<meta itemprop="dateModified" content="2024-10-24T16:43:21+02:00">
+<meta itemprop="dateModified" content="2024-11-04T11:00:16+01:00">
 <meta itemprop="wordCount" content="97">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGClusterFlow">
@@ -276,7 +276,10 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -609,7 +612,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>SyslogNGClusterFlow</h1><header class="article-meta">
 </header><h2 id="syslogngclusterflow">SyslogNGClusterFlow</h2><p>SyslogNGClusterFlow is the Schema for the syslog-ng clusterflows API</p><h3 id="syslogngclusterflow-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusterflow-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="syslogngclusterflow-spec">spec (SyslogNGClusterFlowSpec, optional)</h3><h3 id="syslogngclusterflow-status">status (SyslogNGFlowStatus, optional)</h3><h2 id="syslogngclusterflowspec">SyslogNGClusterFlowSpec</h2><p>SyslogNGClusterFlowSpec is the Kubernetes spec for Flows</p><h3 id="syslogngclusterflowspec-filters">filters ([]SyslogNGFilter, optional)</h3><h3 id="syslogngclusterflowspec-globaloutputrefs">globalOutputRefs ([]string, optional)</h3><h3 id="syslogngclusterflowspec-loggingref">loggingRef (string, optional)</h3><h3 id="syslogngclusterflowspec-match">match (*SyslogNGMatch, optional)</h3><h3 id="syslogngclusterflowspec-outputmetrics">outputMetrics ([]filter.MetricsProbe, optional)</h3><p>Output metrics are applied before the log reaches the destination and contain output metadata like: <code>name,</code> <code>namespace</code> and <code>scope</code>. Scope shows whether the output is a local or global one. Available in Logging operator version 4.5 and later.</p><h2 id="syslogngclusterflowlist">SyslogNGClusterFlowList</h2><p>SyslogNGClusterFlowList contains a list of SyslogNGClusterFlow</p><h3 id="syslogngclusterflowlist-">(metav1.TypeMeta, required)</h3><h3 id="syslogngclusterflowlist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="syslogngclusterflowlist-items">items ([]SyslogNGClusterFlow, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 24, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9b5fb970cda7e6604cc7cd9c4de02ed96f2212c9">Merge pull request #262 from Malv93/patch-1 (9b5fb97)</a>
+Last modified November 4, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dcb0c3073b8ba91b827a4d9ebb2135e1db0404da">Merge pull request #263 from kube-logging/chore/add-nullout-to-docs (dcb0c30)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
