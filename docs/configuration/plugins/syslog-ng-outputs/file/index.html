@@ -30,7 +30,7 @@ Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/file/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-11-04T11:00:16+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-11-21T14:14:59+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="File">
 <meta itemprop="description" content="The file output stores log records in a plain text file.
 spec: file: path: /mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log create_dirs: true For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
@@ -38,7 +38,7 @@ For available macros like ${YEAR}/${MONTH}/${DAY} see the documentation of the A
 Configuration FileOutput create_dirs (bool, optional) Enable creating non-existing directories.
 Default: false
 dir_group (string, optional) The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: dir-group().">
-<meta itemprop="dateModified" content="2024-11-04T11:00:16+01:00">
+<meta itemprop="dateModified" content="2024-11-21T14:14:59+01:00">
 <meta itemprop="wordCount" content="234">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File">
@@ -87,8 +87,7 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div><div class="menu-banner">
-<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -623,7 +622,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">file</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">path</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/mnt/archive/logs/${YEAR}/${MONTH}/${DAY}/app.log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">create_dirs</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-file/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><p>For available macros like <code>${YEAR}/${MONTH}/${DAY}</code> see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/customizing-message-format/reference-macros/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="fileoutput">FileOutput</h2><h3 id="fileoutput-create_dirs">create_dirs (bool, optional)</h3><p>Enable creating non-existing directories.</p><p>Default: false</p><h3 id="fileoutput-dir_group">dir_group (string, optional)</h3><p>The group of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: <code>dir-group()</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_owner">dir_owner (string, optional)</h3><p>The owner of the directories created by syslog-ng. To preserve the original properties of an existing directory, use the option without specifying an attribute: <code>dir-owner()</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-dir_perm">dir_perm (int, optional)</h3><p>The permission mask of directories created by syslog-ng. Log directories are only created if a file after macro expansion refers to a non-existing directory, and directory creation is enabled (see also the <code>create-dirs()</code> option). For octal numbers prefix the number with 0, for example, use <code>0755</code> for <code>rwxr-xr-x</code>.</p><p>Default: Use the global settings</p><h3 id="fileoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="fileoutput-path">path (string, required)</h3><p>Path where the file is stored.</p><h3 id="fileoutput-persist_name">persist_name (string, optional)</h3><h3 id="fileoutput-template">template (string, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified November 4, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dcb0c3073b8ba91b827a4d9ebb2135e1db0404da">Merge pull request #263 from kube-logging/chore/add-nullout-to-docs (dcb0c30)</a>
+Last modified November 21, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dee354e9cc0e6ae111decbe7aa0347b0634b51e4">Merge pull request #264 from kube-logging/avoid-empty-announcement-bar (dee354e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

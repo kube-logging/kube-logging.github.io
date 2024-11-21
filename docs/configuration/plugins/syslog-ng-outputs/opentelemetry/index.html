@@ -28,14 +28,14 @@ kind: SyslogNGOutput apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: 
 auth (*Auth, optional) Authentication configuration, see the documentation of the AxoSyslog syslog-ng distribution.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/opentelemetry/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-11-04T11:00:16+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-11-21T14:14:59+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="OpenTelemetry output">
 <meta itemprop="description" content="Overview Sends messages over OpenTelemetry GRPC. For details on the available options of the output, see the documentation of AxoSyslog.
 Available in Logging operator version 4.9 and later.
 Example A simple example sending logs over OpenTelemetry GRPC to a remote OpenTelemetry endpoint:
 kind: SyslogNGOutput apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: otlp spec: opentelemetry: url: otel-server port: 4379 Configuration OpenTelemetryOutput (Batch, required) Batching parameters
 auth (*Auth, optional) Authentication configuration, see the documentation of the AxoSyslog syslog-ng distribution.">
-<meta itemprop="dateModified" content="2024-11-04T11:00:16+01:00">
+<meta itemprop="dateModified" content="2024-11-21T14:14:59+01:00">
 <meta itemprop="wordCount" content="173">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenTelemetry output">
@@ -83,8 +83,7 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div><div class="menu-banner">
-<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -623,7 +622,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">opentelemetry</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">url</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">otel-server</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">port</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">4379</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="opentelemetryoutput">OpenTelemetryOutput</h2><h3 id="opentelemetryoutput-">(Batch, required)</h3><p>Batching parameters</p><h3 id="opentelemetryoutput-auth">auth (*Auth, optional)</h3><p>Authentication configuration, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-syslog-ng-otlp/#auth">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="opentelemetryoutput-channel_args">channel_args (filter.ArrowMap, optional)</h3><p>Add GRPC Channel arguments <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/opentelemetry/#channel-args">https://axoflow.com/docs/axosyslog-core/chapter-destinations/opentelemetry/#channel-args</a></p><h3 id="opentelemetryoutput-compression">compression (*bool, optional)</h3><p>Enable or disable compression.</p><p>Default: false</p><h3 id="opentelemetryoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="opentelemetryoutput-url">url (string, required)</h3><p>Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (:) after the address to specify the port number of the server. For example: <code>http://127.0.0.1:8000</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified November 4, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dcb0c3073b8ba91b827a4d9ebb2135e1db0404da">Merge pull request #263 from kube-logging/chore/add-nullout-to-docs (dcb0c30)</a>
+Last modified November 21, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dee354e9cc0e6ae111decbe7aa0347b0634b51e4">Merge pull request #264 from kube-logging/avoid-empty-announcement-bar (dee354e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

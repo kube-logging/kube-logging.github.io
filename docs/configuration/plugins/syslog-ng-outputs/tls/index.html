@@ -26,13 +26,13 @@ ca_file (*secret.Secret, optional) The name of a file that contains a set of tru
 cert_file (*secret.Secret, optional) Name of a file, that contains an X.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/tls/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-11-04T11:00:16+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-11-21T14:14:59+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="TLS config for syslog-ng outputs">
 <meta itemprop="description" content="For details on how TLS configuration works in syslog-ng, see the AxoSyslog Core documentation.
 Configuration ca_dir (*secret.Secret, optional) The name of a directory that contains a set of trusted CA certificates in PEM format. For details, see the AxoSyslog Core documentation.
 ca_file (*secret.Secret, optional) The name of a file that contains a set of trusted CA certificates in PEM format. (Optional) For details, see the AxoSyslog Core documentation.
 cert_file (*secret.Secret, optional) Name of a file, that contains an X.">
-<meta itemprop="dateModified" content="2024-11-04T11:00:16+01:00">
+<meta itemprop="dateModified" content="2024-11-21T14:14:59+01:00">
 <meta itemprop="wordCount" content="317">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TLS config for syslog-ng outputs">
@@ -79,8 +79,7 @@ Releases
 <a href="/search">
 <span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
 </a>
-</div></div><div class="menu-banner">
-<div><p><i class="fas fa-bullhorn"></i> Meet us at <a href="https://colocatedeventsna2024.sched.com/event/1iztP/turn-the-volume-down-on-noisy-neighbors-sandor-guba-axoflow"><strong>Observability Day North America</strong></a> (part of KubeCon) in Salt Lake City on November 12!</p></div></div></nav></header><div class="container-fluid td-outer">
+</div></div></nav></header><div class="container-fluid td-outer">
 <div class="td-main">
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
@@ -614,7 +613,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>TLS config for syslog-ng outputs</h1><header class="article-meta">
 </header><p>For details on how TLS configuration works in syslog-ng, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/">AxoSyslog Core documentation</a>.</p><h2 id="configuration">Configuration</h2><h3 id="tls-ca_dir">ca_dir (*secret.Secret, optional)</h3><p>The name of a directory that contains a set of trusted CA certificates in PEM format. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#ca-dir">AxoSyslog Core documentation</a>.</p><h3 id="tls-ca_file">ca_file (*secret.Secret, optional)</h3><p>The name of a file that contains a set of trusted CA certificates in PEM format. (Optional) For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#ca-file">AxoSyslog Core documentation</a>.</p><h3 id="tls-cert_file">cert_file (*secret.Secret, optional)</h3><p>Name of a file, that contains an X.509 certificate (or a certificate chain) in PEM format, suitable as a TLS certificate, matching the private key set in the key-file() option. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#cert-file">AxoSyslog Core documentation</a>.</p><h3 id="tls-cipher-suite">cipher-suite (string, optional)</h3><p>Description: Specifies the cipher, hash, and key-exchange algorithms used for the encryption, for example, ECDHE-ECDSA-AES256-SHA384. The list of available algorithms depends on the version of OpenSSL used to compile syslog-ng.</p><h3 id="tls-key_file">key_file (*secret.Secret, optional)</h3><p>The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#key-file">AxoSyslog Core documentation</a>.</p><h3 id="tls-peer_verify">peer_verify (*bool, optional)</h3><p>Verification method of the peer. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#tls-options-peer-verify">AxoSyslog Core documentation</a>.</p><h3 id="tls-ssl_version">ssl_version (string, optional)</h3><p>Configure required TLS version. Accepted values: [sslv3, tlsv1, tlsv1_0, tlsv1_1, tlsv1_2, tlsv1_3]</p><h3 id="tls-use-system-cert-store">use-system-cert-store (*bool, optional)</h3><p>Use the certificate store of the system for verifying HTTPS certificates. For details, see the <a href="https://curl.se/docs/sslcerts.html">AxoSyslog Core documentation</a>.</p><h2 id="grpctls">GrpcTLS</h2><h3 id="grpctls-ca_file">ca_file (*secret.Secret, optional)</h3><p>The name of a file that contains a set of trusted CA certificates in PEM format. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#ca-file">AxoSyslog Core documentation</a>.</p><h3 id="grpctls-cert_file">cert_file (*secret.Secret, optional)</h3><p>Name of a file that contains an X.509 certificate (or a certificate chain) in PEM format, suitable as a TLS certificate, matching the private key set in the key-file() option. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#cert-file">AxoSyslog Core documentation</a>.</p><h3 id="grpctls-key_file">key_file (*secret.Secret, optional)</h3><p>The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key. For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions/#key-file">AxoSyslog Core documentation</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified November 4, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dcb0c3073b8ba91b827a4d9ebb2135e1db0404da">Merge pull request #263 from kube-logging/chore/add-nullout-to-docs (dcb0c30)</a>
+Last modified November 21, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dee354e9cc0e6ae111decbe7aa0347b0634b51e4">Merge pull request #264 from kube-logging/avoid-empty-announcement-bar (dee354e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
