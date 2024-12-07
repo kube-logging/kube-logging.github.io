@@ -69,3 +69,30 @@ To verify that the installation was successful, complete the following steps.
     syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
     syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
     ```
+
+## Image and chart verification {#verify}
+
+Images and charts are signed with GitHub Actions OIDC token. We sign the digests of the images and the charts to ensure the integrity and authenticity of the artifacts.
+
+To verify signatures, you must have [cosign](https://docs.sigstore.dev/cosign/system_config/installation/) installed.
+
+### Image verification
+
+You can verify our images by running the following command.
+
+- Replace `{sha256-IMAGE-DIGEST}` with the digest of the image you want to verify. You can find the digests at [ghcr.io/kube-logging/logging-operator](https://ghcr.io/kube-logging/logging-operator). For example, for the 4.11.0 release it's `sha256:4a3ffbf6757671dedd4c5ac7a002d0f66dc8a4f71d6dca57dfc04d6a661f5f68`.
+- Replace `{refs/heads/main || refs/tags/<tag_name>}` with the reference to the image you want to verify. For example, for the 4.11 release, use `refs/tags/4.11.0`.
+
+```shell
+cosign verify "ghcr.io/kube-logging/logging-operator@{sha256-IMAGE-DIGEST}" \ 
+--certificate-identity "https://github.com/ghcr.io/kube-logging/logging-operator/.github/workflows/artifacts.yaml@{refs/heads/main || refs/tags/<tag_name>}" \ 
+--certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+```
+
+### Chart verification
+
+```shell
+cosign verify "ghcr.io/kube-logging/logging-operator@{sha256-CHART-DIGEST}" \ 
+--certificate-identity "https://github.com/ghcr.io/kube-logging/logging-operator/.github/workflows/artifacts.yaml@{refs/heads/main || refs/tags/<tag_name>}" \ 
+--certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+```
