@@ -21,8 +21,7 @@ metadata:
   name: otlp
 spec:
   opentelemetry:
-    url: otel-server
-    port: 4379
+    url: otel-server:4379
 {{</ highlight >}}
 
 

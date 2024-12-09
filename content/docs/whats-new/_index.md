@@ -3,6 +3,42 @@ title: What's new
 weight: 50
 ---
 
+## Version 4.11
+
+The following are the highlights and main changes of Logging operator 4.11. For a complete list of changes and bugfixes, see the [Logging operator 4.11 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.11.0).
+
+- You can now set the `protected` flag for SyslogNGClusterOutput kinds.
+- Charts and images are now signed. To verify the signature, see {{% xref "/docs/install/_index.md#verify" %}}.
+- You can now add annotations and labels to Persistent Volume Claims of the Fluentd StatefulSet. For example:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: Logging
+    metadata:
+      name: all-to-file
+    spec:
+      controlNamespace: default
+      fluentd:
+        bufferStorageVolume:
+          pvc:
+            labels:
+              app: logging
+            annotations:
+              app: logging
+            source:
+              claimName: manual
+              readOnly: false
+    ```
+
+- You can now set liveness probes to the buffer-metrics sidecar container using the `bufferVolumeLivenessProbe` option.
+- IPv6 improvements:
+
+    - You can now scrape the metrics of Fluentd on clusters that only have IPv6 addresses.
+    - Fluent Bit can now listen on IPv6 addresses.
+
+- The [OpenSearch Fluentd output]({{< relref "/docs/configuration/plugins/outputs/opensearch.md" >}}) now supports the `remove_keys` option.
+- You can now set the `strategy` and `topologySpreadConstraints` in the Logging operator chart.
+
 ## Version 4.10
 
 The following are the highlights and main changes of Logging operator 4.10. For a complete list of changes and bugfixes, see the [Logging operator 4.10 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.10.0)<!-- and the [Logging operator 4.9 release blog post](https://axoflow.com/logging-operator-4.9-release)-->.
