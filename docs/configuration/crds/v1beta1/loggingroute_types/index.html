@@ -28,14 +28,14 @@ LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRou
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/loggingroute_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2024-12-10T11:09:52+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2024-12-10T15:11:04+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LoggingRouteSpec">
 <meta itemprop="description" content="LoggingRouteSpec LoggingRouteSpec defines the desired state of LoggingRoute
 source (string, required) Source identifies the logging that this policy applies to
 targets (metav1.LabelSelector, required) Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.
 LoggingRouteStatus LoggingRouteStatus defines the actual state of the LoggingRoute
 notices ([]string, optional) Enumerate non-blocker issues the user should pay attention to">
-<meta itemprop="dateModified" content="2024-12-10T11:09:52+01:00">
+<meta itemprop="dateModified" content="2024-12-10T15:11:04+01:00">
 <meta itemprop="wordCount" content="178">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoggingRouteSpec">
@@ -623,7 +623,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>LoggingRouteSpec</h1><header class="article-meta">
 </header><h2 id="loggingroutespec">LoggingRouteSpec</h2><p>LoggingRouteSpec defines the desired state of LoggingRoute</p><h3 id="loggingroutespec-source">source (string, required)</h3><p>Source identifies the logging that this policy applies to</p><h3 id="loggingroutespec-targets">targets (metav1.LabelSelector, required)</h3><p>Targets refers to the list of logging resources specified by a label selector to forward logs to. Filtering of namespaces will happen based on the watchNamespaces and watchNamespaceSelector fields of the target logging resource.</p><h2 id="loggingroutestatus">LoggingRouteStatus</h2><p>LoggingRouteStatus defines the actual state of the LoggingRoute</p><h3 id="loggingroutestatus-notices">notices ([]string, optional)</h3><p>Enumerate non-blocker issues the user should pay attention to</p><h3 id="loggingroutestatus-noticescount">noticesCount (int, optional)</h3><p>Summarize the number of notices for the CLI output</p><h3 id="loggingroutestatus-problems">problems ([]string, optional)</h3><p>Enumerate problems that prohibits this route to take effect and populate the tenants field</p><h3 id="loggingroutestatus-problemscount">problemsCount (int, optional)</h3><p>Summarize the number of problems for the CLI output</p><h3 id="loggingroutestatus-tenants">tenants ([]Tenant, optional)</h3><p>Enumerate all loggings with all the destination namespaces expanded</p><h2 id="tenant">Tenant</h2><h3 id="tenant-name">name (string, required)</h3><h3 id="tenant-namespaces">namespaces ([]string, optional)</h3><h2 id="loggingroute">LoggingRoute</h2><p>Connects a log collector with log aggregators from other logging domains and routes relevant logs based on watch namespaces</p><h3 id="loggingroute-">(metav1.TypeMeta, required)</h3><h3 id="loggingroute-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="loggingroute-spec">spec (LoggingRouteSpec, optional)</h3><h3 id="loggingroute-status">status (LoggingRouteStatus, optional)</h3><h2 id="loggingroutelist">LoggingRouteList</h2><h3 id="loggingroutelist-">(metav1.TypeMeta, required)</h3><h3 id="loggingroutelist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="loggingroutelist-items">items ([]LoggingRoute, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 10, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/4c7d88043236aa47da7d990203268fa286dac8b7">Merge pull request #266 from kube-logging/typo-fix-241210 (4c7d880)</a>
+Last modified December 10, 2024: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/332855eb9d708a32149d596859586ca595e086fc">Merge pull request #267 from kube-logging/syslog-ng-filter-metadata-clarifications (332855e)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
