@@ -95,7 +95,7 @@ Defines the pattern to match against the messages. The [`type` field](#regexp-ty
 
 ### `value` (string) {#regexp-value class="property-optional"}
 
-References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field.
+References a field of the message. The `pattern` is applied to the value of this field. If the `value` field is set, you cannot use the `template` field. When matching for labels or annotations, the available labels and annotations depend on the incoming message received from the log collector agent. See this [list of common Kubernetes labels and annotations](https://kubernetes.io/docs/reference/labels-annotations-taints/) for details.
 
 {{< include-headless "field-names-json-prefix.md" >}}
 
