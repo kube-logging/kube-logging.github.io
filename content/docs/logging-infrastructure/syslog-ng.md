@@ -39,7 +39,10 @@ To migrate your **spec.syslogNG** configuration from the Logging resource to a s
     spec:
       controlNamespace: logging
       syslogNG:
-        ...
+        spec:
+          statefulSet:
+            spec:
+              replicas: 2
     ```
 
 1. Create a new syslogNGConfig CRD. For the value of **metadata.name**, use the name of the Logging resource, for example:
@@ -65,7 +68,9 @@ To migrate your **spec.syslogNG** configuration from the Logging resource to a s
       # Use the control namespace of the logging resource
       namespace: logging
     spec:
-      ...
+      statefulSet:
+        spec:
+          replicas: 2
     ```
 
 1. Delete the **spec.syslogNG** section from the Logging resource, then apply the Logging and the syslogNGConfig CRDs.
