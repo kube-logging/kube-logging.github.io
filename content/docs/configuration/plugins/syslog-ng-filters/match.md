@@ -4,7 +4,7 @@ weight: 200
 generated_file: true
 ---
 
-Match filters can be used to select the log records to process. These filters have the same options and syntax as [syslog-ng flow match expressions]({{< relref "/docs/configuration/plugins/syslog-ng-filters/match.md" >}}).
+Match filters can be used to select the log records to process. These filters have the same options and syntax as [syslog-ng flow match expressions]({{< relref "/docs/configuration/log-routing-syslog-ng.md" >}}). When matching for labels or annotations, the available labels and annotations depend on the incoming message received from the log collector agent. See this [list of common Kubernetes labels and annotations](https://kubernetes.io/docs/reference/labels-annotations-taints/) for details.
 
 {{< highlight yaml >}}
 filters:
