@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/operation/error-output/">latest (4.10.0)</a>
+	<a class="dropdown-item" href="/docs/operation/error-output/">latest (4.11.0)</a>
+	<a class="dropdown-item" href="/4.10//docs/operation/error-output/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/operation/error-output/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/operation/error-output/">4.8</a>
 	<a class="dropdown-item" href="/4.7//docs/operation/error-output/">4.7</a>

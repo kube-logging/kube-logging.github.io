@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">latest (4.10.0)</a>
+	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">latest (4.11.0)</a>
+	<a class="dropdown-item" href="/4.10//docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">4.8</a>
 	<a class="dropdown-item" href="/4.7//docs/configuration/plugins/syslog-ng-outputs/sumologic_http/">4.7</a>
