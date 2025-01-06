@@ -5,6 +5,23 @@ weight: 750
 
 Logging operator uses the following image versions.
 
+## Logging operator version 5.0
+
+| Image repository | GitHub repository | Version |
+| -------- | --- | -- |
+| ghcr.io/kube-logging/node-exporter | https://github.com/kube-logging/node-exporter-image | v0.7.1 |
+| ghcr.io/kube-logging/config-reloader | https://github.com/kube-logging/config-reloader | v0.0.6 |
+| ghcr.io/kube-logging/fluentd-drain-watch | https://github.com/kube-logging/fluentd-drain-watch | v0.2.3 |
+| k8s.gcr.io/pause |  | 3.2 |
+| docker.io/busybox | https://github.com/docker-library/busybox | latest |
+| ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.9.0 |
+| docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 3.1.8 |
+| ghcr.io/kube-logging/fluentd <br/> (Moving tag with security updates. If you need a non-moving tag, use `ghcr.io/kube-logging/fluentd:v1.17-5.0-full-build.173` in your `Logging` or `FluentdConfig` resources.) | https://github.com/kube-logging/fluentd-images | v1.17-5.0-full |
+| ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.7 |
+| ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | v1.5.0 |
+| ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/eventrouter | 0.4.0 |
+| ghcr.io/kube-logging/node-exporter | | v0.8.0 |
+
 ## Logging operator version 4.11
 
 | Image repository | GitHub repository | Version |
