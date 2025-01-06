@@ -255,7 +255,7 @@ If true, keep time field in the record.
 
 If true, use local time. Otherwise, UTC is used. This is exclusive with utc.
 
-Default:  true
+Default: true
 
 ### multiline_start_regexp (string, optional) {#parse-section-multiline_start_regexp}
 
