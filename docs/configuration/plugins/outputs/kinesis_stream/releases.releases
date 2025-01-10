@@ -1,6 +1,6 @@
 
 	<a class="dropdown-item" href="/docs/configuration/plugins/outputs/kinesis_stream/">latest (5.0)</a>
-	<a class="dropdown-item" href="/docs/configuration/plugins/outputs/kinesis_stream/">4.11.0</a>
+	<a class="dropdown-item" href="/4.11//docs/configuration/plugins/outputs/kinesis_stream/">4.11.0</a>
 	<a class="dropdown-item" href="/4.10//docs/configuration/plugins/outputs/kinesis_stream/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/configuration/plugins/outputs/kinesis_stream/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/configuration/plugins/outputs/kinesis_stream/">4.8</a>
