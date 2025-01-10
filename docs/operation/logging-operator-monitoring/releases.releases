@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/operation/logging-operator-monitoring/">latest (4.11.0)</a>
+	<a class="dropdown-item" href="/docs/operation/logging-operator-monitoring/">latest (5.0)</a>
+	<a class="dropdown-item" href="/docs/operation/logging-operator-monitoring/">4.11.0</a>
 	<a class="dropdown-item" href="/4.10//docs/operation/logging-operator-monitoring/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/operation/logging-operator-monitoring/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/operation/logging-operator-monitoring/">4.8</a>

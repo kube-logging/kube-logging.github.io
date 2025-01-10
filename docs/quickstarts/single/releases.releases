@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/quickstarts/single/">latest (4.11.0)</a>
+	<a class="dropdown-item" href="/docs/quickstarts/single/">latest (5.0)</a>
+	<a class="dropdown-item" href="/docs/quickstarts/single/">4.11.0</a>
 	<a class="dropdown-item" href="/4.10//docs/quickstarts/single/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/quickstarts/single/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/quickstarts/single/">4.8</a>

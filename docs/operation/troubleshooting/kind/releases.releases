@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/operation/troubleshooting/kind/">latest (4.11.0)</a>
+	<a class="dropdown-item" href="/docs/operation/troubleshooting/kind/">latest (5.0)</a>
+	<a class="dropdown-item" href="/docs/operation/troubleshooting/kind/">4.11.0</a>
 	<a class="dropdown-item" href="/4.10//docs/operation/troubleshooting/kind/">4.10</a>
 	<a class="dropdown-item" href="/4.9//docs/operation/troubleshooting/kind/">4.9</a>
 	<a class="dropdown-item" href="/4.8//docs/operation/troubleshooting/kind/">4.8</a>
