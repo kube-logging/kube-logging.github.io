@@ -3,6 +3,69 @@ title: What's new
 weight: 50
 ---
 
+## Version 5.0
+
+The following are the highlights and main changes of Logging operator 5.0. For a complete list of changes and bugfixes, see the [Logging operator 5.0 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.0).
+
+### Breaking changes
+
+- The Sumo Logic filter, the Sumo Logic output, and the `enhance_k8s` filter are no longer supported, as they are not available in the new Fluentd image (v1.17-5.0). If you want to continue using them, keep using the 4.x version of Logging operator.
+- The name of the `crd` subchart changed to `logging-operator-crds`. This new subchart is also available as an OCI artifact.
+
+### Clean up stuck finalizers
+
+When uninstalling Logging operator using Helm, some finalizers may be stuck because Helm uninstalls the resources in a non-deterministic order. You can use the new `finalizer-cleanup` flag in conjunction with `.Values.rbac.retainOnDelete` to avoid this problem. When both options are set during uninstall, then:
+
+- Helm will retain the operator's service account, cluster role, and cluster role binding. This is necessary because Helm uninstalls resources in an unpredictable order.
+- The operator will attempt to free up its managed logging resources by removing finalizers, which would otherwise remain stuck.
+
+For example:
+
+```shell
+helm install logging-operator ./charts/logging-operator/ --set rbac.retainOnDelete=true --set extraArgs='{"-enable-leader-election=true","-finalizer-cleanup=true"}'
+```
+
+### Experimental Telemetry Controller support
+
+You can now use the [Telemetry Controller](https://github.com/kube-logging/telemetry-controller) as a log collector agent instead of Fluent Bit. To test this feature, you have to:
+
+1. Install Logging operator with the `enable-telemetry-controller-route` flag and the `telemetry-controller.install` options enabled:
+
+    ```shell
+    helm install logging-operator ./charts/logging-operator/ --set extraArgs='{"-enable-leader-election=true","-enable-telemetry-controller-route"}' --set telemetry-controller.install=true
+    ```
+
+1. Configure the `routeConfig` option in the `Logging` resource to specify how the Telemetry Controller resources are created:
+
+    ```yaml
+    apiVersion: logging.banzaicloud.io/v1beta1
+    kind: Logging
+    metadata:
+      name: tc-config
+    spec:
+      routeConfig:
+        enableTelemetryControllerRoute: true # Determines whether to create TC resources for log-collection and routing purposes.
+        disableLoggingRoute: false # Determines whether to use Logging-routes for routing purposes and Fluentbit-agents for log-collection.
+        tenantLabels: # Will be placed on TC's tenant resources, must be matched with the same field on the Collector resource. (Deployed by the cluster administrator.)
+          tenant: logging
+    ```
+
+**NOTE: There is a hands-on example available to try: <https://github.com/kube-logging/logging-operator/tree/master/config/samples/telemetry-controller-routing>**
+
+### Improved IPv6 support
+
+- Fluent Bit couldn't listen on an IPv6 http socket because its HTTP_Listen address was hardcoded. Now this is set using the `POD_IP`, so it works in IPv6 environments as well.
+- Until now, IPv6-only clusters couldn't scrape metrics from the Fluentd aggregator. This has been fixed.
+
+### rdkafka option support
+
+You can now set `rdkafka_options` in for rdkafka2 in the [Kafka Fluentd output]({{< relref "/docs/configuration/plugins/outputs/kafka.md#kafka-rdkafka_options" >}}).
+
+### Other Fluent Bit changes
+
+- You can now specify whether to pause or drop data when the buffer is full. This helps to make sure we apply backpressure on the input. For details, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#inputtail-storage.pause_on_chunks_overlimit" %}}.
+- HotReload pauses all inputs and waits until they finish. However, this can block the reload indefinitely, for example, if an output is down for a longer time. You can now force the reload to happen after a grace period using the [`forceHotReloadAfterGrace`]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-forcehotreloadaftergrace" >}}) option.
+
 ## Version 4.11
 
 The following are the highlights and main changes of Logging operator 4.11. For a complete list of changes and bugfixes, see the [Logging operator 4.11 releases page](https://github.com/kube-logging/logging-operator/releases/tag/4.11.0).

@@ -25,6 +25,9 @@ BufferStorageVolume is by default configured as PVC using FluentdPvcSpec [volume
 ### bufferVolumeImage (ImageSpec, optional) {#fluentdspec-buffervolumeimage}
 
 
+### bufferVolumeLivenessProbe (*corev1.Probe, optional) {#fluentdspec-buffervolumelivenessprobe}
+
+
 ### bufferVolumeMetrics (*Metrics, optional) {#fluentdspec-buffervolumemetrics}
 
 
@@ -63,6 +66,9 @@ Overrides the default logging level configCheck setup. This field is not used di
 ### enableMsgpackTimeSupport (bool, optional) {#fluentdspec-enablemsgpacktimesupport}
 
 Allows Time object in buffer's MessagePack serde [more info]( https://docs.fluentd.org/deployment/system-config#enable_msgpack_time_support) 
+
+
+### enabledIPv6 (bool, optional) {#fluentdspec-enabledipv6}
 
 
 ### envVars ([]corev1.EnvVar, optional) {#fluentdspec-envvars}

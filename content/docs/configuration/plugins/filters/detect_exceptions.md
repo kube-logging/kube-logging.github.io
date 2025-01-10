@@ -26,7 +26,7 @@ filters:
 
 ### force_line_breaks (bool, optional) {#detectexceptions-force_line_breaks}
 
-Force line breaks between each lines when combining exception stacks.
+Force line breaks between each line when combining exception stacks.
 
 Default: false
 
