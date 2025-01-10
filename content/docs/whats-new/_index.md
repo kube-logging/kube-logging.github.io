@@ -50,6 +50,8 @@ You can now use the [Telemetry Controller](https://github.com/kube-logging/telem
           tenant: logging
     ```
 
+**NOTE: There is a hands-on example available to try: <https://github.com/kube-logging/logging-operator/tree/master/config/samples/telemetry-controller-routing>**
+
 ### Improved IPv6 support
 
 - Fluent Bit couldn't listen on an IPv6 http socket because its HTTP_Listen address was hardcoded. Now this is set using the `POD_IP`, so it works in IPv6 environments as well.
