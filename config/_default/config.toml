@@ -175,7 +175,7 @@ twitter = "AxoflowIO"
 [[params.versions]]
   version = "4.11.0"
   githubbranch = "release-4.11"
-  url = ""
+  url = "/4.11/"
 [[params.versions]]
   version = "4.10"
   githubbranch = "release-4.10"
