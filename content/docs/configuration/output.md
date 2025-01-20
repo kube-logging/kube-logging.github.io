@@ -33,13 +33,11 @@ spec:
         secretKeyRef:
           name: s3-secret
           key: awsAccessKeyId
-          namespace: default
     aws_sec_key:
       valueFrom:
         secretKeyRef:
           name: s3-secret
           key: awsSecretAccessKey
-          namespace: default
     s3_bucket: example-logging-bucket
     s3_region: eu-west-1
     path: logs/${tag}/%Y/%m/%d/
@@ -123,13 +121,11 @@ spec:
         secretKeyRef:
           name: s3-secret
           key: awsAccessKeyId
-          namespace: default
     aws_sec_key:
       valueFrom:
         secretKeyRef:
           name: s3-secret
           key: awsSecretAccessKey
-          namespace: default
     s3_bucket: example-logging-bucket
     s3_region: eu-west-1
     path: logs/${tag}/%Y/%m/%d/
