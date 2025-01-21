@@ -33,13 +33,11 @@ spec:
         secretKeyRef:
           name: s3-secret
           key: awsAccessKeyId
-          namespace: default
     aws_sec_key:
       valueFrom:
         secretKeyRef:
           name: s3-secret
           key: awsSecretAccessKey
-          namespace: default
     s3_bucket: example-logging-bucket
     s3_region: eu-west-1
     path: logs/${tag}/%Y/%m/%d/
@@ -97,3 +95,42 @@ spec:
 - For the details of the supported output plugins, see {{% xref "/docs/configuration/plugins/syslog-ng-outputs/_index.md" %}}.
 - For the details of `SyslogNGOutput` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_output_types.md" %}}.
 - For the details of `SyslogNGClusterOutput` custom resource, see {{% xref "/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types.md" %}}.
+
+## protected flag cluster outputs
+
+Since versions:
+
+- 4.7 for Fluentd
+- 5.0 for Syslog-ng
+
+You can set the `protected` flag on a `ClusterOutput` and `SyslogNGClusterOutput`. This prevents namespaced `Flows` and `SyslogNGFlows` from sending logs to these outputs and only allows `ClusterFlows` and `SyslogNGClusterFlows` to reference it.
+
+By default, `ClusterOutputs` can be referenced by any `Flow`. Setting the `protected` flag restricts this access to `ClusterFlows` only.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterOutput
+metadata:
+  name: protected-cluster-output
+  namespace: infra
+spec:
+  protected: true
+  s3:
+    aws_key_id:
+      valueFrom:
+        secretKeyRef:
+          name: s3-secret
+          key: awsAccessKeyId
+    aws_sec_key:
+      valueFrom:
+        secretKeyRef:
+          name: s3-secret
+          key: awsSecretAccessKey
+    s3_bucket: example-logging-bucket
+    s3_region: eu-west-1
+    path: logs/${tag}/%Y/%m/%d/
+    buffer:
+      timekey: 1m
+      timekey_wait: 10s
+      timekey_use_utc: true
+```
