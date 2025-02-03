@@ -28,6 +28,46 @@ aliases:
 
     {{< include-headless "note-helm-chart-logging-resource.md" >}}
 
+## Operator arguments {#arguments}
+
+### Metrics and Performance
+
+- `--metrics-addr` (string, default `:8080`): Address for metric endpoint
+- `--pprof` (boolean, default `false`): Enable performance profiling
+
+### Logging Configuration
+
+- `--verbose` (boolean, default `false`): Enable verbose logging
+- `--klogLevel` (integer, default `0`): Global log level for klog (0-9)
+- `--output-format` (string, default `""`): Logging output format (`json` or `console`)
+
+### Resource Watching
+
+- `--watch-namespace` (string, default `""`): Filter watched objects by namespace
+- `--watch-logging-name` (string, default `""`): Filter objects by logging resource name
+- `--watch-labeled-children` (boolean, default `false`): Watch child resources only with logging operator's name label (`app.kubernetes.io/name: fluentd|fluentbit|syslog-ng`)
+- `--watch-labeled-secrets` (boolean, default `false`): Watch secrets only with `logging.banzaicloud.io/watch: enabled` label
+
+> **Note on Combinations:**
+> - If `watch-namespace` is set, it narrows the scope for ALL watched resources
+> - `watch-logging-name` and `watch-labeled-children` can be combined to further restrict child resource watching
+> - `watch-labeled-children` and `watch-labeled-secrets` apply independent label filters
+> - Using multiple filters creates an increasingly restrictive watch scope
+> - Most restrictive scenario: All three flags set will significantly limit the operator's resource visibility
+
+### Controller Management
+
+- `--enable-leader-election` (boolean, default `false`): Ensure only one active controller manager
+- `--finalizer-cleanup` (boolean, default `false`): Remove finalizers during operator shutdown, useful for `Helm` uninstallation
+- `--enable-telemetry-controller-route` (boolean, default `false`): Enable Telemetry Controller routing for Logging resources
+- `--sync-period` (string, default `""`): Minimum frequency for reconciling watched resources, for example, `30s`, or `2h45m`. Valid time units are "ms", "s", "m", "h".
+
+To add arguments with `Helm` you can use the `extraArgs` field e.g:
+
+```bash
+helm install logging-operator ./charts/logging-operator/ --set extraArgs='{"-enable-leader-election=true","-enable-telemetry-controller-route"}'
+```
+
 ## Validate the deployment {#validate}
 
 To verify that the installation was successful, complete the following steps.
