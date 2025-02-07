@@ -18,8 +18,6 @@ Starting with Logging operator version 3.17.0, logging-extensions are open sourc
 
 Logging-operator handles the new features the well-known way: it uses custom resources to access the features. This way a simple `kubectl apply` with a particular parameter set initiates a new feature. Extensions supports three different custom resource types:
 
-- Logging-operator handles the new features the well-known way: it uses custom resources to access the features. This way a simple `kubectl apply` with a particular parameter set initiates a new feature. Extensions supports three different custom resource types:
-
 - [Event-tailer]({{< relref "kubernetes-event-tailer.md" >}}) listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.
 - [Host-tailer]({{< relref "kubernetes-host-tailer.md" >}}) tails custom files and transmits their changes to stdout. This way the Logging operator can process them.
     Kubernetes host tailer allows you to tail logs like `kubelet`, `audit` logs, or the `systemd` journal from the nodes.
