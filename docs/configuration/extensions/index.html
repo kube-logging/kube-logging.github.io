@@ -582,12 +582,8 @@ Releases
 <h1>Kubernetes events, node logs, and logfiles</h1><header class="article-meta">
 </header><p>The Logging extensions part of the Logging operator solves the following problems:</p><ul>
 <li>Collect Kubernetes events to provide insight into what is happening inside a cluster, such as decisions made by the scheduler, or why some pods were evicted from the node.</li><li>Collect logs from the nodes like <code>kubelet</code> logs.</li><li>Collect logs from files on the nodes, for example, <code>audit</code> logs, or the <code>systemd</code> journal.</li><li>Collect logs from legacy application log files.</li></ul><p>Starting with Logging operator version 3.17.0, logging-extensions are open source and part of Logging operator.</p><h2 id="features">Features</h2><p>Logging-operator handles the new features the well-known way: it uses custom resources to access the features. This way a simple <code>kubectl apply</code> with a particular parameter set initiates a new feature. Extensions supports three different custom resource types:</p><ul>
-<li>
-<p>Logging-operator handles the new features the well-known way: it uses custom resources to access the features. This way a simple <code>kubectl apply</code> with a particular parameter set initiates a new feature. Extensions supports three different custom resource types:</p></li><li>
-<p><a href="/docs/configuration/extensions/kubernetes-event-tailer/">Event-tailer</a> listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.</p></li><li>
-<p><a href="/docs/configuration/extensions/kubernetes-host-tailer/">Host-tailer</a> tails custom files and transmits their changes to stdout. This way the Logging operator can process them.
-Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>audit</code> logs, or the <code>systemd</code> journal from the nodes.</p></li><li>
-<p><a href="/docs/configuration/extensions/tailer-webhook/">Tailer-webhook</a> is a different approach for the same problem: parsing legacy application&rsquo;s log file. Instead of running a <code>host-tailer</code> instance on every node, <code>tailer-webhook</code> attaches a <code>sidecar container</code> to the pod, and reads the specified file(s).</p></li></ul><blockquote>
+<li><a href="/docs/configuration/extensions/kubernetes-event-tailer/">Event-tailer</a> listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.</li><li><a href="/docs/configuration/extensions/kubernetes-host-tailer/">Host-tailer</a> tails custom files and transmits their changes to stdout. This way the Logging operator can process them.
+Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>audit</code> logs, or the <code>systemd</code> journal from the nodes.</li><li><a href="/docs/configuration/extensions/tailer-webhook/">Tailer-webhook</a> is a different approach for the same problem: parsing legacy application&rsquo;s log file. Instead of running a <code>host-tailer</code> instance on every node, <code>tailer-webhook</code> attaches a <code>sidecar container</code> to the pod, and reads the specified file(s).</li></ul><blockquote>
 <p>Check our <a href="https://github.com/kube-logging/logging-operator/tree/master/config/samples/extensions">configuration snippets</a> for examples.</p></blockquote><div class="section-index">
 <hr class="panel-line">
 <div class="entry">
@@ -600,7 +596,7 @@ Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>
 <h5>
 <a href="/docs/configuration/extensions/tailer-webhook/">Tail logfiles with a webhook</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 4, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1c6b50e472cf8efccb3d63d289f2f0b1e1d19f6c">Merge 0d58575fbf0fb8742ed46a19754cdfafddfb1761 into 592c23b5e62ee0edf754f424bd7d1e68d57998e0 (1c6b50e)</a>
+Last modified February 7, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d5fb6a4e032c542065e0b23d0c6d1ddf5baae22c">Merge pull request #277 from vfaergestad/docs-dup-line (d5fb6a4)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
