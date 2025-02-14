@@ -3,6 +3,60 @@ title: What's new
 weight: 50
 ---
 
+## Version 5.1
+
+The following are the highlights and main changes of Logging operator 5.1. For a complete list of changes and bugfixes, see the [Logging operator 5.1 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.1.1).
+
+### Fluentd http output improvements
+
+- Set the `compress` option to `gzip` to compress the HTTP request body.
+- You can use the `headers_from_placeholders` option to add headers to the HTTP requests.
+- Set the `reuse_connection` option to `true` to try to reuse HTTP connections to improve performance.
+
+### Multiple hosttailer support
+
+You can now define multiple hosttailers in your logging configuration, for example:
+
+```yaml
+logging:
+  enabled: true
+  hostTailers:
+    enabled: true
+    instances:
+      - name: kubeauditane
+        enabled: true
+        workloadOverrides:
+          nodeSelector:
+            node-role.kubernetes.io/control-plane: "true"
+          tolerations:
+            - key: node-role.kubernetes.io/control-plane
+              operator: Exists
+              effect: NoSchedule
+        fileTailers:
+          - name: kube-audit
+            path: /var/lib/rancher/rke2/server/logs/*.log
+
+      - name: workersnodesonly
+        enabled: true
+        workloadOverrides:
+          nodeSelector:
+            node-role.kubernetes.io/worker: "true"
+        fileTailers:
+          - name: kube-audit
+            path: /var/lib/rancher/rke2/agent/logs/*.log
+```
+
+This also means that `logging.hostTailer` has been deprecated and is superseded by `logging.hostTailers`.
+
+<!-- FIXME update hosttailer docs with this -->
+
+### Memory usage
+
+In order to reduce the memory usage of the operator in large environments, you can now use the following flags during installation:
+
+- `watch-labeled-children` to watch only child resources created by the operator. This option will be enabled by default in a future new minor version.
+- `watch-labeled-secrets` to watch secrets with `logging.banzaicloud.io/watch: enabled` label. This option will be enabled by default in a future new major version.
+
 ## Version 5.0
 
 The following are the highlights and main changes of Logging operator 5.0. For a complete list of changes and bugfixes, see the [Logging operator 5.0 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.0).
