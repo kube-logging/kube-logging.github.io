@@ -46,7 +46,7 @@ logging:
             path: /var/lib/rancher/rke2/agent/logs/*.log
 ```
 
-This also means that `logging.hostTailer` has been deprecated and is superseded by `logging.hostTailers`.
+This also means that `logging.hostTailer` has been deprecated and is superseded by `logging.hostTailers` and will be removed in a future release.
 
 <!-- FIXME update hosttailer docs with this -->
 
