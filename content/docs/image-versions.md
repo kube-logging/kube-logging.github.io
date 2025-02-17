@@ -10,7 +10,7 @@ Logging operator uses the following image versions.
 | Image repository | GitHub repository | Version |
 | -------- | --- | -- |
 | ghcr.io/kube-logging/node-exporter | https://github.com/kube-logging/node-exporter-image | v0.9.0 |
-| ghcr.io/kube-logging/config-reloader | https://github.com/kube-logging/config-reloader | v0.0.6 |
+| ghcr.io/kube-logging/config-reloader | https://github.com/kube-logging/config-reloader | v0.0.7 |
 | ghcr.io/kube-logging/fluentd-drain-watch | https://github.com/kube-logging/fluentd-drain-watch | v0.2.4 |
 | k8s.gcr.io/pause |  | 3.9 |
 | docker.io/busybox | https://github.com/docker-library/busybox | latest |
