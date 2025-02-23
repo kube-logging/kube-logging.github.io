@@ -48,7 +48,9 @@ logging:
 
 This also means that `logging.hostTailer` has been deprecated and is superseded by `logging.hostTailers` and will be removed in a future release.
 
-<!-- FIXME update hosttailer docs with this -->
+## Graceful reload in Fluentd
+
+You can now enable graceful reloading via a webhook using the [`configReloaderUseGracefulReloadWebhook` option]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-configreloaderusegracefulreloadwebhook" >}}).
 
 ### Memory usage
 
@@ -56,6 +58,10 @@ In order to reduce the memory usage of the operator in large environments, you c
 
 - `watch-labeled-children` to watch only child resources created by the operator. This option will be enabled by default in a future new minor version.
 - `watch-labeled-secrets` to watch secrets with `logging.banzaicloud.io/watch: enabled` label. This option will be enabled by default in a future new major version.
+
+### Changes in Fluentd images
+
+Earlier, Logging operator used Fluentd images published at https://github.com/kube-logging/fluentd-images, and its version numbers followed the official Fluentd version numbers. From now on, we build Fluentd images from our repository (https://github.com/kube-logging/logging-operator/tree/master/images/fluentd) and its version numbering follows the version numbers of Logging operator, for example: ghcr.io/kube-logging/logging-operator/fluentd:5.1.1-base/filters/full
 
 ## Version 5.0
 
