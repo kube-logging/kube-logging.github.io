@@ -26,13 +26,13 @@ adc (*ADC, optional) Application Default Credentials (ADC).
 alts (*ALTS, optional) Application Layer Transport Security (ALTS) is a simple to use authentication, only available within Google’s infrastructure.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/auth/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-02-25T10:59:24+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-02-25T10:01:52+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Authentication for syslog-ng outputs">
 <meta itemprop="description" content="Overview GRPC-based outputs use this configuration instead of the simple tls field found at most HTTP based destinations. For details, see the documentation of a related syslog-ng destination, for example, Grafana Loki.
 Configuration Auth Authentication settings. Only one authentication method can be set. Default: Insecure
 adc (*ADC, optional) Application Default Credentials (ADC).
 alts (*ALTS, optional) Application Layer Transport Security (ALTS) is a simple to use authentication, only available within Google’s infrastructure.">
-<meta itemprop="dateModified" content="2025-02-25T10:59:24+01:00">
+<meta itemprop="dateModified" content="2025-02-25T10:01:52+00:00">
 <meta itemprop="wordCount" content="133">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Authentication for syslog-ng outputs">
@@ -604,7 +604,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>Authentication for syslog-ng outputs</h1><header class="article-meta">
 </header><h2 id="overview">Overview</h2><p>GRPC-based outputs use this configuration instead of the simple <code>tls</code> field found at most HTTP based destinations. For details, see the documentation of a related syslog-ng destination, for example, <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-loki/#auth">Grafana Loki</a>.</p><h2 id="configuration">Configuration</h2><h2 id="auth">Auth</h2><p>Authentication settings. Only one authentication method can be set. Default: Insecure</p><h3 id="auth-adc">adc (*ADC, optional)</h3><p>Application Default Credentials (ADC).</p><h3 id="auth-alts">alts (*ALTS, optional)</h3><p>Application Layer Transport Security (ALTS) is a simple to use authentication, only available within Google’s infrastructure.</p><h3 id="auth-insecure">insecure (*Insecure, optional)</h3><p>This is the default method, authentication is disabled (<code>auth(insecure())</code>).</p><h3 id="auth-tls">tls (*GrpcTLS, optional)</h3><p>This option sets various options related to TLS encryption, for example, key/certificate files and trusted CA locations. TLS can be used only with tcp-based transport protocols. For details, see <a href="../tls/">TLS for syslog-ng outputs</a> and the <a href="https://axoflow.com/docs/axosyslog-core/chapter-encrypted-transport-tls/tlsoptions">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="adc">ADC</h2><h2 id="insecure">Insecure</h2><h2 id="alts">ALTS</h2><h3 id="alts-target-service-accounts">target-service-accounts ([]string, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fb1349860c314c9e5189332c7040edca19a983d9">Merge pull request #276 from kube-logging/dependabot/github_actions/actions/configure-pages-5.0.0 (fb13498)</a>
+Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c36ebab7c630717d6ab9188176166fec10edfc33">Merge bf7c9020302d1721cb9d598e7586c866ef3d3d37 into fb1349860c314c9e5189332c7040edca19a983d9 (c36ebab)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

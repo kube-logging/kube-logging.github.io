@@ -28,14 +28,14 @@ kind: SyslogNGOutput apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: 
 auth (*Auth, optional) Authentication configuration, see the documentation of the AxoSyslog syslog-ng distribution.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/opentelemetry/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-02-25T10:59:24+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-02-25T10:01:52+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="OpenTelemetry output">
 <meta itemprop="description" content="Overview Sends messages over OpenTelemetry GRPC. For details on the available options of the output, see the documentation of AxoSyslog.
 Available in Logging operator version 4.9 and later.
 Example A simple example sending logs over OpenTelemetry GRPC to a remote OpenTelemetry endpoint:
 kind: SyslogNGOutput apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: otlp spec: opentelemetry: url: otel-server:4379 Configuration OpenTelemetryOutput (Batch, required) Batching parameters
 auth (*Auth, optional) Authentication configuration, see the documentation of the AxoSyslog syslog-ng distribution.">
-<meta itemprop="dateModified" content="2025-02-25T10:59:24+01:00">
+<meta itemprop="dateModified" content="2025-02-25T10:01:52+00:00">
 <meta itemprop="wordCount" content="171">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenTelemetry output">
@@ -612,7 +612,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">opentelemetry</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">url</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">otel-server:4379</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="opentelemetryoutput">OpenTelemetryOutput</h2><h3 id="opentelemetryoutput-">(Batch, required)</h3><p>Batching parameters</p><h3 id="opentelemetryoutput-auth">auth (*Auth, optional)</h3><p>Authentication configuration, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-syslog-ng-otlp/#auth">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="opentelemetryoutput-channel_args">channel_args (filter.ArrowMap, optional)</h3><p>Add GRPC Channel arguments <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/opentelemetry/#channel-args">https://axoflow.com/docs/axosyslog-core/chapter-destinations/opentelemetry/#channel-args</a></p><h3 id="opentelemetryoutput-compression">compression (*bool, optional)</h3><p>Enable or disable compression.</p><p>Default: false</p><h3 id="opentelemetryoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="opentelemetryoutput-url">url (string, required)</h3><p>Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (:) after the address to specify the port number of the server. For example: <code>http://127.0.0.1:8000</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fb1349860c314c9e5189332c7040edca19a983d9">Merge pull request #276 from kube-logging/dependabot/github_actions/actions/configure-pages-5.0.0 (fb13498)</a>
+Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c36ebab7c630717d6ab9188176166fec10edfc33">Merge bf7c9020302d1721cb9d598e7586c866ef3d3d37 into fb1349860c314c9e5189332c7040edca19a983d9 (c36ebab)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
