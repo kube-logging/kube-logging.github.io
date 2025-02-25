@@ -24,12 +24,12 @@ One specific example is when there is a need for a configuration change in a rol
 The other use case is when there are different node groups in a cluster for multitenancy reasons for example.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentbit-multiple/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-02-25T10:01:52+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-02-25T10:02:04+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Multiple Fluent Bit agents in the cluster">
 <meta itemprop="description" content="There can be at least two different use cases where one might need multiple sets of node agents running with different configuration while still forwarding logs to the same aggregator.
 One specific example is when there is a need for a configuration change in a rolling upgrade manner. As new nodes come up, they need to run with a new configuration, while old nodes use the previous configuration.
 The other use case is when there are different node groups in a cluster for multitenancy reasons for example.">
-<meta itemprop="dateModified" content="2025-02-25T10:01:52+00:00">
+<meta itemprop="dateModified" content="2025-02-25T10:02:04+00:00">
 <meta itemprop="wordCount" content="541">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multiple Fluent Bit agents in the cluster">
@@ -636,7 +636,7 @@ Releases
 </span></span></span></code></pre></div><blockquote>
 <p>Note: If your Logging resource has its <strong>spec.loggingRef</strong> parameter set, set the same value in the <strong>spec.loggingRef</strong> parameter of the Flow resource.</p></blockquote><p>Set other <a href="/docs/configuration/crds/v1beta1/flow_types/">Flow parameters</a> as needed for your environment.</p></li><li>
 <p>Create the outputs (called <code>"output-for-nodegroup-A"</code> and <code>"output-for-nodegroup-B"</code>) for the Flows.</p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c36ebab7c630717d6ab9188176166fec10edfc33">Merge bf7c9020302d1721cb9d598e7586c866ef3d3d37 into fb1349860c314c9e5189332c7040edca19a983d9 (c36ebab)</a>
+Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/bc69a8313778a9ee3399430c4d5407f0f7e2137e">Merge 81a6be0965f319074a5a7ff9a0e4701b0ab9b478 into fb1349860c314c9e5189332c7040edca19a983d9 (bc69a83)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
