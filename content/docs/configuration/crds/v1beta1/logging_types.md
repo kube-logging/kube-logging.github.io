@@ -12,6 +12,8 @@ LoggingSpec defines the desired state of Logging
 
 Allow configuration of cluster resources from any namespace. Mutually exclusive with ControlNamespace restriction of Cluster resources 
 
+WARNING: Be careful when turning this on and off as it can result in some resources being orphaned.
+
 
 ### clusterDomain (*string, optional) {#loggingspec-clusterdomain}
 
@@ -54,7 +56,7 @@ GlobalOutput name to flush ERROR events to
 
 ### flowConfigCheckDisabled (bool, optional) {#loggingspec-flowconfigcheckdisabled}
 
-Disable configuration check before applying new fluentd configuration. 
+Disable configuration check before applying new fluentd or syslog-ng configuration. 
 
 
 ### flowConfigOverride (string, optional) {#loggingspec-flowconfigoverride}
@@ -139,7 +141,7 @@ If DisableLoggingRoute is set to true, the logging route controller should remov
 
 ### enableTelemetryControllerRoute (bool, optional) {#routeconfig-enabletelemetrycontrollerroute}
 
-If EnableTelemtryControllerRoute set to true, the operator will create the corresponding Tenant, Subscription, and Output based on the logging resource. 
+If EnableTelemetryControllerRoute set to true, the operator will create the corresponding Tenant, Subscription, and Output based on the logging resource. 
 
 
 ### tenantLabels (map[string]string, optional) {#routeconfig-tenantlabels}
