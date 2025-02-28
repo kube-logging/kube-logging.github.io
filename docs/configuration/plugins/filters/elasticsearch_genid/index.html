@@ -26,13 +26,13 @@ hash_type (string, optional) You can specify hash algorithm. Support algorithms 
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/elasticsearch_genid/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-02-25T11:18:33+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-02-25T11:19:59+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="ElasticSearch GenId">
 <meta itemprop="description" content="ElasticsearchGenId Example Elasticsearch Genid filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - elasticsearch_genid: hash_id_key: gen_id selectors: {} localOutputRefs: - demo-output Fluentd Config Result
 <filter **> @type elasticsearch_genid @id test_elasticsearch_genid hash_id_key gen_id </filter> Configuration hash_id_key (string, optional) You can specify generated hash storing key.
 hash_type (string, optional) You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1
 include_tag_in_seed (bool, optional) You can specify to use tag for hash generation seed.">
-<meta itemprop="dateModified" content="2025-02-25T11:18:33+01:00">
+<meta itemprop="dateModified" content="2025-02-25T11:19:59+01:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticSearch GenId">
@@ -616,7 +616,7 @@ Releases
 </span></span><span style="display:flex"><span> @id test_elasticsearch_genid
 </span></span><span style="display:flex"><span> hash_id_key gen_id
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="elasticsearchgenid-hash_id_key">hash_id_key (string, optional)</h3><p>You can specify generated hash storing key.</p><h3 id="elasticsearchgenid-hash_type">hash_type (string, optional)</h3><p>You can specify hash algorithm. Support algorithms md5, sha1, sha256, sha512. Default: sha1</p><h3 id="elasticsearchgenid-include_tag_in_seed">include_tag_in_seed (bool, optional)</h3><p>You can specify to use tag for hash generation seed.</p><h3 id="elasticsearchgenid-include_time_in_seed">include_time_in_seed (bool, optional)</h3><p>You can specify to use time for hash generation seed.</p><h3 id="elasticsearchgenid-record_keys">record_keys (string, optional)</h3><p>You can specify keys which are record in events for hash generation seed. This parameter should be used with use_record_as_seed parameter in practice.</p><h3 id="elasticsearchgenid-separator">separator (string, optional)</h3><p>You can specify separator charactor to creating seed for hash generation.</p><h3 id="elasticsearchgenid-use_entire_record">use_entire_record (bool, optional)</h3><p>You can specify to use entire record in events for hash generation seed.</p><h3 id="elasticsearchgenid-use_record_as_seed">use_record_as_seed (bool, optional)</h3><p>You can specify to use record in events for hash generation seed. This parameter should be used with record_keys parameter in practice.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/662c365ceeca04c862815fb6ad11d05dfc4d0b98">Merge pull request #275 from kube-logging/dependabot/github_actions/peaceiris/actions-hugo-3.0.0 (662c365)</a>
+Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e25e1fbd8c9d9dd80f397bd0199720c66f21a85c">Merge pull request #273 from kube-logging/dependabot/github_actions/actions/setup-node-4.2.0 (e25e1fb)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
