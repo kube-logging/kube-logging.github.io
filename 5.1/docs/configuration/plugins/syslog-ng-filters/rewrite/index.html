@@ -1,0 +1,665 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/5.1/docs/configuration/plugins/syslog-ng-filters/rewrite/releases.releases">
+<meta name="robots" content="index, follow">
+<link rel="shortcut icon" href="/5.1/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/5.1/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/5.1/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/5.1/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/5.1/favicons/android-192x192.png" sizes="192x192">
+<title>Rewrite | Logging operator</title><meta name="description" content="Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
+group_unset rename set substitute unset Note: All rewrite functions support an optional condition which has the same syntax as the match filter.
+For details on how rewrite rules work in syslog-ng, see the documentation of the AxoSyslog syslog-ng distribution.
+Group unset The group_unset function removes from the record a group of fields matching a pattern.">
+<meta property="og:title" content="Rewrite">
+<meta property="og:description" content="Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
+group_unset rename set substitute unset Note: All rewrite functions support an optional condition which has the same syntax as the match filter.
+For details on how rewrite rules work in syslog-ng, see the documentation of the AxoSyslog syslog-ng distribution.
+Group unset The group_unset function removes from the record a group of fields matching a pattern.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kube-logging.dev/5.1/docs/configuration/plugins/syslog-ng-filters/rewrite/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2025-02-25T11:19:59+01:00"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Rewrite">
+<meta itemprop="description" content="Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
+group_unset rename set substitute unset Note: All rewrite functions support an optional condition which has the same syntax as the match filter.
+For details on how rewrite rules work in syslog-ng, see the documentation of the AxoSyslog syslog-ng distribution.
+Group unset The group_unset function removes from the record a group of fields matching a pattern.">
+<meta itemprop="dateModified" content="2025-02-25T11:19:59+01:00">
+<meta itemprop="wordCount" content="373">
+<meta itemprop="keywords" content><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rewrite">
+<meta name="twitter:description" content="Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:
+group_unset rename set substitute unset Note: All rewrite functions support an optional condition which has the same syntax as the match filter.
+For details on how rewrite rules work in syslog-ng, see the documentation of the AxoSyslog syslog-ng distribution.
+Group unset The group_unset function removes from the record a group of fields matching a pattern.">
+<link rel="preload" href="/5.1/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" as="style">
+<link href="/5.1/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/5.1/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-filters/">
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
+</head><body class="td-page" data-pagefind-filter="section:5.1">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/5.1/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging Operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging Operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">5.1</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/5.1/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/5.1/docs/community/" title="Come chat with us!"><span>Community</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/docs/configuration/plugins/syslog-ng-filters/rewrite//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+<form class="td-sidebar__search d-flex align-items-center">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+</button>
+</form><nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-51docs-li">
+<a href="/5.1/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-51docs"><span>Logging operator</span></a>
+<ul class="ul-1">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docswhats-new-li">
+<input type="checkbox" id="m-51docswhats-new-check">
+<label for="m-51docswhats-new-check"><a href="/5.1/docs/whats-new/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docswhats-new"><span>What's new</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsinstall-li">
+<input type="checkbox" id="m-51docsinstall-check">
+<label for="m-51docsinstall-check"><a href="/5.1/docs/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsinstall"><span>Install</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsquickstarts-li">
+<input type="checkbox" id="m-51docsquickstarts-check">
+<label for="m-51docsquickstarts-check"><a href="/5.1/docs/quickstarts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsquickstarts"><span>Quick start guides</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsquickstartssingle-li">
+<input type="checkbox" id="m-51docsquickstartssingle-check">
+<label for="m-51docsquickstartssingle-check"><a href="/5.1/docs/quickstarts/single/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsquickstartssingle"><span>Single app, one destination</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-51docsconfiguration-li">
+<input type="checkbox" id="m-51docsconfiguration-check" checked>
+<label for="m-51docsconfiguration-check"><a href="/5.1/docs/configuration/" title="Configure log routing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfiguration"><span>Routing logs</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationfluentd-vs-syslog-ng-li">
+<input type="checkbox" id="m-51docsconfigurationfluentd-vs-syslog-ng-check">
+<label for="m-51docsconfigurationfluentd-vs-syslog-ng-check"><a href="/5.1/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationoutput-li">
+<input type="checkbox" id="m-51docsconfigurationoutput-check">
+<label for="m-51docsconfigurationoutput-check"><a href="/5.1/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationflow-li">
+<input type="checkbox" id="m-51docsconfigurationflow-check">
+<label for="m-51docsconfigurationflow-check"><a href="/5.1/docs/configuration/flow/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationflow"><span>Flow and ClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationlog-routing-li">
+<input type="checkbox" id="m-51docsconfigurationlog-routing-check">
+<label for="m-51docsconfigurationlog-routing-check"><a href="/5.1/docs/configuration/log-routing/" title="Routing your logs with Fluentd match directives" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationlog-routing"><span>Log routing with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationlog-routing-syslog-ng-li">
+<input type="checkbox" id="m-51docsconfigurationlog-routing-syslog-ng-check">
+<label for="m-51docsconfigurationlog-routing-syslog-ng-check"><a href="/5.1/docs/configuration/log-routing-syslog-ng/" title="Routing your logs with syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationlog-routing-syslog-ng"><span>Log routing with syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationextensions-li">
+<input type="checkbox" id="m-51docsconfigurationextensions-check">
+<label for="m-51docsconfigurationextensions-check"><a href="/5.1/docs/configuration/extensions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationextensions"><span>Kubernetes events, node logs, and logfiles</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationextensionskubernetes-event-tailer-li">
+<input type="checkbox" id="m-51docsconfigurationextensionskubernetes-event-tailer-check">
+<label for="m-51docsconfigurationextensionskubernetes-event-tailer-check"><a href="/5.1/docs/configuration/extensions/kubernetes-event-tailer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationextensionskubernetes-event-tailer"><span>Kubernetes Event Tailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationextensionskubernetes-host-tailer-li">
+<input type="checkbox" id="m-51docsconfigurationextensionskubernetes-host-tailer-check">
+<label for="m-51docsconfigurationextensionskubernetes-host-tailer-check"><a href="/5.1/docs/configuration/extensions/kubernetes-host-tailer/" title="Kubernetes host logs, journals, and logfiles" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationextensionskubernetes-host-tailer"><span>Kubernetes Host Tailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationextensionstailer-webhook-li">
+<input type="checkbox" id="m-51docsconfigurationextensionstailer-webhook-check">
+<label for="m-51docsconfigurationextensionstailer-webhook-check"><a href="/5.1/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationcrds-li">
+<input type="checkbox" id="m-51docsconfigurationcrds-check">
+<label for="m-51docsconfigurationcrds-check"><a href="/5.1/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationcrds"><span>CRDs</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationcrdsv1beta1-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1-check">
+<label for="m-51docsconfigurationcrdsv1beta1-check"><a href="/5.1/docs/configuration/crds/v1beta1/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationcrdsv1beta1"><span>Available CRDs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1clusterflow_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1clusterflow_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1clusterflow_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/clusterflow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1clusterflow_types"><span>ClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1clusteroutput_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1clusteroutput_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1clusteroutput_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/clusteroutput_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1clusteroutput_types"><span>ClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1common_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1common_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1common_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/common_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1common_types"><span>Common</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1flow_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1flow_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1flow_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/flow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1flow_types"><span>FlowSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1fluentbit_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1fluentbit_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1fluentbit_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/fluentbit_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1fluentbit_types"><span>FluentbitSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1fluentd_config_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1fluentd_config_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1fluentd_config_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/fluentd_config_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1fluentd_config_types"><span>FluentdConfig</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1fluentd_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1fluentd_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1fluentd_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/fluentd_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1fluentd_types"><span>FluentdSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1loggingroute_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1loggingroute_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1loggingroute_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/loggingroute_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1loggingroute_types"><span>LoggingRouteSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1logging_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1logging_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1logging_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/logging_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1logging_types"><span>LoggingSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1node_agent_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1node_agent_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1node_agent_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/node_agent_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1node_agent_types"><span>NodeAgent</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1output_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1output_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1output_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/output_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1output_types"><span>OutputSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_clusterflow_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_clusterflow_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_clusterflow_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_clusterflow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_clusterflow_types"><span>SyslogNGClusterFlow</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_clusteroutput_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_clusteroutput_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_clusteroutput_types"><span>SyslogNGClusterOutput</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_config_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_config_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_config_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_config_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_config_types"><span>SyslogNGConfig</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_flow_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_flow_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_flow_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_flow_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_flow_types"><span>SyslogNGFlowSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_output_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_output_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_output_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_output_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_output_types"><span>SyslogNGOutputSpec</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsv1beta1syslogng_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsv1beta1syslogng_types-check">
+<label for="m-51docsconfigurationcrdsv1beta1syslogng_types-check"><a href="/5.1/docs/configuration/crds/v1beta1/syslogng_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsv1beta1syslogng_types"><span>SyslogNGSpec</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationcrdsextensions-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsextensions-check">
+<label for="m-51docsconfigurationcrdsextensions-check"><a href="/5.1/docs/configuration/crds/extensions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationcrdsextensions"><span>Logging extensions CRDs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsextensionseventtailer_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsextensionseventtailer_types-check">
+<label for="m-51docsconfigurationcrdsextensionseventtailer_types-check"><a href="/5.1/docs/configuration/crds/extensions/eventtailer_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsextensionseventtailer_types"><span>EventTailer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationcrdsextensionshosttailer_types-li">
+<input type="checkbox" id="m-51docsconfigurationcrdsextensionshosttailer_types-check">
+<label for="m-51docsconfigurationcrdsextensionshosttailer_types-check"><a href="/5.1/docs/configuration/crds/extensions/hosttailer_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationcrdsextensionshosttailer_types"><span>HostTailer</span></a></label>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-51docsconfigurationplugins-li">
+<input type="checkbox" id="m-51docsconfigurationplugins-check" checked>
+<label for="m-51docsconfigurationplugins-check"><a href="/5.1/docs/configuration/plugins/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationplugins"><span>Supported Plugins</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginscommonsecurity-li">
+<input type="checkbox" id="m-51docsconfigurationpluginscommonsecurity-check">
+<label for="m-51docsconfigurationpluginscommonsecurity-check"><a href="/5.1/docs/configuration/plugins/common/security/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginscommonsecurity"><span>Security</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginscommontransport-li">
+<input type="checkbox" id="m-51docsconfigurationpluginscommontransport-check">
+<label for="m-51docsconfigurationpluginscommontransport-check"><a href="/5.1/docs/configuration/plugins/common/transport/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginscommontransport"><span>Transport</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationpluginsfilters-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfilters-check">
+<label for="m-51docsconfigurationpluginsfilters-check"><a href="/5.1/docs/configuration/plugins/filters/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationpluginsfilters"><span>Fluentd filters</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersconcat-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersconcat-check">
+<label for="m-51docsconfigurationpluginsfiltersconcat-check"><a href="/5.1/docs/configuration/plugins/filters/concat/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersconcat"><span>Concat</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersdedot-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersdedot-check">
+<label for="m-51docsconfigurationpluginsfiltersdedot-check"><a href="/5.1/docs/configuration/plugins/filters/dedot/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersdedot"><span>Dedot</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfilterselasticsearch_genid-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfilterselasticsearch_genid-check">
+<label for="m-51docsconfigurationpluginsfilterselasticsearch_genid-check"><a href="/5.1/docs/configuration/plugins/filters/elasticsearch_genid/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfilterselasticsearch_genid"><span>ElasticSearch GenId</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersdetect_exceptions-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersdetect_exceptions-check">
+<label for="m-51docsconfigurationpluginsfiltersdetect_exceptions-check"><a href="/5.1/docs/configuration/plugins/filters/detect_exceptions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersdetect_exceptions"><span>Exception Detector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersgeoip-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersgeoip-check">
+<label for="m-51docsconfigurationpluginsfiltersgeoip-check"><a href="/5.1/docs/configuration/plugins/filters/geoip/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersgeoip"><span>Geo IP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersgrep-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersgrep-check">
+<label for="m-51docsconfigurationpluginsfiltersgrep-check"><a href="/5.1/docs/configuration/plugins/filters/grep/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersgrep"><span>Grep</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfilterskube_events_timestamp-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfilterskube_events_timestamp-check">
+<label for="m-51docsconfigurationpluginsfilterskube_events_timestamp-check"><a href="/5.1/docs/configuration/plugins/filters/kube_events_timestamp/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfilterskube_events_timestamp"><span>Kubernetes Events Timestamp</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersparser-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersparser-check">
+<label for="m-51docsconfigurationpluginsfiltersparser-check"><a href="/5.1/docs/configuration/plugins/filters/parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersparser"><span>Parser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersprometheus-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersprometheus-check">
+<label for="m-51docsconfigurationpluginsfiltersprometheus-check"><a href="/5.1/docs/configuration/plugins/filters/prometheus/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersprometheus"><span>Prometheus</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersrecord_modifier-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersrecord_modifier-check">
+<label for="m-51docsconfigurationpluginsfiltersrecord_modifier-check"><a href="/5.1/docs/configuration/plugins/filters/record_modifier/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersrecord_modifier"><span>Record Modifier</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersrecord_transformer-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersrecord_transformer-check">
+<label for="m-51docsconfigurationpluginsfiltersrecord_transformer-check"><a href="/5.1/docs/configuration/plugins/filters/record_transformer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersrecord_transformer"><span>Record Transformer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersstdout-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersstdout-check">
+<label for="m-51docsconfigurationpluginsfiltersstdout-check"><a href="/5.1/docs/configuration/plugins/filters/stdout/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersstdout"><span>StdOut</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfilterstagnormaliser-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfilterstagnormaliser-check">
+<label for="m-51docsconfigurationpluginsfilterstagnormaliser-check"><a href="/5.1/docs/configuration/plugins/filters/tagnormaliser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfilterstagnormaliser"><span>Tag Normaliser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersthrottle-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersthrottle-check">
+<label for="m-51docsconfigurationpluginsfiltersthrottle-check"><a href="/5.1/docs/configuration/plugins/filters/throttle/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersthrottle"><span>Throttle</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsfiltersuseragent-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsfiltersuseragent-check">
+<label for="m-51docsconfigurationpluginsfiltersuseragent-check"><a href="/5.1/docs/configuration/plugins/filters/useragent/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsfiltersuseragent"><span>User Agent</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationpluginsoutputs-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputs-check">
+<label for="m-51docsconfigurationpluginsoutputs-check"><a href="/5.1/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsnull-check">
+<label for="m-51docsconfigurationpluginsoutputsnull-check"><a href="/5.1/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsnull"><span></span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsoss-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsoss-check">
+<label for="m-51docsconfigurationpluginsoutputsoss-check"><a href="/5.1/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputscloudwatch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputscloudwatch-check">
+<label for="m-51docsconfigurationpluginsoutputscloudwatch-check"><a href="/5.1/docs/configuration/plugins/outputs/cloudwatch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputscloudwatch"><span>Amazon CloudWatch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsaws_elasticsearch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsaws_elasticsearch-check">
+<label for="m-51docsconfigurationpluginsoutputsaws_elasticsearch-check"><a href="/5.1/docs/configuration/plugins/outputs/aws_elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsaws_elasticsearch"><span>Amazon Elasticsearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputskinesis_firehose-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputskinesis_firehose-check">
+<label for="m-51docsconfigurationpluginsoutputskinesis_firehose-check"><a href="/5.1/docs/configuration/plugins/outputs/kinesis_firehose/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputskinesis_firehose"><span>Amazon Kinesis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputskinesis_stream-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputskinesis_stream-check">
+<label for="m-51docsconfigurationpluginsoutputskinesis_stream-check"><a href="/5.1/docs/configuration/plugins/outputs/kinesis_stream/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputskinesis_stream"><span>Amazon Kinesis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputss3-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputss3-check">
+<label for="m-51docsconfigurationpluginsoutputss3-check"><a href="/5.1/docs/configuration/plugins/outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputss3"><span>Amazon S3</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsazurestore-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsazurestore-check">
+<label for="m-51docsconfigurationpluginsoutputsazurestore-check"><a href="/5.1/docs/configuration/plugins/outputs/azurestore/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsazurestore"><span>Azure Storage</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsbuffer-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsbuffer-check">
+<label for="m-51docsconfigurationpluginsoutputsbuffer-check"><a href="/5.1/docs/configuration/plugins/outputs/buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsbuffer"><span>Buffer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsdatadog-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsdatadog-check">
+<label for="m-51docsconfigurationpluginsoutputsdatadog-check"><a href="/5.1/docs/configuration/plugins/outputs/datadog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsdatadog"><span>Datadog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputselasticsearch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputselasticsearch-check">
+<label for="m-51docsconfigurationpluginsoutputselasticsearch-check"><a href="/5.1/docs/configuration/plugins/outputs/elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputselasticsearch"><span>Elasticsearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsfile-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsfile-check">
+<label for="m-51docsconfigurationpluginsoutputsfile-check"><a href="/5.1/docs/configuration/plugins/outputs/file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsfile"><span>File</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsformat-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsformat-check">
+<label for="m-51docsconfigurationpluginsoutputsformat-check"><a href="/5.1/docs/configuration/plugins/outputs/format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsformat"><span>Format</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsformat_rfc5424-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsformat_rfc5424-check">
+<label for="m-51docsconfigurationpluginsoutputsformat_rfc5424-check"><a href="/5.1/docs/configuration/plugins/outputs/format_rfc5424/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsformat_rfc5424"><span>Format rfc5424</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsforward-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsforward-check">
+<label for="m-51docsconfigurationpluginsoutputsforward-check"><a href="/5.1/docs/configuration/plugins/outputs/forward/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsforward"><span>Forward</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsgelf-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsgelf-check">
+<label for="m-51docsconfigurationpluginsoutputsgelf-check"><a href="/5.1/docs/configuration/plugins/outputs/gelf/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsgelf"><span>GELF</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsgcs-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsgcs-check">
+<label for="m-51docsconfigurationpluginsoutputsgcs-check"><a href="/5.1/docs/configuration/plugins/outputs/gcs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsgcs"><span>Google Cloud Storage</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsloki-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsloki-check">
+<label for="m-51docsconfigurationpluginsoutputsloki-check"><a href="/5.1/docs/configuration/plugins/outputs/loki/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsloki"><span>Grafana Loki</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputshttp-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputshttp-check">
+<label for="m-51docsconfigurationpluginsoutputshttp-check"><a href="/5.1/docs/configuration/plugins/outputs/http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputshttp"><span>Http</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputskafka-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputskafka-check">
+<label for="m-51docsconfigurationpluginsoutputskafka-check"><a href="/5.1/docs/configuration/plugins/outputs/kafka/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputskafka"><span>Kafka</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputslogdna-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputslogdna-check">
+<label for="m-51docsconfigurationpluginsoutputslogdna-check"><a href="/5.1/docs/configuration/plugins/outputs/logdna/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputslogdna"><span>LogDNA</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputslogz-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputslogz-check">
+<label for="m-51docsconfigurationpluginsoutputslogz-check"><a href="/5.1/docs/configuration/plugins/outputs/logz/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputslogz"><span>LogZ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsmattermost-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsmattermost-check">
+<label for="m-51docsconfigurationpluginsoutputsmattermost-check"><a href="/5.1/docs/configuration/plugins/outputs/mattermost/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsmattermost"><span>Mattermost</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsnewrelic-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsnewrelic-check">
+<label for="m-51docsconfigurationpluginsoutputsnewrelic-check"><a href="/5.1/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsopensearch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsopensearch-check">
+<label for="m-51docsconfigurationpluginsoutputsopensearch-check"><a href="/5.1/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsredis-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsredis-check">
+<label for="m-51docsconfigurationpluginsoutputsredis-check"><a href="/5.1/docs/configuration/plugins/outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsrelabel-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsrelabel-check">
+<label for="m-51docsconfigurationpluginsoutputsrelabel-check"><a href="/5.1/docs/configuration/plugins/outputs/relabel/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsrelabel"><span>Relabel</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputssplunk_hec-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputssplunk_hec-check">
+<label for="m-51docsconfigurationpluginsoutputssplunk_hec-check"><a href="/5.1/docs/configuration/plugins/outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputssplunk_hec"><span>Splunk</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputssqs-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputssqs-check">
+<label for="m-51docsconfigurationpluginsoutputssqs-check"><a href="/5.1/docs/configuration/plugins/outputs/sqs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputssqs"><span>SQS</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputssyslog-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputssyslog-check">
+<label for="m-51docsconfigurationpluginsoutputssyslog-check"><a href="/5.1/docs/configuration/plugins/outputs/syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputssyslog"><span>Syslog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsvmware_log_intelligence-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsvmware_log_intelligence-check">
+<label for="m-51docsconfigurationpluginsoutputsvmware_log_intelligence-check"><a href="/5.1/docs/configuration/plugins/outputs/vmware_log_intelligence/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsvmware_log_intelligence"><span>VMware Log Intelligence</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputsvmware_loginsight-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputsvmware_loginsight-check">
+<label for="m-51docsconfigurationpluginsoutputsvmware_loginsight-check"><a href="/5.1/docs/configuration/plugins/outputs/vmware_loginsight/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputsvmware_loginsight"><span>VMware LogInsight</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginsoutputssecret-li">
+<input type="checkbox" id="m-51docsconfigurationpluginsoutputssecret-check">
+<label for="m-51docsconfigurationpluginsoutputssecret-check"><a href="/5.1/docs/configuration/plugins/outputs/secret/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginsoutputssecret"><span>Secret definition</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-51docsconfigurationpluginssyslog-ng-filters-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-filters-check" checked>
+<label for="m-51docsconfigurationpluginssyslog-ng-filters-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-filters/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationpluginssyslog-ng-filters"><span>syslog-ng filters</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-filtersmatch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-filtersmatch-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-filtersmatch-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-filters/match/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-filtersmatch"><span>Match</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-filtersparser-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-filtersparser-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-filtersparser-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-filters/parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-filtersparser"><span>Parser</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-51docsconfigurationpluginssyslog-ng-filtersrewrite-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-filtersrewrite-check" checked>
+<label for="m-51docsconfigurationpluginssyslog-ng-filtersrewrite-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-filters/rewrite/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-filtersrewrite"><span class="td-sidebar-nav-active-item">Rewrite</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsconfigurationpluginssyslog-ng-outputs-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputs-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputs-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsconfigurationpluginssyslog-ng-outputs"><span>syslog-ng outputs</span></a></label>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsauth-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsauth-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsauth-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/auth/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsauth"><span>Authentication for syslog-ng outputs</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsdisk_buffer-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsdisk_buffer-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsdisk_buffer"><span>Disk buffer</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/elasticsearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch"><span>Elasticsearch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch_datastream-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch_datastream-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch_datastream-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/elasticsearch_datastream/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputselasticsearch_datastream"><span>Elasticsearch datastream</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsfile-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsfile-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsfile-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsfile"><span>File</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputshttp-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputshttp-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputshttp-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputshttp"><span>HTTP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsloggly-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsloggly-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsloggly-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/loggly/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsloggly"><span>Loggly output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputslogscale-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputslogscale-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputslogscale-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/logscale/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputslogscale"><span>LogScale</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsloki-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsloki-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsloki-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/loki/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsloki"><span>Loki</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsmongodb-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsmongodb-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsmongodb-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/mongodb/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsmongodb"><span>MongoDB</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsmqtt-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsmqtt-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsmqtt-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/mqtt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsmqtt"><span>MQTT</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsopenobserve-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsopenobserve-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsopenobserve-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/openobserve/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsopenobserve"><span>Openobserve</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsopentelemetry-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsopentelemetry-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsopentelemetry-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/opentelemetry/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsopentelemetry"><span>OpenTelemetry output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputsredis-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputsredis-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputsredis-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputsredis"><span>Redis</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputss3-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputss3-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputss3-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/s3/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputss3"><span>S3</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputssplunk_hec-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputssplunk_hec-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputssplunk_hec-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/splunk_hec/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputssplunk_hec"><span>SplunkHEC</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_http-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_http-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputssumologic_http-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/sumologic_http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_http"><span>Sumo Logic HTTP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_syslog-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_syslog-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputssumologic_syslog-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/sumologic_syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputssumologic_syslog"><span>Sumo Logic Syslog</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputssyslog-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputssyslog-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputssyslog-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/syslog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputssyslog"><span>Syslog (RFC5424) output</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsconfigurationpluginssyslog-ng-outputstls-li">
+<input type="checkbox" id="m-51docsconfigurationpluginssyslog-ng-outputstls-check">
+<label for="m-51docsconfigurationpluginssyslog-ng-outputstls-check"><a href="/5.1/docs/configuration/plugins/syslog-ng-outputs/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsconfigurationpluginssyslog-ng-outputstls"><span>TLS config for syslog-ng outputs</span></a></label>
+</li></ul></li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsexamples-li">
+<input type="checkbox" id="m-51docsexamples-check">
+<label for="m-51docsexamples-check"><a href="/5.1/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsexamples"><span>Examples</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplesfilters-in-flows-li">
+<input type="checkbox" id="m-51docsexamplesfilters-in-flows-check">
+<label for="m-51docsexamplesfilters-in-flows-check"><a href="/5.1/docs/examples/filters-in-flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplesfilters-in-flows"><span>Filter examples in Flows</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplesdate-parser-li">
+<input type="checkbox" id="m-51docsexamplesdate-parser-check">
+<label for="m-51docsexamplesdate-parser-check"><a href="/5.1/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplescloudwatch-nginx-li">
+<input type="checkbox" id="m-51docsexamplescloudwatch-nginx-check">
+<label for="m-51docsexamplescloudwatch-nginx-check"><a href="/5.1/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplesexample-s3-li">
+<input type="checkbox" id="m-51docsexamplesexample-s3-check">
+<label for="m-51docsexamplesexample-s3-check"><a href="/5.1/docs/examples/example-s3/" title="Transport all logs into Amazon S3  with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplesexample-s3"><span>Amazon S3 with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexampleses-nginx-li">
+<input type="checkbox" id="m-51docsexampleses-nginx-check">
+<label for="m-51docsexampleses-nginx-check"><a href="/5.1/docs/examples/es-nginx/" title="Store NGINX access logs in Elasticsearch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexampleses-nginx"><span>Elasticsearch with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplessplunk-li">
+<input type="checkbox" id="m-51docsexamplessplunk-check">
+<label for="m-51docsexamplessplunk-check"><a href="/5.1/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplessumologic-li">
+<input type="checkbox" id="m-51docsexamplessumologic-check">
+<label for="m-51docsexamplessumologic-check"><a href="/5.1/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplessyslog-ng-sumologic-li">
+<input type="checkbox" id="m-51docsexamplessyslog-ng-sumologic-check">
+<label for="m-51docsexamplessyslog-ng-sumologic-check"><a href="/5.1/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexampleskafka-nginx-li">
+<input type="checkbox" id="m-51docsexampleskafka-nginx-check">
+<label for="m-51docsexampleskafka-nginx-check"><a href="/5.1/docs/examples/kafka-nginx/" title="Transport Nginx Access Logs into Kafka with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexampleskafka-nginx"><span>Kafka with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplesloki-nginx-li">
+<input type="checkbox" id="m-51docsexamplesloki-nginx-check">
+<label for="m-51docsexamplesloki-nginx-check"><a href="/5.1/docs/examples/loki-nginx/" title="Store Nginx Access Logs in Grafana Loki with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplesloki-nginx"><span>Grafana Loki with Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplesmultitenancy-li">
+<input type="checkbox" id="m-51docsexamplesmultitenancy-check">
+<label for="m-51docsexamplesmultitenancy-check"><a href="/5.1/docs/examples/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplesmultitenancy"><span>Nodegroup-based multitenancy</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsexamplescustom-syslog-ng-metrics-li">
+<input type="checkbox" id="m-51docsexamplescustom-syslog-ng-metrics-check">
+<label for="m-51docsexamplescustom-syslog-ng-metrics-check"><a href="/5.1/docs/examples/custom-syslog-ng-metrics/" title="Custom source and output metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsexamplescustom-syslog-ng-metrics"><span>Custom syslog-ng metrics</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docslogging-infrastructure-li">
+<input type="checkbox" id="m-51docslogging-infrastructure-check">
+<label for="m-51docslogging-infrastructure-check"><a href="/5.1/docs/logging-infrastructure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docslogging-infrastructure"><span>Logging infrastructure setup</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructurelogging-li">
+<input type="checkbox" id="m-51docslogging-infrastructurelogging-check">
+<label for="m-51docslogging-infrastructurelogging-check"><a href="/5.1/docs/logging-infrastructure/logging/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructurelogging"><span>The Logging custom resource</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructurefluentd-li">
+<input type="checkbox" id="m-51docslogging-infrastructurefluentd-check">
+<label for="m-51docslogging-infrastructurefluentd-check"><a href="/5.1/docs/logging-infrastructure/fluentd/" title="Configure Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructurefluentd"><span>Fluentd log forwarder</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructuresyslog-ng-li">
+<input type="checkbox" id="m-51docslogging-infrastructuresyslog-ng-check">
+<label for="m-51docslogging-infrastructuresyslog-ng-check"><a href="/5.1/docs/logging-infrastructure/syslog-ng/" title="Configure syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructuresyslog-ng"><span>syslog-ng log forwarder</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructurefluentbit-li">
+<input type="checkbox" id="m-51docslogging-infrastructurefluentbit-check">
+<label for="m-51docslogging-infrastructurefluentbit-check"><a href="/5.1/docs/logging-infrastructure/fluentbit/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructurefluentbit"><span>Fluent Bit log collector</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructurefluentbit-multiple-li">
+<input type="checkbox" id="m-51docslogging-infrastructurefluentbit-multiple-check">
+<label for="m-51docslogging-infrastructurefluentbit-multiple-check"><a href="/5.1/docs/logging-infrastructure/fluentbit-multiple/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructurefluentbit-multiple"><span>Multiple Fluent Bit agents in the cluster</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructuretls-li">
+<input type="checkbox" id="m-51docslogging-infrastructuretls-check">
+<label for="m-51docslogging-infrastructuretls-check"><a href="/5.1/docs/logging-infrastructure/tls/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslogging-infrastructuretls"><span>TLS encryption</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslogging-infrastructuresecurity-li">
+<input type="checkbox" id="m-51docslogging-infrastructuresecurity-check">
+<label for="m-51docslogging-infrastructuresecurity-check"><a href="/5.1/docs/logging-infrastructure/security/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docslogging-infrastructuresecurity"><span>Security</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsoperation-li">
+<input type="checkbox" id="m-51docsoperation-check">
+<label for="m-51docsoperation-check"><a href="/5.1/docs/operation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsoperation"><span>Operation</span></a></label>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-51docsoperationtroubleshooting-li">
+<input type="checkbox" id="m-51docsoperationtroubleshooting-check">
+<label for="m-51docsoperationtroubleshooting-check"><a href="/5.1/docs/operation/troubleshooting/" title="Logging operator troubleshooting" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-51docsoperationtroubleshooting"><span>Troubleshooting</span></a></label>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationtroubleshootingfluentbit-li">
+<input type="checkbox" id="m-51docsoperationtroubleshootingfluentbit-check">
+<label for="m-51docsoperationtroubleshootingfluentbit-check"><a href="/5.1/docs/operation/troubleshooting/fluentbit/" title="Troubleshooting Fluent Bit" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationtroubleshootingfluentbit"><span>Fluent Bit</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationtroubleshootingfluentd-li">
+<input type="checkbox" id="m-51docsoperationtroubleshootingfluentd-check">
+<label for="m-51docsoperationtroubleshootingfluentd-check"><a href="/5.1/docs/operation/troubleshooting/fluentd/" title="Troubleshooting Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationtroubleshootingfluentd"><span>Fluentd</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationtroubleshootingsyslog-ng-li">
+<input type="checkbox" id="m-51docsoperationtroubleshootingsyslog-ng-check">
+<label for="m-51docsoperationtroubleshootingsyslog-ng-check"><a href="/5.1/docs/operation/troubleshooting/syslog-ng/" title="Troubleshooting syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationtroubleshootingsyslog-ng"><span>syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationtroubleshootingkind-li">
+<input type="checkbox" id="m-51docsoperationtroubleshootingkind-check">
+<label for="m-51docsoperationtroubleshootingkind-check"><a href="/5.1/docs/operation/troubleshooting/kind/" title="Running on KinD" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationtroubleshootingkind"><span>KinD</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationlogging-operator-monitoring-li">
+<input type="checkbox" id="m-51docsoperationlogging-operator-monitoring-check">
+<label for="m-51docsoperationlogging-operator-monitoring-check"><a href="/5.1/docs/operation/logging-operator-monitoring/" title="Monitor your logging pipeline with Prometheus Operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationlogging-operator-monitoring"><span>Monitoring</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationalerting-li">
+<input type="checkbox" id="m-51docsoperationalerting-check">
+<label for="m-51docsoperationalerting-check"><a href="/5.1/docs/operation/alerting/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationalerting"><span>Alerting</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationreadiness-probe-li">
+<input type="checkbox" id="m-51docsoperationreadiness-probe-check">
+<label for="m-51docsoperationreadiness-probe-check"><a href="/5.1/docs/operation/readiness-probe/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationreadiness-probe"><span>Readiness probe</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationerror-output-li">
+<input type="checkbox" id="m-51docsoperationerror-output-check">
+<label for="m-51docsoperationerror-output-check"><a href="/5.1/docs/operation/error-output/" title="Collect Fluentd errors" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationerror-output"><span>Fluentd errors</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationoptimization-li">
+<input type="checkbox" id="m-51docsoperationoptimization-check">
+<label for="m-51docsoperationoptimization-check"><a href="/5.1/docs/operation/optimization/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationoptimization"><span>Optimization</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationscaling-li">
+<input type="checkbox" id="m-51docsoperationscaling-check">
+<label for="m-51docsoperationscaling-check"><a href="/5.1/docs/operation/scaling/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationscaling"><span>Scaling</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsoperationrequirements-li">
+<input type="checkbox" id="m-51docsoperationrequirements-check">
+<label for="m-51docsoperationrequirements-check"><a href="/5.1/docs/operation/requirements/" title="CPU and memory requirements" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsoperationrequirements"><span>Resource requirements</span></a></label>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsimage-versions-li">
+<input type="checkbox" id="m-51docsimage-versions-check">
+<label for="m-51docsimage-versions-check"><a href="/5.1/docs/image-versions/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsimage-versions"><span>Images used by Logging operator</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsdevelopers-li">
+<input type="checkbox" id="m-51docsdevelopers-check">
+<label for="m-51docsdevelopers-check"><a href="/5.1/docs/developers/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsdevelopers"><span>For developers</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docscommercial-support-li">
+<input type="checkbox" id="m-51docscommercial-support-check">
+<label for="m-51docscommercial-support-check"><a href="/5.1/docs/commercial-support/" title="Commercial support for the Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docscommercial-support"><span>Commercial support</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docsfaq-li">
+<input type="checkbox" id="m-51docsfaq-check">
+<label for="m-51docsfaq-check"><a href="/5.1/docs/faq/" title="Frequently asked questions" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docsfaq"><span>FAQ</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docslicense-li">
+<input type="checkbox" id="m-51docslicense-check">
+<label for="m-51docslicense-check"><a href="/5.1/docs/license/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docslicense"><span>License</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-51docscommunity-li">
+<input type="checkbox" id="m-51docscommunity-check">
+<label for="m-51docscommunity-check"><a href="/5.1/docs/community/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-51docscommunity"><span>Community</span></a></label>
+</li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/kube-logging/kube-logging.github.io/tree/master/content/docs/configuration/plugins/syslog-ng-filters/rewrite.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/edit/master/content/docs/configuration/plugins/syslog-ng-filters/rewrite.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/new/master/content/docs/configuration/plugins/syslog-ng-filters/rewrite.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+<a href="https://github.com/kube-logging/kube-logging.github.io/issues/new?title=Rewrite" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/kube-logging/logging-operator/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+<a id="print" href="https://kube-logging.dev/5.1/docs/configuration/plugins/syslog-ng-filters/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+</div><div class="td-toc">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#groupunset">Group unset</a></li><li><a href="#rename">Rename</a></li><li><a href="#set">Set</a></li><li><a href="#subst">Substitute (subst)</a></li><li><a href="#unset">Unset</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#rewriteconfig">RewriteConfig</a>
+<ul>
+<li><a href="#rewriteconfig-group_unset">group_unset (*GroupUnsetConfig, optional)</a></li><li><a href="#rewriteconfig-rename">rename (*RenameConfig, optional)</a></li><li><a href="#rewriteconfig-set">set (*SetConfig, optional)</a></li><li><a href="#rewriteconfig-subst">subst (*SubstituteConfig, optional)</a></li><li><a href="#rewriteconfig-unset">unset (*UnsetConfig, optional)</a></li></ul></li><li><a href="#renameconfig">RenameConfig</a>
+<ul>
+<li><a href="#renameconfig-condition">condition (*MatchExpr, optional)</a></li><li><a href="#renameconfig-newname">newName (string, required)</a></li><li><a href="#renameconfig-oldname">oldName (string, required)</a></li></ul></li><li><a href="#setconfig">SetConfig</a>
+<ul>
+<li><a href="#setconfig-condition">condition (*MatchExpr, optional)</a></li><li><a href="#setconfig-field">field (string, required)</a></li><li><a href="#setconfig-value">value (string, required)</a></li></ul></li><li><a href="#substituteconfig">SubstituteConfig</a>
+<ul>
+<li><a href="#substituteconfig-condition">condition (*MatchExpr, optional)</a></li><li><a href="#substituteconfig-field">field (string, required)</a></li><li><a href="#substituteconfig-flags">flags ([]string, optional)</a></li><li><a href="#substituteconfig-pattern">pattern (string, required)</a></li><li><a href="#substituteconfig-replace">replace (string, required)</a></li><li><a href="#substituteconfig-type">type (string, optional)</a></li></ul></li><li><a href="#unsetconfig">UnsetConfig</a>
+<ul>
+<li><a href="#unsetconfig-condition">condition (*MatchExpr, optional)</a></li><li><a href="#unsetconfig-field">field (string, required)</a></li></ul></li><li><a href="#groupunsetconfig">GroupUnsetConfig</a>
+<ul>
+<li><a href="#groupunsetconfig-condition">condition (*MatchExpr, optional)</a></li><li><a href="#groupunsetconfig-pattern">pattern (string, required)</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<nav aria-label="breadcrumb" class="td-breadcrumbs">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="https://kube-logging.dev/5.1/docs/">Logging operator</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/5.1/docs/configuration/">Routing logs</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/5.1/docs/configuration/plugins/">Supported Plugins</a>
+</li><li class="breadcrumb-item">
+<a href="https://kube-logging.dev/5.1/docs/configuration/plugins/syslog-ng-filters/">syslog-ng filters</a>
+</li><li class="breadcrumb-item active" aria-current="page">
+<a href="https://kube-logging.dev/5.1/docs/configuration/plugins/syslog-ng-filters/rewrite/" aria-disabled="true" class="btn-link disabled">Rewrite</a>
+</li></ol></nav><div class="td-content">
+<h1>Rewrite</h1><header class="article-meta">
+</header><p>Rewrite filters can be used to modify record contents. Logging operator currently supports the following rewrite functions:</p><ul>
+<li><a href="#groupunset">group_unset</a></li><li><a href="#rename">rename</a></li><li><a href="#set">set</a></li><li><a href="#subst">substitute</a></li><li><a href="#unset">unset</a></li></ul><blockquote>
+<p>Note: All rewrite functions support an optional <code>condition</code> which has the same syntax as the <a href="../match/">match filter</a>.</p></blockquote><p>For details on how rewrite rules work in syslog-ng, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="groupunset">Group unset</h2><p>The <code>group_unset</code> function removes from the record a group of fields matching a pattern.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">group_unset</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">pattern</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.annotations.*&#34;</span></span></span></code></pre></div><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="rename">Rename</h2><p>The <code>rename</code> function changes the name of an existing field name.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">rename</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">oldName</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.labels.app&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">newName</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.labels.app.kubernetes.io/name&#34;</span></span></span></code></pre></div><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-rename/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="set">Set</h2><p>The <code>set</code> function sets the value of a field.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">set</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">field</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.cluster&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">value</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;prod-us&#34;</span></span></span></code></pre></div><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="subst">Substitute (subst)</h2><p>The <code>subst</code> function replaces parts of a field with a replacement value based on a pattern.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">subst</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">pattern</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;\d\d\d\d-\d\d\d\d-\d\d\d\d-\d\d\d\d&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">replace</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;[redacted bank card number]&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">field</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;MESSAGE&#34;</span></span></span></code></pre></div><p>The function also supports the <code>type</code> and <code>flags</code> fields for specifying pattern type and flags as described in the <a href="../match/">match expression regexp function</a>.</p><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-replace/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="unset">Unset</h2><p>You can unset macros or fields of the message.</p><blockquote>
+<p>Note: Unsetting a field completely deletes any previous value of the field.</p></blockquote><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filters</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:700">rewrite</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">unset</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">field</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;json.kubernetes.cluster&#34;</span></span></span></code></pre></div><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h2 id="rewriteconfig">RewriteConfig</h2><h3 id="rewriteconfig-group_unset">group_unset (*GroupUnsetConfig, optional)</h3><h3 id="rewriteconfig-rename">rename (*RenameConfig, optional)</h3><h3 id="rewriteconfig-set">set (*SetConfig, optional)</h3><h3 id="rewriteconfig-subst">subst (*SubstituteConfig, optional)</h3><h3 id="rewriteconfig-unset">unset (*UnsetConfig, optional)</h3><h2 id="renameconfig">RenameConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-rename/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="renameconfig-condition">condition (*MatchExpr, optional)</h3><h3 id="renameconfig-newname">newName (string, required)</h3><h3 id="renameconfig-oldname">oldName (string, required)</h3><h2 id="setconfig">SetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="setconfig-condition">condition (*MatchExpr, optional)</h3><h3 id="setconfig-field">field (string, required)</h3><h3 id="setconfig-value">value (string, required)</h3><h2 id="substituteconfig">SubstituteConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-set/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="substituteconfig-condition">condition (*MatchExpr, optional)</h3><h3 id="substituteconfig-field">field (string, required)</h3><h3 id="substituteconfig-flags">flags ([]string, optional)</h3><h3 id="substituteconfig-pattern">pattern (string, required)</h3><h3 id="substituteconfig-replace">replace (string, required)</h3><h3 id="substituteconfig-type">type (string, optional)</h3><h2 id="unsetconfig">UnsetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="unsetconfig-condition">condition (*MatchExpr, optional)</h3><h3 id="unsetconfig-field">field (string, required)</h3><h2 id="groupunsetconfig">GroupUnsetConfig</h2><p>For details, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-manipulating-messages/modifying-messages/rewrite-unset/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h3 id="groupunsetconfig-condition">condition (*MatchExpr, optional)</h3><h3 id="groupunsetconfig-pattern">pattern (string, required)</h3><div class="text-muted mt-5 pt-3 border-top">
+Last modified February 25, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e25e1fbd8c9d9dd80f397bd0199720c66f21a85c">Merge pull request #273 from kube-logging/dependabot/github_actions/actions/setup-node-4.2.0 (e25e1fb)</a>
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023-2025 kube-logging authors | All Rights Reserved</small>
+</div></div></div></footer></div><script src="/5.1/js/main.min.93ea63f0578d626414d66b8633bc9a15385bf21359be725f5a534ffcc01d3c9e.js" integrity="sha256-k+pj8FeNYmQU1muGM7yaFThb8hNZvnJfWlNP/MAdPJ4=" crossorigin="anonymous"></script>
+<script src='/5.1/js/prism.js'></script>
+<script src='/5.1/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>
