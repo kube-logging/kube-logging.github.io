@@ -3,6 +3,13 @@ title: What's new
 weight: 50
 ---
 
+## Version 5.2
+
+The following are the highlights and main changes of Logging operator 5.2. For a complete list of changes and bugfixes, see the [Logging operator 5.2 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.2.0).
+
+You can now disable mounting the `/var/lib/docker/containers` volume using the `DisableVarLibDockerContainers` option in the `loggings` or `FluentbitAgent` CRD. This solves an installation error on GKE Autopilot.
+
+
 ## Version 5.1
 
 The following are the highlights and main changes of Logging operator 5.1. For a complete list of changes and bugfixes, see the [Logging operator 5.1 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.1.1).
