@@ -14,7 +14,7 @@ Logging operator uses the following image versions.
 | ghcr.io/kube-logging/fluentd-drain-watch | https://github.com/kube-logging/fluentd-drain-watch | v0.2.4 |
 | k8s.gcr.io/pause |  | 3.9 |
 | docker.io/busybox | https://github.com/docker-library/busybox | latest |
-| ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.9.0 |
+| ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.10.1 |
 | docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 3.2.5 |
 | ghcr.io/kube-logging/logging-operator/fluentd | ghcr.io/kube-logging/logging-operator/fluentd | 5.2.0-full |
 | ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.9 |
