@@ -16,7 +16,7 @@ Logging operator uses the following image versions.
 | docker.io/busybox | https://github.com/docker-library/busybox | latest |
 | ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.10.1 |
 | docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 3.2.5 |
-| ghcr.io/kube-logging/logging-operator/fluentd | ghcr.io/kube-logging/logging-operator/fluentd | 5.2.0-full |
+| ghcr.io/kube-logging/logging-operator/fluentd | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd | 5.2.0-full |
 | ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.9 |
 | ghcr.io/kube-logging/syslogng-reload | https://github.com/kube-logging/syslogng-reload-image | 5.2.0 |
 | ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/eventrouter | 0.4.0 |
