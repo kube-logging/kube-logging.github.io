@@ -9,6 +9,7 @@ The following are the highlights and main changes of Logging operator 5.2. For a
 
 You can now disable mounting the `/var/lib/docker/containers` volume using the `DisableVarLibDockerContainers` option in the `loggings` or `FluentbitAgent` CRD. This solves an installation error on GKE Autopilot.
 
+In this release we've moved `config-reloader` and `syslog-ng-reloader` into the Logging operator repository. From now on, we build these images from our repository (https://github.com/kube-logging/logging-operator/tree/master/images/) and their version numbering follows the version numbers of Logging operator.
 
 ## Version 5.1
 
