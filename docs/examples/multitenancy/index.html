@@ -22,11 +22,11 @@ Sample setup The following procedure creates two tenants (A and B) and their res
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/multitenancy/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-03-17T09:48:44+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-03-17T11:49:37+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Nodegroup-based multitenancy">
 <meta itemprop="description" content="Nodegroup-based multitenancy allows you to have multiple tenants (for example, different developer teams or customer environments) on the same cluster who can configure their own logging resources within their assigned namespaces residing on different node groups. These resources are isolated from the resources of the other tenants so the configuration issues and performance characteristics of one tenant doesn&rsquo;t affect the others.
 Sample setup The following procedure creates two tenants (A and B) and their respective namespaces on a two-node cluster.">
-<meta itemprop="dateModified" content="2025-03-17T09:48:44+00:00">
+<meta itemprop="dateModified" content="2025-03-17T11:49:37+01:00">
 <meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodegroup-based multitenancy">
@@ -614,7 +614,7 @@ These resources are isolated from the resources of the other tenants so the conf
 <p>Check logs coming from both tenants <code>kubectl logs -f -n infra svc/test-receiver</code></p><p>Expected output should show logs from both tenants</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_a: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.157810965, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;15.238.250.48 - - [29/Sep/2023:14:54:38 +0000] &#34;</span>PUT /pro...
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">[</span>0<span style="color:#ce5c00;font-weight:700">]</span> tenant_b: <span style="color:#ce5c00;font-weight:700">[[</span>1695999280.160868923, <span style="color:#ce5c00;font-weight:700">{}]</span>, <span style="color:#ce5c00;font-weight:700">{</span><span style="color:#4e9a06">&#34;log&#34;</span><span style="color:#ce5c00;font-weight:700">=</span>&gt;<span style="color:#4e9a06">&#34;252.201.89.36 - - [29/Sep/2023:14:54:33 +0000] &#34;</span>POST /bl...
 </span></span></code></pre></div></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified March 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/620efa35db69de6531a08d2c6de519e6b4a3e325">Merge f4fae81719c7186b35a530bf3ed13b2cd18f81a5 into 1bf3a355782e2f2791b963ab33766df73fb00cbd (620efa3)</a>
+Last modified March 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/9560124bbaef255dedba77b1218b2fbc4d7eb93f">Merge pull request #281 from kube-logging/dependabot/github_actions/actions/setup-node-4.3.0 (9560124)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
