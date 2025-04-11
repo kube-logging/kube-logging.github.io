@@ -74,7 +74,7 @@ For more details on installing the Prometheus operator and configuring and acces
     > The logging-operator metrics function depends on the prometheus-operator's resources.
     > If those do not exist in the cluster it may cause the logging-operator's malfunction.
 
-## Install Logging Operator with Helm
+## Install Logging operator with Helm
 
 1. {{< include-headless "helm-install-logging-operator.md" >}}
 

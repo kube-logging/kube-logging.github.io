@@ -1,5 +1,5 @@
 ---
-title: Store Nginx Access Logs in Amazon CloudWatch with Logging Operator
+title: Store Nginx Access Logs in Amazon CloudWatch with Logging operator
 linktitle: Amazon CloudWatch with Fluentd
 weight: 100
 aliases:
