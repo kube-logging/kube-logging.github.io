@@ -17,6 +17,7 @@ Available routing metadata keys:
 | Name | Type | Description | Empty |
 |------|------|-------------|-------|
 | namespaces | []string | List of matching namespaces | All namespaces |
+| namespaces_regex | []string | List of matching ruby regex for namespaces | All namespaces |
 | labels | map[string]string | Key - Value pairs of labels | All labels |
 | hosts | []string | List of matching hosts | All hosts |
 | container_names | []string | List of matching containers (not Pods) | All containers |
@@ -25,7 +26,7 @@ Available routing metadata keys:
 
 To select or exclude logs you can use the `match` statement. Match is a collection
 of `select` and `exclude` expressions. In both expression you can use the `labels`
-attribute to filter for pod's labels. Moreover, in Cluster flow you can use `namespaces`
+attribute to filter for pod's labels. Moreover, in Cluster flow you can use `namespaces` and `namespaces_regex`
 as a selecting or excluding criteria.
 
 If you specify more than one label in a `select` or `exclude` expression, the labels have a logical AND connection between them. For example, an `exclude` expression with two labels excludes messages that have both labels. If you want an OR connection between labels, list them in separate expressions. For example, to exclude messages that have one of two specified labels, create a separate `exclude` expression for each label.
@@ -133,7 +134,7 @@ Exclude logs with `app: nginx` labels from the namespace
 
 ### Example 3. Exclude and select logs by label
 
-Select logs with `app: nginx` labels from the `default` namespace but exclude logs with `env: dev` labels 
+Select logs with `app: nginx` labels from the `default` namespace but exclude logs with `env: dev` labels
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -155,7 +156,7 @@ Select logs with `app: nginx` labels from the `default` namespace but exclude lo
 
 ### Example 4. Exclude cluster logs by namespace
 
-Select `app: nginx` from all namespaces except from `dev` and `sandbox` 
+Select `app: nginx` from all namespaces except from `dev` and `sandbox`
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -175,9 +176,30 @@ Select `app: nginx` from all namespaces except from `dev` and `sandbox`
             app: nginx
   ```
 
-### Example 5. Exclude and select cluster logs by namespace
+### Example 5. Exclude cluster logs by ruby regex namespace
 
-Select `app: nginx` from all `prod` and `infra` namespaces but exclude cluster logs from  `dev`, `sandbox` namespaces 
+Select `app: nginx` from all namespaces except from those ending with `-dev`
+
+  ```yaml
+  apiVersion: logging.banzaicloud.io/v1beta1
+  kind: ClusterFlow
+  metadata:
+    name: clusterflow-sample
+  spec:
+    globalOutputRefs:
+      - forward-output-sample
+    match:
+      - exclude:
+          namespaces_regex:
+            - .*-dev$
+      - select:
+          labels:
+            app: nginx
+  ```
+
+### Example 5. Exclude and select cluster logs by namespace and ruby regex
+
+Select `app: nginx` from `infra` namespace and all namespaces starting with `prod-` but exclude cluster logs from `sandbox` namespace and all namespaces starting with `dev-`,
 
   ```yaml
   apiVersion: logging.banzaicloud.io/v1beta1
@@ -190,14 +212,16 @@ Select `app: nginx` from all `prod` and `infra` namespaces but exclude cluster l
     match:
       - exclude:
           namespaces:
-            - dev
             - sandbox
+          namespaces_regex:
+            - ^dev-.*
       - select:
           labels:
             app: nginx
           namespaces:
-            - prod
             - infra
+          namespaces_regex:
+            - ^prod-.*
   ```
 
 ### Example 6. Multiple labels - AND
