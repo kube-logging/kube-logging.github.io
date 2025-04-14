@@ -11,7 +11,7 @@ aliases:
 
 In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when `fluentd` cannot handle its [buffer](../../configuration/plugins/outputs/buffer/) directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can [scale the fluentd statefulset]({{< relref "../logging-infrastructure/fluentd.md#scaling" >}}).
 
-The Logging Operator supports scaling a **Fluentd aggregator** statefulset up and down. Scaling statefulset pods down is challenging, because we need to take care of the underlying volumes with buffered data that hasn't been sent, but the Logging Operator supports that use case as well.
+The Logging operator supports scaling a **Fluentd aggregator** statefulset up and down. Scaling statefulset pods down is challenging, because we need to take care of the underlying volumes with buffered data that hasn't been sent, but the Logging operator supports that use case as well.
 
 The details for that and how to configure an HPA is described in the following documents:
 - https://github.com/kube-logging/logging-operator/blob/master/docs/volume-drainer.md

@@ -34,7 +34,7 @@ The following tips and commands can help you to troubleshoot your Logging operat
     logging-demo-log-generator-6448d45cd9-z7zk8   1/1     Running     0          24m
     ```
 
-1. Check the status of your resources. Beginning with Logging Operator 3.8, all custom resources have a `Status` and a `Problems` field. In a healthy system, the Problems field of the resources is empty, for example:
+1. Check the status of your resources. Beginning with Logging operator 3.8, all custom resources have a `Status` and a `Problems` field. In a healthy system, the Problems field of the resources is empty, for example:
 
     ```bash
     kubectl get clusteroutput -A

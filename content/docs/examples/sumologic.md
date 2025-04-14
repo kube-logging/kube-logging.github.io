@@ -6,7 +6,7 @@ aliases:
     - /docs/one-eye/logging-operator/quickstarts/sumologic/
 ---
 
-This guide walks you through a simple Sumo Logic setup using the Logging Operator.
+This guide walks you through a simple Sumo Logic setup using the Logging operator.
 Sumo Logic has Prometheus and logging capabilities as well. Now we only focus on the logging part.
 
 ## Configuration
