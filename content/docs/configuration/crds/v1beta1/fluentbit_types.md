@@ -50,7 +50,7 @@ FluentbitSpec defines the desired state of FluentbitAgent
 
 ### bufferStorageVolume (volume.KubernetesVolume, optional) {#fluentbitspec-bufferstoragevolume}
 
-[volume.KubernetesVolume](https://github.com/cisco-open/operator-tools/tree/master/docs/types) 
+[volume.KubernetesVolume](https://github.com/cisco-open/operator-tools/tree/master/docs/types)
 
 
 ### bufferVolumeArgs ([]string, optional) {#fluentbitspec-buffervolumeargs}
@@ -73,7 +73,7 @@ FluentbitSpec defines the desired state of FluentbitAgent
 
 ### coroStackSize (int32, optional) {#fluentbitspec-corostacksize}
 
-Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don't set too small value (say 4096), or coroutine threads can overrun the stack buffer. Do not change the default value of this parameter unless you know what you are doing. (default: 24576) 
+Set the coroutines stack size in bytes. The value must be greater than the page size of the running system. Don't set too small value (say 4096), or coroutine threads can overrun the stack buffer. Do not change the default value of this parameter unless you know what you are doing. (default: 24576)
 
 Default: 24576
 
@@ -122,12 +122,12 @@ spec:
 
 ### disableKubernetesFilter (*bool, optional) {#fluentbitspec-disablekubernetesfilter}
 
-Disable Kubernetes metadata filter 
+Disable Kubernetes metadata filter
 
 
 ### disableVarLibDockerContainers (*bool, optional) {#fluentbitspec-disablevarlibdockercontainers}
 
-DisableVarLibDockerContainers controls whether the /var/lib/docker/containers volume is mounted. If true, the volume is NOT mounted. If false (default), the volume is mounted. 
+DisableVarLibDockerContainers controls whether the /var/lib/docker/containers volume is mounted. If true, the volume is NOT mounted. If false (default), the volume is mounted.
 
 
 ### enableUpstream (bool, optional) {#fluentbitspec-enableupstream}
@@ -145,9 +145,12 @@ DisableVarLibDockerContainers controls whether the /var/lib/docker/containers vo
 ### filterAws (*FilterAws, optional) {#fluentbitspec-filteraws}
 
 
+### filterGrep (*FilterGrep, optional) {#fluentbitspec-filtergrep}
+
+
 ### filterKubernetes (FilterKubernetes, optional) {#fluentbitspec-filterkubernetes}
 
-Parameters for Kubernetes metadata filter 
+Parameters for Kubernetes metadata filter
 
 
 ### filterModify ([]FilterModify, optional) {#fluentbitspec-filtermodify}
@@ -155,13 +158,13 @@ Parameters for Kubernetes metadata filter
 
 ### flush (int32, optional) {#fluentbitspec-flush}
 
-Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1) 
+Set the flush time in seconds.nanoseconds. The engine loop uses a Flush timeout to define when is required to flush the records ingested by input plugins through the defined output plugins. (default: 1)
 
 Default: 1
 
 ### forceHotReloadAfterGrace (bool, optional) {#fluentbitspec-forcehotreloadaftergrace}
 
-HotReload pauses all inputs and waits until they finish. In certain situations this is unacceptable, for example, if an output is down for a longer time. An undocumented option called "Hot_Reload.Ensure_Thread_Safety Off" can be used at the [SERVICE] config to force hotreload after the grace period. Note that it might result in a SIGSEGV, but worst case kubelet will restart the container. See https://github.com/fluent/fluent-bit/pull/7509 
+HotReload pauses all inputs and waits until they finish. In certain situations this is unacceptable, for example if an output is down for a longer time. An undocumented option called "Hot_Reload.Ensure_Thread_Safety Off" can be used at the [SERVICE] config to force hotreload after the grace period. Please note that it might result in a SIGSEGV, but worst case kubelet will restart the container. See https://github.com/fluent/fluent-bit/pull/7509
 
 
 ### forwardOptions (*ForwardOptions, optional) {#fluentbitspec-forwardoptions}
@@ -198,7 +201,7 @@ Available in Logging operator version 4.4 and later.
 
 ### logLevel (string, optional) {#fluentbitspec-loglevel}
 
-Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled. 
+Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled.
 
 Default: info
 
@@ -219,7 +222,7 @@ Default: info
 
 ### parser (string, optional) {#fluentbitspec-parser}
 
-Deprecated, use inputTail.parser 
+Deprecated, use inputTail.parser
 
 
 ### podPriorityClassName (string, optional) {#fluentbitspec-podpriorityclassname}
@@ -227,7 +230,7 @@ Deprecated, use inputTail.parser
 
 ### position_db (*volume.KubernetesVolume, optional) {#fluentbitspec-position_db}
 
-Deprecated, use positiondb 
+Deprecated, use positiondb
 
 
 ### positiondb (volume.KubernetesVolume, optional) {#fluentbitspec-positiondb}
@@ -299,7 +302,7 @@ Default: ts
 
 ### Retry_Limit (string, optional) {#fluentbittcpoutput-retry_limit}
 
-Available in Logging operator version 4.8 and later. 
+Available in Logging operator version 4.8 and later.
 
 
 ### Workers (*int, optional) {#fluentbittcpoutput-workers}
@@ -391,7 +394,7 @@ Default: Off
 
 ### storage.delete_irrecoverable_chunks (string, optional) {#bufferstorage-storage.delete_irrecoverable_chunks}
 
-When enabled, irrecoverable chunks will be deleted during runtime, and any other irrecoverable chunk located in the configured storage path directory will be deleted when Fluent Bit starts.
+When enabled, irrecoverable chunks will be deleted during runtime, and any other irrecoverable chunk located in the configured storage path directory will be deleted when Fluent-Bit starts.
 
 Default: Off
 
@@ -409,7 +412,7 @@ Default: Off
 
 ### storage.path (string, optional) {#bufferstorage-storage.path}
 
-Set an optional location in the file system to store streams and chunks of data. If this parameter is not set, Input plugins can only use in-memory buffering. 
+Set an optional location in the file system to store streams and chunks of data. If this parameter is not set, Input plugins can only use in-memory buffering.
 
 
 ### storage.sync (string, optional) {#bufferstorage-storage.sync}
@@ -471,7 +474,7 @@ Default: Buffer_Chunk_Size
 
 ### DB (*string, optional) {#inputtail-db}
 
-Specify the database file to keep track of monitored files and offsets. 
+Specify the database file to keep track of monitored files and offsets.
 
 
 ### DB.journal_mode (string, optional) {#inputtail-db.journal_mode}
@@ -506,17 +509,17 @@ Default: 4
 
 ### Docker_Mode_Parser (string, optional) {#inputtail-docker_mode_parser}
 
-Specify an optional parser for the first line of the docker multiline mode. 
+Specify an optional parser for the first line of the docker multiline mode.
 
 
 ### Exclude_Path (string, optional) {#inputtail-exclude_path}
 
-Set one or multiple shell patterns separated by commas to exclude files matching a certain criteria, e.g: exclude_path=*.gz,*.zip 
+Set one or multiple shell patterns separated by commas to exclude files matching a certain criteria, e.g: exclude_path=*.gz,*.zip
 
 
 ### Ignore_Older (string, optional) {#inputtail-ignore_older}
 
-Ignores files that have been last modified before this time in seconds. Supports m,h,d (minutes, hours,days) syntax. Default behavior is to read all specified files. 
+Ignores files that have been last modified before this time in seconds. Supports m,h,d (minutes, hours,days) syntax. Default behavior is to read all specified files.
 
 
 ### Key (string, optional) {#inputtail-key}
@@ -527,7 +530,7 @@ Default: log
 
 ### Mem_Buf_Limit (string, optional) {#inputtail-mem_buf_limit}
 
-Set a limit of memory that Tail plugin can use when appending data to the Engine. If the limit is reach, it will be paused; when the data is flushed it resumes. 
+Set a limit of memory that Tail plugin can use when appending data to the Engine. If the limit is reach, it will be paused; when the data is flushed it resumes.
 
 
 ### Multiline (string, optional) {#inputtail-multiline}
@@ -550,32 +553,32 @@ Default: ""
 
 ### Parser (string, optional) {#inputtail-parser}
 
-Specify the name of a parser to interpret the entry as a structured message. 
+Specify the name of a parser to interpret the entry as a structured message.
 
 
 ### Parser_Firstline (string, optional) {#inputtail-parser_firstline}
 
-Name of the parser that machs the beginning of a multiline message. Note that the regular expression defined in the parser must include a group name (named capture) 
+Name of the parser that machs the beginning of a multiline message. Note that the regular expression defined in the parser must include a group name (named capture)
 
 
 ### Parser_N ([]string, optional) {#inputtail-parser_n}
 
-Optional-extra parser to interpret and structure multiline entries. This option can be used to define multiple parsers, e.g: Parser_1 ab1,  Parser_2 ab2, Parser_N abN. 
+Optional-extra parser to interpret and structure multiline entries. This option can be used to define multiple parsers, e.g: Parser_1 ab1,  Parser_2 ab2, Parser_N abN.
 
 
 ### Path (string, optional) {#inputtail-path}
 
-Pattern specifying a specific log files or multiple ones through the use of common wildcards. 
+Pattern specifying a specific log files or multiple ones through the use of common wildcards.
 
 
 ### Path_Key (string, optional) {#inputtail-path_key}
 
-If enabled, it appends the name of the monitored file as part of the record. The value assigned becomes the key in the map. 
+If enabled, it appends the name of the monitored file as part of the record. The value assigned becomes the key in the map.
 
 
 ### Read_From_Head (bool, optional) {#inputtail-read_from_head}
 
-For new discovered files on start (without a database offset/position), read the content from the head of the file, not tail. 
+For new discovered files on start (without a database offset/position), read the content from the head of the file, not tail.
 
 
 ### Refresh_Interval (string, optional) {#inputtail-refresh_interval}
@@ -598,7 +601,7 @@ Default: Off
 
 ### storage.pause_on_chunks_overlimit (string, optional) {#inputtail-storage.pause_on_chunks_overlimit}
 
-Specifies whether to pause or drop data when the buffer is full. This helps to make sure we apply backpressure on the input if enabled, see https://docs.fluentbit.io/manual/administration/backpressure
+Specifies whether to pause or drop data when the buffer is full.  This helps to make sure we apply backpressure on the input if enabled, see https://docs.fluentbit.io/manual/administration/backpressure
 
 Default: on
 
@@ -610,12 +613,12 @@ Default: memory
 
 ### Tag (string, optional) {#inputtail-tag}
 
-Set a tag (with regex-extract fields) that will be placed on lines read. 
+Set a tag (with regex-extract fields) that will be placed on lines read.
 
 
 ### Tag_Regex (string, optional) {#inputtail-tag_regex}
 
-Set a regex to extract fields from the file. 
+Set a regex to extract fields from the file.
 
 
 
@@ -631,9 +634,9 @@ Default: On
 
 ### Buffer_Size (string, optional) {#filterkubernetes-buffer_size}
 
-Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. A value of 0 results in no limit, and the buffer will expand as-needed. Note that if pod specifications exceed the buffer limit, the API response will be discarded when retrieving metadata, and some kubernetes metadata will fail to be injected to the logs. If this value is empty we will set it "0".
+Set the buffer size for HTTP client when reading responses from Kubernetes API server. The value must be according to the Unit Size specification. A value of 0 results in no limit, and the buffer will expand as-needed. Note that if pod specifications exceed the buffer limit, the API response will be discarded when retrieving metadata, and some kubernetes metadata will fail to be injected to the logs. If this value is empty we will set it "0". (default:"0")
 
-Default: "0"
+Default: 0
 
 ### Cache_Use_Docker_Id (string, optional) {#filterkubernetes-cache_use_docker_id}
 
@@ -679,13 +682,13 @@ Default: On
 
 ### Kube_CA_File (string, optional) {#filterkubernetes-kube_ca_file}
 
-CA certificate file (default:/var/run/secrets/kubernetes.io/serviceaccount/ca.crt) 
+CA certificate file (default:/var/run/secrets/kubernetes.io/serviceaccount/ca.crt)
 
 Default: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
 ### Kube_CA_Path (string, optional) {#filterkubernetes-kube_ca_path}
 
-Absolute path to scan for certificate files 
+Absolute path to scan for certificate files
 
 
 ### Kube_Meta_Cache_TTL (string, optional) {#filterkubernetes-kube_meta_cache_ttl}
@@ -696,32 +699,32 @@ Default: 0
 
 ### Kube_meta_preload_cache_dir (string, optional) {#filterkubernetes-kube_meta_preload_cache_dir}
 
-If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta 
+If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta
 
 
 ### Kube_Tag_Prefix (string, optional) {#filterkubernetes-kube_tag_prefix}
 
-When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration. (default:kube.var.log.containers.) 
+When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration. (default:kube.var.log.containers.)
 
 Default: kubernetes.var.log.containers
 
 ### Kube_Token_File (string, optional) {#filterkubernetes-kube_token_file}
 
-Token file  (default:/var/run/secrets/kubernetes.io/serviceaccount/token) 
+Token file  (default:/var/run/secrets/kubernetes.io/serviceaccount/token)
 
 Default: /var/run/secrets/kubernetes.io/serviceaccount/token
 
 ### Kube_Token_TTL (string, optional) {#filterkubernetes-kube_token_ttl}
 
-Token TTL configurable 'time to live' for the K8s token. By default, it is set to 600 seconds. After this time, the token is reloaded from Kube_Token_File or the Kube_Token_Command.  (default:"600") 
+Token TTL configurable 'time to live' for the K8s token. By default, it is set to 600 seconds. After this time, the token is reloaded from Kube_Token_File or the Kube_Token_Command.  (default:"600")
 
 Default: 600
 
 ### Kube_URL (string, optional) {#filterkubernetes-kube_url}
 
-API Server end-point. 
+API Server end-point.
 
-Default: `https://kubernetes.default.svc:443`
+Default: https://kubernetes.default.svc:443
 
 ### Kubelet_Port (string, optional) {#filterkubernetes-kubelet_port}
 
@@ -737,19 +740,19 @@ Default: On
 
 ### Match (string, optional) {#filterkubernetes-match}
 
-Match filtered records (default:kube.*) 
+Match filtered records (default:kube.*)
 
 Default: kubernetes.*
 
 ### Merge_Log (string, optional) {#filterkubernetes-merge_log}
 
-When enabled, it checks if the log field content is a JSON string map, if so, it append the map fields as part of the log structure. (default:Off) 
+When enabled, it checks if the log field content is a JSON string map, if so, it append the map fields as part of the log structure. (default:Off)
 
 Default: On
 
 ### Merge_Log_Key (string, optional) {#filterkubernetes-merge_log_key}
 
-When Merge_Log is enabled, the filter tries to assume the log field from the incoming message is a JSON string message and make a structured representation of it at the same level of the log field in the map. Now if Merge_Log_Key is set (a string name), all the new structured fields taken from the original log content are inserted under the new key. 
+When Merge_Log is enabled, the filter tries to assume the log field from the incoming message is a JSON string message and make a structured representation of it at the same level of the log field in the map. Now if Merge_Log_Key is set (a string name), all the new structured fields taken from the original log content are inserted under the new key.
 
 
 ### Merge_Log_Trim (string, optional) {#filterkubernetes-merge_log_trim}
@@ -760,28 +763,28 @@ Default: On
 
 ### Merge_Parser (string, optional) {#filterkubernetes-merge_parser}
 
-Optional parser name to specify how to parse the data contained in the log key. Recommended use is for developers or testing only. 
+Optional parser name to specify how to parse the data contained in the log key. Recommended use is for developers or testing only.
 
 
 ### namespace_annotations (string, optional) {#filterkubernetes-namespace_annotations}
 
-Include Kubernetes namespace annotations on every record 
+Include Kubernetes namespace annotations on every record
 
 
 ### kube_meta_namespace_cache_ttl (string, optional) {#filterkubernetes-kube_meta_namespace_cache_ttl}
 
-Configurable TTL for K8s cached namespace metadata. (15m) 
+Configurable TTL for K8s cached namespace metadata. (15m)
 
 
 ### namespace_labels (string, optional) {#filterkubernetes-namespace_labels}
 
-Include Kubernetes namespace labels on every record 
+Include Kubernetes namespace labels on every record
 
 Default: On
 
 ### Regex_Parser (string, optional) {#filterkubernetes-regex_parser}
 
-Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. The parser must be registered in a parsers file (refer to parser filter-kube-test as an example). 
+Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. The parser must be registered in a parsers file (refer to parser filter-kube-test as an example).
 
 
 ### tls.debug (string, optional) {#filterkubernetes-tls.debug}
@@ -815,63 +818,89 @@ FilterAws The AWS Filter Enriches logs with AWS Metadata.
 
 ### az (*bool, optional) {#filteraws-az}
 
-The availability zone (default:true). 
+The availability zone (default:true).
 
 Default: true
 
 ### account_id (*bool, optional) {#filteraws-account_id}
 
-The account ID for current EC2 instance. (default:false) 
+The account ID for current EC2 instance. (default:false)
 
 Default: false
 
 ### ami_id (*bool, optional) {#filteraws-ami_id}
 
-The EC2 instance image id. (default:false) 
+The EC2 instance image id. (default:false)
 
 Default: false
 
 ### ec2_instance_id (*bool, optional) {#filteraws-ec2_instance_id}
 
-The EC2 instance ID. (default:true) 
+The EC2 instance ID. (default:true)
 
 Default: true
 
 ### ec2_instance_type (*bool, optional) {#filteraws-ec2_instance_type}
 
-The EC2 instance type. (default:false) 
+The EC2 instance type. (default:false)
 
 Default: false
 
 ### hostname (*bool, optional) {#filteraws-hostname}
 
-The hostname for current EC2 instance. (default:false) 
+The hostname for current EC2 instance. (default:false)
 
 Default: false
 
 ### imds_version (string, optional) {#filteraws-imds_version}
 
-Specify which version of the instance metadata service to use. Valid values are 'v1' or 'v2' (default). 
+Specify which version of the instance metadata service to use. Valid values are 'v1' or 'v2' (default).
 
 Default: v2
 
 ### Match (string, optional) {#filteraws-match}
 
-Match filtered records (default:*) 
+Match filtered records (default:*)
 
 Default: *
 
 ### private_ip (*bool, optional) {#filteraws-private_ip}
 
-The EC2 instance private ip. (default:false) 
+The EC2 instance private ip. (default:false)
 
 Default: false
 
 ### vpc_id (*bool, optional) {#filteraws-vpc_id}
 
-The VPC ID for current EC2 instance. (default:false) 
+The VPC ID for current EC2 instance. (default:false)
 
 Default: false
+
+
+## FilterGrep
+
+FilterGrep The Grep Filter plugin
+
+### Exclude ([]string, optional) {#filtergrep-exclude}
+
+Exclude records where the content of KEY matches the regular expression.
+
+
+### LogicalOp (string, optional) {#filtergrep-logicalop}
+
+Specify a logical operator: AND, OR or legacy (default). In legacy mode the behavior is either AND or OR depending on whether the grep is including (uses AND) or excluding (uses OR). Available from 2.1 or higher. Default: "legacy"
+
+
+### Match (string, optional) {#filtergrep-match}
+
+Match filtered records (default:*)
+
+Default: *
+
+### Regex ([]string, optional) {#filtergrep-regex}
+
+Keep records where the content of KEY matches the regular expression.
+
 
 
 ## FilterModify
@@ -880,12 +909,12 @@ FilterModify The Modify Filter plugin allows you to change records using rules a
 
 ### conditions ([]FilterModifyCondition, optional) {#filtermodify-conditions}
 
-FluentbitAgent Filter Modification Condition 
+FluentbitAgent Filter Modification Condition
 
 
 ### rules ([]FilterModifyRule, optional) {#filtermodify-rules}
 
-FluentbitAgent Filter Modification Rule 
+FluentbitAgent Filter Modification Rule
 
 
 
@@ -895,47 +924,47 @@ FilterModifyRule The Modify Filter plugin allows you to change records using rul
 
 ### Add (*FilterKeyValue, optional) {#filtermodifyrule-add}
 
-Add a key/value pair with key KEY and value VALUE if KEY does not exist 
+Add a key/value pair with key KEY and value VALUE if KEY does not exist
 
 
 ### Copy (*FilterKeyValue, optional) {#filtermodifyrule-copy}
 
-Copy a key/value pair with key KEY to COPIED_KEY if KEY exists AND COPIED_KEY does not exist 
+Copy a key/value pair with key KEY to COPIED_KEY if KEY exists AND COPIED_KEY does not exist
 
 
 ### Hard_copy (*FilterKeyValue, optional) {#filtermodifyrule-hard_copy}
 
-Copy a key/value pair with key KEY to COPIED_KEY if KEY exists. If COPIED_KEY already exists, this field is overwritten 
+Copy a key/value pair with key KEY to COPIED_KEY if KEY exists. If COPIED_KEY already exists, this field is overwritten
 
 
 ### Hard_rename (*FilterKeyValue, optional) {#filtermodifyrule-hard_rename}
 
-Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists. If RENAMED_KEY already exists, this field is overwritten 
+Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists. If RENAMED_KEY already exists, this field is overwritten
 
 
 ### Remove (*FilterKey, optional) {#filtermodifyrule-remove}
 
-Remove a key/value pair with key KEY if it exists 
+Remove a key/value pair with key KEY if it exists
 
 
 ### Remove_regex (*FilterKey, optional) {#filtermodifyrule-remove_regex}
 
-Remove all key/value pairs with key matching regexp KEY 
+Remove all key/value pairs with key matching regexp KEY
 
 
 ### Remove_wildcard (*FilterKey, optional) {#filtermodifyrule-remove_wildcard}
 
-Remove all key/value pairs with key matching wildcard KEY 
+Remove all key/value pairs with key matching wildcard KEY
 
 
 ### Rename (*FilterKeyValue, optional) {#filtermodifyrule-rename}
 
-Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists AND RENAMED_KEY does not exist 
+Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists AND RENAMED_KEY does not exist
 
 
 ### Set (*FilterKeyValue, optional) {#filtermodifyrule-set}
 
-Add a key/value pair with key KEY and value VALUE. If KEY already exists, this field is overwritten 
+Add a key/value pair with key KEY and value VALUE. If KEY already exists, this field is overwritten
 
 
 
@@ -945,52 +974,52 @@ FilterModifyCondition The Modify Filter plugin allows you to change records usin
 
 ### A_key_matches (*FilterKey, optional) {#filtermodifycondition-a_key_matches}
 
-Is true if a key matches regex KEY 
+Is true if a key matches regex KEY
 
 
 ### Key_does_not_exist (*FilterKeyValue, optional) {#filtermodifycondition-key_does_not_exist}
 
-Is true if KEY does not exist 
+Is true if KEY does not exist
 
 
 ### Key_exists (*FilterKey, optional) {#filtermodifycondition-key_exists}
 
-Is true if KEY exists 
+Is true if KEY exists
 
 
 ### Key_value_does_not_equal (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_equal}
 
-Is true if KEY exists and its value is not VALUE 
+Is true if KEY exists and its value is not VALUE
 
 
 ### Key_value_does_not_match (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_match}
 
-Is true if key KEY exists and its value does not match VALUE 
+Is true if key KEY exists and its value does not match VALUE
 
 
 ### Key_value_equals (*FilterKeyValue, optional) {#filtermodifycondition-key_value_equals}
 
-Is true if KEY exists and its value is VALUE 
+Is true if KEY exists and its value is VALUE
 
 
 ### Key_value_matches (*FilterKeyValue, optional) {#filtermodifycondition-key_value_matches}
 
-Is true if key KEY exists and its value matches VALUE 
+Is true if key KEY exists and its value matches VALUE
 
 
 ### Matching_keys_do_not_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_do_not_have_matching_values}
 
-Is true if all keys matching KEY have values that do not match VALUE 
+Is true if all keys matching KEY have values that do not match VALUE
 
 
 ### Matching_keys_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_have_matching_values}
 
-Is true if all keys matching KEY have values that match VALUE 
+Is true if all keys matching KEY have values that match VALUE
 
 
 ### No_key_matches (*FilterKey, optional) {#filtermodifycondition-no_key_matches}
 
-Is true if no key matches regex KEY 
+Is true if no key matches regex KEY
 
 
 
@@ -1029,12 +1058,12 @@ VolumeMount defines source and destination folders of a hostPath type pod mount
 
 ### destination (string, required) {#volumemount-destination}
 
-Destination Folder 
+Destination Folder
 
 
 ### readOnly (*bool, optional) {#volumemount-readonly}
 
-Mount Mode 
+Mount Mode
 
 
 ### source (string, required) {#volumemount-source}
@@ -1058,7 +1087,7 @@ ForwardOptions defines custom forward output plugin options, see https://docs.fl
 
 ### storage.total_limit_size (string, optional) {#forwardoptions-storage.total_limit_size}
 
-`storage.total_limit_size` Limit the maximum number of Chunks in the filesystem for the current output logical destination. 
+`storage.total_limit_size` Limit the maximum number of Chunks in the filesystem for the current output logical destination.
 
 
 ### Tag (string, optional) {#forwardoptions-tag}
@@ -1069,7 +1098,4 @@ ForwardOptions defines custom forward output plugin options, see https://docs.fl
 
 ### Workers (*int, optional) {#forwardoptions-workers}
 
-Available in Logging operator version 4.4 and later. Enables dedicated thread(s) for this output. Default value (2) is set since version 1.8.13. For previous versions is 0. 
-
-
-
+Available in Logging operator version 4.4 and later. Enables dedicated thread(s) for this output. Default value (2) is set since version 1.8.13. For previous versions is 0.
