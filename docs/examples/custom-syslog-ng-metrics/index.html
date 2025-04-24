@@ -26,13 +26,13 @@ Source metrics Custom source metrics are added to the messages after the JSON pa
 kind: Logging apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: logging spec: controlNamespace: default fluentbit: {} syslogNG: metrics: {} sourceMetrics: - key: custom_input labels: test: my-label-value This corresponds to the following syslog-ng configuration:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/custom-syslog-ng-metrics/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-04-14T12:33:22+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-04-24T15:48:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Custom source and output metrics">
 <meta itemprop="description" content="When using syslog-ng as the log aggregator, you can create custom log metrics for sources and outputs, based on the metrics-probe() parser.
 Available in Logging operator version 4.5 and later.
 Source metrics Custom source metrics are added to the messages after the JSON parsing is completed. The following example adds the key called custom_input:
 kind: Logging apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: logging spec: controlNamespace: default fluentbit: {} syslogNG: metrics: {} sourceMetrics: - key: custom_input labels: test: my-label-value This corresponds to the following syslog-ng configuration:">
-<meta itemprop="dateModified" content="2025-04-14T12:33:22+02:00">
+<meta itemprop="dateModified" content="2025-04-24T15:48:59+02:00">
 <meta itemprop="wordCount" content="278">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Custom source and output metrics">
@@ -676,7 +676,7 @@ Releases
 </span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all1&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;local&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">42</span>
 </span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all2&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http2&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;global&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">154</span>
 </span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 14, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7b87d1b4dde4da3efeae59353aa5be82d9ab7dca">Merge pull request #284 from kube-logging/dependabot/github_actions/actions/setup-node-4.4.0 (7b87d1b)</a>
+Last modified April 24, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c1aad42ea4abf28ed142e828c3c3c886e163be3e">Merge pull request #285 from joseacl/issue-2012 (c1aad42)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

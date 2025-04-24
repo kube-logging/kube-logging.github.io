@@ -24,13 +24,13 @@ Logging operator uses Fluent Bit as a log collector agent: Logging operator depl
 Ways to configure Fluent Bit There are three ways to configure the Fluent Bit daemonset:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentbit/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-04-14T12:33:22+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-04-24T15:48:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Fluent Bit log collector">
 <meta itemprop="description" content="Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
 Logging operator uses Fluent Bit as a log collector agent: Logging operator deploys Fluent Bit to your Kubernetes nodes where it collects and enriches the local logs and transfers them to a log forwarder instance.
 Ways to configure Fluent Bit There are three ways to configure the Fluent Bit daemonset:">
-<meta itemprop="dateModified" content="2025-04-14T12:33:22+02:00">
-<meta itemprop="wordCount" content="1252">
+<meta itemprop="dateModified" content="2025-04-24T15:48:59+02:00">
+<meta itemprop="wordCount" content="1265">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fluent Bit log collector">
 <meta name="twitter:description" content="Fluent Bit is an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations.
@@ -662,6 +662,11 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:700">Rename</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">log</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">value</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">message</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Configure filter grep for fluentbit</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">filterGrep</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">Match</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;*&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">Exclude</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">message ^.\&#34;level\&#34;\:\&#34;(debug|DEBUG)\&#34;.$</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="filters">Filters</h2><h3 id="kubernetes-filterkubernetes">Kubernetes (filterKubernetes)</h3><p>Fluent Bit Kubernetes Filter allows you to enrich your log files with Kubernetes metadata. For example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FluentbitAgent</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -769,7 +774,7 @@ Releases
 <td>httpGet</td><td>array</td><td>{}</td><td>HTTPGet specifies the http request to perform. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#httpgetaction-v1-core">More info</a></td></tr><tr>
 <td>tcpSocket</td><td>array</td><td>{}</td><td>TCPSocket specifies an action involving a TCP port. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#tcpsocketaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
 <p>Note: To configure readiness probes, see <a href="/docs/operation/readiness-probe/">Readiness probe</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified April 14, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7b87d1b4dde4da3efeae59353aa5be82d9ab7dca">Merge pull request #284 from kube-logging/dependabot/github_actions/actions/setup-node-4.4.0 (7b87d1b)</a>
+Last modified April 24, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c1aad42ea4abf28ed142e828c3c3c886e163be3e">Merge pull request #285 from joseacl/issue-2012 (c1aad42)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
