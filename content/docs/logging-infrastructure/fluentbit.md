@@ -50,7 +50,6 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
             bufferStorageVolume:
               hostPath:
                 path: ""
-          
     ```
 
 1. Create a new FluentbitAgent CRD. For the value of **metadata.name**, use the name of the Logging resource, for example:
@@ -86,7 +85,7 @@ To migrate your **spec.fluentbit** configuration from the Logging resource to a 
 
 1. Delete the **spec.fluentbit** section from the Logging resource, then apply the Logging and the FluentbitAgent CRDs.
 
-<!-- FIXME add a step on how to check that everything is working, for example, how to check the ownership? 
+<!-- FIXME add a step on how to check that everything is working, for example, how to check the ownership?
 The ownerrefs of the managed resources changed from the Logging resource to the new FluentbitAgent resource.
 -->
 
@@ -123,6 +122,11 @@ spec:
       - Rename:
           key: log
           value: message
+  # Configure filter grep for fluentbit
+  filterGrep:
+    Match: "*"
+    Exclude:
+      - message ^.\"level\"\:\"(debug|DEBUG)\".$
 ```
 
 ## Filters
