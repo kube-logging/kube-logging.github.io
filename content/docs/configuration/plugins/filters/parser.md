@@ -100,7 +100,7 @@ Only available when using type: multi_format
 Only available when using type: multi_format 
 
 
-### format_key (string, optional) {#parse section-format_key}
+### format_key (string, optional) {#parse-section-format_key}
 
 Available in Logging operator version 5.3 and later.
 
@@ -197,7 +197,7 @@ Default: nil
 
 ### type (string, optional) {#parse-section-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok 
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok, multi_format
 
 
 ### types (string, optional) {#parse-section-types}
@@ -233,11 +233,11 @@ Regexp expression to evaluate
 Only available when using type: multi_format 
 
 
-### format_name (string, optional) {#parse section (single)-format_name}
+### format_name (string, optional) {#parse-section-format_name}
 
 Available in Logging operator version 5.3 and later.
 
-Only available when using type: multi_format Value added to format key entry 
+Only available when using `type: multi_format`. Value added to format key entry 
 
 
 ### grok_failure_key (string, optional) {#parse-section-grok_failure_key}
@@ -309,7 +309,7 @@ Default: nil
 
 ### type (string, optional) {#parse-section-type}
 
-Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok 
+Parse type: apache2, apache_error, nginx, syslog, csv, tsv, ltsv, json, multiline, none, logfmt, grok, multiline_grok, multi_format
 
 
 ### types (string, optional) {#parse-section-types}
@@ -374,11 +374,14 @@ spec:
         reserve_data: true
         parse:
           type: multi_format
+          format_key: format
           patterns:
           - format: nginx
+            format_name: nginx
           - format: regexp
             expression: /foo/
           - format: none
+            format_name: none
   selectors: {}
   localOutputRefs:
     - demo-output
@@ -395,8 +398,10 @@ Fluentd config result:
   reserve_data true
   <parse>
     @type multi_format
+    format_key format
     <pattern>
       format nginx
+      format_name nginx
     </pattern>
     <pattern>
       expression /foo/
@@ -404,6 +409,7 @@ Fluentd config result:
     </pattern>
     <pattern>
       format none
+      format_name none
     </pattern>
   </parse>
 </filter>
