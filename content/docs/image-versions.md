@@ -5,6 +5,22 @@ weight: 750
 
 Logging operator uses the following image versions.
 
+## Logging operator version 5.3
+
+| Image repository | GitHub repository | Version |
+| -------- | --- | -- |
+| ghcr.io/kube-logging/node-exporter | https://github.com/kube-logging/node-exporter-image | 5.3.0 |
+| ghcr.io/kube-logging/logging-operator/config-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/config-reloader | 5.3.0 |
+| ghcr.io/kube-logging/fluentd-drain-watch | https://github.com/kube-logging/fluentd-drain-watch | 5.3.0 |
+| k8s.gcr.io/pause |  | 3.9 |
+| docker.io/busybox | https://github.com/docker-library/busybox | latest |
+| ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.11.0 |
+| docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 3.2.5 |
+| ghcr.io/kube-logging/logging-operator/fluentd | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd | 5.3.0-full |
+| ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.9 |
+| ghcr.io/kube-logging/logging-operator/syslog-ng-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/syslog-ng-reloader | 5.3.0 |
+| ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/eventrouter | 0.4.0 |
+
 ## Logging operator version 5.2
 
 | Image repository | GitHub repository | Version |
