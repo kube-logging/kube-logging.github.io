@@ -49,6 +49,9 @@ Name of the logging cluster to be attached
 ### namespaces ([]string, optional) {#clusterselect-namespaces}
 
 
+### namespaces_regex ([]string, optional) {#clusterselect-namespaces_regex}
+
+Available in Logging operator version 5.3 and later.
 
 ## ClusterExclude
 
@@ -67,6 +70,9 @@ Name of the logging cluster to be attached
 ### namespaces ([]string, optional) {#clusterexclude-namespaces}
 
 
+### namespaces_regex ([]string, optional) {#clusterexclude-namespaces_regex}
+
+Available in Logging operator version 5.3 and later.
 
 ## ClusterFlowSpec
 

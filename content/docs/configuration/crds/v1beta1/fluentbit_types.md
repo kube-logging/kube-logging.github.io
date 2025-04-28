@@ -147,6 +147,7 @@ DisableVarLibDockerContainers controls whether the /var/lib/docker/containers vo
 
 ### filterGrep (*FilterGrep, optional) {#fluentbitspec-filtergrep}
 
+Available in Logging operator version 5.3 and later.
 
 ### filterKubernetes (FilterKubernetes, optional) {#fluentbitspec-filterkubernetes}
 
@@ -880,6 +881,8 @@ Default: false
 ## FilterGrep
 
 FilterGrep The Grep Filter plugin
+
+Available in Logging operator version 5.3 and later.
 
 ### Exclude ([]string, optional) {#filtergrep-exclude}
 
