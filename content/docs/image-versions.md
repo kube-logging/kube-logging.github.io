@@ -13,7 +13,7 @@ Logging operator uses the following image versions.
 | ghcr.io/kube-logging/logging-operator/config-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/config-reloader | 5.3.0 |
 | ghcr.io/kube-logging/logging-operator/fluentd-drain-watch | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd-drain-watch | 5.3.0 |
 | registry.k8s.io/pause | https://github.com/kubernetes/registry.k8s.io | 3.9 |
-| docker.io/busybox | https://github.com/docker-library/busybox | latest |
+| docker.io/library/busybox | https://github.com/docker-library/busybox | latest |
 | ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.11.0 |
 | docker.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 3.2.5 |
 | ghcr.io/kube-logging/logging-operator/fluentd | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd | 5.3.0-full |
