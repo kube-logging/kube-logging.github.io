@@ -122,6 +122,13 @@ Start reading from the head of new log files
 Skip long line when exceeding Buffer_Max_Size 
 
 
+### verbose (bool, optional) {#filetailer-verbose}
+
+Available in Logging operator version 5.3 and later.
+
+Verbose mode 
+
+
 
 ## SystemdTailer
 

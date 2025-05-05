@@ -3,6 +3,26 @@ title: What's new
 weight: 50
 ---
 
+## Version 5.3
+
+The following are the highlights and main changes of Logging operator 5.3. For a complete list of changes and bugfixes, see the [Logging operator 5.3 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.3.0).
+
+### Breaking change
+
+Starting with this version, Logging operator sets default security context values for the Fluentd logging configuration, so from now on:
+
+- Fluentd runs as the `fluentd` user (instead of root)
+- Default user and group IDs are set in the SecurityContext and PodSecurityContext
+
+### Other changes
+
+- In this release we've moved `fluentd-drain-watch` and `node-exporter` into the Logging operator repository. From now on, we build these images from our repository (https://github.com/kube-logging/logging-operator/tree/master/images/) and their version numbering follows the version numbers of Logging operator.
+- You can now set the `format_key` and `format_name` options for when using the [Fluentd parser filter]({{< relref "/docs/configuration/plugins/filters/parser.md" >}}) to use multi-format parsing.
+- You can use Filter Grep (https://docs.fluentbit.io/manual/pipeline/filters/grep) in the [FluentbitSpec]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filtergrep" >}}) section of your logging configuration. That way you can exclude logs before passing them to Fluentd.
+- When using Fluentd and ClusterFlows, you can now select and exclude namespaces with regular expressions using the `namespaces_regex` option.
+- When using the [Loki destination]({{< relref "/docs/configuration/plugins/syslog-ng-outputs/loki.md#lokioutput-tenant-id" >}}) in a SyslogNGClusterOutput/SyslogNGOutput, you can now set the tenant-id.
+- You can now enable verbose mode in {{% xref "/docs/configuration/crds/extensions/hosttailer_types.md" %}}. Also, the default log level of the HostTailer has been reduced to error.
+
 ## Version 5.2
 
 The following are the highlights and main changes of Logging operator 5.2. For a complete list of changes and bugfixes, see the [Logging operator 5.2 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.2.0).

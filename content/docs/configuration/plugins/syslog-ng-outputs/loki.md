@@ -82,6 +82,13 @@ The number of times syslog-ng OSE attempts to send a message to this destination
 Template for customizing the log message format. 
 
 
+### tenant-id (string, optional) {#lokioutput-tenant-id}
+
+Available in Logging operator version 5.3 and later.
+
+Sets the tenant ID for multi-tenant scenarios. See the [AxoSyslog docs](https://axoflow.com/docs/axosyslog-core/chapter-destinations/destination-loki/#tenant-id) for more information. 
+
+
 ### time_reopen (int, optional) {#lokioutput-time_reopen}
 
 The time to wait in seconds before a dead connection is reestablished.
