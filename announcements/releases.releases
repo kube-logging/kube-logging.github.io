@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/announcements/">latest (5.2)</a>
+	<a class="dropdown-item" href="/announcements/">latest (5.3)</a>
+	<a class="dropdown-item" href="/5.2//announcements/">5.2</a>
 	<a class="dropdown-item" href="/5.1//announcements/">5.1</a>
 	<a class="dropdown-item" href="/5.0//announcements/">5.0</a>
 	<a class="dropdown-item" href="/4.11//announcements/">4.11.0</a>
