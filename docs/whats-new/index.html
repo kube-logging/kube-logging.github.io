@@ -456,9 +456,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -875,7 +872,7 @@ connections and will fail if there are any issues , for example, with the creden
 </code></pre><h3 id="other-improvements">Other improvements</h3><ul>
 <li>You can now configure the resources of the buffer metrics sidecar.</li><li>You can now rerun failed configuration checks if there is no configcheck pod.</li><li>The <a href="/docs/configuration/plugins/outputs/elasticsearch/">Fluentd ElasticSearch output</a> now supports the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.13/index-templates.html">composable index template</a> format. To use it, set the <code>use_legacy_template</code> option to <code>false</code>.</li><li>The metrics for the syslog-ng forwarder are now exported using <a href="https://github.com/axoflow/axosyslog-metrics-exporter">axosyslog-metrics-exporter</a>.</li></ul><h3 id="image-and-dependency-updates-1">Image and dependency updates</h3><p>For the list of images used in Logging operator, see <a href="/docs/image-versions/">Images used by Logging operator</a>.</p><p>Fluentd images with versions <code>v1.14</code> and <code>v1.15</code> are now EOL due to the fact they are based on ruby 2.7 which is EOL as well.</p><p>The currently supported image is <a href="https://github.com/kube-logging/fluentd-images/tree/main/v1.15-ruby3">v1.15-ruby3</a> and build configuration for <a href="https://github.com/kube-logging/fluentd-images/tree/main/v1.15-staging">v1.15-staging</a> is available for staging experimental changes.</p><div class="section-index">
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

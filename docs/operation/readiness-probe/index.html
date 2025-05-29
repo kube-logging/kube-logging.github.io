@@ -26,13 +26,13 @@ Overview of default readiness probes By default, Logging operator performs the f
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/readiness-probe/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Readiness probe">
 <meta itemprop="description" content="This section describes how to configure readiness probes for your Fluentd and syslog-ng pods. If you don&rsquo;t configure custom readiness probes, Logging operator uses the default probes.
 Prerequisites Configuring readiness probes requires Logging operator 3.14.0 or newer installed on the cluster. syslog-ng is supported only in Logging operator 4.0 or newer.
 Overview of default readiness probes By default, Logging operator performs the following readiness checks:
 Number of buffer files is too high (higher than 5000) Fluentd buffers are over 90% full syslog-ng buffers are over 90% full The parameters of the readiness probes and pod failure is set by using the usual Kubernetes probe configuration parameters.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="379">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Readiness probe">
@@ -471,9 +471,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -659,7 +656,7 @@ Releases
 </span></span></span></code></pre></div><h2 id="custom-readiness-probes">Add custom readiness probes</h2><p>You can add your own custom readiness probes to the <strong>spec.ReadinessProbe</strong> section of the <strong>logging</strong> custom resource. For details on the format of readiness probes, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes">official Kubernetes documentation</a>.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p>If you set any custom readiness probes, they completely override the default probes.
 </div><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

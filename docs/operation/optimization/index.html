@@ -24,12 +24,12 @@ However, in a large-scale infrastructure, where the number of resources is large
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/optimization/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Optimization">
 <meta itemprop="description" content="Watch specific resources The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.
 However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.
 Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="132">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization">
@@ -467,9 +467,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -593,7 +590,7 @@ Releases
 <h1>Optimization</h1><header class="article-meta">
 </header><h2 id="watch-specific-resources">Watch specific resources</h2><p>The Logging operator watches resources in all namespaces, which is required because it manages cluster-scoped objects, and also objects in multiple namespaces.</p><p>However, in a large-scale infrastructure, where the number of resources is large, it makes sense to limit the scope of resources monitored by the Logging operator to save considerable amount of memory and container restarts.</p><p>Starting with Logging operator version 3.12.0, this is now available by passing the following command-line arguments to the operator.</p><ul>
 <li><code>watch-namespace</code>: Watch only objects in this namespace. Note that even if the <code>watch-namespace</code> option is set, the operator must watch certain objects (like <code>Flows</code> and <code>Outputs</code>) in every namespace.</li><li><code>watch-logging-name</code>: Logging resource name to optionally filter the list of watched objects based on which logging they belong to by checking the <code>app.kubernetes.io/managed-by</code> label.</li></ul><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -24,12 +24,12 @@ The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/fluentd-vs-syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Which log forwarder to use">
 <meta itemprop="description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="136">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Which log forwarder to use">
@@ -467,9 +467,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -591,7 +588,7 @@ Releases
 </header><p>The Logging operator supports <a href="https://www.fluentd.org/">Fluentd</a> and syslog-ng (via the <a href="https://axoflow.com/docs/axosyslog-core/">AxoSyslog syslog-ng distribution</a>) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.</p><p>The following points help you decide which forwarder to use.</p><ul>
 <li>The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.</li><li>If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.</li><li>If you have many logging flows or need complex routing or log message processing, use syslog-ng.</li></ul><blockquote>
 <p>Note: Depending on the log forwarder you choose, the CRDs you need to create and configure will differ.</p></blockquote><p>syslog-ng is supported only in Logging operator 4.0 or newer.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

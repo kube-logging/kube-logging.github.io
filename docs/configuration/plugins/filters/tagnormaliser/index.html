@@ -22,11 +22,11 @@ Available Kubernetes metadata Parameter Description Example ${pod_name} Pod name
 Available Kubernetes metadata Parameter Description Example ${pod_name} Pod name understood-butterfly-logging-demo-7dcdcfdcd7-h7p9n ${container_name} Container name inside the Pod logging-demo ${namespace_name} Namespace name default ${pod_id} Kubernetes UUID for Pod 1f50d309-45a6-11e9-b795-025000000001 ${labels} Kubernetes Pod labels. This is a nested map. You can access nested attributes via . {&#34;app&#34;:&#34;logging-demo&#34;, &#34;pod-template-hash&#34;:&#34;7dcdcfdcd7&#34; } ${host} Node hostname the Pod runs on docker-desktop ${docker_id} Docker UUID of the container 3a38148aa37aa3&mldr; Configuration Tag Normaliser parameters format (string, optional) Re-Tag log messages info at github">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/tagnormaliser/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Tag Normaliser">
 <meta itemprop="description" content="Fluentd Plugin to re-tag based on log metadata. More info at https://github.com/kube-logging/fluent-plugin-tag-normaliser
 Available Kubernetes metadata Parameter Description Example ${pod_name} Pod name understood-butterfly-logging-demo-7dcdcfdcd7-h7p9n ${container_name} Container name inside the Pod logging-demo ${namespace_name} Namespace name default ${pod_id} Kubernetes UUID for Pod 1f50d309-45a6-11e9-b795-025000000001 ${labels} Kubernetes Pod labels. This is a nested map. You can access nested attributes via . {&#34;app&#34;:&#34;logging-demo&#34;, &#34;pod-template-hash&#34;:&#34;7dcdcfdcd7&#34; } ${host} Node hostname the Pod runs on docker-desktop ${docker_id} Docker UUID of the container 3a38148aa37aa3&mldr; Configuration Tag Normaliser parameters format (string, optional) Re-Tag log messages info at github">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="132">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tag Normaliser">
@@ -463,9 +463,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -620,7 +617,7 @@ Releases
 </span></span><span style="display:flex"><span>  format cluster1.${namespace_name}.${pod_name}.${labels.app}
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/match&gt;</span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

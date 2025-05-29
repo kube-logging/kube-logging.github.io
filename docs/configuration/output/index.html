@@ -15,22 +15,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
-<title>Output and ClusterOutput | Logging operator</title><meta name="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
+<title>Output and ClusterOutput | Logging operator</title><meta name="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <meta property="og:title" content="Output and ClusterOutput">
-<meta property="og:description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
+<meta property="og:description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/output/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Output and ClusterOutput">
-<meta itemprop="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
+<meta itemprop="description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
-<meta itemprop="wordCount" content="548">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
+<meta itemprop="wordCount" content="544">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Output and ClusterOutput">
-<meta name="twitter:description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
+<meta name="twitter:description" content="Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 Fluentd outputs The Output resource defines an output where your Fluentd Flows can send the log messages. The output is a namespaced resource which means only a Flow within the same namespace can access it. You can use secrets in these definitions, but they must also be in the same namespace.">
 <link rel="preload" href="/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" as="style">
 <link href="/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" rel="stylesheet" integrity>
@@ -463,9 +463,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -591,7 +588,7 @@ Releases
 <a href="https://kube-logging.dev/docs/configuration/output/" aria-disabled="true" class="btn-link disabled">Output and ClusterOutput</a>
 </li></ol></nav><div class="td-content">
 <h1>Output and ClusterOutput</h1><header class="article-meta">
-</header><p>Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.</p><h2 id="fluentd-outputs">Fluentd outputs</h2><ul>
+</header><p>Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.</p><h2 id="fluentd-outputs">Fluentd outputs</h2><ul>
 <li>The <code>Output</code> resource defines an output where your <strong>Fluentd</strong> Flows can send the log messages. The output is a <code>namespaced</code> resource which means only a <code>Flow</code> within the <em>same</em> namespace can access it. You can use <code>secrets</code> in these definitions, but they must also be in the same namespace.
 Outputs are the final stage for a <code>logging flow</code>. You can define multiple <code>outputs</code> and attach them to multiple <code>flows</code>.</li><li><code>ClusterOutput</code> defines an Output <strong>without</strong> namespace restrictions. It is only evaluated in the <code>controlNamespace</code> by default unless <code>allowClusterResourcesFromAllNamespaces</code> is set to true.</li></ul><blockquote>
 <p>Note: <code>Flow</code> can be connected to <code>Output</code> and <code>ClusterOutput</code>, but <code>ClusterFlow</code> can be attached only to <code>ClusterOutput</code>.</p></blockquote><ul>
@@ -679,7 +676,7 @@ Outputs are the final stage for a <code>logging flow</code>. You can define mult
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_wait</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">10s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">timekey_use_utc</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -30,7 +30,7 @@ make install Run the Operator
 go run main.go Writing a plugin To add a plugin to the logging operator you need to define the plugin struct.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/developers/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="For developers">
 <meta itemprop="description" content="This documentation helps to set-up a developer environment and writing plugins for the Logging operator.
 Setting up Kind Install Kind on your computer
@@ -38,7 +38,7 @@ go get sigs.k8s.io/kind@v0.5.1 Create cluster
 kind create cluster --name logging Install prerequisites (this is a Kubebuilder makefile that will generate and install crds)
 make install Run the Operator
 go run main.go Writing a plugin To add a plugin to the logging operator you need to define the plugin struct.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="601">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="For developers">
@@ -479,9 +479,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -666,7 +663,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Buffer</span> <span style="color:#ce5c00;font-weight:700">*</span><span style="color:#000">Buffer</span> <span style="color:#4e9a06">`json:&#34;buffer,omitempty&#34;`</span>
 </span></span></code></pre></div><h3 id="generate-resources-for-your-plugin">Generate resources for your Plugin</h3><p>Run the following command to generate updated docs and CRDs for your new plugin.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>make generate
 </span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

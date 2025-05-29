@@ -26,13 +26,13 @@ prepare_value (string, optional) Prepare values for filtering in configure phase
 records ([]Record, optional) Add records. Records are represented as maps: key: value.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/record_modifier/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-05-05T09:47:48+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-05-29T13:04:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Record Modifier">
 <meta itemprop="description" content="Record Modifier Overview Modify each event record.
 Configuration RecordModifier char_encoding (string, optional) Fluentd including some plugins treats logs as a BINARY by default to forward. To overide that, use a target encoding or a from:to encoding here.
 prepare_value (string, optional) Prepare values for filtering in configure phase. Prepared values can be used in <record>. You can write any ruby code.
 records ([]Record, optional) Add records. Records are represented as maps: key: value.">
-<meta itemprop="dateModified" content="2025-05-05T09:47:48+02:00">
+<meta itemprop="dateModified" content="2025-05-29T13:04:59+02:00">
 <meta itemprop="wordCount" content="170">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Record Modifier">
@@ -471,9 +471,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessplunk-li">
 <input type="checkbox" id="m-docsexamplessplunk-check">
 <label for="m-docsexamplessplunk-check"><a href="/docs/examples/splunk/" title="Splunk operator with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessplunk"><span>Splunk HEC with Fluentd</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessumologic-li">
-<input type="checkbox" id="m-docsexamplessumologic-check">
-<label for="m-docsexamplessumologic-check"><a href="/docs/examples/sumologic/" title="Sumo Logic with Logging operator and Fluentd" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessumologic"><span>Sumo Logic with Fluentd</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessyslog-ng-sumologic-li">
 <input type="checkbox" id="m-docsexamplessyslog-ng-sumologic-check">
 <label for="m-docsexamplessyslog-ng-sumologic-check"><a href="/docs/examples/syslog-ng-sumologic/" title="Sumo Logic with Logging operator and syslog-ng" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplessyslog-ng-sumologic"><span>Sumo Logic with syslog-ng</span></a></label>
@@ -622,7 +619,7 @@ Releases
 </span></span><span style="display:flex"><span>  <span style="color:#204a87;font-weight:700">&lt;/record&gt;</span>
 </span></span><span style="display:flex"><span><span style="color:#204a87;font-weight:700">&lt;/filter&gt;</span></span></span></code></pre></div><hr>
 <h2 id="replace-directivehttpsgithubcomrepeatedlyfluent-plugin-record-modifierreplace_keys_value"><a href="https://github.com/repeatedly/fluent-plugin-record-modifier#replace_keys_value">Replace Directive</a></h2><p>Specify replace rule. This directive contains three parameters.</p><h3 id="replace-directive-replace_keys_value-expression">expression (string, required)</h3><p>Regular expression</p><h3 id="replace-directive-replace_keys_value-key">key (string, required)</h3><p>Key to search for</p><h3 id="replace-directive-replace_keys_value-replace">replace (string, required)</h3><p>Value to replace with</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified May 5, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fa8bf0d4c48ddd8cc5762068aa7b950f6f2a9d4e">Merge pull request #286 from kube-logging/5.3-preparations (fa8bf0d)</a>
+Last modified May 29, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a321cc691e92de25a155c5c72b1d2cc9af18a663">Merge pull request #288 from kube-logging/remove-fluentd-sumologic-leftovers (a321cc6)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
