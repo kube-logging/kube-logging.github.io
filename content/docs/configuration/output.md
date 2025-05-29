@@ -3,7 +3,7 @@ title: Output and ClusterOutput
 weight: 50
 ---
 
-Outputs are the destinations where your log forwarder sends the log messages, for example, to Sumo Logic, or to a file. Depending on which log forwarder you use, you have to configure different custom resources.
+Outputs are the destinations where your log forwarder sends the log messages, for example, to a file. Depending on which log forwarder you use, you have to configure different custom resources.
 
 ## Fluentd outputs
 
