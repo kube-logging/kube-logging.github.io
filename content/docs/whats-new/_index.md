@@ -3,6 +3,16 @@ title: What's new
 weight: 50
 ---
 
+## Version 5.4
+
+The following are the highlights and main changes of Logging operator 5.4. For a complete list of changes and bugfixes, see the [Logging operator 5.4 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.4.0).
+
+- The new [LogicMonitor Logs]({{< relref "/docs/configuration/plugins/outputs/lm_logs.md" >}}) Fluentd output plugin allows you to send logs to [LM Logs of LogicMonitor](https://www.logicmonitor.com/).
+- The Elasticsearch Fluent plugin has been updated to 6.0, making [wildcards available in index patterns by default](/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-data_stream_template_use_index_patterns_wildcard).
+- You can now use the `compress` option in the [forward output]({{< relref "/docs/configuration/plugins/outputs/forward.md#forwardoutput-compress" >}}) to enable gzip compression.
+- You can [disable mounting the `/var/log` volume]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-disablevarlog" >}}) in Fluent Bit. This is useful when you're not permitted to mount host volumes, and collect host logs some other way.
+- Initial basic implementation of the upcoming [AxoSyslog custom resource]({{< relref "/docs/configuration/crds/v1beta1/axosyslog_types.md" >}}).
+
 ## Version 5.3
 
 The following are the highlights and main changes of Logging operator 5.3. For a complete list of changes and bugfixes, see the [Logging operator 5.3 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.3.0).
