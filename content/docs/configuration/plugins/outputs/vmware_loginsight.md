@@ -161,7 +161,7 @@ Default: json
 
 ### shorten_keys (map[string]string, optional) {#vmwareloginsight-shorten_keys}
 
-Keys from log event to rewrite for instance from 'kubernetes_namespace' to 'k8s_namespace' tags will be rewritten with substring substitution and applied in the order present in the hash. Hashes enumerate their values in the order that the corresponding keys were inserted, see: https://ruby-doc.org/core-2.2.2/Hash.html  
+Keys from log event to rewrite for instance from 'kubernetes_namespace' to 'k8s_namespace' tags will be rewritten with substring substitution and applied in the order present in the hash. Hashes enumerate their values in the order that the corresponding keys were inserted, see: https://ruby-doc.org/core-2.2.2/Hash.html
 
 Default: { 'kubernetes_':'k8s_', 'namespace':'ns', 'labels_':'', '_name':'', '_hash':'', 'container_':'' }
 
