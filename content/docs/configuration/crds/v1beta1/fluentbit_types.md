@@ -127,7 +127,14 @@ Disable Kubernetes metadata filter
 
 ### disableVarLibDockerContainers (*bool, optional) {#fluentbitspec-disablevarlibdockercontainers}
 
+Available in Logging operator version 5.4 and later.
+
 DisableVarLibDockerContainers controls whether the /var/lib/docker/containers volume is mounted. If true, the volume is NOT mounted. If false (default), the volume is mounted.
+
+
+### disableVarLog (*bool, optional) {#fluentbitspec-disablevarlog}
+
+DisableVarLog controls whether the /var/log volume is mounted. If true, the volume is NOT mounted. If false (default), the volume is mounted. 
 
 
 ### enableUpstream (bool, optional) {#fluentbitspec-enableupstream}
@@ -674,6 +681,30 @@ Default: On
 Allow Kubernetes Pods to suggest a pre-defined Parser (read more about it in Kubernetes Annotations section)
 
 Default: Off
+
+Important: When enabling this setting, you must also configure
+`inputTail.multiline.parser` with appropriate parsers (typically including `cri` for
+Container Runtime Interface logs). Without this configuration, the annotation-based
+parsing will not work correctly.
+
+#### Example Configuration
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+ name: example-fluentbit
+spec:
+ inputTail:
+   multiline.parser: [cri]  # Required when K8S-Logging.Parser is enabled
+ filterKubernetes:
+   K8S-Logging.Parser: "On"
+   Merge_Log_Key: "parsed"  # Optional but recommended to prevent key conflicts
+
+   # Once configured, you can use annotations on your pods:
+   annotations:
+     fluentbit.io/parser: "my-custom-parser"
+```
 
 ### Keep_Log (string, optional) {#filterkubernetes-keep_log}
 

@@ -8,6 +8,7 @@ For more information please click on the name
 
 | Name | Description | Version |
 |---|---|---|
+| **[AxoSyslog](axosyslog_types/)** | AxoSyslog is the schema for the AxoSyslogs API. | v1beta1 |
 | **[EventTailer](../extensions/eventtailer_types/)** | Eventtailer's main goal is to listen kubernetes events and transmit their changes to stdout. This way the logging-operator is able to process them. | extensions |
 | **[HostTailer](../extensions/hosttailer_types/)** | HostTailer's main goal is to tail custom files and transmit their changes to stdout. This way the logging-operator is able to process them. | extensions |
 | **[ClusterFlow](clusterflow_types/)** | ClusterFlow is the Schema for the clusterflows API | v1beta1 |
