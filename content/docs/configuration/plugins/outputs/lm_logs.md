@@ -4,14 +4,9 @@ weight: 200
 generated_file: true
 ---
 
-# LogicMonitor Logs output plugin for Fluentd
 ## Overview
 
-LogicMonitor Logs output plugin for Fluentd
-
-Sends log records to LogicMonitor Logs via the LM API.
-
-For details, see [https://github.com/logicmonitor/lm-logs-fluentd](https://github.com/logicmonitor/lm-logs-fluentd).
+The LogicMonitor Logs output plugin for Fluentd sends log records to LogicMonitor Logs via the LM API. For details, see [https://github.com/logicmonitor/lm-logs-fluentd](https://github.com/logicmonitor/lm-logs-fluentd).
 
 ## Example output configurations
 
@@ -36,7 +31,6 @@ spec:
 
 
 ## Configuration
-## LogicMonitorLogs
 
 ### access_id (*secret.Secret, optional) {#logicmonitorlogs-access_id}
 
@@ -50,7 +44,7 @@ LM API Token access key [Secret](../secret/)
 
 ### bearer_token (*secret.Secret, optional) {#logicmonitorlogs-bearer_token}
 
-LM API Bearer Token. Either specify access_id and access_key both or bearer_token. If all specified, LMv1 token(access_id and access_key) will be used for authentication with LogicMonitor [Secret](../secret/) 
+LM API Bearer Token. Either specify `access_id` and `access_key` both or `bearer_token`. If all three are specified, `LMv1 token(access_id and access_key)` will be used for authentication with LogicMonitor [Secret](../secret/) 
 
 
 ### buffer (*Buffer, optional) {#logicmonitorlogs-buffer}
@@ -60,9 +54,9 @@ LM API Bearer Token. Either specify access_id and access_key both or bearer_toke
 
 ### company_domain (string, optional) {#logicmonitorlogs-company_domain}
 
-LogicMonitor account domain. For eg. for url test.logicmonitor.com, company_domain is logicmonitor.com (default: logicmonitor.com) 
+LogicMonitor account domain. For example, for the `test.logicmonitor.com` URL, `company_domain` is `logicmonitor.com`
 
-Default: logicmonitor.com
+Default: `logicmonitor.com`
 
 ### company_name (string, required) {#logicmonitorlogs-company_name}
 
@@ -71,12 +65,12 @@ LogicMonitor account name
 
 ### debug (*bool, optional) {#logicmonitorlogs-debug}
 
-When true, logs more information to the fluentd console 
+When true, the plugin logs more information to the Fluentd console 
 
 
 ### device_less_logs (*bool, optional) {#logicmonitorlogs-device_less_logs}
 
-When true, do not map log with any resource. record must have service when true
+When true, do not map logs with any resource. Record must have service when true
 
 Default: false
 
@@ -109,7 +103,7 @@ Default: false
 
 ### resource_mapping (string, required) {#logicmonitorlogs-resource_mapping}
 
-The mapping that defines the source of the log event to the LM resource. In this case, the <event_key> in the incoming event is mapped to the value of <lm_property> 
+The mapping that defines the source of the log event to the LM resource. In this case, the `<event_key>` in the incoming event is mapped to the value of` <lm_property>` 
 
 
 
