@@ -13,6 +13,112 @@ The following are the highlights and main changes of Logging operator 5.4. For a
 - You can [disable mounting the `/var/log` volume]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-disablevarlog" >}}) in Fluent Bit. This is useful when you're not permitted to mount host volumes, and collect host logs some other way.
 - Initial basic implementation of the upcoming [AxoSyslog custom resource]({{< relref "/docs/configuration/crds/v1beta1/axosyslog_types.md" >}}).
 
+### Upcoming deprecations and breaking changes
+
+We are planning on deprecating the following components in the next major release. These breaking changes will be part of version 6.0.0 (scheduled for July 14), while 5.4.0 remains officially supported until October 6. (If needed, patch releases from community contributions for version 5.4.0 will be supported even after 6th of October.)
+
+#### NodeAgent CRD and inline NodeAgents in the Logging resource
+
+[NodeAgents]({{< relref "/docs/configuration/crds/v1beta1/node_agent_types.md" >}}) were an attempt to generalize log agents configuration, but it never got out PoC status, with the main feature of running Fluent Bit on Windows hosts. The code hasn't been updated recently, and the original FluentbitSpec (in the Logging resource and in the separate FluentbitAgent resource) and the features behind it have significantly diverged.
+
+Last year we've introduced [Telemetry Controller](https://github.com/kube-logging/telemetry-controller) as a replacement for the NodeAgent and FluentbitAgent resources, with additional multi-tenant capabilities and more flexible agent-side log selection.
+
+- If you're using NodeAgent on Windows, get in touch with us (the Logging operator maintainers) over the [community channels]({{< relref "/docs/community.md" >}}), so we can help you find a viable path forward using the Telemetry Controller.
+- Non-windows users should either migrate to [FluentbitAgent]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md" >}}), or to the [Telemetry Controller](https://github.com/kube-logging/telemetry-controller). In case you need help with either case, [feel free to contact us]({{< relref "/docs/community.md" >}}).
+
+#### hostTailer in the Helm chart
+
+Configuring a hostTailer in the [Logging operator Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator) is deprecated in favor of using hostTailers. Migrate your hostTailer configuration like this:
+
+- Old configuration:
+
+    ```yaml
+      hostTailer:
+        # -- HostTailer
+        enabled: false
+        # -- name of HostTailer
+        name: hosttailer
+        image:
+          # -- repository of eventTailer image
+          repository:
+          # -- tag of eventTailer image
+          tag:
+          # -- pullPolicy of eventTailer image
+          pullPolicy:
+          # -- imagePullSecrets of eventTailer image
+          imagePullSecrets: []
+        # -- workloadMetaOverrides of HostTailer
+        workloadMetaOverrides:
+        # -- workloadOverrides of HostTailer
+        workloadOverrides:
+        # -- configure fileTailers of HostTailer
+        # example:
+        #   - name: sample-file
+        #     path: /var/log/sample-file
+        #     disabled: false
+        #     buffer_max_size:
+        #     buffer_chunk_size:
+        #     skip_long_lines:
+        #     read_from_head: false
+        #     containerOverrides:
+        #     image:
+        fileTailers: []
+        # -- configure systemdTailers of HostTailer
+        # example:
+        #   - name: system-sample
+        #     disabled: false
+        #     systemdFilter: kubelet.service
+        #     maxEntries: 20
+        #     containerOverrides:
+        #     image:
+        systemdTailers: **[]**
+    ```
+
+- The new configuration will be similar to this:
+
+    ```yaml
+      hostTailers:
+        # -- Enable all hostTailers
+        enabled: false
+        # -- List of hostTailers configurations
+        instances: []
+        # - name: hosttailer
+          # -- Enable hostTailer
+          # enabled: true
+          # image:
+            # -- repository of eventTailer image
+            # repository:
+            # -- tag of eventTailer image
+            # tag:
+            # -- pullPolicy of eventTailer image
+            # pullPolicy:
+            # -- imagePullSecrets of eventTailer image
+            # imagePullSecrets: []
+          # -- workloadMetaOverrides of HostTailer
+          # workloadMetaOverrides: {}
+          # -- workloadOverrides of HostTailer
+          # workloadOverrides: {}
+          # -- configure fileTailers of HostTailer
+          # fileTailers:
+          # - name: sample-file
+          #   path: /var/log/sample-file
+          #   disabled: false
+          #   buffer_max_size:
+          #   buffer_chunk_size:
+          #   skip_long_lines:
+          #   read_from_head: false
+          #   containerOverrides:
+          #   image:
+          # -- configure systemdTailers of HostTailer
+          # systemdTailers:
+          # - name: system-sample
+          #   disabled: false
+          #   systemdFilter: kubelet.service
+          #   maxEntries: 20
+          #   containerOverrides:
+          #   image:
+    ```
+
 ## Version 5.3
 
 The following are the highlights and main changes of Logging operator 5.3. For a complete list of changes and bugfixes, see the [Logging operator 5.3 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.3.0).
