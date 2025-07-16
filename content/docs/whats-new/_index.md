@@ -3,6 +3,17 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.0
+
+### Breaking changes
+
+As announced in the 5.4 release notes, the 6.0 release includes the following breaking changes:
+
+- NodeAgent CRD and inline NodeAgents in the Logging resource have been removed
+- hostTailer cannot be configured from the Helm chart anymore.
+
+For details, see the [deprecation notice for 5.4](#upcoming-deprecations-and-breaking-changes). Note that 5.4.0 remains officially supported until October 6. (If needed, patch releases from community contributions for version 5.4.0 will be supported even after 6th of October.)
+
 ## Version 5.4
 
 The following are the highlights and main changes of Logging operator 5.4. For a complete list of changes and bugfixes, see the [Logging operator 5.4 releases page](https://github.com/kube-logging/logging-operator/releases/tag/5.4.0).
