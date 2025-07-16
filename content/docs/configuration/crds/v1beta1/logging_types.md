@@ -66,8 +66,7 @@ Override generated config. This is a *raw* configuration string for troubleshoot
 
 ### fluentbit (*FluentbitSpec, optional) {#loggingspec-fluentbit}
 
-FluentbitAgent daemonset configuration. Deprecated, will be removed with next major version Migrate to the standalone NodeAgent resource 
-
+FluentbitAgent daemonset configuration. Deprecated, migrate to [FluentbitAgent]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md" >}}), or to the [Telemetry Controller](https://github.com/kube-logging/telemetry-controller)
 
 ### fluentd (*FluentdSpec, optional) {#loggingspec-fluentd}
 
@@ -81,11 +80,6 @@ Global filters to apply on logs before any match or filter mechanism.
 ### loggingRef (string, optional) {#loggingspec-loggingref}
 
 Reference to the logging system. Each of the `loggingRef`s can manage a fluentbit daemonset and a fluentd statefulset. 
-
-
-### nodeAgents ([]*InlineNodeAgent, optional) {#loggingspec-nodeagents}
-
-InlineNodeAgent Configuration Deprecated, will be removed with next major version 
 
 
 ### routeConfig (*RouteConfig, optional) {#loggingspec-routeconfig}

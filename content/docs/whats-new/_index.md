@@ -19,7 +19,7 @@ We are planning on deprecating the following components in the next major releas
 
 #### NodeAgent CRD and inline NodeAgents in the Logging resource
 
-[NodeAgents]({{< relref "/docs/configuration/crds/v1beta1/node_agent_types.md" >}}) were an attempt to generalize log agents configuration, but it never got out PoC status, with the main feature of running Fluent Bit on Windows hosts. The code hasn't been updated recently, and the original FluentbitSpec (in the Logging resource and in the separate FluentbitAgent resource) and the features behind it have significantly diverged.
+NodeAgents were an attempt to generalize log agents configuration, but it never got out PoC status, with the main feature of running Fluent Bit on Windows hosts. The code hasn't been updated recently, and the original FluentbitSpec (in the Logging resource and in the separate FluentbitAgent resource) and the features behind it have significantly diverged.
 
 Last year we've introduced [Telemetry Controller](https://github.com/kube-logging/telemetry-controller) as a replacement for the NodeAgent and FluentbitAgent resources, with additional multi-tenant capabilities and more flexible agent-side log selection.
 
