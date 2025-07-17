@@ -102,7 +102,6 @@ To verify that the installation was successful, complete the following steps.
     fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
     hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
     loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
-    nodeagents.logging.banzaicloud.io                2023-08-10T12:05:05Z
     outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
     syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
     syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
