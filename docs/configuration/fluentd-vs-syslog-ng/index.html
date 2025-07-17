@@ -24,12 +24,12 @@ The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/fluentd-vs-syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-06-11T15:54:12+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-07-17T11:57:42+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Which log forwarder to use">
 <meta itemprop="description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
-<meta itemprop="dateModified" content="2025-06-11T15:54:12+02:00">
+<meta itemprop="dateModified" content="2025-07-17T11:57:42+02:00">
 <meta itemprop="wordCount" content="136">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Which log forwarder to use">
@@ -175,9 +175,6 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1logging_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1logging_types-check">
 <label for="m-docsconfigurationcrdsv1beta1logging_types-check"><a href="/docs/configuration/crds/v1beta1/logging_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1logging_types"><span>LoggingSpec</span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1node_agent_types-li">
-<input type="checkbox" id="m-docsconfigurationcrdsv1beta1node_agent_types-check">
-<label for="m-docsconfigurationcrdsv1beta1node_agent_types-check"><a href="/docs/configuration/crds/v1beta1/node_agent_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1node_agent_types"><span>NodeAgent</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationcrdsv1beta1output_types-li">
 <input type="checkbox" id="m-docsconfigurationcrdsv1beta1output_types-check">
 <label for="m-docsconfigurationcrdsv1beta1output_types-check"><a href="/docs/configuration/crds/v1beta1/output_types/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationcrdsv1beta1output_types"><span>OutputSpec</span></a></label>
@@ -594,7 +591,7 @@ Releases
 </header><p>The Logging operator supports <a href="https://www.fluentd.org/">Fluentd</a> and syslog-ng (via the <a href="https://axoflow.com/docs/axosyslog-core/">AxoSyslog syslog-ng distribution</a>) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.</p><p>The following points help you decide which forwarder to use.</p><ul>
 <li>The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.</li><li>If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.</li><li>If you have many logging flows or need complex routing or log message processing, use syslog-ng.</li></ul><blockquote>
 <p>Note: Depending on the log forwarder you choose, the CRDs you need to create and configure will differ.</p></blockquote><p>syslog-ng is supported only in Logging operator 4.0 or newer.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1df8b0a26b87bbeab90cd420403e6592a961fe99">Merge pull request #290 from kube-logging/5.4-preparations (1df8b0a)</a>
+Last modified July 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/af13e07ea6a07a64f32704d687624be78022ace2">Merge pull request #291 from kube-logging/6.0-preparations (af13e07)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

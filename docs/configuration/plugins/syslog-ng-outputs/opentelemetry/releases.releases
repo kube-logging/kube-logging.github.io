@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">latest (5.4)</a>
+	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">latest (6.0)</a>
+	<a class="dropdown-item" href="/5.4//docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">5.4</a>
 	<a class="dropdown-item" href="/5.3//docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">5.3</a>
 	<a class="dropdown-item" href="/5.2//docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">5.2</a>
 	<a class="dropdown-item" href="/5.1//docs/configuration/plugins/syslog-ng-outputs/opentelemetry/">5.1</a>
