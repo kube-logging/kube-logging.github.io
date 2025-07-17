@@ -9,8 +9,8 @@ weight: 50
 
 As announced in the 5.4 release notes, the 6.0 release includes the following breaking changes:
 
-- NodeAgent CRD and inline NodeAgents in the Logging resource have been removed
-- hostTailer cannot be configured from the Helm chart anymore.
+- NodeAgent CRD and inline NodeAgents in the Logging resource have been removed. See [migration tips](#nodeagent-migration).
+- hostTailer cannot be configured from the Helm chart anymore, [use hosttailers instead](#hosttailer-migration).
 
 For details, see the [deprecation notice for 5.4](#upcoming-deprecations-and-breaking-changes). Note that 5.4.0 remains officially supported until October 6. (If needed, patch releases from community contributions for version 5.4.0 will be supported even after 6th of October.)
 
@@ -28,7 +28,7 @@ The following are the highlights and main changes of Logging operator 5.4. For a
 
 We are planning on deprecating the following components in the next major release. These breaking changes will be part of version 6.0.0 (scheduled for July 14), while 5.4.0 remains officially supported until October 6. (If needed, patch releases from community contributions for version 5.4.0 will be supported even after 6th of October.)
 
-#### NodeAgent CRD and inline NodeAgents in the Logging resource
+#### NodeAgent CRD and inline NodeAgents in the Logging resource {#nodeagent-migration}
 
 NodeAgents were an attempt to generalize log agents configuration, but it never got out PoC status, with the main feature of running Fluent Bit on Windows hosts. The code hasn't been updated recently, and the original FluentbitSpec (in the Logging resource and in the separate FluentbitAgent resource) and the features behind it have significantly diverged.
 
@@ -37,7 +37,7 @@ Last year we've introduced [Telemetry Controller](https://github.com/kube-loggin
 - If you're using NodeAgent on Windows, get in touch with us (the Logging operator maintainers) over the [community channels]({{< relref "/docs/community.md" >}}), so we can help you find a viable path forward using the Telemetry Controller.
 - Non-windows users should either migrate to [FluentbitAgent]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md" >}}), or to the [Telemetry Controller](https://github.com/kube-logging/telemetry-controller). In case you need help with either case, [feel free to contact us]({{< relref "/docs/community.md" >}}).
 
-#### hostTailer in the Helm chart
+#### hostTailer in the Helm chart {#hosttailer-migration}
 
 Configuring a hostTailer in the [Logging operator Helm chart](https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator) is deprecated in favor of using hostTailers. Migrate your hostTailer configuration like this:
 
