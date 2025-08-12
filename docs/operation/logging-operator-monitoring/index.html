@@ -24,20 +24,20 @@ Metrics Variables You can configure the following metrics-related options in the
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/logging-operator-monitoring/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-07-17T11:57:42+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-08-12T16:30:49+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Monitor your logging pipeline with Prometheus Operator">
 <meta itemprop="description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<meta itemprop="dateModified" content="2025-07-17T11:57:42+02:00">
+<meta itemprop="dateModified" content="2025-08-12T16:30:49+00:00">
 <meta itemprop="wordCount" content="744">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitor your logging pipeline with Prometheus Operator">
 <meta name="twitter:description" content="You can configure the Logging operator to expose metrics endpoints for Fluentd, Fluent Bit, and syslog-ng using ServiceMonitor resources. That way, a Prometheus operator running in the same cluster can automatically fetch your logging metrics.
 Metrics Variables You can configure the following metrics-related options in the spec.fluentd.metrics, spec.syslogNG.metrics, and spec.fluentbit.metrics sections of your Logging resource.
 Variable Name Type Required Default Description interval string No &ldquo;15s&rdquo; Scrape Interval timeout string No &ldquo;5s&rdquo; Scrape Timeout port int No - Metrics Port.">
-<link rel="preload" href="/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" as="style">
-<link href="/scss/main.min.86aacb60bddeb293329df2c5300c7ccbb0b5b5c79006869829b192179e011aef.css" rel="stylesheet" integrity>
+<link rel="preload" href="/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" as="style">
+<link href="/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" rel="stylesheet" integrity>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/prism.css">
 <script src="/js/w3.js" type="application/x-javascript"></script>
@@ -810,7 +810,7 @@ If those do not exist in the cluster it may cause the logging-operator&rsquo;s m
 <p>Forward Service</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging port-forward svc/monitor-grafana 3000:80
 </span></span></code></pre></div></li><li>
 <p>Open <a href="http://localhost:3000">Grafana Dashboard: http://localhost:3000</a></p><p align="center"><img src="../../img/servicemonitor_grafana.png" alt="Grafana dashboard"></p></li></ol><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/af13e07ea6a07a64f32704d687624be78022ace2">Merge pull request #291 from kube-logging/6.0-preparations (af13e07)</a>
+Last modified August 12, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/eeaaad1dbc5078c8cd4e05d220dc6bcb3b3bc2ef">Merge 1756346d82bf9a2490a6ee93e923b73254cc9083 into af13e07ea6a07a64f32704d687624be78022ace2 (eeaaad1)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
