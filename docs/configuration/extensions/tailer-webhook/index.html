@@ -20,10 +20,10 @@
 <meta property="og:description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/tailer-webhook/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-08-12T16:30:49+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-08-21T09:52:14+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Tail logfiles with a webhook">
 <meta itemprop="description" content="The tailer-webhook is a different approach for the same problem: parsing legacy application&rsquo;s log file. As an alternative to using a host file tailer service, you can use a file tailer webhook service. While the containers of the host file tailers run in a separated pod, file tailer webhook uses a different approach: if a pod has a specific annotation, the webhook injects a sidecar container for every tailed file into the pod.">
-<meta itemprop="dateModified" content="2025-08-12T16:30:49+00:00">
+<meta itemprop="dateModified" content="2025-08-21T09:52:14+02:00">
 <meta itemprop="wordCount" content="1302">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tail logfiles with a webhook">
@@ -762,7 +762,7 @@ There are more sophisticated ways to load the CA into this field, but this solut
 <td>sample-container2:/var/log/anotherfile</td><td>tails file /var/log/anotherfile in sample-container2</td></tr><tr>
 <td>/var/log/mycustomfile</td><td>tails file /var/log/mycustomfile in default container (sample-container)</td></tr><tr>
 <td>foobarbaz:/foo/bar/baz</td><td>will be discarded due to non-existing container name</td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 12, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/eeaaad1dbc5078c8cd4e05d220dc6bcb3b3bc2ef">Merge 1756346d82bf9a2490a6ee93e923b73254cc9083 into af13e07ea6a07a64f32704d687624be78022ace2 (eeaaad1)</a>
+Last modified August 21, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6d89919afd8acfc41f2a82d6f6ac3d4e556b99d7">Merge pull request #292 from kube-logging/dependabot/github_actions/actions/checkout-5.0.0 (6d89919)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

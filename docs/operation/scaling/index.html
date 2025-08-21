@@ -22,11 +22,11 @@ Scaling Fluentd In a large-scale infrastructure the logging components can get h
 Scaling Fluentd In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when fluentd cannot handle its buffer directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/operation/scaling/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-08-12T16:30:49+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-08-21T09:52:14+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Scaling">
 <meta itemprop="description" content="Note: When multiple instances send logs to the same output, the output can receive chunks of messages out of order. Some outputs tolerate this (for example, Elasticsearch), some do not, some require fine tuning (for example, Loki).
 Scaling Fluentd In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when fluentd cannot handle its buffer directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval.">
-<meta itemprop="dateModified" content="2025-08-12T16:30:49+00:00">
+<meta itemprop="dateModified" content="2025-08-21T09:52:14+02:00">
 <meta itemprop="wordCount" content="179">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scaling">
@@ -590,7 +590,7 @@ Releases
 </header><blockquote>
 <p>Note: When multiple instances send logs to the same output, the output can receive chunks of messages out of order. Some outputs tolerate this (for example, Elasticsearch), some do not, some require fine tuning (for example, Loki).</p></blockquote><h2 id="scaling-fluentd">Scaling Fluentd</h2><p>In a large-scale infrastructure the logging components can get high load as well. The typical sign of this is when <code>fluentd</code> cannot handle its <a href="../../configuration/plugins/outputs/buffer/">buffer</a> directory size growth for more than the configured or calculated (timekey + timekey_wait) flush interval. In this case, you can <a href="/docs/logging-infrastructure/fluentd/#scaling">scale the fluentd statefulset</a>.</p><p>The Logging operator supports scaling a <strong>Fluentd aggregator</strong> statefulset up and down. Scaling statefulset pods down is challenging, because we need to take care of the underlying volumes with buffered data that hasn&rsquo;t been sent, but the Logging operator supports that use case as well.</p><p>The details for that and how to configure an HPA is described in the following documents:</p><ul>
 <li><a href="https://github.com/kube-logging/logging-operator/blob/master/docs/volume-drainer.md">https://github.com/kube-logging/logging-operator/blob/master/docs/volume-drainer.md</a></li><li><a href="https://github.com/kube-logging/logging-operator/blob/master/docs/scaling.md">https://github.com/kube-logging/logging-operator/blob/master/docs/scaling.md</a></li></ul><h2 id="scaling-syslogng">Scaling SyslogNG</h2><p>SyslogNG can be scaled up as well, but persistent disk buffers are not processed automatically when scaling the statefulset down. That is currently a manual process.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified August 12, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/eeaaad1dbc5078c8cd4e05d220dc6bcb3b3bc2ef">Merge 1756346d82bf9a2490a6ee93e923b73254cc9083 into af13e07ea6a07a64f32704d687624be78022ace2 (eeaaad1)</a>
+Last modified August 21, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6d89919afd8acfc41f2a82d6f6ac3d4e556b99d7">Merge pull request #292 from kube-logging/dependabot/github_actions/actions/checkout-5.0.0 (6d89919)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
