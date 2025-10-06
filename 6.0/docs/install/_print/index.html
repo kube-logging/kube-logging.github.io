@@ -1,0 +1,172 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="canonical" type="text/html" href="https://kube-logging.dev/6.0/docs/install/">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/6.0/docs/install/releases.releases">
+<meta name="robots" content="noindex, nofollow">
+<link rel="shortcut icon" href="/6.0/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/6.0/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/6.0/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/6.0/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/6.0/favicons/android-192x192.png" sizes="192x192">
+<title>Install | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
+<meta property="og:title" content="Install">
+<meta property="og:description" content="Documentation for the Logging operator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kube-logging.dev/6.0/docs/install/"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Install">
+<meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install">
+<meta name="twitter:description" content="Documentation for the Logging operator">
+<link rel="preload" href="/6.0/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" as="style">
+<link href="/6.0/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/6.0/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/install/">
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
+</head><body class="td-section">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/6.0/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">5.4</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/6.0/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/6.0/docs/community/" title="Come chat with us!"><span>Community</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/6.0/docs/install//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="return print(),!1">Click here to print</a>.
+</p><p>
+<a href="/6.0/docs/install/">Return to the regular view of this page</a>.
+</p></div><h1 class="title">Install</h1><ul>
+</ul><div class="content">
+<blockquote>
+<p>Caution: The <strong>master branch</strong> is under heavy development. Use <a href="https://github.com/kube-logging/logging-operator/releases">releases</a> instead of the master branch to get stable software.</p></blockquote><h2 id="prerequisites">Prerequisites</h2><ul>
+<li>Logging operator requires Kubernetes v1.22.x or later.</li><li>For the <a href="#helm">Helm-based installation</a> you need Helm v3.8.1 or later.</li></ul><blockquote>
+<p>With the 4.3.0 release, the chart is now distributed through an OCI registry. <br>
+For instructions on how to interact with OCI registries, please take a look at <a href="https://helm.sh/docs/topics/registries/">Use OCI-based registries</a>.
+For instructions on installing the previous 4.2.3 version, see <a href="/4.2/docs/install">Installation for 4.2</a>.</p></blockquote><h2 id="helm">Deploy Logging operator with Helm</h2><p align="center"><img src="../img/helm.svg" alt="Logos" width="150"></p><p align="center">
+<p>To install the Logging operator using Helm, complete the following steps.</p><blockquote>
+<p>Note: You need Helm v3.8 or later to be able to install the chart from an OCI registry.</p></blockquote><ol>
+<li>
+<p>Install the Logging operator into the <em>logging</em> namespace:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
+</span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>Release <span style="color:#4e9a06">&#34;logging-operator&#34;</span> does not exist. Installing it now.
+</span></span><span style="display:flex"><span>Pulled: ghcr.io/kube-logging/helm-charts/logging-operator:4.3.0
+</span></span><span style="display:flex"><span>Digest: sha256:c2ece861f66a3a2cb9788e7ca39a267898bb5629dc98429daa8f88d7acf76840
+</span></span><span style="display:flex"><span>NAME: logging-operator
+</span></span><span style="display:flex"><span>LAST DEPLOYED: Wed Aug  <span style="color:#0000cf;font-weight:700">9</span> 11:02:12 <span style="color:#0000cf;font-weight:700">2023</span>
+</span></span><span style="display:flex"><span>NAMESPACE: logging
+</span></span><span style="display:flex"><span>STATUS: deployed
+</span></span><span style="display:flex"><span>REVISION: <span style="color:#0000cf;font-weight:700">1</span>
+</span></span><span style="display:flex"><span>TEST SUITE: None
+</span></span></code></pre></div><blockquote>
+<p>Note:</p><ul>
+<li>
+<p>Helm has a known issue in version 3.13.0 that requires users to log in to the registry, even though the repo is public.</p><p>Upgrade to 3.13.1 or higher to avoid having to log in, see: <a href="https://github.com/kube-logging/logging-operator/issues/1522">https://github.com/kube-logging/logging-operator/issues/1522</a></p></li><li>
+<p>If you&rsquo;re installing the Helm chart from Terraform, reference the repository as <code>repository = "oci://ghcr.io/kube-logging/helm-charts/"</code> (without the <code>logging-operator</code> suffix). Otherwise, you&rsquo;ll get a <a href="https://github.com/hashicorp/terraform-provider-helm/issues/1291">403 Forbidden error</a>.</p></li></ul></blockquote><blockquote>
+<p>Note: By default, the Logging operator Helm chart doesn&rsquo;t install the <code>logging</code> resource. If you want to install it with Helm, set the <code>logging.enabled</code> value to true.</p><p>For details on customizing the installation, see the <a href="https://github.com/kube-logging/logging-operator/tree/master/charts/logging-operator">Helm chart values</a>.</p></blockquote></li></ol><h2 id="arguments">Operator arguments</h2><h3 id="metrics-and-performance">Metrics and Performance</h3><ul>
+<li><code>--metrics-addr</code> (string, default <code>:8080</code>): Address for metric endpoint</li><li><code>--pprof</code> (boolean, default <code>false</code>): Enable performance profiling</li></ul><h3 id="logging-configuration">Logging Configuration</h3><ul>
+<li><code>--verbose</code> (boolean, default <code>false</code>): Enable verbose logging</li><li><code>--klogLevel</code> (integer, default <code>0</code>): Global log level for klog (0-9)</li><li><code>--output-format</code> (string, default <code>""</code>): Logging output format (<code>json</code> or <code>console</code>)</li></ul><h3 id="resource-watching">Resource Watching</h3><ul>
+<li><code>--watch-namespace</code> (string, default <code>""</code>): Filter watched objects by namespace</li><li><code>--watch-logging-name</code> (string, default <code>""</code>): Filter objects by logging resource name</li><li><code>--watch-labeled-children</code> (boolean, default <code>false</code>): Watch child resources only with logging operator&rsquo;s name label (<code>app.kubernetes.io/name: fluentd|fluentbit|syslog-ng</code>)</li><li><code>--watch-labeled-secrets</code> (boolean, default <code>false</code>): Watch secrets only with <code>logging.banzaicloud.io/watch: enabled</code> label</li></ul><blockquote>
+<p><strong>Note on Combinations:</strong></p><ul>
+<li>If <code>watch-namespace</code> is set, it narrows the scope for ALL watched resources</li><li><code>watch-logging-name</code> and <code>watch-labeled-children</code> can be combined to further restrict child resource watching</li><li><code>watch-labeled-children</code> and <code>watch-labeled-secrets</code> apply independent label filters</li><li>Using multiple filters creates an increasingly restrictive watch scope</li><li>Most restrictive scenario: All three flags set will significantly limit the operator&rsquo;s resource visibility</li></ul></blockquote><h3 id="controller-management">Controller Management</h3><ul>
+<li><code>--enable-leader-election</code> (boolean, default <code>false</code>): Ensure only one active controller manager</li><li><code>--finalizer-cleanup</code> (boolean, default <code>false</code>): Remove finalizers during operator shutdown, useful for <code>Helm</code> uninstallation</li><li><code>--enable-telemetry-controller-route</code> (boolean, default <code>false</code>): Enable Telemetry Controller routing for Logging resources</li><li><code>--sync-period</code> (string, default <code>""</code>): Minimum frequency for reconciling watched resources, for example, <code>30s</code>, or <code>2h45m</code>. Valid time units are &ldquo;ms&rdquo;, &ldquo;s&rdquo;, &ldquo;m&rdquo;, &ldquo;h&rdquo;.</li></ul><p>To add arguments with <code>Helm</code> you can use the <code>extraArgs</code> field e.g:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>helm install logging-operator ./charts/logging-operator/ --set <span style="color:#000">extraArgs</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{&#34;-enable-leader-election=true&#34;,&#34;-enable-telemetry-controller-route&#34;}&#39;</span>
+</span></span></code></pre></div><h2 id="validate">Validate the deployment</h2><p>To verify that the installation was successful, complete the following steps.</p><ol>
+<li>
+<p>Check the status of the pods. You should see a new logging-operator pod.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl -n logging get pods
+</span></span></code></pre></div><p>Expected output:</p><pre tabindex="0"><code>NAME                                READY   STATUS    RESTARTS   AGE
+logging-operator-5df66b87c9-wgsdf   1/1     Running   0          21s
+</code></pre></li><li>
+<p>Check the CRDs. You should see the following five new CRDs.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl get crd
+</span></span></code></pre></div><p>Expected output:</p><pre tabindex="0"><code>NAME                                    CREATED AT
+clusterflows.logging.banzaicloud.io              2023-08-10T12:05:04Z
+clusteroutputs.logging.banzaicloud.io            2023-08-10T12:05:04Z
+eventtailers.logging-extensions.banzaicloud.io   2023-08-10T12:05:04Z
+flows.logging.banzaicloud.io                     2023-08-10T12:05:04Z
+fluentbitagents.logging.banzaicloud.io           2023-08-10T12:05:04Z
+hosttailers.logging-extensions.banzaicloud.io    2023-08-10T12:05:04Z
+loggings.logging.banzaicloud.io                  2023-08-10T12:05:05Z
+outputs.logging.banzaicloud.io                   2023-08-10T12:05:05Z
+syslogngclusterflows.logging.banzaicloud.io      2023-08-10T12:05:05Z
+syslogngclusteroutputs.logging.banzaicloud.io    2023-08-10T12:05:05Z
+syslogngflows.logging.banzaicloud.io             2023-08-10T12:05:05Z
+syslogngoutputs.logging.banzaicloud.io           2023-08-10T12:05:06Z
+</code></pre></li></ol><h2 id="verify">Image and chart verification</h2><p>Images and charts are signed with GitHub Actions OIDC token. We sign the digests of the images and the charts to ensure the integrity and authenticity of the artifacts.</p><p>To verify signatures, you must have <a href="https://docs.sigstore.dev/cosign/system_config/installation/">cosign</a> installed.</p><h3 id="image-verification">Image verification</h3><p>You can verify our images by running the following command.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>cosign verify <span style="color:#4e9a06">&#34;ghcr.io/kube-logging/logging-operator@{sha256-IMAGE-DIGEST}&#34;</span> <span style="color:#4e9a06">\ </span>
+</span></span><span style="display:flex"><span>--certificate-identity <span style="color:#4e9a06">&#34;https://github.com/ghcr.io/kube-logging/logging-operator/.github/workflows/artifacts.yaml@{refs/heads/main || refs/tags/&lt;tag_name&gt;}&#34;</span> <span style="color:#4e9a06">\ </span>
+</span></span><span style="display:flex"><span>--certificate-oidc-issuer <span style="color:#4e9a06">&#34;https://token.actions.githubusercontent.com&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Replace <code>{sha256-IMAGE-DIGEST}</code> with the digest of the image you want to verify. You can find the digests at <a href="https://ghcr.io/kube-logging/logging-operator">ghcr.io/kube-logging/logging-operator</a>. For example, for the 4.11.0 release it&rsquo;s <code>sha256:50550883905ffe484f210ae65a8e0dbcbc0836c240b1fec454945d8b97830ede</code>.</li><li>Replace <code>{refs/heads/main || refs/tags/&lt;tag_name>}</code> with the reference to the image you want to verify. For example, for the 4.11.0 release, use <code>refs/tags/4.11.0</code>.</li></ul><p>For example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>cosign verify <span style="color:#4e9a06">&#34;ghcr.io/kube-logging/logging-operator@sha256:50550883905ffe484f210ae65a8e0dbcbc0836c240b1fec454945d8b97830ede&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --certificate-identity <span style="color:#4e9a06">&#34;https://github.com/kube-logging/logging-operator/.github/workflows/artifacts.yaml@refs/tags/4.11.0&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --certificate-oidc-issuer <span style="color:#4e9a06">&#34;https://token.actions.githubusercontent.com&#34;</span>
+</span></span></code></pre></div><h3 id="chart-verification">Chart verification</h3><p>You can verify our charts by running the following command.</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>cosign verify <span style="color:#4e9a06">&#34;ghcr.io/kube-logging/logging-operator@{sha256-CHART-DIGEST}&#34;</span> <span style="color:#4e9a06">\ </span>
+</span></span><span style="display:flex"><span>--certificate-identity <span style="color:#4e9a06">&#34;https://github.com/ghcr.io/kube-logging/logging-operator/.github/workflows/artifacts.yaml@{refs/heads/main || refs/tags/&lt;tag_name&gt;}&#34;</span> <span style="color:#4e9a06">\ </span>
+</span></span><span style="display:flex"><span>--certificate-oidc-issuer <span style="color:#4e9a06">&#34;https://token.actions.githubusercontent.com&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Replace <code>{sha256-CHART-DIGEST}</code> with the digest of the image you want to verify. You can find the digests at <a href="https://ghcr.io/kube-logging/helm-charts/logging-operator">ghcr.io/kube-logging/helm-charts/logging-operator</a>. For example, for the 4.11.0 release it&rsquo;s <code>sha256:233407195e1c97382e7fc0dfb00f9c6cadbba2928a64bfce6be072fc37df20eb</code>.</li><li>Replace <code>{refs/heads/main || refs/tags/&lt;tag_name>}</code> with the reference to the image you want to verify. For example, for the 4.11.0 release, use <code>refs/tags/4.11.0</code>.</li></ul><p>For example:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>cosign verify <span style="color:#4e9a06">&#34;ghcr.io/kube-logging/helm-charts/logging-operator@sha256:233407195e1c97382e7fc0dfb00f9c6cadbba2928a64bfce6be072fc37df20eb&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --certificate-identity <span style="color:#4e9a06">&#34;https://github.com/kube-logging/logging-operator/.github/workflows/artifacts.yaml@refs/tags/4.11.0&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex"><span><span style="color:#4e9a06"></span>    --certificate-oidc-issuer <span style="color:#4e9a06">&#34;https://token.actions.githubusercontent.com&#34;</span>
+</span></span></code></pre></div></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
+<small class="text-white">&copy; 2023-2025 kube-logging authors | All Rights Reserved</small>
+</div></div></div></footer></div><script src="/6.0/js/main.min.3520d1c7e81298e046ef99d9803c9ecab2f5fed5584fefa1a631122d71e7ecfc.js" integrity="sha256-NSDRx+gSmOBG75nZgDyeyrL1/tVYT++hpjESLXHn7Pw=" crossorigin="anonymous"></script>
+<script src='/6.0/js/prism.js'></script>
+<script src='/6.0/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>
