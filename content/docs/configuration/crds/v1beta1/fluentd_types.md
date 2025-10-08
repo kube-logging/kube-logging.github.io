@@ -73,6 +73,7 @@ Allows Time object in buffer's MessagePack serde [more info]( https://docs.fluen
 
 ### enabledIPv6 (bool, optional) {#fluentdspec-enabledipv6}
 
+Enables listening on IPv6, and configures Kubernetes Service resources for dual-stack networking. This ensures proper IPv6 connectivity to these services in dual-stack Kubernetes clusters.
 
 ### envVars ([]corev1.EnvVar, optional) {#fluentdspec-envvars}
 

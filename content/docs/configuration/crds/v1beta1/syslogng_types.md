@@ -34,6 +34,11 @@ Overrides the default logging level configCheck setup. This field is not used di
 ### configReloadImage (*BasicImageSpec, optional) {#syslogngspec-configreloadimage}
 
 
+### enabledIPv6 (bool, optional) {#syslogngspec-enabledipv6}
+
+Enables listening on IPv6, and configures Kubernetes Service resources for dual-stack networking. This ensures proper IPv6 connectivity to these services in dual-stack Kubernetes clusters.
+
+
 ### globalOptions (*GlobalOptions, optional) {#syslogngspec-globaloptions}
 
 
