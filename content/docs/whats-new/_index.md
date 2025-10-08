@@ -3,6 +3,13 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.1
+
+- New Fluentd output to send logs into {{% xref "/docs/configuration/plugins/outputs/rabbitmq.md" %}}.
+- The [`fluentBitAgentNamespace`]({{< relref "/docs/configuration/crds/v1beta1/logging_types.md#loggingspec-fluentbitagentnamespace" >}}) Logging option allows you to run Fluent Bit in a dedicated namespace.
+- The [`skipInvalidResources`]({{< relref "/docs/configuration/crds/v1beta1/logging_types.md#loggingspec-skipinvalidresources" >}}) Logging option now skips invalid SyslogNGFlows and SyslogNGClusterFlows (for example, those referencing non-existent outputs) to match the existing behavior in Fluentd. When this flag is enabled, invalid resources are skipped to avoid failing the entire reconciliation.
+- The `enabledIPv6: true` setting of Fluentd and Syslog-NG resources now configures Kubernetes Service resources for dual-stack networking. This ensures proper IPv6 connectivity to these services in dual-stack Kubernetes clusters.
+
 ## Version 6.0
 
 ### Breaking changes
