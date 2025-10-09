@@ -46,8 +46,7 @@ metadata:
   name: quickstart
 spec:
   controlNamespace: logging
-  fluentd:
-    disablePvc: true
+  fluentd: {}
 EOF
 ```
     {{% /tab %}}
