@@ -24,12 +24,12 @@ The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/fluentd-vs-syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-09T09:54:59+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-09T14:56:10+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Which log forwarder to use">
 <meta itemprop="description" content="The Logging operator supports Fluentd and syslog-ng (via the AxoSyslog syslog-ng distribution) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.
 The following points help you decide which forwarder to use.
 The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.">
-<meta itemprop="dateModified" content="2025-10-09T09:54:59+02:00">
+<meta itemprop="dateModified" content="2025-10-09T14:56:10+02:00">
 <meta itemprop="wordCount" content="136">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Which log forwarder to use">
@@ -594,7 +594,7 @@ Releases
 </header><p>The Logging operator supports <a href="https://www.fluentd.org/">Fluentd</a> and syslog-ng (via the <a href="https://axoflow.com/docs/axosyslog-core/">AxoSyslog syslog-ng distribution</a>) as log forwarders. The log forwarder instance receives, filters, and transforms the incoming logs, and transfers them to one or more destination outputs. Which one to use depends on your logging requirements.</p><p>The following points help you decide which forwarder to use.</p><ul>
 <li>The forwarders support different outputs. If the output you want to use is supported by only one forwarder, use that.</li><li>If the volume of incoming log messages is high, use syslog-ng, as its multithreaded processing provides higher performance.</li><li>If you have many logging flows or need complex routing or log message processing, use syslog-ng.</li></ul><blockquote>
 <p>Note: Depending on the log forwarder you choose, the CRDs you need to create and configure will differ.</p></blockquote><p>syslog-ng is supported only in Logging operator 4.0 or newer.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c971e014e3462c944a06212f9cba0d89552658ae">Merge pull request #295 from kube-logging/6.1-prep (c971e01)</a>
+Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6">Merge pull request #296 from kube-logging/fix/remove-disable-pvc-option (8dec68c)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

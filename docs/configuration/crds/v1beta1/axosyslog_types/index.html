@@ -30,7 +30,7 @@ logPaths ([]LogPath, optional) LogPaths is a list of log paths to be rendered in
 LogPath LogPath defines a single log path that will be rendered in the AxoSyslog configuration.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/axosyslog_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-09T09:54:59+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-09T14:56:10+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="AxoSyslog">
 <meta itemprop="description" content="AxoSyslog is the schema for the AxoSyslogs API.
 Available in Logging operator version 5.4 and later.
@@ -38,7 +38,7 @@ Available in Logging operator version 5.4 and later.
 destinations ([]Destination, optional) Destinations is a list of destinations to be rendered in the AxoSyslog configuration.
 logPaths ([]LogPath, optional) LogPaths is a list of log paths to be rendered in the AxoSyslog configuration.
 LogPath LogPath defines a single log path that will be rendered in the AxoSyslog configuration.">
-<meta itemprop="dateModified" content="2025-10-09T09:54:59+02:00">
+<meta itemprop="dateModified" content="2025-10-09T14:56:10+02:00">
 <meta itemprop="wordCount" content="218">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AxoSyslog">
@@ -627,7 +627,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>AxoSyslog</h1><header class="article-meta">
 </header><p>AxoSyslog is the schema for the AxoSyslogs API.</p><p>Available in Logging operator version 5.4 and later.</p><h3 id="axosyslog-">(metav1.TypeMeta, required)</h3><h3 id="axosyslog-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="axosyslog-spec">spec (AxoSyslogSpec, optional)</h3><h3 id="axosyslog-status">status (AxoSyslogStatus, optional)</h3><h2 id="axosyslogspec">AxoSyslogSpec</h2><p>AxoSyslogSpec defines the desired state of AxoSyslog.</p><h3 id="axosyslogspec-destinations">destinations ([]Destination, optional)</h3><p>Destinations is a list of destinations to be rendered in the AxoSyslog configuration.</p><h3 id="axosyslogspec-logpaths">logPaths ([]LogPath, optional)</h3><p>LogPaths is a list of log paths to be rendered in the AxoSyslog configuration.</p><h2 id="logpath">LogPath</h2><p>LogPath defines a single log path that will be rendered in the AxoSyslog configuration.</p><h3 id="logpath-destination">destination (string, optional)</h3><p>Name of a destination to be used in the log path.</p><h3 id="logpath-filterx">filterx (string, optional)</h3><p>FilterX block to be rendered within the log path.</p><h2 id="destination">Destination</h2><p>Destination defines a single destination that will be rendered in the AxoSyslog configuration.</p><h3 id="destination-config">config (string, optional)</h3><p>Config is the configuration for the destination.</p><h3 id="destination-name">name (string, optional)</h3><p>Name of the destination.</p><h2 id="axosyslogstatus">AxoSyslogStatus</h2><p>AxoSyslogStatus defines the observed state of AxoSyslog.</p><h3 id="axosyslogstatus-problems">problems ([]string, optional)</h3><p>Problems with the AxoSyslog resource.</p><h3 id="axosyslogstatus-problemscount">problemsCount (int, optional)</h3><p>Number of problems with the AxoSyslog resource.</p><h3 id="axosyslogstatus-sources">sources ([]Source, optional)</h3><p>Sources configured for AxoSyslog.</p><h2 id="source">Source</h2><p>Source represents the log sources for AxoSyslog.</p><h3 id="source-otlp">otlp (*OTLPSource, optional)</h3><p>OTLP specific configuration.</p><h2 id="otlpsource">OTLPSource</h2><p>OTLPSource contains configuration for OpenTelemetry Protocol sources.</p><h3 id="otlpsource-endpoint">endpoint (string, optional)</h3><p>Endpoint for the OTLP source.</p><h2 id="axosysloglist">AxoSyslogList</h2><p>AxoSyslogList contains a list of AxoSyslog</p><h3 id="axosysloglist-">(metav1.TypeMeta, required)</h3><h3 id="axosysloglist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="axosysloglist-items">items ([]AxoSyslog, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c971e014e3462c944a06212f9cba0d89552658ae">Merge pull request #295 from kube-logging/6.1-prep (c971e01)</a>
+Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6">Merge pull request #296 from kube-logging/fix/remove-disable-pvc-option (8dec68c)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
