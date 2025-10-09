@@ -64,6 +64,11 @@ Disable configuration check before applying new fluentd or syslog-ng configurati
 Override generated config. This is a *raw* configuration string for troubleshooting purposes. 
 
 
+### fluentBitAgentNamespace (string, optional) {#loggingspec-fluentbitagentnamespace}
+
+Namespace to deploy Fluent Bit resources (DaemonSet, Service, ServiceAccount, config Secret, ServiceMonitors). If unset, it defaults to `controlNamespace` to preserve backward compatibility. 
+
+
 ### fluentbit (*FluentbitSpec, optional) {#loggingspec-fluentbit}
 
 FluentbitAgent daemonset configuration. Deprecated, migrate to [FluentbitAgent]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md" >}}), or to the [Telemetry Controller](https://github.com/kube-logging/telemetry-controller)
@@ -89,7 +94,7 @@ RouteConfig determines whether to use loggingRoutes or to create resources based
 
 ### skipInvalidResources (bool, optional) {#loggingspec-skipinvalidresources}
 
-Whether to skip invalid Flow and ClusterFlow resources 
+Whether to skip invalid Flow and ClusterFlow resources. Starting with version 6.1, invalid SyslogNGFlow and SyslogNGClusterFlow resources are skipped as well. The `skipInvalidResources` Logging option skips invalid flow resources (for example, those referencing non-existent outputs) to avoid failing the entire reconciliation.
 
 
 ### syslogNG (*SyslogNGSpec, optional) {#loggingspec-syslogng}
