@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/plugins/outputs/syslog/">latest (6.0)</a>
+	<a class="dropdown-item" href="/docs/configuration/plugins/outputs/syslog/">latest (6.1)</a>
+	<a class="dropdown-item" href="/6.0//docs/configuration/plugins/outputs/syslog/">6.0</a>
 	<a class="dropdown-item" href="/5.4//docs/configuration/plugins/outputs/syslog/">5.4</a>
 	<a class="dropdown-item" href="/5.3//docs/configuration/plugins/outputs/syslog/">5.3</a>
 	<a class="dropdown-item" href="/5.2//docs/configuration/plugins/outputs/syslog/">5.2</a>
