@@ -26,13 +26,13 @@ Available routing metadata keys:
 Name Type Description Empty namespaces []string List of matching namespaces All namespaces namespaces_regex []string List of matching ruby regex for namespaces All namespaces labels map[string]string Key - Value pairs of labels All labels hosts []string List of matching hosts All hosts container_names []string List of matching containers (not Pods) All containers Match statement To select or exclude logs you can use the match statement.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/log-routing/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-09T14:56:10+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-14T09:08:09+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Routing your logs with Fluentd match directives">
 <meta itemprop="description" content="Note: This page describes routing logs with Fluentd. If you are using syslog-ng to route your log messages, see Routing your logs with syslog-ng.
 The first step to process your logs is to select which logs go where. The Logging operator uses Kubernetes labels, namespaces and other metadata to separate different log flows.
 Available routing metadata keys:
 Name Type Description Empty namespaces []string List of matching namespaces All namespaces namespaces_regex []string List of matching ruby regex for namespaces All namespaces labels map[string]string Key - Value pairs of labels All labels hosts []string List of matching hosts All hosts container_names []string List of matching containers (not Pods) All containers Match statement To select or exclude logs you can use the match statement.">
-<meta itemprop="dateModified" content="2025-10-09T14:56:10+02:00">
+<meta itemprop="dateModified" content="2025-10-14T09:08:09+00:00">
 <meta itemprop="wordCount" content="703">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Routing your logs with Fluentd match directives">
@@ -774,7 +774,7 @@ as a selecting or excluding criteria.</p><p>If you specify more than one label i
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">app.kubernetes.io/instance</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">nginx-demo</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:700">select</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6">Merge pull request #296 from kube-logging/fix/remove-disable-pvc-option (8dec68c)</a>
+Last modified October 14, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8bf5b2166679131199fc07c53922eaaefe64891c">Merge a531f33f4a224ac6c8efa7f323ba60f50dc2745f into 8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6 (8bf5b21)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

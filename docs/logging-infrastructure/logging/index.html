@@ -20,10 +20,10 @@
 <meta property="og:description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/logging/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-09T14:56:10+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-14T09:08:09+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="The Logging custom resource">
 <meta itemprop="description" content="The logging resource defines the logging infrastructure for your cluster that collects and transports your log messages, and also contains configurations for the Fluent Bit log collector and the Fluentd and syslog-ng log forwarders. It also establishes the controlNamespace, the administrative namespace of the Logging operator. The Fluentd and syslog-ng statefulsets and the Fluent Bit daemonset are deployed in this namespace, and global resources like ClusterOutput and ClusterFlow are evaluated only in this namespace by default - they are ignored in any other namespace unless allowClusterResourcesFromAllNamespaces is set to true.">
-<meta itemprop="dateModified" content="2025-10-09T14:56:10+02:00">
+<meta itemprop="dateModified" content="2025-10-14T09:08:09+00:00">
 <meta itemprop="wordCount" content="391">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Logging custom resource">
@@ -618,7 +618,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">values</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#4e9a06">&#34;&lt;label-value&gt;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>If both <code>watchNamespaces</code> and <code>watchNamespaceSelector</code> are set, the union of them will take effect.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 9, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6">Merge pull request #296 from kube-logging/fix/remove-disable-pvc-option (8dec68c)</a>
+Last modified October 14, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/8bf5b2166679131199fc07c53922eaaefe64891c">Merge a531f33f4a224ac6c8efa7f323ba60f50dc2745f into 8dec68c75667ae9f32ff2e6947353d3b4cc8d2b6 (8bf5b21)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
