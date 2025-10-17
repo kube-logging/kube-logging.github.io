@@ -24,13 +24,13 @@ The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-event-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-16T14:20:43+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes Event Tailer">
 <meta itemprop="description" content="Kubernetes events are objects that provide insight into what is happening inside a cluster, such as what decisions were made by the scheduler or why some pods were evicted from the node. Event tailer listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.
 The operator handles this CR and generates the following required resources:
 ServiceAccount: new account for event-tailer ClusterRole: sets the event-tailer's roles ClusterRoleBinding: links the account with the roles ConfigMap: contains the configuration for the event-tailer pod StatefulSet: manages the lifecycle of the event-tailer pod, which uses the banzaicloud/eventrouter:v0.">
-<meta itemprop="dateModified" content="2025-10-16T14:20:43+02:00">
-<meta itemprop="wordCount" content="577">
+<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="wordCount" content="582">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Event Tailer">
 <meta name="twitter:description" content="Kubernetes events are objects that provide insight into what is happening inside a cluster, such as what decisions were made by the scheduler or why some pods were evicted from the node. Event tailer listens for Kubernetes events and transmits their changes to stdout, so the Logging operator can process them.
@@ -583,7 +583,7 @@ Releases
 </div><div class="td-toc">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#create-event-tailer">Create event tailer</a></li><li><a href="#delete-event-tailer">Delete event tailer</a></li><li><a href="#persist-event-logs">Persist event logs</a></li><li><a href="#configuration-options">Configuration options</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<li><a href="#create-event-tailer">Create event tailer</a></li><li><a href="#delete-event-tailer">Delete event tailer</a></li><li><a href="#persist-event-log-position">Persist event log position</a></li><li><a href="#configuration-options">Configuration options</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
 <nav aria-label="breadcrumb" class="td-breadcrumbs">
 <ol class="breadcrumb">
 <li class="breadcrumb-item">
@@ -674,7 +674,7 @@ Releases
 </span></span></code></pre></div><p>Expected output:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>eventtailer.logging-extensions.banzaicloud.io <span style="color:#4e9a06">&#34;sample&#34;</span> deleted
 </span></span><span style="display:flex"><span>NAME                    READY   STATUS        RESTARTS   AGE
 </span></span><span style="display:flex"><span>sample-event-tailer-0   1/1     Terminating   <span style="color:#0000cf;font-weight:700">0</span>          12s
-</span></span></code></pre></div><h2 id="persist-event-logs">Persist event logs</h2><p>Event-tailer supports persist mode. In this case, the logs generated from events are stored on a persistent volume. Add the following configuration to your event-tailer spec. In this example, the event tailer is called <code>sample</code>:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - <span style="color:#4e9a06">&lt;&lt;EOF
+</span></span></code></pre></div><h2 id="persist-event-log-position">Persist event log position</h2><p>Event-tailer supports persist mode. In this case, the position of which events have already been processed is stored on a persistent volume. Add the following configuration to your event-tailer spec. In this example, the event tailer is called <code>sample</code>:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>kubectl apply -f - <span style="color:#4e9a06">&lt;&lt;EOF
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">apiVersion: logging-extensions.banzaicloud.io/v1alpha1
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">kind: EventTailer
 </span></span></span><span style="display:flex"><span><span style="color:#4e9a06">metadata:
@@ -697,7 +697,7 @@ Releases
 </span></span><span style="display:flex"><span>NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                               STORAGECLASS   REASON   AGE
 </span></span><span style="display:flex"><span>pvc-6af02cb2-3a62-4d24-8201-dc749034651e   1Gi        RWO            Delete           Bound    default/sample-event-tailer-sample-event-tailer-0   standard                42s
 </span></span></code></pre></div><h2 id="configuration-options">Configuration options</h2><p>For the detailed list of configuration options, see the <a href="/docs/configuration/crds/extensions/eventtailer_types/">EventTailer CRD reference</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 16, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e97e95df565b1489fcdbc03690d401cfa17dcfd9">Merge pull request #297 from kube-logging/dependabot/github_actions/actions/setup-node-6.0.0 (e97e95d)</a>
+Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

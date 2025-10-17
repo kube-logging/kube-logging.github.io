@@ -28,14 +28,14 @@ image (tailer.ImageSpec, optional) systemdTailers ([]SystemdTailer, optional) Li
 workloadOverrides (*types.PodSpecBase, optional) Override podSpec fields for the given daemonset">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/extensions/hosttailer_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-16T14:20:43+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="HostTailer">
 <meta itemprop="description" content="HostTailerSpec HostTailerSpec defines the desired state of HostTailer
 enableRecreateWorkloadOnImmutableFieldChange (bool, optional) EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the daemonset (and possibly other resource in the future) in case there is a change in an immutable field that otherwise couldn&rsquo;t be managed with a simple update.
 fileTailers ([]FileTailer, optional) List of file tailers.
 image (tailer.ImageSpec, optional) systemdTailers ([]SystemdTailer, optional) List of systemd tailers.
 workloadOverrides (*types.PodSpecBase, optional) Override podSpec fields for the given daemonset">
-<meta itemprop="dateModified" content="2025-10-16T14:20:43+02:00">
+<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
 <meta itemprop="wordCount" content="410">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HostTailer">
@@ -651,7 +651,7 @@ If the <code>systemdFilter</code> is not specified, <code>_SYSTEMD_UNIT</code> i
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">path=/dev/</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- -<span style="color:#000">p</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">file=stdout</span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 16, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e97e95df565b1489fcdbc03690d401cfa17dcfd9">Merge pull request #297 from kube-logging/dependabot/github_actions/actions/setup-node-6.0.0 (e97e95d)</a>
+Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
