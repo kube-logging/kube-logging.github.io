@@ -131,9 +131,9 @@ NAME                    READY   STATUS        RESTARTS   AGE
 sample-event-tailer-0   1/1     Terminating   0          12s
 ```
 
-## Persist event logs
+## Persist event log position
 
-Event-tailer supports persist mode. In this case, the logs generated from events are stored on a persistent volume. Add the following configuration to your event-tailer spec. In this example, the event tailer is called `sample`:
+Event-tailer supports persist mode. In this case, the position of which events have already been processed is stored on a persistent volume. Add the following configuration to your event-tailer spec. In this example, the event tailer is called `sample`:
 
 ```bash
 kubectl apply -f - <<EOF
