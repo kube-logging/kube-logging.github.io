@@ -24,12 +24,12 @@ Available in Logging operator version 4.5 and later.
 To use the timestamps written by the container runtime (cri or docker) and parsed by Fluent Bit, define the sourceDateParser in the syslog-ng spec.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/date-parser/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-11-11T10:11:49+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Parsing custom date formats">
 <meta itemprop="description" content="By default, the syslog-ng aggregator uses the time when a message has been received on its input source as the timestamp. If you want to use the timestamp written in the message metadata, you can use a date-parser.
 Available in Logging operator version 4.5 and later.
 To use the timestamps written by the container runtime (cri or docker) and parsed by Fluent Bit, define the sourceDateParser in the syslog-ng spec.">
-<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="dateModified" content="2025-11-11T10:11:49+01:00">
 <meta itemprop="wordCount" content="108">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parsing custom date formats">
@@ -269,10 +269,7 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
-<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -344,6 +341,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span>Null</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsopensearch-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsopensearch-check">
 <label for="m-docsconfigurationpluginsoutputsopensearch-check"><a href="/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
@@ -606,7 +606,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">format</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;%FT%T.%f%z&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">template</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${json.time}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
+Last modified November 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1043ea85cefabb831a5e4c788eba401272f7162">Merge pull request #299 from kube-logging/null-output-title-fix (b1043ea)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -26,13 +26,13 @@ Example StdOut filter configurations apiVersion: logging.banzaicloud.io/v1beta1 
 <filter **> @type stdout @id test_stdout output_type json </filter> ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/filters/stdout/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-11-11T10:11:49+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="StdOut">
 <meta itemprop="description" content="Stdout Filter Overview Fluentd Filter plugin to print events to stdout
 Configuration StdOutFilterConfig output_type (string, optional) This is the option of stdout format.
 Example StdOut filter configurations apiVersion: logging.banzaicloud.io/v1beta1 kind: Flow metadata: name: demo-flow spec: filters: - stdout: output_type: json selectors: {} localOutputRefs: - demo-output Fluentd config result:
 <filter **> @type stdout @id test_stdout output_type json </filter> ">
-<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="dateModified" content="2025-11-11T10:11:49+01:00">
 <meta itemprop="wordCount" content="57">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StdOut">
@@ -273,10 +273,7 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
-<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -348,6 +345,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span>Null</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsopensearch-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsopensearch-check">
 <label for="m-docsconfigurationpluginsoutputsopensearch-check"><a href="/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
@@ -620,7 +620,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">output_type json</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">&lt;/filter&gt;</span></span></span></code></pre></div><hr>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
+Last modified November 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1043ea85cefabb831a5e4c788eba401272f7162">Merge pull request #299 from kube-logging/null-output-title-fix (b1043ea)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -26,13 +26,13 @@ Default: true
 azure_cloud (string, optional) Available in Logging operator version 4.5 and later. Azure Cloud to use, for example, AzurePublicCloud, AzureChinaCloud, AzureGermanCloud, AzureUSGovernmentCloud, AZURESTACKCLOUD (in uppercase). This field is supported only if the fluentd plugin honors it, for example, https://github.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/azurestore/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-11-11T10:11:49+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Azure Storage">
 <meta itemprop="description" content="Azure Storage output plugin for Fluentd Overview Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically. More info at https://github.com/microsoft/fluent-plugin-azure-storage-append-blob
 Configuration Output Config auto_create_container (bool, optional) Automatically create container if not exists
 Default: true
 azure_cloud (string, optional) Available in Logging operator version 4.5 and later. Azure Cloud to use, for example, AzurePublicCloud, AzureChinaCloud, AzureGermanCloud, AzureUSGovernmentCloud, AZURESTACKCLOUD (in uppercase). This field is supported only if the fluentd plugin honors it, for example, https://github.">
-<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="dateModified" content="2025-11-11T10:11:49+01:00">
 <meta itemprop="wordCount" content="192">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Azure Storage">
@@ -273,10 +273,7 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
-<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -348,6 +345,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span>Null</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsopensearch-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsopensearch-check">
 <label for="m-docsconfigurationpluginsoutputsopensearch-check"><a href="/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
@@ -606,7 +606,7 @@ Releases
 <h1>Azure Storage</h1><header class="article-meta">
 </header><h1 id="azure-storage-output-plugin-for-fluentd">Azure Storage output plugin for Fluentd</h1><h2 id="overview">Overview</h2><p>Azure Storage output plugin buffers logs in local file and upload them to Azure Storage periodically.
 More info at <a href="https://github.com/microsoft/fluent-plugin-azure-storage-append-blob">https://github.com/microsoft/fluent-plugin-azure-storage-append-blob</a></p><h2 id="configuration">Configuration</h2><h2 id="output-config">Output Config</h2><h3 id="output-config-auto_create_container">auto_create_container (bool, optional)</h3><p>Automatically create container if not exists</p><p>Default: true</p><h3 id="output-config-azure_cloud">azure_cloud (string, optional)</h3><p>Available in Logging operator version 4.5 and later. Azure Cloud to use, for example, AzurePublicCloud, AzureChinaCloud, AzureGermanCloud, AzureUSGovernmentCloud, AZURESTACKCLOUD (in uppercase). This field is supported only if the fluentd plugin honors it, for example, <a href="https://github.com/elsesiy/fluent-plugin-azure-storage-append-blob-lts">https://github.com/elsesiy/fluent-plugin-azure-storage-append-blob-lts</a></p><h3 id="output-config-azure_container">azure_container (string, required)</h3><p>Your azure storage container</p><h3 id="output-config-azure_imds_api_version">azure_imds_api_version (string, optional)</h3><p>Azure Instance Metadata Service API Version</p><h3 id="output-config-azure_object_key_format">azure_object_key_format (string, optional)</h3><p>Object key format</p><p>Default: %{path}%{time_slice}_%{index}.%{file_extension}</p><h3 id="output-config-azure_storage_access_key">azure_storage_access_key (*secret.Secret, optional)</h3><p>Your azure storage access key <a href="../secret/">Secret</a></p><h3 id="output-config-azure_storage_account">azure_storage_account (*secret.Secret, required)</h3><p>Your azure storage account <a href="../secret/">Secret</a></p><h3 id="output-config-azure_storage_sas_token">azure_storage_sas_token (*secret.Secret, optional)</h3><p>Your azure storage sas token <a href="../secret/">Secret</a></p><h3 id="output-config-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><h3 id="output-config-format">format (string, optional)</h3><p>Compat format type: out_file, json, ltsv (default: out_file)</p><p>Default: json</p><h3 id="output-config-path">path (string, optional)</h3><p>Path prefix of the files on Azure</p><h3 id="output-config-slow_flush_log_threshold">slow_flush_log_threshold (string, optional)</h3><p>The threshold for chunk flush performance check. Parameter type is float, not time, default: 20.0 (seconds) If chunk flush takes longer time than this threshold, fluentd logs warning message and increases metric fluentd_output_status_slow_flush_count.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
+Last modified November 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1043ea85cefabb831a5e4c788eba401272f7162">Merge pull request #299 from kube-logging/null-output-title-fix (b1043ea)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

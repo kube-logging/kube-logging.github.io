@@ -24,12 +24,12 @@ The Logging operator itself doesn&rsquo;t store any logs. For demonstration purp
 The Logging operator collects all logs from the cluster, selects the specific logs based on pod labels, and sends the selected log messages to the output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/quickstarts/single/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-11-11T10:11:49+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Single app, one destination">
 <meta itemprop="description" content="This guide shows you how to collect application and container logs in Kubernetes using the Logging operator.
 The Logging operator itself doesn&rsquo;t store any logs. For demonstration purposes, it can deploy a special workload to the cluster to let you observe the logs flowing through the system.
 The Logging operator collects all logs from the cluster, selects the specific logs based on pod labels, and sends the selected log messages to the output.">
-<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="dateModified" content="2025-11-11T10:11:49+01:00">
 <meta itemprop="wordCount" content="1528">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Single app, one destination">
@@ -269,10 +269,7 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check">
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
-<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -344,6 +341,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span>Null</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsopensearch-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsopensearch-check">
 <label for="m-docsconfigurationpluginsoutputsopensearch-check"><a href="/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
@@ -900,7 +900,7 @@ Fluentd
 <p>Installed a simple receiver to act as the destination of the logs, and configured the log forwarder to send the logs from the <code>quickstart</code> namespace to this destination.</p></li><li>
 <p>Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.</p></li></ul><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
+Last modified November 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1043ea85cefabb831a5e4c788eba401272f7162">Merge pull request #299 from kube-logging/null-output-title-fix (b1043ea)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

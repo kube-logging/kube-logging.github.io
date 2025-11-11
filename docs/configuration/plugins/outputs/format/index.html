@@ -30,7 +30,7 @@ type (string, optional) Output line formatting: out_file,json,ltsv,csv,msgpack,h
 Default: json">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/format/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-10-17T14:58:25+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-11-11T10:11:49+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Format">
 <meta itemprop="description" content="Format output records Overview Specify how to format output records. For details, see https://docs.fluentd.org/configuration/format-section.
 Example spec: format: path: /tmp/logs/${tag}/%Y/%m/%d.%H.%M format: type: single_value add_newline: true message_key: msg Configuration Format add_newline (*bool, optional) When type is single_value add &lsquo;\n&rsquo; to the end of the message
@@ -38,7 +38,7 @@ Default: true
 message_key (string, optional) When type is single_value specify the key holding information
 type (string, optional) Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value
 Default: json">
-<meta itemprop="dateModified" content="2025-10-17T14:58:25+02:00">
+<meta itemprop="dateModified" content="2025-11-11T10:11:49+01:00">
 <meta itemprop="wordCount" content="66">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Format">
@@ -281,10 +281,7 @@ Releases
 <input type="checkbox" id="m-docsconfigurationpluginsoutputs-check" checked>
 <label for="m-docsconfigurationpluginsoutputs-check"><a href="/docs/configuration/plugins/outputs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationpluginsoutputs"><span>Fluentd outputs</span></a></label>
 <ul class="ul-4 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
-<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
-<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span></span></a></label>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsoss-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsoss-check">
 <label for="m-docsconfigurationpluginsoutputsoss-check"><a href="/docs/configuration/plugins/outputs/oss/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsoss"><span>Alibaba Cloud</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputscloudwatch-li">
@@ -356,6 +353,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnewrelic-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsnewrelic-check">
 <label for="m-docsconfigurationpluginsoutputsnewrelic-check"><a href="/docs/configuration/plugins/outputs/newrelic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnewrelic"><span>NewRelic</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsnull-li">
+<input type="checkbox" id="m-docsconfigurationpluginsoutputsnull-check">
+<label for="m-docsconfigurationpluginsoutputsnull-check"><a href="/docs/configuration/plugins/outputs/null/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsnull"><span>Null</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationpluginsoutputsopensearch-li">
 <input type="checkbox" id="m-docsconfigurationpluginsoutputsopensearch-check">
 <label for="m-docsconfigurationpluginsoutputsopensearch-check"><a href="/docs/configuration/plugins/outputs/opensearch/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationpluginsoutputsopensearch"><span>OpenSearch</span></a></label>
@@ -620,7 +620,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">add_newline</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:700">message_key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">msg</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="format">Format</h2><h3 id="format-add_newline">add_newline (*bool, optional)</h3><p>When type is single_value add &lsquo;\n&rsquo; to the end of the message</p><p>Default: true</p><h3 id="format-message_key">message_key (string, optional)</h3><p>When type is single_value specify the key holding information</p><h3 id="format-type">type (string, optional)</h3><p>Output line formatting: out_file,json,ltsv,csv,msgpack,hash,single_value</p><p>Default: json</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified October 17, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b24f125f66b6c5c92c141e24b50ce7609a2009a0">Merge pull request #298 from kube-logging/event-tailer-persist (b24f125)</a>
+Last modified November 11, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b1043ea85cefabb831a5e4c788eba401272f7162">Merge pull request #299 from kube-logging/null-output-title-fix (b1043ea)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
