@@ -5,8 +5,8 @@ weight: 50
 
 ## Version 6.2
 
-- Logging operator now uses a custom Elasticsearch gem that supports older Elasticsearch versions as well.
-- Added missing paths to performance profiling (pprof).
+- Logging operator now uses a custom Elasticsearch gem that supports older Elasticsearch major versions besides the latest (version 9).
+- Added additional paths to performance profiling (pprof).
 
 ## Version 6.1
 
