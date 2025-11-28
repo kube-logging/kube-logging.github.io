@@ -3,6 +3,11 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.2
+
+- Logging operator now uses a custom Elasticsearch gem that supports older Elasticsearch versions as well.
+- Added missing paths to performance profiling (pprof).
+
 ## Version 6.1
 
 - New Fluentd output to send logs into {{% xref "/docs/configuration/plugins/outputs/rabbitmq.md" %}}.
