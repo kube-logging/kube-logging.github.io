@@ -162,7 +162,7 @@ weight = 1
 
 [params.social]
 # Used as twitter:site in page metadata
-twitter = "AxoflowIO"
+#twitter = "AxoflowIO"
 
 ########################
 # Release versions
