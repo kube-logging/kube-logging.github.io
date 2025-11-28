@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/file/">latest (6.1)</a>
+	<a class="dropdown-item" href="/docs/configuration/plugins/syslog-ng-outputs/file/">latest (6.2)</a>
+	<a class="dropdown-item" href="/6.1//docs/configuration/plugins/syslog-ng-outputs/file/">6.1</a>
 	<a class="dropdown-item" href="/6.0//docs/configuration/plugins/syslog-ng-outputs/file/">6.0</a>
 	<a class="dropdown-item" href="/5.4//docs/configuration/plugins/syslog-ng-outputs/file/">5.4</a>
 	<a class="dropdown-item" href="/5.3//docs/configuration/plugins/syslog-ng-outputs/file/">5.3</a>
