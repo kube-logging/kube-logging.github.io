@@ -5,6 +5,33 @@ weight: 750
 
 Logging operator uses the following image versions.
 
+## Logging operator version 6.2.1
+
+| Image repository | GitHub repository | Version |
+| -------- | --- | -- |
+| ghcr.io/kube-logging/logging-operator/node-exporter | https://github.com/kube-logging/logging-operator/tree/master/images/node-exporter | 6.2.1 |
+| ghcr.io/kube-logging/logging-operator/config-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/config-reloader | 6.2.1 |
+| ghcr.io/kube-logging/logging-operator/fluentd-drain-watch | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd-drain-watch | 6.2.1 |
+| ghcr.io/kube-logging/logging-operator/fluentd | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd | 6.2.1-full |
+| ghcr.io/kube-logging/logging-operator/syslog-ng-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/syslog-ng-reloader | 6.2.1 |
+
+## Logging operator version 6.2.0
+
+| Image repository | GitHub repository | Version |
+| -------- | --- | -- |
+| ghcr.io/kube-logging/logging-operator/node-exporter | https://github.com/kube-logging/logging-operator/tree/master/images/node-exporter | 6.2.0 |
+| ghcr.io/kube-logging/logging-operator/config-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/config-reloader | 6.2.0 |
+| ghcr.io/kube-logging/logging-operator/fluentd-drain-watch | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd-drain-watch | 6.2.0 |
+| registry.k8s.io/pause | https://github.com/kubernetes/registry.k8s.io | 3.9 |
+| docker.io/library/busybox | https://github.com/docker-library/busybox | latest |
+| ghcr.io/axoflow/axosyslog | https://github.com/axoflow/axosyslog/ | 4.20.0 |
+| ghcr.io/fluent/fluent-bit | https://github.com/fluent/fluent-bit | 4.2.0 |
+| ghcr.io/kube-logging/logging-operator/fluentd | https://github.com/kube-logging/logging-operator/tree/master/images/fluentd | 6.2.0-full |
+| ghcr.io/axoflow/axosyslog-metrics-exporter | https://github.com/axoflow/axosyslog-metrics-exporter | 0.0.14 |
+| ghcr.io/kube-logging/logging-operator/syslog-ng-reloader | https://github.com/kube-logging/logging-operator/tree/master/images/syslog-ng-reloader | 6.2.0 |
+| ghcr.io/kube-logging/eventrouter | https://github.com/kube-logging/eventrouter | 0.4.0 |
+| rubygems.org/gems/fluentd/versions/ |  | 1.19.1 |
+
 ## Logging operator version 6.1
 
 | Image repository | GitHub repository | Version |

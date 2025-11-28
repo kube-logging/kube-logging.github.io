@@ -168,6 +168,9 @@ Fluentd port inside the container (24240 by default). The headless service port 
 ### serviceAccount (*typeoverride.ServiceAccount, optional) {#fluentdspec-serviceaccount}
 
 
+### service (*typeoverride.Service, optional) {#fluentdspec-service}
+
+
 ### sidecarContainers ([]corev1.Container, optional) {#fluentdspec-sidecarcontainers}
 
 Available in Logging operator version 4.5 and later. Configure sidecar container in Fluentd pods, for example: [https://github.com/kube-logging/logging-operator/config/samples/logging_logging_fluentd_sidecars.yaml](https://github.com/kube-logging/logging-operator/config/samples/logging_logging_fluentd_sidecars.yaml). 
@@ -229,7 +232,7 @@ ExtraVolume defines the fluentd extra volumes
 
 ## FluentdScaling
 
-FluentdScaling enables configuring the scaling behaviour of the fluentd statefulset
+FluentdScaling enables configuring the scaling behavior of the fluentd statefulset
 
 ### drain (FluentdDrainConfig, optional) {#fluentdscaling-drain}
 
