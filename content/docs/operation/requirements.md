@@ -56,11 +56,15 @@ spec:
         cpu: 1
         memory: 1Gi
   syslogNG:
-    resources:
-      requests:
-        cpu: 500m
-        memory: 500M
-      limits:
-        cpu: 1
-        memory: 1Gi
+    statefulSet:
+      spec:
+        template:
+          spec:
+            containers:
+              - name: syslog-ng
+                resources:
+                  limits:
+                    memory: 1Gi
+                  requests:
+                    cpu: 500m
 ```
