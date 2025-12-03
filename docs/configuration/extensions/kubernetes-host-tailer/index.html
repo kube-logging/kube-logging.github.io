@@ -24,12 +24,12 @@ Create host tailer To tail logs from the node&rsquo;s host filesystem, define on
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-host-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-11-28T16:03:20+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2025-12-03T09:08:06+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes host logs, journals, and logfiles">
 <meta itemprop="description" content="Kubernetes host tailer allows you to tail logs like kubelet, audit logs, or the systemd journal from the nodes.
 Create host tailer To tail logs from the node&rsquo;s host filesystem, define one or more file tailers in the host-tailer configuration.
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
-<meta itemprop="dateModified" content="2025-11-28T16:03:20+01:00">
+<meta itemprop="dateModified" content="2025-12-03T09:08:06+00:00">
 <meta itemprop="wordCount" content="1094">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes host logs, journals, and logfiles">
@@ -807,7 +807,7 @@ Releases
 <td>command</td><td><code>[]string</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>volumeMounts</td><td><code>[]corev1.VolumeMount</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>securityContext</td><td><code>*corev1.SecurityContext</code></td><td>No</td><td>-</td><td></td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified November 28, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/2eea06951e5cb8d307b35fee26ea2a83a8ed6bdb">Merge pull request #302 from kube-logging/6.2.1-docs (2eea069)</a>
+Last modified December 3, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/d0d88340c6e2365f5c109da350cda10dc31a40db">Merge df6f6cba1cc1afeb4fafb1f4d51301ffa204a609 into 2eea06951e5cb8d307b35fee26ea2a83a8ed6bdb (d0d8834)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
