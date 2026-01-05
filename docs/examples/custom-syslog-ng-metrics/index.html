@@ -26,13 +26,13 @@ Source metrics Custom source metrics are added to the messages after the JSON pa
 kind: Logging apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: logging spec: controlNamespace: default fluentbit: {} syslogNG: metrics: {} sourceMetrics: - key: custom_input labels: test: my-label-value This corresponds to the following syslog-ng configuration:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/custom-syslog-ng-metrics/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-12-08T16:49:05+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-05T14:35:10+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Custom source and output metrics">
 <meta itemprop="description" content="When using syslog-ng as the log aggregator, you can create custom log metrics for sources and outputs, based on the metrics-probe() parser.
 Available in Logging operator version 4.5 and later.
 Source metrics Custom source metrics are added to the messages after the JSON parsing is completed. The following example adds the key called custom_input:
 kind: Logging apiVersion: logging.banzaicloud.io/v1beta1 metadata: name: logging spec: controlNamespace: default fluentbit: {} syslogNG: metrics: {} sourceMetrics: - key: custom_input labels: test: my-label-value This corresponds to the following syslog-ng configuration:">
-<meta itemprop="dateModified" content="2025-12-08T16:49:05+01:00">
+<meta itemprop="dateModified" content="2026-01-05T14:35:10+01:00">
 <meta itemprop="wordCount" content="278">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Custom source and output metrics">
@@ -679,7 +679,7 @@ Releases
 </span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all1&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;local&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">42</span>
 </span></span><span style="display:flex"><span>syslogng_custom_output<span style="color:#ce5c00;font-weight:700">{</span><span style="color:#000">flow</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;all2&#34;</span>,logging<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;logging&#34;</span>,output_name<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;http2&#34;</span>,output_namespace<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;default&#34;</span>,output_scope<span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#34;global&#34;</span><span style="color:#ce5c00;font-weight:700">}</span> <span style="color:#0000cf;font-weight:700">154</span>
 </span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 8, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1da6fb1f551400682360019fc6b5350c5851f7f1">Merge pull request #304 from kube-logging/dependabot/github_actions/actions/setup-node-6.1.0 (1da6fb1)</a>
+Last modified January 5, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c6a3ea853613e6b5d3ff7930875ede35d6e74d5a">Merge pull request #306 from kube-logging/fix/probe-section (c6a3ea8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -700,7 +700,7 @@ Last modified December 8, 2025: <a href="https://github.com/kube-logging/kube-lo
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
-<small class="text-white">&copy; 2023-2025 kube-logging authors | All Rights Reserved</small>
+<small class="text-white">&copy; 2023-2026 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>

@@ -28,14 +28,14 @@ format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/vmware_log_intelligence/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2025-12-08T16:49:05+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-05T14:35:10+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="VMware Log Intelligence">
 <meta itemprop="description" content="Overview VMware Log Intelligence output plugin for Fluentd. For details, see https://github.com/vmware/fluent-plugin-vmware-log-intelligence.
 Example output configurations spec: vmwarelogintelligence: endpoint_url: https://data.upgrade.symphony-dev.com/le-mans/v1/streams/ingestion-pipeline-stream verify_ssl: true http_compress: false headers: content_type: &#34;application/json&#34; authorization: valueFrom: secretKeyRef: name: vmware-log-intelligence-token key: authorization structure: simple buffer: chunk_limit_records: 300 flush_interval: 3s retry_max_times: 3 Configuration VMwareLogIntelligence buffer (*Buffer, optional) Buffer
 endpoint_url (string, required) Log Intelligence endpoint to send logs to https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-endpoint_url
 format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
-<meta itemprop="dateModified" content="2025-12-08T16:49:05+01:00">
+<meta itemprop="dateModified" content="2026-01-05T14:35:10+01:00">
 <meta itemprop="wordCount" content="231">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMware Log Intelligence">
@@ -634,7 +634,7 @@ Releases
 output that uses the correct key names for the VMware Log Intelligence plugin. This allows the
 Ouput to accept the config is snake_case (as other output plugins do) but output the fluentd
 <headers> config with the proper key names (ie. content_type -> Content-Type)</p><h3 id="logintelligenceheadersout-authorization">Authorization (*secret.Secret, required)</h3><p>Authorization Bearer token for http request to VMware Log Intelligence</p><h3 id="logintelligenceheadersout-content-type">Content-Type (string, required)</h3><p>Content Type for http request to VMware Log Intelligence</p><p>Default: application/json</p><h3 id="logintelligenceheadersout-structure">structure (string, required)</h3><p>Structure for http request to VMware Log Intelligence</p><p>Default: simple</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified December 8, 2025: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1da6fb1f551400682360019fc6b5350c5851f7f1">Merge pull request #304 from kube-logging/dependabot/github_actions/actions/setup-node-6.1.0 (1da6fb1)</a>
+Last modified January 5, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/c6a3ea853613e6b5d3ff7930875ede35d6e74d5a">Merge pull request #306 from kube-logging/fix/probe-section (c6a3ea8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
@@ -655,7 +655,7 @@ Last modified December 8, 2025: <a href="https://github.com/kube-logging/kube-lo
 </a>
 </li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class="text-white"><a class="text-white" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> | </small>
-<small class="text-white">&copy; 2023-2025 kube-logging authors | All Rights Reserved</small>
+<small class="text-white">&copy; 2023-2026 kube-logging authors | All Rights Reserved</small>
 </div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
