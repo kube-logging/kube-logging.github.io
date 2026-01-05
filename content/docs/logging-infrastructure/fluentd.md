@@ -315,7 +315,7 @@ To configure autoscaling of the Fluentd deployment using Horizontal Pod Autoscal
 
 ## Probe
 
-A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can configure a probe for Fluentd in the **livenessProbe** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For example:
+A [Probe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. You can use the default liveness-probe for Fluentd by setting `livenessDefaultCheck` to `true` or configure your own in the **livenessProbe** section of the {{% xref "/docs/logging-infrastructure/logging.md" %}}. For example:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -332,14 +332,14 @@ spec:
         - "/bin/sh"
         - "-c"
         - >
+          BUFFER_PATH=${BUFFER_PATH:-/buffers};
           LIVENESS_THRESHOLD_SECONDS=${LIVENESS_THRESHOLD_SECONDS:-300};
-          if [ ! -e /buffers ];
-          then
+
+          if [ ! -e "${BUFFER_PATH}" ]; then
             exit 1;
           fi;
-          touch -d "${LIVENESS_THRESHOLD_SECONDS} seconds ago" /tmp/marker-liveness;
-          if [ -z "$(find /buffers -type d -newer /tmp/marker-liveness -print -quit)" ];
-          then
+          MINUTES=$(( (LIVENESS_THRESHOLD_SECONDS + 59) / 60 ));
+          if [ -z "$(find "${BUFFER_PATH}" -type d -mmin -"${MINUTES}" -print -quit)" ]; then
             exit 1;
           fi;
   fluentbit: {}
