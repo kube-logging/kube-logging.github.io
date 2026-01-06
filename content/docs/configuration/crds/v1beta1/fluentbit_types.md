@@ -766,7 +766,20 @@ Default: https://kubernetes.default.svc:443
 
 ### Kubelet_Host (string, optional) {#filterkubernetes-kubelet_host}
 
-Kubelet host to use for HTTP requests. This only works when [Use_Kubelet]({#filterkubernetes-use_kubelet) is set to `On`
+Kubelet host to use for HTTP requests. This only works when [Use_Kubelet]({#filterkubernetes-use_kubelet) is set to `On`. For example:
+
+```yaml
+fluentbit:
+  HostNetwork: false
+  envVars:
+  - name: HOST_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.hostIP
+  filterKubernetes:
+    Use_Kubelet: 'On'
+    Kubelet_Host: '${HOST_IP}'
+```
 
 Default: 127.0.0.1
 
