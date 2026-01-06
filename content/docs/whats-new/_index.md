@@ -8,7 +8,7 @@ weight: 50
 - Support for FluentBit tail input [`File_Cache_Advise`]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#inputtail-file_cache_advise" >}}) config parameter. Default behavior remains unchanged (on).
 - Metrics of config-reloader are exposed now.
 - You can now add [labels to Prometheus rules]({{< relref "/docs/configuration/crds/v1beta1/common_types.md#metrics-prometheusruleslabels" >}}).
-- Add support for passing [Kubelet_Host]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes-kubelet_host" >}}) to the Fluent Bit DaemonSet deployment. That way you can have Fluent Bit run without Hostnetworking but still be able to use the Kubelet for POD metadata enrichment.
+- Add support for passing [Kubelet_Host]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes-kubelet_host" >}}) to the Fluent Bit DaemonSet deployment. That way you can have Fluent Bit run without Hostnetworking but still be able to use the Kubelet for pod metadata enrichment.
 
 ## Version 6.2
 
