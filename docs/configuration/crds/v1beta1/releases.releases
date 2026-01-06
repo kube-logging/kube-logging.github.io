@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/crds/v1beta1/">latest (6.2)</a>
+	<a class="dropdown-item" href="/docs/configuration/crds/v1beta1/">latest (6.3)</a>
+	<a class="dropdown-item" href="/6.2//docs/configuration/crds/v1beta1/">6.2</a>
 	<a class="dropdown-item" href="/6.1//docs/configuration/crds/v1beta1/">6.1</a>
 	<a class="dropdown-item" href="/6.0//docs/configuration/crds/v1beta1/">6.0</a>
 	<a class="dropdown-item" href="/5.4//docs/configuration/crds/v1beta1/">5.4</a>

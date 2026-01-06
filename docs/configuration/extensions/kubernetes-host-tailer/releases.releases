@@ -1,5 +1,6 @@
 
-	<a class="dropdown-item" href="/docs/configuration/extensions/kubernetes-host-tailer/">latest (6.2)</a>
+	<a class="dropdown-item" href="/docs/configuration/extensions/kubernetes-host-tailer/">latest (6.3)</a>
+	<a class="dropdown-item" href="/6.2//docs/configuration/extensions/kubernetes-host-tailer/">6.2</a>
 	<a class="dropdown-item" href="/6.1//docs/configuration/extensions/kubernetes-host-tailer/">6.1</a>
 	<a class="dropdown-item" href="/6.0//docs/configuration/extensions/kubernetes-host-tailer/">6.0</a>
 	<a class="dropdown-item" href="/5.4//docs/configuration/extensions/kubernetes-host-tailer/">5.4</a>
