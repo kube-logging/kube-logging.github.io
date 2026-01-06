@@ -56,6 +56,37 @@ Enabled controls whether the metrics endpoint should be exposed. Defaults to fal
 ### prometheusRules (bool, optional) {#metrics-prometheusrules}
 
 
+### prometheusRulesLabels (map[string]string, optional) {#metrics-prometheusruleslabels}
+
+Adds labels to Prometheus rules, for example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: all-to-file
+spec:
+  controlNamespace: logging
+  fluentd:
+    metrics:
+      prometheusRules: true
+      prometheusRulesLabels:
+        label1: value1
+        label2: value2
+...
+```
+
+You can check the results like this:
+
+```shell
+kubectl get prometheusrule all-to-file-fluentd-metrics -o yaml | yq '.metadata.labels'
+app.kubernetes.io/component: fluentd
+app.kubernetes.io/managed-by: all-to-file
+app.kubernetes.io/name: fluentd
+label1: value1
+label2: value2
+```
+
 ### prometheusRulesOverride ([]PrometheusRulesOverride, optional) {#metrics-prometheusrulesoverride}
 
 

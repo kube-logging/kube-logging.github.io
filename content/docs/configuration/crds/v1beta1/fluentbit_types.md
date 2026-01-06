@@ -525,6 +525,12 @@ Specify an optional parser for the first line of the docker multiline mode.
 Set one or multiple shell patterns separated by commas to exclude files matching a certain criteria, e.g: exclude_path=*.gz,*.zip
 
 
+### File_Cache_Advise (string, optional) {#inputtail-file_cache_advise}
+
+Use posix_fadvise for file access. Advise not to use kernel file cache (Linux only).
+
+Default: On
+
 ### Ignore_Older (string, optional) {#inputtail-ignore_older}
 
 Ignores files that have been last modified before this time in seconds. Supports m,h,d (minutes, hours,days) syntax. Default behavior is to read all specified files.
@@ -758,9 +764,28 @@ API Server end-point.
 
 Default: https://kubernetes.default.svc:443
 
+### Kubelet_Host (string, optional) {#filterkubernetes-kubelet_host}
+
+Kubelet host to use for HTTP requests. This only works when [Use_Kubelet]({#filterkubernetes-use_kubelet) is set to `On`. For example:
+
+```yaml
+fluentbit:
+  HostNetwork: false
+  envVars:
+  - name: HOST_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.hostIP
+  filterKubernetes:
+    Use_Kubelet: 'On'
+    Kubelet_Host: '${HOST_IP}'
+```
+
+Default: 127.0.0.1
+
 ### Kubelet_Port (string, optional) {#filterkubernetes-kubelet_port}
 
-kubelet port using for HTTP request, this only works when Use_Kubelet  set to On
+kubelet port using for HTTP request, this only works when [Use_Kubelet]({#filterkubernetes-use_kubelet)  set to `On`
 
 Default: 10250
 
