@@ -24,12 +24,12 @@ Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata
 fallback-topic (string, optional) fallback-topic is used when syslog-ng cannot post a message to the originally defined topic (which can include invalid characters coming from templates).">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/mqtt/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-01-06T14:39:56+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-15T09:33:57+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="MQTT">
 <meta itemprop="description" content="Overview Sends messages from a local network to an MQTT broker. For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: mqtt namespace: default spec: mqtt: address: tcp://mosquitto:1883 topic: test/demo Configuration MQTT address (string, optional) Address of the destination host
 fallback-topic (string, optional) fallback-topic is used when syslog-ng cannot post a message to the originally defined topic (which can include invalid characters coming from templates).">
-<meta itemprop="dateModified" content="2026-01-06T14:39:56+01:00">
+<meta itemprop="dateModified" content="2026-01-15T09:33:57+00:00">
 <meta itemprop="wordCount" content="168">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT">
@@ -609,7 +609,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">mqtt</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">address</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tcp://mosquitto:1883</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">topic</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test/demo</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="mqtt">MQTT</h2><h3 id="mqtt-address">address (string, optional)</h3><p>Address of the destination host</p><h3 id="mqtt-fallback-topic">fallback-topic (string, optional)</h3><p>fallback-topic is used when syslog-ng cannot post a message to the originally defined topic (which can include invalid characters coming from templates).</p><h3 id="mqtt-qos">qos (int, optional)</h3><p>qos stands for quality of service and can take three values in the MQTT world. Its default value is 0, where there is no guarantee that the message is ever delivered.</p><h3 id="mqtt-template">template (string, optional)</h3><p>Template where you can configure the message template sent to the MQTT broker. By default, the template is: <code>$ISODATE $HOST $MSGHDR$MSG</code></p><h3 id="mqtt-topic">topic (string, optional)</h3><p>Topic defines in which topic syslog-ng stores the log message. You can also use templates here, and use, for example, the $HOST macro in the topic name hierarchy.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 6, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e6b6700e180c0d84b1f706e59d19f16be470081a">Merge pull request #307 from kube-logging/6.3-docs (e6b6700)</a>
+Last modified January 15, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6c4670a9dfe14bbdf8ffdec6fc4c5e26165b43e7">Merge 5577547291e90495a90e1d6d0b91fa3572705954 into e6b6700e180c0d84b1f706e59d19f16be470081a (6c4670a)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

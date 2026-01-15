@@ -22,11 +22,11 @@ The following figure gives you an overview about how the system works. The Loggi
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/examples/example-s3/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-01-06T14:39:56+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-15T09:33:57+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Transport all logs into Amazon S3  with Logging operator">
 <meta itemprop="description" content="This guide describes how to collect all the container logs in Kubernetes using the Logging operator, and how to send them to Amazon S3.
 The following figure gives you an overview about how the system works. The Logging operator collects the logs from the application, selects which logs to forward to the output, and sends the selected log messages to the output. For more details about the Logging operator, see the Logging operator overview.">
-<meta itemprop="dateModified" content="2026-01-06T14:39:56+01:00">
+<meta itemprop="dateModified" content="2026-01-15T09:33:57+00:00">
 <meta itemprop="wordCount" content="562">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transport all logs into Amazon S3  with Logging operator">
@@ -689,7 +689,7 @@ Releases
 See <a href="/docs/logging-infrastructure/fluentd/#fluentoutlogrotate">FluentOutLogrotate</a> why this was changed and how you can re-enable it if needed.</p></blockquote><p>Check the output. The logs will be available in the bucket on a <code>path</code> like:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="display:flex"><span>/logs/default.default-logging-simple-fluentbit-lsdp5.fluent-bit/2019/09/11/201909111432_0.gz
 </span></span></code></pre></div><blockquote>
 <p>If you don&rsquo;t get the expected result you can find help in the <a href="/docs/operation/troubleshooting/">troubleshooting section</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 6, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/e6b6700e180c0d84b1f706e59d19f16be470081a">Merge pull request #307 from kube-logging/6.3-docs (e6b6700)</a>
+Last modified January 15, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6c4670a9dfe14bbdf8ffdec6fc4c5e26165b43e7">Merge 5577547291e90495a90e1d6d0b91fa3572705954 into e6b6700e180c0d84b1f706e59d19f16be470081a (6c4670a)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
