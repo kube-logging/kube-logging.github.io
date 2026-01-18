@@ -26,13 +26,13 @@ Using the spec.fluentd section of The Logging custom resource.
 Using the standalone FluentdConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.fluentd configuration method. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-01-15T09:33:57+00:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-18T18:10:32+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="This page shows some examples on configuring Fluentd.
 Ways to configure Fluentd There are two ways to configure the Fluentd statefulset:
 Using the spec.fluentd section of The Logging custom resource.
 Using the standalone FluentdConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.fluentd configuration method. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.">
-<meta itemprop="dateModified" content="2026-01-15T09:33:57+00:00">
+<meta itemprop="dateModified" content="2026-01-18T18:10:32+01:00">
 <meta itemprop="wordCount" content="2071">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
@@ -870,7 +870,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
 <td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 15, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/6c4670a9dfe14bbdf8ffdec6fc4c5e26165b43e7">Merge 5577547291e90495a90e1d6d0b91fa3572705954 into e6b6700e180c0d84b1f706e59d19f16be470081a (6c4670a)</a>
+Last modified January 18, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b86dfccbce7ff4ec1fd27eaee9710d16c008d7ed">Merge pull request #308 from kube-logging/dependabot/github_actions/actions/setup-node-6.2.0 (b86dfcc)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
