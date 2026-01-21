@@ -1,0 +1,36 @@
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Flow
+metadata:
+  name: coredns
+  namespace: kube-system
+spec:
+  filters:
+    - tag_normaliser: {}
+    - parser:
+        reserve_data: true
+        remove_key_name_field: true
+        parse:
+          type: "regexp"
+          expression: '^\[(?<log.level>.*)\] \[?(?<source.address>.*)\]?:(?<source.port>.*) - (?<dns.id>.*) "(?<dns.question.type>.*) (?<dns.question.class>.*) (?<dns.question.name>.*)\.? (?<network.transport>.*) (?<coredns.query.size>.*) (?<coredns.dnssec_ok>.*) (?<bufsize>.*)" (?<dns.response_code>.*) (?<dns.header_flags>.*) (?<coredns.response.size>.*) (?<coredns.duration>.*)s'
+          types: "source.port:integer,dns.id:integer,coredns.query.size:integer,coredns.dnssec_ok:bool,bufsize:integer,dns.header_flags:array,coredns.response.size:integer,coredns.duration:float"
+    - record_modifier:
+        records:
+          - source.ip: '${ record["source.address"] }'
+          - dns.header_flags: '${ record["dns.header_flags"].map(&:upcase) }'
+          - event.duration: '${ record["coredns.duration"] * 1000000000 }'
+          - event.kind: "event"
+          - event.category: "network"
+          - event.type: "protocol"
+          - event.outcome: '${ record["dns.response_code"] == "NOERROR" ? "success" : "failure" }'
+          - event.protocol: "dns"
+          - event.module: "coredns"
+          - related.ip: '${ record["source.address"] }'
+          # for dashboard
+          - fileset.name: "kubernetes"
+          # alias in elastic
+          - coredns.query.name: '${ record["dns.question.name"] }'
+        remove_keys: "coredns.duration,coredns.dnssec_ok"
+  match:
+    - select:
+        labels:
+          k8s-app: "coredns"
