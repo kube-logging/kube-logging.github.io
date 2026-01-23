@@ -24,12 +24,12 @@ The Logging operator itself doesn&rsquo;t store any logs. For demonstration purp
 The Logging operator collects all logs from the cluster, selects the specific logs based on pod labels, and sends the selected log messages to the output.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/quickstarts/single/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-01-18T18:10:32+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-01-23T09:34:03+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Single app, one destination">
 <meta itemprop="description" content="This guide shows you how to collect application and container logs in Kubernetes using the Logging operator.
 The Logging operator itself doesn&rsquo;t store any logs. For demonstration purposes, it can deploy a special workload to the cluster to let you observe the logs flowing through the system.
 The Logging operator collects all logs from the cluster, selects the specific logs based on pod labels, and sends the selected log messages to the output.">
-<meta itemprop="dateModified" content="2026-01-18T18:10:32+01:00">
+<meta itemprop="dateModified" content="2026-01-23T09:34:03+00:00">
 <meta itemprop="wordCount" content="1528">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Single app, one destination">
@@ -900,7 +900,7 @@ Fluentd
 <p>Installed a simple receiver to act as the destination of the logs, and configured the log forwarder to send the logs from the <code>quickstart</code> namespace to this destination.</p></li><li>
 <p>Installed a log-generator application to generate sample log messages, and verified that the logs of this application arrive to the output.</p></li></ul><h2 id="getting-support">Getting Support</h2><p>If you encounter any problems that the documentation does not address, <a href="https://github.com/kube-logging/logging-operator/issues">file an issue</a> or talk to us on <a href="https://discord.gg/9ACY4RDsYN">Discord</a> or on the <a href="/docs/community/">CNCF Slack</a>.</p><p>Before asking for help, prepare the following information to make troubleshooting faster:</p><ul>
 <li>Logging operator version</li><li>kubernetes version</li><li>helm/chart version (if you installed the Logging operator with helm)</li><li>Logging operator logs</li><li><a href="/docs/operation/troubleshooting/fluentd/#check-fluentd-configuration">fluentd configuration</a></li><li><a href="/docs/operation/troubleshooting/fluentd/#get-fluentd-logs">fluentd logs</a></li><li><a href="/docs/operation/troubleshooting/fluentbit/#check-the-fluent-bit-configuration">fluentbit configuration</a></li><li>fluentbit logs</li></ul><p>Do not forget to remove any sensitive information (for example, passwords and private keys) before sharing.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified January 18, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/b86dfccbce7ff4ec1fd27eaee9710d16c008d7ed">Merge pull request #308 from kube-logging/dependabot/github_actions/actions/setup-node-6.2.0 (b86dfcc)</a>
+Last modified January 23, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/dd6151da983ec2af8c3da6ee96bdec2aa7d937bb">Merge 11d6bf66628079d3553a0f8a6125fa0914c4f6a7 into b86dfccbce7ff4ec1fd27eaee9710d16c008d7ed (dd6151d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
