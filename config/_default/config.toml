@@ -65,7 +65,7 @@ weight = 1
   # Used in the "version-banner" partial to display a version number for the 
   # current doc set.
 
-  version = "6.3"
+  version = "6.4"
   version_menu = "Releases"
   version_menu_canonicallinks = true
   version_menu_pagelinks = true
@@ -169,9 +169,13 @@ weight = 1
 #######################
 # Add your release versions here
 [[params.versions]]
-  version = "latest (6.3)"
+  version = "latest (6.4)"
   githubbranch = "master"
   url = ""
+[[params.versions]]
+  version = "6.3"
+  githubbranch = "release-6.3"
+  url = "/6.3/"
 [[params.versions]]
   version = "6.2"
   githubbranch = "release-6.2"
