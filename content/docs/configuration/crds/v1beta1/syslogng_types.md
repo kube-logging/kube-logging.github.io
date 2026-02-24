@@ -92,6 +92,9 @@ Available in Logging operator version 4.5 and later. Create [custom log metrics 
 
 ### syslogNGImage (*BasicImageSpec, optional) {#syslogngspec-syslogngimage}
 
+### terminationGracePeriodSeconds (*int64, optional) {#syslogngspec-terminationgraceperiodseconds}
+
+Duration in seconds the pod needs to terminate gracefully. Set this value higher than the expected cleanup time for your log buffers to prevent data loss during pod shutdowns.
 
 ### tls (SyslogNGTLS, optional) {#syslogngspec-tls}
 
