@@ -270,6 +270,11 @@ Deprecated, use positiondb
 ### targetPort (int32, optional) {#fluentbitspec-targetport}
 
 
+### terminationGracePeriodSeconds (*int64, optional) {#fluentbitspec-terminationgraceperiodseconds}
+
+Duration in seconds the pod needs to terminate gracefully. Set this value higher than the expected cleanup time for your log buffers to prevent data loss during pod shutdowns.
+
+
 ### tolerations ([]corev1.Toleration, optional) {#fluentbitspec-tolerations}
 
 

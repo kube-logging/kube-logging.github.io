@@ -179,6 +179,10 @@ Available in Logging operator version 4.5 and later. Configure sidecar container
 ### statefulsetAnnotations (map[string]string, optional) {#fluentdspec-statefulsetannotations}
 
 
+### terminationGracePeriodSeconds (*int64, optional) {#fluentdspec-terminationgraceperiodseconds}
+
+Duration in seconds the pod needs to terminate gracefully. Set this value higher than the expected cleanup time for your log buffers to prevent data loss during pod shutdowns.
+
 ### tls (FluentdTLS, optional) {#fluentdspec-tls}
 
 
