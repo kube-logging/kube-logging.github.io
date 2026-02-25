@@ -59,7 +59,7 @@ For the **Fluentd** and **syslog-ng** log forwarders:
 - The number of errors or retries is high on the log forwarder
 - The buffers are over 90% full
 
-Currently, you cannot modify the default alerting rules, because they are generated from the source files. For the detailed list of alerts, see the source code:
+For the detailed list of default alerts, see the source code:
 
 - For [Fluentd](https://github.com/kube-logging/logging-operator/blob/master/pkg/resources/fluentd/prometheusrules.go)
 - For [syslog-ng](https://github.com/kube-logging/logging-operator/blob/master/pkg/resources/syslogng/prometheusrules.go)
@@ -67,9 +67,39 @@ Currently, you cannot modify the default alerting rules, because they are genera
 
 To enable these alerts on your cluster, see [Enable the default alerting rules](#enable-default-alerts).
 
+## Customize alerting rules {#customize-alerting-rules}
+
+Use the `prometheusRulesOverride` option to modify built-in alerting rules (for example, change the severity or threshold) or add new custom rules.
+
+The `prometheusRulesOverride` option is available for both regular metrics and buffer volume metrics:
+
+- `metrics.prometheusRulesOverride`: Alerting rules for log forwarder metrics.
+- `bufferVolumeMetrics.prometheusRulesOverride`: Alerting rules for buffer volume metrics.
+
+For example, to change the severity of a buffer volume alert from `critical` to `warning`:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+  namespace: logging
+spec:
+  fluentd:
+    bufferVolumeMetrics:
+      prometheusRules: true
+      prometheusRulesOverride:
+      - alert: FluentdBufferSize
+        labels:
+          severity: warning
+  controlNamespace: logging
+```
+
+For the list of fields you can set in `prometheusRulesOverride`, see [PrometheusRulesOverride]({{< relref "/docs/configuration/crds/v1beta1/common_types.md#prometheusrulesoverride" >}}).
+
 ## Add custom alerting rules {#custom-alerting-rules}
 
-Although you cannot modify the default alerting rules, you can add your own custom rules to the cluster by creating and applying [AlertmanagerConfig resources to the Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/alerting.md).
+You can also add your own custom rules to the cluster by creating and applying [AlertmanagerConfig resources to the Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/developer/alerting.md).
 
 For example, the Logging operator creates the following alerting rule to detect if a Fluentd node is down:
 
