@@ -95,31 +95,6 @@ spec:
   controlNamespace: logging
 ```
 
-You can also add new alerting rules. For example, to add a custom alert for predicted buffer growth:
-
-```yaml
-apiVersion: logging.banzaicloud.io/v1beta1
-kind: Logging
-metadata:
-  name: default-logging-simple
-  namespace: logging
-spec:
-  syslogNG:
-    bufferVolumeMetrics:
-      prometheusRules: true
-      prometheusRulesOverride:
-      - alert: SyslogNGPredictedBufferGrowth
-        expr: predict_linear(node_filesystem_avail_bytes{mountpoint="/buffers"}[6h], 4*3600) < 0
-        for: 1h
-        labels:
-          service: syslog-ng
-          severity: warning
-        annotations:
-          summary: Syslog-NG buffer predicted to fill up in 4 hours.
-          description: Based on recent buffer growth, the buffer volume is predicted to fill up within 4 hours.
-  controlNamespace: logging
-```
-
 For the list of fields you can set in `prometheusRulesOverride`, see [PrometheusRulesOverride]({{< relref "/docs/configuration/crds/v1beta1/common_types.md#prometheusrulesoverride" >}}).
 
 ## Add custom alerting rules {#custom-alerting-rules}
