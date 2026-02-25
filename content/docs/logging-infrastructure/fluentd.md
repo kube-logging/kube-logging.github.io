@@ -227,6 +227,9 @@ When graceful draining is enabled, the operator starts drainer jobs for any undr
 The drainer job flushes any remaining buffers before terminating, and the operator marks the associated volume (the PVC, actually) as *drained* until it gets used again.
 The drainer job has a template very similar to that of the Fluentd deployment with the addition of a sidecar container that oversees the buffers and signals Fluentd to terminate when all buffers are gone.
 Pods created by the job are labeled as not to receive any further logs, thus buffers will clear out eventually.
+After the buffers are flushed, the drainer sidecar waits for Fluentd to terminate gracefully. If Fluentd doesn't terminate within this timeout, the drainer job exits with an error.
+
+> Note: Graceful draining works independently of buffer volume metrics. You can enable draining without configuring `bufferVolumeMetrics` in your Logging resource.
 
 If you want, you can specify a custom drainer job sidecar image in the **drain** subsection:
 
