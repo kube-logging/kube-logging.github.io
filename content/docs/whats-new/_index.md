@@ -3,6 +3,12 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.4
+
+- You can now configure [`terminationGracePeriodSeconds`]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-terminationgraceperiodseconds" >}}) for Fluent Bit, Fluentd, and syslog-ng pods. This controls how long Kubernetes waits before forcefully terminating pods, giving log buffers time to flush during graceful shutdowns.
+- You can now [customize buffer volume alerting rules]({{< relref "/docs/operation/alerting/index.md#customize-alerting-rules" >}}) using the `prometheusRulesOverride` option in `bufferVolumeMetrics`. This lets you modify built-in rules or add custom ones (for example, to change severity or alert on predicted buffer growth).
+- Improved [graceful draining behavior]({{< relref "/docs/logging-infrastructure/fluentd.md#graceful-draining" >}}) for Fluentd: draining now works independently of buffer volume metrics configuration, and the drainer waits for Fluentd to terminate gracefully after buffers are flushed.
+
 ## Version 6.3
 
 - Support for FluentBit tail input [`File_Cache_Advise`]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#inputtail-file_cache_advise" >}}) config parameter. Default behavior remains unchanged (on).
