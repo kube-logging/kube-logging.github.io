@@ -209,7 +209,7 @@ Available in Logging operator version 4.4 and later.
 
 ### logLevel (string, optional) {#fluentbitspec-loglevel}
 
-Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info and debug.  Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled.
+Set the logging verbosity level. Allowed values are: error, warn, info, debug, and trace. Values are accumulative, e.g: if 'debug' is set, it will include error, warning, info, and debug. Note that trace mode is only available if Fluent Bit was built with the WITH_TRACE option enabled.
 
 Default: info
 
@@ -952,7 +952,7 @@ Exclude records where the content of KEY matches the regular expression.
 
 ### LogicalOp (string, optional) {#filtergrep-logicalop}
 
-Specify a logical operator: AND, OR or legacy (default). In legacy mode the behavior is either AND or OR depending on whether the grep is including (uses AND) or excluding (uses OR). Available from 2.1 or higher. Default: "legacy"
+Specify a logical operator: `AND`, `OR` or `legacy` (default). In legacy mode the behavior is either `AND` or `OR` depending on whether the grep is including (uses `AND`) or excluding (uses `OR`). Available from 2.1 or higher. Default: `legacy`
 
 
 ### Match (string, optional) {#filtergrep-match}
@@ -993,42 +993,42 @@ Add a key/value pair with key KEY and value VALUE if KEY does not exist
 
 ### Copy (*FilterKeyValue, optional) {#filtermodifyrule-copy}
 
-Copy a key/value pair with key KEY to COPIED_KEY if KEY exists AND COPIED_KEY does not exist
+Copy a key/value pair with key `KEY` to `COPIED_KEY` if `KEY` exists and `COPIED_KEY` doesn't exist
 
 
 ### Hard_copy (*FilterKeyValue, optional) {#filtermodifyrule-hard_copy}
 
-Copy a key/value pair with key KEY to COPIED_KEY if KEY exists. If COPIED_KEY already exists, this field is overwritten
+Copy a key/value pair with key `KEY` to `COPIED_KEY` if `KEY` exists. If `COPIED_KEY` already exists, this field is overwritten
 
 
 ### Hard_rename (*FilterKeyValue, optional) {#filtermodifyrule-hard_rename}
 
-Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists. If RENAMED_KEY already exists, this field is overwritten
+Rename a key/value pair with key `KEY` to `RENAMED_KEY` if `KEY` exists. If `RENAMED_KEY` already exists, this field is overwritten
 
 
 ### Remove (*FilterKey, optional) {#filtermodifyrule-remove}
 
-Remove a key/value pair with key KEY if it exists
+Remove a key/value pair with key `KEY` if it exists
 
 
 ### Remove_regex (*FilterKey, optional) {#filtermodifyrule-remove_regex}
 
-Remove all key/value pairs with key matching regexp KEY
+Remove all key/value pairs with key matching regexp `KEY`
 
 
 ### Remove_wildcard (*FilterKey, optional) {#filtermodifyrule-remove_wildcard}
 
-Remove all key/value pairs with key matching wildcard KEY
+Remove all key/value pairs with key matching wildcard `KEY`
 
 
 ### Rename (*FilterKeyValue, optional) {#filtermodifyrule-rename}
 
-Rename a key/value pair with key KEY to RENAMED_KEY if KEY exists AND RENAMED_KEY does not exist
+Rename a key/value pair with key `KEY` to `RENAMED_KEY` if `KEY` exists and `RENAMED_KEY` doesn't exist
 
 
 ### Set (*FilterKeyValue, optional) {#filtermodifyrule-set}
 
-Add a key/value pair with key KEY and value VALUE. If KEY already exists, this field is overwritten
+Add a key/value pair with key `KEY` and value `VALUE`. If `KEY` already exists, this field is overwritten
 
 
 
@@ -1038,52 +1038,52 @@ FilterModifyCondition The Modify Filter plugin allows you to change records usin
 
 ### A_key_matches (*FilterKey, optional) {#filtermodifycondition-a_key_matches}
 
-Is true if a key matches regex KEY
+Is true if a key matches regex `KEY`
 
 
 ### Key_does_not_exist (*FilterKeyValue, optional) {#filtermodifycondition-key_does_not_exist}
 
-Is true if KEY does not exist
+Is true if `KEY` does not exist
 
 
 ### Key_exists (*FilterKey, optional) {#filtermodifycondition-key_exists}
 
-Is true if KEY exists
+Is true if `KEY` exists
 
 
 ### Key_value_does_not_equal (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_equal}
 
-Is true if KEY exists and its value is not VALUE
+Is true if `KEY` exists and its value isn't `VALUE`
 
 
 ### Key_value_does_not_match (*FilterKeyValue, optional) {#filtermodifycondition-key_value_does_not_match}
 
-Is true if key KEY exists and its value does not match VALUE
+Is true if key `KEY` exists and its value doesn't match `VALUE`
 
 
 ### Key_value_equals (*FilterKeyValue, optional) {#filtermodifycondition-key_value_equals}
 
-Is true if KEY exists and its value is VALUE
+Is true if `KEY` exists and its value is `VALUE`
 
 
 ### Key_value_matches (*FilterKeyValue, optional) {#filtermodifycondition-key_value_matches}
 
-Is true if key KEY exists and its value matches VALUE
+Is true if key `KEY` exists and its value matches `VALUE`
 
 
 ### Matching_keys_do_not_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_do_not_have_matching_values}
 
-Is true if all keys matching KEY have values that do not match VALUE
+Is true if all keys matching `KEY` have values that don't match `VALUE`
 
 
 ### Matching_keys_have_matching_values (*FilterKeyValue, optional) {#filtermodifycondition-matching_keys_have_matching_values}
 
-Is true if all keys matching KEY have values that match VALUE
+Is true if all keys matching `KEY` have values that match `VALUE`
 
 
 ### No_key_matches (*FilterKey, optional) {#filtermodifycondition-no_key_matches}
 
-Is true if no key matches regex KEY
+Is true if no key matches regex `KEY`
 
 
 
