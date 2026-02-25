@@ -124,7 +124,7 @@ For the list of fields you can set in `prometheusRulesOverride`, see [Prometheus
 
 ## Add custom alerting rules {#custom-alerting-rules}
 
-You can also add your own custom rules to the cluster by creating and applying [AlertmanagerConfig resources to the Prometheus Operator](hhttps://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/developer/alerting.md).
+You can also add your own custom rules to the cluster by creating and applying [AlertmanagerConfig resources to the Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/developer/alerting.md).
 
 For example, the Logging operator creates the following alerting rule to detect if a Fluentd node is down:
 
