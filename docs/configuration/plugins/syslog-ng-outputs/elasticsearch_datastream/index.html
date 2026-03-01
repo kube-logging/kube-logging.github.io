@@ -24,12 +24,12 @@ Available in Logging operator version 4.9 and later.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch-datastream spec: elasticsearch-datastream: url: &#34;https://elastic-endpoint:9200/my-data-stream/_bulk&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration ElasticsearchDatastreamOutput (HTTPOutput, required) disk_buffer (*DiskBuffer, optional) This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/elasticsearch_datastream/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-02-25T15:52:16+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-03-01T17:23:26+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Elasticsearch datastream">
 <meta itemprop="description" content="Overview Based on the ElasticSearch datastream destination of AxoSyslog.
 Available in Logging operator version 4.9 and later.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: elasticsearch-datastream spec: elasticsearch-datastream: url: &#34;https://elastic-endpoint:9200/my-data-stream/_bulk&#34; user: &#34;username&#34; password: valueFrom: secretKeyRef: name: elastic key: password Configuration ElasticsearchDatastreamOutput (HTTPOutput, required) disk_buffer (*DiskBuffer, optional) This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side.">
-<meta itemprop="dateModified" content="2026-02-25T15:52:16+01:00">
+<meta itemprop="dateModified" content="2026-03-01T17:23:26+01:00">
 <meta itemprop="wordCount" content="98">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch datastream">
@@ -613,7 +613,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:700">secretKeyRef</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">elastic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:700">key</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">password</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h2 id="elasticsearchdatastreamoutput">ElasticsearchDatastreamOutput</h2><h3 id="elasticsearchdatastreamoutput-">(HTTPOutput, required)</h3><h3 id="elasticsearchdatastreamoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="elasticsearchdatastreamoutput-record">record (string, optional)</h3><p>Arguments to the <code>$format-json()</code> template function. Default: <code>"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"</code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fc3e40389826d1a0e5e25bafad2088169a925fc3">Merge pull request #314 from Promptless/promptless/whats-new-version-6.4 (fc3e403)</a>
+Last modified March 1, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cdc33085ef037f9c3c10a8571069207484a45855">Merge pull request #316 from Promptless/promptless/fluentd-drain-kill-timeout (cdc3308)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

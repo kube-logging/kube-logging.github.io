@@ -26,14 +26,14 @@ Using the spec.fluentd section of The Logging custom resource.
 Using the standalone FluentdConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.fluentd configuration method. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/fluentd/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-02-25T15:52:16+01:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-03-01T17:23:26+01:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure Fluentd">
 <meta itemprop="description" content="This page shows some examples on configuring Fluentd.
 Ways to configure Fluentd There are two ways to configure the Fluentd statefulset:
 Using the spec.fluentd section of The Logging custom resource.
 Using the standalone FluentdConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.fluentd configuration method. That way you can use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team.">
-<meta itemprop="dateModified" content="2026-02-25T15:52:16+01:00">
-<meta itemprop="wordCount" content="2119">
+<meta itemprop="dateModified" content="2026-03-01T17:23:26+01:00">
+<meta itemprop="wordCount" content="2125">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure Fluentd">
 <meta name="twitter:description" content="This page shows some examples on configuring Fluentd.
@@ -731,7 +731,7 @@ You can enable graceful draining in the <strong>scaling</strong> subsection:</p>
 The drainer job flushes any remaining buffers before terminating, and the operator marks the associated volume (the PVC, actually) as <em>drained</em> until it gets used again.
 The drainer job has a template very similar to that of the Fluentd deployment with the addition of a sidecar container that oversees the buffers and signals Fluentd to terminate when all buffers are gone.
 Pods created by the job are labeled as not to receive any further logs, thus buffers will clear out eventually.
-After the buffers are flushed, the drainer sidecar waits for Fluentd to terminate gracefully. If Fluentd doesn&rsquo;t terminate within this timeout, the drainer job exits with an error.</p><blockquote>
+After the buffers are flushed, the drainer sidecar waits for Fluentd to terminate gracefully (the default timeout is 300 seconds). If Fluentd doesn&rsquo;t terminate within this timeout, the drainer job exits with an error.</p><blockquote>
 <p>Note: Graceful draining works independently of buffer volume metrics. You can enable draining without configuring <code>bufferVolumeMetrics</code> in your Logging resource.</p></blockquote><p>If you want, you can specify a custom drainer job sidecar image in the <strong>drain</strong> subsection:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">metadata</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -872,7 +872,7 @@ The placeholder pod just runs a pause container, and goes away as soon as the jo
 <tr>
 <td>spec</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimspec-v1-core">PersistentVolumeClaimSpec</a></td><td>-</td><td>Spec defines the desired characteristics of a volume requested by a pod author. </td></tr><tr>
 <td>source</td><td><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaimvolumesource-v1-core">PersistentVolumeClaimVolumeSource</a></td><td>-</td><td>PersistentVolumeClaimVolumeSource references the user&rsquo;s PVC in the same namespace.  </td></tr></tbody></table><p>The Persistent Volume Claim should be created with the given <code>spec</code> and with the <code>name</code> defined in the <code>source</code>&rsquo;s <code>claimName</code>.</p><h2 id="cpu-and-memory-requirements">CPU and memory requirements</h2><p>To adjust the CPU and memory limits and requests of the pods managed by Logging operator, see <a href="/docs/operation/requirements/">CPU and memory requirements</a>.</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified February 25, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/fc3e40389826d1a0e5e25bafad2088169a925fc3">Merge pull request #314 from Promptless/promptless/whats-new-version-6.4 (fc3e403)</a>
+Last modified March 1, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/cdc33085ef037f9c3c10a8571069207484a45855">Merge pull request #316 from Promptless/promptless/fluentd-drain-kill-timeout (cdc3308)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
