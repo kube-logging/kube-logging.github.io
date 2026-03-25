@@ -235,7 +235,7 @@ Default: true
 If set, use SCRAM authentication with specified mechanism. When unset, default to PLAIN authentication
 
 
-### share_producer (*bool, optional) {#kafka-share_producer}
+### share_producer (bool, optional) {#kafka-share_producer}
 
 Share Kafka producer between flush threads. When using rdkafka (`use_rdkafka: true`), enabling this option can reduce CPU consumption in high-volume environments by sharing a single producer instance across flush threads instead of creating multiple producers.
 
