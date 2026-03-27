@@ -5,6 +5,7 @@ weight: 50
 
 ## Version 6.4
 
+- The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
 - You can now configure [`terminationGracePeriodSeconds`]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-terminationgraceperiodseconds" >}}) for Fluent Bit, Fluentd, and syslog-ng pods. This controls how long Kubernetes waits before forcefully terminating pods, giving log buffers time to flush during graceful shutdowns.
 - You can now [customize buffer volume alerting rules]({{< relref "/docs/operation/alerting/index.md#customize-alerting-rules" >}}) using the `prometheusRulesOverride` option in `bufferVolumeMetrics`. This lets you modify built-in rules or add custom ones (for example, to change severity or alert on predicted buffer growth).
 - Improved [graceful draining behavior]({{< relref "/docs/logging-infrastructure/fluentd.md#graceful-draining" >}}) for Fluentd: draining now works independently of buffer volume metrics configuration, and the drainer waits for Fluentd to terminate gracefully after buffers are flushed.
