@@ -3,6 +3,10 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.5
+
+- Fixed an issue in the [File Tailer Webhook]({{< relref "/docs/configuration/extensions/tailer-webhook.md" >}}) where using comma-separated file paths in annotations caused Kubernetes to reject the pod with duplicate `volumeMount` errors.
+
 ## Version 6.4
 
 - You can now configure [`terminationGracePeriodSeconds`]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-terminationgraceperiodseconds" >}}) for Fluent Bit, Fluentd, and syslog-ng pods. This controls how long Kubernetes waits before forcefully terminating pods, giving log buffers time to flush during graceful shutdowns.
