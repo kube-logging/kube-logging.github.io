@@ -237,18 +237,12 @@ If set, use SCRAM authentication with specified mechanism. When unset, default t
 
 ### share_producer (bool, optional) {#kafka-share_producer}
 
+Available in Logging operator version 6.5 and later.
+
 Share Kafka producer between flush threads. When using rdkafka (`use_rdkafka: true`), enabling this option can reduce CPU consumption in high-volume environments by sharing a single producer instance across flush threads instead of creating multiple producers.
 
 Default: false
 
-
-### share_producer (bool, optional) {#kafka-share_producer}
-
-Available in Logging operator version 6.5 and later.
-
-Share Kafka producer between flush threads. This is mainly for reducing kafka operations like kerberos
-
-Default: false
 
 ### slow_flush_log_threshold (string, optional) {#kafka-slow_flush_log_threshold}
 
