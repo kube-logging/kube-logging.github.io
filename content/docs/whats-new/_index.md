@@ -3,6 +3,10 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.5
+
+- Fixed an issue in the [File Tailer Webhook]({{< relref "/docs/configuration/extensions/tailer-webhook.md" >}}) where using comma-separated file paths in annotations caused Kubernetes to reject the pod with duplicate `volumeMount` errors.
+
 ## Version 6.4
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
