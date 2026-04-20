@@ -1,0 +1,85 @@
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Flow
+metadata:
+  name: "ingress-nginx"
+spec:
+  filters:
+    - tag_normaliser: {}
+    - parser:
+        reserve_data: true
+        remove_key_name_field: true
+        inject_key_prefix: "nginx."
+        parse:
+          type: "regexp"
+          # from https://raw.githubusercontent.com/fluent/fluentd/master/lib/fluent/plugin/parser_nginx.rb
+          # enharance for ingress-controller by e.g.
+          # https://github.com/elastic/beats/blob/v8.6.1/filebeat/module/nginx/ingress_controller/ingest/pipeline.yml
+          expression: '^(?<remote>[^ ]*) -?(?<host>[^ ]*) -?(?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*?)(?: +(?<httpversion>HTTP\/[0-9\.]+)))" (?<code>[^ ]*) (?<size>[^ ]*)(?: "-?(?<referer>[^\"]*)" "(?<agent>[^\"]*)"\s+(?<reqlength>[0-9]+)\s(?<reqtime>[0-9\.]+)\s\[(?<upstream_name>[^ ]*)\]\s\[(?<alternative_name>[^\]]*)\] -?(?<upstream_address_list>[^ -]*) -?(?<reslength_list>[0-9\,]*) -?(?<restime_list>[0-9\.\,]*) -?(?<rescode_list>[0-9\,]*) (?<reqid>[^ ]+))?$'
+          types: 'code:integer,size:integer,reqlength:integer,reqtime:float,upstream_address_list:array,reslenght_list:array,restime_list:array,rescode_list:array'
+          time_key: "time"
+          time_format: "%d/%b/%Y:%H:%M:%S %z"
+    - record_modifier:
+        records:
+          - destination.domain: '${ !(record["nginx.referer"].nil?) ? URI(record["nginx.referer"]).host : record["nginx.host"] }'
+            url.original: '${ record["nginx.referer"] }${ record["nginx.path"] }'
+            url.domain: '${ !(record["nginx.referer"].nil?) ? URI(record["nginx.referer"]).host : record["nginx.host"] }'
+            url.path: '${ record["nginx.path"] }'
+            http.version: '${ record["nginx.httpversion"] }'
+            nginx.access.remote_ip_list: '${ record["nginx.remote"] }'
+            source.address: '${ record["nginx.remote"] }'
+            source.ip: '${ record["nginx.remote"] }'
+            related.ip: '${ record["nginx.remote"] }'
+            http.request.method: '${ record["nginx.method"] }'
+            http.request.referrer: '${ record["nginx.referer"] }'
+            user.name: '${ record["nginx.user"] }'
+            related.user: '${ record["nginx.user"] }'
+            user_agent.original: '${ record["nginx.agent"] }'
+            http.response.status_code: '${ record["nginx.code"] }'
+            nginx.ingress_controller.http.request.length: '${ record["nginx.reqlength"] }'
+            nginx.ingress_controller.http.request.time: '${ record["nginx.reqtime"] }'
+            nginx.ingress_controller.upstream.name: '${ record["nginx.upstream_name"] }'
+            nginx.ingress_controller.upstream.alternative_name: '${ record["nginx.alternative_name"] }'
+            nginx.ingress_controller.upstream_address_list: '${ record["nginx.upstream_address_list"] }'
+            # TODO split ip and port
+            nginx.ingress_controller.upstream.address.merged: '${ [record["upstream_address_list"]].flatten&.last }'
+            nginx.ingress_controller.upstream.response.length_list: '${ [record["nginx.reslength_list"]].flatten&.map(&:to_i) }'
+            nginx.ingress_controller.upstream.response.length: '${ [record["nginx.reslength_list"]].flatten&.last&.to_i }'
+            nginx.ingress_controller.upstream.response.time_list: '${ [record["nginx.restime_list"]].flatten&.map(&:to_f) }'
+            nginx.ingress_controller.upstream.response.time: '${ [record["nginx.restime_list"]].flatten&.last&.to_f }'
+            nginx.ingress_controller.upstream.response.status_code_list: '${ [record["nginx.rescode_list"]].flatten&.map(&:to_i) }'
+            nginx.ingress_controller.upstream.response.status_code: '${ [record["nginx.rescode_list"]].flatten&.last&.to_i }'
+            nginx.ingress_controller.http.request.id: '${ record["nginx.reqid"] }'
+            http.request.id: '${ record["nginx.reqid"] }'
+            http.response.body.bytes: '${ record["nginx.size"] }'
+            event.created: '${ time * 1000 }'
+            event.kind: "event"
+            event.category: "web"
+            event.type: "access"
+            event.module: "nginx"
+            event.outcome: '${ record["nginx.code"].to_i < 400 ? "success" : "failure" }'
+            # for dashboard
+            fileset.name: '${[ "ingress_controller", "access" ]}'
+        remove_keys: "nginx.remote,nginx.host,nginx.user,nginx.method,nginx.path,nginx.httpversion,nginx.code,nginx.size,nginx.referer,nginx.agent,nginx.reqlength,nginx.reqtime,nginx.upstream_name,nginx.alternative_name,nginx.upstream_address_list,nginx.reslength_list,nginx.restime_list,nginx.rescode_list,nginx.reqid"
+    - geoip:
+       geoip_lookup_keys: "source.ip"
+       backend_library: geoip2_c
+       skip_adding_null_record: false
+       records:
+         - source.geo.country_name: '${country.names.en["source.ip"]}'
+           source.geo.country_iso_code: '${country.iso_code["source.ip"]}'
+           source.geo.city_name: '${city.names.en["source.ip"]}'
+           source.geo.region_iso_code: '${subdivisions.0.iso_code["source.ip"]}'
+           source.geo.region_name: '${subdivisions.0.names.en["source.ip"]}'
+           source.geo.location: '''{ "lat": ${location.latitude["source.ip"]}, "lon": ${location.longitude["source.ip"]} }'''
+    # - geoip:
+    #     geoip_lookup_keys: "source.ip"
+    #     backend_library: geoip
+    #     skip_adding_null_record: false
+    #     records:
+    #       - source.geo.continent_name: '${continent.names.en["source.ip"]}'
+    #       # source.as.number: '${asn["source.ip"]}'
+    #       # source.as.organization.name: '${organization["source.ip"]}'
+  match:
+    - select:
+        labels:
+          app-kubernetes-io/name: "ingress-nginx"
