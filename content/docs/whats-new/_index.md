@@ -6,6 +6,7 @@ weight: 50
 ## Version 6.5
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
+- The `syslog-ng-reloader` and `node-exporter` components support the same metrics as `config-reloader`.
 - When using the Kafka Fluentd output with the rdkafka2 client (`use_rdkafka` is `true`), you can now share the Kafka producer between flush threads by enabling the `share_producer` option. This can reduce CPU consumption in high-volume environments by sharing a single producer instance across flush threads instead of creating multiple producers.
 - Fixed an issue in the [File Tailer Webhook]({{< relref "/docs/configuration/extensions/tailer-webhook.md" >}}) where using comma-separated file paths in annotations caused Kubernetes to reject the pod with duplicate `volumeMount` errors.
 
