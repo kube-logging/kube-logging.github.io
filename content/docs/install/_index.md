@@ -40,7 +40,7 @@ aliases:
 - `--verbose` (boolean, default `false`): Enable verbose logging
 - `--klogLevel` (integer, default `0`): Global log level for klog (0-9)
 - `--output-format` (string, default `""`): Logging output format (`json` or `console`)
-- `-stderrthreshold` (integer, default `2`): Log messages at or above this severity level are written to stderr in addition to log files. Severity levels: 0=INFO, 1=WARNING, 2=ERROR, 3=FATAL
+- `-stderrthreshold` (integer, default `0`): Log messages at or above this severity level are written to stderr in addition to log files. Severity levels: 0=INFO, 1=WARNING, 2=ERROR, 3=FATAL
 
 ### Resource Watching
 
