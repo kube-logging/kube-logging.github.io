@@ -44,7 +44,7 @@ weight = 1
 
   # email = ""
 
-  copyright = "kube-logging authors | "
+  copyright = "kube-logging"
 
   relativeURLs = true
 
