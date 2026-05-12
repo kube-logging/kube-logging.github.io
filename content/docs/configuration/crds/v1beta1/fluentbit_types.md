@@ -1143,6 +1143,14 @@ ForwardOptions defines custom forward output plugin options, see https://docs.fl
 ### Require_ack_response (bool, optional) {#forwardoptions-require_ack_response}
 
 
+### Retain_Metadata_In_Forward_Mode (bool, optional) {#forwardoptions-retain_metadata_in_forward_mode}
+
+Controls whether fluent-bit appends log event metadata when forwarding records. Available since fluent-bit 5.0.4; defaults to `true` in fluent-bit 5.0.5 and later.
+
+Fluentd does not understand the fluent-bit metadata format and drops these records as "invalid event". To maintain compatibility with fluentd, the operator defaults this to `false` for Forward mode targets.
+
+Set to `true` only when forwarding between fluent-bit instances.
+
 ### Retry_Limit (string, optional) {#forwardoptions-retry_limit}
 
 
