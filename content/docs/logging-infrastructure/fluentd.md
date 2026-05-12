@@ -96,7 +96,9 @@ kubectl get fluentdconfig example -o jsonpath='{.status}' | jq .
 }
 ```
 
-If there is a conflict, the controller adds a problem to both resources so that both the operations team and the tenant users can notice the problem. For example, if a `FluentdConfig` is already registered to a `Logging` resource and you create another `FluentdConfig` resource in the same namespace, then the first `FluentdConfig` is left intact, while the second one should have the following status:
+If there is a conflict, the controller adds a problem to both resources so that both the operations team and the tenant users can notice the problem. The previously-associated `FluentdConfig` continues to operate normally, and log forwarding remains uninterrupted while you resolve the excess configuration.
+
+For example, if a `FluentdConfig` is already registered to a `Logging` resource and you create another `FluentdConfig` resource in the same namespace, the first `FluentdConfig` is left intact and its aggregator keeps running, while the second one should have the following status:
 
 ```shell
 kubectl get fluentdconfig example2 -o jsonpath='{.status}' | jq .
@@ -124,6 +126,8 @@ kubectl get logging example -o jsonpath='{.status}' | jq .
   "problemsCount": 1
 }
 ```
+
+To resolve this conflict, delete the excess `FluentdConfig` resource. The active aggregator will continue running throughout.
 
 ## Custom pvc volume for Fluentd buffers
 
