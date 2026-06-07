@@ -17,19 +17,29 @@ There are three ways to configure the Fluentd statefulset:
 
     The standalone FluentdConfig is a namespaced resource that allows the configuration of the Fluentd aggregator in the control namespace, separately from the Logging resource. This allows you to use a multi-tenant model, where tenant owners are responsible for operating their own aggregator, while the Logging resource is in control of the central operations team. For more information about the multi-tenancy model where the collector is capable of routing logs based on namespaces to individual aggregators and where aggregators are fully isolated, see this blog post about [Multi-tenancy using Logging operator](https://axoflow.com/multi-tenancy-using-logging-operator/).
 
-1. Using Helm chart values. When you install the Logging operator with Helm and set `logging.enabled=true`, the chart can automatically create a `FluentdConfig` resource for you. Configure Fluentd settings under `logging.fluentd` in your Helm values. The chart creates the `FluentdConfig` when `logging.fluentdDisabled` is `false` (the default). If you set `logging.loggingRef`, the chart automatically propagates that value to the `FluentdConfig` resource.
+1. Using Helm chart values. When installing the Logging operator with Helm, set `logging.enabled=true` and configure Fluentd settings under `logging.fluentd` in your values file. By default, these settings are embedded in the Logging resource. To create a separate `FluentdConfig` resource instead, set `logging.fluentdConfig.create=true`. If you set `logging.loggingRef`, the chart automatically propagates that value to the `FluentdConfig` resource.
 
 For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentd_types.md" %}}.
 
 ### Configuring Fluentd with Helm {#helm}
 
-When you install the Logging operator with Helm, you can configure Fluentd by setting values under `logging.fluentd`. The Helm chart creates a `FluentdConfig` resource with these settings when `logging.enabled` is `true` and `logging.fluentdDisabled` is `false`.
+When you install the Logging operator with Helm, configure Fluentd settings under `logging.fluentd` in your values. By default, these settings are embedded in the Logging resource. To create a separate `FluentdConfig` custom resource instead, set `logging.fluentdConfig.create=true`.
 
-For example, to configure Fluentd with 3 replicas and custom buffer storage:
+For example, to configure Fluentd with 3 replicas and custom buffer storage (embedded in the Logging resource):
 
 ```shell
 helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator \
   --set logging.enabled=true \
+  --set logging.fluentd.scaling.replicas=3 \
+  --set logging.fluentd.bufferStorageVolume.pvc.spec.resources.requests.storage=40Gi
+```
+
+To create a separate `FluentdConfig` resource instead, add `logging.fluentdConfig.create=true`:
+
+```shell
+helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator \
+  --set logging.enabled=true \
+  --set logging.fluentdConfig.create=true \
   --set logging.fluentd.scaling.replicas=3 \
   --set logging.fluentd.bufferStorageVolume.pvc.spec.resources.requests.storage=40Gi
 ```
@@ -39,6 +49,8 @@ Alternatively, create a `values.yaml` file:
 ```yaml
 logging:
   enabled: true
+  fluentdConfig:
+    create: true
   fluentd:
     scaling:
       replicas: 3
@@ -57,6 +69,8 @@ Then install with:
 ```shell
 helm upgrade --install --wait --create-namespace --namespace logging -f values.yaml logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator
 ```
+
+When `fluentdConfig.create` is `true`, the chart creates a `FluentdConfig` resource with the same name as the Logging resource. The Fluentd configuration is not embedded in the Logging resource in this case.
 
 To disable Fluentd and use only Fluent Bit (for example, when using syslog-ng as the aggregator), set `logging.fluentdDisabled=true`.
 
