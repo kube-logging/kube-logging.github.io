@@ -28,15 +28,15 @@ Using the spec.syslogNG section of The Logging custom resource.
 Using the standalone syslogNGConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.syslogNG configuration method.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/logging-infrastructure/syslog-ng/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-06-07T20:10:32+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-05-11T14:13:42+00:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Configure syslog-ng">
 <meta itemprop="description" content="syslog-ng is supported only in Logging operator 4.0 or newer.
 This page shows some examples on configuring syslog-ng.
 Ways to configure syslog-ng There are two ways to configure the syslog-ng statefulset:
 Using the spec.syslogNG section of The Logging custom resource.
 Using the standalone syslogNGConfig CRD. This method is only available in Logging operator version 4.5 and newer, and the specification of the CRD is compatible with the spec.syslogNG configuration method.">
-<meta itemprop="dateModified" content="2026-06-07T20:10:32+02:00">
-<meta itemprop="wordCount" content="1095">
+<meta itemprop="dateModified" content="2026-05-11T14:13:42+00:00">
+<meta itemprop="wordCount" content="1057">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure syslog-ng">
 <meta name="twitter:description" content="syslog-ng is supported only in Logging operator 4.0 or newer.
@@ -654,7 +654,7 @@ Releases
 </span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;active&#34;</span>: true,
 </span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;logging&#34;</span>: <span style="color:#4e9a06">&#34;example&#34;</span>
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span>
-</span></span></code></pre></div><p>If there is a conflict, the controller adds a problem to both resources so that both the operations team and the tenant users can notice the problem. The previously-associated <code>SyslogNGConfig</code> continues to operate normally, and log forwarding remains uninterrupted while you resolve the excess configuration.</p><p>For example, if a <code>SyslogNGConfig</code> is already registered to a <code>Logging</code> resource and you create another <code>SyslogNGConfig</code> resource in the same namespace, the first <code>SyslogNGConfig</code> is left intact and its aggregator keeps running, while the second one should have the following status:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get syslogngconfig example2 -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.status}&#39;</span> <span style="color:#000;font-weight:700">|</span> jq .
+</span></span></code></pre></div><p>If there is a conflict, the controller adds a problem to both resources so that both the operations team and the tenant users can notice the problem. For example, if a <code>syslogNGConfig</code> is already registered to a <code>Logging</code> resource and you create another <code>syslogNGConfig</code> resource in the same namespace, then the first <code>syslogNGConfig</code> is left intact, while the second one should have the following status:</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="display:flex"><span>kubectl get syslogngconfig example2 -o <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:700">=</span><span style="color:#4e9a06">&#39;{.status}&#39;</span> <span style="color:#000;font-weight:700">|</span> jq .
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">{</span>
 </span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;active&#34;</span>: false,
 </span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;problems&#34;</span>: <span style="color:#ce5c00;font-weight:700">[</span>
@@ -673,7 +673,7 @@ Releases
 </span></span><span style="display:flex"><span>  <span style="color:#ce5c00;font-weight:700">]</span>,
 </span></span><span style="display:flex"><span>  <span style="color:#4e9a06">&#34;problemsCount&#34;</span>: <span style="color:#0000cf;font-weight:700">1</span>
 </span></span><span style="display:flex"><span><span style="color:#ce5c00;font-weight:700">}</span>
-</span></span></code></pre></div><p>To resolve this conflict, delete the excess <code>SyslogNGConfig</code> resource. The active aggregator will continue running throughout.</p><h2 id="volume-mount-for-buffering">Volume mount for buffering</h2><p>The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if <a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/">Disk buffer</a> is configured in the output).</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></code></pre></div><h2 id="volume-mount-for-buffering">Volume mount for buffering</h2><p>The following example sets a volume mount that syslog-ng can use for buffering messages on the disk (if <a href="/docs/configuration/plugins/syslog-ng-outputs/disk_buffer/">Disk buffer</a> is configured in the output).</p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="display:flex"><span><span style="color:#204a87;font-weight:700">apiVersion</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">logging.banzaicloud.io/v1beta1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">kind</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Logging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:700">name</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:700">spec</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -725,7 +725,7 @@ Releases
 <td>failureThreshold</td><td>int</td><td>3</td><td>Minimum consecutive failures for the probe to be considered failed after having succeeded.</td></tr><tr>
 <td>exec</td><td>array</td><td>{}</td><td>Exec specifies the action to take. <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#execaction-v1-core">More info</a></td></tr></tbody></table><blockquote>
 <p>Note: To configure readiness probes, see <a href="/docs/operation/readiness-probe/">Readiness probe</a>.</p></blockquote><div class="text-muted mt-5 pt-3 border-top">
-Last modified June 7, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/7a7ae3f196107bdff71812fe41cb44915173b45b">Merge pull request #333 from kube-logging/dependabot/github_actions/actions/checkout-6.0.3 (7a7ae3f)</a>
+Last modified May 11, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/589395473d610d05d954cd810df3e80e86aebb90">Merge 30e253bc3f7bd5a11d7e3160b9a17124594f1fae into de628cd53a56eb4529a885f4221720cd4fe0787c (5893954)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
