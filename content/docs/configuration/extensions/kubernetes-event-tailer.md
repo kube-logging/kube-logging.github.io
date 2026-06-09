@@ -12,8 +12,33 @@ The operator handles this CR and generates the following required resources:
 - ServiceAccount: new account for `event-tailer`
 - ClusterRole: sets the `event-tailer's` roles
 - ClusterRoleBinding: links the account with the roles
-- ConfigMap: contains the configuration for the `event-tailer` pod
-- StatefulSet: manages the lifecycle of the `event-tailer` pod, which uses the `banzaicloud/eventrouter:v0.1.0` image to tail events
+- StatefulSet: manages the lifecycle of the `event-tailer` pod, which uses the `ghcr.io/kube-logging/eventrouter:1.0.0` image to tail events
+
+> Note: For eventrouter versions 1.0.0 and later, configuration is passed via environment variables. For older versions (< 1.0.0), the operator creates a ConfigMap with the configuration.
+
+## Upgrading to eventrouter 1.0.0 {#upgrading}
+
+Eventrouter 1.0.0 includes breaking changes that may affect your monitoring setup:
+
+- **Prometheus metric prefix changed**: Metrics are now prefixed with `eventrouter_*` instead of `heptio_eventrouter_*`.
+- **Label removed**: The `involved_object_name` label has been dropped from metrics.
+
+If you scrape eventrouter Prometheus metrics, update your dashboards and alerting rules after upgrading.
+
+### Backward compatibility
+
+If you override the EventTailer image to use a version older than 1.0.0, the operator automatically uses the legacy ConfigMap-based configuration:
+
+```yaml
+apiVersion: logging-extensions.banzaicloud.io/v1alpha1
+kind: EventTailer
+metadata:
+  name: sample
+spec:
+  controlNamespace: default
+  image:
+    tag: "0.5.0"
+```
 
 ## Create event tailer
 
