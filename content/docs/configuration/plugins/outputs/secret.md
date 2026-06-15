@@ -24,6 +24,8 @@ aws_key_id:
   value: "secretvalue"
 ```
 
+Before rendering a secret value into the Fluentd configuration, the operator trims a single trailing newline or carriage return. As a result, a secret stored with a trailing newline (a common result of `echo "secret" | base64`) renders the same as one stored without it, so it won't break authentication for outputs. Newlines within the value are preserved, but the value is quoted and escaped so it can't inject additional Fluentd configuration directives.
+
 ## Define secret mount
 
 There are cases when you can't inject secret into the configuration because the plugin need a file to read from. For this cases you can use `mountFrom`.
