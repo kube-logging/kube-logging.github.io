@@ -5,7 +5,7 @@ weight: 330
 
 ## Flow examples
 
-The following examples show some simple flows. For more examples that use filters, see {{% xref "/docs/examples/filters-in-flows.md" %}}.
+The following examples show some simple flows. For more advanced examples, see {{% xref "/docs/examples/filters-in-flows/_index.md" %}} and {{% xref "/docs/examples/flows/_index.md" %}}.
 
 ### Flow with a single output
 
