@@ -220,6 +220,21 @@ spec:
     pullPolicy: IfNotPresent
 ```
 
+## Log mount path
+
+If your Kubernetes cloud provider or environment saves the container logs in a directory other than the default, set the `mountPath` field to the path where the logs are saved. For example:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: default-logging-simple
+spec:
+  mountPath: /data/docker/containers
+```
+
+For details, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-mountpath" %}}.
+
 ## Volume Mount
 
 Defines a pod volume mount. For example:
