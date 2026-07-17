@@ -28,14 +28,14 @@ format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/vmware_log_intelligence/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-07-17T19:06:16+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-07-17T19:07:38+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="VMware Log Intelligence">
 <meta itemprop="description" content="Overview VMware Log Intelligence output plugin for Fluentd. For details, see https://github.com/vmware/fluent-plugin-vmware-log-intelligence.
 Example output configurations spec: vmwarelogintelligence: endpoint_url: https://data.upgrade.symphony-dev.com/le-mans/v1/streams/ingestion-pipeline-stream verify_ssl: true http_compress: false headers: content_type: &#34;application/json&#34; authorization: valueFrom: secretKeyRef: name: vmware-log-intelligence-token key: authorization structure: simple buffer: chunk_limit_records: 300 flush_interval: 3s retry_max_times: 3 Configuration VMwareLogIntelligence buffer (*Buffer, optional) Buffer
 endpoint_url (string, required) Log Intelligence endpoint to send logs to https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-endpoint_url
 format (*Format, optional) Format
 http_compress (*bool, optional) Compress http request https://github.com/vmware/fluent-plugin-vmware-log-intelligence?tab=readme-ov-file#label-http_compress">
-<meta itemprop="dateModified" content="2026-07-17T19:06:16+02:00">
+<meta itemprop="dateModified" content="2026-07-17T19:07:38+02:00">
 <meta itemprop="wordCount" content="231">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMware Log Intelligence">
@@ -120,6 +120,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -145,7 +148,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check">
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -469,6 +475,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -634,7 +643,7 @@ Releases
 output that uses the correct key names for the VMware Log Intelligence plugin. This allows the
 Ouput to accept the config is snake_case (as other output plugins do) but output the fluentd
 <headers> config with the proper key names (ie. content_type -> Content-Type)</p><h3 id="logintelligenceheadersout-authorization">Authorization (*secret.Secret, required)</h3><p>Authorization Bearer token for http request to VMware Log Intelligence</p><h3 id="logintelligenceheadersout-content-type">Content-Type (string, required)</h3><p>Content Type for http request to VMware Log Intelligence</p><p>Default: application/json</p><h3 id="logintelligenceheadersout-structure">structure (string, required)</h3><p>Structure for http request to VMware Log Intelligence</p><p>Default: simple</p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

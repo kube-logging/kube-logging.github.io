@@ -101,6 +101,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -126,7 +129,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check">
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -450,6 +456,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -587,7 +596,7 @@ Releases
 <a href="https://kube-logging.dev/docs/examples/" aria-disabled="true" class="btn-link disabled">Examples</a>
 </li></ol></nav><div class="td-content">
 <h1>Examples</h1><header class="article-meta">
-</header><h2 id="flow-examples">Flow examples</h2><p>The following examples show some simple flows. For more examples that use filters, see <a href="/docs/examples/filters-in-flows/">Filter examples in Flows</a>.</p><h3 id="flow-with-a-single-output">Flow with a single output</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the output called <code>forward-output-sample</code>.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_flow_single_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="flow-with-multiple-outputs">Flow with multiple outputs</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the <code>gcs-output-sample</code> and <code>s3-output-example</code> outputs.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_flow_multiple_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="logging-examples">Logging examples</h2><p>Simple <a href="/docs/logging-infrastructure/logging/">Logging</a> definition with default values.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_logging_simple.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="logging-with-tls">Logging with TLS</h3><p>Simple <a href="/docs/logging-infrastructure/logging/">Logging</a> definition with <a href="/docs/logging-infrastructure/tls/">TLS encryption enabled</a>.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_logging_tls.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="output-examples">Output examples</h2><h3 id="simple-file-output">Simple file output</h3><p>Defines a <a href="/docs/configuration/plugins/outputs/file/">file output</a> with timestamped log files.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_output_file.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="drop-messages-into-devnull-output">Drop messages into dev/null output</h3><p>Creates a dev/null output that can be the destination of messages you want to drop explicitly.</p><div class="warning-block">
+</header><h2 id="flow-examples">Flow examples</h2><p>The following examples show some simple flows. For more advanced examples, see <a href="/docs/examples/filters-in-flows/">Filter examples in Flows</a> and <a href="/docs/examples/flows/">Advanced Flow examples</a>.</p><h3 id="flow-with-a-single-output">Flow with a single output</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the output called <code>forward-output-sample</code>.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_flow_single_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="flow-with-multiple-outputs">Flow with multiple outputs</h3><p>This Flow sends every message with the <code>app: nginx</code> label to the <code>gcs-output-sample</code> and <code>s3-output-example</code> outputs.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_flow_multiple_output.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="logging-examples">Logging examples</h2><p>Simple <a href="/docs/logging-infrastructure/logging/">Logging</a> definition with default values.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_logging_simple.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="logging-with-tls">Logging with TLS</h3><p>Simple <a href="/docs/logging-infrastructure/logging/">Logging</a> definition with <a href="/docs/logging-infrastructure/tls/">TLS encryption enabled</a>.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_logging_tls.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h2 id="output-examples">Output examples</h2><h3 id="simple-file-output">Simple file output</h3><p>Defines a <a href="/docs/configuration/plugins/outputs/file/">file output</a> with timestamped log files.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_output_file.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="drop-messages-into-devnull-output">Drop messages into dev/null output</h3><p>Creates a dev/null output that can be the destination of messages you want to drop explicitly.</p><div class="warning-block">
 <p><strong>CAUTION:</strong></p>Messages sent to this output are irrevocably lost forever.
 </div><pre data-src='https://kube-logging.dev/docs/examples/logging_output_null.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="s3-output">S3 output</h3><p>Defines an <a href="/docs/configuration/plugins/outputs/s3/">Amazon S3 output</a> to store your logs in a bucket.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_output_s3.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><h3 id="gcs-output">GCS output</h3><p>Defines a <a href="/docs/configuration/plugins/outputs/gcs/">Google Cloud Storage output</a> to store your logs.</p><pre data-src='https://kube-logging.dev/docs/examples/logging_output_s3.yaml' data-download-link data-download-link-label="Download this file" $opts></pre><div class="section-index">
 <hr class="panel-line">
@@ -597,6 +606,9 @@ Releases
 </h5><p></p></div><div class="entry">
 <h5>
 <a href="/docs/examples/date-parser/">Parsing custom date formats</a>
+</h5><p></p></div><div class="entry">
+<h5>
+<a href="/docs/examples/flows/">Advanced Flow examples</a>
 </h5><p></p></div><div class="entry">
 <h5>
 <a href="/docs/examples/cloudwatch-nginx/">Store Nginx Access Logs in Amazon CloudWatch with Logging operator</a>
@@ -625,7 +637,7 @@ Releases
 <h5>
 <a href="/docs/examples/custom-syslog-ng-metrics/">Custom source and output metrics</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

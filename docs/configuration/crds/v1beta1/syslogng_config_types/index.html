@@ -20,10 +20,10 @@
 <meta property="og:description" content="SyslogNGConfig (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGSpec, optional) status (SyslogNGConfigStatus, optional) SyslogNGConfigStatus active (*bool, optional) logging (string, optional) problems ([]string, optional) problemsCount (int, optional) SyslogNGConfigList (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGConfig, required) ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/crds/v1beta1/syslogng_config_types/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-07-17T19:06:16+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-07-17T19:07:38+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="SyslogNGConfig">
 <meta itemprop="description" content="SyslogNGConfig (metav1.TypeMeta, required) metadata (metav1.ObjectMeta, optional) spec (SyslogNGSpec, optional) status (SyslogNGConfigStatus, optional) SyslogNGConfigStatus active (*bool, optional) logging (string, optional) problems ([]string, optional) problemsCount (int, optional) SyslogNGConfigList (metav1.TypeMeta, required) metadata (metav1.ListMeta, optional) items ([]SyslogNGConfig, required) ">
-<meta itemprop="dateModified" content="2026-07-17T19:06:16+02:00">
+<meta itemprop="dateModified" content="2026-07-17T19:07:38+02:00">
 <meta itemprop="wordCount" content="34">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SyslogNGConfig">
@@ -104,6 +104,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -129,7 +132,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check" checked>
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -453,6 +459,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -597,7 +606,7 @@ Releases
 </li></ol></nav><div class="td-content">
 <h1>SyslogNGConfig</h1><header class="article-meta">
 </header><h2 id="syslogngconfig">SyslogNGConfig</h2><h3 id="syslogngconfig-">(metav1.TypeMeta, required)</h3><h3 id="syslogngconfig-metadata">metadata (metav1.ObjectMeta, optional)</h3><h3 id="syslogngconfig-spec">spec (SyslogNGSpec, optional)</h3><h3 id="syslogngconfig-status">status (SyslogNGConfigStatus, optional)</h3><h2 id="syslogngconfigstatus">SyslogNGConfigStatus</h2><h3 id="syslogngconfigstatus-active">active (*bool, optional)</h3><h3 id="syslogngconfigstatus-logging">logging (string, optional)</h3><h3 id="syslogngconfigstatus-problems">problems ([]string, optional)</h3><h3 id="syslogngconfigstatus-problemscount">problemsCount (int, optional)</h3><h2 id="syslogngconfiglist">SyslogNGConfigList</h2><h3 id="syslogngconfiglist-">(metav1.TypeMeta, required)</h3><h3 id="syslogngconfiglist-metadata">metadata (metav1.ListMeta, optional)</h3><h3 id="syslogngconfiglist-items">items ([]SyslogNGConfig, required)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

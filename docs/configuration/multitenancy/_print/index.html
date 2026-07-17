@@ -1,0 +1,127 @@
+<!doctype html><html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="canonical" type="text/html" href="https://kube-logging.dev/docs/configuration/multitenancy/">
+<link rel="alternate" type="text/releases" href="https://kube-logging.dev/docs/configuration/multitenancy/releases.releases">
+<meta name="robots" content="noindex, nofollow">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+<title>Multi-tenancy scenarios | Logging operator</title><meta name="description" content="Documentation for the Logging operator">
+<meta property="og:title" content="Multi-tenancy scenarios">
+<meta property="og:description" content="Documentation for the Logging operator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kube-logging.dev/docs/configuration/multitenancy/"><meta property="og:site_name" content="Logging operator">
+<meta itemprop="name" content="Multi-tenancy scenarios">
+<meta itemprop="description" content="Documentation for the Logging operator"><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Multi-tenancy scenarios">
+<meta name="twitter:description" content="Documentation for the Logging operator">
+<link rel="preload" href="/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" as="style">
+<link href="/scss/main.min.4fa30215aecca4bf0029a521c2b05365e664aa67adb4c3643680a41d6f911a3b.css" rel="stylesheet" integrity>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/w3.js" type="application/x-javascript"></script>
+<link rel="canonical" href="https://kube-logging.dev/docs/configuration/multitenancy/">
+<script src="/pagefind/pagefind-highlight.js" type="application/x-javascript"></script>
+<script type="module">
+        await import('/pagefind/pagefind-highlight.js');
+        new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+<script>window.__SJ_MESSAGE__="We collect cookies to analyze our website traffic and performance. We never collect any personal data.",window.__SJ_ACCEPT_BTN_TEXT__="Accept",window.__SJ_REJECT_BTN_TEXT__="Reject"</script>
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LM8C8QXCN7"></script>
+<script>var dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-LM8C8QXCN7")}</script>
+</head><body class="td-section">
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg viewBox="0 0 3237.738 490.023" id="svg142" sodipodi:docname="logo-new2.svg" inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs146"/><sodipodi:namedview id="namedview144" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showgrid="false" inkscape:zoom=".37340884" inkscape:cx="1620.208" inkscape:cy="243.70071" inkscape:window-width="705" inkscape:window-height="480" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg142"/><g id="Group_2068" data-name="Group 2068" transform="translate(-43577.297 -34456.625)"><g id="Group_2067" data-name="Group 2067" transform="translate(27723.789 24565.273)"><path id="Path_4217" data-name="Path 4217" d="M47842.219 34024.414l-276.027 475.07h71.242l240.227-414.1z" transform="translate(-31703.996 -24123.111)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4218" data-name="Path 4218" d="M47831.324 34080.781l166.754 287.355h-333.035z" transform="translate(-31640.254 -24086.76)" fill="#fff" stroke="#fff" stroke-width="10"/><path id="Path_4220" data-name="Path 4220" d="M47668.742 34274.2l-37.727 64.1h442.43l-37.156-64.1z" transform="translate(-31662.199 -23962.018)" fill="#d6d7d9" stroke="#d6d7d9" stroke-width="10"/><path id="Path_4222" data-name="Path 4222" d="M11294.989 10157.944l311.97-.01-156.218-269.074-78.621 135.83z" transform="translate(4740.338 117.39)" fill="#fff"/><path id="Path_4224" data-name="Path 4224" d="M47787.594 34159.125l-54.391 93.035h108.039z" transform="translate(-31596.297 -24036.238)" fill="#13142c" stroke="#13132d" stroke-width="10"/></g><text id="Logging_Operator" data-name="Logging operator" transform="translate(45475.035 34799.609)" fill="#fff" font-size="267" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing=".046em"><tspan x="-1339.806" y="0" id="tspan138">Logging operator</tspan></text></g></svg></span><span class="navbar-brand__name">Logging operator</span>
+<span class="font-weight-bold navbar-logo navbar-version">6.5</span></a>
+<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="https://github.com/kube-logging/logging-operator" title="Go to GitHub project page" target="_blank"><span>Project page</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/" title="Read the documentation"><span>Documentation</span></a>
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link" href="/docs/community/" title="Come chat with us!"><span>Community</span></a>
+</li><li class="nav-item dropdown mr-4 d-none d-lg-block">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Releases
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<div w3-include-html="/docs/configuration/multitenancy//releases.releases" w3-include-html-default='<a class="dropdown-item" href="/docs/releases.releases">Latest</a>'></div><script type="application/x-javascript">w3.includeHTML()</script>
+</div></li></ul></div><div class="navbar-nav d-none d-lg-block">
+<div class="main-menu-search">
+<a href="/search">
+<span class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+</a>
+</div></div></nav></header><div class="container-fluid td-outer">
+<div class="td-main">
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="return print(),!1">Click here to print</a>.
+</p><p>
+<a href="/docs/configuration/multitenancy/">Return to the regular view of this page</a>.
+</p></div><h1 class="title">Multi-tenancy scenarios</h1><ul>
+</ul><div class="content">
+<p>Logging operator supports several multi-tenant scenarios.</p><h2 id="multi-tenancy-concepts">Multi-tenancy concepts</h2><blockquote>
+<p>Note: On this page, the <em>flow</em>, <em>clusterflow</em>, <em>output</em>, and <em>clusteroutput</em> terms are used both for Fluentd and syslog-ng related resources for the sake of simplicity.</p></blockquote><p>Logging operator aggregates all container logs, without filtering or routing to Fluentd or syslog-ng. Note the following basic points:</p><ul>
+<li>Only the aggregators can manipulate the logs, using flows and outputs. The FluentBit log collectors running on the nodes cannot.</li><li><code>Flow</code> and <code>Output</code> are namespaced resources and can only access the logs of their own namespace, which is enforced in the aggregator.</li><li><code>ClusterFlow</code> resources can access logs from multiple namespaces, as long as the logs are available in the aggregator.</li><li><code>ClusterOutput</code> resources can be referenced from both <code>ClusterFlow</code> and from namespaced <code>Flow</code> resources.</li><li>The <code>Logging</code> resource defines the aggregator and combines all the above resources.</li></ul><p>In addition to the previous resources, a resource called <code>LoggingRoute</code> (available in Logging operator 4.4 and later) can bridge between logging domains. This resource can be used in the <a href="#hard-multi-tenancy-with-a-logging-route">Hard multi-tenancy scenario</a>.</p><h2 id="isolation-using-loggingref-and-watchnamespaces">Isolation using loggingRef and watchNamespaces</h2><p>Each resource has a <code>loggingRef</code> field, which makes it possible to create multiple logging &ldquo;domains&rdquo; with different configuration.</p><p>By default, resources with an empty <code>loggingRef</code> are processed by all <code>Logging</code> resources, except if the <code>Logging</code> defines a <code>watchNamespaces</code> or <code>watchNamespaceSelector</code> field. In that case, the <code>Flow</code> and <code>Output</code> resources are only combined into a logging configuration if they are all listed as watched namespaces. (<code>watchNamespaceSelector</code> is available in Logging operator 4.3 and later.)</p><p><code>ClusterFlow</code> and <code>ClusterOutput</code> resources (which are actually namespaced resources with multi-namespace capabilities) are by default processed only in the control namespace of the logging resource, which is the namespace where the Fluentd/syslog-ng StatefulSet and the FluentBit DaemonSet are created. There is also an option to process these from all namespaces.</p><ul>
+<li>
+<p>The collector (FluentBit) collects all logs and sends them to the aggregator. There is no option to filter or route log records on the collector.</p><p>If you have multiple tenants, you have to either:</p><ul>
+<li>Set up a <code>logging</code> resource for routing. This resource has no FluentBit collector defined, and collects and forwards all logs to separate standalone logging aggregators.</li><li>Set up multiple logging resources that all have collectors, thus processing all log messages on their own.</li></ul></li><li>
+<p><code>watchNamespaces</code> is a static list. Starting with Logging operator 4.3, you can use <code>watchNamespaceSelector</code> besides <code>watchNamespaces</code> in the logging resource to allow a dynamic, label-based selection of namespaces as well.</p></li><li>
+<p>Starting with Logging operator 4.2, a logging resource can have multiple FluentbitAgent resources instead of a single one. That way you can perform a rolling upgrade of the collector, or create nodegroup-specific collector configurations.</p></li></ul><h2 id="multi-tenancy-scenarios">Multi-tenancy scenarios</h2><h3 id="soft-multi-tenancy-with-a-single-logging-resource">Soft multi-tenancy with a single logging resource</h3><p>Users define their own namespaced resources which are merged into a single config and run by a single aggregator in a separate namespace. Multi-namespace resources are typically defined by privileged users like system administrators. Multi-namespace resources are good for:</p><ul>
+<li>Global rules (ClusterFlow + ClusterOutput defined for multiple namespaces).</li><li>Sharing configuration (ClusterOutput is available from namespaced Flows).</li></ul><p>Pros:</p><ul>
+<li>This is the default behavior, easy to set up.</li><li>Shared resources.</li></ul><p>Cons:</p><ul>
+<li>Noisy/misbehaving neighbors can cause performance issues and configuration errors.</li><li>No real visibility into configuration issues.</li></ul><h3 id="soft-watchnamespaces">Soft multi-tenancy with watchNamespaces</h3><p>In this scenario, every logging resource represents a tenant. A tenant can define its own Flow and Output resources in their designated namespaces. Tenants can also define ClusterFlows and ClusterOutputs, but have to be careful as those can process all logs, even outside the tenant&rsquo;s namespaces.</p><p>There are multiple logging resources configured in different control namespaces and the isolation boundary is controlled by the <code>watchNamespaces</code> and <code>watchNamespaceSelector</code> fields in the logging resource.</p><p>Pros:</p><ul>
+<li>Multiple aggregators isolate tenants in terms of resource usage and configuration issues.</li><li>This setup does not need to manage loggingRefs on the resources.</li></ul><p>Cons:</p><ul>
+<li>Requires multiple collector daemonsets running and processing the same set of logs on the nodes.</li><li>Using ClusterFlows and ClusterOutputs is discouraged, or need to be tightly controlled.</li><li>Multiple misconfigured logging resources might try to manage the same Flows and Outputs.</li></ul><h3 id="soft-multi-tenancy-with-logging-ref">Soft multi-tenancy with logging ref</h3><p>This solution extends the <a href="#soft-watchnamespaces">Soft multi-tenancy with watchNamespaces</a> scenario.</p><p>There are multiple logging resources configured in different control namespaces. In addition to watchNamespaces, the isolation boundary is also controlled via the <code>loggingRef</code> field of the logging resource. This scenario provides tighter control over the relationship of the Flow and Output resources to the Logging resources.</p><p>Pros:</p><ul>
+<li>The Flow and Output resources cannot accidentally be managed by multiple Logging resources.</li></ul><p>Cons:</p><ul>
+<li>If the users control their own Flow and Output resources, they must make sure the <code>loggingRef</code> field is properly set.</li></ul><h3 id="hard-multi-tenancy-with-a-logging-route">Hard multi-tenancy with a logging route</h3><blockquote>
+<p>Note: The <code>LoggingRoute</code> resource is available in Logging operator 4.4 and later.</p></blockquote><p>Using the <code>LoggingRoute</code> resource, you can route logs from different namespaces to different aggregators.</p><p>For example, an administrator can define a routing rule that allows for sending logs from one centrally managed Fluent Bit agent to multiple different Fluentd or syslog-ng aggregators owned by individual tenants. That way each tenant receives only the logs relevant to them. In addition to that, operations teams still have the ability to receive all logs from the system, for example, to archive them on a cold storage. The following diagram demonstrates this use case given two user-level and one administrator-level tenants:</p><p><img src="logging-operator-multi-tenancy.png" alt="Multi-tenancy with namespace-based routing"></p><p>The <code>LoggingRoute</code> resource connects a collector (Fluent Bit) of a logging resource with the aggregators of other logging resources. The collector uses the <code>watchNamespaces</code> configuration in the target logging resources to send only the logs relevant to them. This way, target logging resources can effectively work in isolation on their own logs and nothing more.</p><blockquote>
+<p>Note: This method can be combined with a <code>loggingRef</code> as well, similarly to the <a href="#soft-multi-tenancy-with-logging-ref">Soft multi-tenancy with logging ref</a> scenario.</p></blockquote><p>Pros:</p><ul>
+<li>Log routing happens on the collector level, so there is no possibility for a tenant to accidentally mess with logs outside
+of its logging domain.</li></ul><p>Cons:</p><ul>
+<li>One collector agent handles multiple output queues and failure scenarios, which FluentBit does not handle well by default.</li></ul><p>For details on the <code>LoggingRoute</code> resource, see <a href="/docs/configuration/loggingroute/">Logging route</a> and <a href="/docs/configuration/crds/v1beta1/loggingroute_types/">LoggingRouteSpec</a>.</p><h3 id="hard-multi-tenancy-with-the-telemetry-controller">Hard multi-tenancy with the Telemetry Controller</h3><p>The <a href="https://github.com/kube-logging/telemetry-controller">Telemetry Controller</a> project supports multi-tenancy out of the box: it isolates telemetry data at the collector level using cluster-scoped <code>Tenant</code> resources and namespaced <code>Subscription</code> resources on top of the OpenTelemetry Collector. Administrators define collectors and tenants, while tenant users subscribe only to the data streams their tenant can access.</p><p>Logging operator has experimental support for using the Telemetry Controller as its log collector agent instead of Fluent Bit. For details, see the <a href="https://github.com/kube-logging/telemetry-controller">Telemetry Controller documentation</a>.</p></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class="row">
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+<a class="text-white" target="_blank" rel="noopener" href="https://github.com/kube-logging/logging-operator" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+<a class="text-white" target="_blank" rel="noopener" href="/docs/community/" aria-label="Slack">
+<i class="fab fa-slack"></i>
+</a>
+</li><li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discord" aria-label="Discord">
+<a class="text-white" target="_blank" rel="noopener" href="https://discord.gg/9ACY4RDsYN" aria-label="Discord">
+<i class="fab fa-discord"></i>
+</a>
+</li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class="text-white"></small>
+<small class="text-white">Copyright kube-logging a Series of LF Projects, LLC</small>
+<small class="text-white"><br>For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/" target="_blank" rel="noopener">lfprojects.org/policies/</a>.</small>
+</div></div></div></footer></div><script src="/js/main.min.1b1fdad69306b68b100386e51fceb41fd37721de6a09b1df0495f948dfa59ee7.js" integrity="sha256-Gx/a1pMGtosQA4blH860H9N3Id5qCbHfBJX5SN+lnuc=" crossorigin="anonymous"></script>
+<script src='/js/prism.js'></script>
+<script src='/js/tabpane-persist.js'></script>
+<script src="/js/tocbot.min.js"></script>
+<script type="text/javascript">tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4",ignoreHiddenElements:!0})</script>
+<script>(function(){var e=document.querySelector("#td-section-nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</body></html>

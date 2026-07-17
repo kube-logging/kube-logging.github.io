@@ -28,14 +28,14 @@ Configuration (Batch, required) Batching parameters
 auth (*secret.Secret, optional) The password used for authentication on a password-protected Redis server.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/syslog-ng-outputs/redis/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-07-17T19:06:16+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-07-17T19:07:38+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Redis">
 <meta itemprop="description" content="Based on the Redis destination of AxoSyslog core.
 Available in Logging operator version 4.4 and later.
 Example apiVersion: logging.banzaicloud.io/v1beta1 kind: SyslogNGOutput metadata: name: redis namespace: default spec: redis: host: 127.0.0.1 port: 6379 retries: 3 throttle: 0 time-reopen: 60 workers: 1 For details on the available options of the output, see the documentation of the AxoSyslog syslog-ng distribution.
 Configuration (Batch, required) Batching parameters
 auth (*secret.Secret, optional) The password used for authentication on a password-protected Redis server.">
-<meta itemprop="dateModified" content="2026-07-17T19:06:16+02:00">
+<meta itemprop="dateModified" content="2026-07-17T19:07:38+02:00">
 <meta itemprop="wordCount" content="347">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
@@ -120,6 +120,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -145,7 +148,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check">
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -469,6 +475,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -624,7 +633,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">time-reopen</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">60</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">workers</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:700">1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline"> </span></span></span></code></pre></div><p>For details on the available options of the output, see the <a href="https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-redis/">documentation of the AxoSyslog syslog-ng distribution</a>.</p><h2 id="configuration">Configuration</h2><h3 id="redisoutput-">(Batch, required)</h3><p>Batching parameters</p><h3 id="redisoutput-auth">auth (*secret.Secret, optional)</h3><p>The password used for authentication on a password-protected Redis server.</p><h3 id="redisoutput-command">command (StringList, optional)</h3><p>Internal rendered form of the CommandAndArguments field</p><h3 id="redisoutput-command_and_arguments">command_and_arguments ([]string, optional)</h3><p>The Redis command to execute, for example, LPUSH, INCR, or HINCRBY. Using the HINCRBY command with an increment value of 1 allows you to create various statistics. For example, the <code>command("HINCRBY" "${HOST}/programs" "${PROGRAM}" "1")</code> command counts the number of log messages on each host for each program.</p><p>Default: ""</p><h3 id="redisoutput-disk_buffer">disk_buffer (*DiskBuffer, optional)</h3><p>This option enables putting outgoing messages into the disk buffer of the destination to avoid message loss in case of a system failure on the destination side. For details, see the <a href="../disk_buffer/">Syslog-ng DiskBuffer options</a>.</p><p>Default: false</p><h3 id="redisoutput-host">host (string, optional)</h3><p>The hostname or IP address of the Redis server.</p><p>Default: 127.0.0.1</p><h3 id="redisoutput-log-fifo-size">log-fifo-size (int, optional)</h3><p>The number of messages that the output queue can store.</p><h3 id="redisoutput-persist_name">persist_name (string, optional)</h3><p>Persistname</p><h3 id="redisoutput-port">port (int, optional)</h3><p>The port number of the Redis server.</p><p>Default: 6379</p><h3 id="redisoutput-retries">retries (int, optional)</h3><p>If syslog-ng OSE cannot send a message, it will try again until the number of attempts reaches <code>retries()</code>.</p><p>Default: 3</p><h3 id="redisoutput-throttle">throttle (int, optional)</h3><p>Sets the maximum number of messages sent to the destination per second. Use this output-rate-limiting functionality only when using disk-buffer as well to avoid the risk of losing messages. Specifying 0 or a lower value sets the output limit to unlimited.</p><p>Default: 0</p><h3 id="redisoutput-time-reopen">time-reopen (int, optional)</h3><p>The time to wait in seconds before a dead connection is reestablished.</p><p>Default: 60</p><h3 id="redisoutput-workers">workers (int, optional)</h3><p>Specifies the number of worker threads (at least 1) that syslog-ng OSE uses to send messages to the server. Increasing the number of worker threads can drastically improve the performance of the destination.</p><p>Default: 1</p><h2 id="stringlist">StringList</h2><h3 id="stringlist-string-list">string-list ([]string, optional)</h3><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

@@ -101,6 +101,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -126,7 +129,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check">
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -450,6 +456,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -599,7 +608,7 @@ Kubernetes host tailer allows you to tail logs like <code>kubelet</code>, <code>
 <h5>
 <a href="/docs/configuration/extensions/tailer-webhook/">Tail logfiles with a webhook</a>
 </h5><p></p></div></div><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">

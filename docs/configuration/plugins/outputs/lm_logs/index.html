@@ -26,13 +26,13 @@ access_key (*secret.Secret, optional) LM API Token access key Secret
 bearer_token (*secret.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/plugins/outputs/lm_logs/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-07-17T19:06:16+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-07-17T19:07:38+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="LogicMonitor Logs">
 <meta itemprop="description" content="Overview The LogicMonitor Logs output plugin for Fluentd sends log records to LogicMonitor Logs via the LM API. For details, see https://github.com/logicmonitor/lm-logs-fluentd.
 Example output configurations spec: lmLogs: company_name: mycompany access_id: valueFrom: secretKeyRef: name: lm-credentials key: access_id access_key: valueFrom: secretKeyRef: name: lm-credentials key: access_key resource_mapping: '{&#34;kubernetes.host&#34;: &#34;system.hostname&#34;}' flush_interval: 60s debug: false Configuration access_id (*secret.Secret, optional) LM API Token access ID Secret
 access_key (*secret.Secret, optional) LM API Token access key Secret
 bearer_token (*secret.">
-<meta itemprop="dateModified" content="2026-07-17T19:06:16+02:00">
+<meta itemprop="dateModified" content="2026-07-17T19:07:38+02:00">
 <meta itemprop="wordCount" content="252">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LogicMonitor Logs">
@@ -116,6 +116,9 @@ Releases
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationfluentd-vs-syslog-ng-li">
 <input type="checkbox" id="m-docsconfigurationfluentd-vs-syslog-ng-check">
 <label for="m-docsconfigurationfluentd-vs-syslog-ng-check"><a href="/docs/configuration/fluentd-vs-syslog-ng/" title="Which log forwarder to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationfluentd-vs-syslog-ng"><span>Fluentd or syslog-ng</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationloggingroute-li">
+<input type="checkbox" id="m-docsconfigurationloggingroute-check">
+<label for="m-docsconfigurationloggingroute-check"><a href="/docs/configuration/loggingroute/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationloggingroute"><span>Logging route</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationoutput-li">
 <input type="checkbox" id="m-docsconfigurationoutput-check">
 <label for="m-docsconfigurationoutput-check"><a href="/docs/configuration/output/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationoutput"><span>Output and ClusterOutput</span></a></label>
@@ -141,7 +144,10 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationextensionstailer-webhook-li">
 <input type="checkbox" id="m-docsconfigurationextensionstailer-webhook-check">
 <label for="m-docsconfigurationextensionstailer-webhook-check"><a href="/docs/configuration/extensions/tailer-webhook/" title="Tail logfiles with a webhook" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconfigurationextensionstailer-webhook"><span>File Tailer Webhook</span></a></label>
-</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconfigurationmultitenancy-li">
+<input type="checkbox" id="m-docsconfigurationmultitenancy-check">
+<label for="m-docsconfigurationmultitenancy-check"><a href="/docs/configuration/multitenancy/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationmultitenancy"><span>Multi-tenancy scenarios</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconfigurationcrds-li">
 <input type="checkbox" id="m-docsconfigurationcrds-check">
 <label for="m-docsconfigurationcrds-check"><a href="/docs/configuration/crds/" title="Custom Resource Definitions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconfigurationcrds"><span>CRDs</span></a></label>
 <ul class="ul-3 foldable">
@@ -465,6 +471,9 @@ Releases
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesdate-parser-li">
 <input type="checkbox" id="m-docsexamplesdate-parser-check">
 <label for="m-docsexamplesdate-parser-check"><a href="/docs/examples/date-parser/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesdate-parser"><span>Parsing custom date formats</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesflows-li">
+<input type="checkbox" id="m-docsexamplesflows-check">
+<label for="m-docsexamplesflows-check"><a href="/docs/examples/flows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesflows"><span>Advanced Flow examples</span></a></label>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplescloudwatch-nginx-li">
 <input type="checkbox" id="m-docsexamplescloudwatch-nginx-check">
 <label for="m-docsexamplescloudwatch-nginx-check"><a href="/docs/examples/cloudwatch-nginx/" title="Store Nginx Access Logs in Amazon CloudWatch with Logging operator" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplescloudwatch-nginx"><span>Amazon CloudWatch with Fluentd</span></a></label>
@@ -621,7 +630,7 @@ Releases
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">flush_interval</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">60s</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:700">debug</span><span style="color:#000;font-weight:700">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:700">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configuration">Configuration</h2><h3 id="logicmonitorlogs-access_id">access_id (*secret.Secret, optional)</h3><p>LM API Token access ID <a href="../secret/">Secret</a></p><h3 id="logicmonitorlogs-access_key">access_key (*secret.Secret, optional)</h3><p>LM API Token access key <a href="../secret/">Secret</a></p><h3 id="logicmonitorlogs-bearer_token">bearer_token (*secret.Secret, optional)</h3><p>LM API Bearer Token. Either specify <code>access_id</code> and <code>access_key</code> both or <code>bearer_token</code>. If all three are specified, <code>LMv1 token(access_id and access_key)</code> will be used for authentication with LogicMonitor <a href="../secret/">Secret</a></p><h3 id="logicmonitorlogs-buffer">buffer (*Buffer, optional)</h3><p><a href="../buffer/">Buffer</a></p><h3 id="logicmonitorlogs-company_domain">company_domain (string, optional)</h3><p>LogicMonitor account domain. For example, for the <code>test.logicmonitor.com</code> URL, <code>company_domain</code> is <code>logicmonitor.com</code></p><p>Default: <code>logicmonitor.com</code></p><h3 id="logicmonitorlogs-company_name">company_name (string, required)</h3><p>LogicMonitor account name</p><h3 id="logicmonitorlogs-debug">debug (*bool, optional)</h3><p>When true, the plugin logs more information to the Fluentd console</p><h3 id="logicmonitorlogs-device_less_logs">device_less_logs (*bool, optional)</h3><p>When true, do not map logs with any resource. Record must have service when true</p><p>Default: false</p><h3 id="logicmonitorlogs-flush_interval">flush_interval (string, optional)</h3><p>Defines the time in seconds to wait before sending batches of logs to LogicMonitor (default: 60s)</p><p>Default: 60s</p><h3 id="logicmonitorlogs-force_encoding">force_encoding (string, optional)</h3><p>Specify charset when logs contains invalid utf-8 characters</p><h3 id="logicmonitorlogs-format">format (*Format, optional)</h3><p><a href="../format/">Format</a></p><h3 id="logicmonitorlogs-http_proxy">http_proxy (string, optional)</h3><p>http proxy string eg. <a href="http://user:pass@proxy.server">http://user:pass@proxy.server</a>:port</p><h3 id="logicmonitorlogs-include_metadata">include_metadata (*bool, optional)</h3><p>When true, appends additional metadata to the log</p><p>Default: false</p><h3 id="logicmonitorlogs-resource_mapping">resource_mapping (string, optional)</h3><p>The mapping that defines the source of the log event to the LM resource. In this case, the <code>&lt;event_key></code> in the incoming event is mapped to the value of<code> &lt;lm_property></code></p><div class="text-muted mt-5 pt-3 border-top">
-Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/1bdbddd835935a4291ed04347bbd70fc07e08d9f">Merge pull request #339 from kube-logging/fluentbit-mountpath-doc (1bdbddd)</a>
+Last modified July 17, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/3399d4d3bad17e3d9c4de6822c75a4ad4858b610">Merge pull request #192 from kube-logging/multi-tenancy-scenarios (3399d4d)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
