@@ -111,3 +111,9 @@ Cons:
 - One collector agent handles multiple output queues and failure scenarios, which FluentBit does not handle well by default.
 
 For details on the `LoggingRoute` resource, see {{% xref "/docs/configuration/loggingroute.md" %}} and {{% xref "/docs/configuration/crds/v1beta1/loggingroute_types.md" %}}.
+
+### Hard multi-tenancy with the Telemetry Controller
+
+The [Telemetry Controller](https://github.com/kube-logging/telemetry-controller) project supports multi-tenancy out of the box: it isolates telemetry data at the collector level using cluster-scoped `Tenant` resources and namespaced `Subscription` resources on top of the OpenTelemetry Collector. Administrators define collectors and tenants, while tenant users subscribe only to the data streams their tenant can access.
+
+Logging operator has experimental support for using the Telemetry Controller as its log collector agent instead of Fluent Bit. For details, see the [Telemetry Controller documentation](https://github.com/kube-logging/telemetry-controller).
