@@ -3,7 +3,7 @@ title: Multi-tenancy scenarios
 weight: 400
 ---
 
-Logging operator supports several multi-tenant scenarios
+Logging operator supports several multi-tenant scenarios.
 
 ## Multi-tenancy concepts
 
@@ -34,7 +34,7 @@ By default, resources with an empty `loggingRef` are processed by all `Logging` 
     - Set up a `logging` resource for routing. This resource has no FluentBit collector defined, and collects and forwards all logs to separate standalone logging aggregators.
     - Set up multiple logging resources that all have collectors, thus processing all log messages on their own.
 
-- WatchNamespaces is a static list. Starting with Logging operator 4.3, you can use `watchNamespaceSelector` is available besides `watchNamespaces` in the logging resource to allow a dynamic, label based selection of namespaces as well.
+- `watchNamespaces` is a static list. Starting with Logging operator 4.3, you can use `watchNamespaceSelector` besides `watchNamespaces` in the logging resource to allow a dynamic, label-based selection of namespaces as well.
 - Starting with Logging operator 4.2, a logging resource can have multiple FluentbitAgent resources instead of a single one. That way you can perform a rolling upgrade of the collector, or create nodegroup-specific collector configurations.
 
 ## Multi-tenancy scenarios
@@ -81,7 +81,7 @@ There are multiple logging resources configured in different control namespaces.
 
 Pros:
 
-- The Flow Output resources cannot be accidentally be managed by multiple Logging resources.
+- The Flow and Output resources cannot accidentally be managed by multiple Logging resources.
 
 Cons:
 
@@ -89,9 +89,9 @@ Cons:
 
 ### Hard multi-tenancy with a logging route
 
-{{< warning >}}Experimental feature, available in Logging operator 4.4 and later.{{< /warning >}}
+> Note: The `LoggingRoute` resource is available in Logging operator 4.4 and later.
 
-Using the `LoggingRoute` resource, you can now route logs from different namespaces to different aggregators.
+Using the `LoggingRoute` resource, you can route logs from different namespaces to different aggregators.
 
 For example, an administrator can define a routing rule that allows for sending logs from one centrally managed Fluent Bit agent to multiple different Fluentd or syslog-ng aggregators owned by individual tenants. That way each tenant receives only the logs relevant to them. In addition to that, operations teams still have the ability to receive all logs from the system, for example, to archive them on a cold storage. The following diagram demonstrates this use case given two user-level and one administrator-level tenants:
 
@@ -110,4 +110,4 @@ Cons:
 
 - One collector agent handles multiple output queues and failure scenarios, which FluentBit does not handle well by default.
 
-For details on the `LoggingRoute` resource, see {{% xref "/docs/configuration/crds/v1beta1/loggingroute_types.md" %}}.
+For details on the `LoggingRoute` resource, see {{% xref "/docs/configuration/loggingroute.md" %}} and {{% xref "/docs/configuration/crds/v1beta1/loggingroute_types.md" %}}.

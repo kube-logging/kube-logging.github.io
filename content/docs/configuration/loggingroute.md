@@ -3,15 +3,13 @@ title: Logging route
 weight: 35
 ---
 
-{{< warning >}}Experimental feature, available in Logging operator 4.4 and later.{{< /warning >}}
+> Note: The `LoggingRoute` resource is available in Logging operator 4.4 and later.
 
 A `LoggingRoute` defines a global rule that instructs the `FluentbitAgent` resources of the same `Logging` resource to route logs to different target `Logging` aggregators (Fluentd or syslog-ng).
 
 The routed logs are filtered based on the `watchNamespaces` and `watchNamespaceSelector` fields of the target `Logging` resources (which were originally used to limit which Flow and Output resources are processed by the `Logging` resource). This also means that the logs routed by ClusterFlows are limited to the above namespace list, as the aggregator doesn't receive any other logs.
 
-For example, the following logging route configuration means that the `FluentbitAgent` resource in the `Logging` resource called `ops` routes logs
-to the aggregators that have the `tenant` label set.
-<!-- FIXME So an agent can send the same logs to multiple aggregators? -->
+For example, the following logging route configuration means that the `FluentbitAgent` resource in the `Logging` resource called `ops` routes logs to every aggregator whose `Logging` resource has the `tenant` label set. Each target aggregator receives only the logs of the namespaces it watches.
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -32,8 +30,7 @@ The status of the `LoggingRoute` resource is populated with the targets and thei
 
 ### Example with Logging resources and status
 
-The tenants (`team-a` and `team-b`) are different development teams, where each team has access only their own logs. Let's suppose every team has an `ops` and an `app` namespace with tenant labels:
-<!-- FIXME I'm confused about the teams vs the tenants -->
+In this example, each tenant belongs to a development team (`team-a` and `team-b`), and each team has access only to its own logs. Every team has an `ops` and an `app` namespace, labeled with the team's tenant label:
 
 ```yaml
 apiVersion: logging.banzaicloud.io/v1beta1
@@ -121,7 +118,7 @@ status:
     namespaces:
     - team-a-ops
     - team-a-app
-  - name: b
+  - name: team-b
     namespaces:
     - team-b-ops
     - team-b-app
