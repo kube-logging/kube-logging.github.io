@@ -62,6 +62,7 @@ aliases:
 - `--finalizer-cleanup` (boolean, default `false`): Remove finalizers during operator shutdown, useful for `Helm` uninstallation
 - `--enable-telemetry-controller-route` (boolean, default `false`): Enable Telemetry Controller routing for Logging resources
 - `--sync-period` (string, default `""`): Minimum frequency for reconciling watched resources, for example, `30s`, or `2h45m`. Valid time units are "ms", "s", "m", "h".
+- `--enable-raw-filter` (boolean, default `false`): Enable the `raw` Fluentd filter for `Flow` and `ClusterFlow` resources, which injects an arbitrary native Fluentd `<filter>` block via `filters[].raw.config`. If a `raw` filter is used while this flag is off, reconciliation fails. See the [Fluentd filters](/docs/configuration/plugins/filters/) reference.
 
 To add arguments with `Helm` you can use the `extraArgs` field e.g:
 
