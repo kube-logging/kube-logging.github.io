@@ -137,6 +137,26 @@ cosign verify "ghcr.io/kube-logging/logging-operator@sha256:50550883905ffe484f21
     --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
 
+### Pin the operator image by digest {#pin-image-sha}
+
+The logging-operator Helm chart accepts an optional `image.sha` value that pins the operator image to a specific digest instead of a tag. It is unset by default, so omitting it keeps the chart's standard tag-based behavior and upgrades stay backward compatible.
+
+Pinning by digest is useful in two cases:
+
+- To pin a digest you just verified in the [image verification](#image-verification) step above, as an extra safeguard.
+- To run a specific pre-release or `master` image by digest. For the tag-based alternative, see [How can I run the unreleased master version](/docs/faq/#how-can-i-run-the-unreleased-master-version). That approach uses `--set image.tag=master`.
+
+The value must include the full `sha256:` prefix. When set, the chart renders the operator image in digest form as `<repository>@<digest>`, for example `ghcr.io/kube-logging/logging-operator@sha256:...`. To set it, add `--set image.sha=<digest>` to the OCI install command.
+
+For example, using the 4.11.0 image digest (substitute the digest you verified):
+
+```shell
+helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator \
+    --set image.sha=sha256:50550883905ffe484f210ae65a8e0dbcbc0836c240b1fec454945d8b97830ede
+```
+
+> Note: When `image.sha` is set, it overrides both `image.tag` and the chart's appVersion. Setting a tag alongside it has no effect because the digest wins.
+
 ### Chart verification
 
 You can verify our charts by running the following command.
