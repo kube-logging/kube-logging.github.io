@@ -14,6 +14,59 @@ The Flow is a `namespaced` resource, so only logs from the same namespaces are c
 You can define one or more `filters` within a Flow. Filters can perform various actions on the logs, for example, add additional data, transform the logs, or parse values from the records.
 The filters in the flow are applied in the order in the definition. You can find the [list of supported filters here]({{< relref "/docs/configuration/plugins/filters">}}).
 
+### Raw Fluentd filter
+
+Use the `raw` filter to inject native Fluentd filter configuration when the Logging operator doesn't expose the filter you need as a first-class plugin. It is an escape hatch for custom or otherwise unsupported Fluentd filters.
+
+{{< warning >}}Raw configuration bypasses the operator's schema and validation. Use it only when no first-class filter fits your use case.{{< /warning >}}
+
+The `raw` filter is gated by the `spec.enableRawFluentdFilter` field (a boolean that defaults to `false`) on the `Logging` resource, not by an operator CLI flag. If a `Flow` or `ClusterFlow` uses a `raw` filter while this field is `false`, config generation fails and the affected `Flow` gets an entry in its `status.problems`.
+
+Put the configuration in `raw.config`, a string of native Fluentd filter configuration. The body must include an `@type` line and must not be wrapped in the enclosing `<filter>...</filter>` tags: the operator adds the `<filter **>` directive and sets (overwrites) the `@id`. The `raw.config` string is capped at 64 KiB and 32 levels of nesting.
+
+You can use the `raw` filter in the `filters` list of a `Flow` or `ClusterFlow` (as well as in `globalFilters` and the default flow), like any other filter. For details, see the generated `raw` filter reference in the [list of supported filters]({{< relref "/docs/configuration/plugins/filters">}}).
+
+First, enable raw Fluentd filters on the `Logging` resource:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+  namespace: logging
+spec:
+  enableRawFluentdFilter: true
+  fluentd: {}
+  fluentbit: {}
+  controlNamespace: logging
+```
+
+The following example injects a custom Fluentd filter that the operator does not expose. The `@type anonymizer` filter is illustrative — the point is the shape of the configuration: an `@type` line, no enclosing `<filter>` tags, and nested directives where needed.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Flow
+metadata:
+  name: raw-filter-sample
+  namespace: default
+spec:
+  filters:
+    - raw:
+        config: |
+          @type anonymizer
+          @log_level info
+          <mask ipaddr>
+            keys client_ip
+            type network
+          </mask>
+  match:
+    - select:
+        labels:
+          app: nginx
+  localOutputRefs:
+    - s3-output
+```
+
 At the end of the Flow, you can attach one or more [outputs]({{< relref "/docs/configuration/output.md" >}}), which may also be `Output` or `ClusterOutput` resources.
 
 > `Flow` resources are `namespaced`, the `selector` only select `Pod` logs within namespace.
