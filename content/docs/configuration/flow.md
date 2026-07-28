@@ -41,7 +41,7 @@ spec:
   controlNamespace: logging
 ```
 
-> Note: A proposed Helm chart value, `logging.enableRawFluentdFilter` (default `false`), will let you enable the gate through the Logging operator's Helm chart instead of editing the `Logging` resource directly. When set, the chart populates `spec.enableRawFluentdFilter` on the generated `Logging` resource from this value. This value is not yet available in a released chart — it is proposed in [logging-operator PR #2289](https://github.com/kube-logging/logging-operator/pull/2289).
+> Note: The Helm chart value `logging.enableRawFluentdFilter` (a boolean that defaults to `false`) lets you enable the raw Fluentd filter through the Logging operator's Helm chart instead of editing the `Logging` resource directly. When set, the chart populates `spec.enableRawFluentdFilter` on the generated `Logging` resource from this value. This value is merged into the chart's `master` branch, but it isn't in a tagged chart release yet. Released charts such as 6.7.0 don't include it — it will ship in the next chart release. [logging-operator PR #2289](https://github.com/kube-logging/logging-operator/pull/2289) added this value.
 
 The following example injects a custom Fluentd filter that the operator does not expose. The `@type anonymizer` filter is illustrative — the point is the shape of the configuration: an `@type` line, no enclosing `<filter>` tags, and nested directives where needed.
 
