@@ -24,13 +24,13 @@ Create host tailer To tail logs from the node&rsquo;s host filesystem, define on
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kube-logging.dev/docs/configuration/extensions/kubernetes-host-tailer/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2026-09-07T10:22:16+02:00"><meta property="og:site_name" content="Logging operator">
+<meta property="article:modified_time" content="2026-09-07T10:27:59+02:00"><meta property="og:site_name" content="Logging operator">
 <meta itemprop="name" content="Kubernetes host logs, journals, and logfiles">
 <meta itemprop="description" content="Kubernetes host tailer allows you to tail logs like kubelet, audit logs, or the systemd journal from the nodes.
 Create host tailer To tail logs from the node&rsquo;s host filesystem, define one or more file tailers in the host-tailer configuration.
 kubectl apply -f - <<EOF apiVersion: logging-extensions.banzaicloud.io/v1alpha1 kind: HostTailer metadata: name: multi-sample spec: # list of File tailers fileTailers: - name: nginx-access path: /var/log/nginx/access.log - name: nginx-error path: /var/log/nginx/error.log # list of Systemd tailers systemdTailers: - name: my-systemd-tailer maxEntries: 100 systemdFilter: kubelet.">
-<meta itemprop="dateModified" content="2026-09-07T10:22:16+02:00">
-<meta itemprop="wordCount" content="1094">
+<meta itemprop="dateModified" content="2026-09-07T10:27:59+02:00">
+<meta itemprop="wordCount" content="1121">
 <meta itemprop="keywords" content><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes host logs, journals, and logfiles">
 <meta name="twitter:description" content="Kubernetes host tailer allows you to tail logs like kubelet, audit logs, or the systemd journal from the nodes.
@@ -788,7 +788,8 @@ Releases
 <td>systemdTailers</td><td>[]SystemdTailer</td><td>No</td><td>-</td><td>List of systemd tailers<br></td></tr><tr>
 <td>enableRecreateWorkloadOnImmutableFieldChange</td><td>bool</td><td>No</td><td>-</td><td>EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn&rsquo;t be managed with a simple update.<br></td></tr><tr>
 <td>workloadMetaOverrides</td><td>*types.MetaBase</td><td>No</td><td>-</td><td>Override metadata of the created resources<br></td></tr><tr>
-<td>workloadOverrides</td><td>*types.PodSpecBase</td><td>No</td><td>-</td><td>Override podSpec fields for the given daemonset<br></td></tr></tbody></table><h2 id="advanced-configuration-overrides">Advanced configuration overrides</h2><h3 id="metabase">MetaBase</h3><table>
+<td>workloadOverrides</td><td>*types.PodSpecBase</td><td>No</td><td>-</td><td>Override podSpec fields for the given daemonset<br></td></tr><tr>
+<td>enableServiceLinks</td><td>*bool</td><td>No</td><td>-</td><td>EnableServiceLinks indicates whether information about services should be injected into the pod&rsquo;s environment variables, matching the syntax of Docker links. Defaults to true.<br></td></tr></tbody></table><h2 id="advanced-configuration-overrides">Advanced configuration overrides</h2><h3 id="metabase">MetaBase</h3><table>
 <thead>
 <tr>
 <th>Variable Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead><tbody>
@@ -816,7 +817,7 @@ Releases
 <td>command</td><td><code>[]string</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>volumeMounts</td><td><code>[]corev1.VolumeMount</code></td><td>No</td><td>-</td><td></td></tr><tr>
 <td>securityContext</td><td><code>*corev1.SecurityContext</code></td><td>No</td><td>-</td><td></td></tr></tbody></table><div class="text-muted mt-5 pt-3 border-top">
-Last modified September 7, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/a664993f4289c72678ce46f8d1f004edfa836756">Merge pull request #348 from kube-logging/dependabot/github_actions/actions/deploy-pages-5.0.1 (a664993)</a>
+Last modified September 7, 2026: <a href="https://github.com/kube-logging/kube-logging.github.io/commit/72537f874b010bb204a96ae0f245147612166172">Merge pull request #347 from Promptless/promptless/hosttailer-enableservicelinks (72537f8)</a>
 </div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class="row">
