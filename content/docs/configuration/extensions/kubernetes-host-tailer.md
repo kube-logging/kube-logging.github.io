@@ -269,6 +269,7 @@ EOF
 | enableRecreateWorkloadOnImmutableFieldChange | bool | No | - | EnableRecreateWorkloadOnImmutableFieldChange enables the operator to recreate the<br>fluentbit daemonset and the fluentd statefulset (and possibly other resource in the future)<br>in case there is a change in an immutable field<br>that otherwise couldn't be managed with a simple update.<br> |
 | workloadMetaOverrides | *types.MetaBase | No | - | Override metadata of the created resources<br> |
 | workloadOverrides | *types.PodSpecBase | No | - | Override podSpec fields for the given daemonset<br> |
+| enableServiceLinks | *bool | No | - | EnableServiceLinks indicates whether information about services should be injected into the pod's environment variables, matching the syntax of Docker links. Defaults to true.<br> |
 
 ## Advanced configuration overrides
 
