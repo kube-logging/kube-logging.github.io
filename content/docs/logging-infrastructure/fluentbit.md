@@ -186,6 +186,29 @@ spec:
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#bufferstorage" %}}.
 [More Info](https://docs.fluentbit.io/manual/v/1.3/configuration/buffering).
 
+### Flush the filesystem buffer on shutdown
+
+Setting `storage.backlog.flush_on_shutdown` to `"On"` makes Fluent Bit flush all filesystem-backlog chunks to their destination during a graceful shutdown. This way, you don't lose buffered records when a node is drained or a spot instance is reclaimed.
+
+This option is opt-in and defaults to `"Off"`. The operator renders the option only if you set it.
+
+Enable filesystem buffering first, or this option has no effect: set `storage.type: filesystem` on the tail input and set `storage.path`. This setting only affects filesystem-backlog chunks.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: default-logging-simple
+spec:
+  inputTail:
+    storage.type: filesystem
+  bufferStorage:
+    storage.path: /buffers
+    storage.backlog.flush_on_shutdown: "On"
+```
+
+Increase [`terminationGracePeriodSeconds`]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-terminationgraceperiodseconds" >}}) so the pod has enough time to finish flushing before Kubernetes force-kills it.
+
 ### HostPath volumes for buffers and positions
 
 ```yaml
