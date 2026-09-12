@@ -33,6 +33,7 @@ aliases:
 ### Metrics and Performance
 
 - `--metrics-addr` (string, default `:8080`): Address for metric endpoint
+- `--health-probe-bind-address` (string, default `:8081`): Address the health probe endpoint binds to. Serves the `/healthz` (liveness) and `/readyz` (readiness) endpoints backing the operator pod's Kubernetes probes.
 - `--pprof` (boolean, default `false`): Enable performance profiling
 
 ### Logging Configuration
