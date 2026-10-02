@@ -3,6 +3,25 @@ title: What's new
 weight: 50
 ---
 
+## Unreleased
+
+_This documents a change that is not yet in a released version; this heading will be replaced with the version number once it ships._
+
+- You can now use the optional per-instance `logging.hostTailers.instances[].namespace` field to set the namespace of each generated HostTailer custom resource when configuring host tailers through the Helm chart. When set, the value is applied to the resource's `metadata.namespace`; when omitted, the HostTailer is created in the Helm release namespace, as before. For details, see the [pull request](https://github.com/kube-logging/logging-operator/pull/2275).
+
+```yaml
+logging:
+  hostTailers:
+    enabled: true
+    instances:
+      - name: hosttailer
+        enabled: true
+        namespace: my-namespace
+        fileTailers:
+          - name: sample-file
+            path: /var/log/sample-file
+```
+
 ## Version 6.5
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
