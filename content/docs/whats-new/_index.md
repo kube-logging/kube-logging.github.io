@@ -3,6 +3,15 @@ title: What's new
 weight: 50
 ---
 
+## Unreleased
+
+- `enabledIPv6` now works on single-stack IPv4, single-stack IPv6, and dual-stack clusters. The Logging operator detects which IP families the cluster can allocate and requests only those for the Fluentd, Fluent Bit, and syslog-ng Services. It also preserves the IP families already assigned to existing Services. This fixes a regression where `enabledIPv6` forced an IPv6-primary Service. Single-stack clusters rejected that Service, which stalled reconciliation.
+- You can now set the `bind` field on the `metrics` and `bufferVolumeMetrics` configuration of the Fluentd and Fluent Bit specs to control the metrics endpoint's listen address. It defaults to `0.0.0.0`, or to `[::]` when `enabledIPv6` is set, so you can change that address without changing the Service's IP families.
+- When `enabledIPv6` is set, the syslog-ng network source now listens on IPv6. Previously syslog-ng stayed IPv4-only even though its Service became IPv6-primary, which could break log ingestion.
+- The syslog-ng config-reloader now exposes its metrics on port `9533` so they can be scraped.
+- The syslog-ng `metricsService` and `bufferVolumeMetricsService` overrides are now applied. Previously they were silently ignored.
+- The Fluentd graceful drain now reliably stops the node-exporter sidecar during a buffer-volume drain. Previously the drain's shutdown request could be rejected, leaving the node-exporter sidecar running.
+
 ## Version 6.5
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
