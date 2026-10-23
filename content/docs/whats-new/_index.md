@@ -3,6 +3,10 @@ title: What's new
 weight: 50
 ---
 
+## Unreleased
+
+- The [Exception Detector]({{< relref "/docs/configuration/plugins/filters/detect_exceptions.md" >}}) filter doesn't support multiple Fluentd workers. Fluentd fails to start if a flow uses it while [`workers`]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-workers" >}}) is greater than 1. The Logging operator now reports Flows and ClusterFlows that use `detectExceptions` in this setup as invalid, and adds the following problem to their status: `detectExceptions filter does not support multiple fluentd workers; remove the filter or set fluentd workers to 1`. The operator doesn't update the Fluentd configuration while such a flow exists, unless [`skipInvalidResources`]({{< relref "/docs/configuration/crds/v1beta1/logging_types.md#loggingspec-skipinvalidresources" >}}) is enabled. In that case, it skips only the affected flows.
+
 ## Version 6.5
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
