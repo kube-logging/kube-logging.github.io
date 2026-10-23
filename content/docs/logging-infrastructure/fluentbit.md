@@ -288,6 +288,24 @@ spec:
     my-annotations/enable: true
 ```
 
+## Sidecar containers
+
+To run your own helper containers next to Fluent Bit on every node, list them in the `sidecarContainers` field. For example, you might run a container that checks whether Fluent Bit is still shipping logs and restarts it when it stops. Each entry is a standard Kubernetes [Container](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#Container) definition. The Logging operator adds these containers to the Fluent Bit DaemonSet pods after its own containers: `fluent-bit`, and `config-reloader` and `buffer-metrics-sidecar` when they're enabled. Give each sidecar a name that differs from these.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: default-logging-simple
+spec:
+  sidecarContainers:
+    - name: fluentbitsidecar
+      image: alpine
+      command: ["sleep", "infinity"]
+```
+
+You can set the same field in the `spec.fluentbit` section of a Logging resource. For details, see the [`sidecarContainers` field reference]({{< relref "/docs/configuration/crds/v1beta1/fluentbit_types.md#fluentbitspec-sidecarcontainers" >}}).
+
 ## KubernetesStorage
 
 Define Kubernetes storage.

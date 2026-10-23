@@ -3,6 +3,10 @@ title: What's new
 weight: 50
 ---
 
+## Unreleased
+
+- You can now run your own [sidecar containers]({{< relref "/docs/logging-infrastructure/fluentbit.md#sidecar-containers" >}}) in the Fluent Bit pods. Set the `sidecarContainers` field in the FluentbitAgent resource or in the `spec.fluentbit` section of the Logging resource. For example, a sidecar can restart Fluent Bit when it stops shipping logs.
+
 ## Version 6.5
 
 - The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
