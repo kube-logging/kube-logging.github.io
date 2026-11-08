@@ -40,6 +40,27 @@ spec:
       serviceMonitor: true
 ```
 
+## Logging operator metrics
+
+The Logging operator also reports the state of the logging resources it reconciles as Prometheus metrics. Use these metrics to alert when a resource reports problems, such as a failed configuration check. The operator serves these metrics on its own metrics endpoint, which listens on the address set by the `--metrics-addr` flag (default `:8080`). To have the Prometheus operator scrape this endpoint, set `monitoring.serviceMonitor.enabled=true` when you install the Logging operator Helm chart.
+
+| Metric | Labels | Description |
+|---|---|---|
+| `logging_resource_problems` | `name`, `namespace`, `kind` | The number of problems in the `problemsCount` field of the resource's status. Reported for `Logging` resources and for the flows and outputs that belong to them. |
+| `logging_resource_state` | `name`, `namespace`, `status`, `kind` | Whether a flow or output is active. Each resource has a series with `status="active"` and one with `status="inactive"`; the series that matches the current state has the value `1`. |
+
+The problem count of a `Logging` resource includes failed configuration checks. `Logging` is a cluster-scoped resource, so its series have an empty `namespace` label. For example, the following query returns the `Logging` resources that currently have problems:
+
+```promql
+logging_resource_problems{kind="Logging"} > 0
+```
+
+To see the problems behind a nonzero value, check the `problems` field in the status of the resource:
+
+```bash
+kubectl get logging <logging-name> -o jsonpath='{.status.problems}'
+```
+
 For more details on installing the Prometheus operator and configuring and accessing metrics, see the following procedures.
 
 ## Install Prometheus Operator with Helm
