@@ -148,6 +148,55 @@ spec:
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
 [More info](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes)
 
+### Multiline exceptions (filterMultiline) {#filtermultiline}
+
+Use the Fluent Bit multiline filter to combine stack traces, such as Java or Python exceptions, into a single record. Fluent Bit combines them on the node, before the logs reach Fluentd. This is an alternative to the Fluentd [`detectExceptions`]({{< relref "/docs/configuration/plugins/filters/detect_exceptions.md" >}}) filter, which doesn't support multiple Fluentd workers. After moving exception detection to Fluent Bit, you can remove `detectExceptions` from your flows and run Fluentd with more than one worker. Every other Fluentd plugin you use must also support multiple workers.
+
+The filter is disabled by default. When you configure `filterMultiline`, the Logging operator places it before the other Fluent Bit filters. Fluent Bit re-emits the combined records to the start of the pipeline, so any filter placed before the multiline filter would process them twice.
+
+The following example assumes CRI container logs. The `cri` parser of the tail input first reassembles log lines that the container runtime split into fragments. Then the filter applies the built-in `java` parser and a custom `python_exception` parser defined in `customParsers`.
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: multiline
+spec:
+  inputTail:
+    multiline.parser:
+      - cri
+  customParsers: |
+    [MULTILINE_PARSER]
+        Name python_exception
+        Type regex
+        Flush_Timeout 2000
+        Key_Content log
+        Key_Group stream
+        Rule "start_state" "/^Traceback \(most recent call last\):$/" "python"
+        Rule "python" "/^[\t ]+.+$/" "python"
+        Rule "python" "/^(?:[^\s.():]+\.)*[^\s.():]+:.*$/" "python_end"
+        Rule "python" "/^(?:KeyboardInterrupt|SystemExit|StopIteration|GeneratorExit)$/" "python_end"
+        Rule "python_end" "/^\s*$/" "python_end"
+        Rule "python_end" "/^(?:During handling of the above exception, another exception occurred:|The above exception was the direct cause of the following exception:)$/" "python_chain"
+        Rule "python_chain" "/^\s*$/" "python_chain"
+        Rule "python_chain" "/^Traceback \(most recent call last\):$/" "python"
+  filterMultiline:
+    match: kubernetes.*
+    # Comma-separated list of built-in or custom multiline parsers
+    parser: java, python_exception
+    keyContent: log
+    buffer: "On"
+    flushMs: 2000
+    emitterName: exception_multiline
+```
+
+To run Fluentd with multiple workers, set `workers` in the `fluentd` section of your `logging` resource, for example, `workers: 2`. For details, see {{% xref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-workers" %}}.
+
+With buffering enabled, the filter holds incomplete records in memory until it emits them. To change where and how much it buffers, set `emitterStorageType` (`memory` or `filesystem`) and `emitterMemBufLimit`. If your container runtime isn't CRI-based, replace the `cri` tail parser with one that matches your runtime.
+
+For the detailed list of available parameters, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md" %}}.
+[More info](https://docs.fluentbit.io/manual/data-pipeline/filters/multiline-stacktrace)
+
 ## Tail input
 
 The tail input plugin allows to monitor one or several text files. It has a similar behavior like *tail -f* shell command. For example:
