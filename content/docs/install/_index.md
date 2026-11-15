@@ -28,6 +28,30 @@ aliases:
 
     {{< include-headless "note-helm-chart-logging-resource.md" >}}
 
+## Pull images from a private registry {#private-registry}
+
+If your cluster pulls images from a private registry or mirror, set the `global.registry` Helm value. One value covers the whole installation:
+
+- The chart uses the registry for the operator image and the test receiver image.
+- The chart passes the registry to the operator in the [`--default-image-registry`](#images) argument. The operator then pulls the default images of the components it deploys from that registry. This covers the images of Fluentd, Fluent Bit, syslog-ng, and their sidecars, such as the config reloaders and the drain watch image. It also covers the images of the HostTailer, EventTailer, and File Tailer Webhook extensions.
+
+For example:
+
+```shell
+helm upgrade --install --wait --create-namespace --namespace logging logging-operator oci://ghcr.io/kube-logging/helm-charts/logging-operator \
+    --set global.registry=mirror.example.com
+```
+
+The registry replaces only the registry part of each image name, so your mirror must host the images under their original paths. For example:
+
+- `ghcr.io/fluent/fluent-bit` becomes `mirror.example.com/fluent/fluent-bit`
+- `docker.io/library/busybox` becomes `mirror.example.com/library/busybox`
+- `registry.k8s.io/pause` becomes `mirror.example.com/pause`
+
+An image name without a registry gets the registry added in front. Image tags don't change. For the default images and versions to mirror, see {{% xref "/docs/image-versions.md" %}}.
+
+The registry applies only to default images. If a `Logging` or other resource sets an image repository explicitly, the operator uses that value as it is. The Helm chart itself is still pulled from the address in the install command.
+
 ## Operator arguments {#arguments}
 
 ### Metrics and Performance
@@ -63,6 +87,10 @@ aliases:
 - `--finalizer-cleanup` (boolean, default `false`): Remove finalizers during operator shutdown, useful for `Helm` uninstallation
 - `--enable-telemetry-controller-route` (boolean, default `false`): Enable Telemetry Controller routing for Logging resources
 - `--sync-period` (string, default `""`): Minimum frequency for reconciling watched resources, for example, `30s`, or `2h45m`. Valid time units are "ms", "s", "m", "h".
+
+### Images
+
+- `--default-image-registry` (string, default `""`): Registry to pull the default images of the deployed components from, for example, a private mirror. Images set explicitly in the resources don't change. When you install with Helm, set the `global.registry` value instead, see [Pull images from a private registry](#private-registry).
 
 To add arguments with `Helm` you can use the `extraArgs` field e.g:
 
