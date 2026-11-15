@@ -148,6 +148,27 @@ spec:
 For the detailed list of available parameters for this plugin, see {{% xref "/docs/configuration/crds/v1beta1/fluentbit_types.md#filterkubernetes" %}}.
 [More info](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes)
 
+### Get metadata from the kubelet {#use-kubelet}
+
+To get pod metadata from the kubelet on each node instead of the Kubernetes API server, set `Use_Kubelet` to `On` in the `filterKubernetes` section. Fluent Bit then calls the `/pods` endpoint of the kubelet.
+
+When the operator creates RBAC resources for Fluent Bit (`security.roleBasedAccessControlCreate`, enabled by default), it adds `nodes`, `nodes/pods`, and `nodes/proxy` to the Fluent Bit ClusterRole. The kubelet authorizes `/pods` requests against `nodes/pods` when fine-grained kubelet authorization is enabled, and against `nodes/proxy` otherwise. Because `nodes/proxy` grants access to the whole kubelet API, leave it out when your cluster supports fine-grained kubelet authorization. Kubernetes enables it by default since version 1.33. To remove `nodes/proxy` from the ClusterRole, set `kubeletFineGrainedAuthz` to `true`:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: FluentbitAgent
+metadata:
+  name: default
+spec:
+  kubeletFineGrainedAuthz: true
+  filterKubernetes:
+    Use_Kubelet: "On"
+```
+
+Don't set `kubeletFineGrainedAuthz` if the `KubeletFineGrainedAuthz` feature gate is disabled in your cluster. Otherwise, the kubelet rejects the requests of Fluent Bit, and the logs don't get Kubernetes metadata.
+
+The operator can grant Fluent Bit only the permissions it has itself, so the ClusterRole of the Logging operator needs `nodes/pods` as well. The Helm chart includes it. If you manage the RBAC resources of the operator yourself, add `nodes/pods` to its ClusterRole.
+
 ## Tail input
 
 The tail input plugin allows to monitor one or several text files. It has a similar behavior like *tail -f* shell command. For example:
