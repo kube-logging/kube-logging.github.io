@@ -6,7 +6,7 @@ generated_file: true
 
 ## Overview
 
-Based on the [ElasticSearch datastream destination of AxoSyslog](https://axoflow.com/docs/axosyslog-core/chapter-destinations/configuring-destinations-elasticsearch-datastream/).
+Based on the [ElasticSearch datastream destination of AxoSyslog](https://axoflow.com/docs/axosyslog-core/chapter-destinations/elasticsearch-data-stream/).
 
 Available in Logging operator version 4.9 and later.
 
