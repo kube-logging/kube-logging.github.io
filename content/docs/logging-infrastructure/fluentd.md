@@ -464,6 +464,46 @@ spec:
   controlNamespace: logging
 ```
 
+### Add plugins to the Fluentd image {#add-plugins}
+
+To use a Fluentd plugin that the default image doesn't include, build your own image on top of the Logging operator Fluentd image. Then deploy it as a [custom Fluentd image](#custom-fluentd-image). The Fluentd images are based on the Debian slim variant of the official Ruby image, so install operating system packages with `apt-get`. If your Dockerfile was written for the earlier Alpine-based images, replace the `apk` commands with `apt-get` and use the Debian package names.
+
+Plugins with native extensions need a compiler to install. The following Dockerfile installs the build tools as `root`, installs the plugin, then removes the build tools and switches back to the `fluent` user:
+
+```dockerfile
+FROM ghcr.io/kube-logging/logging-operator/fluentd:{LOGGING-OPERATOR-VERSION}-{IMAGE-TYPE}
+
+USER root
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends build-essential \
+ && fluent-gem install PLUGIN_NAME -v PLUGIN_VERSION \
+ && apt-get purge -y --auto-remove build-essential \
+ && rm -rf /var/lib/apt/lists/*
+USER fluent
+```
+
+Replace `{LOGGING-OPERATOR-VERSION}-{IMAGE-TYPE}` with the image tag to extend, for example, `6.5.1-full`, and `PLUGIN_NAME` and `PLUGIN_VERSION` with the plugin to install. A plugin without native extensions needs only the `fluent-gem install` command.
+
+## Memory allocator {#memory-allocator}
+
+The Fluentd image preloads the [jemalloc](https://jemalloc.net/) memory allocator through the `LD_PRELOAD` environment variable. The upstream Fluentd project recommends jemalloc because it reduces memory fragmentation in long-running Fluentd processes.
+
+To use the default glibc allocator instead, set `LD_PRELOAD` to an empty string in the `envVars` field of the Fluentd spec:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd:
+    envVars:
+      - name: LD_PRELOAD
+        value: ""
+  fluentbit: {}
+  controlNamespace: logging
+```
+
 ## KubernetesStorage
 
 Define Kubernetes storage.
