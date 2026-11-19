@@ -464,6 +464,26 @@ spec:
   controlNamespace: logging
 ```
 
+## Memory allocator {#memory-allocator}
+
+The Fluentd image preloads the [jemalloc](https://jemalloc.net/) memory allocator through the `LD_PRELOAD` environment variable instead of using the default musl allocator. The upstream Fluentd project recommends jemalloc-based images for production because jemalloc mitigates memory fragmentation.
+
+To use the musl allocator instead, set `LD_PRELOAD` to an empty string in the `envVars` field of the Fluentd spec:
+
+```yaml
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: default-logging-simple
+spec:
+  fluentd:
+    envVars:
+      - name: LD_PRELOAD
+        value: ""
+  fluentbit: {}
+  controlNamespace: logging
+```
+
 ## KubernetesStorage
 
 Define Kubernetes storage.
