@@ -42,6 +42,14 @@ spec:
 
 For more details on installing the Prometheus operator and configuring and accessing metrics, see the following procedures.
 
+### Fluentd metrics ports with multiple workers
+
+With multiple Fluentd workers, each worker serves metrics on its own port. The ports start at `spec.fluentd.metrics.port` and continue for one port per worker, so 4 workers starting at 24231 use 24231-24234. This range must not include the Fluentd input ports. These are `spec.fluentd.port` and `spec.fluentd.forwardInputConfig.port`, which default to 24240.
+
+If you don't set `metrics.port` for Fluentd, the Logging operator uses 24231. With the default input ports and 10 or more workers, that range would include an input port. In that case, the Logging operator starts the range at the port above the highest input port, normally 24241.
+
+If you set `metrics.port` and the range includes an input port, the Logging operator stops reconciling the `Logging` resource. The operator log shows an error that names the overlapping port. To continue, set `metrics.port` to a port whose range is free, or reduce the number of workers.
+
 ## Install Prometheus Operator with Helm
 
 1. Create `logging` namespace
